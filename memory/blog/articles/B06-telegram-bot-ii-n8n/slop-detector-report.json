@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "TL;DR / Быстрый инсайт: Telegram-бот с ИИ на n8n – связка Telegram Trigger, AI Agent (узел-дирижёр с языковой моделью и инструментами), Window Buffer Memory и Telegram Send Message",
+      "word_count": 26
+    },
+    {
+      "sentence": "Критерий n8n Cloud Self-host (CE) HTTPS для Telegram Да, сразу Нужен SSL и WEBHOOK_URL Стоимость платформы От 20 €/мес (2 500 executions) VPS от ~500 ₽/мес (оценка практиков) Кому подходит Первый бот за вечер, без DevOps Данные на своём сервере, EU/свой ДЦ Риск Лимит executions на тарифе Queue mode ломает Simple Memory в проде Telegram Bot API принимает webhook только по HTTPS (порты 443, 80, 88, 8443)",
+      "word_count": 58
+    }
+  ],
+  "readability": {
+    "score": 96.9,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.8,
+    "avg_syllables_per_word": 1.6
+  }
+}

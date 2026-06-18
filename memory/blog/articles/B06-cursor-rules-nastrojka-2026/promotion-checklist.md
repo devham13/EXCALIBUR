@@ -1,6 +1,6 @@
 # Promotion checklist — B06 cursor-rules-nastrojka-2026
 
-Дата публикации: YYYY-MM-DD  
+Дата публикации: 2026-06-18  
 Live URL: https://mayai.ru/cursor-rules-nastrojka-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).

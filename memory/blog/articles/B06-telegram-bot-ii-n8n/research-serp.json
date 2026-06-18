@@ -1,0 +1,524 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-18",
+    "today_ru": "18.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "telegram-bot-ii-n8n",
+    "h1": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода",
+    "primary_query": "telegram бот n8n",
+    "secondary_queries": [
+      "телеграм бот с ии",
+      "чат бот telegram n8n",
+      "как сделать бота в телеграм с нейросетью",
+      "telegram trigger n8n"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "telegram бот n8n 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+          "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Telegram-бот для маркетинга: автоворонка в n8n без разработчика — гайд 2026",
+          "url": "https://dipustovalov.ru/blog/telegram-bot-marketing-2026",
+          "snippet": "В этой статье я покажу, как создать мощного Telegram бота с использованием n8n для автоматизации рабочих процессов и MCP (Model Context Protocol) для интеграции с AI моделями."
+        },
+        {
+          "title": "Как создать Telegram бота в n8n: инструкция + готовый код n8n чат-бот ...",
+          "url": "https://market-n8n.ru/tpost/j326dpica1-sozdanie-umnih-botov-v-n8n-chat-boti-ass",
+          "snippet": "Здесь нет ни строчки кода — только n8n и 3 часа времени. Я запустил первый маркетинговый TG-бот в 2023 году для ID Store — тогда делали на Senler и кастомных скриптах."
+        },
+        {
+          "title": "n8n Telegram бот — создание бота с ИИ | Пошаговое руководство",
+          "url": "https://aibot.direct/blog/n8n-telegram-bot",
+          "snippet": "В этой статье вы узнаете, как создать полнофункционального чат-бота за 15 минут, интегрировать его с Telegram для бизнеса, подключить искусственный интеллект для умных ответов и внедрить ..."
+        },
+        {
+          "title": "n8n и Telegram: создание ботов без кода за 15 минут | Гайд",
+          "url": "https://market-n8n.ru/tpost/i6d0v5k7k1-integratsiya-telegram-s-n8n-sozdanie-bot",
+          "snippet": "Создайте Telegram-бота на n8n с интеграцией ChatGPT/Claude. Пошаговая инструкция: настройка webhook, обработка сообщений, память диалога, команды бота."
+        },
+        {
+          "title": "Telegram-бот на n8n: простой рецепт workflow - Nodbot",
+          "url": "https://nodbot.ru/recipes/telegram-bot/",
+          "snippet": "Готовы автоматизировать ваш бизнес с помощью Telegram и n8n? Получите бесплатную консультацию по анализу ваших процессов и расчету экономического эффекта от внедрения автоматизации."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "telegram бот n8n июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Telegram-бот для маркетинга: автоворонка в n8n без разработчика — гайд 2026",
+          "url": "https://dipustovalov.ru/blog/telegram-bot-marketing-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Как создать Telegram-бота с нейросетью: Windsurf пишет код, n8n ...",
+          "url": "https://vibecoderz.ru/blog/kak-sozdat-telegram-bota-s-neyrosetyu",
+          "snippet": "Здесь нет ни строчки кода — только n8n и 3 часа времени. Я запустил первый маркетинговый TG-бот в 2023 году для ID Store — тогда делали на Senler и кастомных скриптах."
+        },
+        {
+          "title": "Умный ИИ-парсер Telegram: Лидогенерация без спама (n8n + Python)",
+          "url": "https://rutube.ru/video/f4f58987be2b008c74263238da556b4f/",
+          "snippet": "Создать Telegram-бота с ИИ в 2026 году можно двумя путями: написать код через Windsurf или Cursor по вашему промпту на русском, либо собрать логику визуально в n8n - без единой строки кода."
+        },
+        {
+          "title": "Как создать Telegram бота в n8n: инструкция + готовый код n8n чат-бот ...",
+          "url": "https://market-n8n.ru/tpost/j326dpica1-sozdanie-umnih-botov-v-n8n-chat-boti-ass",
+          "snippet": "Обсудить внедрение системы для вашего бизнеса: 90% бизнесов сливают бюджет на парсеры Telegram-чатов, потому что вместо реальных клиентов боты тащат им спам, рекламу и конкурентов. Менеджеры тонут в мусоре и упускают ..."
+        },
+        {
+          "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+          "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+          "snippet": "В этой статье вы узнаете, как создать полнофункционального чат-бота за 15 минут, интегрировать его с Telegram для бизнеса, подключить искусственный интеллект для умных ответов и внедрить ..."
+        },
+        {
+          "title": "Telegram-бот на n8n с AI-агентом ... - YouTube",
+          "url": "https://www.youtube.com/watch?v=zrF0ExK1iXw",
+          "snippet": "В этой статье я покажу, как создать мощного Telegram бота с использованием n8n для автоматизации рабочих процессов и MCP (Model Context Protocol) для интеграции с AI моделями."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "telegram бот n8n новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n автоматизация без кода: парсер Telegram за 10 минут— журнал «Код»",
+          "url": "https://thecode.media/n8n-avtomatizacziya-bez-koda/",
+          "snippet": ""
+        },
+        {
+          "title": "Как автоматизировать новости в Telegram через n8n и нейросети",
+          "url": "https://www.youtube.com/watch?v=bMZbrvyampE",
+          "snippet": "Сегодня поговорим про n8n — один из самых простых инструментов такого рода. Разберёмся, как он работает, запустим его прямо на своём компьютере и за пять минут соберём автоматического бота, который будет парсить новости."
+        },
+        {
+          "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+          "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+          "snippet": "🔥 Узнай, как собрать полностью автоматического Telegram-бота, который каждый день будет присылать свежие и отобранные AI-ом новости по твоей нише! ...more."
+        },
+        {
+          "title": "Как создать Telegram бота в n8n: инструкция + готовый код n8n чат-бот ...",
+          "url": "https://market-n8n.ru/tpost/j326dpica1-sozdanie-umnih-botov-v-n8n-chat-boti-ass",
+          "snippet": "В этой статье я покажу, как создать мощного Telegram бота с использованием n8n для автоматизации рабочих процессов и MCP (Model Context Protocol) для интеграции с AI моделями."
+        },
+        {
+          "title": "n8n Telegram бот — создание бота с ИИ | Пошаговое руководство",
+          "url": "https://aibot.direct/blog/n8n-telegram-bot",
+          "snippet": "В этой статье вы узнаете, как создать полнофункционального чат-бота за 15 минут, интегрировать его с Telegram для бизнеса, подключить искусственный интеллект для умных ответов и внедрить ..."
+        },
+        {
+          "title": "Telegram-бот для маркетинга: автоворонка в n8n без разработчика — гайд 2026",
+          "url": "https://dipustovalov.ru/blog/telegram-bot-marketing-2026",
+          "snippet": "Создайте Telegram-бота на n8n с интеграцией ChatGPT/Claude. Пошаговая инструкция: настройка webhook, обработка сообщений, память диалога, команды бота."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "телеграм бот с ии 2026",
+      "purpose": "вторичный запрос: телеграм бот с ии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Нейросети в Телеграм — лучшие боты 2026 года: полный обзор — ИИ в деле ...",
+          "url": "https://vc.ru/aihub/2842563-neyroseti-v-telegram-luchshie-boty-2026-goda",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшие ИИ-боты для Telegram 2026 года: топ проверенных инструментов для ...",
+          "url": "https://ascn.ai/ru/blog-no-code/best-telegram-ai-bots-2026",
+          "snippet": "Открыли бот, написали задачу, получили результат. В этом материале разберу лучшие нейросетевые боты в Телеграм 2026 года, для каких задач они подходят и как получить от них максимум."
+        },
+        {
+          "title": "Нейросети в Телеграм бесплатно: топ ботов 2026 года — ИИ в деле на vc.ru",
+          "url": "https://vc.ru/aihub/2842693-neyroseti-v-telegram-besplatnye-boty",
+          "snippet": "Сэкономьте до 20 часов в неделю с помощью нашего проверенного экспертами списка лучших ИИ-ботов для Telegram на 2026 год."
+        },
+        {
+          "title": "Лучшие боты в ТГ с нейросетями: 13 чат-ботов с ИИ для любых задач (2026)",
+          "url": "https://dtf.ru/software/4839980-luchshie-boty-v-telegram-s-nejrosetyami",
+          "snippet": "Написали в бот, получили ответ, скопировали в нужное место. Всё в том же приложении. В этом материале собрала топ Телеграм-ботов с нейросетями которые дают реальный бесплатный доступ ..."
+        },
+        {
+          "title": "15+ лучших чат-ботов Telegram AI 2026 года (ChatGPT и GPT-4)",
+          "url": "https://mpost.io/ru/best-telegram-ai-chatbots/",
+          "snippet": "Телеграм давно перестал быть просто мессенджером - сегодня это целая экосистема, где в одном приложении собраны десятки ботов с мощнейшими нейросетями: ChatGPT, Claude, Gemini, Grok и многие другие."
+        },
+        {
+          "title": "Топ 20 телеграмм ботов с нейросетью - лучшие ИИ боты",
+          "url": "https://top-bots.com/telegram-bot/ai/",
+          "snippet": "Один из самых универсальных ботов с искусственным интеллектом в Telegram, ChatGPT предлагает мощные разговорные возможности, основанные на GPT-4. Он решает широкий спектр задач — от написания эссе до отладки кода — и все это в привычном окне чата."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "чат бот telegram n8n 2026",
+      "purpose": "вторичный запрос: чат бот telegram n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как создать Telegram бота в n8n: инструкция + готовый код n8n чат-бот ...",
+          "url": "https://market-n8n.ru/tpost/j326dpica1-sozdanie-umnih-botov-v-n8n-chat-boti-ass",
+          "snippet": ""
+        },
+        {
+          "title": "Чат-бот в Telegram с ИИ: собираем на n8n без кода за 30 минут",
+          "url": "https://dzen.ru/a/aZYTSbQyR0fE_5LC",
+          "snippet": "В этой статье вы узнаете, как создать полнофункционального чат-бота за 15 минут, интегрировать его с Telegram для бизнеса, подключить искусственный интеллект для умных ответов и внедрить ..."
+        },
+        {
+          "title": "n8n и Telegram: создание ботов без кода за 15 минут | Гайд",
+          "url": "https://market-n8n.ru/tpost/i6d0v5k7k1-integratsiya-telegram-s-n8n-sozdanie-bot",
+          "snippet": "Создание чат-бота в Telegram с ИИ на базе n8n в 2026 году — это процесс сборки визуального конструктора, где вы используете нативные ноды «AI Agent» для управления логикой диалога."
+        },
+        {
+          "title": "Telegram-бот с AI за 30 минут: пошагово без кода [гайд 2026]",
+          "url": "https://neiropotok.ru/blog/telegram-bot-s-ai-bez-koda",
+          "snippet": "Пошаговая инструкция по интеграции Telegram с n8n для автоматизации бизнеса. Создайте чат-бота без программирования, настройте CRM и уведомления. Готовые решения 2025"
+        },
+        {
+          "title": "Telegram-бот для маркетинга: автоворонка в n8n без разработчика — гайд 2026",
+          "url": "https://dipustovalov.ru/blog/telegram-bot-marketing-2026",
+          "snippet": "Собираем Telegram-бота с ChatGPT через n8n — без программирования, пошагово. Бот отвечает на вопросы через нейросеть. Бесплатный старт. Личный опыт."
+        },
+        {
+          "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+          "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+          "snippet": "Здесь нет ни строчки кода — только n8n и 3 часа времени. Я запустил первый маркетинговый TG-бот в 2023 году для ID Store — тогда делали на Senler и кастомных скриптах."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "как сделать бота в телеграм с нейросетью 2026",
+      "purpose": "вторичный запрос: как сделать бота в телеграм с нейросетью",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как создать бота в телеграм с помощью нейросетей: пошагово, без боли",
+          "url": "https://vc.ru/ai/2954558-sozdanie-bota-v-telegram-s-neirosetyami",
+          "snippet": ""
+        },
+        {
+          "title": "Как создать Telegram бота для общения с нейросетью: пошаговое ...",
+          "url": "https://dtf.ru/howto/3629118-kak-sozdat-telegram-bota-dlya-obsheniya-s-neirosetyu-poshagovoe-rukovodstvo-besplatno-i-platno",
+          "snippet": "Как создать бота в телеграм без кода — реально. Базовый путь: BotFather для регистрации бота, GenAPI для подключения нейросети, НейроТекстер для настройки логики ответов."
+        },
+        {
+          "title": "Как в тг создать бота — пошаговая инструкция 2026",
+          "url": "https://dzen.guru/blog/kak-v-tg-sozdat-bota",
+          "snippet": "В эпоху цифровых технологий автоматизация общения с нейросетями становится все более востребованной. В этой статье я поделюсь как создать Telegram бота для общения с нейросетью."
+        },
+        {
+          "title": "Как создать бота в Telegram без программирования: пошаговый гайд 2026",
+          "url": "https://aigine.ru/blog/kak-sozdat-bota-v-telegram/",
+          "snippet": "Как в тг создать бота — разбираем по шагам: что это, как работает, примеры использования. Актуальный гайд 2026 с инструкциями."
+        },
+        {
+          "title": "Как сделать бот в телеграмме — пошаговая инструкция 2026",
+          "url": "https://dzen.guru/blog/kak-sdelat-bot-v-telegramme",
+          "snippet": "Пошаговая инструкция: как создать чат-бота в Telegram бесплатно и без навыков программирования. Разбираем BotFather, выбор конструктора, подключение AI и первый сценарий за 15 минут."
+        },
+        {
+          "title": "Автоматизация Telegram-ботов с нейросетью: пошаговый план внедрения в ...",
+          "url": "https://mayai.ru/avtomatizacziya-telegram-botov-s-nejrosetyu-poshagovyj-plan-vnedreniya-v-2026-godu/",
+          "snippet": "Как сделать бот в телеграмме — разбираем по шагам: что это, как работает, примеры использования. Актуальный гайд 2026 с инструкциями."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "telegram trigger n8n 2026",
+      "purpose": "вторичный запрос: telegram trigger n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "How To Trigger n8n From Telegram (2026) - Full Guide",
+          "url": "https://www.youtube.com/watch?v=ag1eWE095G0",
+          "snippet": ""
+        },
+        {
+          "title": "n8n Telegram Bot: Setup, Triggers & Human-in-the-Loop (2026)",
+          "url": "https://ryanandmattdatascience.com/n8n-telegram/",
+          "snippet": "How To Trigger n8n From Telegram (2026) - Full Guide In this video, we'll show you how to trigger n8n from Telegram in 2026 using webhooks and automation workflows."
+        },
+        {
+          "title": "How To Trigger N8N From Telegram (Updated 2026) - YouTube",
+          "url": "https://www.youtube.com/watch?v=maEhT96xfE4",
+          "snippet": "Learn how to use Telegram in n8n workflows: bot creation, triggers, sending messages, and human-in-the-loop approvals"
+        },
+        {
+          "title": "Telegram Trigger node documentation | n8n Docs",
+          "url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger/",
+          "snippet": "In this video, we discuss how to set up a Telegram n8n connection to trigger n8n workflows directly from your phone."
+        },
+        {
+          "title": "Solved: Telegram Trigger configuration - Built with n8n - n8n Community",
+          "url": "https://community.n8n.io/t/solved-telegram-trigger-configuration/80224",
+          "snippet": "Learn how to use the Telegram Trigger node in n8n. Follow technical documentation to integrate Telegram Trigger node into your workflows."
+        },
+        {
+          "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+          "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+          "snippet": "Today I stumbled through configuring my Telegram Trigger in n8n. I saw a lot of questions on this forum, so I thought I'd post what worked for me. In addition to the standard instructions I also needed to to this:"
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как создать AI-агента для Telegram на n8n бесплатно: инструкция по ...",
+          "url": "https://vc.ru/id5114590/2598791-sozdanie-ai-agenta-dlya-telegram-na-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "n8n для новичков: Как создать своего AI-ассистента в Telegram за 7 ...",
+          "url": "https://vc.ru/ai/2094635-n8n-dlya-novichkov-ai-assistenta-v-telegram",
+          "snippet": "Рассказываю, как связал GPT-3.5, Tavily и Telegram в автономного помощника, который ищет информацию в сети и отвечает на вопросы. Без своего сервера и без единой строчки кода."
+        },
+        {
+          "title": "n8n. Создаём AI Telegram agent с установкой и настройкой",
+          "url": "https://habr.com/ru/companies/amvera/articles/890730/",
+          "snippet": "Эта статья — пошаговое руководство для новичков, которое поможет разобраться в основах платформы n8n и создать собственного AI-ассистента для Telegram."
+        },
+        {
+          "title": "Подключи ИИ к Телеграм боту за 7 минут через n8n без программирования ...",
+          "url": "https://rutube.ru/video/d60e38961a7b2624d42f26d509c18ebf/",
+          "snippet": "В этой статье будет рассматриваться n8n - open source платформа для автоматизации рабочих процессов, которая поддерживает более 400 интеграций, в том числе LMM, векторные базы данных и все, что нужно, чтобы создать ИИ-агентов и RAG-приложений."
+        },
+        {
+          "title": "n8n Telegram бот — создание бота с ИИ | Пошаговое руководство",
+          "url": "https://aibot.direct/blog/n8n-telegram-bot",
+          "snippet": "Что вы узнаете из этого видео: - как за 7 минут собрать Telegram-бота с искусственным интеллектом без программирования; - Как за 10 минут собрать своего первого ИИ-сотрудника, который никогда не ..."
+        },
+        {
+          "title": "Пошаговое руководство: как создать Telegram-бота с AI-агентом в N8N",
+          "url": "https://www.glitter.io/guides/kak-polzovatsya-n8n-poshagovaya-instruktsiya-po-sozdaniyu-telegram-bota-s-ai-agentom",
+          "snippet": "Создайте Telegram-бота на n8n с интеграцией ChatGPT/Claude. Пошаговая инструкция: настройка webhook, обработка сообщений, память диалога, команды бота."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://bothost.ru/blog/post/mcp-telegram-bot-n8n-guide",
+      "title": "Создание Telegram бота с n8n и MCP: практическое руководство по ...",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://dipustovalov.ru/blog/telegram-bot-marketing-2026",
+      "title": "Telegram-бот для маркетинга: автоворонка в n8n без разработчика — гайд 2026",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://market-n8n.ru/tpost/j326dpica1-sozdanie-umnih-botov-v-n8n-chat-boti-ass",
+      "title": "Как создать Telegram бота в n8n: инструкция + готовый код n8n чат-бот ...",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://aibot.direct/blog/n8n-telegram-bot",
+      "title": "n8n Telegram бот — создание бота с ИИ | Пошаговое руководство",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://market-n8n.ru/tpost/i6d0v5k7k1-integratsiya-telegram-s-n8n-sozdanie-bot",
+      "title": "n8n и Telegram: создание ботов без кода за 15 минут | Гайд",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://nodbot.ru/recipes/telegram-bot/",
+      "title": "Telegram-бот на n8n: простой рецепт workflow - Nodbot",
+      "from_query": "telegram бот n8n 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/kak-sozdat-telegram-bota-s-neyrosetyu",
+      "title": "Как создать Telegram-бота с нейросетью: Windsurf пишет код, n8n ...",
+      "from_query": "telegram бот n8n июнь 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/f4f58987be2b008c74263238da556b4f/",
+      "title": "Умный ИИ-парсер Telegram: Лидогенерация без спама (n8n + Python)",
+      "from_query": "telegram бот n8n июнь 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zrF0ExK1iXw",
+      "title": "Telegram-бот на n8n с AI-агентом ... - YouTube",
+      "from_query": "telegram бот n8n июнь 2026"
+    },
+    {
+      "url": "https://thecode.media/n8n-avtomatizacziya-bez-koda/",
+      "title": "n8n автоматизация без кода: парсер Telegram за 10 минут— журнал «Код»",
+      "from_query": "telegram бот n8n новости 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bMZbrvyampE",
+      "title": "Как автоматизировать новости в Telegram через n8n и нейросети",
+      "from_query": "telegram бот n8n новости 2026"
+    },
+    {
+      "url": "https://vc.ru/aihub/2842563-neyroseti-v-telegram-luchshie-boty-2026-goda",
+      "title": "Нейросети в Телеграм — лучшие боты 2026 года: полный обзор — ИИ в деле ...",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://ascn.ai/ru/blog-no-code/best-telegram-ai-bots-2026",
+      "title": "Лучшие ИИ-боты для Telegram 2026 года: топ проверенных инструментов для ...",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://vc.ru/aihub/2842693-neyroseti-v-telegram-besplatnye-boty",
+      "title": "Нейросети в Телеграм бесплатно: топ ботов 2026 года — ИИ в деле на vc.ru",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://dtf.ru/software/4839980-luchshie-boty-v-telegram-s-nejrosetyami",
+      "title": "Лучшие боты в ТГ с нейросетями: 13 чат-ботов с ИИ для любых задач (2026)",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://mpost.io/ru/best-telegram-ai-chatbots/",
+      "title": "15+ лучших чат-ботов Telegram AI 2026 года (ChatGPT и GPT-4)",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://top-bots.com/telegram-bot/ai/",
+      "title": "Топ 20 телеграмм ботов с нейросетью - лучшие ИИ боты",
+      "from_query": "телеграм бот с ии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aZYTSbQyR0fE_5LC",
+      "title": "Чат-бот в Telegram с ИИ: собираем на n8n без кода за 30 минут",
+      "from_query": "чат бот telegram n8n 2026"
+    },
+    {
+      "url": "https://neiropotok.ru/blog/telegram-bot-s-ai-bez-koda",
+      "title": "Telegram-бот с AI за 30 минут: пошагово без кода [гайд 2026]",
+      "from_query": "чат бот telegram n8n 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2954558-sozdanie-bota-v-telegram-s-neirosetyami",
+      "title": "Как создать бота в телеграм с помощью нейросетей: пошагово, без боли",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://dtf.ru/howto/3629118-kak-sozdat-telegram-bota-dlya-obsheniya-s-neirosetyu-poshagovoe-rukovodstvo-besplatno-i-platno",
+      "title": "Как создать Telegram бота для общения с нейросетью: пошаговое ...",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://dzen.guru/blog/kak-v-tg-sozdat-bota",
+      "title": "Как в тг создать бота — пошаговая инструкция 2026",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://aigine.ru/blog/kak-sozdat-bota-v-telegram/",
+      "title": "Как создать бота в Telegram без программирования: пошаговый гайд 2026",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://dzen.guru/blog/kak-sdelat-bot-v-telegramme",
+      "title": "Как сделать бот в телеграмме — пошаговая инструкция 2026",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://mayai.ru/avtomatizacziya-telegram-botov-s-nejrosetyu-poshagovyj-plan-vnedreniya-v-2026-godu/",
+      "title": "Автоматизация Telegram-ботов с нейросетью: пошаговый план внедрения в ...",
+      "from_query": "как сделать бота в телеграм с нейросетью 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ag1eWE095G0",
+      "title": "How To Trigger n8n From Telegram (2026) - Full Guide",
+      "from_query": "telegram trigger n8n 2026"
+    },
+    {
+      "url": "https://ryanandmattdatascience.com/n8n-telegram/",
+      "title": "n8n Telegram Bot: Setup, Triggers & Human-in-the-Loop (2026)",
+      "from_query": "telegram trigger n8n 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=maEhT96xfE4",
+      "title": "How To Trigger N8N From Telegram (Updated 2026) - YouTube",
+      "from_query": "telegram trigger n8n 2026"
+    },
+    {
+      "url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger/",
+      "title": "Telegram Trigger node documentation | n8n Docs",
+      "from_query": "telegram trigger n8n 2026"
+    },
+    {
+      "url": "https://community.n8n.io/t/solved-telegram-trigger-configuration/80224",
+      "title": "Solved: Telegram Trigger configuration - Built with n8n - n8n Community",
+      "from_query": "telegram trigger n8n 2026"
+    },
+    {
+      "url": "https://vc.ru/id5114590/2598791-sozdanie-ai-agenta-dlya-telegram-na-n8n",
+      "title": "Как создать AI-агента для Telegram на n8n бесплатно: инструкция по ...",
+      "from_query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2094635-n8n-dlya-novichkov-ai-assistenta-v-telegram",
+      "title": "n8n для новичков: Как создать своего AI-ассистента в Telegram за 7 ...",
+      "from_query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026"
+    },
+    {
+      "url": "https://habr.com/ru/companies/amvera/articles/890730/",
+      "title": "n8n. Создаём AI Telegram agent с установкой и настройкой",
+      "from_query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/d60e38961a7b2624d42f26d509c18ebf/",
+      "title": "Подключи ИИ к Телеграм боту за 7 минут через n8n без программирования ...",
+      "from_query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026"
+    },
+    {
+      "url": "https://www.glitter.io/guides/kak-polzovatsya-n8n-poshagovaya-instruktsiya-po-sozdaniyu-telegram-bota-s-ai-agentom",
+      "title": "Пошаговое руководство: как создать Telegram-бота с AI-агентом в N8N",
+      "from_query": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода 2026"
+    }
+  ]
+}

@@ -5,12 +5,20 @@
 <p>Конкуренты собирают MVP за полчаса, но редко доводят до операционки: заявка, CRM, передача менеджеру. Здесь – полный B2B-контур без кода. Углубление в AI Agent и RAG – в <a href="/avtomatizaciya-n8n-ai-agents/">гайде по автоматизации n8n</a>; эта статья – только Telegram. n8n даёт 400+ интеграций; webhook (входящий сигнал на URL n8n) отвечает быстрее polling в типичных кейсах.</p>
 
 <h2 id="why-telegram-bot">1. Оцените, зачем бизнесу Telegram-бот с ИИ</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: зачем бизнесу Telegram-бот с ИИ" loading="lazy">
+</figure>
+
 
 <p>Бот закрывает ночные обращения, однотипные FAQ и хаотичные заявки без CRM. В маркетинговых бенчмарках конверсия чат-бота в целевое действие часто 15–35% против 4–8% у форм на сайте – ориентир, не гарантия для вашей ниши. Автономный ИИ без человека справляется с менее чем 2,5% сложных задач – закладывайте human-in-the-loop: бот квалифицирует, менеджер закрывает сделку. Около 40% проектов агентов срываются из-за скрытых затрат.</p>
 
 <p><b>Делайте:</b> формулируйте одну главную задачу бота (лиды, FAQ или запись на звонок). <b>Не делайте:</b> пытаться закрыть весь отдел продаж одним промптом без эскалации.</p>
 
 <h2 id="prepare-botfather">2. Подготовьте BotFather, API-ключ LLM и хостинг n8n</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема подготовки: BotFather, API-ключ и n8n Cloud vs self-host" loading="lazy">
+</figure>
+
 
 <p>Старт с трёх заготовок: токен бота, ключ языковой модели и рабочий n8n с HTTPS.</p>
 
@@ -57,6 +65,10 @@
 <p><b>Делайте:</b> для первого бота – Cloud trial. <b>Не делайте:</b> запускать self-host без SSL – webhook просто не подключится.</p>
 
 <h2 id="build-workflow">3. Соберите workflow: Telegram Trigger, AI Agent, Send Message</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема workflow: Telegram Trigger, AI Agent и Send Message в n8n" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема workflow:</b>

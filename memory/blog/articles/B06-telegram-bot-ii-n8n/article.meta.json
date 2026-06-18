@@ -1,0 +1,68 @@
+{
+  "topic_id": "B06",
+  "slug": "telegram-bot-ii-n8n",
+  "h1": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода",
+  "title": "Telegram бот n8n: пошаговый гайд по ИИ-боту без кода",
+  "description": "Соберите Telegram-бота с ИИ в n8n: BotFather, Telegram Trigger, AI Agent, память, tools для лидов и чеклист перед продакшеном. Для бизнеса без программирования.",
+  "keywords": [
+    "telegram бот n8n",
+    "телеграм бот с ии",
+    "чат бот telegram n8n",
+    "telegram trigger n8n",
+    "как сделать бота в телеграм с нейросетью"
+  ],
+  "primary_query": "telegram бот n8n",
+  "secondary_queries": [
+    "телеграм бот с ии",
+    "чат бот telegram n8n",
+    "как сделать бота в телеграм с нейросетью",
+    "telegram trigger n8n"
+  ],
+  "char_count": 8712,
+  "article_mode": "B",
+  "author_id": "[REDACTED]-editorial",
+  "anchor_variants": [
+    "как создать telegram бота с ии на n8n без кода",
+    "пошаговая настройка telegram trigger и ai agent в n8n",
+    "telegram бот n8n с памятью диалога и эскалацией менеджеру"
+  ],
+  "meta_ab": {
+    "title_seo": "Telegram бот n8n: пошаговый гайд по ИИ-боту без кода",
+    "title_ctr": "🚀 Telegram бот n8n с ИИ: соберите за 40 минут или потеряете лиды ночью?",
+    "title_aeo": "Как создать Telegram-бота с ИИ на n8n без программирования?",
+    "description_seo": "Соберите Telegram-бота с ИИ в n8n: BotFather, Trigger, AI Agent, память и tools для лидов. Чеклист продакшена для бизнеса без кода.",
+    "description_ctr": "⚡ Заявки в Telegram ночью? Пошагово: BotFather, AI Agent, CRM-tool и эскалация менеджеру в n8n. 12 пунктов чеклиста перед запуском.",
+    "description_aeo": "Telegram бот n8n: Telegram Trigger, AI Agent node, Window Buffer Memory и Send Message. HTTPS обязателен; Cloud trial или self-host с WEBHOOK_URL."
+  },
+  "faq": [
+    {
+      "question": "Как подключить Telegram к n8n?",
+      "answer": "BotFather /newbot, токен в Credential Telegram Trigger, Updates Message, Activate workflow."
+    },
+    {
+      "question": "Нужен ли HTTPS для Telegram-бота в n8n?",
+      "answer": "Да, webhook только HTTPS. Cloud даёт SSL; self-host требует WEBHOOK_URL с сертификатом."
+    },
+    {
+      "question": "Какая модель лучше для Telegram-бота?",
+      "answer": "Старт: gpt-4o-mini. Сложная поддержка: GPT-4o или Claude Sonnet. Локально: Ollama."
+    },
+    {
+      "question": "Как добавить память диалога в n8n?",
+      "answer": "Window Buffer Memory к AI Agent, Session Key = chat.id, окно 10–20 реплик."
+    },
+    {
+      "question": "Чем AI Agent отличается от ноды OpenAI?",
+      "answer": "Agent вызывает tools сам; для лидов и FAQ нужен Agent с Tool sub-node."
+    },
+    {
+      "question": "Как передать диалог менеджеру?",
+      "answer": "Кнопка эскалации, Send and Wait или уведомление в служебный чат с telegram_id."
+    },
+    {
+      "question": "Сколько стоит запуск Telegram-бота с ИИ на n8n?",
+      "answer": "Cloud от 20 €/мес + API LLM; CE + VPS от ~500 ₽; полная система ~$150/мес."
+    }
+  ],
+  "cover_family": "brand_collage"
+}

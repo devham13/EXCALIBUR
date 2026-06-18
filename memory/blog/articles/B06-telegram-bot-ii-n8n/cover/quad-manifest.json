@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Telegram-бот n8n за 40 минут — лиды ночью или клиент у конкурента?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Ведущий блога: мем-коллаж — Telegram-бот с ИИ на n8n за 40 минут",
+      "scene_hint": "reference-лицо в casual/худи автоматизатора, жест указывает на смартфон с чатом Telegram «заявка в 02:14»; рядом экран n8n с нодами AI Agent и Telegram Trigger, стикеры «Claude» и «BotFather», fake скрин CRM «лид без ответа», розовый highlight на «02:14», meme shocked face + cat «опять сплю», скотч и рваная бумага, неоновый diy-коллаж",
+      "meme_caption_ru": "лиды ночью — бот спит?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Оцените, зачем бизнесу Telegram-бот с ИИ",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица «Форма на сайте vs Telegram-бот с ИИ»: конверсия 4–8% vs 15–35%, ночные заявки, human-in-the-loop — «1. Оцените, зачем бизнесу Telegram-бот с ИИ»",
+      "alt": "Сравнительная таблица: зачем бизнесу Telegram-бот с ИИ"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подготовьте BotFather, API-ключ LLM и хостинг n8n",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема подготовки: BotFather /newbot → API-ключ LLM → n8n Cloud vs self-host (HTTPS обязателен); стрелки, иконки Telegram и ключа — «2. Подготовьте BotFather, API-ключ LLM и хостинг n8n»",
+      "alt": "Схема подготовки: BotFather, API-ключ и n8n Cloud vs self-host"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите workflow: Telegram Trigger, AI Agent, Send Message",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Диаграмма n8n: Telegram Trigger (Message) → AI Agent → Chat Model + Memory + Tools → Telegram Send Message; 6 пронумерованных шагов — «3. Соберите workflow: Telegram Trigger, AI Agent, Send Message»",
+      "alt": "Схема workflow: Telegram Trigger, AI Agent и Send Message в n8n"
+    }
+  }
+}

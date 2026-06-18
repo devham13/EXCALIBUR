@@ -1,0 +1,211 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "[REDACTED]/#organization",
+      "name": "[REDACTED] — блог об AI-автоматизации",
+      "url": "[REDACTED]/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "[REDACTED]/#logo",
+        "url": "[REDACTED]/wp-content/uploads/logo.png",
+        "caption": "[REDACTED] — блог об AI-автоматизации"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "[REDACTED]/#author-[REDACTED]-editorial",
+      "name": "Редакция [REDACTED]",
+      "jobTitle": "Команда внедрения AI-автоматизации [REDACTED]",
+      "url": "[REDACTED]",
+      "worksFor": {
+        "@id": "[REDACTED]/#organization"
+      },
+      "sameAs": ["[REDACTED]"]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "[REDACTED]/telegram-bot-ii-n8n/#article",
+      "headline": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода",
+      "description": "Соберите Telegram-бота с ИИ в n8n: BotFather, Telegram Trigger, AI Agent, память, tools для лидов и чеклист перед продакшеном. Для бизнеса без программирования.",
+      "datePublished": "2026-06-18",
+      "dateModified": "2026-06-18",
+      "inLanguage": "ru",
+      "url": "[REDACTED]/telegram-bot-ii-n8n/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[REDACTED]/telegram-bot-ii-n8n/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "[REDACTED]/wp-content/uploads/telegram-bot-ii-n8n-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "[REDACTED]/#author-[REDACTED]-editorial"
+      },
+      "publisher": {
+        "@id": "[REDACTED]/#organization"
+      },
+      "keywords": "telegram бот n8n, телеграм бот с ии, чат бот telegram n8n, telegram trigger n8n, как сделать бота в телеграм с нейросетью",
+      "wordCount": 8712,
+      "articleSection": "Чат-боты и мессенджеры",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "[REDACTED] — блог об AI-автоматизации",
+        "url": "[REDACTED]/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[REDACTED]/telegram-bot-ii-n8n/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как подключить Telegram к n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Создайте бота в @BotFather (/newbot), скопируйте токен. В n8n: Telegram Trigger, Credential с токеном, Updates = Message, Activate workflow. Напишите боту – срабатывание видно в Execution Log."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли HTTPS для Telegram-бота в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Webhook только HTTPS. На Cloud SSL есть из коробки; на self-host задайте WEBHOOK_URL с доменом и сертификатом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая модель лучше для Telegram-бота?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Старт: gpt-4o-mini (цена и скорость). Сложная поддержка: GPT-4o или Claude Sonnet. Локально: Ollama на VPS, если данные не уходят в облако провайдера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как добавить память диалога в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Подключите Window Buffer Memory к AI Agent. Session Key: chat.id из trigger, окно 10–20 реплик. На self-host проверьте, что в проде не queue mode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем AI Agent отличается от ноды OpenAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenAI node только генерирует текст. AI Agent сам вызывает tools (FAQ, CRM). Для лидов нужен Agent с минимум одним Tool sub-node."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как передать диалог менеджеру?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пропишите эскалацию в system prompt, добавьте кнопку в ответе. Технически: Send and Wait или служебный чат с telegram_id. Образец – workflow 3350, упрощённо."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит запуск Telegram-бота с ИИ на n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n Cloud от 20 €/мес (2 500 executions) или CE + VPS от ~500 ₽. API LLM – отдельно по токенам. Полная система – ориентир ~$150/мес."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "[REDACTED]/telegram-bot-ii-n8n/#howto",
+      "name": "Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода",
+      "description": "Соберите Telegram-бота с ИИ в n8n: BotFather, Telegram Trigger, AI Agent, память, tools для лидов и чеклист перед продакшеном. Для бизнеса без программирования.",
+      "inLanguage": "ru",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud trial или n8n self-hosted с HTTPS"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Токен бота из @BotFather"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "API-ключ OpenAI, Anthropic, OpenRouter или Ollama"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Создайте бота в @BotFather",
+          "text": "Команда /newbot, имя и username. Сохраните токен в менеджере паролей; не публикуйте в чатах и скриншотах.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#prepare-botfather"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите n8n Cloud или self-host",
+          "text": "Cloud trial – 14 дней без карты, HTTPS из коробки. Self-host Community Edition бесплатен, но для Telegram webhook нужны домен, SSL и переменная WEBHOOK_URL с HTTPS-адресом.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#prepare-botfather"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Добавьте Telegram Trigger",
+          "text": "Новый workflow, Telegram Trigger, в Updates выберите Message. Вставьте токен BotFather в учётные данные Telegram.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#build-workflow"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Настройте AI Agent и Chat Model",
+          "text": "Добавьте AI Agent node, подключите минимум один Tool sub-node. Подключите OpenAI, Claude или OpenRouter. Напишите system prompt: роль, тон, запрет выдумывать цены, фраза-триггер для вызова менеджера.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#build-workflow"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Подключите Window Buffer Memory",
+          "text": "Session Key: chat.id из trigger. Context Window Length: 10–20 реплик. На self-host учитывайте, что Simple Memory не работает в active production при queue mode.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#memory-tools"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Добавьте 1–2 Tool sub-nodes",
+          "text": "FAQ: Google Sheets – поиск строки по ключевому слову. Лид: HTTP Request в webhook amoCRM/Bitrix24 или строка в таблице с полями имя, телефон, telegram_id. Имя tool – search_faq или create_lead.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#memory-tools"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Подключите Telegram Send Message и протестируйте",
+          "text": "Chat ID возьмите из trigger. Текст – output AI Agent. Активируйте workflow и напишите боту в личку.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#build-workflow"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Опционально: голос и эскалация менеджеру",
+          "text": "Switch node: если message.voice – Get File, транскрипция Whisper, текст в AI Agent. Эскалация: кнопка «Связаться с менеджером», Send and Wait или уведомление в служебный чат с telegram_id клиента.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#voice-handoff"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Пройдите чеклист перед продакшеном",
+          "text": "Проверьте: workflow активирован, HTTPS стабилен, fallback на непонятный ввод, Error Workflow, Max Iterations 3–5, telegram_id в CRM, кнопка эскалации, мониторинг Execution Log, бюджет Cloud + API LLM.",
+          "url": "[REDACTED]/telegram-bot-ii-n8n/#production-checklist"
+        }
+      ]
+    }
+  ]
+}

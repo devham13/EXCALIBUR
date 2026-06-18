@@ -5,34 +5,34 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "{{SITE_URL}}/avtomatizaciya-n8n-ai-agents/",
+      "url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "{{SITE_URL}}/avtomatizaciya-n8n-ai-agents/"
+      "checked_url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/"
     },
     {
-      "url": "{{SITE_URL}}/#contact",
+      "url": "https://mayai.ru/#contact",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "{{SITE_URL}}/#contact"
+      "checked_url": "https://mayai.ru/#contact"
     },
     {
-      "url": "{{SITE_URL}}/#audit",
+      "url": "https://mayai.ru/#audit",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "{{SITE_URL}}/#audit"
+      "checked_url": "https://mayai.ru/#audit"
     }
   ]
 }

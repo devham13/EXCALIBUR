@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Telegram-бот с ИИ на n8n
+
+- **priority:** P0
+- **slug:** telegram-bot-ii-n8n
+- **h1:** Как создать Telegram-бота с ИИ на n8n: пошаговая инструкция без кода
+- **primary_query:** telegram бот n8n
+- **secondary_queries:** телеграм бот с ии, чат бот telegram n8n, как сделать бота в телеграм с нейросетью, telegram trigger n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем бизнесу Telegram-бот с ИИ в 2026 году
+  2. Подготовка: BotFather, API-ключ LLM и n8n Cloud vs self-host
+  3. Пошаговая сборка workflow: Telegram Trigger → AI Agent → Send Message
+  4. Память, system prompt и 1–2 tools для реальных задач (лиды, FAQ)
+  5. Голосовые сообщения и эскалация к менеджеру
+  6. Чеклист перед запуском в продакшен
+- **faq_hints:** как подключить telegram к n8n; какая модель лучше для telegram бота; как добавить память диалога в n8n
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** смартфон с чатом Telegram, рядом экран n8n с нодами AI Agent и Telegram Trigger, стикеры «Claude» и «BotFather», неоновый diy-коллаж
+
+---
+

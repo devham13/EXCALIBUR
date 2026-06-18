@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.1.1
+ * Version: 2.0.4
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '2.1.1');
+define('EBU_VERSION', '2.0.4');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -32,8 +32,6 @@ final class Excalibur_Blog_UI
         add_filter('theme_mod_post_navigation', [self::class, 'disable_kadence_navigation']);
         add_action('kadence_single_before_entry_header', [self::class, 'render_category_pill'], 6);
         add_filter('the_content', [self::class, 'enhance_faq_markup'], 30);
-        add_action('kadence_single_before_entry_content', [self::class, 'open_article_stage'], 2);
-        add_action('kadence_single_after_entry_content', [self::class, 'close_article_stage'], 100);
         add_action('kadence_single_after_content', [self::class, 'render_article_footer'], 8);
     }
 
@@ -225,123 +223,6 @@ final class Excalibur_Blog_UI
             '<div class="ebu-article-label"><span class="ebu-category-pill">%s</span></div>',
             esc_html($label)
         );
-    }
-
-    public static function open_article_stage(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        echo '<div class="ebu-article-stage">';
-        self::render_side_rail('left');
-        echo '<div class="ebu-article-column">';
-        self::render_side_rail('mobile');
-    }
-
-    public static function close_article_stage(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        echo '</div>';
-        self::render_side_rail('right');
-        echo '</div>';
-    }
-
-    private static function render_side_rail(string $position): void
-    {
-        $blocks = self::get_side_blocks();
-        if ($position === 'mobile') {
-            $items = $blocks;
-        } else {
-            $items = array_values(array_filter(
-                $blocks,
-                static function (array $block) use ($position): bool {
-                    return ($block['side'] ?? '') === $position;
-                }
-            ));
-        }
-
-        if ($items === []) {
-            if ($position !== 'mobile') {
-                echo '<aside class="ebu-side-rail ebu-side-rail--' . esc_attr($position) . '" aria-hidden="true"></aside>';
-            }
-            return;
-        }
-
-        $tag = $position === 'mobile' ? 'div' : 'aside';
-        $label = $position === 'mobile' ? 'Подсказки к статье' : 'Подсказки';
-
-        printf(
-            '<%1$s class="ebu-side-rail ebu-side-rail--%2$s" aria-label="%3$s">',
-            $tag,
-            esc_attr($position),
-            esc_attr($label)
-        );
-
-        foreach ($items as $index => $block) {
-            $variant = sanitize_html_class((string) ($block['variant'] ?? 'tip'));
-            $tag_label = esc_html((string) ($block['tag'] ?? 'TIP'));
-            $text = esc_html((string) ($block['text'] ?? ''));
-
-            printf(
-                '<div class="ebu-side-callout ebu-side-callout--%1$s" data-ebu-callout style="--ebu-delay:%2$dms"><span class="ebu-side-callout__tag">%3$s</span><p class="ebu-side-callout__text">%4$s</p></div>',
-                esc_attr($variant),
-                (int) $index * 90,
-                $tag_label,
-                $text
-            );
-        }
-
-        printf('</%s>', $tag);
-    }
-
-    /** @return list<array{tag:string,text:string,variant:string,side:string}> */
-    private static function get_side_blocks(): array
-    {
-        $post_id = get_queried_object_id();
-        $topic = self::primary_category_label();
-        $primary = get_post_meta($post_id, '_excalibur_blog_primary_query', true);
-        if (!is_string($primary) || trim($primary) === '') {
-            $primary = $topic;
-        } else {
-            $primary = trim($primary);
-        }
-
-        $content = get_post_field('post_content', $post_id);
-        $stat_line = 'Проверьте спрос в Вордстате по главному ключу статьи перед публикацией.';
-        if (is_string($content) && preg_match('/Вордстат[^.]*\./u', wp_strip_all_tags($content), $match)) {
-            $stat_line = trim($match[0]);
-        }
-
-        return [
-            [
-                'tag'     => 'GEO',
-                'text'    => 'Добавляйте термины и расшифровку рядом: это снижает «непонятность» для новых читателей.',
-                'variant' => 'geo',
-                'side'    => 'left',
-            ],
-            [
-                'tag'     => 'SEO',
-                'text'    => 'Проверяйте, чтобы ключ «' . $primary . '» встречался в H1, первом абзаце и одном H2.',
-                'variant' => 'seo',
-                'side'    => 'left',
-            ],
-            [
-                'tag'     => 'STAT',
-                'text'    => $stat_line,
-                'variant' => 'stat',
-                'side'    => 'right',
-            ],
-            [
-                'tag'     => 'AI',
-                'text'    => 'Начните с одного tool в AI Agent — модель путается при 10+ инструментах сразу.',
-                'variant' => 'ai',
-                'side'    => 'right',
-            ],
-        ];
     }
 
     public static function enhance_faq_markup(string $content): string

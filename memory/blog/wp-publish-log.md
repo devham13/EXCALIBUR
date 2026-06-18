@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-18 — B06 telegram-bot-ii-n8n — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | telegram-bot-ii-n8n |
+| verdict | **PASS** |
+| post_id | 209 |
+| featured_image_id | 216 |
+| inline_images | 217, 218, 219 |
+| permalink | [REDACTED]/2026/06/18/telegram-bot-ii-n8n/ |
+| transport | SFTP fallback (FTP STOR 425 Bad IP) + HTTP trigger on PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (20/20 EEAT)
+- link-verify.json: pass (3/3, preflight 2026-06-18)
+- schema.jsonld: present
+- cover/cover.png + alt: present (3 inline)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base https://mayai.ru  # PASS
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run        # OK, PHP 8544362 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...                  # SFTP upload + trigger
+```
+
+### Notes
+
+1. **FTP STOR:** `425 Security: Bad IP connecting` в Cloud Agent — обход через SFTP (порт 22) + `chmod 644` после upload.
+2. **HTTP trigger:** таймаут 15 с на PUBLIC_SITE_URL; bootstrap выполнен с `timeout=600` (WebFetch fallback).
+3. **Cleanup:** `excalibur-blog-publish-once.php` удалён с сервера после publish.
+4. **Interlinker post-publish:** 0 вставок (как в indexer).
+
+### Result
+
+```
+OK post=209 slug=telegram-bot-ii-n8n
+OK featured_image=216
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=217 src=cover/inline-01.png
+OK inline_image_upload=218 src=cover/inline-02.png
+OK inline_image_upload=219 src=cover/inline-03.png
+permalink=[REDACTED]/2026/06/18/telegram-bot-ii-n8n/
+```
+

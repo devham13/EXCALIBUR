@@ -1,0 +1,37 @@
+{
+  "topic_id": "B06",
+  "slug": "cursor-rules-nastrojka-2026",
+  "h1": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году",
+  "title": "Cursor Rules: пошаговая настройка .cursor/rules/*.mdc в 2026",
+  "description": "Пошаговая настройка cursor rules: .cursor/rules/*.mdc, frontmatter, alwaysApply и globs, 4 режима активации, чеклист 15 пунктов перед Git. Для автоматизаторов без Senior-кода.",
+  "keywords": [
+    "cursor rules",
+    "cursor rules mdc",
+    "настройка cursor rules",
+    "правила cursor ai",
+    ".cursor/rules"
+  ],
+  "primary_query": "cursor rules",
+  "secondary_queries": [
+    "cursor rules mdc",
+    "правила cursor ai",
+    "настройка cursor rules"
+  ],
+  "char_count": 9077,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor rules mdc с нуля пошагово",
+    "настройка .cursor/rules alwaysApply и globs для Agent",
+    "cursor rules для автоматизации контента и n8n в 2026"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Rules: пошаговая настройка .cursor/rules в 2026",
+    "title_ctr": "💻 Cursor Rules за 45 минут: настройте .mdc и проверьте Agent!",
+    "title_aeo": "Как настроить Cursor Rules для проекта в 2026 году?",
+    "description_seo": "Пошаговая настройка cursor rules: .mdc, frontmatter, alwaysApply, globs, 4 режима, чеклист 15 пунктов и troubleshooting. Гайд для автоматизаторов.",
+    "description_ctr": "⚡ Создайте .cursor/rules/ за вечер: пример 00-general.mdc, таблица режимов, 15 пунктов перед push и FAQ vs MCP. Без топ-100 rules.",
+    "description_aeo": "Cursor Rules настраиваются через .cursor/rules/*.mdc с YAML-frontmatter (alwaysApply, globs, description); проверка – context gauge в Agent или @rule в чате."
+  },
+  "cover_family": "brand_collage"
+}

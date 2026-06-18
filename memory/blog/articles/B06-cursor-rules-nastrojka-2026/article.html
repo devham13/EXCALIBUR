@@ -5,12 +5,20 @@
 <p>Cursor Rules – "устав проекта" для ИИ: язык, стек, запреты, стиль кода или SEO. По <a href="https://cursor.com/docs/context/rules" target="_blank">документации Cursor</a> текст правила попадает в начало контекста; plain .md в .cursor/rules/ игнорируется – для markdown без YAML есть AGENTS.md. Настройка cursor rules удобна командам автоматизации: общие правила для n8n и контента в Git. Связка с <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>: rules – как думать, MCP – к чему подключаться.</p>
 
 <h2 id="legacy-migration">1. Проверьте legacy и мигрируйте с .cursorrules</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Чеклист миграции с .cursorrules на .cursor/rules/*.mdc" loading="lazy">
+</figure>
+
 
 <p>Если в корне репозитория лежит файл .cursorrules – формат помечен как deprecated. Новые правила создавайте только как .mdc в .cursor/rules/. User Rules живут в настройках Cursor на вашем ПК и не попадают в Git; Project Rules – как раз то, что коммитится в репозиторий.</p>
 
 <p><b>Делайте:</b> скопируйте содержимое .cursorrules в новый файл 00-general.mdc с alwaysApply: true, затем удалите legacy-файл, чтобы Agent не путался между двумя источниками. <b>Не делайте:</b> хранить и .cursorrules, и дублирующий alwaysApply – двойной расход контекста на каждый запрос.</p>
 
 <h2 id="first-rule">2. Создайте первое правило .mdc с frontmatter</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: создание первого правила .mdc с frontmatter" loading="lazy">
+</figure>
+
 
 <p>Project rules – файлы с расширением .mdc в каталоге .cursor/rules/ у корня репозитория. Создать папку можно вручную, через Cursor Settings → Rules, Commands → + Add Rule или командой /create-rule в чате Agent – но сгенерированный frontmatter всегда сверяйте с таблицей режимов ниже.</p>
 
@@ -47,6 +55,10 @@
 </ol>
 
 <h2 id="activation-modes">3. Настройте четыре режима активации правил</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Таблица сравнения четырёх режимов активации cursor rules" loading="lazy">
+</figure>
+
 
 <p>Три поля frontmatter – description, globs, alwaysApply – определяют, когда cursor rules mdc попадает в контекст. При alwaysApply: true поля globs и description игнорируются. При alwaysApply: false возможны три сценария: по glob-маске файлов, по описанию (Agent решает сам – Apply Intelligently) или только вручную через @rule-name в чате.</p>
 

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "cursor-rules-nastrojka-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: Agent без cursor rules — мем-коллаж про .cursor/rules и .mdc",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-06-18T18:14:00+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: Agent без cursor rules — мем-коллаж про .cursor/rules и .mdc",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист миграции с .cursorrules на .cursor/rules/*.mdc",
+      "h2_anchor": "1. Проверьте legacy и мигрируйте с .cursorrules",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow: создание первого правила .mdc с frontmatter",
+      "h2_anchor": "2. Создайте первое правило .mdc с frontmatter",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Таблица сравнения четырёх режимов активации cursor rules",
+      "h2_anchor": "3. Настройте четыре режима активации правил",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

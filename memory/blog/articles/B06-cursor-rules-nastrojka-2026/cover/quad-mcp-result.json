@@ -1,0 +1,6 @@
+{
+  "url": null,
+  "source": "generate_image_fallback",
+  "canvas_local": "cover/canvas-quad.png",
+  "note": "MCP user-mcp-kv/CallMcpTool unavailable in Cloud Agent; ONE quad canvas via GenerateImage i2i (reference PNG), resized 1536x1024→2048x1152, then split+inject. quad-mcp-batch.json prepared for canonical MCP retry."
+}

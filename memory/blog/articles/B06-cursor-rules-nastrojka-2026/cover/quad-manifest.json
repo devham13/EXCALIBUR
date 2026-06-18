@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Agent в Cursor отвечает по-разному — пока нет cursor rules?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Agent без cursor rules — мем-коллаж про .cursor/rules и .mdc",
+      "scene_hint": "reference-лицо в тёмном худи разработчика с логотипом Cursor, указывает на fake Agent-чат с разными ответами в двух вкладках; рядом fake .cursor/rules/ с 00-general.mdc, перечёркнутый .cursorrules с красным X на розовом стикере, context gauge tooltip «0 rules active»; meme shocked face + Drake reject .cursorrules; розовый highlight на «cursor rules»",
+      "meme_caption_ru": ".cursorrules умер — а ты?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Проверьте legacy и мигрируйте с .cursorrules",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист миграции на clipboard: ☐ найти .cursorrules в корне, ☐ скопировать в 00-general.mdc, ☐ alwaysApply:true, ☐ удалить legacy — красные галочки, scotch tape, «1. Проверьте legacy»",
+      "alt": "Чеклист миграции с .cursorrules на .cursor/rules/*.mdc"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Создайте первое правило .mdc с frontmatter",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 шагов: mkdir .cursor/rules/ → создать 00-general.mdc → YAML frontmatter --- → alwaysApply:true → проверить context gauge; стрелки, torn-paper strip, Cyrillic",
+      "alt": "Схема workflow: создание первого правила .mdc с frontmatter"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте четыре режима активации правил",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица 4 режимов: Always Apply / Apply to Files (globs) / Apply Intelligently (description) / Manual (@rule) — колонки Frontmatter и Когда срабатывает, fake Cursor Settings UI, pink sticky «3. Режимы»",
+      "alt": "Таблица сравнения четырёх режимов активации cursor rules"
+    }
+  }
+}

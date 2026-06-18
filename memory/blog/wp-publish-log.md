@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-18 — B01 primer-seo-stati — **BLOCKER**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **BLOCKER** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (6/6, `--site-base https://mayai.ru`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: **no** (Cloud Secret не задан)
+
+### Preflight
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base https://mayai.ru  # pass 6/6
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK slug=primer-seo-stati PHP=9934394
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # BLOCKER
+```
+
+### Fixes during publish step
+
+- Interlink href исправлен: `/blog/geo-optimizaciya-sajta-2026/` → `/geo-optimizaciya-sajta-2026/` (404 на staging PUBLIC_SITE_URL)
+
+### Blockers
+
+1. **Allow flag:** `EXCALIBUR_BLOG_ALLOW_PUBLISH != yes` — секрет не передан в Cloud worker env; `site.env.local` синтезирован с `allow=no`.
+
+### Next steps (для оператора)
+
+1. Установить `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` в Cloud Secrets / Automation env.
+2. Перезапустить `excalibur-blog-publish` для `memory/blog/articles/B01-primer-seo-stati`.
+3. После publish — `interlinker --apply` для inbound из B02/B03/B04/B05.
+

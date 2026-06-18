@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-cursor-rules-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "кста модели. Файл .cursorrules в корне устарел; в 2026 рабочий формат – папка .cursor/rules/ с файлами .m",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2000",
+      "kind": "date_or_year",
+      "context": "елайте: класть весь \"устав\" в один alwaysApply на 2000 строк – Agent получит лишний шум в каждом чате. Ша",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "r/rules/ с файлами .mdc и YAML-frontmatter. За 30–45 минут вы создадите первые правила, выберете режим alway",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "писком. Best practice Cursor: одно правило короче 500 строк; при росте – дробите на несколько .mdc. Дела",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": ".mdc. Делайте: начинайте с 00-general.mdc на 150–200 слов. Не делайте: класть весь \"устав\" в один alway",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "да и no-code автоматизации – 3–4 файла, а не \"топ-100 rules\" из чужих репозиториев: Файл Режим Назначени",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

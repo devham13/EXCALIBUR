@@ -1,0 +1,16 @@
+{
+  "slug": "cursor-rules-nastrojka-2026",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/cursor-rules-nastrojka-2026/",
+  "post_id": 224,
+  "featured_image_id": 231,
+  "inline_images": [
+    232,
+    233,
+    234
+  ],
+  "verdict": "pass",
+  "transport": "sftp_bootstrap (FTP blocked: Bad IP)",
+  "staging_permalink": "(local only — see automation logs)",
+  "note": "Full staging URL in handoff; git uses canonical mayai.ru"
+}

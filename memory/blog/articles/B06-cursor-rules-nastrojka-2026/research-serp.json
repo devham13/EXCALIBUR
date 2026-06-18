@@ -1,0 +1,444 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-18",
+    "today_ru": "18.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-20",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-18 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "cursor-rules-nastrojka-2026",
+    "h1": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году",
+    "primary_query": "cursor rules",
+    "secondary_queries": [
+      "cursor rules mdc",
+      "правила cursor ai",
+      "настройка cursor rules"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "cursor rules 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+          "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Rules: The Complete Guide to .cursorrules and AI Coding Rules (2026)",
+          "url": "https://skillsplayground.com/guides/cursor-rules/",
+          "snippet": "In 2026, Cursor has a full 5-level rules system with the new .cursor/rules directory and .mdc files. Most developers are still dumping everything into one massive file and wondering why..."
+        },
+        {
+          "title": "Cursor Rules Advanced Guide 2026: Framework-Specific Configs & .mdc ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-advanced-2026/",
+          "snippet": "This guide covers everything about cursor rules -- syntax, framework-specific examples, and how to convert rules between AI editors like Claude Code, GitHub Copilot, and Windsurf."
+        },
+        {
+          "title": "Rules | Cursor Docs",
+          "url": "https://cursor.com/docs/rules",
+          "snippet": "Master Cursor rules advanced configuration in 2026: .mdc frontmatter, four activation modes, framework templates for React/Next.js/FastAPI, and token optimization."
+        },
+        {
+          "title": "Cursor Rules: Complete .cursorrules Guide with Templates (2026)",
+          "url": "https://cursor-alternatives.com/blog/cursor-rules/",
+          "snippet": "Learn best practices for effective coding guidelines."
+        },
+        {
+          "title": "The Best Cursor Rules for Every Framework in 2026 (With Examples)",
+          "url": "https://dev.to/deadbyapril/the-best-cursor-rules-for-every-framework-in-2026-20-examples-29ag",
+          "snippet": "Learn how to use Cursor Rules (.cursorrules files) to control Cursor AI's behavior across your project. Includes ready-to-use templates for React, Python, Next.js, and more."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "cursor rules июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Best Cursor Rules and SKILL.md Skills (2026) - agensi.io",
+          "url": "https://www.agensi.io/learn/best-cursor-rules-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Rules | Cursor Docs",
+          "url": "https://cursor.com/docs/rules",
+          "snippet": "Best Cursor Rules in 2026: The Definitive Collection The best .cursorrules files for Cursor in 2026. Framework-specific rules, how they compare to SKILL.md skills, and how to upgrade for cross-agent use."
+        },
+        {
+          "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+          "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+          "snippet": "Learn best practices for effective coding guidelines."
+        },
+        {
+          "title": "Cursor Rules Advanced Guide 2026: Framework-Specific Configs & .mdc ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-advanced-2026/",
+          "snippet": "In 2026, Cursor has a full 5-level rules system with the new .cursor/rules directory and .mdc files. Most developers are still dumping everything into one massive file and wondering why..."
+        },
+        {
+          "title": "Cursor Rules Guide 2026: How to Write .cursorrules and .mdc Files for ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-guide-2026/",
+          "snippet": "As of 2026, Cursor's Team Rules dashboard lets organization admins define rules that propagate to all team members' instances, but project-level Git rules are still the primary governance mechanism for most teams."
+        },
+        {
+          "title": "Cursor Rules",
+          "url": "https://cursorrules.org/",
+          "snippet": "Complete guide to writing Cursor rules in 2026: .cursorrules vs .mdc format, four activation modes, ready-to-use templates, and token budget tips."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "cursor rules новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Best Cursor Rules and SKILL.md Skills (2026) - agensi.io",
+          "url": "https://www.agensi.io/learn/best-cursor-rules-2026",
+          "snippet": ""
+        },
+        {
+          "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+          "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+          "snippet": "Best Cursor Rules in 2026: The Definitive Collection The best .cursorrules files for Cursor in 2026. Framework-specific rules, how they compare to SKILL.md skills, and how to upgrade for cross-agent use."
+        },
+        {
+          "title": "Cursor Rules, лучшие промпты и 50+ лайфхаков: как выжать максимум из ...",
+          "url": "https://browsercomet.ru/cursor-rules-luchshie-prompty/",
+          "snippet": "In 2026, Cursor has a full 5-level rules system with the new .cursor/rules directory and .mdc files. Most developers are still dumping everything into one massive file and wondering why..."
+        },
+        {
+          "title": "Cursor Rules Advanced Guide 2026: Framework-Specific Configs & .mdc ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-advanced-2026/",
+          "snippet": "Самая полная статья по Cursor Rules и промптам 2026. 8 готовых шаблонов .cursorrules, 52 реальных рабочих промпта, 14 ошибок новичков, продвинутые лайфхаки и большой FAQ."
+        },
+        {
+          "title": "Cursor Rules Guide 2026: How to Write .cursorrules and .mdc Files for ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-guide-2026/",
+          "snippet": "As of 2026, Cursor's Team Rules dashboard lets organization admins define rules that propagate to all team members' instances, but project-level Git rules are still the primary governance mechanism for most teams."
+        },
+        {
+          "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+          "url": "https://releasebot.io/updates/cursor",
+          "snippet": "Complete guide to writing Cursor rules in 2026: .cursorrules vs .mdc format, four activation modes, ready-to-use templates, and token budget tips."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "cursor rules mdc 2026",
+      "purpose": "вторичный запрос: cursor rules mdc",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Rules Advanced Guide 2026: Framework-Specific Configs & .mdc ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-advanced-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Rules Guide 2026: How to Write .cursorrules and .mdc Files for ...",
+          "url": "https://baeseokjae.github.io/posts/cursor-rules-guide-2026/",
+          "snippet": "Master Cursor rules advanced configuration in 2026: .mdc frontmatter, four activation modes, framework templates for React/Next.js/FastAPI, and token optimization."
+        },
+        {
+          "title": "Cursor Rules Best Practices: Complete .mdc Guide (2026) | Morph",
+          "url": "https://www.morphllm.com/cursor-rules-best-practices",
+          "snippet": "Complete guide to writing Cursor rules in 2026: .cursorrules vs .mdc format, four activation modes, ready-to-use templates, and token budget tips."
+        },
+        {
+          "title": "AGENTS.md vs .cursorrules vs Claude Skills: 2026 Guide",
+          "url": "https://blog.buildbetter.ai/agents-md-vs-cursorrules-vs-claude-skills-2026-comparison/",
+          "snippet": "Write effective Cursor rules with .mdc files. Four activation modes, glob patterns, YAML frontmatter, real examples for TypeScript, Python, and React. Complete best practices guide."
+        },
+        {
+          "title": "Cursor Rules: Complete .mdc Guide & 15 Templates (2026)",
+          "url": "https://www.vibecodingacademy.ai/blog/cursor-rules-complete-guide",
+          "snippet": "AGENTS.md, .cursorrules, and Claude Code Skills each solve a different layer of AI agent configuration. This 2026 guide compares all three, with a decision framework, migration path, and real-world examples for engineering teams standardizing their stack."
+        },
+        {
+          "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+          "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+          "snippet": "Learn how to use cursor rules with the updated .cursor/rules directory and .mdc format. Includes 15 ready-to-use templates for React, Supabase, Stripe, Prisma, and shadcn/ui, plus best practices for organizing rules in large projects."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "правила cursor ai 2026",
+      "purpose": "вторичный запрос: правила cursor ai",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ТОП 100 лучших Rules для Cursor AI 2026 для новичков",
+          "url": "https://vibecoding.by/blog/top-100-cursor-ai-rules-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Rules | Cursor Docs",
+          "url": "https://cursor.com/docs/rules",
+          "snippet": "Полный гайд по настройке Cursor AI Rules для максимальной продуктивности. 100 проверенных правил с объяснениями: от базовых до продвинутых. Научитесь писать код быстрее с правильными инструкциями для AI. Cursor AI Rules — это инструкции, которые направляют поведение AI-ассистента в вашем проекте."
+        },
+        {
+          "title": "Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents для ...",
+          "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+          "snippet": "Configure persistent instructions with Project, Team, and User Rules, plus AGENTS.md. Learn best practices for effective coding guidelines."
+        },
+        {
+          "title": "Как пользоваться Cursor AI: полная инструкция для начинающих в 2026 ...",
+          "url": "https://dtf.ru/howto/4734222-kak-polzovatsya-cursor-ai-polnoe-rukovodstvo",
+          "snippet": "В видео анализируется эволюция инструментов от простых правил до автономных подогентов, а также даются инструкции по управлению контекстом для максимальной эффективности разработки."
+        },
+        {
+          "title": "Как пользоваться Cursor AI в России в 2026 году: полное руководство для ...",
+          "url": "https://vc.ru/services/2698591-kak-polzovatsya-cursor-ai-v-rossii",
+          "snippet": "Cursor AI - это мощный редактор кода с встроенным искусственным интеллектом, который стал революцией в программировании. Если вы хотите узнать cursor как пользоваться или как пользоваться cursor ai эффективно, эта статья станет вашим полным руководством."
+        },
+        {
+          "title": "Andrew-Pyanzin/cursor-rules - GitHub",
+          "url": "https://github.com/Andrew-Pyanzin/cursor-rules",
+          "snippet": "Cursor AI в России, как пользоваться инструментом, бесплатные функции, возможности для разработчиков, обучение программированию, интеграция с сервисами"
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "настройка cursor rules 2026",
+      "purpose": "вторичный запрос: настройка cursor rules",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor для 1С в 2026: настройка, MCP и rules для BSL",
+          "url": "https://shtruzel.ru/articles/cursor-dlya-1c-nastrojka-mcp-bsl-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Rules: как настроить .cursor/rules чтобы AI знал ваш стек раз и ...",
+          "url": "https://vibecoderz.ru/blog/cursor-rules",
+          "snippet": "Как настроить Cursor 3.1 для 1С:Предприятие в 2026: BSL Pack, MCP-1C, cursor_rules_1c, выбор модели. Рабочий стек для разработки на BSL без галлюцинаций."
+        },
+        {
+          "title": "How To Setup Rules In Cursor 2026 - YouTube",
+          "url": "https://www.youtube.com/watch?v=dPAHQa9aYFo",
+          "snippet": "Cursor Rules это файлы с инструкциями, которые подгружаются в каждый запрос к AI, чтобы агент знал ваш стек, стиль кода и запреты без повторов в чате. В 2026 старый .cursorrules в корне проекта устарел."
+        },
+        {
+          "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+          "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+          "snippet": "In this video, we show you how to set up rules in Cursor in 2026 step by step. Whether you want to automate tasks, customize AI behavior, or streamline your ..."
+        },
+        {
+          "title": "Cursor Rules, лучшие промпты и 50+ лайфхаков: как выжать максимум из ...",
+          "url": "https://browsercomet.ru/cursor-rules-luchshie-prompty/",
+          "snippet": "In 2026, Cursor has a full 5-level rules system with the new .cursor/rules directory and .mdc files. Most developers are still dumping everything into one massive file and wondering why..."
+        },
+        {
+          "title": "Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents для ...",
+          "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+          "snippet": "Если вы ещё не читали предыдущие статьи серии — рекомендую начать с обзора Cursor AI 2026, потом установка и миграция, основные функции, Agent Mode и реальные кейсы по стекам."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Rules | Cursor Docs",
+          "url": "https://cursor.com/ru/docs/rules",
+          "snippet": ""
+        },
+        {
+          "title": "Правила | Cursor Docs",
+          "url": "https://cursor.com/ru/help/customization/rules",
+          "snippet": "Настройте постоянные инструкции с помощью правил проекта, правил команды и правило пользователя, а также AGENTS.md."
+        },
+        {
+          "title": "Andrew-Pyanzin/cursor-rules - GitHub",
+          "url": "https://github.com/Andrew-Pyanzin/cursor-rules",
+          "snippet": "Cursor определяет правила по полному пути к файлу, а не только по имени. Если условия совпадают, применяются оба правила с одинаковым именем файла из разных папок."
+        },
+        {
+          "title": "Правила в Cursor: User Rules, Project Rules и .mdc — гайд",
+          "url": "https://khar-ag.ru/docs/cursor-rules-guide/",
+          "snippet": "Cursor — это редактор кода (форк VS Code), который встраивает ИИ прямо в рабочий процесс. В отличие от обычного чат-бота, Cursor видит ваш проект целиком и может редактировать код за вас."
+        },
+        {
+          "title": "Cursor Rules: как писать правила, чтобы они реально работали",
+          "url": "https://ru.hexlet.io/blog/posts/cursor-rules",
+          "snippet": "Короткий ответ: Что такое Rules в Cursor, как оформить .cursor/rules/*.mdc, чем User Rules отличаются от Project Rules и как не перегружать контекст — урок с таблицами и готовыми шаблонами."
+        },
+        {
+          "title": "Rules в Cursor: полное руководство | ByteStory",
+          "url": "https://bytestory.ru/articles/pravila-rules-v-cursor-cto-eto-i-kak-rabotaiut",
+          "snippet": "Что изменилось в правилах Cursor с переходом на .cursor/rules/, какой frontmatter обязателен, четыре режима применения и чек-лист проверки чужих правил из awesome-cursorrules."
+        }
+      ],
+      "searched_at": "2026-06-18"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://medium.com/@vibecodingdirectory/how-to-structure-cursor-rules-in-2026-the-5-level-system-cursor-rules-eaf0df16e8e7",
+      "title": "How to Structure Cursor Rules in 2026: The 5-Level System ... - Medium",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://skillsplayground.com/guides/cursor-rules/",
+      "title": "Cursor Rules: The Complete Guide to .cursorrules and AI Coding Rules (2026)",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/cursor-rules-advanced-2026/",
+      "title": "Cursor Rules Advanced Guide 2026: Framework-Specific Configs & .mdc ...",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://cursor.com/docs/rules",
+      "title": "Rules | Cursor Docs",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://cursor-alternatives.com/blog/cursor-rules/",
+      "title": "Cursor Rules: Complete .cursorrules Guide with Templates (2026)",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://dev.to/deadbyapril/the-best-cursor-rules-for-every-framework-in-2026-20-examples-29ag",
+      "title": "The Best Cursor Rules for Every Framework in 2026 (With Examples)",
+      "from_query": "cursor rules 2026"
+    },
+    {
+      "url": "https://www.agensi.io/learn/best-cursor-rules-2026",
+      "title": "Best Cursor Rules and SKILL.md Skills (2026) - agensi.io",
+      "from_query": "cursor rules июнь 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/cursor-rules-guide-2026/",
+      "title": "Cursor Rules Guide 2026: How to Write .cursorrules and .mdc Files for ...",
+      "from_query": "cursor rules июнь 2026"
+    },
+    {
+      "url": "https://cursorrules.org/",
+      "title": "Cursor Rules",
+      "from_query": "cursor rules июнь 2026"
+    },
+    {
+      "url": "https://browsercomet.ru/cursor-rules-luchshie-prompty/",
+      "title": "Cursor Rules, лучшие промпты и 50+ лайфхаков: как выжать максимум из ...",
+      "from_query": "cursor rules новости 2026"
+    },
+    {
+      "url": "https://releasebot.io/updates/cursor",
+      "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+      "from_query": "cursor rules новости 2026"
+    },
+    {
+      "url": "https://www.morphllm.com/cursor-rules-best-practices",
+      "title": "Cursor Rules Best Practices: Complete .mdc Guide (2026) | Morph",
+      "from_query": "cursor rules mdc 2026"
+    },
+    {
+      "url": "https://blog.buildbetter.ai/agents-md-vs-cursorrules-vs-claude-skills-2026-comparison/",
+      "title": "AGENTS.md vs .cursorrules vs Claude Skills: 2026 Guide",
+      "from_query": "cursor rules mdc 2026"
+    },
+    {
+      "url": "https://www.vibecodingacademy.ai/blog/cursor-rules-complete-guide",
+      "title": "Cursor Rules: Complete .mdc Guide & 15 Templates (2026)",
+      "from_query": "cursor rules mdc 2026"
+    },
+    {
+      "url": "https://vibecoding.by/blog/top-100-cursor-ai-rules-2026",
+      "title": "ТОП 100 лучших Rules для Cursor AI 2026 для новичков",
+      "from_query": "правила cursor ai 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+      "title": "Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents для ...",
+      "from_query": "правила cursor ai 2026"
+    },
+    {
+      "url": "https://dtf.ru/howto/4734222-kak-polzovatsya-cursor-ai-polnoe-rukovodstvo",
+      "title": "Как пользоваться Cursor AI: полная инструкция для начинающих в 2026 ...",
+      "from_query": "правила cursor ai 2026"
+    },
+    {
+      "url": "https://vc.ru/services/2698591-kak-polzovatsya-cursor-ai-v-rossii",
+      "title": "Как пользоваться Cursor AI в России в 2026 году: полное руководство для ...",
+      "from_query": "правила cursor ai 2026"
+    },
+    {
+      "url": "https://github.com/Andrew-Pyanzin/cursor-rules",
+      "title": "Andrew-Pyanzin/cursor-rules - GitHub",
+      "from_query": "правила cursor ai 2026"
+    },
+    {
+      "url": "https://shtruzel.ru/articles/cursor-dlya-1c-nastrojka-mcp-bsl-2026",
+      "title": "Cursor для 1С в 2026: настройка, MCP и rules для BSL",
+      "from_query": "настройка cursor rules 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/cursor-rules",
+      "title": "Cursor Rules: как настроить .cursor/rules чтобы AI знал ваш стек раз и ...",
+      "from_query": "настройка cursor rules 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dPAHQa9aYFo",
+      "title": "How To Setup Rules In Cursor 2026 - YouTube",
+      "from_query": "настройка cursor rules 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/docs/rules",
+      "title": "Rules | Cursor Docs",
+      "from_query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/help/customization/rules",
+      "title": "Правила | Cursor Docs",
+      "from_query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026"
+    },
+    {
+      "url": "https://khar-ag.ru/docs/cursor-rules-guide/",
+      "title": "Правила в Cursor: User Rules, Project Rules и .mdc — гайд",
+      "from_query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026"
+    },
+    {
+      "url": "https://ru.hexlet.io/blog/posts/cursor-rules",
+      "title": "Cursor Rules: как писать правила, чтобы они реально работали",
+      "from_query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026"
+    },
+    {
+      "url": "https://bytestory.ru/articles/pravila-rules-v-cursor-cto-eto-i-kak-rabotaiut",
+      "title": "Rules в Cursor: полное руководство | ByteStory",
+      "from_query": "Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году 2026"
+    }
+  ]
+}

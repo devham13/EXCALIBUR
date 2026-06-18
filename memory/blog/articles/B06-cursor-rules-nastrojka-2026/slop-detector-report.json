@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Создать папку можно вручную, через Cursor Settings → Rules, Commands → + Add Rule или командой /create-rule в чате Agent – но сгенерированный frontmatter всегда сверяйте с таблицей режимов ниже",
+      "word_count": 26
+    },
+    {
+      "sentence": "mdc (alwaysApply) → glob-правило → intelligent-правило → тест в Agent → modular rules → git commit Пример базового правила для всего проекта (адаптируйте стек и язык под себя): --- description: Общие правила проекта alwaysApply: true --- # Общие правила - Отвечай на русском, код и пути – на английском",
+      "word_count": 39
+    },
+    {
+      "sentence": "Режим Frontmatter Когда срабатывает Always Apply alwaysApply: true В каждый чат Agent в этом проекте Apply to Files alwaysApply: false + globs Когда в контексте есть файл по маске (*",
+      "word_count": 28
+    },
+    {
+      "sentence": "json) Apply Intelligently alwaysApply: false + description, без globs Agent оценивает задачу по тексту description Manual alwaysApply: false, без globs и description Только если вы написали @имя-правила в чате Несколько glob-паттернов – через запятую в docs или YAML-список на форуме; движок – minimatch",
+      "word_count": 40
+    },
+    {
+      "sentence": "md в rules игнорируется) YAML между --- валиден: отступы пробелами, без табов alwaysApply: true – максимум 1–2 файла на проект Каждый glob проверен на реальном файле через context gauge Intelligent-правила имеют четкий description на 1–2 предложения Manual-правила документированы в README команды (@имя) Нет API-ключей, токенов и паролей в теле rules Legacy",
+      "word_count": 47
+    },
+    {
+      "sentence": "gitignore (если rules – командный стандарт) Тестовый prompt в Agent подтвердил срабатывание glob/intelligent Team Rules на dashboard не дублируют project rules без нужды Коммит-сообщение описывает, что изменилось в поведении Agent Делайте: коммитьте rules вместе с кодом, который они описывают",
+      "word_count": 39
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.3,
+    "avg_syllables_per_word": 1.5
+  }
+}

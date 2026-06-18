@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '2.0.2');
+define('EBU_VERSION', '2.0.3');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -31,6 +31,7 @@ final class Excalibur_Blog_UI
         add_filter('theme_mod_post_related', [self::class, 'disable_kadence_related']);
         add_filter('theme_mod_post_navigation', [self::class, 'disable_kadence_navigation']);
         add_action('kadence_single_before_entry_header', [self::class, 'render_category_pill'], 6);
+        add_filter('the_content', [self::class, 'enhance_faq_markup'], 30);
         add_action('kadence_single_after_content', [self::class, 'render_article_footer'], 8);
     }
 
@@ -219,9 +220,49 @@ final class Excalibur_Blog_UI
         }
 
         printf(
-            '<span class="ebu-category-pill">%s</span>',
+            '<div class="ebu-article-label"><span class="ebu-category-pill">%s</span></div>',
             esc_html($label)
         );
+    }
+
+    public static function enhance_faq_markup(string $content): string
+    {
+        if (!self::is_blog_article()) {
+            return $content;
+        }
+
+        if (strpos($content, 'ebu-faq-card') !== false) {
+            return $content;
+        }
+
+        if (strpos($content, 'id="faq"') === false && strpos($content, "id='faq'") === false) {
+            return $content;
+        }
+
+        $updated = preg_replace_callback(
+            '/<h2\s+id=["\']faq["\'][^>]*>.*?<\/h2>\s*(.*)$/su',
+            static function (array $matches): string {
+                $body = $matches[1];
+                $body = preg_replace_callback(
+                    '/<h3>(.*?)<\/h3>\s*((?:<p>.*?<\/p>\s*)+)/su',
+                    static function (array $item): string {
+                        return '<div class="ebu-faq-card__item"><h3 class="ebu-faq-card__question">'
+                            . $item[1]
+                            . '</h3><div class="ebu-faq-card__answer">'
+                            . $item[2]
+                            . '</div></div>';
+                    },
+                    $body
+                );
+
+                return '<div class="ebu-faq-card" id="faq"><h2 class="ebu-faq-card__title">Часто задаваемые вопросы по теме (FAQ)</h2>'
+                    . $body;
+            },
+            $content,
+            1
+        );
+
+        return is_string($updated) ? $updated : $content;
     }
 
     public static function render_article_footer(): void
@@ -371,6 +412,14 @@ final class Excalibur_Blog_UI
             $name = $categories[0]->name;
             if (!in_array($name, ['Без рубрики', 'Uncategorized'], true)) {
                 return $name;
+            }
+        }
+
+        $title = get_the_title($post_id);
+        if (is_string($title) && preg_match('/^([^:—-]+)/u', $title, $matches)) {
+            $short = trim($matches[1]);
+            if ($short !== '' && mb_strlen($short) <= 48) {
+                return $short;
             }
         }
 

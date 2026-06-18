@@ -118,11 +118,25 @@ body.excalibur-blog-single .entry-header {
   padding: 0;
   border: none;
   max-width: var(--article-main);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0;
 }
+
+body.excalibur-blog-single .ebu-article-label {
+  display: block !important;
+  width: 100%;
+  margin: 0 0 18px;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 body.excalibur-blog-single .ebu-category-pill {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
-  margin-bottom: 18px;
+  visibility: visible !important;
+  opacity: 1 !important;
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--article-border);
@@ -133,9 +147,10 @@ body.excalibur-blog-single .ebu-category-pill {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   box-shadow: var(--article-shadow-card);
+  line-height: 1.2;
 }
 
-body.excalibur-blog-single .entry-header .category-links {
+body.excalibur-blog-single .entry-header .entry-taxonomies {
   display: none !important;
 }
 

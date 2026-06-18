@@ -354,59 +354,6 @@
     ul.classList.add('ebu-checklist');
   }
 
-  function initFaqCard() {
-    var faqHeading = document.getElementById('faq');
-    if (!faqHeading || faqHeading.closest('.ebu-faq-card')) {
-      return;
-    }
-
-    var card = document.createElement('div');
-    card.className = 'ebu-faq-card';
-    card.id = 'faq';
-
-    var title = document.createElement('h2');
-    title.className = 'ebu-faq-card__title';
-    title.textContent = 'Часто задаваемые вопросы по теме (FAQ)';
-    card.appendChild(title);
-
-    var node = faqHeading.nextElementSibling;
-    while (node && node.tagName !== 'H2') {
-      if (node.tagName === 'H3') {
-        var item = document.createElement('div');
-        item.className = 'ebu-faq-card__item';
-
-        var h3 = node;
-        var question = document.createElement('h3');
-        question.className = 'ebu-faq-card__question';
-        question.textContent = h3.textContent.trim();
-        item.appendChild(question);
-
-        var answers = document.createElement('div');
-        answers.className = 'ebu-faq-card__answer';
-
-        node = h3.nextElementSibling;
-        h3.remove();
-        while (node && node.tagName !== 'H3' && node.tagName !== 'H2') {
-          var next = node.nextElementSibling;
-          answers.appendChild(node);
-          node = next;
-        }
-
-        item.appendChild(answers);
-        card.appendChild(item);
-        continue;
-      }
-
-      var orphan = node;
-      node = node.nextElementSibling;
-      orphan.remove();
-    }
-
-    faqHeading.parentNode.insertBefore(card, faqHeading);
-    faqHeading.remove();
-  }
-
-  function initFaqHash() {
     if (window.location.hash !== '#faq') return;
     var faq = document.getElementById('faq');
     if (!faq) return;
@@ -427,7 +374,6 @@
     initCopyButtons();
     initStepLists();
     initChecklist();
-    initFaqCard();
     initFaqHash();
   }
 

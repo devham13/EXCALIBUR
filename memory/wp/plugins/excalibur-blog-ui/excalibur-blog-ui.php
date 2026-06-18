@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Excalibur Blog UI
- * Description: Оформление статей блога в стиле mayai.ru: навигация, «Читайте также», прогресс чтения, CTA.
- * Version: 1.0.3
+ * Description: AI Dev Editorial Interface — оформление технических статей блога.
+ * Version: 2.0.0
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '1.0.3');
+define('EBU_VERSION', '2.0.0');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -30,7 +30,9 @@ final class Excalibur_Blog_UI
         add_filter('kadence_post_layout', [self::class, 'hide_kadence_footer_blocks']);
         add_filter('theme_mod_post_related', [self::class, 'disable_kadence_related']);
         add_filter('theme_mod_post_navigation', [self::class, 'disable_kadence_navigation']);
-        add_action('kadence_single_before_entry_content', [self::class, 'render_depth_background'], 5);
+        add_action('kadence_single_after_entry_header', [self::class, 'render_hero_deck'], 8);
+        add_action('kadence_single_before_entry_content', [self::class, 'open_editorial_layout'], 3);
+        add_action('kadence_single_after_entry_content', [self::class, 'close_editorial_layout'], 99);
         add_action('kadence_single_after_content', [self::class, 'render_article_footer'], 8);
         add_action('wp_footer', [self::class, 'render_floating_actions'], 20);
     }
@@ -70,7 +72,7 @@ final class Excalibur_Blog_UI
 
         wp_enqueue_style(
             'excalibur-blog-ui-fonts',
-            'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap',
+            'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
             [],
             null
         );
@@ -123,6 +125,11 @@ final class Excalibur_Blog_UI
             EBU_VERSION,
             true
         );
+
+        wp_localize_script('excalibur-blog-ui', 'ebuArticle', [
+            'category'    => self::primary_category_label(),
+            'readingTime' => self::reading_time_label(),
+        ]);
     }
 
     public static function hide_kadence_footer_blocks(array $layout): array
@@ -160,7 +167,7 @@ final class Excalibur_Blog_UI
             return;
         }
 
-        echo '<div class="reading-progress" data-reading-progress aria-hidden="true"><span data-reading-progress-fill></span></div>';
+        echo '<div class="reading-progress" aria-hidden="true"><span data-reading-progress-fill></span></div>';
     }
 
     public static function render_floating_header(): void
@@ -203,17 +210,71 @@ final class Excalibur_Blog_UI
         echo '<script type="application/ld+json">' . wp_kses_post($schema) . '</script>' . "\n";
     }
 
-    public static function render_depth_background(): void
+    public static function render_hero_deck(): void
     {
         if (!self::is_blog_article()) {
             return;
         }
 
-        echo '<div class="single-depth-bg" aria-hidden="true">';
-        echo '<span class="single-depth-glow single-depth-glow--1"></span>';
-        echo '<span class="single-depth-glow single-depth-glow--2"></span>';
-        echo '<span class="single-depth-glow single-depth-glow--3"></span>';
+        $title = get_the_title();
+        $slug = sanitize_title($title);
+        $panel_title = $slug !== '' ? $slug : 'article-setup';
+
+        echo '<div class="ebu-hero-deck ebu-reveal-item">';
+        echo '<div class="ebu-flow-line" aria-hidden="true">';
+        echo '<span class="ebu-flow-line__node">Cursor</span>';
+        echo '<span class="ebu-flow-line__arrow">→</span>';
+        echo '<span class="ebu-flow-line__node">MCP</span>';
+        echo '<span class="ebu-flow-line__arrow">→</span>';
+        echo '<span class="ebu-flow-line__node">Tools</span>';
+        echo '<span class="ebu-flow-line__arrow">→</span>';
+        echo '<span class="ebu-flow-line__node">Result</span>';
         echo '</div>';
+
+        echo '<div class="ebu-hero-panel">';
+        echo '<div class="ebu-badges">';
+        echo '<span class="ebu-badge">Local</span>';
+        echo '<span class="ebu-badge">Secure</span>';
+        echo '<span class="ebu-badge">Fast setup</span>';
+        echo '<span class="ebu-badge">Low-code</span>';
+        echo '</div>';
+
+        echo '<div class="ebu-config-panel" role="presentation">';
+        echo '<div class="ebu-config-panel__bar">';
+        echo '<span class="ebu-config-panel__dots" aria-hidden="true"><span></span><span></span><span></span></span>';
+        echo '<span class="ebu-config-panel__title">' . esc_html($panel_title) . '</span>';
+        echo '</div>';
+        echo '<div class="ebu-config-panel__body">';
+        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Status</span><span class="ebu-config-panel__val ebu-config-panel__val--ok">connected</span></div>';
+        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Tools</span><span class="ebu-config-panel__val">4 active</span></div>';
+        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Mode</span><span class="ebu-config-panel__val">local server</span></div>';
+        echo '<div class="ebu-config-panel__code">{"mcp": true, "agents": "ready"}</div>';
+        echo '</div></div>';
+        echo '</div></div>';
+    }
+
+    public static function open_editorial_layout(): void
+    {
+        if (!self::is_blog_article()) {
+            return;
+        }
+
+        echo '<div class="ebu-editorial-layout" id="article-toc">';
+        echo '<aside class="ebu-toc-rail" aria-label="Оглавление статьи">';
+        echo '<div class="ebu-toc-rail__card">';
+        echo '<p class="ebu-toc-rail__title">В статье</p>';
+        echo '<ul class="ebu-toc-rail__list" id="ebu-toc-rail-list"></ul>';
+        echo '</div></aside>';
+        echo '<div class="ebu-article-main">';
+    }
+
+    public static function close_editorial_layout(): void
+    {
+        if (!self::is_blog_article()) {
+            return;
+        }
+
+        echo '</div></div>';
     }
 
     public static function render_article_footer(): void
@@ -275,7 +336,7 @@ final class Excalibur_Blog_UI
             return;
         }
 
-        echo '<section id="related-posts" class="related-posts ebu-reveal">';
+        echo '<section id="related-posts" class="related-posts">';
         echo '<h2 class="related-title">Читайте также</h2><div class="related-grid">';
 
         $gradient = 1;
@@ -311,7 +372,7 @@ final class Excalibur_Blog_UI
         $primary = self::cta_url('primary');
         $primary_label = self::cta_label('primary');
 
-        echo '<section class="article-next-step ebu-reveal" aria-label="Следующий шаг">';
+        echo '<section class="article-next-step" aria-label="Следующий шаг">';
         echo '<div class="article-next-step-head">';
         echo '<h2>Что делать дальше</h2>';
         echo '<p>Выберите удобный формат продолжения: кейсы, контакт или AI-аудит.</p>';
@@ -323,7 +384,7 @@ final class Excalibur_Blog_UI
         );
 
         printf(
-            '<a href="%s#contact" class="next-step-card next-step-card--channel ebu-reveal-item"><span class="next-step-label">Путь 02</span><h3>Обсудить внедрение</h3><p>Расскажите о процессе - подскажем, где AI-агенты дадут быстрый эффект без лишней разработки.</p></a>',
+            '<a href="%s#contact" class="next-step-card next-step-card--channel ebu-reveal-item"><span class="next-step-label">Путь 02</span><h3>Обсудить внедрение</h3><p>Расскажите о процессе — подскажем, где AI-агенты дадут быстрый эффект без лишней разработки.</p></a>',
             esc_url($site)
         );
 
@@ -353,6 +414,30 @@ final class Excalibur_Blog_UI
             esc_html($primary_label)
         );
         echo '</div>';
+    }
+
+    private static function primary_category_label(): string
+    {
+        $categories = get_the_category();
+        if (!empty($categories)) {
+            return $categories[0]->name;
+        }
+
+        return 'AI Engineering';
+    }
+
+    private static function reading_time_label(): string
+    {
+        $content = get_post_field('post_content', get_queried_object_id());
+        if (!is_string($content)) {
+            return '5 мин';
+        }
+
+        $text = wp_strip_all_tags($content);
+        $words = preg_match_all('/\p{L}+/u', $text, $m) ? count($m[0]) : str_word_count($text);
+        $minutes = max(1, (int) ceil($words / 200));
+
+        return $minutes . ' мин';
     }
 
     private static function cta_url(string $which = 'primary'): string
@@ -400,7 +485,7 @@ final class Excalibur_Blog_UI
         }
 
         $defaults = [
-            'primary'   => 'Получить AI-аудит',
+            'primary'   => 'Запросить AI-аудит',
             'secondary' => 'Обсудить внедрение',
         ];
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: Оформление статей блога в стиле mayai.ru: навигация, «Читайте также», прогресс чтения, CTA.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '1.0.0');
+define('EBU_VERSION', '1.0.2');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -23,7 +23,7 @@ final class Excalibur_Blog_UI
     public static function init(): void
     {
         add_action('wp_enqueue_scripts', [self::class, 'enqueue_assets']);
-        add_filter('body_class', [self::class, 'body_class']);
+        add_filter('body_class', [self::class, 'body_class'], 99);
         add_action('wp_body_open', [self::class, 'render_reading_progress'], 4);
         add_action('wp_body_open', [self::class, 'render_floating_header'], 12);
         add_action('wp_head', [self::class, 'render_schema_jsonld'], 25);
@@ -48,6 +48,12 @@ final class Excalibur_Blog_UI
 
         $classes[] = 'excalibur-blog-single';
         $classes[] = 'nero-ai-landing';
+        $classes = array_values(array_diff($classes, [
+            'content-width-narrow',
+            'content-style-boxed',
+        ]));
+        $classes[] = 'content-width-normal';
+        $classes[] = 'content-style-unboxed';
 
         if (get_post_meta(get_queried_object_id(), '_excalibur_blog_skip_theme_faq', true) === '1') {
             $classes[] = 'excalibur-blog-article';

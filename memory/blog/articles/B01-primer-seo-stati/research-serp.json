@@ -2,17 +2,17 @@
   "agent": "excalibur-blog",
   "date_context": {
     "timezone": "Europe/Moscow",
-    "today_iso": "2026-06-10",
-    "today_ru": "10.06.2026",
+    "today_iso": "2026-06-18",
+    "today_ru": "18.06.2026",
     "year": 2026,
     "month": 6,
     "month_name_ru": "июнь",
-    "weekday_ru": "среда",
+    "weekday_ru": "четверг",
     "freshness_window": {
-      "prefer_sources_after": "2026-03-12",
+      "prefer_sources_after": "2026-03-20",
       "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
     },
-    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-10 (2026 год)."
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-18 (2026 год)."
   },
   "topic": {
     "topic_id": "B01",
@@ -35,37 +35,37 @@
       "result_count": 6,
       "results": [
         {
-          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
-          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
+          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
           "snippet": ""
         },
         {
-          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
-          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
-          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
-        },
-        {
-          "title": "Что Такое Seo-текст И Как Правильно Написать Оптимизированную Статью",
-          "url": "https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat",
+          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
+          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
           "snippet": "Пошагово о том, как написать SEO-статью в 2026 году: от сбора семантики в Wordstat до оптимизации под E-E-A-T и Featured Snippet. Чек-лист и продвинутые методики внутри! Читать →"
         },
         {
           "title": "Как Писать Seo-тексты В 2026 Году — Новые Правила",
           "url": "https://hozyindachi.ru/kak-pisat-seo-teksty-v-2026-godu-novye-pravila/",
-          "snippet": "Пошаговое руководство, как написать эффективный SEO-текст для сайта: структура, требования, ключевые слова, метатеги, внутренняя и внешняя перелинковка, визуальный контент."
-        },
-        {
-          "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
-          "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
-          "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
+          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
         },
         {
           "title": "Как Писать Seo Тексты В 2026: Полный Гайд Для Копирайтеров",
           "url": "https://seomatik.ru/articles/seo/kak-podgotovit-effektivnye-seo-teksty-v-2026-godu-prakticheskoe-rukovodstvo-opytnogo-kopiraytera/",
-          "snippet": "Разбираем, как создавать SEO-статьи в 2026 году: от структуры и семантики до правильной оптимизации под поисковые системы. Практические рекомендации для роста трафика и позиций."
+          "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
+        },
+        {
+          "title": "Seo-тексты 2026: Как Писать Самостоятельно И С Помощью Ии - Полное ...",
+          "url": "https://www.newsta.ru/seo-teksti-2026-kak-pisat-samostoyatelno-i-s-pomoshchyu-ii-polnoe-rukovodstvo",
+          "snippet": "Пошаговое руководство по написанию SEO текстов. Структурирование контента, использование ключевых слов, работа с ИИ и ранжирование в Google и Яндексе."
+        },
+        {
+          "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
+          "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
+          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     },
     {
       "query_id": "primary_recent",
@@ -79,32 +79,32 @@
           "snippet": ""
         },
         {
-          "title": "Как Писать Seo-тексты В 2026 Году — Новые Правила",
-          "url": "https://hozyindachi.ru/kak-pisat-seo-teksty-v-2026-godu-novye-pravila/",
+          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
+          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
           "snippet": "Как писать SEO-тексты и статьи для сайтов с учетом E-E-A-T-факторов, в деталях и с примерами рассказали в этом гайде - рекомендуем ознакомиться с ним, если хотите глубже погрузиться в тему."
         },
         {
-          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
-          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
-          "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
-        },
-        {
-          "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
-          "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
+          "title": "Как Писать Seo-тексты В 2026 Году — Новые Правила",
+          "url": "https://hozyindachi.ru/kak-pisat-seo-teksty-v-2026-godu-novye-pravila/",
           "snippet": "Пошагово о том, как написать SEO-статью в 2026 году: от сбора семантики в Wordstat до оптимизации под E-E-A-T и Featured Snippet. Чек-лист и продвинутые методики внутри! Читать →"
         },
         {
           "title": "Как Писать Seo Тексты В 2026: Полный Гайд Для Копирайтеров",
           "url": "https://seomatik.ru/articles/seo/kak-podgotovit-effektivnye-seo-teksty-v-2026-godu-prakticheskoe-rukovodstvo-opytnogo-kopiraytera/",
-          "snippet": "Разбираем, как создавать SEO-статьи в 2026 году: от структуры и семантики до правильной оптимизации под поисковые системы. Практические рекомендации для роста трафика и позиций."
+          "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
         },
         {
-          "title": "Как Писать Seo-тексты Для Сайта В 2026 Году: Пошаговая Инструкция",
-          "url": "https://delay.site/kak-pisat-seo-teksty-dlya-sajta-2026/",
+          "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
+          "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
           "snippet": "Пошаговое руководство по написанию SEO текстов. Структурирование контента, использование ключевых слов, работа с ИИ и ранжирование в Google и Яндексе."
+        },
+        {
+          "title": "Seo-тексты 2026: Как Писать Самостоятельно И С Помощью Ии - Полное ...",
+          "url": "https://www.newsta.ru/seo-teksti-2026-kak-pisat-samostoyatelno-i-s-pomoshchyu-ii-polnoe-rukovodstvo",
+          "snippet": "Разбираем, как создавать SEO-статьи в 2026 году: от структуры и семантики до правильной оптимизации под поисковые системы. Практические рекомендации для роста трафика и позиций."
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     },
     {
       "query_id": "news_angle",
@@ -118,19 +118,19 @@
           "snippet": ""
         },
         {
-          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
-          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
+          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
           "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
         },
         {
-          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
-          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
-          "snippet": "Как писать SEO-тексты и статьи для сайтов с учетом E-E-A-T-факторов, в деталях и с примерами рассказали в этом гайде - рекомендуем ознакомиться с ним, если хотите глубже погрузиться в тему."
+          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
+          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+          "snippet": "Пошагово о том, как написать SEO-статью в 2026 году: от сбора семантики в Wordstat до оптимизации под E-E-A-T и Featured Snippet. Чек-лист и продвинутые методики внутри! Читать →"
         },
         {
           "title": "Seo-тексты 2026: Как Писать Самостоятельно И С Помощью Ии - Полное ...",
           "url": "https://www.newsta.ru/seo-teksti-2026-kak-pisat-samostoyatelno-i-s-pomoshchyu-ii-polnoe-rukovodstvo",
-          "snippet": "Пошагово о том, как написать SEO-статью в 2026 году: от сбора семантики в Wordstat до оптимизации под E-E-A-T и Featured Snippet. Чек-лист и продвинутые методики внутри! Читать →"
+          "snippet": "Как писать SEO-тексты и статьи для сайтов с учетом E-E-A-T-факторов, в деталях и с примерами рассказали в этом гайде - рекомендуем ознакомиться с ним, если хотите глубже погрузиться в тему."
         },
         {
           "title": "Как Писать Seo Тексты В 2026: Полный Гайд Для Копирайтеров",
@@ -143,7 +143,7 @@
           "snippet": "Пошаговое руководство по написанию SEO текстов. Структурирование контента, использование ключевых слов, работа с ИИ и ранжирование в Google и Яндексе."
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     },
     {
       "query_id": "secondary_1",
@@ -162,27 +162,27 @@
           "snippet": "Пошаговое руководство по написанию SEO текстов. Структурирование контента, использование ключевых слов, работа с ИИ и ранжирование в Google и Яндексе."
         },
         {
-          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
-          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+          "title": "Seo Тексты Для Блога: Как Правильно Структурировать Статьи",
+          "url": "https://analito.ru/media/content/seo-teksty-bloga/",
           "snippet": "Узнайте новые правила написания SEO-текстов в 2026 году: E-E-A-T, семантические кластеры, AI-оптимизация. Практическое руководство от эксперта по SEO-продвижению."
         },
         {
-          "title": "Seo Тексты Для Блога: Как Правильно Структурировать Статьи",
-          "url": "https://analito.ru/media/content/seo-teksty-bloga/",
-          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
-        },
-        {
-          "title": "SEO-тексты: как писать статьи для ТОП Google в 2026 году - Контент ...",
-          "url": "https://fabrika-slov.com/seo-teksty-kak-pisat-stati-kotorye-popadayut-v-top-google-v-2026-godu/",
+          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
+          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
           "snippet": "Узнайте, как создавать SEO тексты для блога с правильной структурой, чтобы повысить позиции в Яндекс и Google. В статье раскрыты ключевые приёмы и рекомендации для эффективного продвижения."
         },
         {
-          "title": "Seo-тексты 2026: Как Писать Самостоятельно И С Помощью Ии - Полное ...",
-          "url": "https://www.newsta.ru/seo-teksti-2026-kak-pisat-samostoyatelno-i-s-pomoshchyu-ii-polnoe-rukovodstvo",
-          "snippet": "Хотите вывести сайт в ТОП Google в 2026 году? Узнайте актуальные правила написания SEO-текстов, которые работают. Практический гайд от Fabrika Slov."
+          "title": "Генератор SEO текстов онлайн 2026 | TextBot",
+          "url": "https://textbot.ru/generator-seo-textov",
+          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
+        },
+        {
+          "title": "Seo Тексты: 4 Фактора Успеха В 2026 Году, Без Которых Ваши Статьи Обречены",
+          "url": "https://www.klerk.ru/user/2632399/674809/",
+          "snippet": "Генератор SEO текстов онлайн 2026 — мощный инструмент для создания контента. TextBot.ru помогает написать материал по ключевым словам, оптимизируя его для поисковых систем."
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     },
     {
       "query_id": "secondary_2",
@@ -191,14 +191,9 @@
       "result_count": 6,
       "results": [
         {
-          "title": "Geo Оптимизация Старых Статей: Полное Руководство 2026",
-          "url": "https://blog.geouseo.ru/geo-optimizaciya-staryh-statej-polnoe-rukovodstvo-2026/",
-          "snippet": ""
-        },
-        {
           "title": "GEO-оптимизация (Generative Engine Optimization): что это и как делать ...",
           "url": "https://audit4seo.ru/blog/geo-optimizaciya-2026",
-          "snippet": "Нужно ли переписывать старые статьи под GEO? Краткий ответ: чаще достаточно доработать. Разбираем критерии, шаги и примеры."
+          "snippet": ""
         },
         {
           "title": "GEO-оптимизация в 2026: как попасть в ответы YandexGPT, Алисы AI и ...",
@@ -206,22 +201,27 @@
           "snippet": "Полный гайд по GEO-оптимизации 2026: что такое Generative Engine Optimization, отличия от SEO, практические методы, роль llms.txt и Schema.org, чек-лист для Яндекса и Google."
         },
         {
-          "title": "Geo-оптимизация В 2026: Полное Руководство По Продвижению В Ai ...",
-          "url": "https://spat.by/blog/geo-optimizaciya-2026-polnoe-rukovodstvo",
+          "title": "Geo-оптимизация Сайта В 2026: Полный Гайд Для Бизнеса",
+          "url": "https://web-signal.ru/blog/geo-optimizaciya-sajta-2026",
           "snippet": "Разбираем, чем GEO отличается от SEO, что такое llms.txt и Share of Voice, и показываем, как российские компании готовят сайт к нейропоиску в YandexGPT, Алисе AI, GigaChat, ChatGPT, Claude и Perplexity."
         },
         {
-          "title": "GEO оптимизация: полное руководство 2026 | LeadStream",
-          "url": "https://leadstream.marketing/blog/geo-optimization-guide-2026",
+          "title": "Geo-оптимизация В 2026: Полное Руководство По Продвижению В Ai ...",
+          "url": "https://spat.by/blog/geo-optimizaciya-2026-polnoe-rukovodstvo",
+          "snippet": "Полный гайд по GEO-оптимизации в 2026: 8 шагов, факторы цитируемости в LLM, особенности русских моделей и топ-5 ошибок, которые убивают видимость."
+        },
+        {
+          "title": "Geo-оптимизация Сайта Под Ai-поиск 2026: Полное Руководство Hated.ru",
+          "url": "https://hated.ru/articles/o-seo/ai-2026/",
           "snippet": "GEO - это не замена SEO, а его эволюция. Компании, которые инвестируют в GEO-оптимизацию сегодня, получат значительное конкурентное преимущество в ближайшие годы."
         },
         {
           "title": "Geo Оптимизация 2026: Полный Гайд По Поиску Клиентов",
           "url": "https://blog.geouseo.ru/geo-optimizaciya-2026-polnyj-gajd-po-poisku-klientov/",
-          "snippet": "GEO (Generative Engine Optimization) — это новая дисциплина, которая учит, как сделать ваш контент видимым и цитируемым в ответах генеративных AI-систем."
+          "snippet": "Как подготовить сайт к эпохе AI-поиска в 2026 году. Полное руководство по GEO-оптимизации, Schema.org, E-E-A-T, llms.txt и внутренней перелинковке. Реальные кейсы и чек-лист от экспертов HATED.RU."
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     },
     {
       "query_id": "h1_fresh",
@@ -230,19 +230,9 @@
       "result_count": 6,
       "results": [
         {
-          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
-          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
-          "snippet": ""
-        },
-        {
-          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
-          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
-          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
-        },
-        {
           "title": "SEO-тексты: как писать статьи, которые попадают в ТОП Google в 2026 году",
           "url": "https://fabrika-slov.com/seo-teksty-kak-pisat-stati-kotorye-popadayut-v-top-google-v-2026-godu/",
-          "snippet": "Как самому написать seo текст, который полюбят люди и роботы? План, сбор семантики, структура и чек-лист для топа. Читайте гайд и пишите!"
+          "snippet": ""
         },
         {
           "title": "Как Писать Seo Тексты В 2026: Полный Гайд Для Копирайтеров",
@@ -250,34 +240,39 @@
           "snippet": "Хотите вывести сайт в ТОП Google в 2026 году? Узнайте актуальные правила написания SEO-текстов, которые работают. Практический гайд от Fabrika Slov."
         },
         {
-          "title": "Как Писать Seo-тексты, Которые Читают Люди — Руководство 2026",
-          "url": "https://bestseoserg.com/blog/kak-pisat-seo-teksty.html",
+          "title": "Как Писать Seo-статьи, Которые Читают Люди И Любят Пои…",
+          "url": "https://qvai.ru/media/kak-pisat-seo-stati",
           "snippet": "Пошаговое руководство по написанию SEO текстов. Структурирование контента, использование ключевых слов, работа с ИИ и ранжирование в Google и Яндексе."
         },
         {
-          "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
-          "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
-          "snippet": "Как писать SEO-тексты, которые нравятся и Яндексу, и читателям. Структура, ключевые слова, объём, стиль — разбираем на конкретных примерах. Руководство 2026 года."
+          "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
+          "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+          "snippet": "Баланс между оптимизацией и пользой: как писать статьи, которые ранжируются в поиске и при этом интересны живым читателям."
+        },
+        {
+          "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
+          "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
+          "snippet": "Все про SEO копирайтинг 2026 - какие факторы учесть, как использовать ИИ и т. д. Подробно рассказываем, как создать SEO-текст и статью в 2026 году так, чтобы она могла попасть в топ и ответы ИИ."
+        },
+        {
+          "title": "Как Писать Seo-тексты, Которые Читают Люди — Руководство 2026",
+          "url": "https://bestseoserg.com/blog/kak-pisat-seo-teksty.html",
+          "snippet": "Как самому написать seo текст, который полюбят люди и роботы? План, сбор семантики, структура и чек-лист для топа. Читайте гайд и пишите!"
         }
       ],
-      "searched_at": "2026-06-10"
+      "searched_at": "2026-06-18"
     }
   ],
   "errors": [],
   "unique_urls": [
-    {
-      "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
-      "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
-      "from_query": "как писать seo статьи 2026"
-    },
     {
       "url": "https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t",
       "title": "Как Написать Seo Статью: Полная Инструкция 2026 (Чек-лист)",
       "from_query": "как писать seo статьи 2026"
     },
     {
-      "url": "https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat",
-      "title": "Что Такое Seo-текст И Как Правильно Написать Оптимизированную Статью",
+      "url": "https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/",
+      "title": "Как Писать Seo-тексты И Статьи В 2026 Году - Гайд С Примерами",
       "from_query": "как писать seo статьи 2026"
     },
     {
@@ -286,24 +281,19 @@
       "from_query": "как писать seo статьи 2026"
     },
     {
-      "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
-      "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
-      "from_query": "как писать seo статьи 2026"
-    },
-    {
       "url": "https://seomatik.ru/articles/seo/kak-podgotovit-effektivnye-seo-teksty-v-2026-godu-prakticheskoe-rukovodstvo-opytnogo-kopiraytera/",
       "title": "Как Писать Seo Тексты В 2026: Полный Гайд Для Копирайтеров",
       "from_query": "как писать seo статьи 2026"
     },
     {
-      "url": "https://delay.site/kak-pisat-seo-teksty-dlya-sajta-2026/",
-      "title": "Как Писать Seo-тексты Для Сайта В 2026 Году: Пошаговая Инструкция",
-      "from_query": "как писать seo статьи июнь 2026"
-    },
-    {
       "url": "https://www.newsta.ru/seo-teksti-2026-kak-pisat-samostoyatelno-i-s-pomoshchyu-ii-polnoe-rukovodstvo",
       "title": "Seo-тексты 2026: Как Писать Самостоятельно И С Помощью Ии - Полное ...",
-      "from_query": "как писать seo статьи новости 2026"
+      "from_query": "как писать seo статьи 2026"
+    },
+    {
+      "url": "https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/",
+      "title": "SEO-статьи 2026: как писать тексты для Яндекса и Google",
+      "from_query": "как писать seo статьи 2026"
     },
     {
       "url": "https://analito.ru/media/content/seo-teksty-bloga/",
@@ -311,14 +301,14 @@
       "from_query": "seo текст для блога 2026"
     },
     {
-      "url": "https://fabrika-slov.com/seo-teksty-kak-pisat-stati-kotorye-popadayut-v-top-google-v-2026-godu/",
-      "title": "SEO-тексты: как писать статьи для ТОП Google в 2026 году - Контент ...",
+      "url": "https://textbot.ru/generator-seo-textov",
+      "title": "Генератор SEO текстов онлайн 2026 | TextBot",
       "from_query": "seo текст для блога 2026"
     },
     {
-      "url": "https://blog.geouseo.ru/geo-optimizaciya-staryh-statej-polnoe-rukovodstvo-2026/",
-      "title": "Geo Оптимизация Старых Статей: Полное Руководство 2026",
-      "from_query": "geo оптимизация статьи 2026"
+      "url": "https://www.klerk.ru/user/2632399/674809/",
+      "title": "Seo Тексты: 4 Фактора Успеха В 2026 Году, Без Которых Ваши Статьи Обречены",
+      "from_query": "seo текст для блога 2026"
     },
     {
       "url": "https://audit4seo.ru/blog/geo-optimizaciya-2026",
@@ -331,19 +321,34 @@
       "from_query": "geo оптимизация статьи 2026"
     },
     {
+      "url": "https://web-signal.ru/blog/geo-optimizaciya-sajta-2026",
+      "title": "Geo-оптимизация Сайта В 2026: Полный Гайд Для Бизнеса",
+      "from_query": "geo оптимизация статьи 2026"
+    },
+    {
       "url": "https://spat.by/blog/geo-optimizaciya-2026-polnoe-rukovodstvo",
       "title": "Geo-оптимизация В 2026: Полное Руководство По Продвижению В Ai ...",
       "from_query": "geo оптимизация статьи 2026"
     },
     {
-      "url": "https://leadstream.marketing/blog/geo-optimization-guide-2026",
-      "title": "GEO оптимизация: полное руководство 2026 | LeadStream",
+      "url": "https://hated.ru/articles/o-seo/ai-2026/",
+      "title": "Geo-оптимизация Сайта Под Ai-поиск 2026: Полное Руководство Hated.ru",
       "from_query": "geo оптимизация статьи 2026"
     },
     {
       "url": "https://blog.geouseo.ru/geo-optimizaciya-2026-polnyj-gajd-po-poisku-klientov/",
       "title": "Geo Оптимизация 2026: Полный Гайд По Поиску Клиентов",
       "from_query": "geo оптимизация статьи 2026"
+    },
+    {
+      "url": "https://fabrika-slov.com/seo-teksty-kak-pisat-stati-kotorye-popadayut-v-top-google-v-2026-godu/",
+      "title": "SEO-тексты: как писать статьи, которые попадают в ТОП Google в 2026 году",
+      "from_query": "Как писать SEO-статьи, которые читают люди 2026"
+    },
+    {
+      "url": "https://qvai.ru/media/kak-pisat-seo-stati",
+      "title": "Как Писать Seo-статьи, Которые Читают Люди И Любят Пои…",
+      "from_query": "Как писать SEO-статьи, которые читают люди 2026"
     },
     {
       "url": "https://bestseoserg.com/blog/kak-pisat-seo-teksty.html",

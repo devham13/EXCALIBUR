@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: Оформление статей блога в стиле mayai.ru: навигация, «Читайте также», прогресс чтения, CTA.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '1.0.2');
+define('EBU_VERSION', '1.0.3');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));

@@ -17,6 +17,7 @@
   --ebu-radius-pill: 999px;
   --ebu-article: 1100px;
   --ebu-content: 1100px;
+  --ebu-media-max: 842px;
   --ebu-font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ebu-display: "Manrope", "Inter", system-ui, sans-serif;
 }
@@ -90,16 +91,19 @@ body.excalibur-blog-single h1.entry-title {
 
 body.excalibur-blog-single .post-top-featured,
 body.excalibur-blog-single .entry-content-wrap .post-thumbnail {
-  margin: 0 0 36px !important;
+  max-width: var(--ebu-media-max);
+  margin: 0 auto 36px !important;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 14px 40px rgba(15, 23, 42, 0.1);
 }
 
 body.excalibur-blog-single .post-top-featured img {
-  width: 100%;
-  height: auto;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
   display: block;
+  margin: 0 auto;
 }
 
 /* Body typography — match mayai reference */
@@ -272,10 +276,19 @@ body.excalibur-blog-single .entry-content ol:first-of-type a.is-active {
   transform: translateX(4px);
 }
 
+body.excalibur-blog-single .entry-content figure.inline-quad,
+body.excalibur-blog-single .entry-content figure:has(img),
+body.excalibur-blog-single .entry-content p:has(> img:only-child) {
+  max-width: var(--ebu-media-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body.excalibur-blog-single .entry-content figure.inline-quad img,
 body.excalibur-blog-single .entry-content img {
-  max-width: 100%;
-  height: auto;
+  width: auto !important;
+  max-width: min(100%, var(--ebu-media-max)) !important;
+  height: auto !important;
   border-radius: 16px;
   margin: 2em auto;
   display: block;
@@ -283,7 +296,7 @@ body.excalibur-blog-single .entry-content img {
 }
 
 body.excalibur-blog-single .entry-content figure.inline-quad {
-  margin: 2em 0;
+  margin: 2em auto;
 }
 
 body.excalibur-blog-single .entry-content figure figcaption,

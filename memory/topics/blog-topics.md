@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Rules для AI-агента
+
+- **priority:** P0
+- **slug:** cursor-rules-nastrojka-2026
+- **h1:** Как настроить Cursor Rules: пошаговая инструкция по .cursor/rules в 2026 году
+- **primary_query:** cursor rules
+- **secondary_queries:** cursor rules mdc, правила cursor ai, настройка cursor rules
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем Cursor Rules в 2026: миграция с устаревшего .cursorrules на .cursor/rules/*.mdc
+  2. Создание первого правила: YAML-frontmatter, globs и alwaysApply без перерасхода контекста
+  3. Четыре режима активации: Always Apply, Apply to Files, Apply Intelligently, Manual (@rule)
+  4. Набор rules для автоматизации: general, components, n8n-workflows, content-seo
+  5. Чек-лист из 15 пунктов перед коммитом .cursor/rules в Git
+- **faq_hints:** чем cursor rules отличаются от mcp в cursor; как написать cursor rules для проекта; когда ставить alwaysApply true
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** экран Cursor IDE, вокруг папка .cursor/rules с .mdc-стикерами (frontmatter, globs, alwaysApply), стрелки к Agent-чату, неоновый diy-коллаж
+
+---
+

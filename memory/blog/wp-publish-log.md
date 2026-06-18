@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-18 — B01 primer-seo-stati — **BLOCKER**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **BLOCKER** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (6/6, refreshed publish preflight)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: **unset** (env); `memory/site.env.local` **missing**
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # NOT RUN
+```
+
+Dry-run: slug `primer-seo-stati`, title «Как писать SEO-статьи, которые читают люди: гайд 2026», PHP bytes 10947622.
+
+### Blockers
+
+1. **Allow flag:** `EXCALIBUR_BLOG_ALLOW_PUBLISH` не задан в Cloud Secrets / env.
+2. **Credentials file:** `memory/site.env.local` отсутствует (скрипт требует FTP_* + allow flag для production publish).
+
+### Next steps (для оператора)
+
+1. Добавить Cloud Secret `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` или создать `memory/site.env.local` через `python3 scripts/excalibur_blog_setup.py`.
+2. Убедиться, что FTP credentials (`FTP_HOST`, `FTP_USER`, `FTP_PASS`/`FTP_PASSWORD`, `FTP_ROOT`, `PUBLIC_SITE_URL`) доступны publish-скрипту.
+3. Перезапустить `Task(excalibur-blog-publish)` для B01.

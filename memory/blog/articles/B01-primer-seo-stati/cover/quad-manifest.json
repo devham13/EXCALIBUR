@@ -13,30 +13,30 @@
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
+      "alt": "Обложка: SEO-статья для людей и нейропоиска — мем-коллаж с Wordstat и analytics",
+      "scene_hint": "reference-лицо в тёмно-синем худи SEO-редактора, дружелюбная улыбка, указывает на fake Wordstat «15 000 ключей» и analytics «0 прочтений», Telegram «где трафик?», отзыв ★☆☆☆☆ на рваной бумаге, facepalm + shocked cat meme cutouts, розовый highlight на «0 прочтений», скотч и pink sticky «жиза»",
       "meme_caption_ru": "15k ключей — 0 прочтений?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Свяжите SEO и GEO в одном workflow",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Свяжите SEO и GEO в одном workflow»",
+      "alt": "Сравнительная таблица / UI-мокап: Свяжите SEO и GEO в одном workflow"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "h2_anchor": "Постройте структуру longread от семантики до текста",
       "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Постройте структуру longread от семантики до текста»",
+      "alt": "Схема workflow / шаги: Постройте структуру longread от семантики до текста"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "h2_anchor": "Настройте разметку schema перед публикацией",
       "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "scene_hint": "FAQ accordion + JSON-LD schema UI — «Настройте разметку schema перед публикацией»",
+      "alt": "FAQ + schema / JSON-LD UI: Настройте разметку schema перед публикацией"
     }
   }
 }

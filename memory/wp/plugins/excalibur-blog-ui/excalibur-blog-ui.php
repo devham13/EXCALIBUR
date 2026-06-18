@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '2.0.0');
+define('EBU_VERSION', '2.0.1');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -30,11 +30,7 @@ final class Excalibur_Blog_UI
         add_filter('kadence_post_layout', [self::class, 'hide_kadence_footer_blocks']);
         add_filter('theme_mod_post_related', [self::class, 'disable_kadence_related']);
         add_filter('theme_mod_post_navigation', [self::class, 'disable_kadence_navigation']);
-        add_action('kadence_single_after_entry_header', [self::class, 'render_hero_deck'], 8);
-        add_action('kadence_single_before_entry_content', [self::class, 'open_editorial_layout'], 3);
-        add_action('kadence_single_after_entry_content', [self::class, 'close_editorial_layout'], 99);
         add_action('kadence_single_after_content', [self::class, 'render_article_footer'], 8);
-        add_action('wp_footer', [self::class, 'render_floating_actions'], 20);
     }
 
     public static function is_blog_article(): bool
@@ -210,73 +206,6 @@ final class Excalibur_Blog_UI
         echo '<script type="application/ld+json">' . wp_kses_post($schema) . '</script>' . "\n";
     }
 
-    public static function render_hero_deck(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        $title = get_the_title();
-        $slug = sanitize_title($title);
-        $panel_title = $slug !== '' ? $slug : 'article-setup';
-
-        echo '<div class="ebu-hero-deck ebu-reveal-item">';
-        echo '<div class="ebu-flow-line" aria-hidden="true">';
-        echo '<span class="ebu-flow-line__node">Cursor</span>';
-        echo '<span class="ebu-flow-line__arrow">→</span>';
-        echo '<span class="ebu-flow-line__node">MCP</span>';
-        echo '<span class="ebu-flow-line__arrow">→</span>';
-        echo '<span class="ebu-flow-line__node">Tools</span>';
-        echo '<span class="ebu-flow-line__arrow">→</span>';
-        echo '<span class="ebu-flow-line__node">Result</span>';
-        echo '</div>';
-
-        echo '<div class="ebu-hero-panel">';
-        echo '<div class="ebu-badges">';
-        echo '<span class="ebu-badge">Local</span>';
-        echo '<span class="ebu-badge">Secure</span>';
-        echo '<span class="ebu-badge">Fast setup</span>';
-        echo '<span class="ebu-badge">Low-code</span>';
-        echo '</div>';
-
-        echo '<div class="ebu-config-panel" role="presentation">';
-        echo '<div class="ebu-config-panel__bar">';
-        echo '<span class="ebu-config-panel__dots" aria-hidden="true"><span></span><span></span><span></span></span>';
-        echo '<span class="ebu-config-panel__title">' . esc_html($panel_title) . '</span>';
-        echo '</div>';
-        echo '<div class="ebu-config-panel__body">';
-        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Status</span><span class="ebu-config-panel__val ebu-config-panel__val--ok">connected</span></div>';
-        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Tools</span><span class="ebu-config-panel__val">4 active</span></div>';
-        echo '<div class="ebu-config-panel__row"><span class="ebu-config-panel__key">Mode</span><span class="ebu-config-panel__val">local server</span></div>';
-        echo '<div class="ebu-config-panel__code">{"mcp": true, "agents": "ready"}</div>';
-        echo '</div></div>';
-        echo '</div></div>';
-    }
-
-    public static function open_editorial_layout(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        echo '<div class="ebu-editorial-layout" id="article-toc">';
-        echo '<aside class="ebu-toc-rail" aria-label="Оглавление статьи">';
-        echo '<div class="ebu-toc-rail__card">';
-        echo '<p class="ebu-toc-rail__title">В статье</p>';
-        echo '<ul class="ebu-toc-rail__list" id="ebu-toc-rail-list"></ul>';
-        echo '</div></aside>';
-        echo '<div class="ebu-article-main">';
-    }
-
-    public static function close_editorial_layout(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        echo '</div></div>';
-    }
-
     public static function render_article_footer(): void
     {
         if (!self::is_blog_article()) {
@@ -395,25 +324,6 @@ final class Excalibur_Blog_UI
         );
 
         echo '</div></section>';
-    }
-
-    public static function render_floating_actions(): void
-    {
-        if (!self::is_blog_article()) {
-            return;
-        }
-
-        $primary = self::cta_url('primary');
-        $primary_label = self::cta_label('primary');
-
-        echo '<div class="floating-article-actions" data-floating-actions hidden>';
-        echo '<a href="#related-posts" class="btn btn-secondary">Похожие материалы</a>';
-        printf(
-            '<a href="%s" class="btn btn-primary" target="_blank" rel="noopener noreferrer">%s</a>',
-            esc_url($primary),
-            esc_html($primary_label)
-        );
-        echo '</div>';
     }
 
     private static function primary_category_label(): string

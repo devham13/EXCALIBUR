@@ -38,6 +38,54 @@
     }
   }
 
+  /* ── Structure: title → TOC → cover → content ─────────────── */
+  function reorderArticleStructure() {
+    var content = document.querySelector('.entry-content');
+    if (!content) return;
+
+    var toc = null;
+    content.querySelectorAll(':scope > ol').forEach(function (ol) {
+      if (!toc && ol.querySelector('a[href^="#"]')) {
+        toc = ol;
+      }
+    });
+
+    if (toc) {
+      toc.classList.add('ebu-article-toc');
+      if (!toc.id) {
+        toc.id = 'article-toc';
+      }
+      if (content.firstElementChild !== toc) {
+        content.insertBefore(toc, content.firstElementChild);
+      }
+    }
+
+    var thumb =
+      document.querySelector('.entry-hero .post-thumbnail') ||
+      document.querySelector('.post-thumbnail.article-post-thumbnail') ||
+      document.querySelector('.post-thumbnail');
+
+    if (!thumb || thumb.closest('.ebu-featured-media')) {
+      return;
+    }
+
+    var slot = document.createElement('div');
+    slot.className = 'ebu-featured-media';
+    thumb.parentNode.removeChild(thumb);
+    slot.appendChild(thumb);
+
+    if (toc) {
+      toc.parentNode.insertBefore(slot, toc.nextSibling);
+    } else {
+      content.insertBefore(slot, content.firstElementChild);
+    }
+
+    var hero = document.querySelector('.entry-hero.post-hero-section');
+    if (hero && !hero.querySelector('img, .post-thumbnail')) {
+      hero.style.display = 'none';
+    }
+  }
+
   /* ── Reading progress ─────────────────────────────────────── */
   function initReadingProgress() {
     var bar = document.querySelector('.reading-progress [data-reading-progress-fill]');
@@ -52,30 +100,6 @@
 
     window.addEventListener('scroll', update, { passive: true });
     update();
-  }
-
-  /* ── Floating CTA ─────────────────────────────────────────── */
-  function initFloatingCta() {
-    var cta = document.querySelector('[data-floating-actions]');
-    if (!cta) return;
-
-    var shown = false;
-    var threshold = Math.min(window.innerHeight * 0.45, 420);
-
-    function toggle() {
-      var y = window.scrollY || document.documentElement.scrollTop;
-      if (y > threshold && !shown) {
-        cta.classList.add('is-visible');
-        cta.removeAttribute('hidden');
-        shown = true;
-      } else if (y <= threshold && shown) {
-        cta.classList.remove('is-visible');
-        shown = false;
-      }
-    }
-
-    window.addEventListener('scroll', toggle, { passive: true });
-    toggle();
   }
 
   /* ── Scroll reveal ────────────────────────────────────────── */
@@ -107,32 +131,18 @@
     });
   }
 
-  /* ── TOC rail from first <ol> ─────────────────────────────── */
-  function initTocRail() {
+  /* ── Inline TOC active state ──────────────────────────────── */
+  function initInlineToc() {
     var content = document.querySelector('.entry-content');
-    var railList = document.getElementById('ebu-toc-rail-list');
-    if (!content || !railList) return;
+    if (!content) return;
 
-    var firstOl = content.querySelector(':scope > ol');
-    if (!firstOl) return;
+    var toc = content.querySelector(':scope > ol.ebu-article-toc, :scope > ol:first-of-type');
+    if (!toc) return;
 
-    var links = firstOl.querySelectorAll(':scope > li > a[href^="#"]');
-    if (!links.length) return;
-
-    links.forEach(function (link) {
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      a.href = link.getAttribute('href');
-      a.textContent = link.textContent.trim();
-      li.appendChild(a);
-      railList.appendChild(li);
-    });
-
-    body.classList.add('ebu-has-toc-rail');
-
-    var railLinks = railList.querySelectorAll('a[href^="#"]');
+    var links = toc.querySelectorAll('a[href^="#"]');
     var sections = [];
-    railLinks.forEach(function (a) {
+
+    links.forEach(function (a) {
       var id = a.getAttribute('href').slice(1);
       var el = document.getElementById(id);
       if (el) sections.push({ link: a, el: el });
@@ -241,7 +251,6 @@
     });
   }
 
-  /* ── Code blockquote → editor window ────────────────────── */
   function convertCodeBlockquote(bq) {
     var pre = bq.querySelector('pre');
     if (!pre) return;
@@ -277,7 +286,6 @@
     bq.remove();
   }
 
-  /* ── Inline <pre> in content → code windows ───────────────── */
   function wrapPreBlocks() {
     var content = document.querySelector('.entry-content');
     if (!content) return;
@@ -303,7 +311,6 @@
     });
   }
 
-  /* ── Copy buttons ─────────────────────────────────────────── */
   function initCopyButtons() {
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-ebu-copy]');
@@ -352,13 +359,12 @@
     document.body.removeChild(ta);
   }
 
-  /* ── Step lists ───────────────────────────────────────────── */
   function initStepLists() {
     var content = document.querySelector('.entry-content');
     if (!content) return;
 
     content.querySelectorAll(':scope > ol').forEach(function (ol, olIndex) {
-      if (olIndex === 0) return;
+      if (olIndex === 0 || ol.classList.contains('ebu-article-toc')) return;
 
       var items = ol.querySelectorAll(':scope > li');
       var hasSteps = false;
@@ -371,7 +377,6 @@
     });
   }
 
-  /* ── Checklist ────────────────────────────────────────────── */
   function initChecklist() {
     var section = document.getElementById('checklist');
     if (!section) return;
@@ -385,7 +390,6 @@
     ul.classList.add('ebu-checklist');
   }
 
-  /* ── FAQ accordion ────────────────────────────────────────── */
   function initFaqAccordion() {
     var faq = document.getElementById('faq');
     if (!faq) return;
@@ -436,7 +440,6 @@
     });
   }
 
-  /* ── FAQ hash scroll offset ───────────────────────────────── */
   function initFaqHash() {
     if (window.location.hash !== '#faq') return;
     var faq = document.getElementById('faq');
@@ -447,13 +450,12 @@
     });
   }
 
-  /* ── Boot ─────────────────────────────────────────────────── */
   function boot() {
+    reorderArticleStructure();
     initArticleMeta();
     initReadingProgress();
-    initFloatingCta();
     initScrollReveal();
-    initTocRail();
+    initInlineToc();
     initSectionMarkers();
     wrapBlockquotes();
     wrapPreBlocks();

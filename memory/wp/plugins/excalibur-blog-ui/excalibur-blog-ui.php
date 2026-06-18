@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.1.0
+ * Version: 2.1.1
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '2.1.0');
+define('EBU_VERSION', '2.1.1');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -253,12 +253,16 @@ final class Excalibur_Blog_UI
     private static function render_side_rail(string $position): void
     {
         $blocks = self::get_side_blocks();
-        $items = array_values(array_filter(
-            $blocks,
-            static function (array $block) use ($position): bool {
-                return ($block['side'] ?? '') === $position;
-            }
-        ));
+        if ($position === 'mobile') {
+            $items = $blocks;
+        } else {
+            $items = array_values(array_filter(
+                $blocks,
+                static function (array $block) use ($position): bool {
+                    return ($block['side'] ?? '') === $position;
+                }
+            ));
+        }
 
         if ($items === []) {
             if ($position !== 'mobile') {

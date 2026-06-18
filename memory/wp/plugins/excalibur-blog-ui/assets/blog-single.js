@@ -20,21 +20,14 @@
   /* ── Article meta from PHP ─────────────────────────────────── */
   function initArticleMeta() {
     var data = window.ebuArticle;
-    if (!data) return;
+    if (!data || !data.readingTime) return;
 
-    var header = document.querySelector('.entry-header');
-    if (header && data.category) {
-      header.setAttribute('data-ebu-category', data.category);
-    }
-
-    if (data.readingTime) {
-      var meta = document.querySelector('.entry-meta');
-      if (meta && !meta.querySelector('.ebu-reading-time')) {
-        var span = document.createElement('span');
-        span.className = 'ebu-reading-time';
-        span.textContent = ' · ' + data.readingTime + ' чтения';
-        meta.appendChild(span);
-      }
+    var meta = document.querySelector('.entry-meta');
+    if (meta && !meta.querySelector('.ebu-reading-time')) {
+      var span = document.createElement('span');
+      span.className = 'ebu-reading-time';
+      span.textContent = ' · ' + data.readingTime + ' чтения';
+      meta.appendChild(span);
     }
   }
 
@@ -100,35 +93,6 @@
 
     window.addEventListener('scroll', update, { passive: true });
     update();
-  }
-
-  /* ── Scroll reveal ────────────────────────────────────────── */
-  function initScrollReveal() {
-    if (!window.IntersectionObserver) {
-      document.querySelectorAll('.ebu-reveal-item').forEach(function (el) {
-        el.classList.add('ebu-active');
-      });
-      return;
-    }
-
-    var targets = document.querySelectorAll('.ebu-reveal-item');
-    if (!targets.length) return;
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('ebu-active');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    targets.forEach(function (el) {
-      observer.observe(el);
-    });
   }
 
   /* ── Inline TOC active state ──────────────────────────────── */
@@ -390,54 +354,56 @@
     ul.classList.add('ebu-checklist');
   }
 
-  function initFaqAccordion() {
-    var faq = document.getElementById('faq');
-    if (!faq) return;
-
-    var node = faq.nextElementSibling;
-    var items = [];
-
-    while (node) {
-      if (node.tagName === 'H2') break;
-      if (node.tagName === 'H3') {
-        var question = node.textContent.trim();
-        var answerNodes = [];
-        var next = node.nextElementSibling;
-        while (next && next.tagName !== 'H3' && next.tagName !== 'H2') {
-          answerNodes.push(next);
-          next = next.nextElementSibling;
-        }
-        items.push({ question: question, answers: answerNodes, heading: node });
-        node = next;
-        continue;
-      }
-      node = node.nextElementSibling;
+  function initFaqCard() {
+    var faqHeading = document.getElementById('faq');
+    if (!faqHeading || faqHeading.closest('.ebu-faq-card')) {
+      return;
     }
 
-    if (!items.length) return;
+    var card = document.createElement('div');
+    card.className = 'ebu-faq-card';
+    card.id = 'faq';
 
-    var wrap = document.createElement('div');
-    wrap.className = 'ebu-faq';
-    faq.parentNode.insertBefore(wrap, items[0].heading);
+    var title = document.createElement('h2');
+    title.className = 'ebu-faq-card__title';
+    title.textContent = 'Часто задаваемые вопросы по теме (FAQ)';
+    card.appendChild(title);
 
-    items.forEach(function (item) {
-      var details = document.createElement('details');
-      details.className = 'ebu-faq__item';
+    var node = faqHeading.nextElementSibling;
+    while (node && node.tagName !== 'H2') {
+      if (node.tagName === 'H3') {
+        var item = document.createElement('div');
+        item.className = 'ebu-faq-card__item';
 
-      var summary = document.createElement('summary');
-      summary.textContent = item.question;
-      details.appendChild(summary);
+        var h3 = node;
+        var question = document.createElement('h3');
+        question.className = 'ebu-faq-card__question';
+        question.textContent = h3.textContent.trim();
+        item.appendChild(question);
 
-      var bodyDiv = document.createElement('div');
-      bodyDiv.className = 'ebu-faq__body';
-      item.answers.forEach(function (el) {
-        bodyDiv.appendChild(el);
-      });
-      details.appendChild(bodyDiv);
+        var answers = document.createElement('div');
+        answers.className = 'ebu-faq-card__answer';
 
-      wrap.appendChild(details);
-      item.heading.remove();
-    });
+        node = h3.nextElementSibling;
+        h3.remove();
+        while (node && node.tagName !== 'H3' && node.tagName !== 'H2') {
+          var next = node.nextElementSibling;
+          answers.appendChild(node);
+          node = next;
+        }
+
+        item.appendChild(answers);
+        card.appendChild(item);
+        continue;
+      }
+
+      var orphan = node;
+      node = node.nextElementSibling;
+      orphan.remove();
+    }
+
+    faqHeading.parentNode.insertBefore(card, faqHeading);
+    faqHeading.remove();
   }
 
   function initFaqHash() {
@@ -454,7 +420,6 @@
     reorderArticleStructure();
     initArticleMeta();
     initReadingProgress();
-    initScrollReveal();
     initInlineToc();
     initSectionMarkers();
     wrapBlockquotes();
@@ -462,7 +427,7 @@
     initCopyButtons();
     initStepLists();
     initChecklist();
-    initFaqAccordion();
+    initFaqCard();
     initFaqHash();
   }
 

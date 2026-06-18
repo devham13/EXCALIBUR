@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.0.1
+ * Version: 2.0.2
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('EBU_VERSION', '2.0.1');
+define('EBU_VERSION', '2.0.2');
 define('EBU_FILE', __FILE__);
 define('EBU_DIR', plugin_dir_path(__FILE__));
 define('EBU_URL', plugin_dir_url(__FILE__));
@@ -30,6 +30,7 @@ final class Excalibur_Blog_UI
         add_filter('kadence_post_layout', [self::class, 'hide_kadence_footer_blocks']);
         add_filter('theme_mod_post_related', [self::class, 'disable_kadence_related']);
         add_filter('theme_mod_post_navigation', [self::class, 'disable_kadence_navigation']);
+        add_action('kadence_single_before_entry_header', [self::class, 'render_category_pill'], 6);
         add_action('kadence_single_after_content', [self::class, 'render_article_footer'], 8);
     }
 
@@ -206,6 +207,23 @@ final class Excalibur_Blog_UI
         echo '<script type="application/ld+json">' . wp_kses_post($schema) . '</script>' . "\n";
     }
 
+    public static function render_category_pill(): void
+    {
+        if (!self::is_blog_article()) {
+            return;
+        }
+
+        $label = self::primary_category_label();
+        if ($label === '') {
+            return;
+        }
+
+        printf(
+            '<span class="ebu-category-pill">%s</span>',
+            esc_html($label)
+        );
+    }
+
     public static function render_article_footer(): void
     {
         if (!self::is_blog_article()) {
@@ -272,7 +290,7 @@ final class Excalibur_Blog_UI
         while ($query->have_posts()) {
             $query->the_post();
             $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
-            echo '<article class="related-card ebu-reveal-item">';
+            echo '<article class="related-card">';
             printf('<a href="%s" class="related-card-link">', esc_url(get_permalink()));
             echo '<div class="related-thumb">';
             if (is_string($thumb) && $thumb !== '') {
@@ -308,17 +326,17 @@ final class Excalibur_Blog_UI
         echo '</div><div class="article-next-step-grid">';
 
         printf(
-            '<a href="%s#services" class="next-step-card next-step-card--case ebu-reveal-item"><span class="next-step-label">Путь 01</span><h3>Разобрать больше кейсов</h3><p>Откройте материалы и соберите рабочую систему на реальных примерах внедрения AI.</p></a>',
+            '<a href="%s#services" class="next-step-card next-step-card--case"><span class="next-step-label">Путь 01</span><h3>Разобрать больше кейсов</h3><p>Откройте материалы и соберите рабочую систему на реальных примерах внедрения AI.</p></a>',
             esc_url($site)
         );
 
         printf(
-            '<a href="%s#contact" class="next-step-card next-step-card--channel ebu-reveal-item"><span class="next-step-label">Путь 02</span><h3>Обсудить внедрение</h3><p>Расскажите о процессе — подскажем, где AI-агенты дадут быстрый эффект без лишней разработки.</p></a>',
+            '<a href="%s#contact" class="next-step-card next-step-card--channel"><span class="next-step-label">Путь 02</span><h3>Обсудить внедрение</h3><p>Расскажите о процессе — подскажем, где AI-агенты дадут быстрый эффект без лишней разработки.</p></a>',
             esc_url($site)
         );
 
         printf(
-            '<a href="%s" class="next-step-card next-step-card--training ebu-reveal-item" target="_blank" rel="noopener noreferrer"><span class="next-step-label">Путь 03</span><h3>%s</h3><p>Короткая диагностика процессов и рекомендации по стеку: n8n, Make, CRM, RAG.</p></a>',
+            '<a href="%s" class="next-step-card next-step-card--training" target="_blank" rel="noopener noreferrer"><span class="next-step-label">Путь 03</span><h3>%s</h3><p>Короткая диагностика процессов и рекомендации по стеку: n8n, Make, CRM, RAG.</p></a>',
             esc_url($primary),
             esc_html($primary_label)
         );
@@ -328,9 +346,32 @@ final class Excalibur_Blog_UI
 
     private static function primary_category_label(): string
     {
-        $categories = get_the_category();
+        $post_id = get_queried_object_id();
+
+        $meta_keys = [
+            '_excalibur_blog_primary_query',
+            '_excalibur_blog_topic_label',
+            '_excalibur_blog_category_label',
+        ];
+
+        foreach ($meta_keys as $key) {
+            $from_meta = get_post_meta($post_id, $key, true);
+            if (is_string($from_meta) && trim($from_meta) !== '') {
+                return trim($from_meta);
+            }
+        }
+
+        $tags = get_the_tags($post_id);
+        if (!empty($tags)) {
+            return $tags[0]->name;
+        }
+
+        $categories = get_the_category($post_id);
         if (!empty($categories)) {
-            return $categories[0]->name;
+            $name = $categories[0]->name;
+            if (!in_array($name, ['Без рубрики', 'Uncategorized'], true)) {
+                return $name;
+            }
         }
 
         return 'AI Engineering';

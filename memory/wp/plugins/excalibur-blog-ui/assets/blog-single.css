@@ -1005,10 +1005,10 @@ body.excalibur-blog-single .entry-content ul:not(.ebu-checklist) li::marker {
   display: none !important;
 }
 
-body.excalibur-blog-single .comments-area {
-  max-width: var(--article-main);
-  margin-left: auto;
-  margin-right: auto;
+body.excalibur-blog-single .comments-area,
+body.excalibur-blog-single #comments,
+body.excalibur-blog-single .comment-respond {
+  display: none !important;
 }
 
 body.excalibur-blog-single .entry-hero.post-hero-section:not(:has(.post-thumbnail)) {

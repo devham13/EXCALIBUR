@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Excalibur Blog UI
  * Description: AI Dev Editorial Interface — оформление технических статей блога.
- * Version: 2.0.4
+ * Version: 2.0.5
  * Author: Excalibur BLOG
  * Text Domain: excalibur-blog-ui
  */

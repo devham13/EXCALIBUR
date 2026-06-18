@@ -1,14 +1,9 @@
 {
   "slug": "avtomatizaciya-n8n-ai-agents",
   "topic_id": "B02",
-  "permalink": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/",
-  "cover_evidence": {
-    "path": "memory\\blog\\articles\\B02-avtomatizaciya-n8n-ai-agents\\cover\\cover.png",
-    "source": "existing_file",
-    "decode_verified": true,
-    "bytes": 1754619,
-    "detected_format": "png"
-  },
-  "raw_output": "OK post=13324 slug=avtomatizaciya-n8n-ai-agents\nOK featured_image=13327\nOK schema_meta=1\nOK inline_image_upload=13328 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-01.jpg\nOK inline_image_upload=13329 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-02.jpg\nOK inline_image_upload=13330 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-03.jpg\npermalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/\n",
-  "verdict": "pass"
+  "permalink": "https://neurinix.com/2026/06/18/avtomatizaciya-n8n-ai-agents/",
+  "raw_output": "OK post=183 slug=avtomatizaciya-n8n-ai-agents\nOK featured_image=198\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=199 src=cover/inline-01.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-01-2.png\nOK inline_image_upload=200 src=cover/inline-02.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-02-2.png\nOK inline_image_upload=201 src=cover/inline-03.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-03-2.png\npermalink=https://neurinix.com/2026/06/18/avtomatizaciya-n8n-ai-agents/\n",
+  "verdict": "pass",
+  "transport": "ssh",
+  "note": "cover regen with new hero reference"
 }

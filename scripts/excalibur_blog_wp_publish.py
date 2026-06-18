@@ -275,13 +275,13 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+def _sftp_remote_path(ftp_root: str, remote: str) -> str:
+    root = ftp_root.strip("/")
+    return f"{root}/{remote}" if root else remote
+
+
+def _upload_bootstrap(env: dict[str, str], ftp_root: str, remote: str, php: str) -> str:
+    data = php.encode("utf-8")
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
@@ -291,9 +291,76 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+        ftp.quit()
+        return "ftp"
+    except ftplib.error_temp as exc:
+        if "425" not in str(exc):
+            raise
+        print(f"FTP STOR blocked ({exc}); falling back to SFTP...", file=sys.stderr)
+
+    import paramiko
+
+    port = int(env.get("SFTP_PORT", "22"))
+    transport = paramiko.Transport((env["FTP_HOST"], port))
+    transport.connect(username=env["FTP_USER"], password=env["FTP_PASS"])
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        sftp_path = _sftp_remote_path(ftp_root, remote)
+        with sftp.open(sftp_path, "wb") as handle:
+            handle.write(data)
+        sftp.chmod(sftp_path, 0o644)
+    finally:
+        sftp.close()
+        transport.close()
+    return "sftp"
+
+
+def _delete_bootstrap(env: dict[str, str], ftp_root: str, remote: str, transport_mode: str) -> None:
+    if transport_mode == "ftp":
+
+        def ftp_connect() -> ftplib.FTP:
+            ftp = ftplib.FTP()
+            ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+            ftp.login(env["FTP_USER"], env["FTP_PASS"])
+            ftp.set_pasv(True)
+            ftp.cwd(ftp_root)
+            return ftp
+
+        ftp = ftp_connect()
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+        return
+
+    import paramiko
+
+    port = int(env.get("SFTP_PORT", "22"))
+    transport = paramiko.Transport((env["FTP_HOST"], port))
+    transport.connect(username=env["FTP_USER"], password=env["FTP_PASS"])
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        sftp.remove(_sftp_remote_path(ftp_root, remote))
+    except OSError:
+        pass
+    finally:
+        sftp.close()
+        transport.close()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if not ftp_root.startswith("/"):
+        ftp_root = "/" + ftp_root
+    if not ftp_root.endswith("/"):
+        ftp_root += "/"
+
+    transport_mode = _upload_bootstrap(env, ftp_root, remote, php)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -301,7 +368,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=15,
+            timeout=300,
         ) as response:
             out = response.read().decode("utf-8", errors="replace")
     except Exception as e:
@@ -324,12 +391,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    _delete_bootstrap(env, ftp_root, remote, transport_mode)
     return out
 
 

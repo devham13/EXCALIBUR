@@ -1,0 +1,10 @@
+{
+  "slug": "telegram-bot-ii-n8n",
+  "topic_id": "B06",
+  "permalink": "[REDACTED]/2026/06/18/telegram-bot-ii-n8n/",
+  "cover_evidence": {},
+  "raw_output": "OK post=209 slug=telegram-bot-ii-n8n\nOK featured_image=216\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=217 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/06/telegram-bot-ii-n8n-inline-01-1.png\nOK inline_image_upload=218 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/06/telegram-bot-ii-n8n-inline-02-1.png\nOK inline_image_upload=219 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/06/telegram-bot-ii-n8n-inline-03-1.png\npermalink=[REDACTED]/2026/06/18/telegram-bot-ii-n8n/\n",
+  "verdict": "pass",
+  "transport": "sftp+webfetch_fallback",
+  "note": "FTP STOR 425 Bad IP → SFTP upload; HTTP trigger timeout → manual trigger on PUBLIC_SITE_URL"
+}

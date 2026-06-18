@@ -5,16 +5,16 @@
   "style_preset": "digital_meme_collage_ru",
   "pipeline": "quad_canvas_1x_mcp",
   "file": "cover/cover.png",
-  "alt": "Эксперт Neurinix за ноутбуком с интерфейсом n8n, розовые стикеры и мем-коллаж",
+  "alt": "Улыбающийся эксперт указывает на график n8n vs Make, чистая кожа, мем-коллаж",
   "aspect_ratio": "16:9",
   "canvas_source": "cover/canvas-quad.png",
-  "generated_at": "2026-06-18T04:49:30+00:00",
+  "generated_at": "2026-06-18T05:00:51+00:00",
   "assets": [
     {
       "role": "cover",
       "slot": "cover",
       "file": "cover/cover.png",
-      "alt": "Эксперт Neurinix за ноутбуком с интерфейсом n8n, розовые стикеры и мем-коллаж",
+      "alt": "Улыбающийся эксперт указывает на график n8n vs Make, чистая кожа, мем-коллаж",
       "h2_anchor": null,
       "visual_type": "cover_meme_hero",
       "aspect_ratio": "16:9"

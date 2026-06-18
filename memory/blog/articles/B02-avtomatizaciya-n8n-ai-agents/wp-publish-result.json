@@ -2,8 +2,7 @@
   "slug": "avtomatizaciya-n8n-ai-agents",
   "topic_id": "B02",
   "permalink": "https://neurinix.com/2026/06/18/avtomatizaciya-n8n-ai-agents/",
-  "raw_output": "OK post=183 slug=avtomatizaciya-n8n-ai-agents\nOK featured_image=198\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=199 src=cover/inline-01.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-01-2.png\nOK inline_image_upload=200 src=cover/inline-02.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-02-2.png\nOK inline_image_upload=201 src=cover/inline-03.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-03-2.png\npermalink=https://neurinix.com/2026/06/18/avtomatizaciya-n8n-ai-agents/\n",
+  "raw_output": "OK post=183 slug=avtomatizaciya-n8n-ai-agents\nOK featured_image=204\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=205 src=cover/inline-01.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-01-3.png\nOK inline_image_upload=206 src=cover/inline-02.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-02-3.png\nOK inline_image_upload=207 src=cover/inline-03.png url=https://neurinix.com/wp-content/uploads/2026/06/avtomatizaciya-n8n-ai-agents-inline-03-3.png\npermalink=https://neurinix.com/2026/06/18/avtomatizaciya-n8n-ai-agents/\n",
   "verdict": "pass",
-  "transport": "ssh",
-  "note": "cover regen with new hero reference"
+  "note": "cover v2 smile+clean skin+point chart"
 }

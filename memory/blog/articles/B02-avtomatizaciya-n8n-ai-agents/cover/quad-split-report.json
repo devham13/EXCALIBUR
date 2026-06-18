@@ -10,17 +10,17 @@
     ],
     "panel_size_px": [
       1020,
-      572
+      624
     ],
     "split_meta": {
       "split_mode": "gutter_detect",
       "h_gutter_px": {
-        "start": 572,
-        "end": 579
+        "start": 624,
+        "end": 630
       },
       "v_gutter_px": {
         "start": 1020,
-        "end": 1029
+        "end": 1028
       }
     },
     "output_size_px": [
@@ -33,38 +33,38 @@
         "quadrant": "top_left",
         "box_px": {
           "left": 0,
-          "top": 0,
+          "top": 25,
           "right": 1020,
-          "bottom": 572
+          "bottom": 599
         },
         "raw_box_px": {
           "left": 0,
           "top": 0,
           "right": 1020,
-          "bottom": 572
+          "bottom": 624
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Эксперт Neurinix за ноутбуком с интерфейсом n8n, розовые стикеры и мем-коллаж",
+        "alt": "Улыбающийся эксперт указывает на график n8n vs Make, чистая кожа, мем-коллаж",
         "h2_anchor": null
       },
       "inline_1": {
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1029,
-          "top": 0,
+          "left": 1028,
+          "top": 25,
           "right": 2048,
-          "bottom": 572
+          "bottom": 599
         },
         "raw_box_px": {
-          "left": 1029,
+          "left": 1028,
           "top": 0,
           "right": 2048,
-          "bottom": 572
+          "bottom": 624
         },
         "size_px": [
           1200,
@@ -78,14 +78,14 @@
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
-          "left": 0,
-          "top": 579,
-          "right": 1020,
+          "left": 46,
+          "top": 630,
+          "right": 974,
           "bottom": 1152
         },
         "raw_box_px": {
           "left": 0,
-          "top": 579,
+          "top": 630,
           "right": 1020,
           "bottom": 1152
         },
@@ -101,14 +101,14 @@
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1029,
-          "top": 579,
-          "right": 2048,
+          "left": 1074,
+          "top": 630,
+          "right": 2002,
           "bottom": 1152
         },
         "raw_box_px": {
-          "left": 1029,
-          "top": 579,
+          "left": 1028,
+          "top": 630,
           "right": 2048,
           "bottom": 1152
         },

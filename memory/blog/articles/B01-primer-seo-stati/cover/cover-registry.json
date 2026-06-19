@@ -3,43 +3,47 @@
   "slug": "primer-seo-stati",
   "cover_family": "brand_collage",
   "style_preset": "digital_meme_collage_ru",
-  "pipeline": "quad_canvas_2x2",
+  "pipeline": "quad_canvas_1x_mcp",
   "file": "cover/cover.png",
-  "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+  "alt": "Эксперт блога указывает на fake Wordstat с 15 000 ключей и analytics «0% дочитывания» — мем-коллаж про SEO-текст для людей",
   "aspect_ratio": "16:9",
   "canvas_source": "cover/canvas-quad.png",
-  "generated_at": "2026-06-10T06:06:53+03:00",
+  "generated_at": "2026-06-19T10:10:33+00:00",
   "assets": [
     {
       "role": "cover",
       "slot": "cover",
       "file": "cover/cover.png",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+      "alt": "Эксперт блога указывает на fake Wordstat с 15 000 ключей и analytics «0% дочитывания» — мем-коллаж про SEO-текст для людей",
       "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_1",
       "file": "cover/inline-01.png",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "alt": "Таблица сравнения SEO и GEO в одном longread — критерии, цели и форматы ответа",
+      "h2_anchor": "Объедините SEO и GEO в одном longread",
+      "visual_type": "comparison_table_ui",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_2",
       "file": "cover/inline-02.png",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "alt": "Скриншот Вордстат и outline H2 по интенту — сбор семантики для SEO-статьи",
+      "h2_anchor": "Соберите семантику и outline по интенту",
+      "visual_type": "tool_screenshot",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_3",
       "file": "cover/inline-03.png",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "alt": "Схема workflow из 9 шагов — от интента до публикации SEO longread с answer-first блоками",
+      "h2_anchor": "Напишите черновик с answer-first блоками",
+      "visual_type": "workflow_diagram",
       "aspect_ratio": "16:9"
     }
   ]

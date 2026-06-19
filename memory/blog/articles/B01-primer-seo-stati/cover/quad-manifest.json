@@ -19,24 +19,24 @@
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Объедините SEO и GEO в одном материале",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Объедините SEO и GEO в одном материале»",
+      "alt": "Сравнительная таблица / UI-мокап: Объедините SEO и GEO в одном материале"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "h2_anchor": "Соберите структуру longread по шагам",
       "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "scene_hint": "8 шагов longread: интент → семантика → SERP → outline → lead → факты → мета → FAQ — «Соберите структуру longread по шагам»",
+      "alt": "Схема workflow / шаги: Соберите структуру longread по шагам"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "h2_anchor": "Добавьте блок вопросов и schema для AI-выдачи",
       "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "scene_hint": "FAQ accordion + JSON-LD schema UI — «Добавьте блок вопросов и schema для AI-выдачи»",
+      "alt": "FAQ + schema / JSON-LD UI: Добавьте блок вопросов и schema для AI-выдачи"
     }
   }
 }

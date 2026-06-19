@@ -172,3 +172,43 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-19 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 259 |
+| inline_images | 260, 261, 262 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| trigger | Cloud automation publish (topic_id B01) |
+
+### Preconditions
+
+- article-qa.md: PASS (97/100)
+- link-verify.json: pass (8/8, preflight 2026-06-19)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (site.env.local from Cloud Secrets)
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=259
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=260 src=cover/inline-01.png
+OK inline_image_upload=261 src=cover/inline-02.png
+OK inline_image_upload=262 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (outbound B01→B03/B04 already in article.html)

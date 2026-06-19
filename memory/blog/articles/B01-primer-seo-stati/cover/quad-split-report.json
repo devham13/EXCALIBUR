@@ -3,7 +3,7 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B01-primer-seo-stati\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
@@ -12,6 +12,11 @@
       1024,
       576
     ],
+    "split_meta": {
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
+    },
     "output_size_px": [
       1200,
       675
@@ -26,12 +31,18 @@
           "right": 1024,
           "bottom": 576
         },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 576
+        },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+        "alt": "Редактор за ноутбуком с блокнотом: мем-коллаж — SEO-текст, который люди дочитают",
         "h2_anchor": null
       },
       "inline_1": {
@@ -43,13 +54,19 @@
           "right": 2048,
           "bottom": 576
         },
+        "raw_box_px": {
+          "left": 1024,
+          "top": 0,
+          "right": 2048,
+          "bottom": 576
+        },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-        "h2_anchor": "Зачем SEO и GEO в одной статье"
+        "alt": "Сравнительная таблица SEO vs GEO: зачем SEO и GEO в одной статье",
+        "h2_anchor": "Разберите, зачем SEO и GEO в одной статье"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
@@ -60,13 +77,19 @@
           "right": 1024,
           "bottom": 1152
         },
+        "raw_box_px": {
+          "left": 0,
+          "top": 576,
+          "right": 1024,
+          "bottom": 1152
+        },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-        "h2_anchor": "Структура longread: от семантики до читабельности"
+        "alt": "Схема workflow longread: от семантики до читабельности",
+        "h2_anchor": "Соберите структуру longread: от семантики до читабельности"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
@@ -77,13 +100,19 @@
           "right": 2048,
           "bottom": 1152
         },
+        "raw_box_px": {
+          "left": 1024,
+          "top": 576,
+          "right": 2048,
+          "bottom": 1152
+        },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-        "h2_anchor": "FAQ и schema: зачем и как"
+        "alt": "FAQ + schema JSON-LD UI: настройка schema и блока вопросов",
+        "h2_anchor": "Настройте schema и блок вопросов для сниппета и AI"
       }
     }
   },

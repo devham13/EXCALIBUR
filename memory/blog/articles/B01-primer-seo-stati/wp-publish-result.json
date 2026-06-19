@@ -1,0 +1,23 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://mayai.ru/blog/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 245,
+  "inline_image_ids": [
+    246,
+    247,
+    248
+  ],
+  "publish_method": "http_bootstrap_trigger",
+  "ftp_note": "FTP STOR blocked (425 Bad IP); published via HTTP bootstrap trigger",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1607445,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=245\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=246 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-1.png\nOK inline_image_upload=247 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-1.png\nOK inline_image_upload=248 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-1.png\npermalink=https://mayai.ru/blog/primer-seo-stati/\n",
+  "verdict": "pass"
+}

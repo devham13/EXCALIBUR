@@ -3,17 +3,17 @@
   "step": "research_start",
   "date_context": {
     "timezone": "Europe/Moscow",
-    "today_iso": "2026-06-10",
-    "today_ru": "10.06.2026",
+    "today_iso": "2026-06-19",
+    "today_ru": "19.06.2026",
     "year": 2026,
     "month": 6,
     "month_name_ru": "июнь",
-    "weekday_ru": "среда",
+    "weekday_ru": "пятница",
     "freshness_window": {
-      "prefer_sources_after": "2026-03-12",
+      "prefer_sources_after": "2026-03-21",
       "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
     },
-    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-10 (2026 год)."
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-19 (2026 год)."
   },
   "topic": {
     "topic_id": "B01",
@@ -27,6 +27,15 @@
     ],
     "search_intent": "how_to",
     "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B01",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
   },
   "search_queries": [
     {

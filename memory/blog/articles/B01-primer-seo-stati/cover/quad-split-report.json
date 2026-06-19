@@ -3,15 +3,26 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B01-primer-seo-stati\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
     ],
     "panel_size_px": [
-      1024,
-      576
+      1019,
+      572
     ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 580
+      },
+      "v_gutter_px": {
+        "start": 1019,
+        "end": 1029
+      }
+    },
     "output_size_px": [
       1200,
       675
@@ -23,8 +34,14 @@
         "box_px": {
           "left": 0,
           "top": 0,
-          "right": 1024,
-          "bottom": 576
+          "right": 1019,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 572
         },
         "size_px": [
           1200,
@@ -38,26 +55,38 @@
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1024,
+          "left": 1029,
           "top": 0,
           "right": 2048,
-          "bottom": 576
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-        "h2_anchor": "Зачем SEO и GEO в одной статье"
+        "alt": "Сравнительная таблица / UI-мокап: Объедините SEO и GEO в одном материале",
+        "h2_anchor": "Объедините SEO и GEO в одном материале"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
           "left": 0,
-          "top": 576,
-          "right": 1024,
+          "top": 580,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 580,
+          "right": 1019,
           "bottom": 1152
         },
         "size_px": [
@@ -65,15 +94,21 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-        "h2_anchor": "Структура longread: от семантики до читабельности"
+        "alt": "Схема workflow / шаги: Соберите структуру longread по шагам",
+        "h2_anchor": "Соберите структуру longread по шагам"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1024,
-          "top": 576,
+          "left": 1029,
+          "top": 580,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 580,
           "right": 2048,
           "bottom": 1152
         },
@@ -82,14 +117,14 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-        "h2_anchor": "FAQ и schema: зачем и как"
+        "alt": "FAQ + schema / JSON-LD UI: Добавьте блок вопросов и schema для AI-выдачи",
+        "h2_anchor": "Добавьте блок вопросов и schema для AI-выдачи"
       }
     }
   },
   "html_inject": [
-    "skip inline_1: already injected",
-    "skip inline_2: already injected",
-    "skip inline_3: already injected"
+    "injected inline_1 after H2 — Объедините SEO и GEO в одном материале",
+    "injected inline_2 after H2 — Соберите структуру longread по шагам",
+    "injected inline_3 after H2 — Добавьте блок вопросов и schema для AI-выдачи"
   ]
 }

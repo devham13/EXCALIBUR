@@ -1,0 +1,20 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://mayai.ru/2026/06/19/primer-seo-stati/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=252\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=253 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-2.png\nOK inline_image_upload=254 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-2.png\nOK inline_image_upload=255 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-2.png\npermalink=https://mayai.ru/2026/06/19/primer-seo-stati/\n",
+  "verdict": "pass",
+  "method": "ssh_scp_fallback (FTP 425 Bad IP from Cloud)",
+  "post_id": 238,
+  "featured_image_id": 252,
+  "inline_image_ids": [
+    253,
+    254,
+    255
+  ]
+}

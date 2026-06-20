@@ -2,11 +2,15 @@
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> Claude Code настраивается через settings.json (permissions, hooks) и CLAUDE.md (договоренности с агентом). Hooks - скрипты на события, которые выполняются всегда; смотрите их в /hooks. CLAUDE.md объясняет стиль, hooks и permissions блокируют опасные действия. При сбое - claude --safe-mode или claude doctor.</blockquote>
 
-<p>Claude Code - агент Anthropic для терминала, IDE и desktop: читает кодовую базу, редактирует файлы, запускает bash-команды (<a href="https://claude.com/product/claude-code" target="_blank">официальное описание</a>). MCP (Model Context Protocol) - открытый стандарт "розеток" для внешних сервисов; в Claude Code конфиг лежит в .mcp.json и дополняет hooks, но не заменяет guardrails. Связка с <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a> и <a href="/avtomatizaciya-n8n-ai-agents/">n8n-агентами</a>: Claude Code - интерактивная работа в репозитории, n8n и Make - фоновые сценарии по расписанию и webhook.</p>
+<p>Claude Code - агент Anthropic для терминала, IDE и desktop: читает кодовую базу, редактирует файлы, запускает bash-команды (<a href="https://claude.com/product/claude-code" target="_blank">официальное описание</a>). MCP (Model Context Protocol) - открытый стандарт "розеток" для внешних сервисов; в Claude Code конфиг лежит в .mcp.json и дополняет hooks, но не заменяет guardrails. Связка с <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">MCP в Cursor</a> и <a href="/avtomatizaciya-n8n-ai-agents/">n8n-агентами</a>: Claude Code - интерактивная работа в репозитории, n8n и Make - фоновые сценарии по расписанию и webhook.</p>
 
 <p><b>Метафора:</b> CLAUDE.md - договор с агентом; hooks - охранник (скрипт срабатывает всегда). Permissions - список allow/deny до вызова tool.</p>
 
 <h2 id="install">1. Установите Claude Code и выполните первый запуск</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение: безопасный первый запуск Claude Code vs YOLO auto-mode без hooks" loading="lazy">
+</figure>
+
 
 <p>Claude Code входит в Pro (от $17/мес при годовой подписке) и Max - цены на дату публикации, см. claude.com. Доступ зависит от региона и аккаунта.</p>
 
@@ -21,6 +25,10 @@
 <p><b>Делайте:</b> фиксируйте версию CLI в README. <b>Не делайте:</b> YOLO без hooks и deny - агент прочитает секреты.</p>
 
 <h2 id="settings-hierarchy">2. Настройте иерархию settings.json в репозитории</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема иерархии settings.json: User, Project, Local, Managed — приоритет scope" loading="lazy">
+</figure>
+
 
 <p>Конфиг - settings.json с иерархией scope (<a href="https://code.claude.com/docs/en/settings" target="_blank">документация</a>). Приоритет: Managed - CLI args - Local - Project - User.</p>
 
@@ -64,26 +72,30 @@
 
 <p>Добавьте $schema и permissions:</p>
 
-<pre><code>{
-  "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "permissions": {
-    "allow": ["Bash(npm run lint)", "Bash(npm test)"],
-    "deny": ["Read(./.env)", "Read(./secrets/**)"]
-  }
-}</code></pre>
+<blockquote>
+  <b>Пример settings.json:</b><br>
+  { "$schema": "https://json.schemastore.org/claude-code-settings.json", "permissions": { "allow": ["Bash(npm run lint)", "Bash(npm test)"], "deny": ["Read(./.env)", "Read(./secrets/**)"] } }
+</blockquote>
 
 <p>Изменения permissions, hooks и apiKeyHelper подхватываются без перезапуска - срабатывает hook ConfigChange. Ключи model и outputStyle читаются при старте сессии; в процессе работы смените модель через /model. Claude Code хранит до 5 резервных копий settings с timestamp - откатите битый JSON, если claude doctor ругается на синтаксис.</p>
 
 <p><b>Делайте:</b> коммитьте project settings, секреты в local. <b>Не делайте:</b> flat-map hooks из старых гайдов - невалидно (<a href="https://github.com/anthropics/claude-code/issues/18960" target="_blank">issue #18960</a>).</p>
 
 <h2 id="claude-md">3. Напишите лаконичный CLAUDE.md без перегруза</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист лаконичного CLAUDE.md: build/test, layout, стиль коммитов без перегруза" loading="lazy">
+</figure>
+
 
 <p>CLAUDE.md - build/test, layout, стиль коммитов. Пути: ~/.claude/CLAUDE.md, CLAUDE.md в корне или .claude/CLAUDE.md, CLAUDE.local.md для личного.</p>
 
-<pre><code># Проект
-## Сборка: npm install && npm test
-## Стиль: Conventional Commits
-## Не трогать migrations/ без запроса</code></pre>
+<blockquote>
+  <b>Пример CLAUDE.md:</b><br>
+  # Проект<br>
+  ## Сборка: npm install && npm test<br>
+  ## Стиль: Conventional Commits<br>
+  ## Не трогать migrations/ без запроса
+</blockquote>
 
 <p>Модель может "забыть" длинный CLAUDE.md; запреты (.env, push в main) - в hooks и permissions.</p>
 
@@ -93,23 +105,10 @@
 
 <p>Hooks - shell/HTTP/MCP/prompt/agent на lifecycle (<a href="https://code.claude.com/docs/en/hooks" target="_blank">справочник</a>). Схема: событие → matcher-группы → handlers с "type": "command". Exit 2 блокирует PreToolUse; /hooks - только просмотр.</p>
 
-<pre><code>"hooks": {
-  "PostToolUse": [{
-    "matcher": "Edit|Write",
-    "hooks": [{"type": "command",
-      "command": "npx prettier --write \"$CLAUDE_PROJECT_DIR\"/**/*.ts 2>/dev/null || true"}]
-  }],
-  "PreToolUse": [{
-    "matcher": "Read",
-    "hooks": [{"type": "command",
-      "command": "if echo \"$TOOL_INPUT\" | grep -qE '\\.env|secrets/'; then exit 2; fi"}]
-  }],
-  "Notification": [{
-    "matcher": "",
-    "hooks": [{"type": "command",
-      "command": "notify-send 'Claude Code' 'Needs input'"}]
-  }]
-}</code></pre>
+<blockquote>
+  <b>Пример hooks в settings.json:</b><br>
+  "hooks": { "PostToolUse": [{ "matcher": "Edit|Write", "hooks": [{ "type": "command", "command": "npx prettier --write \"$CLAUDE_PROJECT_DIR\"/**/*.ts 2>/dev/null || true" }] }], "PreToolUse": [{ "matcher": "Read", "hooks": [{ "type": "command", "command": "if echo \"$TOOL_INPUT\" | grep -qE '\\.env|secrets/'; then exit 2; fi" }] }], "Notification": [{ "matcher": "", "hooks": [{ "type": "command", "command": "notify-send 'Claude Code' 'Needs input'" }] }] }
+</blockquote>
 
 <p>PostToolUse запускает prettier или ruff/black после каждого Edit|Write - код остается единообразным без ручного lint. PreToolUse Read с exit 2 возвращает JSON deny и блокирует чтение .env и secrets/. Notification hook шлет notify-send на Linux; на macOS замените command на osascript -e 'display notification ...'. Пять типов handler: command, http, mcp_tool, prompt, agent - для старта хватит command. Timeout: 600 с для command, 30 с для prompt.</p>
 
@@ -132,7 +131,7 @@
   <li><b>Шаг 6:</b> invalid JSON - claude doctor + <a href="https://code.claude.com/docs/en/hooks" target="_blank">hooks reference</a>.</li>
 </ol>
 
-<p>Hook молчит? Nested JSON, matcher, $CLAUDE_PROJECT_DIR, debug log. MCP - .mcp.json (<a href="/podklyuchenie-mcp-cursor/">гайд MCP</a>); hooks - lifecycle, MCP - внешние tools.</p>
+<p>Hook молчит? Nested JSON, matcher, $CLAUDE_PROJECT_DIR, debug log. MCP - .mcp.json (<a href="https://mayai.ru/podklyuchenie-mcp-cursor/">гайд MCP</a>); hooks - lifecycle, MCP - внешние tools.</p>
 
 <p><b>Делайте:</b> --safe-mode, затем hooks по одному. <b>Не делайте:</b> править через /hooks UI.</p>
 
@@ -162,7 +161,7 @@
 
 <ol>
   <li>Закоммитьте .claude/ и проведите demo для команды.</li>
-  <li>MCP через .mcp.json - <a href="/podklyuchenie-mcp-cursor/">инструкция MCP</a>.</li>
+  <li>MCP через .mcp.json - <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">инструкция MCP</a>.</li>
   <li>Фоновые сценарии - <a href="/avtomatizaciya-n8n-ai-agents/">n8n и ИИ-агенты</a>.</li>
   <li>Claude + Make - <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a>.</li>
 </ol>

@@ -2,70 +2,84 @@
   "article": "memory/blog/articles/B01-primer-seo-stati/article.html",
   "fact_bank_source": "memory/brief/fact-bank.md",
   "verdict": "pass",
-  "total_extracted_facts": 9,
-  "verified_facts_count": 1,
-  "unverified_facts_count": 8,
+  "total_extracted_facts": 11,
+  "verified_facts_count": 5,
+  "unverified_facts_count": 6,
   "facts": [
     {
       "fact": "2026",
       "kind": "date_or_year",
-      "context": "тся как нормальный материал, а не набор ключей. В 2026 году этого мало: нейропоиск (Яндекс Нейро, Google",
+      "context": "етрике видите: зашли, пробежали глазами и ушли? В 2026 году одних ключей из Вордстата мало – люди ждут ко",
       "verified": true,
       "reason": "Exact match found in fact-bank"
     },
     {
-      "fact": "2024",
+      "fact": "2026 года",
       "kind": "date_or_year",
-      "context": "овка Schema JSON-LD, llms.txt, FAQ в HTML С осени 2024 Алиса AI встроена в основную выдачу Яндекса. Аудит",
+      "context": "екса; частотность запросов – по Вордстату на июнь 2026 года. Частые вопросы Сколько символов должно быть в SE",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "12 недель",
+      "kind": "metric_or_duration",
+      "context": "раулеров Ревизия ключевых страниц – план каждые 6–12 недель Делайте: прогоните текст вслух – где спотыкаетесь",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
-      "fact": "2024 года",
-      "kind": "date_or_year",
-      "context": "ейросетей в России растёт: по данным исследований 2024 года значимая часть пользователей хотя бы раз пробовал",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "с фокусом на нейропоиск – разумная инвестиция на 15 минут настройки. Как проверить статью перед публикацией",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
     },
     {
-      "fact": "150",
+      "fact": "500",
       "kind": "large_number",
-      "context": "жен быть понятен без соседних абзацев. Первые 100–150 слов страницы — ключевая зона для извлечения ответ",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
+      "context": "емантику в Вордстате, outline из 4–6 H2, lead 350–500 знаков, FAQ 5–7 пар и BlogPosting + FAQPage в JSON",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
     },
     {
       "fact": "8 500",
       "kind": "large_number",
-      "context": "ыдаче. Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды.",
+      "context": ". Универсального объёма нет – ориентир для гайда: 8 500–9 500 знаков текста. Запрос \"как писать seo стать",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "9 500",
       "kind": "large_number",
-      "context": "Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды. Семант",
+      "context": "ерсального объёма нет – ориентир для гайда: 8 500–9 500 знаков текста. Запрос \"как писать seo статьи\" ведё",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
-      "fact": "500",
+      "fact": "150",
       "kind": "large_number",
-      "context": "ложение секции = тезис. Шаг 4: Напишите lead. 350–500 знаков: боль, суть ответа, что получит читатель —",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
+      "context": "в 2026 году вреден, как пишет Яндекс . Первые 100–150 слов страницы – главная зона, откуда AI вырезает о",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
     },
     {
       "fact": "1 500",
       "kind": "large_number",
-      "context": "и топ SERP по вашему запросу. Короткая заметка на 1 500 знаков не закроет how-to «как писать seo статьи»,",
+      "context": "вета и топ выдачи по запросу. Короткая заметка на 1 500 знаков не закроет how-to, если конкуренты дают чек",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "15 000",
       "kind": "large_number",
-      "context": "онкуренты дают чек-листы и примеры. Раздувание до 15 000 знаков без новых фактов тоже не помогает — AI и лю",
+      "context": "to, если конкуренты дают чек-листы. Раздувание до 15 000 знаков без новых фактов тоже не помогает. 3. Настр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "e 50–65 знаков, отличается от H1; Description 140–180 с обещанием Один H1 на странице (в теме WordPress)",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     }

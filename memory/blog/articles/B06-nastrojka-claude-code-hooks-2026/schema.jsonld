@@ -1,0 +1,231 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/06/nastrojka-claude-code-hooks-2026.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Как настроить Claude Code: hooks, settings.json и CLAUDE.md"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#webpage",
+      "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/",
+      "name": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#primaryimage"
+      },
+      "description": "Пошаговая настройка Claude Code: settings.json, CLAUDE.md, hooks guardrails, permissions deny для .env и чек-лист 15 пунктов. Проверка /hooks и --safe-mode."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#webpage"
+      },
+      "headline": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md",
+      "description": "Пошаговая настройка Claude Code: settings.json, CLAUDE.md, hooks guardrails, permissions deny для .env и чек-лист 15 пунктов. Проверка /hooks и --safe-mode.",
+      "datePublished": "2026-06-20T21:02:00+03:00",
+      "dateModified": "2026-06-20T21:02:00+03:00",
+      "inLanguage": "ru",
+      "mainEntityOfPage": "https://mayai.ru/nastrojka-claude-code-hooks-2026/",
+      "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/",
+      "image": {
+        "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      },
+      "keywords": "claude code, claude code hooks, claude code settings json, настройка claude code",
+      "wordCount": 8633,
+      "articleSection": "AI-агенты"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как настроить Claude Code с нуля?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install script → /login → /config → .claude/settings.json + CLAUDE.md → hooks → /hooks → тест edit и read .env."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где лежит settings.json Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "~/.claude/settings.json (глобально), .claude/settings.json (репо), .claude/settings.local.json (личное, не коммитить). Local перекрывает project, project - user."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое hooks и чем отличаются от CLAUDE.md?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hooks - скрипты на события, выполняются всегда. CLAUDE.md - текст; модель может не соблюсти. Запреты - hooks + permissions, conventions - CLAUDE.md."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как отключить hooks для отладки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "\"disableAllHooks\": true в settings или claude --safe-mode. Safe-mode отключает CLAUDE.md, skills, hooks и MCP - изоляция битого конфига."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему hook не срабатывает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nested JSON (не flat-map), matcher, exit code, $CLAUDE_PROJECT_DIR. Смотрите /hooks и claude doctor; сверяйте с официальным reference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Claude Code отличается от Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Code - терминальный агент Anthropic с settings.json и hooks. Cursor - IDE с .cursor/mcp.json и Skills. Разные сценарии; MCP-идеи переносятся между ними."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли CLAUDE.md при наличии hooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: build-команды и layout в CLAUDE.md, enforcement в hooks. Не дублируйте hook-логику в markdown."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#howto",
+      "isPartOf": {
+        "@id": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#webpage"
+      },
+      "name": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md",
+      "description": "Пошаговая настройка Claude Code: settings.json, CLAUDE.md, hooks guardrails, permissions и чек-лист 15 пунктов перед продакшеном.",
+      "inLanguage": "ru",
+      "totalTime": "PT1H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code CLI (curl -fsSL https://claude.ai/install.sh | bash)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Подписка Claude Pro или Max"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Терминал Linux или macOS"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Git-репозиторий проекта"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Файлы .claude/settings.json и CLAUDE.md"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Установите Claude Code и выполните первый запуск",
+          "text": "Установите CLI через install script, выполните /login в корне проекта, откройте /config и выберите модель Sonnet или Opus. Не включайте полный auto-mode без hooks и deny.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Настройте иерархию settings.json в репозитории",
+          "text": "Создайте .claude/settings.json в репозитории, добавьте $schema и permissions: allow для lint/test, deny для Read(./.env) и secrets/. Коммитьте project settings, личные overrides — в settings.local.json.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#settings-hierarchy"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Напишите лаконичный CLAUDE.md без перегруза",
+          "text": "Опишите build/test команды, layout репозитория и стиль коммитов в 15–25 строках. Запреты (.env, push в main) перенесите в hooks и permissions, не дублируйте hook-логику в markdown.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#claude-md"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Добавьте hooks-guardrails в settings.json",
+          "text": "Добавьте PostToolUse для форматирования после Edit|Write, PreToolUse Read с exit 2 для блокировки .env и secrets/, Notification для уведомлений. Используйте nested массив matcher и type command.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#hooks"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Настройте permissions и безопасный auto-mode",
+          "text": "Расширьте deny опасными Bash-паттернами при необходимости. Auto-mode включайте только после рабочих hooks. Для изоляции битого конфига используйте disableAllHooks или claude --safe-mode.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#permissions"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Проверьте конфигурацию и устраните сбои",
+          "text": "Откройте /hooks, протестируйте edit файла и попытку read .env, проверьте Notification. При сбое запустите claude --safe-mode, затем claude doctor для invalid JSON.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#verify"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Пройдите чек-лист из 15 пунктов перед продакшен-сетапом",
+          "text": "Проверьте CLI и /login, settings в Git, $schema и claude doctor OK, permissions deny для .env, три hooks, hot-reload, backup settings и документирование процесса обновления hooks для команды.",
+          "url": "https://mayai.ru/nastrojka-claude-code-hooks-2026/#checklist"
+        }
+      ]
+    }
+  ]
+}

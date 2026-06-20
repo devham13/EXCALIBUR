@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "env|secrets/'; then exit 2; fi\" }] }], \"Notification\": [{ \"matcher\": \"\", \"hooks\": [{ \"type\": \"command\", \"command\": \"notify-send 'Claude Code' 'Needs input'\" }] }] } PostToolUse запускает prettier или ruff/black после каждого Edit|Write - код остается единообразным без ручного lint",
+      "word_count": 32
+    },
+    {
+      "sentence": "env blocked, edit formatted Hot-reload hooks проверен Backup settings (до 5 копий) disableAllHooks и --safe-mode в README команды Timeout hooks учтен (600 с) Документирован процесс обновления hooks На потом: PreToolUse Bash block git push в main, SessionStart с additionalContext - добавьте после базового сетапа, когда три стартовых hook стабильны",
+      "word_count": 46
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 5.9,
+    "avg_syllables_per_word": 1.1
+  }
+}

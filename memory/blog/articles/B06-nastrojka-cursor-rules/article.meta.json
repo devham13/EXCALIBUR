@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-rules",
+  "h1": "Как настроить Cursor Rules: пошаговая инструкция по .mdc-файлам в 2026 году",
+  "title": "Cursor Rules: пошаговая настройка .mdc-файлов для проекта",
+  "description": "Пошаговая настройка Cursor Rules: .cursor/rules, frontmatter alwaysApply и globs, 4 режима активации, миграция .cursorrules и troubleshooting для Agent.",
+  "keywords": [
+    "cursor rules",
+    "cursor rules mdc",
+    "настройка cursor rules",
+    "правила cursor для проекта",
+    ".cursor/rules примеры"
+  ],
+  "primary_query": "cursor rules",
+  "secondary_queries": [
+    "cursor rules mdc",
+    "настройка cursor rules",
+    "правила cursor для проекта",
+    ".cursor/rules примеры"
+  ],
+  "char_count": 8542,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor rules mdc для проекта",
+    "пошаговая инструкция cursor rules alwaysApply globs",
+    "настройка правил cursor для agent и миграция cursorrules"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Rules: пошаговая настройка .mdc-файлов для проекта",
+    "title_ctr": "💻 Cursor Rules за 30 минут: настройте .mdc, globs и Agent без хаоса!",
+    "title_aeo": "Как настроить Cursor Rules и .mdc-файлы для проекта в 2026?",
+    "description_seo": "Пошаговая настройка Cursor Rules: .cursor/rules, frontmatter alwaysApply и globs, 4 режима активации, миграция .cursorrules и troubleshooting.",
+    "description_ctr": "⚡ Создайте general.mdc и stack-правила за вечер: 9 шагов, таблица режимов, чек-лист миграции и связка Rules + MCP для Agent в Cursor.",
+    "description_aeo": "Cursor Rules – модульные .mdc в .cursor/rules с YAML frontmatter; alwaysApply для глобальных правил, globs для стека, проверка в чате Agent."
+  },
+  "cover_family": "brand_collage"
+}

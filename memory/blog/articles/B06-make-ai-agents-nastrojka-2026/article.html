@@ -1,0 +1,193 @@
+<p>Клиенты пишут в разном формате, а вы вручную сортируете письма и лиды? Make AI Agents – это "умный диспетчер" на том же канвасе, где вы уже собираете сценарии: он читает неструктурированный текст, сам выбирает действия и показывает ход мыслей в Reasoning Panel. Ниже – настройка Make AI Agents с нуля: Instructions, Model, tools с Return output, тест в in-canvas chat и чек-лист перед продом. После гайда вы соберёте первого рабочего агента для поддержки, лидов или отчётов без кода.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Make AI Agent – модуль на канвасе Make, который принимает сообщение, решает какой tool вызвать и возвращает ответ. Схема MVP: триггер (Gmail/Webhook) → Run an agent (new) → 2-3 tools с Return output → ответ клиенту. Агент нужен при "свободном" вводе; фиксированный пайплайн – обычный сценарий. Тестируйте в Reasoning Panel, следите за credits в Credit usage history. Make AI Agents доступны на всех тарифах, интеграций 3000+.</blockquote>
+
+<p>Make AI Agent – "мозг" внутри сценария Make.com. LLM (языковая модель) только генерирует текст; агент ещё выбирает tools: Sheets, Slack, CRM. Tool – модуль Make или сценарий с Return output в конце. С февраля 2026 – next-gen UI: in-canvas chat, Reasoning Panel. Сравнение с n8n – в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">гайде по n8n AI Agents</a>.</p>
+
+<h2 id="agent-vs-scenario">1. Разберите, когда нужен Make AI Agent, а когда обычный сценарий</h2>
+
+<p>Главная ошибка – ставить агента там, где хватит линейного workflow. Make прямо пишет: агент – когда нужны суждение и неструктурированный ввод (письмо, голосовое, PDF, хаотичный чат). Сценарий – когда шаги заранее известны и повторяются одинаково.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Make AI Agent</th>
+      <th>Обычный сценарий Make</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Входные данные</b></td>
+      <td>Свободный текст, файлы, мультимодал (PDF, CSV, картинки)</td>
+      <td>Структурированные поля, webhook, таблица</td>
+    </tr>
+    <tr>
+      <td><b>Логика</b></td>
+      <td>Модель выбирает tools по контексту</td>
+      <td>Фиксированная цепочка модулей</td>
+    </tr>
+    <tr>
+      <td><b>Отладка</b></td>
+      <td>Reasoning Panel, in-canvas chat</td>
+      <td>История выполнения по модулям</td>
+    </tr>
+    <tr>
+      <td><b>Расход credits</b></td>
+      <td>Variable: AI-модули + каждый tool</td>
+      <td>Предсказуемее: 1 credit на стандартный модуль</td>
+    </tr>
+    <tr>
+      <td><b>Пример кейса</b></td>
+      <td>Классификация заявки + ответ из базы знаний</td>
+      <td>Новая строка в CRM → письмо → Slack</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> начните с одного бизнес-кейса – поддержка, квалификация лидов или сводка отчётов. <b>Не делайте:</b> заменять простой импорт из формы агентом "на будущее".</p>
+
+<h2 id="prepare-account">2. Подготовьте аккаунт Make: тариф, credits и провайдер LLM</h2>
+
+<p>Make AI Agents на всех тарифах. Free: 1 000 credits/мес, интервал запусков от 15 минут. Core от $12/мес, Pro от $21/мес (pricing.make.com, июнь 2026). Подключите Make AI provider или свой API key (OpenAI, Anthropic) на Pro+ – ключ как пароль к облачной модели.</p>
+
+<p><b>Делайте:</b> на первом агенте включите Credit usage history и поставьте лимит уведомлений. <b>Не делайте:</b> запускать сложного агента на Free, если нужен ответ клиенту быстрее чем раз в 15 минут.</p>
+
+<h2 id="build-agent">3. Соберите первого агента на канвасе: пошаговая инструкция</h2>
+
+<blockquote>
+  <b>Схема workflow:</b>
+  <br>
+  Триггер (Gmail / Webhook / Slack) → Make AI Agents: Run an agent (new) → [Reasoning Panel: выбор tool] → Tool A: Google Sheets → Tool B: Call scenario с Return output → Ответ клиенту / запись в CRM
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1: Создайте сценарий-триггер.</b> Новый scenario, модуль Gmail Watch emails, Webhook или Slack New message. Сохраните без активации.</li>
+  <li><b>Шаг 2: Добавьте Run an agent (new).</b> Раздел Make AI Agents (New) → Run an agent. Свяжите с триггером. В поле message передайте текст письма или JSON из webhook.</li>
+  <li><b>Шаг 3: Нажмите Create agent на канвасе.</b> Задайте имя по роли: support_router, lead_qualifier. Имя видно в Library of Agents.</li>
+  <li><b>Шаг 4: Напишите Instructions.</b> Роль ("ты менеджер поддержки"), формат ответа, запрет выдумывать цены, правило "действуй только через tools". Это system prompt агента.</li>
+  <li><b>Шаг 5: Выберите Model.</b> Large – для многошаговых диалогов; small – для быстрой классификации. После теста можно переключить.</li>
+  <li><b>Шаг 6: Добавьте Knowledge (опционально).</b> Загрузите PDF/CSV с регламентами, если ответы должны опираться на ваши документы, а не на "память" модели.</li>
+  <li><b>Шаг 7: Подключите 2-3 tools.</b> Add tool → модуль (Google Sheets, Slack) или Call a scenario. У on-demand сценария в конце обязателен Return output или structured scenario outputs.</li>
+  <li><b>Шаг 8: Опишите каждый tool.</b> Name и description до ~240 символов: когда вызывать, что вернёт. Модель читает только это, не ваш код.</li>
+  <li><b>Шаг 9: Протестируйте in-canvas chat.</b> Три промпта: нормальный запрос, edge case (пустое поле), off-topic. Смотрите Reasoning Panel – какой tool выбрал агент и почему.</li>
+</ol>
+
+<p>MCP – стандарт подключения внешних API как tool; для MVP хватит модулей и Call a scenario. Подробнее – в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com на kv-ai.ru</a>.</p>
+
+<h2 id="tools-debug">4. Настройте tools и отладьте ошибки tool-calls</h2>
+
+<p>Tool = сценарий с Return output; агент вызывает по name + description. Частые сбои: не тот tool (дубли descriptions), падение tool (error handler), циклы (слишком много tools), пустой ответ (проверьте output mapping).</p>
+
+<p><b>Делайте:</b> после каждого теста правьте descriptions, не Instructions целиком. <b>Не делайте:</b> давать агенту tool на удаление данных или платежи без human approval.</p>
+
+<h2 id="production">5. Запустите агента в прод и пройдите чек-лист guardrails</h2>
+
+<p>Prod-сборка: map message из триггера → Run an agent → ответ (Gmail Reply, Slack message, HTTP в CRM). Где поддерживается, передайте thread ID для контекста диалога – клиент пишет повторно, агент помнит нить.</p>
+
+<p>Human-in-the-loop – пауза перед опасным действием. Платежи, публикации, удаление данных – только через approval-модуль или стоп-флаг.</p>
+
+<p><b>Чек-лист перед Active (12 пунктов):</b></p>
+
+<ol>
+  <li>Кейс проверен: агент, не линейный сценарий.</li>
+  <li>Instructions содержат роль, лимиты, формат ответа, запрет галлюцинаций.</li>
+  <li>Не больше 3-4 tools; descriptions уникальны.</li>
+  <li>У каждого Call a scenario есть Return output.</li>
+  <li>3 теста в in-canvas chat пройдены (норма, edge, off-topic).</li>
+  <li>Reasoning Panel показывает ожидаемый выбор tools.</li>
+  <li>Credit usage history открыт; rough-потребление оценено на 100 прогонах.</li>
+  <li>Лимит credits / алерт настроен в организации.</li>
+  <li>Рискованные tools за human approval.</li>
+  <li>Ошибки tool не ронят весь сценарий (error handler).</li>
+  <li>Thread ID / контекст диалога подключён для поддержки.</li>
+  <li>Документирован owner и дата ревью Instructions (раз в квартал).</li>
+</ol>
+
+<h2 id="compare-n8n">6. Сравните Make AI Agents и n8n AI Agent для вашего кейса</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Make AI Agents</th>
+      <th>n8n AI Agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Запуск</b></td>
+      <td>SaaS, регистрация за минуты</td>
+      <td>Cloud trial или self-host (Docker/VPS)</td>
+    </tr>
+    <tr>
+      <td><b>Интеграции</b></td>
+      <td>3000+ apps, visual builder</td>
+      <td>400+ нод, MCP, глубокий AI stack</td>
+    </tr>
+    <tr>
+      <td><b>Отладка</b></td>
+      <td>Reasoning Panel, in-canvas chat</td>
+      <td>Logs AI Agent, execution history</td>
+    </tr>
+    <tr>
+      <td><b>Данные</b></td>
+      <td>Облако Make</td>
+      <td>Self-host возможен (Community Edition)</td>
+    </tr>
+    <tr>
+      <td><b>Биллинг</b></td>
+      <td>Credits; AI variable</td>
+      <td>Executions (run workflow = 1 execution)</td>
+    </tr>
+    <tr>
+      <td><b>Кому подходит</b></td>
+      <td>No-code, быстрый B2B MVP</td>
+      <td>Команды с DevOps, кастомные API</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Make AI Agents – если нужен первый агент за день без сервера и с прозрачной отладкой на канвасе. n8n – если данные должны остаться on-premise или нужен LangChain-уровень кастомизации. Подробнее – в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">гайде по автоматизации n8n</a>.
+</blockquote>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Выберите один кейс (поддержка, лиды или отчёты) и опишите "до/после" в цифрах.</li>
+  <li>Соберите MVP по шагам 1-9, не добавляя лишние tools.</li>
+  <li>Прогоните 20 реальных сообщений из архива почты в тестовом режиме.</li>
+  <li>Включите Active только после чек-листа из 12 пунктов.</li>
+  <li>Раз в неделю смотрите Credit usage history и Reasoning Panel на аномалии.</li>
+</ol>
+
+<p>Library of Agents и MCP – в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>; вопросы – <a href="https://t.me/maya_pro" target="_blank">@maya_pro</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Артур Хорошев (CEO Maya AI, автор курса по Make.com и вайбкодингу).<br>
+  <b>Достоверность данных:</b> тарифы, credits и возможности Make AI Agents сверены с официальными страницами make.com и help.make.com на июнь 2026 года; семантика запросов – по SERP и карточке темы (точные показы Вордстата будут добавлены после восстановления MCP).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Чем Make AI Agents отличается от обычного сценария Make?</h3>
+<p>Агент сам выбирает tools по контексту сообщения; сценарий идёт по фиксированным модулям. Откройте таблицу в начале гайда: если вход структурирован – оставьте линейный workflow.</p>
+
+<h3>Нужен ли код для Make AI Agents?</h3>
+<p>Нет. Агенты собираются в visual builder на том же канвасе, что и классические сценарии. Зарегистрируйтесь на make.com, откройте Scenario Builder и модуль Run an agent (new).</p>
+
+<h3>Как подключить CRM, Google Sheets или Telegram?</h3>
+<p>Add tool в настройках агента → выберите модуль платформы или Call a scenario. Для сценария-tool добавьте Return output в конце, иначе агент не получит данные.</p>
+
+<h3>Сколько credits тратит Make AI Agent?</h3>
+<p>Стандартный модуль – 1 credit за действие. AI-фичи потребляют variable credits в зависимости от объёма. Не гадайте: смотрите Credit usage history после тестов, не фиксированные цифры из сторонних блогов.</p>
+
+<h3>Make AI Agents или n8n AI Agent – что выбрать?</h3>
+<p>Make – SaaS, 3000+ apps, Reasoning Panel, быстрый старт. n8n – self-host, executions, глубокая кастомизация. Сравнительная таблица выше; детальный разбор n8n – в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">статье B02</a>.</p>
+
+<h3>Агент вызывает не тот tool – что делать?</h3>
+<p>Уточните descriptions (до ~240 символов), уберите дубли и лишние tools, прогоните три теста в in-canvas chat и смотрите Reasoning Panel после каждого прогона.</p>
+
+<h3>Когда обязателен human-in-the-loop?</h3>
+<p>Любые платежи, удаление данных, публикации от имени компании. Добавьте approval-модуль или стоп-флаг перед рискованным tool – не полагайтесь на "агент сам разберётся".</p>

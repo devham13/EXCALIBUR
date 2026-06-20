@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Make AI Agents – это \"умный диспетчер\" на том же канвасе, где вы уже собираете сценарии: он читает неструктурированный текст, сам выбирает действия и показывает ход мыслей в Reasoning Panel",
+      "word_count": 29
+    },
+    {
+      "sentence": "Критерий Make AI Agent Обычный сценарий Make Входные данные Свободный текст, файлы, мультимодал (PDF, CSV, картинки) Структурированные поля, webhook, таблица Логика Модель выбирает tools по контексту Фиксированная цепочка модулей Отладка Reasoning Panel, in-canvas chat История выполнения по модулям Расход credits Variable: AI-модули + каждый tool Предсказуемее: 1 credit на стандартный модуль Пример кейса Классификация заявки + ответ из базы знаний Новая строка в CRM → письмо → Slack Делайте: начните с одного бизнес-кейса – поддержка, квалификация лидов или сводка отчётов",
+      "word_count": 74
+    },
+    {
+      "sentence": "Соберите первого агента на канвасе: пошаговая инструкция Схема workflow: Триггер (Gmail / Webhook / Slack) → Make AI Agents: Run an agent (new) → [Reasoning Panel: выбор tool] → Tool A: Google Sheets → Tool B: Call scenario с Return output → Ответ клиенту / запись в CRM Шаг 1: Создайте сценарий-триггер",
+      "word_count": 43
+    },
+    {
+      "sentence": "Сравните Make AI Agents и n8n AI Agent для вашего кейса Критерий Make AI Agents n8n AI Agent Запуск SaaS, регистрация за минуты Cloud trial или self-host (Docker/VPS) Интеграции 3000+ apps, visual builder 400+ нод, MCP, глубокий AI stack Отладка Reasoning Panel, in-canvas chat Logs AI Agent, execution history Данные Облако Make Self-host возможен (Community Edition) Биллинг Credits; AI variable Executions (run workflow = 1 execution) Кому подходит No-code, быстрый B2B MVP Команды с DevOps, кастомные API Итоговый вердикт: Make AI Agents – если нужен первый агент за день без сервера и с прозрачной отладкой на канвасе",
+      "word_count": 90
+    }
+  ],
+  "readability": {
+    "score": 99.6,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.1,
+    "avg_syllables_per_word": 1.6
+  }
+}

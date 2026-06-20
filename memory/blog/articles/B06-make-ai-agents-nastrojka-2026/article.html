@@ -5,6 +5,10 @@
 <p>Make AI Agent – "мозг" внутри сценария Make.com. LLM (языковая модель) только генерирует текст; агент ещё выбирает tools: Sheets, Slack, CRM. Tool – модуль Make или сценарий с Return output в конце. С февраля 2026 – next-gen UI: in-canvas chat, Reasoning Panel. Сравнение с n8n – в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">гайде по n8n AI Agents</a>.</p>
 
 <h2 id="agent-vs-scenario">1. Разберите, когда нужен Make AI Agent, а когда обычный сценарий</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Make AI Agent vs обычный сценарий Make" loading="lazy">
+</figure>
+
 
 <p>Главная ошибка – ставить агента там, где хватит линейного workflow. Make прямо пишет: агент – когда нужны суждение и неструктурированный ввод (письмо, голосовое, PDF, хаотичный чат). Сценарий – когда шаги заранее известны и повторяются одинаково.</p>
 
@@ -48,12 +52,20 @@
 <p><b>Делайте:</b> начните с одного бизнес-кейса – поддержка, квалификация лидов или сводка отчётов. <b>Не делайте:</b> заменять простой импорт из формы агентом "на будущее".</p>
 
 <h2 id="prepare-account">2. Подготовьте аккаунт Make: тариф, credits и провайдер LLM</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: подготовка аккаунта Make, тариф и credits" loading="lazy">
+</figure>
+
 
 <p>Make AI Agents на всех тарифах. Free: 1 000 credits/мес, интервал запусков от 15 минут. Core от $12/мес, Pro от $21/мес (pricing.make.com, июнь 2026). Подключите Make AI provider или свой API key (OpenAI, Anthropic) на Pro+ – ключ как пароль к облачной модели.</p>
 
 <p><b>Делайте:</b> на первом агенте включите Credit usage history и поставьте лимит уведомлений. <b>Не делайте:</b> запускать сложного агента на Free, если нужен ответ клиенту быстрее чем раз в 15 минут.</p>
 
 <h2 id="build-agent">3. Соберите первого агента на канвасе: пошаговая инструкция</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист 9 шагов сборки первого Make AI Agent на канвасе" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема workflow:</b>

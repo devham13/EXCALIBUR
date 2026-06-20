@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B06-make-ai-agents-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "e или сценарий с Return output в конце. С февраля 2026 – next-gen UI: in-canvas chat, Reasoning Panel. С",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "ьными страницами make.com и help.make.com на июнь 2026 года; семантика запросов – по SERP и карточке темы (то",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "ах. Free: 1 000 credits/мес, интервал запусков от 15 минут. Core от $12/мес, Pro от $21/мес (pricing.make.co",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "ke AI Agents доступны на всех тарифах, интеграций 3000+. Make AI Agent – \"мозг\" внутри сценария Make.com",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000",
+      "kind": "large_number",
+      "context": "овайдер LLM Make AI Agents на всех тарифах. Free: 1 000 credits/мес, интервал запусков от 15 минут. Core о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "240",
+      "kind": "large_number",
+      "context": "аг 8: Опишите каждый tool. Name и description до ~240 символов: когда вызывать, что вернёт. Модель читае",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "sage history открыт; rough-потребление оценено на 100 прогонах. Лимит credits / алерт настроен в организ",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -18,7 +18,9 @@ TZ = ZoneInfo("Europe/Moscow")
 LEDGER_PATHS = (
     Path("shared/published-articles.md"),
 )
-DEFAULT_SITE_URL = ""
+from excalibur_site_config import default_public_site_url, PRIMARY_EXCALIBUR_PUBLIC_SITE_URL_ENV
+
+DEFAULT_SITE_URL = default_public_site_url()
 
 
 def project_root() -> Path:
@@ -119,7 +121,7 @@ def main() -> None:
         + json.dumps(published[-10:], ensure_ascii=False)
     )
 
-    site_url = os.environ.get("PUBLIC_SITE_URL") or os.environ.get("WP_SITE_URL") or DEFAULT_SITE_URL
+    site_url = default_public_site_url(root)
     if site_url:
         posts, error = fetch_recent_wp_posts(site_url)
         if error:
@@ -129,7 +131,7 @@ def main() -> None:
             print("EXCALIBUR_RECENT_WP_POSTS=" + json.dumps(compact, ensure_ascii=False))
     else:
         print("EXCALIBUR_RECENT_WP_POSTS=")
-        print("EXCALIBUR_RECENT_WP_POSTS_NOTE=set PUBLIC_SITE_URL for live dedupe")
+        print(f"EXCALIBUR_RECENT_WP_POSTS_NOTE=set {PRIMARY_EXCALIBUR_PUBLIC_SITE_URL_ENV} for live dedupe")
 
 
 if __name__ == "__main__":

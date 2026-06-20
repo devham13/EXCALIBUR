@@ -7,7 +7,7 @@
 Пайплайн одной статьи:
 
 ```text
-today + research_start → research → writer → geo-qa → cover||schema → indexer → publish?
+today → [Scout?] → research_start → research → writer → geo-qa → cover||schema → indexer → publish
 ```
 
 ## Структура репозитория (как у Kovcheg Cloud)
@@ -59,8 +59,8 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 Из `.env.example` + Cloud Dashboard:
 
 | Variable | Зачем |
-|----------|-------|
-| `PUBLIC_SITE_URL` | link verify, recent WP posts |
+|----------|--------|
+| `EXCALIBUR_PUBLIC_SITE_URL` | Production WP URL — link verify, publish, post-publish check (project-scoped) |
 | `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |
@@ -82,29 +82,24 @@ Cursor Automation → Schedule, пример:
 
 ## Automation prompt (шаблон)
 
+**Канонический промпт (Scout + полный pipeline + publish):**  
+→ **`shared/excalibur-blog-automation-prompt.md`** — копируй блок PROMPT в Cursor Automation.
+
+Краткая версия:
+
 ```text
-Ты работаешь в репозитории Excalibur BLOG.
+Работай автономно. Не спрашивай подтверждения на deploy, SSH, SFTP, QA, исправления и publish.
 
-Запусти полный пайплайн SEO/GEO статьи через оркестратора (Директор), не выполняя роли сам.
+Ты — Директор Excalibur BLOG. Прочитай AGENTS.md, shared/excalibur-blog-automation-prompt.md, shared/production-site.md.
 
-0. Прочитай AGENTS.md и shared/agent-pipeline-pitfalls.md.
-1. python3 scripts/excalibur_blog_today.py — зафиксируй дату и topic_id.
-2. Сбрось .cursor/excalibur-blog-handoff.md одной строкой "# Excalibur BLOG — новая сессия".
-3. Очисти .cursor/excalibur-blog-fragments/.
-4. python3 scripts/excalibur_blog_research_start.py --topic-id <из EXCALIBUR_SUGGESTED_TOPIC_ID или env>.
-5. Task(excalibur-blog-research) → research-notes.md.
-6. Task(excalibur-blog-writer) → article.html + meta.
-7. Task(excalibur-blog-geo-qa) → PASS + все QA JSON.
-8. ПАРАЛЛЕЛЬНО Task(excalibur-blog-cover) + Task(excalibur-blog-schema).
-   Cover/schema пишут во fragments; перенеси в handoff.
-9. Task(excalibur-blog-indexer).
-10. Task(excalibur-blog-publish) — **автоматически** после Indexer (skip только publish:no). Skill: publish-excalibur-blog. Обнови shared/published-articles.md.
+1. today.py → если нет свободной P0 → Task(excalibur-blog-scout) → today.py снова
+2. utility gate + research_start
+3. Task: research → writer → geo-qa
+4. ПАРАЛЛЕЛЬНО Task: cover + schema (после QA PASS)
+5. Task: indexer → publish (default yes)
+6. Live check $EXCALIBUR_PUBLIC_SITE_URL/{slug}/ → commit/PR
 
-Fallback: если Task types недоступны — generalPurpose per role (см. AGENTS.md).
-
-Запрещено: single-agent pipeline, cover до QA PASS, секреты в handoff.
-
-Финальный ответ: article_dir + QA verdict + publish URL или блокер.
+Fallback: generalPurpose per role (AGENTS.md). Финал: PIPELINE DONE + live_url.
 ```
 
 ## После каждого прогона

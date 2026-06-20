@@ -13,6 +13,7 @@ from pathlib import Path
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
+from excalibur_site_config import PRIMARY_EXCALIBUR_PUBLIC_SITE_URL_ENV, resolve_public_site_url
 from image_validate import sniff_image_format, validate_image_file
 
 
@@ -337,7 +338,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--article-dir", type=Path, required=True)
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--public-base", type=str, default=None, help="Override PUBLIC_SITE_URL")
+    ap.add_argument("--public-base", type=str, default=None, help=f"Override {PRIMARY_EXCALIBUR_PUBLIC_SITE_URL_ENV}")
     args = ap.parse_args()
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
@@ -353,9 +354,9 @@ def main() -> int:
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or ""
+    public = args.public_base or resolve_public_site_url(env, root)
     if not public:
-        print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
+        print(f"{PRIMARY_EXCALIBUR_PUBLIC_SITE_URL_ENV} or --public-base required", file=sys.stderr)
         return 2
     out = publish_via_ftp(env, php, public)
     print(out)

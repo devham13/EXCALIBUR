@@ -1,9 +1,18 @@
 {
   "source": "memory/blog/articles/B01-primer-seo-stati/article.html",
-  "total_links": 4,
+  "total_links": 6,
   "failed_count": 0,
   "verdict": "pass",
   "links": [
+    {
+      "url": "https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
     {
       "url": "https://wordstat.yandex.ru/",
       "status": 200,
@@ -14,7 +23,27 @@
       "skipped": false
     },
     {
-      "url": "https://webmaster.yandex.ru/",
+      "url": "https://mayai.ru/geo-optimizaciya-sajta-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/geo-optimizaciya-sajta-2026/"
+    },
+    {
+      "url": "https://mayai.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/"
+    },
+    {
+      "url": "https://kv-ai.ru/obuchenie-po-make",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -23,21 +52,12 @@
       "skipped": false
     },
     {
-      "url": "https://example.com/#services",
+      "url": "https://kv-ai.ru/artur-horosheff",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
-      "skipped": false
-    },
-    {
-      "url": "https://example.com/",
-      "status": 200,
-      "ok": true,
-      "method": "HEAD",
-      "error": null,
-      "kind": "internal_absolute",
+      "kind": "external",
       "skipped": false
     }
   ]

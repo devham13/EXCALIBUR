@@ -31,6 +31,17 @@ description: Директор Excalibur BLOG — оркестратор Task(sub
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+## Automation (cron)
+
+Полный автономный промпт: **`shared/excalibur-blog-automation-prompt.md`**.  
+Работай без подтверждений; publish default yes.
+
+## Scout (если нет свободной P0)
+
+После `excalibur_blog_today.py`: если все P0 в `published-articles.md` уже `published`/`in_progress` — **`Task(excalibur-blog-scout)`**, затем повтори today.py.
+
+Scout: WebSearch + Wordstat + cannibalization guard → append в `memory/topics/blog-topics.md`.
+
 ## Preflight (shell, директор)
 
 ```bash
@@ -41,7 +52,11 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 **Utility-only:** тема без how-to/checklist/comparison → **не стартуем** (`UTILITY TOPIC BLOCKER`).
 
-Прочитай `shared/editorial-utility-only.md`, `shared/agent-pipeline-pitfalls.md`, **`shared/pipeline-task-map.md`**.
+Прочитай `shared/editorial-utility-only.md`, `shared/agent-pipeline-pitfalls.md`, **`shared/production-site.md`**, **`shared/pipeline-task-map.md`**.
+
+## Production site
+
+Публикация только на URL из **`EXCALIBUR_PUBLIC_SITE_URL`** (Cloud Secrets / `memory/site.env.local`). Permalink: `/{slug}/`.
 
 ## Вход перед стартом
 

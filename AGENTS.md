@@ -9,13 +9,8 @@
 Cloud Agent обязан оркестрировать через **Директора** (роль в чате, не Task) и запускать субагентов:
 
 ```text
-shell today + research_start
-  → excalibur-blog-research
-  → excalibur-blog-writer
-  → excalibur-blog-geo-qa
-  → excalibur-blog-cover || excalibur-blog-schema
-  → excalibur-blog-indexer
-  → excalibur-blog-publish (автоматически после Indexer; skip только publish:no)
+shell today → [Scout если нет свободной P0] → research_start
+  → research → writer → geo-qa → cover||schema → indexer → publish
 ```
 
 ## Cloud Task fallback
@@ -70,7 +65,16 @@ shell today + research_start
 | Cloud agents | `.cursor/agents/` |
 | Cloud skills | `.cursor/skills/` |
 
-Перед пайплайном прочитай `shared/agent-pipeline-pitfalls.md`.
+Перед пайплайном прочитай `shared/agent-pipeline-pitfalls.md` и **`shared/production-site.md`**.
+
+## Production site
+
+**Публикация только на production host** (`EXCALIBUR_PUBLIC_SITE_URL` в Cloud Secrets).
+
+- Канонический конфиг: `shared/production-site.json`, док: `shared/production-site.md`
+- `EXCALIBUR_PUBLIC_SITE_URL` в Cloud Secrets и `memory/site.env.local` — полный URL production-хоста
+- Permalink: `$EXCALIBUR_PUBLIC_SITE_URL/{slug}/` (без `/blog/`)
+- После publish — HTTP 200 на live URL; иначе FAIL (не доверять только `OK post=...`)
 
 ## Preflight (обязательно)
 
@@ -86,7 +90,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Только Cloud Secrets / env vars. Не печатать FTP/API ключи в handoff, PR, ответах.
 
-- `FTP_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
+- `FTP_*`, `EXCALIBUR_PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
 - MCP через `${env:...}` в mcp.json
 
 ## Git hygiene
@@ -109,4 +113,5 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Директор: `.cursor/agents/excalibur-blog-director.md` + `director-excalibur-blog` skill — **не Task**.
 
-Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.
+Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.  
+**Промпт для cron:** `shared/excalibur-blog-automation-prompt.md`

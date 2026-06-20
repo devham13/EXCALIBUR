@@ -11,6 +11,7 @@ alwaysApply: false
 - Fragments: `.cursor/excalibur-blog-fragments/` для cover||schema
 - Task agents: `.cursor/agents/excalibur-blog-*`
 - Preflight: `scripts/excalibur_blog_today.py`, `excalibur_blog_research_start.py`
+- **Production:** `EXCALIBUR_PUBLIC_SITE_URL` — см. `shared/production-site.md`
 - См. `AGENTS.md`, `CLOUD-AUTOMATION.md`
 
 ## Главный и субагенты

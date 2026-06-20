@@ -1,19 +1,19 @@
-# Site brief — Excalibur BLOG (Neurinix)
+# Site brief — Excalibur BLOG
 
 Excalibur BLOG читает этот файл для получения ключевых метаданных сайта и контент-стратегии.
 
 ## Сайт
 
-- **site_name:** Neurinix — блог об AI-автоматизации бизнеса
-- **site_url:** https://neurinix.com
-- **wp_admin_url:** https://neurinix.com/wp-login.php
+- **site_name:** из env `EXCALIBUR_SITE_BRAND` (см. Cloud Secrets)
+- **site_url:** из env `EXCALIBUR_PUBLIC_SITE_URL` (см. `shared/production-site.md`)
+- **wp_admin_url:** `$EXCALIBUR_PUBLIC_SITE_URL/wp-login.php`
 - **blog_path:** /
 - **language:** ru
 - **niche:** внедрение AI в бизнес под ключ: AI-агенты, CRM-автоматизация (amoCRM, Bitrix24), голосовые менеджеры, чат-боты, Make/n8n, RAG-базы знаний, обработка заявок и лидов, аналитика звонков и чатов
 
 ## Продукт и контент-стратегия
 
-- **компания:** [Neurinix](https://neurinix.com) — внедрение AI-автоматизации бизнеса под ключ
+- **компания:** [production site](https://production host) — внедрение AI-автоматизации бизнеса под ключ
 - **главный оффер:** AI-аудит процессов + внедрение AI-агентов в CRM, телефонию, мессенджеры и документооборот
 - **уникальный угол:** не «чат-бот ради чат-бота», а связанная операционная система: заявки → квалификация → CRM → задачи менеджеру → аналитика для руководителя; human-in-the-loop по умолчанию
 
@@ -29,7 +29,7 @@ Excalibur BLOG читает этот файл для получения ключ
 8. **Аналитика и контроль:** звонки, чаты, сделки, воронка, узкие места
 9. **SEO / GEO / AIO:** статьи для привлечения B2B-аудитории через нейропоиск
 
-**Формат статей:** utility-only how-to, чеклисты, comparison, troubleshooting — без «новостей ради новостей». Каждая статья ведёт от боли бизнеса к практическому решению и мягко показывает, что Neurinix внедряет такие системы под ключ.
+**Формат статей:** utility-only how-to, чеклисты, comparison, troubleshooting — без «новостей ради новостей». Каждая статья ведёт от боли бизнеса к практическому решению и мягко показывает, что production site внедряет такие системы под ключ.
 
 ## Ниша и редакция
 
@@ -39,14 +39,14 @@ Excalibur BLOG читает этот файл для получения ключ
 
 ## Голос и тон
 
-- **author_voice:** редакция Neurinix — практики внедрения AI в реальные бизнес-процессы
+- **author_voice:** редакция production site — практики внедрения AI в реальные бизнес-процессы
 - **tone:** простой B2B-язык без корпоративной воды; термины (RAG, webhook, CRM, agentic automation) — сразу «на пальцах»; уверенность интегратора, без обещаний «+300% продаж»
 - **audience:** владельцы бизнеса, РОП, маркетологи, операционные директора и менеджеры без технического бэкграунда, которые теряют заявки, время и контроль из-за ручной рутины
 
 ## Главный герой визуала (обложки и inline)
 
 - **blog_hero_id:** `blog-host`
-- **hero_name:** Эксперт Neurinix (эталон лица — `memory/cover/assets/blog-hero-reference.png`)
+- **hero_name:** Эксперт production site (эталон лица — `memory/cover/assets/blog-hero-reference.png`)
 - **reference:** `memory/cover/assets/blog-hero-reference.png`
 - **lock:** `memory/cover/blog-hero.json`
 - **правило:** на обложке — узнаваемое **лицо** с reference; **чистый тон кожи**, **дружелюбная улыбка**; жестом **показывает на график/схему/цифру** по теме статьи, если это делает крючок понятнее; **одежду** агент меняет свободно
@@ -54,7 +54,7 @@ Excalibur BLOG читает этот файл для получения ключ
 
 ## Офферы и CTA
 
-См. `conversion-map.md`. Кратко: AI-аудит, обсуждение внедрения, главная neurinix.com.
+См. `conversion-map.md`. Кратко: AI-аудит, обсуждение внедрения, главная production host.
 
 ## Запреты
 
@@ -67,4 +67,4 @@ Excalibur BLOG читает этот файл для получения ключ
 
 - **preferred_cover_family:** brand_collage
 - **brand_colors:** #0B1220, #1E3A5F, #3B82F6
-- **visual_notes:** 16:9, B2B-tech стиль Neurinix; на meme-коллажах — **русские подписи**, схемы CRM/AI-цепочек, «сделал человек»
+- **visual_notes:** 16:9, B2B-tech стиль production site; на meme-коллажах — **русские подписи**, схемы CRM/AI-цепочек, «сделал человек»

@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from excalibur_site_config import article_public_url, default_public_site_url
+
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -58,7 +60,7 @@ def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -
         if not target_slug:
             continue
 
-        target_url = f"{site_base}/blog/{target_slug}/"
+        target_url = article_public_url(target_slug, site_base=site_base)
         # Prioritize natural anchor variants for diversification, then primary, then secondary queries
         raw_keywords = target.get("anchor_variants", []) + [target["primary_query"]] + target["secondary_queries"]
         # Remove duplicates while preserving order
@@ -174,7 +176,12 @@ def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str,
 def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
-    ap.add_argument("--site-base", type=str, default="https://example.com", help="Base site URL")
+    ap.add_argument(
+        "--site-base",
+        type=str,
+        default=default_public_site_url(),
+        help="Base site URL (default: shared/production-site.json)",
+    )
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()

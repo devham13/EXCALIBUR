@@ -14,8 +14,11 @@ python scripts/excalibur_blog_interlinker.py --apply \
   --article-dir memory/blog/articles/<topic_id>-<slug>
 
 python scripts/excalibur_blog_llms_generator.py \
-  --blog-dir memory/blog/articles
+  --blog-dir memory/blog/articles \
+  --site-base $EXCALIBUR_PUBLIC_SITE_URL
 ```
+
+**URL статей:** `$EXCALIBUR_PUBLIC_SITE_URL/{slug}/` (без `/blog/` — см. `shared/production-site.json`).
 
 ## Выход
 

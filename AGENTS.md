@@ -9,13 +9,8 @@
 Cloud Agent обязан оркестрировать через **Директора** (роль в чате, не Task) и запускать субагентов:
 
 ```text
-shell today + research_start
-  → excalibur-blog-research
-  → excalibur-blog-writer
-  → excalibur-blog-geo-qa
-  → excalibur-blog-cover || excalibur-blog-schema
-  → excalibur-blog-indexer
-  → excalibur-blog-publish (автоматически после Indexer; skip только publish:no)
+shell today → [Scout если нет свободной P0] → research_start
+  → research → writer → geo-qa → cover||schema → indexer → publish
 ```
 
 ## Cloud Task fallback
@@ -118,4 +113,5 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Директор: `.cursor/agents/excalibur-blog-director.md` + `director-excalibur-blog` skill — **не Task**.
 
-Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.
+Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.  
+**Промпт для cron:** `shared/excalibur-blog-automation-prompt.md`

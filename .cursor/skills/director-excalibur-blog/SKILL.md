@@ -31,6 +31,17 @@ description: Директор Excalibur BLOG — оркестратор Task(sub
 
 См. `AGENTS.md`. Кратко: `generalPurpose` per role + `.cursor/agents/` + `.cursor/skills/`.
 
+## Automation (cron)
+
+Полный автономный промпт: **`shared/excalibur-blog-automation-prompt.md`**.  
+Работай без подтверждений; publish default yes.
+
+## Scout (если нет свободной P0)
+
+После `excalibur_blog_today.py`: если все P0 в `published-articles.md` уже `published`/`in_progress` — **`Task(excalibur-blog-scout)`**, затем повтори today.py.
+
+Scout: WebSearch + Wordstat + cannibalization guard → append в `memory/topics/blog-topics.md`.
+
 ## Preflight (shell, директор)
 
 ```bash

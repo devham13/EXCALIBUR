@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-claude-code-hooks-2026",
+  "h1": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md",
+  "title": "Claude Code: настройка hooks, settings.json и CLAUDE.md",
+  "description": "Пошаговая настройка Claude Code: settings.json, CLAUDE.md, hooks guardrails, permissions и чек-лист 15 пунктов. Проверка через /hooks и --safe-mode.",
+  "keywords": [
+    "claude code",
+    "claude code hooks",
+    "claude code settings json",
+    "настройка claude code"
+  ],
+  "primary_query": "claude code",
+  "secondary_queries": [
+    "claude code hooks",
+    "claude code settings json",
+    "настройка claude code"
+  ],
+  "char_count": 8633,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить claude code hooks и settings json",
+    "пошаговая настройка claude code с CLAUDE.md",
+    "claude code guardrails permissions и чек-лист"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code: настройка hooks, settings.json и CLAUDE.md",
+    "title_ctr": "💻 Claude Code за вечер: hooks, settings.json и CLAUDE.md без ошибок!",
+    "title_aeo": "Как настроить Claude Code: hooks, settings.json и CLAUDE.md?",
+    "description_seo": "Пошаговая настройка Claude Code: settings.json, CLAUDE.md, hooks guardrails, permissions deny для .env и чек-лист 15 пунктов. Проверка /hooks и --safe-mode.",
+    "description_ctr": "⚡ Соберите Claude Code за 45 минут: 3 hooks, permissions, CLAUDE.md и чек-лист 15 пунктов. Гайд для команды без лишней воды.",
+    "description_aeo": "Claude Code настраивается через .claude/settings.json (permissions, hooks), CLAUDE.md и проверку /hooks; при сбое - claude --safe-mode или claude doctor."
+  },
+  "cover_family": "brand_collage"
+}

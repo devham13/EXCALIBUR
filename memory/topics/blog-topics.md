@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Настройка Claude Code
+
+- **priority:** P0
+- **slug:** nastrojka-claude-code-hooks-2026
+- **h1:** Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md
+- **primary_query:** claude code
+- **secondary_queries:** claude code hooks, claude code settings json, настройка claude code
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Установка Claude Code и первый запуск: /login, /config и выбор модели
+  2. Иерархия settings.json — глобальный, проектный и локальный конфиг
+  3. CLAUDE.md без перегруза: что писать в проектные инструкции и как не убить контекст
+  4. Hooks как guardrails: PreToolUse, PostToolUse и SessionStart с готовыми примерами
+  5. Permissions и auto-mode: allow/deny, защита .env и безопасный YOLO
+  6. Чек-лист из 15 пунктов перед продакшен-сетапом Claude Code
+- **faq_hints:** как настроить claude code; что такое hooks в claude code; где лежит settings.json claude code; чем claude code отличается от cursor
+- **internal_links:** /podklyuchenie-mcp-cursor/, /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** терминал Claude Code, стикеры settings.json и CLAUDE.md, цепочка hooks-триггеров PreToolUse → скрипт, permissions allow/deny, неоновый diy-коллаж
+
+---
+

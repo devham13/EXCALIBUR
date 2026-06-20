@@ -30,7 +30,7 @@ is_background: false
 
 ## Твои задачи (строго по порядку)
 
-1. **Preflight:** link-verify с `--site-base` из `PUBLIC_SITE_URL`.
+1. **Preflight:** link-verify с `--site-base PUBLIC_SITE_URL` (или `PUBLIC_SITE_URL` из env).
 2. **Dry-run:** `excalibur_blog_wp_publish.py --dry-run`.
 3. **Publish:** `excalibur_blog_wp_publish.py` без dry-run.
 4. **Fallback:** при timeout HTTP-триггера — WebFetch URL из `FALLBACK_TRIGGER_URL` → `memory/webfetch-response.txt`.
@@ -38,7 +38,8 @@ is_background: false
 6. **Logs:** дописать `memory/blog/wp-publish-log.md`.
 7. **Promotion:** Live URL в `promotion-checklist.md`.
 8. **Handoff:** блок `=== EXCALIBUR BLOG PUBLISH ===` + permalink в `=== EXCALIBUR BLOG (PIPELINE DONE) ===`.
-9. **Post-publish (опционально):** interlinker `--apply` для inbound-ссылок.
+9. **Live check:** `GET PUBLIC_SITE_URL/{slug}/` → HTTP 200. Иначе FAIL.
+10. **Post-publish (опционально):** interlinker `--apply` для inbound-ссылок.
 
 ## Preconditions
 
@@ -56,7 +57,7 @@ OK post=...
 OK featured_image=...
 OK schema_meta=1
 OK inline_image_upload=...
-permalink=https://mayai.ru/...
+permalink=PUBLIC_SITE_URL/{slug}/
 ```
 
 `wp-publish-result.json` → `"verdict": "pass"`.

@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from excalibur_site_config import article_public_url, default_public_site_url, load_production_site
+
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -71,7 +73,7 @@ def build_llms_txt(site_name: str, site_desc: str, articles: list[dict[str, Any]
         ""
     ]
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(a["slug"], site_base=site_base)
         lines.append(f"- [{a['title']}]({url}): {a['description']}")
 
     return "\n".join(lines) + "\n"
@@ -88,7 +90,7 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
     ]
 
     for a in articles:
-        url = f"{site_base}/blog/{a['slug']}/"
+        url = article_public_url(a["slug"], site_base=site_base)
         lines.extend([
             f"## {a['title']}",
             f"- **URL**: {url}",
@@ -106,9 +108,13 @@ def build_llms_full_txt(site_name: str, articles: list[dict[str, Any]], site_bas
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate AI-friendly llms.txt and llms-full.txt")
     ap.add_argument("--blog-dir", type=Path, default=None)
-    ap.add_argument("--site-name", type=str, default="Maya AI — блог «Ковчег»")
-    ap.add_argument("--site-desc", type=str, default="Практический блог по автоматизации бизнеса на Make.com, вайбкодингу и ИИ-агентам.")
-    ap.add_argument("--site-base", type=str, default="https://example.com")
+    ap.add_argument(
+        "--site-desc",
+        type=str,
+        default="Практический блог по AI-автоматизации бизнеса: агенты, CRM, Make/n8n, RAG.",
+    )
+    ap.add_argument("--site-base", type=str, default=default_public_site_url())
+    ap.add_argument("--site-name", type=str, default=None)
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for llms.txt/llms-full.txt")
     args = ap.parse_args()
 
@@ -124,8 +130,11 @@ def main() -> int:
     articles = load_articles(blog_dir)
     print(f"Loaded {len(articles)} articles to index for LLMs.")
 
-    llms_txt = build_llms_txt(args.site_name, args.site_desc, articles, args.site_base)
-    llms_full_txt = build_llms_full_txt(args.site_name, articles, args.site_base)
+    import os
+    prod = load_production_site(root)
+    site_name = args.site_name or os.environ.get("SITE_BRAND") or "Blog"
+    llms_txt = build_llms_txt(site_name, args.site_desc, articles, args.site_base)
+    llms_full_txt = build_llms_full_txt(site_name, articles, args.site_base)
 
     llms_path = out_dir / "llms.txt"
     llms_full_path = out_dir / "llms-full.txt"

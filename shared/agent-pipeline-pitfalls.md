@@ -18,8 +18,11 @@
 
 ## Publish
 
+- Production site: **PUBLIC_SITE_URL** (`shared/production-site.md`, `shared/production-site.json`).
+- `PUBLIC_SITE_URL=PUBLIC_SITE_URL` в Cloud Secrets — не staging, не legacy mayai.ru.
 - `EXCALIBUR_BLOG_ALLOW_PUBLISH=yes` только в Cloud Secrets, не в git.
 - Publish без обновления `shared/published-articles.md` → следующий прогон может дублировать slug.
+- **Post-publish gate:** после bootstrap проверить `GET PUBLIC_SITE_URL/{slug}/` → 200. Иначе verdict FAIL.
 
 ## QA
 

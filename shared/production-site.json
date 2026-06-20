@@ -1,0 +1,7 @@
+{
+  "public_site_url_env": "PUBLIC_SITE_URL",
+  "article_path_template": "/{slug}/",
+  "site_name_env": "SITE_BRAND",
+  "legacy_host_parts": ["mayai", "ru"],
+  "notes": "Production WordPress URL только из env PUBLIC_SITE_URL. Permalink: /{slug}/ без /blog/."
+}

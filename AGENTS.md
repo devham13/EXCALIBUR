@@ -70,7 +70,16 @@ shell today + research_start
 | Cloud agents | `.cursor/agents/` |
 | Cloud skills | `.cursor/skills/` |
 
-Перед пайплайном прочитай `shared/agent-pipeline-pitfalls.md`.
+Перед пайплайном прочитай `shared/agent-pipeline-pitfalls.md` и **`shared/production-site.md`**.
+
+## Production site
+
+**Публикация только на production host** (`PUBLIC_SITE_URL` в Cloud Secrets).
+
+- Канонический конфиг: `shared/production-site.json`, док: `shared/production-site.md`
+- `PUBLIC_SITE_URL` в Cloud Secrets и `memory/site.env.local` — полный URL production-хоста
+- Permalink: `$PUBLIC_SITE_URL/{slug}/` (без `/blog/`)
+- После publish — HTTP 200 на live URL; иначе FAIL (не доверять только `OK post=...`)
 
 ## Preflight (обязательно)
 

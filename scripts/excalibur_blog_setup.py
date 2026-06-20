@@ -118,7 +118,7 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH={allow_publish}
     if not env_example_path.is_file():
         example_content = """# Excalibur BLOG — credentials (copy to site.env.local)
 
-PUBLIC_SITE_URL=https://example.com
+PUBLIC_SITE_URL=<from setup prompt>
 FTP_HOST=ftp.example.com
 FTP_PORT=21
 FTP_USER=

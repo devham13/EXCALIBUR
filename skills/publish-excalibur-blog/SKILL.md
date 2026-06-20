@@ -33,10 +33,16 @@ description: Excalibur BLOG Publish — WP post, featured image, inline images, 
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<topic_id>-<slug>/article.html \
   -o memory/blog/articles/<topic_id>-<slug>/link-verify.json \
-  --site-base https://mayai.ru
+  --site-base $PUBLIC_SITE_URL
 ```
 
 Gate: `link-verify.json` → pass. Иначе FIX (writer/QA) или BLOCKER.
+
+**Production:** `--site-base $PUBLIC_SITE_URL` (см. `shared/production-site.md`).
+
+### 1b. Post-publish live check (обязательно)
+
+После успешного bootstrap проверь HTTP 200 на `$PUBLIC_SITE_URL/{slug}/`. Если 404 — **FAIL**, даже при `OK post=...` в stdout.
 
 ### 2. Dry-run
 
@@ -86,7 +92,7 @@ python scripts/excalibur_blog_wp_publish.py \
 ```bash
 python scripts/excalibur_blog_interlinker.py --apply \
   --blog-dir memory/blog/articles \
-  --site-base https://mayai.ru
+  --site-base $PUBLIC_SITE_URL
 ```
 
 Inbound-ссылки из старых статей на новую.

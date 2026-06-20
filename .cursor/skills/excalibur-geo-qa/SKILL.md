@@ -19,7 +19,7 @@ python scripts/excalibur_blog_fact_checker.py \
 python scripts/excalibur_blog_link_verify.py \
   memory/blog/articles/<dir>/article.html \
   -o memory/blog/articles/<dir>/link-verify.json \
-  --site-base https://YOUR_SITE
+  --site-base $PUBLIC_SITE_URL
 
 python scripts/excalibur_blog_html_linter.py \
   memory/blog/articles/<dir>/article.html \

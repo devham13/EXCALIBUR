@@ -18,7 +18,9 @@ TZ = ZoneInfo("Europe/Moscow")
 LEDGER_PATHS = (
     Path("shared/published-articles.md"),
 )
-DEFAULT_SITE_URL = ""
+from excalibur_site_config import default_public_site_url
+
+DEFAULT_SITE_URL = default_public_site_url()
 
 
 def project_root() -> Path:

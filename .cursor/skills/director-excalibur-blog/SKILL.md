@@ -41,7 +41,11 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 **Utility-only:** тема без how-to/checklist/comparison → **не стартуем** (`UTILITY TOPIC BLOCKER`).
 
-Прочитай `shared/editorial-utility-only.md`, `shared/agent-pipeline-pitfalls.md`, **`shared/pipeline-task-map.md`**.
+Прочитай `shared/editorial-utility-only.md`, `shared/agent-pipeline-pitfalls.md`, **`shared/production-site.md`**, **`shared/pipeline-task-map.md`**.
+
+## Production site
+
+Публикация **только** на `PUBLIC_SITE_URL`. `PUBLIC_SITE_URL` в Secrets = production.com. Permalink: `/{slug}/`.
 
 ## Вход перед стартом
 

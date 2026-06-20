@@ -39,3 +39,5 @@ Scout → Research → Writer → GEO QA → Cover||Schema → Indexer → Publi
 Директор — **основной агент чата** (не Task). Сценарий: [skills/director-excalibur-blog/SKILL.md](../skills/director-excalibur-blog/SKILL.md).
 
 Handoff: `shared/excalibur-blog-handoff.md`
+
+Production site: **PUBLIC_SITE_URL** (`shared/production-site.md`)

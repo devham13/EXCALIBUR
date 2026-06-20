@@ -59,8 +59,8 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 Из `.env.example` + Cloud Dashboard:
 
 | Variable | Зачем |
-|----------|-------|
-| `PUBLIC_SITE_URL` | link verify, recent WP posts |
+|----------|--------|
+| `PUBLIC_SITE_URL` | **PUBLIC_SITE_URL** — link verify, publish bootstrap, post-publish check |
 | `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |

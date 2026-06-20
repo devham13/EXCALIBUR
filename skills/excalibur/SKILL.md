@@ -30,6 +30,7 @@ memory/blog/articles/<topic_id>-<slug>/
 - `shared/editorial-utility-only.md`
 - `shared/blog-cover-mcp-contract.md`
 - `shared/excalibur-wp-publish-contract.md`
+- `shared/production-site.md`
 - `shared/quality-blog.md`
 
 ## References

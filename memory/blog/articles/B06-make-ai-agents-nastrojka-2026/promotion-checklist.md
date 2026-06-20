@@ -1,7 +1,7 @@
 # Promotion checklist — B06 make-ai-agents-nastrojka-2026
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/blog/make-ai-agents-nastrojka-2026/ (заполнить после publish)
+Дата публикации: 2026-06-20  
+Live URL: https://mayai.ru/make-ai-agents-nastrojka-2026/ (staging: см. wp-publish-result.json)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

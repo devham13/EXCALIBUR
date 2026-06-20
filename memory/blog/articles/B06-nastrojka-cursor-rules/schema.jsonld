@@ -1,0 +1,212 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastrojka-cursor-rules/#article",
+      "headline": "Как настроить Cursor Rules: пошаговая инструкция по .mdc-файлам в 2026 году",
+      "description": "Пошаговая настройка Cursor Rules: .cursor/rules, frontmatter alwaysApply и globs, 4 режима активации, миграция .cursorrules и troubleshooting для Agent.",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-06-20",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/nastrojka-cursor-rules/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/nastrojka-cursor-rules/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastrojka-cursor-rules-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor rules, cursor rules mdc, настройка cursor rules, правила cursor для проекта, .cursor/rules примеры",
+      "wordCount": 8542,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastrojka-cursor-rules/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как написать cursor rules mdc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Создайте файл .cursor/rules/имя.mdc. Между двумя строками --- укажите YAML: alwaysApply, globs или description. Ниже --- напишите инструкции списком в Markdown. Сохраните с расширением .mdc и проверьте в новом чате Agent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем cursor rules отличается от .cursorrules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": ".cursorrules – один legacy-файл в корне без scoping. .mdc – модульные правила с frontmatter: можно включать инструкции только для нужных файлов и режимов. Cursor рекомендует мигрировать в .mdc с alwaysApply для бывшего содержимого .cursorrules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие globs использовать для правил cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для React: src/**/*.tsx или **/*.tsx. Для Python: **/*.py или src/**/*.py. Для контента: **/*.md и content/**/*. Несколько паттернов – через запятую в одной строке globs. Сверьте паттерн с реальным путём файла, который Agent откроет в задаче."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему правило cursor не применяется?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте: расширение .mdc, закрывающий --- во frontmatter, нет параллельного .cursorrules, вы тестируете в Agent а не Tab, для globs Agent прочитал matching file. При битом YAML правило не загружается без явной ошибки – типичный silent failure по опыту форума Cursor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делает alwaysApply: true?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Правило попадает в каждый чат Agent. Поля globs и description при этом игнорируются. Используйте только для коротких глобальных стандартов; длинные инструкции переносите в glob- или description-правила с alwaysApply: false."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли перезапуск Cursor после правки .mdc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обычно изменения подхватываются без рестарта. Если поведение не меняется – откройте новый чат Agent или упомяните правило через @rule-name. Полный перезапуск нужен редко, в основном при смене Team Rules с dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Rules работают с Inline Edit (Cmd+K)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Project Rules действуют в Agent (Chat). User Rules не применяются к Inline Edit. Tab autocomplete rules тоже не использует. Для проверки настройки всегда используйте чат Agent с задачей на ваш код или markdown."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/nastrojka-cursor-rules/#howto",
+      "name": "Как настроить Cursor Rules: пошаговая инструкция по .mdc-файлам в 2026 году",
+      "description": "Пошаговая настройка Cursor Rules: .cursor/rules, frontmatter alwaysApply и globs, 4 режима активации, миграция .cursorrules и troubleshooting для Agent.",
+      "inLanguage": "ru",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Cursor (актуальная версия)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Git"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте legacy .cursorrules",
+          "text": "Проверьте наличие .cursorrules в корне. Если есть – запланируйте миграцию в general.mdc, не редактируйте legacy параллельно с .mdc.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#why-mdc"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте каталог .cursor/rules",
+          "text": "Создайте .cursor/rules и добавьте папку в Git (git add .cursor/rules).",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#structure"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Создайте general.mdc",
+          "text": "Откройте Command Palette (Ctrl+Shift+P на Windows, Cmd+Shift+P на Mac) → команда \"New Cursor Rule\" или Settings → Rules, Commands → + Add Rule. Имя файла: general.mdc.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#step-by-step"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Заполните frontmatter general.mdc",
+          "text": "В frontmatter поставьте alwaysApply: true. В теле – 5–15 пунктов: язык ответов, минимальный diff, запрет выдумывать версии API.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#step-by-step"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Добавьте stack-правило с globs",
+          "text": "Создайте второй файл, например react-components.mdc или content-markdown.mdc, с alwaysApply: false и globs под ваш стек (**/*.py, **/*.tsx, **/*.md).",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#step-by-step"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Опционально добавьте intelligent-rule",
+          "text": "Создайте правило с description без globs для редких workflow – Agent подтянет его по задаче.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#activation-modes"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Проверьте правило в Agent",
+          "text": "Новый чат Agent → задача с glob-файлом → сравните стиль. Если не сработало – вызовите @rule-name в чате.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#step-by-step"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Мигрируйте .cursorrules",
+          "text": "Скопируйте текст из .cursorrules в general.mdc с alwaysApply: true, удалите legacy-файл и закоммитьте изменения.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#migration-troubleshooting"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Зафиксируйте результат в Git",
+          "text": "Выполните git commit .mdc и добавьте строку в README для команды о обязательных rules.",
+          "url": "https://mayai.ru/nastrojka-cursor-rules/#next-steps"
+        }
+      ]
+    }
+  ]
+}

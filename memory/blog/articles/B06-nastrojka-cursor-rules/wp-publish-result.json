@@ -1,0 +1,14 @@
+{
+  "slug": "nastrojka-cursor-rules",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/2026/06/20/nastrojka-cursor-rules/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-cursor-rules/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1454752,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=296 slug=nastrojka-cursor-rules\nOK featured_image=297\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=298 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/nastrojka-cursor-rules-inline-01.png\nOK inline_image_upload=299 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/nastrojka-cursor-rules-inline-02.png\nOK inline_image_upload=300 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/nastrojka-cursor-rules-inline-03.png\npermalink=https://mayai.ru/2026/06/20/nastrojka-cursor-rules/\n",
+  "verdict": "pass"
+}

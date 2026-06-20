@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-cursor-rules/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "рок. В 401 публичном репозитории (UC Irvine, март 2026) 28,7% строк rules – дубликаты. Делайте: короткие",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "и в файлах .mdc внутри папки .cursor/rules. За 20–40 минут вы создадите general.mdc и правило под свой стек,",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "ption – только @rule-name. Держите правило короче 500 строк. В 401 публичном репозитории (UC Irvine, мар",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "401",
+      "kind": "large_number",
+      "context": "о @rule-name. Держите правило короче 500 строк. В 401 публичном репозитории (UC Irvine, март 2026) 28,7%",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

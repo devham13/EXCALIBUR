@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "mdc: --- alwaysApply: true --- - Язык ответов: русский - Не выдумывать API и версии – сверяться с официальной docs - Минимальный diff; не трогать unrelated файлы Пример stack-правила для контента: Пример stack-правила для контента: --- description: Blog and markdown content rules globs: **/*",
+      "word_count": 36
+    },
+    {
+      "sentence": "Режим в UI Frontmatter Когда срабатывает Когда выбирать Always Apply alwaysApply: true Каждый чат Agent Язык, безопасность, общий стиль (коротко) Apply to Specific Files alwaysApply: false + globs Когда Agent читает matching file React, Python, markdown, тесты Apply Intelligently alwaysApply: false + description Agent оценивает задачу Редкие workflow без жёстких globs Apply Manually без globs и description Только @rule-name в чате Эксперименты, черновики правил Glob-rules подключаются, когда Agent читает matching file, не с первого сообщения",
+      "word_count": 73
+    },
+    {
+      "sentence": "mdc → git commit → подключение MCP по гайду MCP Cursor → новый чат Agent → задача с glob-файлом → при необходимости @rule → проверка вызова MCP tool Приоритет: Team Rules → Project Rules → User Rules",
+      "word_count": 29
+    },
+    {
+      "sentence": "md Открывающий и закрывающий --- в frontmatter на месте YAML без табов; отступы пробелами alwaysApply: true только у короткого general Globs совпадают с реальными путями в репозитории Несколько паттернов в globs разделены запятой Legacy",
+      "word_count": 33
+    },
+    {
+      "sentence": "cursorrules удалён или не правится параллельно Тест в новом чате Agent, не в старой ветке диалога Для glob-правила Agent реально открыл matching file При сомнении вызван @rule-name вручную User Rules не ожидаются в Inline Edit – это норма Изменения",
+      "word_count": 38
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.2,
+    "avg_syllables_per_word": 1.5
+  }
+}

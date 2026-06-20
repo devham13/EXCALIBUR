@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Настройка Cursor Rules
+
+- **priority:** P0
+- **slug:** nastrojka-cursor-rules
+- **h1:** Как настроить Cursor Rules: пошаговая инструкция по .mdc-файлам в 2026 году
+- **primary_query:** cursor rules
+- **secondary_queries:** cursor rules mdc, настройка cursor rules, правила cursor для проекта, .cursor/rules примеры
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем Cursor Rules в 2026 году: .mdc вместо устаревшего .cursorrules
+  2. Структура проекта: папка .cursor/rules и YAML frontmatter (alwaysApply, globs, description)
+  3. Пошаговое создание первого правила: general.mdc и правило под стек (React, Python, Markdown)
+  4. Режимы активации: Always Apply, Auto Attached, Agent Requested и ручной @rule
+  5. Связка Rules + MCP + Agent: единый workflow без «слота машины»
+  6. Чек-лист миграции и troubleshooting: правило не срабатывает, лишний контекст, конфликты
+- **faq_hints:** как написать cursor rules mdc; чем cursor rules отличается от .cursorrules; какие globs использовать для правил cursor; почему правило cursor не применяется
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** IDE Cursor на экране, вокруг — стопки .mdc-файлов со стикерами alwaysApply/globs/description, стрелки к Agent и MCP-кубикам, тёплый неоновый diy-коллаж
+
+---
+

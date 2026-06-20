@@ -103,7 +103,7 @@ def main() -> int:
     print("🔒 Создаем защищенный файл доступов site.env.local...")
     env_content = f"""# Excalibur BLOG — credentials (автоматически сгенерировано setup.py)
 
-PUBLIC_SITE_URL={site_url}
+EXCALIBUR_PUBLIC_SITE_URL={site_url}
 FTP_HOST={ftp_host}
 FTP_PORT={ftp_port}
 FTP_USER={ftp_user}
@@ -118,7 +118,7 @@ EXCALIBUR_BLOG_ALLOW_PUBLISH={allow_publish}
     if not env_example_path.is_file():
         example_content = """# Excalibur BLOG — credentials (copy to site.env.local)
 
-PUBLIC_SITE_URL=<from setup prompt>
+EXCALIBUR_PUBLIC_SITE_URL=https://example.com
 FTP_HOST=ftp.example.com
 FTP_PORT=21
 FTP_USER=

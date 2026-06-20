@@ -60,7 +60,7 @@ agent worker start --pool --pool-name excalibur-blog --idle-release-timeout 600
 
 | Variable | Зачем |
 |----------|--------|
-| `PUBLIC_SITE_URL` | **PUBLIC_SITE_URL** — link verify, publish bootstrap, post-publish check |
+| `EXCALIBUR_PUBLIC_SITE_URL` | Production WP URL — link verify, publish, post-publish check (project-scoped) |
 | `FTP_*` | `excalibur_blog_wp_publish.py` |
 | `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` только когда готовы публиковать |
 | `EXCALIBUR_TOPIC_ID` | опционально фиксировать тему (иначе today.py предложит P0) |

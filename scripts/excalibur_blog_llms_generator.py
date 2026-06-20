@@ -132,7 +132,7 @@ def main() -> int:
 
     import os
     prod = load_production_site(root)
-    site_name = args.site_name or os.environ.get("SITE_BRAND") or "Blog"
+    site_name = args.site_name or os.environ.get("EXCALIBUR_SITE_BRAND") or os.environ.get("SITE_BRAND") or "Blog"
     llms_txt = build_llms_txt(site_name, args.site_desc, articles, args.site_base)
     llms_full_txt = build_llms_full_txt(site_name, articles, args.site_base)
 

@@ -74,11 +74,11 @@ shell today + research_start
 
 ## Production site
 
-**Публикация только на production host** (`PUBLIC_SITE_URL` в Cloud Secrets).
+**Публикация только на production host** (`EXCALIBUR_PUBLIC_SITE_URL` в Cloud Secrets).
 
 - Канонический конфиг: `shared/production-site.json`, док: `shared/production-site.md`
-- `PUBLIC_SITE_URL` в Cloud Secrets и `memory/site.env.local` — полный URL production-хоста
-- Permalink: `$PUBLIC_SITE_URL/{slug}/` (без `/blog/`)
+- `EXCALIBUR_PUBLIC_SITE_URL` в Cloud Secrets и `memory/site.env.local` — полный URL production-хоста
+- Permalink: `$EXCALIBUR_PUBLIC_SITE_URL/{slug}/` (без `/blog/`)
 - После publish — HTTP 200 на live URL; иначе FAIL (не доверять только `OK post=...`)
 
 ## Preflight (обязательно)
@@ -95,7 +95,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Только Cloud Secrets / env vars. Не печатать FTP/API ключи в handoff, PR, ответах.
 
-- `FTP_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
+- `FTP_*`, `EXCALIBUR_PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
 - MCP через `${env:...}` в mcp.json
 
 ## Git hygiene

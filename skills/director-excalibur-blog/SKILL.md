@@ -45,7 +45,7 @@ python3 scripts/excalibur_blog_research_start.py --topic-id <id>
 
 ## Production site
 
-Публикация **только** на `PUBLIC_SITE_URL`. `PUBLIC_SITE_URL` в Secrets = production.com. Permalink: `/{slug}/`.
+Публикация только на URL из **`EXCALIBUR_PUBLIC_SITE_URL`** (Cloud Secrets / `memory/site.env.local`). Permalink: `/{slug}/`.
 
 ## Вход перед стартом
 

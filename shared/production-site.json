@@ -1,7 +1,7 @@
 {
-  "public_site_url_env": "PUBLIC_SITE_URL",
+  "public_site_url_env": "EXCALIBUR_PUBLIC_SITE_URL",
   "article_path_template": "/{slug}/",
-  "site_name_env": "SITE_BRAND",
-  "legacy_host_parts": ["mayai", "ru"],
-  "notes": "Production WordPress URL только из env PUBLIC_SITE_URL. Permalink: /{slug}/ без /blog/."
+  "site_name_env": "EXCALIBUR_SITE_BRAND",
+  "legacy_public_site_url_envs": ["PUBLIC_SITE_URL", "WP_SITE_URL"],
+  "notes": "Project-scoped URL для multi-project Cloud Secrets. Primary: EXCALIBUR_PUBLIC_SITE_URL. Legacy: PUBLIC_SITE_URL, WP_SITE_URL."
 }

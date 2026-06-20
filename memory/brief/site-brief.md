@@ -4,16 +4,16 @@ Excalibur BLOG читает этот файл для получения ключ
 
 ## Сайт
 
-- **site_name:** из env `SITE_BRAND` (см. Cloud Secrets)
-- **site_url:** из env `PUBLIC_SITE_URL` (см. `shared/production-site.md`)
-- **wp_admin_url:** `$PUBLIC_SITE_URL/wp-login.php`
+- **site_name:** из env `EXCALIBUR_SITE_BRAND` (см. Cloud Secrets)
+- **site_url:** из env `EXCALIBUR_PUBLIC_SITE_URL` (см. `shared/production-site.md`)
+- **wp_admin_url:** `$EXCALIBUR_PUBLIC_SITE_URL/wp-login.php`
 - **blog_path:** /
 - **language:** ru
 - **niche:** внедрение AI в бизнес под ключ: AI-агенты, CRM-автоматизация (amoCRM, Bitrix24), голосовые менеджеры, чат-боты, Make/n8n, RAG-базы знаний, обработка заявок и лидов, аналитика звонков и чатов
 
 ## Продукт и контент-стратегия
 
-- **компания:** [production site](https://production.com) — внедрение AI-автоматизации бизнеса под ключ
+- **компания:** [production site](https://production host) — внедрение AI-автоматизации бизнеса под ключ
 - **главный оффер:** AI-аудит процессов + внедрение AI-агентов в CRM, телефонию, мессенджеры и документооборот
 - **уникальный угол:** не «чат-бот ради чат-бота», а связанная операционная система: заявки → квалификация → CRM → задачи менеджеру → аналитика для руководителя; human-in-the-loop по умолчанию
 
@@ -54,7 +54,7 @@ Excalibur BLOG читает этот файл для получения ключ
 
 ## Офферы и CTA
 
-См. `conversion-map.md`. Кратко: AI-аудит, обсуждение внедрения, главная production.com.
+См. `conversion-map.md`. Кратко: AI-аудит, обсуждение внедрения, главная production host.
 
 ## Запреты
 

@@ -1,33 +1,37 @@
 # Excalibur BLOG — production site
 
-## Канонический сайт публикации
+## Env (project-scoped)
 
-| Поле | Источник |
-|------|----------|
-| **Production URL** | env `PUBLIC_SITE_URL` (Cloud Secrets / `memory/site.env.local`) |
-| **Permalink** | `$PUBLIC_SITE_URL/{slug}/` |
-| **Конфиг** | `shared/production-site.json` |
+Используй **префикс `EXCALIBUR_`**, чтобы не конфликтовать с другими проектами в общих Cloud Secrets:
 
-## Cloud Secrets / env
+| Variable | Назначение |
+|----------|------------|
+| **`EXCALIBUR_PUBLIC_SITE_URL`** | Production WordPress URL (primary) |
+| `EXCALIBUR_BLOG_ALLOW_PUBLISH` | `yes` для publish |
+| `EXCALIBUR_SITE_BRAND` | Название бренда (опционально) |
+| `FTP_*` | Доступы WP (лучше тоже с префиксом, если shared secrets) |
+
+Конфиг: `shared/production-site.json`
+
+## Cloud Secrets (пример)
 
 ```bash
-PUBLIC_SITE_URL=<https://your-production-wordpress>
+EXCALIBUR_PUBLIC_SITE_URL=<https://your-production-wordpress>
 EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
-FTP_*
 ```
 
-**Обязательно:** `PUBLIC_SITE_URL` = **production** WordPress, не staging и не legacy-домены.
+**Не используй** generic `PUBLIC_SITE_URL` в shared secrets — у других проектов может быть другой URL с тем же именем.
 
-## Скрипты
+Legacy fallback в скриптах: `PUBLIC_SITE_URL`, `WP_SITE_URL` (только для миграции).
 
-- `excalibur_blog_link_verify.py --site-base $PUBLIC_SITE_URL`
-- `excalibur_blog_interlinker.py` / `excalibur_blog_llms_generator.py` — URL из `excalibur_site_config.py`
-- Permalink: `/{slug}/` (без `/blog/`)
+## Permalink
+
+`$EXCALIBUR_PUBLIC_SITE_URL/{slug}/` — без префикса `/blog/`.
 
 ## Post-publish gate
 
 ```bash
-curl -sI "$PUBLIC_SITE_URL/{slug}/" | head -1
+curl -sI "$EXCALIBUR_PUBLIC_SITE_URL/{slug}/" | head -1
 ```
 
 HTTP 200 обязателен. 404 → verdict **FAIL**.

@@ -40,4 +40,4 @@ Scout → Research → Writer → GEO QA → Cover||Schema → Indexer → Publi
 
 Handoff: `shared/excalibur-blog-handoff.md`
 
-Production site: **PUBLIC_SITE_URL** (`shared/production-site.md`)
+Production site: **EXCALIBUR_PUBLIC_SITE_URL** (`shared/production-site.md`)

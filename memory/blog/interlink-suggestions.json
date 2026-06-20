@@ -1,6 +1,14 @@
 {
   "site_base": "https://mayai.ru",
-  "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "total_articles": 6,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B02-avtomatizaciya-n8n-ai-agents",
+      "target": "B06-make-ai-agents-nastrojka-2026",
+      "keyword": "make ai agents",
+      "context": "без программиста. Но честно: если вам не нужен свой сервер, Make AI Agents часто закрывают тот же кейс быстрее. Я покажу оба пути.</p>",
+      "link_replacement": "<a href=\"/blog/make-ai-agents-nastrojka-2026/\">Make AI Agents</a>"
+    }
+  ]
 }

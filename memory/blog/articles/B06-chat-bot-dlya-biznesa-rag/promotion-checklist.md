@@ -1,7 +1,7 @@
 # Promotion checklist — B06 chat-bot-dlya-biznesa-rag
 
 Дата публикации: 2026-06-21  
-Live URL: https://mayai.ru/blog/chat-bot-dlya-biznesa-rag/
+Live URL: /2026/06/21/chat-bot-dlya-biznesa-rag/ (resolve via PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -31,7 +31,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Перед рекламой — 50–100 тест-кейсов, FCR 60–80%, fallback ниже 20%
 
 Пошаговый workflow с чеклистом:
-Читать: https://mayai.ru/blog/chat-bot-dlya-biznesa-rag/
+Читать: /2026/06/21/chat-bot-dlya-biznesa-rag/
 ```
 
 ## Перелинковка

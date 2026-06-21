@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Это pipeline: входящее сообщение, поиск по базе знаний (векторное хранилище - база \"отпечатков смысла\" текста), ответ строго из найденных фрагментов и запись лида в amoCRM, Bitrix24 или Google Sheets",
+      "word_count": 27
+    },
+    {
+      "sentence": "По данным McKinsey, 71% организаций уже используют gen AI минимум в одной функции - но около 40% проектов автономных агентов срываются из-за скрытых затрат и нулевого ROI, если нет human-in-the-loop (контроль человеком на критичных шагах)",
+      "word_count": 32
+    },
+    {
+      "sentence": "Задача Канал Инструмент FAQ поддержки Telegram Business Telegram Trigger в n8n / модуль Telegram в Make Лиды с сайта Виджет / Webhook Chat Trigger n8n / Instant Webhook Make Аудитория в MAX MAX Bot API HTTP webhook на platform-api",
+      "word_count": 34
+    },
+    {
+      "sentence": "Соберите workflow в n8n или Make: триггер → Agent → Vector Store Схема pipeline: Сообщение (Telegram / Chat Trigger / MAX) → embed запроса → top-k из Vector Store → AI Agent + system prompt → IF низкая уверенность OR триггер-слово → handoff оператору + CRM → иначе ответ пользователю → лог (PII замаскирован) Шаг 1: Поднимите vector store",
+      "word_count": 44
+    },
+    {
+      "sentence": "com Старт без DevOps Cloud trial; Starter от 20 €/мес, 2500 executions Free 1000 credits/мес; регистрация за минуты RAG и контроль данных Self-hosted CE бесплатно + свой vector store Облако Make, 3000+ интеграций из коробки AI Agent Tools Agent, Vector Store Tool, MCP Make AI Agents, Reasoning panel Ориентир бюджета стека CE + VPS + API LLM ≈ от $150/мес Credits + API LLM; AI-модули дороже обычных Итоговый вердикт: n8n - если нужен self-host, глубокий RAG и данные на своём сервере",
+      "word_count": 71
+    },
+    {
+      "sentence": "Пройдите чеклист запуска за 7-14 дней Primary-задача и один канал зафиксированы письменно FAQ, прайс и \"что бот не делает\" загружены в vector store Chunks 500-1000 токенов, overlap 10-20% System prompt запрещает ответы вне контекста Max iterations и Continue on Error на внешних API Handoff по ключевым словам и low confidence настроен CRM получает transcript и поля лида 50-100 тест-кейсов: реальные переписки, jailbreak, цена без документа Таблица PASS/FAIL по каждому кейсу Пилот 7-14 дней: FCR 60-80%, CSAT, fallback &lt;20% Среднее время ответа на FAQ &lt;5 с (без учёта эскалации) Weekly update FAQ по логам галлюцинаций Делайте: запускать рекламу только после PASS по критичным кейсам (цены, возвраты, медицина)",
+      "word_count": 107
+    }
+  ],
+  "readability": {
+    "score": 91.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 12.6,
+    "avg_syllables_per_word": 1.7
+  }
+}

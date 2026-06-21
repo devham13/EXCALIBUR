@@ -1,0 +1,31 @@
+{
+  "topic_id": "B07",
+  "slug": "wordpress-mcp-ai-agenty",
+  "h1": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI",
+  "title": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI",
+  "description": "Пошаговый гайд: WordPress MCP Adapter на self-hosted WP 6.9+, Application Password, mcp.json в Cursor и @automattic/mcp-wordpress-remote. Discover abilities, read-only аудит, черновик draft с human-in-the-loop.",
+  "primary_query": "wordpress mcp",
+  "secondary_queries": [
+    "mcp adapter wordpress",
+    "подключить mcp к wordpress",
+    "wordpress abilities api",
+    "управление wordpress через ai"
+  ],
+  "char_count": 8773,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "подключить wordpress mcp adapter к cursor",
+    "настройка mcp adapter wordpress 6.9",
+    "управление wordpress через ai агента"
+  ],
+  "meta_ab": {
+    "title_seo": "WordPress MCP: пошаговое подключение MCP Adapter к Cursor",
+    "title_ctr": "🚀 WordPress MCP за час? Подключите MCP Adapter к Cursor без admin-доступа!",
+    "title_aeo": "Как подключить WordPress MCP Adapter к Cursor для управления сайтом?",
+    "description_seo": "Пошаговый гайд: WordPress MCP Adapter на self-hosted WP 6.9+, Application Password, mcp.json в Cursor и @automattic/mcp-wordpress-remote. Discover, read-only, draft с проверкой.",
+    "description_ctr": "⚡ Управляйте WordPress из Cursor: official MCP Adapter, отдельный user, Application Password и безопасный draft без auto-publish. Инструкция для бизнеса 2026.",
+    "description_aeo": "WordPress MCP Adapter подключают через плагин mcp-adapter, Application Password и .cursor/mcp.json с @automattic/mcp-wordpress-remote. Нужен WordPress 6.9+ и HTTPS."
+  },
+  "cover_family": "brand_collage"
+}

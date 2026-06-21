@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-avtomatizaciya-obrabotki-dokumentov-ii/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ment Processing – \"умная обработка документов\") в 2026 году – это не один OCR-сервис, а цепочка с контрол",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "rom PDF верифицированы по первоисточникам на июнь 2026 года. Частые вопросы Чем OCR отличается от LLM extract",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "599",
+      "kind": "large_number",
+      "context": "апрос \"автоматизация обработки документов\" (около 599 показов в месяц по данным Вордстата, июнь 2026) ча",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2500",
+      "kind": "large_number",
+      "context": "Cloud trial или self-host Регистрация за минуты, 2500+ интеграций PDF → текст Узел Extract from PDF (вс",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2764",
+      "kind": "large_number",
+      "context": "е для self-host, Code-узлов validation и шаблона #2764 (PDF→LLM). Выберите Make для no-code команды, n8n",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

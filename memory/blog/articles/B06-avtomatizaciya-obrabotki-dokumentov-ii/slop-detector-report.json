@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Составьте карту workflow от intake до CRM Схема конвейера: Google Drive / email IMAP → Extract from PDF или OCR → LLM(JSON) → validate(ИНН, НДС, hash) → Switch → [approve в Sheets/Telegram] → amoCRM / Bitrix24 API → алерт при ошибке Не пытайтесь автоматизировать все типы документов сразу",
+      "word_count": 41
+    },
+    {
+      "sentence": "com Старт без сервера Cloud trial или self-host Регистрация за минуты, 2500+ интеграций PDF → текст Узел Extract from PDF (встроенный) Модули PDF + HTTP к OCR API Валидация ИНН Code-узел с checksum Custom function или HTTP к своему скрипту 152-ФЗ / ПДн Self-host + GigaChat/YandexGPT Облако Make; чувствительные PDF – on-prem LLM CRM HTTP Request к amoCRM v4 / Bitrix24 Нативные модули amoCRM, Bitrix24 Для цифровых PDF (текст внутри файла) – n8n Extract from PDF",
+      "word_count": 65
+    },
+    {
+      "sentence": "Пройдите чеклист пилота на 30–50 счетах Один тип документа и один канал intake 30–50 реальных PDF и сканов в тестовой выборке JSON-schema с обязательными полями зафиксирована Checksum ИНН и арифметика сумм в Code-узле Anti-duplicate hash включён Switch по confidence настроен Очередь HITL (Sheets или Telegram) работает Экспорт в amoCRM / Bitrix24 / Sheets протестирован Алерт при fail validation в мессенджер Журнал raw OCR + JSON + status ведётся 152-ФЗ: чувствительные PDF не уходят в зарубежные LLM без оценки KPI: % верных полей, время intake→CRM, число эскалаций Критерий успеха: ≥90% верных обязательных полей Если Make ближе вашей команде – первые три занятия по сценариям intake и HTTP доступны в курсе Make",
+      "word_count": 101
+    },
+    {
+      "sentence": "Достоверность данных: показатели Вордстата (\"автоматизация обработки документов\" – около 599 показов/мес, \"ии для распознавания документов\" – около 161), бенчмарки IDP и параметры n8n Extract from PDF верифицированы по первоисточникам на июнь 2026 года",
+      "word_count": 28
+    }
+  ],
+  "readability": {
+    "score": 94.2,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.1,
+    "avg_syllables_per_word": 1.6
+  }
+}

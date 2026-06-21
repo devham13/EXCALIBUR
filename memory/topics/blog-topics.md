@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — RAG база знаний для бизнеса
+
+- **priority:** P0
+- **slug:** rag-baza-znanij-dlya-biznesa-2026
+- **h1:** Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026
+- **primary_query:** rag база знаний
+- **secondary_queries:** rag для бизнеса, настройка rag системы, корпоративная база знаний rag, rag qdrant n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. RAG vs fine-tuning: когда база знаний лучше дообучения модели
+  2. Подготовка документов: чанкинг 300–800 токенов, метаданные и очистка мусора
+  3. Выбор стека: Qdrant/pgvector, эмбеддинги и гибридный поиск (vector + BM25)
+  4. Reranker и промпт: top-K, ссылки на источники, отказ при отсутствии контекста
+  5. Golden Set и метрики: recall@5, faithfulness, eval перед продакшеном
+  6. Интеграция с n8n или Make: webhook-бот поддержки и human-in-the-loop
+- **faq_hints:** как настроить rag базу знаний; какой размер чанка выбрать для rag; чем rag отличается от обычного chatgpt
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** стопка PDF и Confluence-страниц слева, стрелки в «векторную сетку» Qdrant по центру, справа чат-бот с цитатами источников, стикеры chunk/rerank/embed, неоновый diy-коллаж
+
+---
+

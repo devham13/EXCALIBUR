@@ -7,6 +7,10 @@
 <p>Webhook – входящий "звонок" на URL вашего сценария: файл пришёл, workflow стартует. API (Application Programming Interface) – стандартная "розетка" для записи данных в CRM без копипаста.</p>
 
 <h2 id="workflow-map">1. Составьте карту workflow от intake до CRM</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Схема workflow обработки документов: от intake до CRM через OCR и LLM" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема конвейера:</b>
@@ -19,6 +23,10 @@
 <p><b>Делайте:</b> фиксируйте каждый этап в журнале (raw OCR, JSON, статус, кто approve). <b>Не делайте:</b> пять каналов intake без логов – вы не поймёте, где ломается цепочка.</p>
 
 <h2 id="choose-stack">2. Выберите стек: n8n vs Make и OCR vs LLM</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Сравнительная таблица n8n vs Make для OCR, LLM и CRM-интеграций" loading="lazy">
+</figure>
+
 
 <table>
   <thead>
@@ -66,6 +74,10 @@
 </blockquote>
 
 <h2 id="build-pipeline">3. Соберите конвейер пошагово: от триггера до CRM</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист 8 шагов сборки конвейера обработки счетов от триггера до CRM" loading="lazy">
+</figure>
+
 
 <ol>
   <li><b>Шаг 1: Аудит.</b> Выберите один тип – счета. Соберите 30–50 файлов (PDF и сканы), определите целевую CRM или таблицу и поля для экспорта.</li>
@@ -84,17 +96,27 @@
 
 <p>LLM без схемы вывода "придумывает" поля. В 2026 году стандарт IDP – strict JSON schema + temperature 0 + проверка на стороне кода.</p>
 
-<pre><code>{
+<blockquote>
+  <b>Пример JSON-schema для счёта:</b>
+  <br>
   "supplier_inn": "string",
+  <br>
   "supplier_kpp": "string",
+  <br>
   "invoice_number": "string",
+  <br>
   "invoice_date": "YYYY-MM-DD",
+  <br>
   "amount_net": "number",
+  <br>
   "amount_vat": "number",
+  <br>
   "amount_gross": "number",
+  <br>
   "currency": "RUB",
+  <br>
   "confidence": "number"
-}</code></pre>
+</blockquote>
 
 <p>Промпт: "Извлеки поля счёта строго по schema. Если поле не видно – null, не выдумывай. Верни только JSON." Human-in-the-loop (HITL) – обязательная пауза: человек подтверждает спорные счета перед проводкой в учёт.</p>
 

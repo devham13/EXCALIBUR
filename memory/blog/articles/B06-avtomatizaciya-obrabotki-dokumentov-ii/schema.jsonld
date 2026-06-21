@@ -1,0 +1,209 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#article",
+      "headline": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM",
+      "description": "Пошаговая автоматизация обработки документов с ИИ: intake, OCR, LLM в JSON, валидация ИНН, human-in-the-loop и экспорт в amoCRM/Bitrix24 на n8n или Make.",
+      "datePublished": "2026-06-21",
+      "dateModified": "2026-06-21",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/2026/06/avtomatizaciya-obrabotki-dokumentov-ii.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "автоматизация обработки документов, ии для распознавания документов, ocr документов автоматизация, извлечение данных из pdf n8n, обработка счетов ии",
+      "wordCount": 8941,
+      "articleSection": "Документы и автоматизация",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем OCR отличается от LLM extraction при обработке счетов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OCR превращает картинку или PDF в текст. LLM структурирует текст в поля JSON (ИНН, суммы, даты). На счетах используйте оба слоя или multimodal модель с vision. Настройте Extract from PDF для цифровых файлов и OCR для сканов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли обойтись без human-in-the-loop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет для бухгалтерии и CRM: автономные системы закрывают менее 2,5% сложных задач без человека. Добавьте очередь approve в Sheets или Telegram перед записью в учёт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "n8n или Make для извлечения данных из PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make быстрее старт с облачными CRM и 2500+ интеграций. n8n гибче для self-host, Code-узлов validation и шаблона #2764 (PDF→LLM). Выберите Make для no-code команды, n8n – если нужен свой сервер."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие поля счёта класть в JSON-schema на пилоте?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Минимум: ИНН и КПП поставщика, номер и дата счёта, net/VAT/gross, валюта, confidence. Строки позиций добавьте после достижения ≥90% на обязательных полях."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как автоматически проверить ИНН?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Реализуйте контрольную сумму в Code-узле n8n или custom function в Make. При fail направляйте документ в review, не в CRM API."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Куда отправлять PDF по 152-ФЗ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Персональные данные контрагентов – в GigaChat, YandexGPT или on-prem LLM. Не загружайте реквизиты в зарубежные облачные модели без правовой оценки и политики компании."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда пилот считается успешным?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "≥90% верных обязательных полей на 30–50 счетах, измеримый SLA intake→CRM, все спорные документы прошли approve. Только после этого добавляйте новые типы документов или каналы intake."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#howto",
+      "name": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM",
+      "description": "Пошаговая автоматизация обработки документов с ИИ: intake, OCR, LLM в JSON, валидация ИНН, human-in-the-loop и экспорт в amoCRM/Bitrix24 на n8n или Make.",
+      "inLanguage": "ru",
+      "totalTime": "P2W",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud или Make.com"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "OCR API или multimodal LLM с vision"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "amoCRM или Bitrix24 API"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Аудит",
+          "text": "Выберите один тип – счета. Соберите 30–50 файлов (PDF и сканы), определите целевую CRM или таблицу и поля для экспорта.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Intake",
+          "text": "Настройте триггер: Google Drive (новый файл в папке), IMAP Gmail или webhook от почтового сервиса. Сохраняйте binary PDF, не только ссылку.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Parse",
+          "text": "Цифровой PDF – Extract from PDF в n8n. Скан – OCR/Vision API или multimodal LLM с temperature 0.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Extract",
+          "text": "LLM с JSON-schema: поставщик (ИНН, КПП), номер и дата счёта, net/VAT/gross, валюта. Structured output, без свободного текста «перескажи счёт».",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Validate",
+          "text": "Code-узел: checksum ИНН, арифметика сумм (net + НДС = gross), hash(ИНН+номер+дата) против дубликатов. Порог confidence – например 85%.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Route",
+          "text": "Switch: если validation OK и confidence ≥ порога – auto-export; иначе – очередь review (Google Sheets или Telegram с кнопкой approve).",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Export",
+          "text": "HTTP Request: amoCRM /api/v4/leads или Bitrix24 crm.deal.add. Либо строка в Sheets как промежуточный буфер.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Monitor",
+          "text": "При fail validation – Telegram/Slack. Журнал: raw OCR + JSON + status + operator id для бухгалтерии.",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/#build-pipeline"
+        }
+      ]
+    }
+  ]
+}

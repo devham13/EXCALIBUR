@@ -1,0 +1,11 @@
+{
+  "slug": "avtomatizaciya-obrabotki-dokumentov-ii",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/",
+  "post_id": 312,
+  "featured_image_id": 313,
+  "inline_images": [314, 315, 316],
+  "raw_output": "OK post=312 slug=avtomatizaciya-obrabotki-dokumentov-ii\nOK featured_image=313\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=314 src=cover/inline-01.png\nOK inline_image_upload=315 src=cover/inline-02.png\nOK inline_image_upload=316 src=cover/inline-03.png\npermalink=https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/",
+  "verdict": "pass",
+  "publish_method": "ssh_scp+curl (FTP STOR blocked >625KB: 425 Bad IP)"
+}

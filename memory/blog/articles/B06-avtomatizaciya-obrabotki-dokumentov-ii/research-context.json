@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "avtomatizaciya-obrabotki-dokumentov-ii",
+    "h1": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM",
+    "primary_query": "автоматизация обработки документов",
+    "secondary_queries": [
+      "ии для распознавания документов",
+      "ocr документов автоматизация",
+      "извлечение данных из pdf n8n",
+      "обработка счетов ии"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "workflow",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "автоматизация обработки документов 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "автоматизация обработки документов июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "автоматизация обработки документов новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "ии для распознавания документов 2026",
+      "purpose": "вторичный запрос: ии для распознавания документов"
+    },
+    {
+      "id": "secondary_2",
+      "query": "ocr документов автоматизация 2026",
+      "purpose": "вторичный запрос: ocr документов автоматизация"
+    },
+    {
+      "id": "secondary_3",
+      "query": "извлечение данных из pdf n8n 2026",
+      "purpose": "вторичный запрос: извлечение данных из pdf n8n"
+    },
+    {
+      "id": "secondary_4",
+      "query": "обработка счетов ии 2026",
+      "purpose": "вторичный запрос: обработка счетов ии"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-avtomatizaciya-obrabotki-dokumentov-ii",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

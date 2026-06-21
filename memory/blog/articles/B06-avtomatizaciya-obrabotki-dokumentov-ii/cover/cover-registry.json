@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "avtomatizaciya-obrabotki-dokumentov-ii",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: автоматизация обработки документов — счёт PDF из почты в CRM без ручного ввода",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-06-21T04:09:48+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: автоматизация обработки документов — счёт PDF из почты в CRM без ручного ввода",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Схема workflow обработки документов: от intake до CRM через OCR и LLM",
+      "h2_anchor": "1. Составьте карту workflow от intake до CRM",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнительная таблица n8n vs Make для OCR, LLM и CRM-интеграций",
+      "h2_anchor": "2. Выберите стек: n8n vs Make и OCR vs LLM",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист 8 шагов сборки конвейера обработки счетов от триггера до CRM",
+      "h2_anchor": "3. Соберите конвейер пошагово: от триггера до CRM",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

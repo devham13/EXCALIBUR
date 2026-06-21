@@ -1,0 +1,554 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "avtomatizaciya-obrabotki-dokumentov-ii",
+    "h1": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM",
+    "primary_query": "автоматизация обработки документов",
+    "secondary_queries": [
+      "ии для распознавания документов",
+      "ocr документов автоматизация",
+      "извлечение данных из pdf n8n",
+      "обработка счетов ии"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "автоматизация обработки документов 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация документов: зачем бизнесу переходить на ЭДО в 2026 году ...",
+          "url": "https://saby.ru/articles/edo/avtomatizaciya_dokumentov",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация документооборота организации 2026 | Блог aimens",
+          "url": "https://aimens.ru/blog/avtomatizatsiya-dokumentooborota-organizatsii/",
+          "snippet": "В статье расскажем, как автоматизация документов успешно меняет процессы и почему порядок в документах особенно важен в 2026 году."
+        },
+        {
+          "title": "Электронный документ автоматизация документооборота 2026",
+          "url": "https://aimens.ru/blog/elektronnyj-dokument-avtomatizatsiya-dokumentooborota/",
+          "snippet": "Полное руководство по автоматизации документооборота организации в 2026. ROI расчеты, сравнение систем, избежание ошибок внедрения."
+        },
+        {
+          "title": "Nord.OCR AI-платформа для автоматизации обработки документов",
+          "url": "https://www.tadviser.ru/index.php/%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82:Nord.OCR_AI-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B4%D0%BB%D1%8F_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2",
+          "snippet": "Автоматизация сокращает время обработки одного документа до секунд за счет автоматического заполнения, отправки файлов и поиска по реквизитам."
+        },
+        {
+          "title": "Автоматизация делопроизводства в 2026: системы, внедрение, стоимость ...",
+          "url": "https://centrvd.ru/blog/avtomatizaciya-deloproizvodstva",
+          "snippet": "Компания Nord Clan запустила Nord.OCR — AI -платформу для автоматизации обработки документов, которая объединяет OCR, LLM, RAG и AI-агентов в единой цепочке. Об этом компания сообщила 9 июня 2026 года."
+        },
+        {
+          "title": "Интеллектуальная обработка документов на основе искусственного ...",
+          "url": "https://www.antiersolutions.com/ru/%D0%B1%D0%BB%D0%BE%D0%B3%D0%B8/%D0%9A%D0%B0%D0%BA-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B0-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%80%D1%83%D0%B5%D1%82-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F-%D0%B2-2026-%D0%B3%D0%BE%D0%B4%D1%83/",
+          "snippet": "Полное руководство по автоматизации делопроизводства в 2026 году. Обзор систем (Directum RX), пошаговое внедрение, реальные кейсы. Ответы на вопросы по стоимости и срокам."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "автоматизация обработки документов июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация документов: зачем бизнесу переходить на ЭДО в 2026 году ...",
+          "url": "https://saby.ru/articles/edo/avtomatizaciya_dokumentov",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация документооборота организации 2026 | Блог aimens",
+          "url": "https://aimens.ru/blog/avtomatizatsiya-dokumentooborota-organizatsii/",
+          "snippet": "В статье расскажем, как автоматизация документов успешно меняет процессы и почему порядок в документах особенно важен в 2026 году."
+        },
+        {
+          "title": "Автоматизация документооборота: ROI +380% в 2026 | Блог aimens",
+          "url": "https://aimens.ru/blog/avtomatizatsiya-dokumentooborota/",
+          "snippet": "Автоматизация документооборота организации экономит до 70% времени сотрудников и снижает операционные расходы на 380%. В 2026 году компании, внедрившие ИИ-решения для работы с документами, получают конкурентное преимущество за счёт скорости обработки и отсутствия человеческих ошибок."
+        },
+        {
+          "title": "Как Настроить Автоматизацию Обработки Документов С Ии От Скана До Crm ...",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii-workflow/",
+          "snippet": "Автоматизация документооборота в 2026 году показывает ROI до 380% и экономит до 75% времени сотрудников. Команда aimens.ru анализирует, как ИИ-технологии трансформируют работу с документами и какие решения дают максимальную отдачу."
+        },
+        {
+          "title": "5 Лучших Решений Управления Документами на основе ИИ (июнь 2026)",
+          "url": "https://www.unite.ai/ru/best-ai-document-management-solutions/",
+          "snippet": "По Вордстат на июнь 2026 ядро «автоматизация обработки документов» — 599 показов/мес, рядом «ии для распознавания документов» — 161 и «автоматизация процессов обработки документов» — 141."
+        },
+        {
+          "title": "Nord.OCR AI-платформа для автоматизации обработки документов",
+          "url": "https://www.tadviser.ru/index.php/%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82:Nord.OCR_AI-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B4%D0%BB%D1%8F_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2",
+          "snippet": "Упрощенное распространение документов: Автоматизирует захват и распространение документов в облачные или локальные решения, включая Microsoft OneDrive, SharePoint и Power Apps."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "автоматизация обработки документов новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Топ‑5 тенденций управления документами, которые стоит наблюдать в 2026 ...",
+          "url": "https://onlinedocumentviewer.com/ru/blog/top-5-document-management-trends-to-watch-in-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Интеллектуальная обработка документов на основе искусственного ...",
+          "url": "https://www.antiersolutions.com/ru/%D0%B1%D0%BB%D0%BE%D0%B3%D0%B8/%D0%9A%D0%B0%D0%BA-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B0-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%80%D1%83%D0%B5%D1%82-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F-%D0%B2-2026-%D0%B3%D0%BE%D0%B4%D1%83/",
+          "snippet": "Представляем вам топ‑5 тенденций управления документами, которые стоит наблюдать в 2026 году. 1. Обработка документов с использованием ИИ. Искусственный интеллект выходит за рамки простого OCR."
+        },
+        {
+          "title": "Тренды-2026 в интеллектуальной обработке документов",
+          "url": "https://www.directum.ru/blog-post/ot_dezhurnogo_raspoznavanija_k_avtonomnosti_processov__trendy-2026_v_intellektualnojj_obrabotke_dokumentov",
+          "snippet": "В 2026 году ландшафт цифровой трансформации предприятий претерпел изменения, чтобы справиться со сложностями обработки документов с помощью интеллектуальной обработки документов (IDP)."
+        },
+        {
+          "title": "Idp В 2026: Ocr, Llm И Новая Обработка Документов",
+          "url": "https://www.technologika.ru/blog/idp-in-2026-is-more-than-ocr",
+          "snippet": "Есть все основания считать, что 2026 год станет переломным для Intelligent Document Processing. Завершается переход от простого распознавания к стадии «понимание + действие»."
+        },
+        {
+          "title": "Интеллектуальная обработка документов. Обзор TAdviser 2026",
+          "url": "https://www.tadviser.ru/index.php/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F:%D0%98%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2._%D0%9E%D0%B1%D0%B7%D0%BE%D1%80_TAdviser_2026",
+          "snippet": "IDP в 2026 году — это уже не только OCR. Разбираем вместе с директором «Технологики» Олегом Кокориным, как LLM, валидация, BPM/ECM и бизнес-правила меняют обработку документов."
+        },
+        {
+          "title": "Автоматизация делопроизводства и СЭД в России: обзор 2026, законы ...",
+          "url": "https://management.econlib.ru/kursovaya/primeryi-kursovyih-rabot-po-dokumentovedeniyu/",
+          "snippet": "В «Технологике» ожидают продолжения роста рынка интеллектуальной обработки документов в 2026-2027 гг., увеличения доли проектов, где решения IDP встроены непосредственно в бизнес-процессы."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "ии для распознавания документов 2026",
+      "purpose": "вторичный запрос: ии для распознавания документов",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Распознавание Документов: Обзор Idp-систем В России В 2026 Году",
+          "url": "https://vc.ru/services/2730968-obzor-idp-sistem-dlya-raspoznavaniya-dokumentov-v-rossii",
+          "snippet": ""
+        },
+        {
+          "title": "Распознавание документов с помощью ИИ — технологии 2026",
+          "url": "https://scan.nevskylaw.ru/blog/raspoznavanie-dokumentov-s-pomoshchyu-ai/",
+          "snippet": "В этом обзоре мы рассмотрим рынок IDP-систем в 2026 году. Разберем заметных разработчиков, их подходы и ограничения, а также покажем, какие технологии действительно автоматизируют бизнес, а какие потребуют дополнительных ресурсов, контроля и осторожности."
+        },
+        {
+          "title": "Обработка документов с ИИ: подборка нейросетей для бизнеса на 2026 год ...",
+          "url": "https://vc.ru/ai/2766450-obrabotka-dokumentov-s-ii-neuroseti-dlya-biznesa-v-2026-godu",
+          "snippet": "В 2026 году интеллектуальное распознавание документов — это не экзотика крупных корпораций, а доступный инструмент для бизнеса любого масштаба. Разбираем, как именно работают технологии, где они применяются и что важно учитывать при выборе решения."
+        },
+        {
+          "title": "Распознавание Документов: Ocr, Ии И Нейросети - Как Это Работает В 2026",
+          "url": "https://aidataextractor.pro/blog/raspoznavanie-dokumentov-ocr-ii-2026",
+          "snippet": "В этом обзоре рассмотрим несколько ИИ-решений по распознаванию документов, представленных на рынке в 2026 году, и разберем основные конкурентные преимущества, которые дает ..."
+        },
+        {
+          "title": "5 лучших ИИ для юридических документов: Автоматизация составления и ...",
+          "url": "https://sonix.ai/ai/ru/ai-%D0%B4%D0%BB%D1%8F-%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/",
+          "snippet": "Сравнение OCR-движков на реальных документах, три поколения распознавания, обработка рукописного текста и сканов. Практический гайд с бенчмарками скорости и чеклистом для выбора ..."
+        },
+        {
+          "title": "Революционный ИИ для распознавания документов",
+          "url": "https://smartengines.ru/intelligent-document-recognition/",
+          "snippet": "Современные инструменты юридического ИИ вышли далеко за рамки простого сканирования документов. Лучшие платформы сегодня предлагают анализ договоров, автоматическое редактирование, проверку соответствия и даже запрос юридических документов на естественном языке."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "ocr документов автоматизация 2026",
+      "purpose": "вторичный запрос: ocr документов автоматизация",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Nord.OCR AI-платформа для автоматизации обработки документов",
+          "url": "https://www.tadviser.ru/index.php/%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82:Nord.OCR_AI-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B4%D0%BB%D1%8F_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2",
+          "snippet": ""
+        },
+        {
+          "title": "Ocr Автоматизация Документов 2026: Революция Ai!",
+          "url": "https://huntscreens.com/ru/topic/ocr-document-automation",
+          "snippet": "Компания Nord Clan запустила Nord.OCR — AI -платформу для автоматизации обработки документов, которая объединяет OCR, LLM, RAG и AI-агентов в единой цепочке. Об этом компания сообщила 9 июня 2026 года."
+        },
+        {
+          "title": "Ocr В 2026: Что Работает, А Что Нет — Экспертный Обзор Технологий ...",
+          "url": "https://mrcriptor.ru/blog/ocr-v-2026-chto-rabotaet-a-chto-net-ekspertnyy-obzor-tekhnologiy-raspoznavaniya-teksta/",
+          "snippet": "Откройте для себя передовую OCR-автоматизацию в 2026 году! Ускорьте обработку документов с помощью AI инструментов и инновационных решений. Узнайте больше!"
+        },
+        {
+          "title": "OCR технологии 2026: обзор и кейсы внедрения — mypl.pro",
+          "url": "https://mypl.pro/blog/ocr-2026-prakticheskie-kejsy-vnedreniya-v-biznes-testirovanie-5-reshenij",
+          "snippet": "Практический разбор современных OCR-решений: от Tesseract до нейросетевых подходов. Что выбрать для бизнеса, какие подводные камни учесть и куда движется индустрия."
+        },
+        {
+          "title": "OCR и VLM-модели для документов в 2026 - onff.ru",
+          "url": "https://onff.ru/ocr-vlm-modeli-dlya-dokumentov-2026/",
+          "snippet": "Сравнение 5 OCR решений для автоматизации документооборота. Практические кейсы внедрения в бухгалтерию и логистику с расчетом ROI и окупаемости систем."
+        },
+        {
+          "title": "Ocr Документов С Ии 2026: Распознавание Счетов, Актов И Накладных",
+          "url": "https://www.1it.ru/blog/ocr-dokumentov-ii",
+          "snippet": "В 2026 году выбор шире: есть специализированные OCR-модели, парсеры документов, мультимодальные модели (VLM) и API вроде Gemini, которые умеют не только читать документ, но и возвращать координаты найденных фрагментов."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "извлечение данных из pdf n8n 2026",
+      "purpose": "вторичный запрос: извлечение данных из pdf n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизируем извлечение данных из PDF: шаблон n8n для сравнения ...",
+          "url": "https://mylifetarget.ru/avtomatizacziya/prompt-pdf-data-extraction-n8n/",
+          "snippet": ""
+        },
+        {
+          "title": "Extract Data from PDFs in n8n: Text, Tables, and Scanned Documents",
+          "url": "https://logicworkflow.com/blog/n8n-extract-data-from-pdf/",
+          "snippet": "Этот шаблон позволяет одновременно обрабатывать PDF-документы через две передовые AI-модели для извлечения структурированной информации и сравнения результатов."
+        },
+        {
+          "title": "Извлечение данных из PDF в Excel с помощью n8n и LlamaParse",
+          "url": "https://ya.zerocoder.ru/kak-izvlech-dannye-iz-pdf-v-excel-n8n-i-llamaparse/",
+          "snippet": "Learn how to extract data from PDFs in n8n using native extraction, OCR, and AI vision. Complete guide with workflow patterns for text, tables, invoices, and scanned documents."
+        },
+        {
+          "title": "Автоматизируем обработку счетов-фактур: шаблон n8n для извлечения ...",
+          "url": "https://mylifetarget.ru/avtomatizacziya/prompt-invoice-pdf-json-n8n/",
+          "snippet": "Узнайте, как использовать n8n и LlamaParse для автоматического извлечения данных из PDF-файлов и их конвертации в удобный формат Excel. Простые шаги и полезные советы."
+        },
+        {
+          "title": "Каталог Рабочих Процессов N8n - Шаблоны Автоматизации",
+          "url": "https://n8nworkflow.net/ru",
+          "snippet": "Там выходят подробные разборы популярных сценариев для n8n, реальные кейсы автоматизации бизнеса и примеры, где рутинную работу полностью берут на себя роботы, а не человек."
+        },
+        {
+          "title": "Extract and process information directly from PDF using Claude and ...",
+          "url": "https://n8n.io/workflows/2764-extract-and-process-information-directly-from-pdf-using-claude-and-gemini/",
+          "snippet": "Он обеспечивает анализ и описание изображений, транскрипцию аудио и извлечение данных из файлов, позволяя пользователям получать точные и полезные ответы на запросы."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "обработка счетов ии 2026",
+      "purpose": "вторичный запрос: обработка счетов ии",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "ИИ для бухгалтера в 2026: автоматизация без потери контроля",
+          "url": "https://vibelab.ru/blog/ii-dlya-bukhgaltera-v-2026-avtomatizatsiya-bez-poteri-kontrolya/",
+          "snippet": ""
+        },
+        {
+          "title": "Лучшая автоматизация обработки счетов с помощью ИИ 2026",
+          "url": "https://www.energent.ai/use-cases/ru/compare/the-best-ai-invoice-processing-automation",
+          "snippet": "Как ИИ автоматизирует бухучёт: реальные сценарии, работающие промпты и чек-лист выбора решения. Практические примеры для 1С и Контур. Главный бухгалтер тратит до 60% рабочего времени на сверку, классификацию платежей и подготовку черновиков отчётов. ИИ уже умеет забирать эту рутину — но с оговорками, о которых вендоры предпочитают молчать."
+        },
+        {
+          "title": "Агентный Ии В Бухгалтерии 2026: Автономные Агенты В Закрытии Месяца, Ap ...",
+          "url": "https://beancount.io/ru/blog/2026/05/10/agentic-ai-bookkeeping-2026-autonomous-finance-agents-month-end-close-ap-reconciliation-workflows-guide",
+          "snippet": "Узнайте, почему Energent.ai является лучшей платформой для автоматизации обработки счетов с помощью ИИ в 2026 году."
+        },
+        {
+          "title": "10 Лучших Инструментов Учета С Искусственным Интеллектом (июнь 2026)",
+          "url": "https://www.unite.ai/ru/best-ai-accounting-tools/",
+          "snippet": "Именно так выглядит рабочий процесс с применением «агентного ИИ» в финансовых отделах в 2026 году. И это далеко не самый амбициозный пример. Генеративный ИИ дал бухгалтерам умного помощника, способного составлять служебные записки и резюмировать отчеты 10-K. Агентный ИИ — это совсем другой уровень. Он не ждет команды."
+        },
+        {
+          "title": "Топ-10 систем ИИ для бухгалтерии в 2026 году: советы, риски и список ...",
+          "url": "https://vc.ru/ai/2625920-top-10-sistem-ii-dlya-buhgalterii",
+          "snippet": "Эта статья исследует лучшие инструменты учета с искусственным интеллектом, которые меняют то, как бизнес управляет своими финансами."
+        },
+        {
+          "title": "ИИ для бухгалтерии: автоматизация документов и отчетности 2026",
+          "url": "https://ai-journal.ru/ii-dlya-buhgalterii/",
+          "snippet": "За счет ускорения обработки документов бухгалтерия может быстрее получать актуальные сведения для бухгалтерского учета, управленческой отчетности и делопроизводства."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Настроить Автоматизацию Обработки Документов С Ии От Скана До Crm ...",
+          "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii-workflow/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Настроить Автоматизацию Обработки Документов С Ии От Скана До Crm ...",
+          "url": "https://dzen.ru/a/ajGcNyV-PCISdVsH",
+          "snippet": "Это не обзор двадцати нейросетей и не ROI +380%. Одна мастерская: один тип документа (счета) от файла до строки в CRM. По Вордстат на июнь 2026 ядро «автоматизация обработки документов» — 599 показов/мес, рядом «ии для ..."
+        },
+        {
+          "title": "Автоматизация документов с помощью ИИ: лучшие ИИ-инструменты для ...",
+          "url": "https://www.jenova.ai/ru/resources/ai-document-automation",
+          "snippet": "Статья автора «Артур Хорошев про автоматизацию и нейросети» в Дзене : Пошаговый workflow автоматизации обработки документов: intake, OCR, LLM в JSON, валидация ИНН и НДС, human-in-the-loop и экспорт"
+        },
+        {
+          "title": "ИИ для обработки документов: счета, договоры, акты, заявки и back ...",
+          "url": "https://sabitovsystems.ru/blog/posts/ai-document-processing.html",
+          "snippet": "Откройте для себя лучшие инструменты для автоматизации документов с помощью ИИ в 2026 году."
+        },
+        {
+          "title": "ИИ для документов: экономия 85% времени в 2026 | Блог aimens",
+          "url": "https://aimens.ru/blog/ii-dlya-dokumentov/",
+          "snippet": "Как внедрить ИИ для обработки документов в бизнесе: распознавание счетов, договоров и актов, извлечение данных, согласования, интеграция с CRM, 1С и документооборотом."
+        },
+        {
+          "title": "Обработка документов с ИИ: подборка нейросетей для бизнеса на 2026 год ...",
+          "url": "https://vc.ru/ai/2766450-obrabotka-dokumentov-s-ii-neuroseti-dlya-biznesa-v-2026-godu",
+          "snippet": "Специалисты aimens.ru выделяют три критических направления автоматизации. Первое — интеллектуальная обработка поступающих документов с автоматической категоризацией и маршрутизацией. Второе — генерация документов по шаблонам с учётом контекста и корпоративных стандартов."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://saby.ru/articles/edo/avtomatizaciya_dokumentov",
+      "title": "Автоматизация документов: зачем бизнесу переходить на ЭДО в 2026 году ...",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://aimens.ru/blog/avtomatizatsiya-dokumentooborota-organizatsii/",
+      "title": "Автоматизация документооборота организации 2026 | Блог aimens",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://aimens.ru/blog/elektronnyj-dokument-avtomatizatsiya-dokumentooborota/",
+      "title": "Электронный документ автоматизация документооборота 2026",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://www.tadviser.ru/index.php/%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82:Nord.OCR_AI-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B4%D0%BB%D1%8F_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2",
+      "title": "Nord.OCR AI-платформа для автоматизации обработки документов",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://centrvd.ru/blog/avtomatizaciya-deloproizvodstva",
+      "title": "Автоматизация делопроизводства в 2026: системы, внедрение, стоимость ...",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://www.antiersolutions.com/ru/%D0%B1%D0%BB%D0%BE%D0%B3%D0%B8/%D0%9A%D0%B0%D0%BA-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D0%B0-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%80%D1%83%D0%B5%D1%82-%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F-%D0%B2-2026-%D0%B3%D0%BE%D0%B4%D1%83/",
+      "title": "Интеллектуальная обработка документов на основе искусственного ...",
+      "from_query": "автоматизация обработки документов 2026"
+    },
+    {
+      "url": "https://aimens.ru/blog/avtomatizatsiya-dokumentooborota/",
+      "title": "Автоматизация документооборота: ROI +380% в 2026 | Блог aimens",
+      "from_query": "автоматизация обработки документов июнь 2026"
+    },
+    {
+      "url": "https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii-workflow/",
+      "title": "Как Настроить Автоматизацию Обработки Документов С Ии От Скана До Crm ...",
+      "from_query": "автоматизация обработки документов июнь 2026"
+    },
+    {
+      "url": "https://www.unite.ai/ru/best-ai-document-management-solutions/",
+      "title": "5 Лучших Решений Управления Документами на основе ИИ (июнь 2026)",
+      "from_query": "автоматизация обработки документов июнь 2026"
+    },
+    {
+      "url": "https://onlinedocumentviewer.com/ru/blog/top-5-document-management-trends-to-watch-in-2026",
+      "title": "Топ‑5 тенденций управления документами, которые стоит наблюдать в 2026 ...",
+      "from_query": "автоматизация обработки документов новости 2026"
+    },
+    {
+      "url": "https://www.directum.ru/blog-post/ot_dezhurnogo_raspoznavanija_k_avtonomnosti_processov__trendy-2026_v_intellektualnojj_obrabotke_dokumentov",
+      "title": "Тренды-2026 в интеллектуальной обработке документов",
+      "from_query": "автоматизация обработки документов новости 2026"
+    },
+    {
+      "url": "https://www.technologika.ru/blog/idp-in-2026-is-more-than-ocr",
+      "title": "Idp В 2026: Ocr, Llm И Новая Обработка Документов",
+      "from_query": "автоматизация обработки документов новости 2026"
+    },
+    {
+      "url": "https://www.tadviser.ru/index.php/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F:%D0%98%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2._%D0%9E%D0%B1%D0%B7%D0%BE%D1%80_TAdviser_2026",
+      "title": "Интеллектуальная обработка документов. Обзор TAdviser 2026",
+      "from_query": "автоматизация обработки документов новости 2026"
+    },
+    {
+      "url": "https://management.econlib.ru/kursovaya/primeryi-kursovyih-rabot-po-dokumentovedeniyu/",
+      "title": "Автоматизация делопроизводства и СЭД в России: обзор 2026, законы ...",
+      "from_query": "автоматизация обработки документов новости 2026"
+    },
+    {
+      "url": "https://vc.ru/services/2730968-obzor-idp-sistem-dlya-raspoznavaniya-dokumentov-v-rossii",
+      "title": "Распознавание Документов: Обзор Idp-систем В России В 2026 Году",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://scan.nevskylaw.ru/blog/raspoznavanie-dokumentov-s-pomoshchyu-ai/",
+      "title": "Распознавание документов с помощью ИИ — технологии 2026",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2766450-obrabotka-dokumentov-s-ii-neuroseti-dlya-biznesa-v-2026-godu",
+      "title": "Обработка документов с ИИ: подборка нейросетей для бизнеса на 2026 год ...",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://aidataextractor.pro/blog/raspoznavanie-dokumentov-ocr-ii-2026",
+      "title": "Распознавание Документов: Ocr, Ии И Нейросети - Как Это Работает В 2026",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://sonix.ai/ai/ru/ai-%D0%B4%D0%BB%D1%8F-%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/",
+      "title": "5 лучших ИИ для юридических документов: Автоматизация составления и ...",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://smartengines.ru/intelligent-document-recognition/",
+      "title": "Революционный ИИ для распознавания документов",
+      "from_query": "ии для распознавания документов 2026"
+    },
+    {
+      "url": "https://huntscreens.com/ru/topic/ocr-document-automation",
+      "title": "Ocr Автоматизация Документов 2026: Революция Ai!",
+      "from_query": "ocr документов автоматизация 2026"
+    },
+    {
+      "url": "https://mrcriptor.ru/blog/ocr-v-2026-chto-rabotaet-a-chto-net-ekspertnyy-obzor-tekhnologiy-raspoznavaniya-teksta/",
+      "title": "Ocr В 2026: Что Работает, А Что Нет — Экспертный Обзор Технологий ...",
+      "from_query": "ocr документов автоматизация 2026"
+    },
+    {
+      "url": "https://mypl.pro/blog/ocr-2026-prakticheskie-kejsy-vnedreniya-v-biznes-testirovanie-5-reshenij",
+      "title": "OCR технологии 2026: обзор и кейсы внедрения — mypl.pro",
+      "from_query": "ocr документов автоматизация 2026"
+    },
+    {
+      "url": "https://onff.ru/ocr-vlm-modeli-dlya-dokumentov-2026/",
+      "title": "OCR и VLM-модели для документов в 2026 - onff.ru",
+      "from_query": "ocr документов автоматизация 2026"
+    },
+    {
+      "url": "https://www.1it.ru/blog/ocr-dokumentov-ii",
+      "title": "Ocr Документов С Ии 2026: Распознавание Счетов, Актов И Накладных",
+      "from_query": "ocr документов автоматизация 2026"
+    },
+    {
+      "url": "https://mylifetarget.ru/avtomatizacziya/prompt-pdf-data-extraction-n8n/",
+      "title": "Автоматизируем извлечение данных из PDF: шаблон n8n для сравнения ...",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://logicworkflow.com/blog/n8n-extract-data-from-pdf/",
+      "title": "Extract Data from PDFs in n8n: Text, Tables, and Scanned Documents",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://ya.zerocoder.ru/kak-izvlech-dannye-iz-pdf-v-excel-n8n-i-llamaparse/",
+      "title": "Извлечение данных из PDF в Excel с помощью n8n и LlamaParse",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://mylifetarget.ru/avtomatizacziya/prompt-invoice-pdf-json-n8n/",
+      "title": "Автоматизируем обработку счетов-фактур: шаблон n8n для извлечения ...",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://n8nworkflow.net/ru",
+      "title": "Каталог Рабочих Процессов N8n - Шаблоны Автоматизации",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://n8n.io/workflows/2764-extract-and-process-information-directly-from-pdf-using-claude-and-gemini/",
+      "title": "Extract and process information directly from PDF using Claude and ...",
+      "from_query": "извлечение данных из pdf n8n 2026"
+    },
+    {
+      "url": "https://vibelab.ru/blog/ii-dlya-bukhgaltera-v-2026-avtomatizatsiya-bez-poteri-kontrolya/",
+      "title": "ИИ для бухгалтера в 2026: автоматизация без потери контроля",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://www.energent.ai/use-cases/ru/compare/the-best-ai-invoice-processing-automation",
+      "title": "Лучшая автоматизация обработки счетов с помощью ИИ 2026",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://beancount.io/ru/blog/2026/05/10/agentic-ai-bookkeeping-2026-autonomous-finance-agents-month-end-close-ap-reconciliation-workflows-guide",
+      "title": "Агентный Ии В Бухгалтерии 2026: Автономные Агенты В Закрытии Месяца, Ap ...",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://www.unite.ai/ru/best-ai-accounting-tools/",
+      "title": "10 Лучших Инструментов Учета С Искусственным Интеллектом (июнь 2026)",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2625920-top-10-sistem-ii-dlya-buhgalterii",
+      "title": "Топ-10 систем ИИ для бухгалтерии в 2026 году: советы, риски и список ...",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://ai-journal.ru/ii-dlya-buhgalterii/",
+      "title": "ИИ для бухгалтерии: автоматизация документов и отчетности 2026",
+      "from_query": "обработка счетов ии 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/ajGcNyV-PCISdVsH",
+      "title": "Как Настроить Автоматизацию Обработки Документов С Ии От Скана До Crm ...",
+      "from_query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026"
+    },
+    {
+      "url": "https://www.jenova.ai/ru/resources/ai-document-automation",
+      "title": "Автоматизация документов с помощью ИИ: лучшие ИИ-инструменты для ...",
+      "from_query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026"
+    },
+    {
+      "url": "https://sabitovsystems.ru/blog/posts/ai-document-processing.html",
+      "title": "ИИ для обработки документов: счета, договоры, акты, заявки и back ...",
+      "from_query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026"
+    },
+    {
+      "url": "https://aimens.ru/blog/ii-dlya-dokumentov/",
+      "title": "ИИ для документов: экономия 85% времени в 2026 | Блог aimens",
+      "from_query": "Как настроить автоматизацию обработки документов с ИИ: от скана до CRM 2026"
+    }
+  ]
+}

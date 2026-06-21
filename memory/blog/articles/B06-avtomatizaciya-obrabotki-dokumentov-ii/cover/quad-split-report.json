@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-avtomatizaciya-obrabotki-dokumentov-ii/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1018,
+      572
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 582
+      },
+      "v_gutter_px": {
+        "start": 1018,
+        "end": 1030
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: автоматизация обработки документов — счёт PDF из почты в CRM без ручного ввода",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow обработки документов: от intake до CRM через OCR и LLM",
+        "h2_anchor": "1. Составьте карту workflow от intake до CRM"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 582,
+          "right": 1018,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 582,
+          "right": 1018,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица n8n vs Make для OCR, LLM и CRM-интеграций",
+        "h2_anchor": "2. Выберите стек: n8n vs Make и OCR vs LLM"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1030,
+          "top": 582,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 582,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист 8 шагов сборки конвейера обработки счетов от триггера до CRM",
+        "h2_anchor": "3. Соберите конвейер пошагово: от триггера до CRM"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Составьте карту workflow от intake до CRM",
+    "injected inline_2 after H2 — 2. Выберите стек: n8n vs Make и OCR vs LLM",
+    "injected inline_3 after H2 — 3. Соберите конвейер пошагово: от триггера до CRM"
+  ]
+}

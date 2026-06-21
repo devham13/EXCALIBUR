@@ -1,6 +1,9 @@
 {
   "topic_id": "B06",
   "slug": "rag-baza-znanij-dlya-biznesa-2026",
+  "h1": "RAG база знаний: пошаговая настройка n8n + Qdrant для бизнеса",
+  "title": "RAG база знаний: пошаговая настройка n8n + Qdrant для бизнеса",
+  "description": "Пошаговый гайд: RAG база знаний на n8n с Qdrant или pgvector. Ingestion, hybrid search, rerank, golden set eval и webhook-бот с эскалацией человеку.",
   "primary_query": "rag база знаний",
   "secondary_queries": [
     "rag для бизнеса",

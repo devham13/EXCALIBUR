@@ -1,3 +1,6 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "fallback": "GenerateImage",
+  "reference_url_hosted": "vk-userapi-blog-hero",
+  "local_canvas": "cover/canvas-quad.png",
+  "note": "Regenerated 2026-06-21 with updated blog-hero reference"
 }

@@ -3,15 +3,26 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B03-podklyuchenie-mcp-cursor\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B03-podklyuchenie-mcp-cursor/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
     ],
     "panel_size_px": [
-      1024,
-      576
+      1021,
+      574
     ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 574,
+        "end": 580
+      },
+      "v_gutter_px": {
+        "start": 1021,
+        "end": 1048
+      }
+    },
     "output_size_px": [
       1200,
       675
@@ -23,8 +34,14 @@
         "box_px": {
           "left": 0,
           "top": 0,
-          "right": 1024,
-          "bottom": 576
+          "right": 1021,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 574
         },
         "size_px": [
           1200,
@@ -38,10 +55,16 @@
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1024,
+          "left": 1048,
+          "top": 6,
+          "right": 2048,
+          "bottom": 568
+        },
+        "raw_box_px": {
+          "left": 1048,
           "top": 0,
           "right": 2048,
-          "bottom": 576
+          "bottom": 574
         },
         "size_px": [
           1200,
@@ -56,8 +79,14 @@
         "quadrant": "bottom_left",
         "box_px": {
           "left": 0,
-          "top": 576,
-          "right": 1024,
+          "top": 580,
+          "right": 1021,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 580,
+          "right": 1021,
           "bottom": 1152
         },
         "size_px": [
@@ -72,8 +101,14 @@
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1024,
-          "top": 576,
+          "left": 1048,
+          "top": 585,
+          "right": 2048,
+          "bottom": 1147
+        },
+        "raw_box_px": {
+          "left": 1048,
+          "top": 580,
           "right": 2048,
           "bottom": 1152
         },
@@ -86,10 +121,5 @@
         "h2_anchor": "3. Подключите сервер через Tools &amp; MCP (способ A)"
       }
     }
-  },
-  "html_inject": [
-    "injected inline_1 after H2 — 1. Разберите, зачем вам MCP в Cursor",
-    "injected inline_2 after H2 — 2. Выберите, где хранить mcp.json",
-    "injected inline_3 after H2 — 3. Подключите сервер через Tools &amp; MCP (способ A)"
-  ]
+  }
 }

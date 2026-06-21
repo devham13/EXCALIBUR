@@ -4,7 +4,7 @@
 
 | date | topic_id | slug | url | status | post_id |
 |------|----------|------|-----|--------|---------|
-| 2026-06-10 | B01 | primer-seo-stati | http://127.0.0.1:8765/preview.html | draft_ready | — |
+| 2026-06-19 | B01 | primer-seo-stati | /2026/06/19/primer-seo-stati/ | published | 238 |
 | 2026-06-21 | B02 | avtomatizaciya-n8n-ai-agents | /avtomatizaciya-n8n-ai-agents/ | published | — |
 | 2026-06-21 | B03 | podklyuchenie-mcp-cursor | /podklyuchenie-mcp-cursor/ | published | 326 |
 | 2026-06-21 | B04 | geo-optimizaciya-sajta-2026 | /geo-optimizaciya-sajta-2026/ | published | 332 |

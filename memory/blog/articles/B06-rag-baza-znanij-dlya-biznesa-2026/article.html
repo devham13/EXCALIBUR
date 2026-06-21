@@ -8,7 +8,7 @@
 
 <h2>1. Сравните RAG и fine-tuning: когда база знаний выигрывает</h2>
 <figure class="inline-quad" data-slot="inline_1">
-  <img src="cover/inline-01.png" alt="Сравнение RAG и fine-tuning: когда база знаний выигрывает" loading="lazy">
+ <img src="cover/inline-01.png" alt="Сравнение RAG и fine-tuning: когда база знаний выигрывает" loading="lazy">
 </figure>
 
 
@@ -18,7 +18,7 @@
 
 <h2>2. Подготовьте документы: аудит, чанкинг и метаданные</h2>
 <figure class="inline-quad" data-slot="inline_2">
-  <img src="cover/inline-02.png" alt="Схема ingestion: документы → чанкинг → embeddings → векторная база" loading="lazy">
+ <img src="cover/inline-02.png" alt="Схема ingestion: документы → чанкинг → embeddings → векторная база" loading="lazy">
 </figure>
 
 
@@ -31,58 +31,58 @@ Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddi
 </blockquote>
 
 <ol>
-  <li><b>Шаг 1: Соберите golden set.</b> 20-30 реальных вопросов поддержки и эталонные ответы - экзамен бота до запуска.</li>
-  <li><b>Шаг 2: Очистите корпус.</b> Удалите дубли, устаревшие регламенты и сканы без OCR.</li>
-  <li><b>Шаг 3: Нормализуйте формат.</b> PDF/DOCX в markdown; метаданные doc_id, updated_at, acl.</li>
-  <li><b>Шаг 4: Настройте чанкинг.</b> 400-512 tok или 500-1000 для длинных инструкций; режьте по заголовкам секций.</li>
-  <li><b>Шаг 5: Запустите ingestion в n8n.</b> Trigger → Recursive Text Splitter → Embeddings → Qdrant Vector Store или pgvector.</li>
+ <li><b>Шаг 1: Соберите golden set.</b> 20-30 реальных вопросов поддержки и эталонные ответы - экзамен бота до запуска.</li>
+ <li><b>Шаг 2: Очистите корпус.</b> Удалите дубли, устаревшие регламенты и сканы без OCR.</li>
+ <li><b>Шаг 3: Нормализуйте формат.</b> PDF/DOCX в markdown; метаданные doc_id, updated_at, acl.</li>
+ <li><b>Шаг 4: Настройте чанкинг.</b> 400-512 tok или 500-1000 для длинных инструкций; режьте по заголовкам секций.</li>
+ <li><b>Шаг 5: Запустите ingestion в n8n.</b> Trigger → Recursive Text Splitter → Embeddings → Qdrant Vector Store или pgvector.</li>
 </ol>
 
 <p><b>Делайте:</b> логируйте doc_id и chunk_id. <b>Не делайте:</b> один чанк на весь регламент.</p>
 
 <h2>3. Выберите стек: сравнение Qdrant и pgvector для hybrid search</h2>
 <figure class="inline-quad" data-slot="inline_3">
-  <img src="cover/inline-03.png" alt="Таблица сравнения Qdrant и pgvector для hybrid search" loading="lazy">
+ <img src="cover/inline-03.png" alt="Таблица сравнения Qdrant и pgvector для hybrid search" loading="lazy">
 </figure>
 
 
 <p><b>Векторная база</b> хранит embeddings - числовые "отпечатки смысла" текста. <b>Hybrid search</b> смешивает vector (понимает синонимы) и BM25 (ловит точные слова, артикулы, коды) через RRF - алгоритм, который объединяет два списка результатов в один рейтинг.</p>
 
 <table>
-  <thead>
-    <tr>
-      <th>Критерий</th>
-      <th>Qdrant</th>
-      <th>PostgreSQL + pgvector</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Когда брать</b></td>
-      <td>Отдельный search-сервис, hybrid, фильтры metadata</td>
-      <td>Postgres уже в контуре CRM, до ~1M векторов</td>
-    </tr>
-    <tr>
-      <td><b>Hybrid search</b></td>
-      <td>Native dense+sparse, RRF в Query API</td>
-      <td>tsvector + pgvector + RRF (precision ~62% → ~84% на кейсах)</td>
-    </tr>
-    <tr>
-      <td><b>Self-host / 152-ФЗ</b></td>
-      <td>Docker/K8s, Apache 2.0</td>
-      <td>Да, если БД on-prem</td>
-    </tr>
-    <tr>
-      <td><b>Интеграция с n8n</b></td>
-      <td>Qdrant Vector Store nodes, template 11468</td>
-      <td>Supabase/pgvector nodes или HTTP</td>
-    </tr>
-    <tr>
-      <td><b>MVP time</b></td>
-      <td>Qdrant Cloud trial или Docker</td>
-      <td>Быстрее, если Postgres уже есть</td>
-    </tr>
-  </tbody>
+ <thead>
+ <tr>
+ <th>Критерий</th>
+ <th>Qdrant</th>
+ <th>PostgreSQL + pgvector</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><b>Когда брать</b></td>
+ <td>Отдельный search-сервис, hybrid, фильтры metadata</td>
+ <td>Postgres уже в контуре CRM, до ~1M векторов</td>
+ </tr>
+ <tr>
+ <td><b>Hybrid search</b></td>
+ <td>Native dense+sparse, RRF в Query API</td>
+ <td>tsvector + pgvector + RRF (precision ~62% → ~84% на кейсах)</td>
+ </tr>
+ <tr>
+ <td><b>Self-host / 152-ФЗ</b></td>
+ <td>Docker/K8s, Apache 2.0</td>
+ <td>Да, если БД on-prem</td>
+ </tr>
+ <tr>
+ <td><b>Интеграция с n8n</b></td>
+ <td>Qdrant Vector Store nodes, template 11468</td>
+ <td>Supabase/pgvector nodes или HTTP</td>
+ </tr>
+ <tr>
+ <td><b>MVP time</b></td>
+ <td>Qdrant Cloud trial или Docker</td>
+ <td>Быстрее, если Postgres уже есть</td>
+ </tr>
+ </tbody>
 </table>
 
 <blockquote>
@@ -108,11 +108,11 @@ Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddi
 <p><b>Golden set</b> - экзамен из 20-30 пар "вопрос - эталонный ответ". Прогоните через весь pipeline и замерьте RAGAS: faithfulness (ответ не противоречит контексту), answer relevance, context recall. Порог пилота: faithfulness ≥0.9, recall ≥0.85 - ориентир, не гарантия, но "можно показывать коллегам".</p>
 
 <ol>
-  <li><b>Шаг 1:</b> Экспорт вопросов в CSV или Google Sheet.</li>
-  <li><b>Шаг 2:</b> Batch через n8n с логированием chunk IDs.</li>
-  <li><b>Шаг 3:</b> RAGAS или ручная проверка 30 ответов.</li>
-  <li><b>Шаг 4:</b> Низкий recall - меняйте chunk size, не модель.</li>
-  <li><b>Шаг 5:</b> Зафиксируйте версию индекса рядом с eval.</li>
+ <li><b>Шаг 1:</b> Экспорт вопросов в CSV или Google Sheet.</li>
+ <li><b>Шаг 2:</b> Batch через n8n с логированием chunk IDs.</li>
+ <li><b>Шаг 3:</b> RAGAS или ручная проверка 30 ответов.</li>
+ <li><b>Шаг 4:</b> Низкий recall - меняйте chunk size, не модель.</li>
+ <li><b>Шаг 5:</b> Зафиксируйте версию индекса рядом с eval.</li>
 </ol>
 
 <p><b>Делайте:</b> eval после каждого обновления регламентов. <b>Не делайте:</b> prod без golden set - сложные задачи без человека решаются редко.</p>
@@ -128,11 +128,11 @@ Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddi
 </blockquote>
 
 <ol>
-  <li><b>Шаг 1:</b> Workflow с Webhook или Telegram Trigger.</li>
-  <li><b>Шаг 2:</b> AI Agent + tool Vector Store - тот же индекс, что на ingestion.</li>
-  <li><b>Шаг 3:</b> Низкий score или "ошибка" → задача в amoCRM/Bitrix24 или Slack.</li>
-  <li><b>Шаг 4:</b> Cron/webhook re-index при новом регламенте в Drive.</li>
-  <li><b>Шаг 5:</b> 10 вопросов из golden set через боевой канал.</li>
+ <li><b>Шаг 1:</b> Workflow с Webhook или Telegram Trigger.</li>
+ <li><b>Шаг 2:</b> AI Agent + tool Vector Store - тот же индекс, что на ingestion.</li>
+ <li><b>Шаг 3:</b> Низкий score или "ошибка" → задача в amoCRM/Bitrix24 или Slack.</li>
+ <li><b>Шаг 4:</b> Cron/webhook re-index при новом регламенте в Drive.</li>
+ <li><b>Шаг 5:</b> 10 вопросов из golden set через боевой канал.</li>
 </ol>
 
 <p>Для tools через MCP (протокол «розеток» для ИИ) используйте тот же принцип, что в пошаговом гайде «подключение MCP в Cursor» — он работает и в n8n AI nodes. <b>Делайте:</b> эскалация при низкой уверенности rerank. <b>Не делайте:</b> отправлять клиенту ответ без источника.</p>
@@ -140,29 +140,29 @@ Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddi
 <h2>7. Пройдите чеклист перед запуском RAG в prod</h2>
 
 <ul>
-  <li>Golden set 20-30 вопросов с эталонами.</li>
-  <li>Корпус одного отдела, дубли удалены.</li>
-  <li>У чанков doc_id, updated_at, acl.</li>
-  <li>Chunk 400-512 tok, overlap 10-20%.</li>
-  <li>Ingestion протестирован на 5-10 файлах.</li>
-  <li>Hybrid search (BM25 + vector), RRF настроен.</li>
-  <li>Reranker до 4-6 чанков.</li>
-  <li>Prompt: цитата и "не знаю".</li>
-  <li>Faithfulness ≥0.9 или 30/30 без галлюцинаций.</li>
-  <li>Логируются chunk IDs.</li>
-  <li>Webhook-бот с эскалацией в Telegram или на сайте.</li>
-  <li>Re-index при обновлении документов.</li>
-  <li>HITL: спорные ответы - менеджеру, тикет не закрывается автоматически.</li>
+ <li>Golden set 20-30 вопросов с эталонами.</li>
+ <li>Корпус одного отдела, дубли удалены.</li>
+ <li>У чанков doc_id, updated_at, acl.</li>
+ <li>Chunk 400-512 tok, overlap 10-20%.</li>
+ <li>Ingestion протестирован на 5-10 файлах.</li>
+ <li>Hybrid search (BM25 + vector), RRF настроен.</li>
+ <li>Reranker до 4-6 чанков.</li>
+ <li>Prompt: цитата и "не знаю".</li>
+ <li>Faithfulness ≥0.9 или 30/30 без галлюцинаций.</li>
+ <li>Логируются chunk IDs.</li>
+ <li>Webhook-бот с эскалацией в Telegram или на сайте.</li>
+ <li>Re-index при обновлении документов.</li>
+ <li>HITL: спорные ответы - менеджеру, тикет не закрывается автоматически.</li>
 </ul>
 
 <p>MVP на ~1000 документов по отраслевым оценкам занимает 6-8 недель. Не обещайте руководству "за выходные на всю компанию".</p>
 
 <h2>8. Что дальше</h2>
 
-<p>После пилота расширяйте корпус по одному разделу, каждый раз прогоняя golden set. Считайте метрики: доля вопросов, закрытых ботом, и доля эскалаций. Если нужен второй канал (Make вместо n8n) или связка с CRM - те же принципы tools и webhooks разбираются в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a>.</p>
+<p>После пилота расширяйте корпус по одному разделу, каждый раз прогоняя golden set. Считайте метрики: доля вопросов, закрытых ботом, и доля эскалаций. Если нужен второй канал (Make вместо n8n) или связка с CRM — те же принципы tools и webhooks разбираются в <a href="/avtomatizaciya-n8n-ai-agents/">гайде по n8n</a> и <a href="/podklyuchenie-mcp-cursor/">подключении MCP в Cursor</a>.</p>
 
 <blockquote>
-<b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, автор курса по Make.com и вайбкодингу).<br>
+<b>Материал проверен:</b> эксперт <a href="/obo-mne/" target="_blank">Артур Хорошев</a> (CEO Maya AI, эксперт по автоматизации на n8n, Cursor и ИИ-агентам).<br>
 <b>Достоверность данных:</b> параметры chunk size, hybrid, RRF, RAGAS сверены с открытыми источниками на июнь 2026 года; показы Wordstat - после обновления MCP-токена.
 </blockquote>
 

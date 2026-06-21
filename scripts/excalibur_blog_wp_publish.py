@@ -183,10 +183,14 @@ def load_article(article_dir: Path) -> dict:
                     "filename": local_path.name
                 })
 
+    meta_ab = meta.get("meta_ab") or {}
+    title = meta.get("title") or meta.get("h1") or meta_ab.get("title_seo") or ""
+    excerpt = meta.get("description") or meta_ab.get("description_seo") or ""
+
     return {
         "slug": meta["slug"],
-        "title": meta.get("title") or meta.get("h1", ""),
-        "excerpt": meta.get("description", ""),
+        "title": title,
+        "excerpt": excerpt,
         "content": content,
         "cover_b64": cover_b64,
         "cover_evidence": cover_evidence,

@@ -1,16 +1,16 @@
 {
   "pipeline_version": "split_v2",
   "article_dir": "memory/blog/articles/B01-primer-seo-stati",
-  "reference_url_hosted": "https://files.catbox.moe/yjlmip.png",
+  "reference_url_hosted": "https://sun9-6.userapi.com/s/v1/ig2/AKT0pLS5MijU83CAZcLFwc2Sp71oIe2MkfhG51-M5fv2QtyKo4TjwL7qWkG46q6GpnxApjbmqqvyfVIHrn718f5W.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1080x1621,1280x1921,1440x2161,1706x2560&from=bu&cs=1706x0",
   "jobs": [
     {
       "slot": "cover",
       "output_file": "cover/cover.png",
       "tool": "gpt-image-2",
       "mcp_args": {
-        "prompt": "Russian internet meme collage illustration, ironic humor, cutout stickers, reaction faces, drake-format panels, pepe-adjacent absurdity but original characters, bold Cyrillic meme captions in Impact-style white text with black outline, layered scraps, glitch accents, colors #FAFAF7 #E85D4C #1A1A2E #FFD93D,\nCOVER ONLY — single 16:9 image, not a grid.\nSame recurring blog host character in every panel: man with round black glasses, voluminous ash-blonde quiff hair, salt-and-pepper short beard, charismatic presenter energy. Keep face recognizable; change pose, props, meme costume per panel.\nCRITICAL: preserve EXACT face likeness from reference photo — same glasses, quiff hair, salt-and-pepper beard.\nClickbait hook scene: герой с reference-лицом, шок/ирония SEOшника, Wordstat + ноутбук, крючок на клик.\nLarge readable Cyrillic meme caption: \"15k ключей — 0 прочтений?\".\nHook idea: SEO-текст, который люди дочитают — миф или workflow?.\nRussian internet meme collage, ironic SEO humor, host points at caption or reacts dramatically.\nsingle canvas 2048x1152 pixels, exact\nNegative: English text, Latin letters, watermark, logo, blurry, generic western stock photo, extra fingers, boring corporate infographic, no humor, no text at all, unreadable gibberish text",
+        "prompt": "Russian human-made hook collage, zine/trash-design DIY aesthetic adapted to 16:9 widescreen, torn paper strips, scotch tape, pink sticky notes, marker handwriting, highlighter pink brush on key Cyrillic words, fake phone screenshots (Wordstat, reviews, Telegram chat, analytics), meme reaction cutouts with rough edges, grunge paper texture background #F5F5F0, bold condensed Cyrillic headlines, layered scraps NOT corporate banner,\nCOVER ONLY — single 16:9 image, not a grid.\nBlog host on COVER ONLY: preserve EXACT face likeness from reference — bright blue eyes, short dark brown hair, clean-shaven, no glasses. Skin: clean even tone, subtle professional retouch, natural studio lighting, no blemishes or harsh grain. Expression: warm friendly smile, approachable expert — NOT neutral serious portrait from reference. Pose reacts to article topic: point at key chart, graph, funnel, dashboard, table or highlighted number on the collage when it makes the hook clearer; eye contact with camera OR directed gaze at the UI element. Outfit, props: agent's creative choice for the meme hook — do NOT copy reference photo clothing unless scene_hint asks.\nCRITICAL: preserve EXACT face likeness from input reference photo — follow blog-hero.json visual_lock.\nClickbait hook scene: герой с reference-лицом, шок/ирония SEOшника, Wordstat + ноутбук, крючок на клик.\nLarge readable Cyrillic meme caption: \"15k ключей — 0 прочтений?\".\nHook idea: SEO-текст, который люди дочитают — миф или workflow?.\nRussian internet meme collage, ironic SEO humor, host points at caption or reacts dramatically.\nNegative: English text, Latin UI, watermark, logo, generic stock photo, boring corporate infographic, vertical carousel 9:16, instagram story, polished ad, same meme 4 times, unreadable gibberish text, extra fingers",
         "input_urls": [
-          "https://files.catbox.moe/yjlmip.png"
+          "https://sun9-6.userapi.com/s/v1/ig2/AKT0pLS5MijU83CAZcLFwc2Sp71oIe2MkfhG51-M5fv2QtyKo4TjwL7qWkG46q6GpnxApjbmqqvyfVIHrn718f5W.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1080x1621,1280x1921,1440x2161,1706x2560&from=bu&cs=1706x0"
         ],
         "aspect_ratio": "16:9",
         "resolution": "2K"
@@ -22,7 +22,7 @@
       "visual_type": "comparison_table_ui",
       "tool": "gpt-image-2",
       "mcp_args": {
-        "prompt": "Professional Russian blog editorial UI mockup, clean SaaS dashboard aesthetic, light background #FAFAF7, accent #E85D4C, readable Cyrillic labels, 16:9 widescreen screenshot style,\nArticle section H2: «Зачем SEO и GEO в одной статье».\nТаблица «SEO vs GEO» к секции «Зачем SEO и GEO в одной статье»: критерии, цели, что видит человек vs AI\nlooks like a helpful article illustration not a meme, subtle shadow, high detail UI elements, no human face required\nNegative: meme impact font, cartoon mascot, watermark, English UI labels, blurry text",
+        "prompt": "Professional Russian blog editorial UI mockup, clean SaaS dashboard aesthetic, light background #FAFAF7, accent #E85D4C, readable Cyrillic labels, 16:9 widescreen screenshot style,\nArticle section H2: «Зачем SEO и GEO в одной статье».\nТаблица «SEO vs GEO» к секции «Зачем SEO и GEO в одной статье»: критерии, цели, что видит человек vs AI\nlooks like a helpful pasted screenshot with pink sticky note corner and scotch tape, human-made Notion/Google Sheets vibe, subtle shadow, high detail Cyrillic UI, no host face\nNegative: meme impact font, cartoon mascot, watermark, English UI labels, blurry text",
         "aspect_ratio": "16:9",
         "resolution": "2K"
       }
@@ -33,7 +33,7 @@
       "visual_type": "workflow_diagram",
       "tool": "gpt-image-2",
       "mcp_args": {
-        "prompt": "Clean Russian infographic workflow diagram, numbered steps connected by arrows, editorial blog style, colors #FAFAF7 #1A1A2E #E85D4C #FFD93D, 16:9,\nArticle section H2: «Структура longread: от семантики до читабельности».\n6 шагов workflow longread к «Структура longread: от семантики до читабельности»: интент → семантика → outline → lead → факты → FAQ\nreadable Cyrillic step titles, Notion/Figma-like clarity, practical how-to feel, no meme faces\nNegative: meme, face closeup, watermark, chaotic collage, English text",
+        "prompt": "Clean Russian infographic workflow diagram, numbered steps connected by arrows, editorial blog style, colors #FAFAF7 #1A1A2E #E85D4C #FFD93D, 16:9,\nArticle section H2: «Структура longread: от семантики до читабельности».\n6 шагов workflow longread к «Структура longread: от семантики до читабельности»: интент → семантика → outline → lead → факты → FAQ\nreadable Cyrillic step titles on torn-paper workflow strip, marker arrows, taped checklist scrap, practical how-to, no meme faces\nNegative: meme, face closeup, watermark, chaotic collage, English text",
         "aspect_ratio": "16:9",
         "resolution": "2K"
       }
@@ -44,7 +44,7 @@
       "visual_type": "schema_faq_ui",
       "tool": "gpt-image-2",
       "mcp_args": {
-        "prompt": "Russian SEO article UI mockup showing FAQ accordion block and JSON-LD schema panel side by side, developer-blog aesthetic, light theme, 16:9,\nArticle section H2: «FAQ и schema: зачем и как».\nUI mockup FAQ + JSON-LD schema для «FAQ и schema: зачем и как»\nCyrillic FAQ questions visible, structured data hint, helpful not humorous, no meme\nNegative: meme, cartoon face, watermark, English-only UI",
+        "prompt": "Russian SEO article UI mockup showing FAQ accordion block and JSON-LD schema panel side by side, developer-blog aesthetic, light theme, 16:9,\nArticle section H2: «FAQ и schema: зачем и как».\nUI mockup FAQ + JSON-LD schema для «FAQ и schema: зачем и как»\nCyrillic FAQ + schema JSON panel as fake browser/devtools screenshot with sticky note «проверь FAQ», helpful not meme, no host face\nNegative: meme, cartoon face, watermark, English-only UI",
         "aspect_ratio": "16:9",
         "resolution": "2K"
       }

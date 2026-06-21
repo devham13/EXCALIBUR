@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Чат-бот для бизнеса с RAG
+
+- **priority:** P0
+- **slug:** chat-bot-dlya-biznesa-rag
+- **h1:** Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM
+- **primary_query:** чат боты для бизнеса
+- **secondary_queries:** ии чат бот для бизнеса, чат бот для бизнеса telegram, чат бот для бизнеса макс, как сделать чат бот для бизнеса
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Задача и канал: FAQ vs лиды — выбор Telegram, виджета сайта или MAX
+  2. Подготовка базы знаний для RAG: FAQ, цены, регламенты без галлюцинаций
+  3. Сборка workflow в n8n или Make: триггер → AI Agent → Vector Store → ответ
+  4. Эскалация оператору и запись лида в CRM (human-in-the-loop)
+  5. Чек-лист запуска за 7–14 дней: тест-кейсы, метрики FCR и CSAT
+- **faq_hints:** как сделать чат бот для бизнеса; ии чат бот для бизнеса; чем отличается чат-бот с RAG от конструктора без базы знаний
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** экран смартфона с Telegram/MAX-чатом, рядом блок «FAQ/RAG» из PDF-стикеров, стрелка к CRM-карточке лида, гарнитура support-бота, неоновый diy-коллаж
+
+---
+

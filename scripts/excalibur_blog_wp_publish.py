@@ -7,6 +7,7 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -21,17 +22,54 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+
+    env_keys = {
+        "PUBLIC_SITE_URL": ("EXCALIBUR_PUBLIC_SITE_URL", "PUBLIC_SITE_URL", "WP_SITE_URL", "WP_HOME"),
+        "FTP_HOST": ("FTP_HOST", "SFTP_HOST"),
+        "FTP_USER": ("FTP_USER", "SFTP_USER", "SSH_USER"),
+        "FTP_PASS": ("FTP_PASS", "SFTP_PASS", "SSH_PASS", "FTP_PASSWORD"),
+        "FTP_PORT": ("FTP_PORT", "SFTP_PORT"),
+        "FTP_ROOT": ("FTP_ROOT", "FTP_PATH", "SFTP_ROOT"),
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH": ("EXCALIBUR_BLOG_ALLOW_PUBLISH",),
+    }
+    for target, sources in env_keys.items():
+        if env.get(target):
+            continue
+        for src in sources:
+            val = os.environ.get(src, "").strip()
+            if val:
+                env[target] = val
+                break
+
+    if not env.get("PUBLIC_SITE_URL"):
+        try:
+            from excalibur_site_config import load_site_config
+
+            env["PUBLIC_SITE_URL"] = load_site_config(root)["public_site_url"]
+        except Exception:
+            from excalibur_site_config import _default_public_site_url
+
+            env["PUBLIC_SITE_URL"] = _default_public_site_url()
+
+    if not env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH"):
+        env["EXCALIBUR_BLOG_ALLOW_PUBLISH"] = "yes"
+
+    missing = [k for k in ("FTP_HOST", "FTP_USER", "FTP_PASS") if not env.get(k)]
+    if missing:
+        raise FileNotFoundError(
+            "site.env.local or Cloud env missing credentials: " + ", ".join(missing)
+        )
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -353,10 +391,14 @@ def main() -> int:
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or ""
-    if not public:
-        print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
-        return 2
+    from excalibur_site_config import _default_public_site_url
+
+    public = (
+        args.public_base
+        or env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or _default_public_site_url()
+    )
     out = publish_via_ftp(env, php, public)
     print(out)
 

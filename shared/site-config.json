@@ -1,0 +1,6 @@
+{
+  "blog_path_prefix": "/",
+  "public_site_url_env": "EXCALIBUR_PUBLIC_SITE_URL",
+  "site_name": "Excalibur BLOG",
+  "site_desc": "Практический блог по автоматизации бизнеса на Make.com, n8n, Cursor и ИИ-агентам."
+}

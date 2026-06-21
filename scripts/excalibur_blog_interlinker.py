@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from excalibur_site_config import article_url as article_public_url, load_site_config
+
 
 def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -48,9 +50,10 @@ def load_all_articles(blog_dir: Path) -> list[dict[str, Any]]:
     return articles
 
 
-def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -> list[dict[str, Any]]:
+def find_linking_opportunities(
+    articles: list[dict[str, Any]], site_base: str, blog_path_prefix: str = "/"
+) -> list[dict[str, Any]]:
     suggestions = []
-    # Normalize site base URL
     site_base = site_base.rstrip("/")
 
     for target in articles:
@@ -58,7 +61,7 @@ def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -
         if not target_slug:
             continue
 
-        target_url = f"{site_base}/blog/{target_slug}/"
+        target_url = article_public_url(site_base, target_slug, blog_path_prefix)
         # Prioritize natural anchor variants for diversification, then primary, then secondary queries
         raw_keywords = target.get("anchor_variants", []) + [target["primary_query"]] + target["secondary_queries"]
         # Remove duplicates while preserving order
@@ -138,7 +141,9 @@ def find_linking_opportunities(articles: list[dict[str, Any]], site_base: str) -
     return suggestions
 
 
-def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str, Any]]) -> int:
+def apply_interlinks(
+    suggestions: list[dict[str, Any]], articles: list[dict[str, Any]], blog_path_prefix: str = "/"
+) -> int:
     applied_count = 0
     # Group suggestions by source article path to modify each file once
     by_source: dict[Path, list[dict[str, Any]]] = {}
@@ -161,7 +166,11 @@ def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str,
             end = sug["end_idx"]
 
             if content[start:end] == matched_text:
-                link_html = f'<a href="/blog/{sug["target_slug"]}/">{matched_text}</a>'
+                rel = article_public_url("", sug["target_slug"], blog_path_prefix).lstrip("/")
+                href = f"/{rel}" if not rel.startswith("/") else rel
+                if blog_path_prefix == "/":
+                    href = f"/{sug['target_slug']}/"
+                link_html = f'<a href="{href}">{matched_text}</a>'
                 content = content[:start] + link_html + content[end:]
                 applied_count += 1
 
@@ -174,7 +183,8 @@ def apply_interlinks(suggestions: list[dict[str, Any]], articles: list[dict[str,
 def main() -> int:
     ap = argparse.ArgumentParser(description="Excalibur BLOG Hub-and-Spoke Interlinker")
     ap.add_argument("--blog-dir", type=Path, default=None, help="Path to articles/ directory")
-    ap.add_argument("--site-base", type=str, default="https://example.com", help="Base site URL")
+    ap.add_argument("--site-base", type=str, default=None, help="Base site URL")
+    ap.add_argument("--blog-path-prefix", type=str, default=None, help="e.g. / or /blog/")
     ap.add_argument("--apply", action="store_true", help="Directly edit html files to apply links")
     ap.add_argument("--output", type=Path, default=None, help="Output path for JSON suggestions report")
     args = ap.parse_args()
@@ -188,14 +198,22 @@ def main() -> int:
         print(f"Blog directory not found: {blog_dir}")
         return 1
 
+    site_cfg = load_site_config(root)
+    site_base = args.site_base or site_cfg["public_site_url"]
+    blog_path_prefix = args.blog_path_prefix or site_cfg["blog_path_prefix"]
+
     articles = load_all_articles(blog_dir)
     print(f"Loaded {len(articles)} articles from memory.")
 
-    suggestions = find_linking_opportunities(articles, args.site_base)
+    suggestions = find_linking_opportunities(articles, site_base, blog_path_prefix)
     print(f"Found {len(suggestions)} internal linking opportunities.")
 
+    def rel_href(slug: str) -> str:
+        return f"/{slug}/" if blog_path_prefix == "/" else article_public_url("", slug, blog_path_prefix)
+
     report = {
-        "site_base": args.site_base,
+        "site_base": site_base,
+        "blog_path_prefix": blog_path_prefix,
         "total_articles": len(articles),
         "opportunities_found": len(suggestions),
         "suggestions": [
@@ -204,7 +222,7 @@ def main() -> int:
                 "target": s["target_dir"],
                 "keyword": s["keyword"],
                 "context": s["context"],
-                "link_replacement": f'<a href="/blog/{s["target_slug"]}/">{s["matched_text"]}</a>'
+                "link_replacement": f'<a href="{rel_href(s["target_slug"])}">{s["matched_text"]}</a>'
             }
             for s in suggestions
         ]
@@ -216,7 +234,7 @@ def main() -> int:
     print(f"Saved suggestions report to {output_path.relative_to(root) if root in output_path.parents else output_path}")
 
     if args.apply and suggestions:
-        applied = apply_interlinks(suggestions, articles)
+        applied = apply_interlinks(suggestions, articles, blog_path_prefix)
         print(f"Successfully applied {applied} internal links across articles.")
 
     return 0

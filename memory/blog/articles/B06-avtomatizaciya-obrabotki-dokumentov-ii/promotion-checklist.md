@@ -1,7 +1,7 @@
 # Promotion checklist — B06 avtomatizaciya-obrabotki-dokumentov-ii
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/ (заполнить после publish)
+Дата публикации: 2026-06-21  
+Live URL: https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

@@ -172,3 +172,52 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-21 — B06 avtomatizaciya-obrabotki-dokumentov-ii — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | avtomatizaciya-obrabotki-dokumentov-ii |
+| verdict | **PASS** |
+| post_id | 312 |
+| featured_image_id | 313 |
+| inline_images | 314, 315, 316 |
+| permalink | https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/ |
+| trigger | `excalibur-blog-publish` automation (topic_id B06) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (4/4, preflight publish)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Publish path
+
+1. `excalibur_blog_link_verify.py` — PASS  
+2. `excalibur_blog_wp_publish.py --dry-run` — OK (PHP 9 447 154 bytes)  
+3. FTP `STOR` — **FAIL** `425 Security: Bad IP connecting` для payload >625 KB (BeGet data-channel limit)  
+4. **Workaround:** SCP bootstrap via SSH → `curl` HTTP trigger с сервера (Cloud WebFetch не потребовался)
+
+### Result
+
+```
+OK post=312 slug=avtomatizaciya-obrabotki-dokumentov-ii
+OK featured_image=313
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=314 src=cover/inline-01.png
+OK inline_image_upload=315 src=cover/inline-02.png
+OK inline_image_upload=316 src=cover/inline-03.png
+permalink=.../2026/06/21/avtomatizaciya-obrabotki-dokumentov-ii/
+```
+
+Live canonical: https://mayai.ru/avtomatizaciya-obrabotki-dokumentov-ii/ (WebFetch verified TL;DR + body)
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

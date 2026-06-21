@@ -1,7 +1,7 @@
 # Promotion checklist — B07 wordpress-mcp-ai-agenty
 
-Дата публикации: YYYY-MM-DD  
-Live URL: $EXCALIBUR_PUBLIC_SITE_URL/wordpress-mcp-ai-agenty/
+Дата публикации: 2026-06-21  
+Live URL: $EXCALIBUR_PUBLIC_SITE_URL/2026/06/21/wordpress-mcp-ai-agenty/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Discover → read-only → draft: human-in-the-loop на каждом write-tool
 • Связка с базовым гайдом MCP в Cursor и GEO-чеклистом перед публикацией
 
-Читать: $EXCALIBUR_PUBLIC_SITE_URL/wordpress-mcp-ai-agenty/
+Читать: $EXCALIBUR_PUBLIC_SITE_URL/2026/06/21/wordpress-mcp-ai-agenty/
 ```
 
 ## Перелинковка

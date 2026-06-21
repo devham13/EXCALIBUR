@@ -10,3 +10,4 @@
 | 2026-06-21 | B04 | geo-optimizaciya-sajta-2026 | /geo-optimizaciya-sajta-2026/ | published | 332 |
 | 2026-06-21 | B05 | avtonomnyj-kontent-zavod-nejroseti | /avtonomnyj-kontent-zavod-nejroseti/ | published | 338 |
 | 2026-06-21 | B06 | rag-baza-znanij-dlya-biznesa-2026 | /rag-baza-znanij-dlya-biznesa-2026/ | published | 318 |
+| 2026-06-21 | B07 | wordpress-mcp-ai-agenty | /2026/06/21/wordpress-mcp-ai-agenty/ | published | 400 |

@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "rag-baza-znanij-dlya-biznesa-2026",
+    "h1": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026",
+    "primary_query": "rag база знаний",
+    "secondary_queries": [
+      "rag для бизнеса",
+      "настройка rag системы",
+      "корпоративная база знаний rag",
+      "rag qdrant n8n"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "rag база знаний 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "rag база знаний июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "rag база знаний новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "rag для бизнеса 2026",
+      "purpose": "вторичный запрос: rag для бизнеса"
+    },
+    {
+      "id": "secondary_2",
+      "query": "настройка rag системы 2026",
+      "purpose": "вторичный запрос: настройка rag системы"
+    },
+    {
+      "id": "secondary_3",
+      "query": "корпоративная база знаний rag 2026",
+      "purpose": "вторичный запрос: корпоративная база знаний rag"
+    },
+    {
+      "id": "secondary_4",
+      "query": "rag qdrant n8n 2026",
+      "purpose": "вторичный запрос: rag qdrant n8n"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-rag-baza-znanij-dlya-biznesa-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

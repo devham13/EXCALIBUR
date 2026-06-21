@@ -1,0 +1,190 @@
+<p>Менеджеры поддержки отвечают на одни и те же вопросы из регламентов, а обычный ChatGPT ваших PDF не видит. RAG база знаний работает иначе: перед ответом система ищет фрагменты в ваших документах, как библиотекарь по полкам, и отвечает с опорой на найденное. Ниже - пошаговый рецепт MVP на n8n с Qdrant или pgvector: ingestion, hybrid search, rerank, golden set eval и webhook-бот с эскалацией человеку. После гайда вы соберете пилот на регламентах одного отдела без ML-команды.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> RAG (Retrieval-Augmented Generation) - "шпаргалка из ваших файлов": PDF режут на чанки, кладут в векторную базу, при вопросе находят top-K, сужают reranker-ом и отдают языковой модели. Цепочка: документы → n8n → Qdrant/pgvector + BM25 → rerank → LLM с цитатой → golden set 20-30 вопросов → бот с кнопкой "ошибка". Не грузите всю Wiki - узкий корпус точнее.</blockquote>
+
+<p>RAG закрывает поддержку, онбординг и внутренние регламенты: сотрудник задает вопрос, бот находит абзац из вашего документа и показывает источник. Без eval и HITL (human-in-the-loop - человек проверяет спорные ответы) около 40% AI-проектов срываются из-за скрытых затрат. Ниже workflow, а не теория "что такое RAG".</p>
+
+<p>Если n8n вам пока новый, начните с <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n</a>: там Chat Trigger, AI Agent и tools без кода.</p>
+
+<h2>1. Сравните RAG и fine-tuning: когда база знаний выигрывает</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение RAG и fine-tuning: когда база знаний выигрывает" loading="lazy">
+</figure>
+
+
+<p><b>Fine-tuning</b> - дообучение модели на ваших текстах: она "запоминает" стиль, но плохо обновляется при смене прайса или регламента. <b>RAG</b> не меняет веса модели - каждый раз подставляет свежие фрагменты из индекса, как шпаргалку перед экзаменом.</p>
+
+<p><b>Делайте:</b> RAG, если ответ должен ссылаться на конкретный PDF, Confluence или Google Doc. <b>Не делайте:</b> fine-tuning ради "знать прайс наизусть" - проще переиндексировать файл через n8n cron раз в неделю.</p>
+
+<h2>2. Подготовьте документы: аудит, чанкинг и метаданные</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема ingestion: документы → чанкинг → embeddings → векторная база" loading="lazy">
+</figure>
+
+
+<p>Кейс на Habr: загрузка всей Wiki (~3000 док.) ухудшила ответы; после фильтра "обновлялось 2 года" осталось ~400 док. - точность выросла. Начните с одного отдела или продукта, не с "всей компании".</p>
+
+<blockquote>
+<b>Схема ingestion:</b>
+<br>
+Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddings → Qdrant или pgvector → индекс готов
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1: Соберите golden set.</b> 20-30 реальных вопросов поддержки и эталонные ответы - экзамен бота до запуска.</li>
+  <li><b>Шаг 2: Очистите корпус.</b> Удалите дубли, устаревшие регламенты и сканы без OCR.</li>
+  <li><b>Шаг 3: Нормализуйте формат.</b> PDF/DOCX в markdown; метаданные doc_id, updated_at, acl.</li>
+  <li><b>Шаг 4: Настройте чанкинг.</b> 400-512 tok или 500-1000 для длинных инструкций; режьте по заголовкам секций.</li>
+  <li><b>Шаг 5: Запустите ingestion в n8n.</b> Trigger → Recursive Text Splitter → Embeddings → Qdrant Vector Store или pgvector.</li>
+</ol>
+
+<p><b>Делайте:</b> логируйте doc_id и chunk_id. <b>Не делайте:</b> один чанк на весь регламент.</p>
+
+<h2>3. Выберите стек: сравнение Qdrant и pgvector для hybrid search</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Таблица сравнения Qdrant и pgvector для hybrid search" loading="lazy">
+</figure>
+
+
+<p><b>Векторная база</b> хранит embeddings - числовые "отпечатки смысла" текста. <b>Hybrid search</b> смешивает vector (понимает синонимы) и BM25 (ловит точные слова, артикулы, коды) через RRF - алгоритм, который объединяет два списка результатов в один рейтинг.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Qdrant</th>
+      <th>PostgreSQL + pgvector</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Когда брать</b></td>
+      <td>Отдельный search-сервис, hybrid, фильтры metadata</td>
+      <td>Postgres уже в контуре CRM, до ~1M векторов</td>
+    </tr>
+    <tr>
+      <td><b>Hybrid search</b></td>
+      <td>Native dense+sparse, RRF в Query API</td>
+      <td>tsvector + pgvector + RRF (precision ~62% → ~84% на кейсах)</td>
+    </tr>
+    <tr>
+      <td><b>Self-host / 152-ФЗ</b></td>
+      <td>Docker/K8s, Apache 2.0</td>
+      <td>Да, если БД on-prem</td>
+    </tr>
+    <tr>
+      <td><b>Интеграция с n8n</b></td>
+      <td>Qdrant Vector Store nodes, template 11468</td>
+      <td>Supabase/pgvector nodes или HTTP</td>
+    </tr>
+    <tr>
+      <td><b>MVP time</b></td>
+      <td>Qdrant Cloud trial или Docker</td>
+      <td>Быстрее, если Postgres уже есть</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+<b>Итоговый вердикт:</b> Qdrant - default для базы знаний с hybrid и rerank. pgvector - RAG "рядом с CRM". Для pgvector включите HNSW, не IVFFlat.
+</blockquote>
+
+<p><b>Делайте:</b> retrieve top-K 15-20; RRF k=60 на большом корпусе, k=10-20 на 100-300 страницах. <b>Не делайте:</b> только vector, если в документах артикулы и номера договоров.</p>
+
+<h2>4. Настройте reranker и промпт: top-K → top-N с цитатами</h2>
+
+<p>Vector search находит "похожее по смыслу", но промахивается по артикулам и SKU. <b>Reranker</b> - вторая модель, которая пересортировывает 20-50 кандидатов и оставляет 4-6 лучших в промпт. Без reranking качество в enterprise-гайдах проседает на 25-40%.</p>
+
+<blockquote>
+<b>Пример промпта:</b><br>
+Отвечай только по контексту ниже. Если ответа нет - скажи "не знаю".<br>
+В конце укажи doc_id и заголовок источника. Temperature = 0.
+</blockquote>
+
+<p>Temperature=0 снижает "додумывание" (Wiki-RAG кейс на Habr). <b>Делайте:</b> bge-reranker-v2-m3 или hosted rerank API. <b>Не делайте:</b> класть 20 чанков в промпт - после rerank хватит 5-6.</p>
+
+<h2>5. Прогоните golden set: faithfulness и recall перед продом</h2>
+
+<p><b>Golden set</b> - экзамен из 20-30 пар "вопрос - эталонный ответ". Прогоните через весь pipeline и замерьте RAGAS: faithfulness (ответ не противоречит контексту), answer relevance, context recall. Порог пилота: faithfulness ≥0.9, recall ≥0.85 - ориентир, не гарантия, но "можно показывать коллегам".</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Экспорт вопросов в CSV или Google Sheet.</li>
+  <li><b>Шаг 2:</b> Batch через n8n с логированием chunk IDs.</li>
+  <li><b>Шаг 3:</b> RAGAS или ручная проверка 30 ответов.</li>
+  <li><b>Шаг 4:</b> Низкий recall - меняйте chunk size, не модель.</li>
+  <li><b>Шаг 5:</b> Зафиксируйте версию индекса рядом с eval.</li>
+</ol>
+
+<p><b>Делайте:</b> eval после каждого обновления регламентов. <b>Не делайте:</b> prod без golden set - сложные задачи без человека решаются редко.</p>
+
+<h2>6. Подключите webhook-бота в n8n с эскалацией human-in-the-loop</h2>
+
+<p>Финальный слой - канал для вопросов. Webhook (входящий URL, на который стучится сайт или мессенджер) или Telegram Trigger → AI Agent с tool "search_knowledge_base" → ответ с цитатой → кнопка "сообщить об ошибке" → задача менеджеру. Кейс Flowwow: >10 000 док., локальный RAG на n8n в 5,5× дешевле коробочного LLM и сборка за 2,5 мес. вместо 6-9 мес. кастома.</p>
+
+<blockquote>
+<b>Схема бота:</b>
+<br>
+Вопрос → hybrid retrieve (k=20) → rerank (top-5) → LLM + цитата → [кнопка "ошибка"] → webhook → менеджер / re-index
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Workflow с Webhook или Telegram Trigger.</li>
+  <li><b>Шаг 2:</b> AI Agent + tool Vector Store - тот же индекс, что на ingestion.</li>
+  <li><b>Шаг 3:</b> Низкий score или "ошибка" → задача в amoCRM/Bitrix24 или Slack.</li>
+  <li><b>Шаг 4:</b> Cron/webhook re-index при новом регламенте в Drive.</li>
+  <li><b>Шаг 5:</b> 10 вопросов из golden set через боевой канал.</li>
+</ol>
+
+<p>Для tools через MCP (протокол "розеток" для ИИ) см. <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">подключение MCP в Cursor</a> - тот же принцип работает в n8n AI nodes. <b>Делайте:</b> эскалация при низкой уверенности rerank. <b>Не делайте:</b> отправлять клиенту ответ без источника.</p>
+
+<h2>7. Пройдите чеклист перед запуском RAG в prod</h2>
+
+<ul>
+  <li>Golden set 20-30 вопросов с эталонами.</li>
+  <li>Корпус одного отдела, дубли удалены.</li>
+  <li>У чанков doc_id, updated_at, acl.</li>
+  <li>Chunk 400-512 tok, overlap 10-20%.</li>
+  <li>Ingestion протестирован на 5-10 файлах.</li>
+  <li>Hybrid search (BM25 + vector), RRF настроен.</li>
+  <li>Reranker до 4-6 чанков.</li>
+  <li>Prompt: цитата и "не знаю".</li>
+  <li>Faithfulness ≥0.9 или 30/30 без галлюцинаций.</li>
+  <li>Логируются chunk IDs.</li>
+  <li>Webhook-бот с эскалацией в Telegram или на сайте.</li>
+  <li>Re-index при обновлении документов.</li>
+  <li>HITL: спорные ответы - менеджеру, тикет не закрывается автоматически.</li>
+</ul>
+
+<p>MVP на ~1000 документов по отраслевым оценкам занимает 6-8 недель. Не обещайте руководству "за выходные на всю компанию".</p>
+
+<h2>8. Что дальше</h2>
+
+<p>После пилота расширяйте корпус по одному разделу, каждый раз прогоняя golden set. Считайте метрики: доля вопросов, закрытых ботом, и доля эскалаций. Если нужен второй канал (Make вместо n8n) или связка с CRM - те же принципы tools и webhooks разбираются в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a>.</p>
+
+<blockquote>
+<b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, автор курса по Make.com и вайбкодингу).<br>
+<b>Достоверность данных:</b> параметры chunk size, hybrid, RRF, RAGAS сверены с открытыми источниками на июнь 2026 года; показы Wordstat - после обновления MCP-токена.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как настроить RAG базу знаний с нуля?</h3>
+<p>Соберите 20-30 эталонных вопросов, очистите узкий корпус, настройте ingestion в n8n (splitter → embeddings → Qdrant или pgvector), подключите AI Agent с tool retrieval, прогоните golden set и только потом открывайте бот.</p>
+
+<h3>Какой размер чанка выбрать для RAG?</h3>
+<p>Старт: 400-512 токенов, overlap 10-20%. Для длинных регламентов - 500-1000 tok. Режьте по заголовкам секций, не только по длине - так точнее попадание в нужный пункт.</p>
+
+<h3>Чем RAG отличается от обычного ChatGPT?</h3>
+<p>ChatGPT не видит ваши PDF и Confluence. RAG перед ответом ищет фрагменты в индексе и показывает цитату - меньше выдумок про ваши цены и правила.</p>
+
+<h3>Qdrant или pgvector для корпоративной базы?</h3>
+<p>Qdrant, если нужен отдельный search-сервис с native hybrid и фильтрами по metadata. pgvector, если PostgreSQL уже хранит CRM-данные и вы не хотите новый сервер.</p>
+
+<h3>Зачем reranker, если есть vector search?</h3>
+<p>Vector ловит смысл, но промахивается по артикулам и кодам. Reranker пересортировывает 20-50 кандидатов и оставляет 4-6 лучших - без него precision заметно падает.</p>
+
+<h3>Как проверить RAG перед запуском?</h3>
+<p>Golden set 20-30 Q&A, прогон через pipeline, метрики faithfulness и context recall (RAGAS или вручную). Порог ~0.9; при провале меняйте chunk size и overlap, не модель.</p>
+
+<h3>Что делать, если бот ответил неправильно?</h3>
+<p>Кнопка "сообщить об ошибке", сохраните chunk IDs из лога, переиндексируйте документ, передайте диалог менеджеру - не закрывайте тикет автоматически.</p>

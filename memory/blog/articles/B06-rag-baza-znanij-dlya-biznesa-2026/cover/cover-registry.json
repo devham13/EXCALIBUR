@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "rag-baza-znanij-dlya-biznesa-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: RAG база знаний — ChatGPT не видит ваши PDF",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-06-21T10:11:35+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: RAG база знаний — ChatGPT не видит ваши PDF",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение RAG и fine-tuning: когда база знаний выигрывает",
+      "h2_anchor": "1. Сравните RAG и fine-tuning: когда база знаний выигрывает",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема ingestion: документы → чанкинг → embeddings → векторная база",
+      "h2_anchor": "2. Подготовьте документы: аудит, чанкинг и метаданные",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Таблица сравнения Qdrant и pgvector для hybrid search",
+      "h2_anchor": "3. Выберите стек: сравнение Qdrant и pgvector для hybrid search",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

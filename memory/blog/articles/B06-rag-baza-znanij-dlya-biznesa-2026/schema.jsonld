@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/rag-baza-znanij-dlya-biznesa-2026/#article",
+      "headline": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026",
+      "description": "Пошаговый гайд: RAG база знаний на n8n с Qdrant или pgvector. Ingestion, hybrid search, rerank, golden set eval и webhook-бот с эскалацией человеку.",
+      "datePublished": "2026-06-21",
+      "dateModified": "2026-06-21",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/rag-baza-znanij-dlya-biznesa-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/rag-baza-znanij-dlya-biznesa-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/rag-baza-znanij-dlya-biznesa-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "rag база знаний, rag для бизнеса, настройка rag системы, корпоративная база знаний rag, rag qdrant n8n",
+      "wordCount": 8931,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/rag-baza-znanij-dlya-biznesa-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как настроить RAG базу знаний с нуля?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Соберите 20-30 эталонных вопросов, очистите узкий корпус, настройте ingestion в n8n (splitter → embeddings → Qdrant или pgvector), подключите AI Agent с tool retrieval, прогоните golden set и только потом открывайте бот."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой размер чанка выбрать для RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Старт: 400-512 токенов, overlap 10-20%. Для длинных регламентов - 500-1000 tok. Режьте по заголовкам секций, не только по длине - так точнее попадание в нужный пункт."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем RAG отличается от обычного ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChatGPT не видит ваши PDF и Confluence. RAG перед ответом ищет фрагменты в индексе и показывает цитату - меньше выдумок про ваши цены и правила."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qdrant или pgvector для корпоративной базы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qdrant, если нужен отдельный search-сервис с native hybrid и фильтрами по metadata. pgvector, если PostgreSQL уже хранит CRM-данные и вы не хотите новый сервер."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Зачем reranker, если есть vector search?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vector ловит смысл, но промахивается по артикулам и кодам. Reranker пересортировывает 20-50 кандидатов и оставляет 4-6 лучших - без него precision заметно падает."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проверить RAG перед запуском?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Golden set 20-30 Q&A, прогон через pipeline, метрики faithfulness и context recall (RAGAS или вручную). Порог ~0.9; при провале меняйте chunk size и overlap, не модель."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если бот ответил неправильно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Кнопка \"сообщить об ошибке\", сохраните chunk IDs из лога, переиндексируйте документ, передайте диалог менеджеру - не закрывайте тикет автоматически."
+          }
+        }
+      ]
+    }
+  ]
+}

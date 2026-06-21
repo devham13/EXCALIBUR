@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "ChatGPT не видит ваши PDF — RAG за вечер?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: RAG база знаний — ChatGPT не видит ваши PDF",
+      "scene_hint": "Blog host cutout (reference face: bright blue eyes, short dark brown hair, clean-shaven, no glasses, warm friendly smile) wearing navy blue tech-support hoodie with small n8n logo patch, pointing at fake Telegram support chat «где регламент?» and stacked PDF icons labeled «3000 док.». Layered fake UI: Qdrant dashboard with vector count, CRM ticket «ответ не по регламенту ★☆☆☆☆», pink sticky note «RAG = шпаргалка из PDF». Shocked cat meme + facepalm cutout, torn paper, scotch tape, pink highlighter on «PDF», grunge paper #F5F5F0, DIY zine collage NOT corporate.",
+      "meme_caption_ru": "3000 PDF — ноль ответов"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните RAG и fine-tuning: когда база знаний выигрывает",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: RAG vs Fine-tuning. Left RAG: green check — свежие PDF, цитата источника, обновление через n8n cron. Right Fine-tuning: red cross — устаревший прайс, нет doc_id, дорого переобучать. Pink sticky «RAG если нужен PDF». Light #FAFAF7, accent #E85D4C, Cyrillic labels, taped screenshot vibe.",
+      "alt": "Сравнение RAG и fine-tuning: когда база знаний выигрывает"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подготовьте документы: аудит, чанкинг и метаданные",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow diagram: Drive/S3 → Text Splitter (400-512 tok, overlap 10-20%) → Embeddings → Qdrant/pgvector → индекс готов. Numbered steps 1-5 with marker arrows, yellow sticky «не грузите всю Wiki», torn paper strip, Cyrillic step titles, colors #FAFAF7 #1A1A2E #E85D4C.",
+      "alt": "Схема ingestion: документы → чанкинг → embeddings → векторная база"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Выберите стек: сравнение Qdrant и pgvector для hybrid search",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Comparison table UI: Qdrant vs PostgreSQL+pgvector. Rows: hybrid search, self-host 152-ФЗ, n8n integration, MVP time. Qdrant column highlighted «default для hybrid». pgvector «если Postgres уже есть». Pink highlighter on «hybrid», scotch tape corners, readable Cyrillic SaaS dashboard mockup.",
+      "alt": "Таблица сравнения Qdrant и pgvector для hybrid search"
+    }
+  }
+}

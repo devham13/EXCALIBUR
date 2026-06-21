@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "chat-bot-dlya-biznesa-rag",
+    "h1": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM",
+    "primary_query": "чат боты для бизнеса",
+    "secondary_queries": [
+      "ии чат бот для бизнеса",
+      "чат бот для бизнеса telegram",
+      "чат бот для бизнеса макс",
+      "как сделать чат бот для бизнеса"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "чат боты для бизнеса 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "чат боты для бизнеса июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "чат боты для бизнеса новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "ии чат бот для бизнеса 2026",
+      "purpose": "вторичный запрос: ии чат бот для бизнеса"
+    },
+    {
+      "id": "secondary_2",
+      "query": "чат бот для бизнеса telegram 2026",
+      "purpose": "вторичный запрос: чат бот для бизнеса telegram"
+    },
+    {
+      "id": "secondary_3",
+      "query": "чат бот для бизнеса макс 2026",
+      "purpose": "вторичный запрос: чат бот для бизнеса макс"
+    },
+    {
+      "id": "secondary_4",
+      "query": "как сделать чат бот для бизнеса 2026",
+      "purpose": "вторичный запрос: как сделать чат бот для бизнеса"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-chat-bot-dlya-biznesa-rag",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

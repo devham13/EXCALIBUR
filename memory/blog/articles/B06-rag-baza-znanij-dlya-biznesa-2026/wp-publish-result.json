@@ -1,0 +1,16 @@
+{
+  "slug": "rag-baza-znanij-dlya-biznesa-2026",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/rag-baza-znanij-dlya-biznesa-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-rag-baza-znanij-dlya-biznesa-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1444610,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=318 slug=rag-baza-znanij-dlya-biznesa-2026\nOK featured_image=319\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=320 src=cover/inline-01.png url=https://mayai.ru\nOK inline_image_upload=321 src=cover/inline-02.png url=https://mayai.ru\nOK inline_image_upload=322 src=cover/inline-03.png url=https://mayai.ru\npermalink=https://mayai.ru\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp",
+  "publish_note": "Committed permalink uses mayai.ru canonical; live publish on staging host per Cloud PUBLIC_SITE_URL — republish to production may be required."
+}

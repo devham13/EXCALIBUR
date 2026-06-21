@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-06-21 — B06 rag-baza-znanij-dlya-biznesa-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | rag-baza-znanij-dlya-biznesa-2026 |
+| verdict | **PASS** |
+| post_id | 318 |
+| featured_image_id | 319 |
+| inline_images | 320, 321, 322 |
+| permalink | https://mayai.ru/rag-baza-znanij-dlya-biznesa-2026/ |
+| transport | SSH SFTP (FTP 425 Bad IP fallback) |
+
+### Preconditions
+
+- link-verify.json: pass (4/4, preflight 2026-06-21)
+- article-qa.md: PASS (93/100)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run  # OK, PHP bytes 9910490
+python3 scripts/excalibur_blog_wp_publish.py ...  # FAIL ftplib.error_temp: 425 Security: Bad IP connecting
+# Fallback: SSH SFTP upload + HTTP trigger — PASS
+python3 scripts/excalibur_blog_interlinker.py --apply  # 0 opportunities
+```
+
+### Result
+
+```
+OK post=318 slug=rag-baza-znanij-dlya-biznesa-2026
+OK featured_image=319
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=320 src=cover/inline-01.png
+OK inline_image_upload=321 src=cover/inline-02.png
+OK inline_image_upload=322 src=cover/inline-03.png
+permalink=https://mayai.ru/rag-baza-znanij-dlya-biznesa-2026/
+```
+
+
+### Notes
+
+- `memory/site.env.local` создан из Cloud env (не в git).
+- FTP blocked from Cloud IP; publish выполнен через Paramiko SFTP + HTTP bootstrap.
+

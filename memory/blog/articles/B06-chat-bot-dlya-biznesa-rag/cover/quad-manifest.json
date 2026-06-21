@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Чат-бот выдумал цену клиенту? RAG + эскалация за 7 дней!",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Эксперт у fake Telegram-чата с галлюцинацией цены и схемой RAG-бота n8n/Make",
+      "scene_hint": "Мужчина-эксперт (лицо с reference — голубые глаза, тёмно-русые волосы, без бороды и очков): чистый ровный тон кожи, мягкий свет, дружелюбная улыбка с лёгким шоком/иронией. Одежда: тёмный худи + гарнитура оператора поддержки (не копировать reference). Указывает на fake Telegram-скрин, где бот написал «скидка 90%» с красным крестом, рядом — Vector Store UI и n8n workflow с handoff в CRM. Розовые стикеры «RAG из FAQ», рваная бумага, скотч, shocked cat meme, 1-star review snippet «бот соврал про цену». Мем-коллаж 16:9.",
+      "meme_caption_ru": "Бот не галлюцинирует?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Выберите одну задачу и канал для MVP",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица MVP: строки FAQ поддержка / Лиды с сайта / MAX Bot API; колонки Задача, Канал, Инструмент (Telegram Trigger n8n, Webhook Make, MAX API). Розовый стикер «один канал на 7–14 дней». H2: «1. Выберите одну задачу и канал для MVP»",
+      "alt": "Таблица выбора задачи и канала MVP: FAQ, лиды, MAX"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подготовьте базу знаний для RAG без галлюцинаций",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема RAG-подготовки: FAQ + прайс + регламенты → нарезка chunks 500–1000 токенов → embeddings → Vector Store + файл «что бот не делает». Стрелки, top-k 3–5 фрагментов. H2: «2. Подготовьте базу знаний для RAG без галлюцинаций»",
+      "alt": "Workflow подготовки базы знаний RAG: chunks и embeddings"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите workflow в n8n или Make: триггер → Agent → Vector Store",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист 7 шагов pipeline на clipboard: Vector Store → триггер Telegram/Chat → AI Agent + Chat Model → Vector Store Tool → Memory → system prompt → тест 10+5 вопросов. Жёлтый стикер «handoff если confidence < 0,75». H2: «3. Соберите workflow в n8n или Make»",
+      "alt": "Чеклист 7 шагов сборки RAG-workflow в n8n или Make"
+    }
+  }
+}

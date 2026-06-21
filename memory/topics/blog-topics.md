@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Автоматизация обработки документов с ИИ
+
+- **priority:** P0
+- **slug:** avtomatizaciya-obrabotki-dokumentov-ii
+- **h1:** Как настроить автоматизацию обработки документов с ИИ: от скана до CRM
+- **primary_query:** автоматизация обработки документов
+- **secondary_queries:** ии для распознавания документов, ocr документов автоматизация, извлечение данных из pdf n8n, обработка счетов ии
+- **search_intent:** workflow
+- **article_mode:** B
+- **h2_outline:**
+  1. Карта workflow: intake → OCR → LLM в JSON → валидация → human-in-the-loop → CRM
+  2. Выбор стека: n8n vs Make, OCR-сервисы и модели для extraction без галлюцинаций
+  3. Пошаговая сборка intake: Google Drive, email-триггер или webhook для входящих PDF
+  4. JSON-schema и промпт для LLM: поля счёта, ИНН, КПП, НДС и проверка confidence
+  5. Валидация, дубликаты, Switch-ветки и эскалация на оператора при низкой уверенности
+  6. Экспорт в amoCRM / Bitrix24 / Google Sheets и мониторинг ошибок workflow
+- **faq_hints:** как автоматизировать обработку счетов с помощью ии; чем отличается ocr от llm extraction; нужен ли human-in-the-loop при автоматизации документов
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** стопка сканов счетов и PDF, стрелки к JSON-блоку и CRM-карточке, робот с лупой OCR, стикеры amoCRM/Bitrix24/n8n, неоновый diy-коллаж
+
+---
+

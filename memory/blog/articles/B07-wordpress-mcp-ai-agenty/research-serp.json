@@ -1,0 +1,524 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B07",
+    "priority": "P0",
+    "slug": "wordpress-mcp-ai-agenty",
+    "h1": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI",
+    "primary_query": "wordpress mcp",
+    "secondary_queries": [
+      "mcp adapter wordpress",
+      "подключить mcp к wordpress",
+      "wordpress abilities api",
+      "управление wordpress через ai"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "wordpress mcp 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "WordPress MCP Servers: Developer Guide for 2026",
+          "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+          "snippet": ""
+        },
+        {
+          "title": "From Abilities to AI Agents: Introducing the WordPress MCP Adapter",
+          "url": "https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/",
+          "snippet": "A practical guide to WordPress MCP servers in 2026, covering how the Abilities API, official MCP Adapter, and WP AI Client work together, plus real production workflows and security setup."
+        },
+        {
+          "title": "WordPress Trends 2026: Agentic Web, MCP & AI-Native Guide",
+          "url": "https://beplusthemes.com/wordpress-2026-the-year-of-the-agentic-web-and-ai-native-design/",
+          "snippet": "Learn how to use the WordPress MCP Adapter and turn Abilities into MCP tools for your AI Agents."
+        },
+        {
+          "title": "WordPress MCP: Connect AI Agents to Your Site (2026 Guide)",
+          "url": "https://smartwp.com/wordpress-mcp/",
+          "snippet": "Explore the 2026 WordPress roadmap: From the new Abilities API and MCP support for AI agents to hyper-performance and human-centered design. Stay ahead now."
+        },
+        {
+          "title": "MCP Goes Stateless: What the 2026 Release Candidate Changes",
+          "url": "https://mcpplaygroundonline.com/blog/mcp-stateless-2026-release-candidate",
+          "snippet": "WordPress MCP lets AI assistants like Claude and ChatGPT manage your site. What MCP is, how the official WordPress MCP Adapter and Abilities API work, how to set it up with Application Passwords, and the security rules that matter."
+        },
+        {
+          "title": "10 Best WordPress MCP Servers to Try in 2026",
+          "url": "https://responsive.menu/10-best-wordpress-mcp-servers/",
+          "snippet": "The 2026-07-28 MCP release candidate is the biggest protocol revision since launch. It drops the session handshake, adds the Tasks and Apps extensions, hardens auth, and deprecates Roots, Sampling, and Logging. Here is what changes — and how to migrate before July 28."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "wordpress mcp июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "WordPress MCP Servers: Developer Guide for 2026",
+          "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+          "snippet": ""
+        },
+        {
+          "title": "AI сделал WordPress-магазин? Честный тест Novamira MCP + WooCommerce ...",
+          "url": "https://vk.com/video-229395071_456239022",
+          "snippet": "A practical guide to WordPress MCP servers in 2026, covering how the Abilities API, official MCP Adapter, and WP AI Client work together, plus real production workflows and security setup."
+        },
+        {
+          "title": "WordPress MCP: Connect AI Agents to Your Site (2026 Guide)",
+          "url": "https://smartwp.com/wordpress-mcp/",
+          "snippet": "Смотрите онлайн AI сделал WordPress-магазин? Честный тест Novamira.. 1 ч 11 мин 57 с. Видео от 20 июня 2026 в хорошем качестве, без регистрации в бесплатном видеокаталоге ВКонтакте!"
+        },
+        {
+          "title": "WordPress Trends 2026: Agentic Web, MCP & AI-Native Guide",
+          "url": "https://beplusthemes.com/wordpress-2026-the-year-of-the-agentic-web-and-ai-native-design/",
+          "snippet": "The official option is the WordPress MCP Adapter, maintained by the WordPress development team, which exposes your site's abilities as MCP tools. Some managed hosts (like Pressable) also offer hosted WordPress MCP, and a few community servers exist."
+        },
+        {
+          "title": "GitHub - WordPress/mcp-adapter: An MCP adapter that bridges the ...",
+          "url": "https://github.com/wordpress/mcp-adapter",
+          "snippet": "Explore the 2026 WordPress roadmap: From the new Abilities API and MCP support for AI agents to hyper-performance and human-centered design. Stay ahead now."
+        },
+        {
+          "title": "Enable MCP tool access for AI agents - WordPress.com Support",
+          "url": "https://wordpress.com/support/mcp/",
+          "snippet": "The official WordPress package for MCP integration that exposes WordPress abilities as Model Context Protocol (MCP) tools, resources, and prompts for AI agents."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "wordpress mcp новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "What's new for developers? (April 2026) - WordPress Developer Blog",
+          "url": "https://developer.wordpress.org/news/2026/04/whats-new-for-developers-april-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "How WordPress 7.0 Is Building the Foundation for AI-Powered Sites",
+          "url": "https://wordpress.com/blog/2026/04/08/wordpress-7-0-ai-infrastructure/",
+          "snippet": "Learn about all the new updates coming to WordPress for developers, covering plugins and tools, theme updates, and the new Playground MCP Server."
+        },
+        {
+          "title": "WordPress Developer Blog - A site for plugin and theme developers ...",
+          "url": "https://developer.wordpress.org/news/",
+          "snippet": "Until now, every WordPress plugin that integrated AI had to build its own foundations. The upcoming WordPress 7.0 changes this by introducing a shared infrastructure that supports how AI works across sites."
+        },
+        {
+          "title": "WordPress MCP: Connect AI Agents to Your Site (2026 Guide)",
+          "url": "https://smartwp.com/wordpress-mcp/",
+          "snippet": "Learn about all the new updates coming to WordPress for developers, covering plugins and tools, theme updates, and the new Playground MCP Server."
+        },
+        {
+          "title": "WordPress Trends 2026: Agentic Web, MCP & AI-Native Guide",
+          "url": "https://beplusthemes.com/wordpress-2026-the-year-of-the-agentic-web-and-ai-native-design/",
+          "snippet": "This guide covers what MCP is, how WordPress connects to it, what you can actually do with it, how to set it up step by step, and the security rules that matter before you give an AI write access to your site. What Is MCP (Model Context Protocol)?"
+        },
+        {
+          "title": "WordPress MCP Servers: Developer Guide for 2026",
+          "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+          "snippet": "Explore the 2026 WordPress roadmap: From the new Abilities API and MCP support for AI agents to hyper-performance and human-centered design. Stay ahead now."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "mcp adapter wordpress 2026",
+      "purpose": "вторичный запрос: mcp adapter wordpress",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - WordPress/mcp-adapter: An MCP adapter that bridges the ...",
+          "url": "https://github.com/wordpress/mcp-adapter",
+          "snippet": ""
+        },
+        {
+          "title": "From Abilities to AI Agents: Introducing the WordPress MCP Adapter",
+          "url": "https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/",
+          "snippet": "The official WordPress package for MCP integration that exposes WordPress abilities as Model Context Protocol (MCP) tools, resources, and prompts for AI agents."
+        },
+        {
+          "title": "Releases: WordPress/mcp-adapter - GitHub",
+          "url": "https://github.com/WordPress/mcp-adapter/releases",
+          "snippet": "Learn how to use the WordPress MCP Adapter and turn Abilities into MCP tools for your AI Agents."
+        },
+        {
+          "title": "WordPress MCP Servers: Developer Guide for 2026",
+          "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+          "snippet": "The WordPress MCP Adapter is now ready for production use! This foundational library bridges WordPress's Abilities API with the Model Context Protocol (MCP), enabling WordPress applications to expose their functionality to AI agents in a standardized, secure, and extensible way."
+        },
+        {
+          "title": "MCP Adapter - WordPress AI",
+          "url": "https://make.wordpress.org/ai/2025/07/17/mcp-adapter/",
+          "snippet": "A practical guide to WordPress MCP servers in 2026, covering how the Abilities API, official MCP Adapter, and WP AI Client work together, plus real production workflows and security setup."
+        },
+        {
+          "title": "WordPress MCP Adapter — Complete Production Deployment Guide",
+          "url": "https://data-gate.ch/wordpress-mcp-adapter-complete-production-deployment-guide-2026/",
+          "snippet": "The MCP Adapter implements the Model Context Protocol, exposing WordPress Abilities to AI assistants and LLMs, enabling them to discover and execute actions on your site through natural conversation."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "подключить mcp к wordpress 2026",
+      "purpose": "вторичный запрос: подключить mcp к wordpress",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сайт на WordPress: настройка MCP для автоматизации контент-заводов",
+          "url": "https://mayai.ru/sajt-na-wordpress-nastrojka-mcp-dlya-avtomatizaczii-kontent-zavodov/",
+          "snippet": ""
+        },
+        {
+          "title": "Как подключить ваш сайт WordPress к Cursor Desktop",
+          "url": "https://plugins.miniorange.com/ru/connect-wordpress-with-cursor-mcp-guide",
+          "snippet": "Настроив один раз собственный MCP-сервер, вы связываете сайт на WordPress напрямую с ИИ-агентами вроде Claude 4.6 или GPT-5 без лишних костылей."
+        },
+        {
+          "title": "How to Use MCP with WordPress: A Practical Guide for 2026",
+          "url": "https://wpdeveloper.com/how-to-use-mcp-with-wordpress/",
+          "snippet": "Подключите WordPress к Cursor Desktop, используя сервер MCP, для управления плагинами и темами, контроля пользователей, диагностики, работы с медиафайлами и отладки ошибок."
+        },
+        {
+          "title": "WordPress MCP Servers: Developer Guide for 2026",
+          "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+          "snippet": "In this guide, you'll learn what MCP is, how WordPress MCP works, the best real-world use cases, how to set it up safely, and why 2026 is shaping up to be a major turning point for AI agents in WordPress."
+        },
+        {
+          "title": "MCP-серверы Claude Code в 2026: 7 связок и установка",
+          "url": "https://smyslokod.ru/guides/mcp-servery-dlya-claude-code",
+          "snippet": "A practical guide to WordPress MCP servers in 2026, covering how the Abilities API, official MCP Adapter, and WP AI Client work together, plus real production workflows and security setup."
+        },
+        {
+          "title": "Бесплатный MCP сервер — ChatGPT, Cursor, Wordstat и WordPress",
+          "url": "https://mcp-kv.ru/mcp-server-free",
+          "snippet": "После семи готовых серверов следующие три шага - OAuth для своих HTTP-серверов (если хочешь делиться MCP с командой), написание собственного MCP под уникальный сервис, и подключение к Plugin ..."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "wordpress abilities api 2026",
+      "purpose": "вторичный запрос: wordpress abilities api",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "WordPress Abilities API - AI Workflows Guide 2026 - WPPoland",
+          "url": "https://wppoland.com/en/wordpress-ai-workflows-abilities-api-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Abilities API - Common APIs Handbook | Developer.WordPress.org",
+          "url": "https://developer.wordpress.org/apis/abilities-api/",
+          "snippet": "The upcoming Abilities API in WordPress 7.x changes that fundamentally. The Abilities API introduces a standardized way for plugins and themes to declare what they can do - not just what data they expose, but what actions they perform and what intents they fulfill."
+        },
+        {
+          "title": "Abilities API - WordPress AI",
+          "url": "https://make.wordpress.org/ai/handbook/projects/abilities-api/",
+          "snippet": "The WordPress Abilities API provides a standardized way to register and discover distinct units of functionality within a WordPress site. These units, called \"Abilities\", represent specific actions or capabilities that components can perform, with clearly defined inputs, outputs, and permissions."
+        },
+        {
+          "title": "The WordPress Abilities API — complete guide - Mahesh Waghmare",
+          "url": "https://maheshwaghmare.com/wordpress-abilities-api/",
+          "snippet": "The Abilities API Plugin is freely available to the open-source community and designed for immediate adoption. Any plugin or theme can now register its own Abilities, creating an ecosystem where WordPress functionality is not only extensible but also universally discoverable."
+        },
+        {
+          "title": "Mastering the WordPress Abilities API — WordCamp Porto 2026",
+          "url": "https://github.com/wputasic/wcporto-2026-abilities-workshop",
+          "snippet": "A deep walkthrough of the WordPress Abilities API (new in WP 6.9): concepts, registration, hooks, PHP reference, REST endpoints, best practices, and how it powers AI-agent integration through MCP."
+        },
+        {
+          "title": "GitHub - WordPress/abilities-api: A WordPress API for declaring and ...",
+          "url": "https://github.com/WordPress/abilities-api",
+          "snippet": "Hands-on workshop materials for WordCamp Porto 2026. Six self-contained WordPress plugins that walk you through the WP 6.9+ Abilities API end-to-end: registry, input/output schemas, permission callbacks, real data, and AI/MCP-style discovery."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "управление wordpress через ai 2026",
+      "purpose": "вторичный запрос: управление wordpress через ai",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Сайт на WordPress в 2026: обзор AI-редактора на базе Gemini",
+          "url": "https://mayai.ru/sajt-na-wordpress-v-2026-obzor-ai-redaktora-na-baze-gemini/",
+          "snippet": ""
+        },
+        {
+          "title": "ИИ-агенты для WP и Woo: руководство по автоматизации сайта 2026",
+          "url": "https://wpcraft.ru/use-cases/ai-agents",
+          "snippet": "В 2026 году плагины wordpress массово перешли на использование моделей Gemini 2.0 Flash и Gemini 2.5. У них гигантское контекстное окно и феноменальная скорость отдачи ответов."
+        },
+        {
+          "title": "AI agents can now create and manage content on WordPress.com",
+          "url": "https://wordpress.com/blog/2026/03/20/ai-agent-manage-content/",
+          "snippet": "ИИ-агенты для WordPress — автономные системы для автоматизации контента, заказов, маркетинга и поддержки. Узнайте, как внедрить agentic workflows без кодинга и…"
+        },
+        {
+          "title": "WordPress AI Features | AI Tools for WordPress.com Sites",
+          "url": "https://wordpress.com/ai/",
+          "snippet": "Connect AI tools like Claude or ChatGPT to your WordPress.com site to create, edit, and manage posts, pages, and media — all with approval controls."
+        },
+        {
+          "title": "Как интегрировать ИИ в WordPress в 2026 году: плагины, API и ...",
+          "url": "https://serverspace.kz/about/blog/kak-integrirovat-ii-v-wordpress-v-2026-godu-plaginy-api-i-avtomatizacziya-poshagovoe-rukovodstvo/",
+          "snippet": "Enable AI agents like Claude and ChatGPT to read, write, and manage your WordPress.com site — content, comments, media, and more — through natural conversation, without ever opening your dashboard."
+        },
+        {
+          "title": "AI Engine — The Chatbot, AI Framework & MCP for WordPress",
+          "url": "https://ru.wordpress.org/plugins/ai-engine/",
+          "snippet": "Узнайте, как интегрировать ИИ в WordPress в 2026 году с помощью готовых плагинов, прямых PHP-вызовов API и no-code автоматизации через n8n и Make — практическое пошаговое руководство для ..."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как подключить ваш сайт WordPress к Cursor Desktop",
+          "url": "https://plugins.miniorange.com/ru/connect-wordpress-with-cursor-mcp-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Enable MCP tool access for AI agents - WordPress.com Support",
+          "url": "https://wordpress.com/support/mcp/",
+          "snippet": "Подключите WordPress к Cursor Desktop, используя сервер MCP, для управления плагинами и темами, контроля пользователей, диагностики, работы с медиафайлами и отладки ошибок."
+        },
+        {
+          "title": "GitHub - WordPress/mcp-adapter: An MCP adapter that bridges the ...",
+          "url": "https://github.com/wordpress/mcp-adapter",
+          "snippet": "By connecting your AI agent to WordPress.com, you can interact with your WordPress.com account and websites using natural language. At a high level, here is how MCP connects your AI agent to WordPress.com:"
+        },
+        {
+          "title": "Как Разрешить Помощникам На Базе Ии Доступ К Инструментам Mcp",
+          "url": "https://wordpress.com/ru/support/model-context-protocol-mcp-settings/",
+          "snippet": "The official WordPress package for MCP integration that exposes WordPress abilities as Model Context Protocol (MCP) tools, resources, and prompts for AI agents."
+        },
+        {
+          "title": "How to Connect AI Agents to WordPress Using MCP: A Step-by-Step Guide",
+          "url": "https://instawp.com/how-to-connect-ai-agents-to-wordpress-using-mcp/",
+          "snippet": "Из этого руководства вы узнаете, как разрешать доступ по MCP и настраивать ИИ-клиенты, а также получите представление о возможностях и ограничениях такой интеграции."
+        },
+        {
+          "title": "shewa12/turn-wordpress-site-into-an-mcp-server - GitHub",
+          "url": "https://github.com/shewa12/turn-wordpress-site-into-an-mcp-server",
+          "snippet": "Learn how to connect AI agents like Claude Code, Cursor, and Gemini CLI to your WordPress 7.0 site using the MCP Adapter."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.smackcoders.com/blog/wordpress-mcp-server.html",
+      "title": "WordPress MCP Servers: Developer Guide for 2026",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/",
+      "title": "From Abilities to AI Agents: Introducing the WordPress MCP Adapter",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://beplusthemes.com/wordpress-2026-the-year-of-the-agentic-web-and-ai-native-design/",
+      "title": "WordPress Trends 2026: Agentic Web, MCP & AI-Native Guide",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://smartwp.com/wordpress-mcp/",
+      "title": "WordPress MCP: Connect AI Agents to Your Site (2026 Guide)",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://mcpplaygroundonline.com/blog/mcp-stateless-2026-release-candidate",
+      "title": "MCP Goes Stateless: What the 2026 Release Candidate Changes",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://responsive.menu/10-best-wordpress-mcp-servers/",
+      "title": "10 Best WordPress MCP Servers to Try in 2026",
+      "from_query": "wordpress mcp 2026"
+    },
+    {
+      "url": "https://vk.com/video-229395071_456239022",
+      "title": "AI сделал WordPress-магазин? Честный тест Novamira MCP + WooCommerce ...",
+      "from_query": "wordpress mcp июнь 2026"
+    },
+    {
+      "url": "https://github.com/wordpress/mcp-adapter",
+      "title": "GitHub - WordPress/mcp-adapter: An MCP adapter that bridges the ...",
+      "from_query": "wordpress mcp июнь 2026"
+    },
+    {
+      "url": "https://wordpress.com/support/mcp/",
+      "title": "Enable MCP tool access for AI agents - WordPress.com Support",
+      "from_query": "wordpress mcp июнь 2026"
+    },
+    {
+      "url": "https://developer.wordpress.org/news/2026/04/whats-new-for-developers-april-2026/",
+      "title": "What's new for developers? (April 2026) - WordPress Developer Blog",
+      "from_query": "wordpress mcp новости 2026"
+    },
+    {
+      "url": "https://wordpress.com/blog/2026/04/08/wordpress-7-0-ai-infrastructure/",
+      "title": "How WordPress 7.0 Is Building the Foundation for AI-Powered Sites",
+      "from_query": "wordpress mcp новости 2026"
+    },
+    {
+      "url": "https://developer.wordpress.org/news/",
+      "title": "WordPress Developer Blog - A site for plugin and theme developers ...",
+      "from_query": "wordpress mcp новости 2026"
+    },
+    {
+      "url": "https://github.com/WordPress/mcp-adapter/releases",
+      "title": "Releases: WordPress/mcp-adapter - GitHub",
+      "from_query": "mcp adapter wordpress 2026"
+    },
+    {
+      "url": "https://make.wordpress.org/ai/2025/07/17/mcp-adapter/",
+      "title": "MCP Adapter - WordPress AI",
+      "from_query": "mcp adapter wordpress 2026"
+    },
+    {
+      "url": "https://data-gate.ch/wordpress-mcp-adapter-complete-production-deployment-guide-2026/",
+      "title": "WordPress MCP Adapter — Complete Production Deployment Guide",
+      "from_query": "mcp adapter wordpress 2026"
+    },
+    {
+      "url": "https://mayai.ru/sajt-na-wordpress-nastrojka-mcp-dlya-avtomatizaczii-kontent-zavodov/",
+      "title": "Сайт на WordPress: настройка MCP для автоматизации контент-заводов",
+      "from_query": "подключить mcp к wordpress 2026"
+    },
+    {
+      "url": "https://plugins.miniorange.com/ru/connect-wordpress-with-cursor-mcp-guide",
+      "title": "Как подключить ваш сайт WordPress к Cursor Desktop",
+      "from_query": "подключить mcp к wordpress 2026"
+    },
+    {
+      "url": "https://wpdeveloper.com/how-to-use-mcp-with-wordpress/",
+      "title": "How to Use MCP with WordPress: A Practical Guide for 2026",
+      "from_query": "подключить mcp к wordpress 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/mcp-servery-dlya-claude-code",
+      "title": "MCP-серверы Claude Code в 2026: 7 связок и установка",
+      "from_query": "подключить mcp к wordpress 2026"
+    },
+    {
+      "url": "https://mcp-kv.ru/mcp-server-free",
+      "title": "Бесплатный MCP сервер — ChatGPT, Cursor, Wordstat и WordPress",
+      "from_query": "подключить mcp к wordpress 2026"
+    },
+    {
+      "url": "https://wppoland.com/en/wordpress-ai-workflows-abilities-api-2026/",
+      "title": "WordPress Abilities API - AI Workflows Guide 2026 - WPPoland",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://developer.wordpress.org/apis/abilities-api/",
+      "title": "Abilities API - Common APIs Handbook | Developer.WordPress.org",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://make.wordpress.org/ai/handbook/projects/abilities-api/",
+      "title": "Abilities API - WordPress AI",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://maheshwaghmare.com/wordpress-abilities-api/",
+      "title": "The WordPress Abilities API — complete guide - Mahesh Waghmare",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://github.com/wputasic/wcporto-2026-abilities-workshop",
+      "title": "Mastering the WordPress Abilities API — WordCamp Porto 2026",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://github.com/WordPress/abilities-api",
+      "title": "GitHub - WordPress/abilities-api: A WordPress API for declaring and ...",
+      "from_query": "wordpress abilities api 2026"
+    },
+    {
+      "url": "https://mayai.ru/sajt-na-wordpress-v-2026-obzor-ai-redaktora-na-baze-gemini/",
+      "title": "Сайт на WordPress в 2026: обзор AI-редактора на базе Gemini",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://wpcraft.ru/use-cases/ai-agents",
+      "title": "ИИ-агенты для WP и Woo: руководство по автоматизации сайта 2026",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://wordpress.com/blog/2026/03/20/ai-agent-manage-content/",
+      "title": "AI agents can now create and manage content on WordPress.com",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://wordpress.com/ai/",
+      "title": "WordPress AI Features | AI Tools for WordPress.com Sites",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://serverspace.kz/about/blog/kak-integrirovat-ii-v-wordpress-v-2026-godu-plaginy-api-i-avtomatizacziya-poshagovoe-rukovodstvo/",
+      "title": "Как интегрировать ИИ в WordPress в 2026 году: плагины, API и ...",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://ru.wordpress.org/plugins/ai-engine/",
+      "title": "AI Engine — The Chatbot, AI Framework & MCP for WordPress",
+      "from_query": "управление wordpress через ai 2026"
+    },
+    {
+      "url": "https://wordpress.com/ru/support/model-context-protocol-mcp-settings/",
+      "title": "Как Разрешить Помощникам На Базе Ии Доступ К Инструментам Mcp",
+      "from_query": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI 2026"
+    },
+    {
+      "url": "https://instawp.com/how-to-connect-ai-agents-to-wordpress-using-mcp/",
+      "title": "How to Connect AI Agents to WordPress Using MCP: A Step-by-Step Guide",
+      "from_query": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI 2026"
+    },
+    {
+      "url": "https://github.com/shewa12/turn-wordpress-site-into-an-mcp-server",
+      "title": "shewa12/turn-wordpress-site-into-an-mcp-server - GitHub",
+      "from_query": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI 2026"
+    }
+  ]
+}

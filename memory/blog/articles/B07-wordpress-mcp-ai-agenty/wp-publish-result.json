@@ -1,0 +1,18 @@
+{
+  "slug": "wordpress-mcp-ai-agenty",
+  "topic_id": "B07",
+  "permalink": "/2026/06/21/wordpress-mcp-ai-agenty/",
+  "post_id": 400,
+  "featured_image_id": 401,
+  "inline_image_ids": [402, 403, 404],
+  "cover_evidence": {
+    "path": "memory/blog/articles/B07-wordpress-mcp-ai-agenty/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1554932,
+    "detected_format": "png"
+  },
+  "raw_output": "transport=ssh_sftp\nOK post=400 slug=wordpress-mcp-ai-agenty\nOK featured_image=401\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=402 src=cover/inline-01.png url=/wp-content/uploads/2026/06/wordpress-mcp-ai-agenty-inline-01.png\nOK inline_image_upload=403 src=cover/inline-02.png url=/wp-content/uploads/2026/06/wordpress-mcp-ai-agenty-inline-02.png\nOK inline_image_upload=404 src=cover/inline-03.png url=/wp-content/uploads/2026/06/wordpress-mcp-ai-agenty-inline-03.png\npermalink=/2026/06/21/wordpress-mcp-ai-agenty/\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp"
+}

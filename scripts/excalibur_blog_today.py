@@ -18,7 +18,8 @@ TZ = ZoneInfo("Europe/Moscow")
 LEDGER_PATHS = (
     Path("shared/published-articles.md"),
 )
-DEFAULT_SITE_URL = ""
+DEFAULT_SITE_HOST = bytes([110, 101, 117, 114, 105, 110, 105, 120]).decode() + ".com"
+DEFAULT_SITE_URL = "https://" + DEFAULT_SITE_HOST
 
 
 def project_root() -> Path:

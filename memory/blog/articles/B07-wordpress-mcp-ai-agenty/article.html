@@ -1,0 +1,183 @@
+<p>ИИ в Cursor умеет писать тексты, но черновик в WordPress вы всё равно копируете руками - REST API пугает, а "AI-плагины" обещают магию без контроля. Официальный WordPress MCP Adapter переводит возможности сайта в tools для агента: discover abilities, чтение, черновик с вашей проверкой. За 30-60 минут на self-hosted WordPress 6.9+ вы установите adapter, создадите отдельного пользователя с Application Password и подключите Cursor - без публикации в один клик.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> WordPress MCP - мост между Abilities API и ИИ-клиентом. Путь: MCP Adapter → Application Password → .cursor/mcp.json → discover → read-only → draft → проверка человеком. Не давайте агенту admin; публикация - после <a href="/geo-optimizaciya-sajta-2026/" target="_blank">GEO-чеклиста</a>.</blockquote>
+
+<p><b>WordPress MCP</b> - управление сайтом через AI по стандарту MCP (Model Context Protocol, открытая спецификация Anthropic с ноября 2024): агент видит discoverable tools, а не сырой REST. <b>Abilities API</b> с WP 6.9 описывает действия сайта в REST namespace <code>wp-abilities/v1</code>; <b>MCP Adapter</b> (v0.5.0, релиз апрель 2026) регистрирует server <code>mcp-adapter-default-server</code> на <code>/wp-json/mcp/mcp-adapter-default-server</code>. Пакет входит в инициативу AI Building Blocks for WordPress. MCP в Cursor ещё не настроен - начните с <a href="/podklyuchenie-mcp-cursor/" target="_blank">подключения MCP в Cursor</a>; эта статья - следующий шаг именно для WordPress. Ниже - self-hosted; на WordPress.com MCP работает через OAuth в настройках аккаунта (планы Personal и выше).</p>
+
+<h2>1. Разберите, зачем бизнесу WordPress MCP и Abilities API</h2>
+
+<p><b>Abilities API</b> - каталог разрешённых действий сайта. <b>MCP Adapter</b> - переводчик для AI: клиент вызывает tools, adapter проверяет права. В ядре 6.9 три read-abilities: site-info, user-info, environment-info. Write появляется, если плагин пометил ability как <code>meta.mcp.public => true</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Сценарий</th>
+<th>Запрос агенту</th>
+<th>Human-in-the-loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>Черновик</b></td>
+<td>Draft поста по брифу</td>
+<td>Вы правите и проходите GEO перед publish</td>
+</tr>
+<tr>
+<td><b>Аудит</b></td>
+<td>10 старых постов в рубрике</td>
+<td>Вы решаете, что обновлять</td>
+</tr>
+<tr>
+<td><b>Мета</b></td>
+<td>Alt-тексты для вложений</td>
+<td>Медиа публикуете сами на старте</td>
+</tr>
+</tbody>
+</table>
+
+<p><b>Делайте:</b> read-only и audit первыми. <b>Не делайте:</b> auto-publish - менее 2,5% сложных задач ИИ закрывает без человека; draft + одобрение - норма.</p>
+
+<h2>2. Проверьте требования: WordPress 6.9+, HTTPS, отдельный пользователь</h2>
+
+<p>Abilities API - с <b>WordPress 6.9 "Gene"</b> (2 декабря 2025). MCP Adapter v0.5.0 требует PHP 7.4+ и WP 6.8+, но abilities in core - только 6.9+. На продакшене PHP 8.0+, HTTPS обязателен: Application Password и remote bridge не работают по HTTP. На машине с Cursor нужен Node.js для команды <code>npx @automattic/mcp-wordpress-remote</code> - это прокси между редактором и вашим сайтом.</p>
+
+<p><b>Application Password</b> - ключ API, который отзывается без смены пароля wp-admin. Создайте <code>mcp-editor</code> с ролью Editor или Author, не Administrator.</p>
+
+<ol>
+<li><b>Шаг 1:</b> Проверьте WP 6.9+ (Обновления или <code>/wp-json/</code>).</li>
+<li><b>Шаг 2:</b> HTTPS валиден, REST <code>/wp-json/</code> не отдаёт 403.</li>
+<li><b>Шаг 3:</b> Новый пользователь Editor/Author для MCP.</li>
+<li><b>Шаг 4:</b> Application Password "Cursor MCP" - скопируйте с пробелами, показывается один раз.</li>
+<li><b>Шаг 5:</b> Сохраните пароль offline, не в чат Cursor.</li>
+</ol>
+
+<p><b>Делайте:</b> least privilege. <b>Не делайте:</b> admin для MCP.</p>
+
+<h2>3. Установите MCP Adapter и проверьте endpoint</h2>
+
+<p>Скачайте v0.5.0 с GitHub <code>WordPress/mcp-adapter</code> или <code>composer require wordpress/mcp-adapter</code>. Активируйте в <code>wp-content/plugins/mcp-adapter</code>.</p>
+
+<blockquote>
+<b>Схема:</b> adapter → Application Password → mcp.json → перезапуск Cursor → discover → read-only → draft → GEO → publish
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>Транспорт</th>
+<th>Когда</th>
+<th>Как</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>HTTP remote</b></td>
+<td>Продакшен + Cursor на ПК</td>
+<td>@automattic/mcp-wordpress-remote + WP_API_URL</td>
+</tr>
+<tr>
+<td><b>STDIO</b></td>
+<td>Локальная dev</td>
+<td>WP-CLI: <code>wp mcp-adapter serve --server=mcp-adapter-default-server</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Проверка: откройте <code>https://ваш-сайт.ru/wp-json/mcp/mcp-adapter-default-server</code> в браузере или curl. Ожидайте auth challenge или JSON-ответ, не 404. При 404 - плагин не активен или сбросились постоянные ссылки (Настройки → Постоянные ссылки → Сохранить). При необходимости в папке плагина выполните <code>composer install</code>, если ставили через Composer.</p>
+
+<p><b>Делайте:</b> official adapter на новых инсталляциях. <b>Не делайте:</b> устаревший automattic/wordpress-mcp вместо него.</p>
+
+<h2>4. Настройте Cursor: mcp.json и remote bridge</h2>
+
+<p>Tools &amp; MCP → Add Custom MCP → <code>.cursor/mcp.json</code> (как в <a href="/podklyuchenie-mcp-cursor/" target="_blank">базовом гайде MCP</a>):</p>
+
+<pre><code>{
+  "mcpServers": {
+    "wordpress-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
+      "env": {
+        "WP_API_URL": "https://your-site.com/wp-json/mcp/mcp-adapter-default-server",
+        "WP_API_USERNAME": "mcp-editor",
+        "WP_API_PASSWORD": "xxxx xxxx xxxx xxxx xxxx xxxx"
+      }
+    }
+  }
+}</code></pre>
+
+<p>Замените your-site.com, mcp-editor и пароль на свои значения. Пароль вставляйте с пробелами, как показал WordPress. После правки - полный перезапуск Cursor (не только reload окна). В Tools &amp; MCP статус зелёный; появятся meta-abilities: discover-abilities, get-ability-info, execute-ability. Если MCP не стартует - проверьте Node, путь npx и логи в панели Cursor; детали базовой диагностики - в <a href="/podklyuchenie-mcp-cursor/" target="_blank">гайде по MCP</a>.</p>
+
+<p><b>Делайте:</b> mcp.json в .gitignore. <b>Не делайте:</b> коммит пароля.</p>
+
+<h2>5. Выполните первые команды агенту: discover, read, draft</h2>
+
+<ol>
+<li><b>Discover:</b> "Список WordPress abilities через MCP".</li>
+<li><b>Read-only:</b> core/get-site-info - ответ с вашего домена.</li>
+<li><b>Аудит:</b> старые посты рубрики - только чтение.</li>
+<li><b>Draft:</b> "Черновик по тезисам, без publish" - проверка в wp-admin.</li>
+<li><b>GEO:</b> <a href="/geo-optimizaciya-sajta-2026/" target="_blank">GEO-оптимизация</a> перед публикацией.</li>
+</ol>
+
+<p>Cursor запросит подтверждение перед вызовом tool - это ваш human-in-the-loop на уровне клиента. Пустой список write-tools часто значит: abilities сторонних плагинов не помечены <code>meta.mcp.public => true</code> в коде разработчика. Realistic MVP на старте - core read abilities плюс черновик там, где abilities provider уже exposed write. После правки черновика прогоните материал по <a href="/geo-optimizaciya-sajta-2026/" target="_blank">GEO-чеклисту</a>: структура H2, факты, блоки для нейропоиска.</p>
+
+<p><b>Делайте:</b> подтверждайте write в Cursor. <b>Не делайте:</b> "опубликуй на главную".</p>
+
+<h2>6. Настройте безопасность и устраните 401, 403, пустые tools</h2>
+
+<p>MCP-клиент авторизуется как залогиненный WP-пользователь; каждый ability проверяет permission_callback. Wordfence, iThemes и аналоги часто режут <code>/wp-json/</code> - добавьте whitelist для <code>/wp-json/mcp/</code>. Ошибка 401: неверный Application Password (проверьте пробелы), истёкший ключ или HTTP вместо HTTPS. 403: недостаточная роль (Author не правит чужие посты) или REST заблокирован. Пустые tools после discover: abilities не public для MCP.</p>
+
+<ul>
+<li>Read-only первая неделя.</li>
+<li>Отзыв пароля: Application Passwords → удалить.</li>
+<li>Логи security plugin для mcp-editor.</li>
+</ul>
+
+<p><b>Делайте:</b> регламент draft → человек → GEO → publish. <b>Не делайте:</b> write от admin.</p>
+
+<h2>7. Пройдите чеклист перед продакшеном</h2>
+
+<ul>
+<li>WP 6.9+, PHP 8.0+, HTTPS.</li>
+<li>REST и MCP endpoint доступны.</li>
+<li>Adapter v0.5.0 активен.</li>
+<li>Отдельный user, Application Password offline.</li>
+<li>mcp.json корректен, Cursor перезапущен.</li>
+<li>Discover и read-only OK.</li>
+<li>Черновик проверен в wp-admin.</li>
+<li>GEO перед publish.</li>
+<li>План отзыва пароля.</li>
+<li>Нет admin в MCP-конфиге.</li>
+</ul>
+
+<h2>8. Что дальше</h2>
+
+<p>Расширяйте сценарии по одному: сначала аудит старых постов, потом черновики из брифа, затем мета и alt-тексты. Фоновая автоматизация 24/7 (рассылки, CRM, мониторинг) - другой слой, не замена MCP для контента в WP. Другие MCP-серверы и диагностика - в <a href="/podklyuchenie-mcp-cursor/" target="_blank">гайде по MCP</a>. Профиль автора с кейсами - <a href="/obo-mne/" target="_blank">/obo-mne/</a>. Вопросы по внедрению агентов под ваш стек - <a href="https://t.me/maya_pro" target="_blank">Telegram "Ковчег"</a>.</p>
+
+<blockquote>
+<b>Материал проверен:</b> эксперт <a href="/obo-mne/" target="_blank">Артур Хорошев</a> (CEO Maya AI, эксперт по автоматизации на n8n, Cursor и ИИ-агентах).<br>
+<b>Достоверность данных:</b> WordPress 6.9, MCP Adapter v0.5.0 и Abilities API сверены с developer.wordpress.org и GitHub на июнь 2026; Wordstat - после обновления MCP-токена.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Что такое WordPress MCP Adapter?</h3>
+<p>Официальный пакет инициативы AI Building Blocks: мост между Abilities API и MCP. После активации регистрирует default-server на <code>/wp-json/mcp/mcp-adapter-default-server</code> и три meta-abilities - discover-abilities, get-ability-info, execute-ability. AI-клиент видит tools, adapter выполняет действия с проверкой прав WordPress.</p>
+
+<h3>Какие версии WordPress нужны?</h3>
+<p>Минимум 6.9 для Abilities в ядре. Adapter формально на 6.8+ с отдельным plugin, но для бизнеса ставьте 6.9+.</p>
+
+<h3>Как подключить WordPress MCP к Cursor?</h3>
+<p>Adapter на сайте → Application Password → блок в .cursor/mcp.json с @automattic/mcp-wordpress-remote → перезапуск Cursor. База MCP - <a href="/podklyuchenie-mcp-cursor/" target="_blank">отдельный гайд</a>.</p>
+
+<h3>Чем MCP отличается от REST API?</h3>
+<p>REST - ручные HTTP из кода. MCP - discover tools, затем execute: агент не пишет curl на каждый endpoint.</p>
+
+<h3>Безопасно ли давать AI write-доступ?</h3>
+<p>Только с dedicated user, least privilege и draft без auto-publish. На WordPress.com write-операции требуют подтверждения в UI. Self-hosted: read-only первую неделю, write только в черновики, финальная публикация - вручную в wp-admin после GEO-проверки.</p>
+
+<h3>Почему tools пустые или 401?</h3>
+<p>Неверный пароль (нужны пробелы), HTTP вместо HTTPS, security блокирует /wp-json/, abilities без meta.mcp.public.</p>
+
+<h3>WordPress.com vs self-hosted MCP?</h3>
+<p>.com: OAuth, настройки в аккаунте. Self-hosted: mcp-adapter + Application Password + npx bridge. Auth не смешивайте.</p>

@@ -181,10 +181,21 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Verify links in Excalibur article.html")
     ap.add_argument("html", type=Path, help="Path to article.html")
     ap.add_argument("-o", "--output", type=Path, help="Write link-verify.json")
-    ap.add_argument("--site-base", type=str, default=None, help="e.g. https://example.com")
+    ap.add_argument("--site-base", type=str, default=None, help="Override EXCALIBUR_PUBLIC_SITE_URL")
     ap.add_argument("--timeout", type=float, default=15.0)
     ap.add_argument("--skip-external", action="store_true")
     args = ap.parse_args()
+
+    site_base = args.site_base
+    if not site_base:
+        try:
+            from excalibur_site_config import load_site_config
+
+            site_base = load_site_config()["public_site_url"]
+        except Exception:
+            from excalibur_site_config import _default_public_site_url
+
+            site_base = _default_public_site_url()
 
     if not args.html.is_file():
         print(f"Not found: {args.html}", file=sys.stderr)
@@ -192,7 +203,7 @@ def main() -> int:
 
     report = verify_article(
         args.html,
-        site_base=args.site_base,
+        site_base=site_base,
         timeout=args.timeout,
         skip_external=args.skip_external,
     )

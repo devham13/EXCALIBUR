@@ -1,0 +1,31 @@
+{
+  "topic_id": "B06",
+  "slug": "rag-baza-znanij-dlya-biznesa-2026",
+  "h1": "RAG база знаний: пошаговая настройка n8n + Qdrant для бизнеса",
+  "title": "RAG база знаний: пошаговая настройка n8n + Qdrant для бизнеса",
+  "description": "Пошаговый гайд: RAG база знаний на n8n с Qdrant или pgvector. Ingestion, hybrid search, rerank, golden set eval и webhook-бот с эскалацией человеку.",
+  "primary_query": "rag база знаний",
+  "secondary_queries": [
+    "rag для бизнеса",
+    "настройка rag системы",
+    "корпоративная база знаний rag",
+    "rag qdrant n8n"
+  ],
+  "char_count": 8931,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "настройка rag базы знаний для поддержки",
+    "корпоративная rag система на n8n и qdrant",
+    "как собрать rag базу знаний с hybrid search"
+  ],
+  "meta_ab": {
+    "title_seo": "RAG база знаний: пошаговая настройка n8n + Qdrant для бизнеса",
+    "title_ctr": "🚀 RAG база знаний за вечер? Пошаговый n8n + Qdrant/pgvector гайд 2026!",
+    "title_aeo": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство?",
+    "description_seo": "Пошаговый гайд: RAG база знаний на n8n с Qdrant или pgvector. Ingestion, hybrid search, rerank, golden set eval и webhook-бот с эскалацией человеку.",
+    "description_ctr": "⚡ Соберите MVP RAG без ML-команды: чанкинг, hybrid BM25+vector, rerank и проверка 20-30 вопросов перед запуском бота поддержки.",
+    "description_aeo": "RAG база знаний для бизнеса настраивается через n8n: загрузка документов в Qdrant/pgvector, гибридный поиск, reranker, golden set и webhook-бот с HITL."
+  },
+  "cover_family": "brand_collage"
+}

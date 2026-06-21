@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B07",
+    "priority": "P0",
+    "slug": "wordpress-mcp-ai-agenty",
+    "h1": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI",
+    "primary_query": "wordpress mcp",
+    "secondary_queries": [
+      "mcp adapter wordpress",
+      "подключить mcp к wordpress",
+      "wordpress abilities api",
+      "управление wordpress через ai"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B07",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "wordpress mcp 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "wordpress mcp июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "wordpress mcp новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "mcp adapter wordpress 2026",
+      "purpose": "вторичный запрос: mcp adapter wordpress"
+    },
+    {
+      "id": "secondary_2",
+      "query": "подключить mcp к wordpress 2026",
+      "purpose": "вторичный запрос: подключить mcp к wordpress"
+    },
+    {
+      "id": "secondary_3",
+      "query": "wordpress abilities api 2026",
+      "purpose": "вторичный запрос: wordpress abilities api"
+    },
+    {
+      "id": "secondary_4",
+      "query": "управление wordpress через ai 2026",
+      "purpose": "вторичный запрос: управление wordpress через ai"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B07-wordpress-mcp-ai-agenty",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -1,3 +1,6 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/p/c731440685b86cd8715d3378cadc8a20_1_1781144392_2174.png"
+  "fallback": "GenerateImage",
+  "reference_url_hosted": "vk-userapi-blog-hero",
+  "local_canvas": "cover/canvas-quad.png",
+  "note": "Regenerated 2026-06-21 with updated blog-hero reference"
 }

@@ -1,0 +1,544 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "rag-baza-znanij-dlya-biznesa-2026",
+    "h1": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026",
+    "primary_query": "rag база знаний",
+    "secondary_queries": [
+      "rag для бизнеса",
+      "настройка rag системы",
+      "корпоративная база знаний rag",
+      "rag qdrant n8n"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "rag база знаний 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Rag-системы Для Корпоративной Базы Знаний 2026: Гайд По Реализации",
+          "url": "https://ai.low-light.ru/blog/rag-sistemy-korporativnaya-baza-znaniy-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+          "url": "https://promaren.ru/blog/2026/02/14/obnovlenie-bazy-znaniy-rag-agenta-luchshie-praktiki-2026/",
+          "snippet": "RAG (Retrieval-Augmented Generation) — это архитектура, которая позволяет языковой модели отвечать на вопросы по корпоративным данным без передачи их в облако и без галлюцинаций. Ниже разбираем, как такую систему собрать в 2026 году с учётом российского контекста."
+        },
+        {
+          "title": "SpellBook Академия | Урок 6 | Обновлённая база знаний (RAG)",
+          "url": "https://rutube.ru/video/8f6e87c76162c951bdf9dcb0d28b32a5/",
+          "snippet": "В 2026 обновление базы знаний для RAG-агента стало вопросом выживания, а не красоты архитектуры."
+        },
+        {
+          "title": "RAG база знаний: пошаговый workflow для компании",
+          "url": "https://mayai.ru/rag-baza-znanij-kompanii/",
+          "snippet": "На этом практическом уроке SpellBook Академии разбираем ключевое обновление платформы - улучшенную RAG-систему (базу знаний) и новые возможности работы с файлами."
+        },
+        {
+          "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+          "url": "https://dzen.ru/a/aZCPkdSrMzjM1DEO",
+          "snippet": "Пошаговая настройка RAG-базы знаний: аудит документов, чанкинг, Qdrant/Chroma, hybrid search, eval на 20-30 вопросах и запуск чата с эскалацией к человеку."
+        },
+        {
+          "title": "Rag И Базы Знаний Для Нейросетей: Как Бизнесу Работать С Ии В 2026 Году",
+          "url": "https://automate-ai.ru/blog/rag-knowledge-bases-neural-networks-2026",
+          "snippet": "Как понять, что база знаний стала «слишком большой» для текущей архитектуры? Что делать, если пользователи жалуются на устаревшие ответы, хотя обновление уже настроено?"
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "rag база знаний июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "RAG база знаний: пошаговый workflow для компании",
+          "url": "https://mayai.ru/rag-baza-znanij-kompanii/",
+          "snippet": ""
+        },
+        {
+          "title": "Rag-системы Для Корпоративной Базы Знаний 2026: Гайд По Реализации",
+          "url": "https://ai.low-light.ru/blog/rag-sistemy-korporativnaya-baza-znaniy-2026/",
+          "snippet": "Пошаговая настройка RAG-базы знаний: аудит документов, чанкинг, Qdrant/Chroma, hybrid search, eval на 20-30 вопросах и запуск чата с эскалацией к человеку."
+        },
+        {
+          "title": "Rag-система И Корпоративная База Знаний На Ии",
+          "url": "https://a-lux.kz/rag-sistema-baza-znaniy/",
+          "snippet": "RAG (Retrieval-Augmented Generation) — это архитектура, которая позволяет языковой модели отвечать на вопросы по корпоративным данным без передачи их в облако и без галлюцинаций. Ниже разбираем, как такую систему собрать в 2026 году с учётом российского контекста."
+        },
+        {
+          "title": "Rag-система Для Базы Знаний: Что Подготовить До Разработки",
+          "url": "https://robotbull.com/handbook/proektirovanie-i-otsenka/rag-sistema-dlya-bazy-znaniy-chto-podgotovit",
+          "snippet": "A-LUX делает разработка rag-системы и корпоративной базы знаний на ии по всему Казахстану. Выберите город — получите предложение с учётом региона."
+        },
+        {
+          "title": "Rag-системы: Ии, Который Знает Вашу Базу Знаний",
+          "url": "https://tashev.ru/blog/posts/rag-knowledge-base.html",
+          "snippet": "Чек-лист подготовки RAG-системы для корпоративной базы знаний: документы, источники, права доступа, качество поиска, проверка ответов и границы пилота."
+        },
+        {
+          "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+          "url": "https://promaren.ru/blog/2026/02/14/obnovlenie-bazy-znaniy-rag-agenta-luchshie-praktiki-2026/",
+          "snippet": "В материале — практичный взгляд по теме «rag-системы: ии, который знает вашу базу знаний»: что делать прямо сейчас, какие ошибки убивают результат, на какие метрики смотреть."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "rag база знаний новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+          "url": "https://promaren.ru/blog/2026/02/14/obnovlenie-bazy-znaniy-rag-agenta-luchshie-praktiki-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+          "url": "https://dzen.ru/a/aZCPkdSrMzjM1DEO",
+          "snippet": "В 2026 обновление базы знаний для RAG-агента стало вопросом выживания, а не красоты архитектуры."
+        },
+        {
+          "title": "RAG-системы: что это такое, принципы ... - Habr",
+          "url": "https://habr.com/ru/articles/989000/",
+          "snippet": "Как понять, что база знаний стала «слишком большой» для текущей архитектуры? Что делать, если пользователи жалуются на устаревшие ответы, хотя обновление уже настроено?"
+        },
+        {
+          "title": "RAG (Retrieval Augmented Generation): что это и как работает в 2026 году",
+          "url": "https://ai.itoq.ru/blog/rag-retrieval-augmented-generation-chto-eto-i-kak-rabotaet-v-2026-godu",
+          "snippet": "Эта статья — первый шаг в серии материалов о технологии RAG. Здесь мы разберёмся, что это вообще такое, зачем она появилась и почему её так часто требуют в вакансиях."
+        },
+        {
+          "title": "Векторные Базы Данных И Rag Обзор 2026 Года",
+          "url": "https://tehnofan.com/trendy-it/vektornye-bazy-dannykh-i-rag-obzor-2026-goda.html",
+          "snippet": "Технология RAG (Retrieval Augmented Generation) стала одним из ключевых достижений в развитии искусственного интеллекта."
+        },
+        {
+          "title": "Готовые Решения И Проекты С Rag | База Знаний Сообщества",
+          "url": "https://runetlexbase.ru/legal_LLM_knowledgebase/aktualnoye/upravlenie-dannymi-i-pamyatyu/rag/gotovye-resheniya",
+          "snippet": "Полный обзор RAG и векторных баз данных 2026: как технологии меняют поиск и ИИ. Анализ трендов, сравнение решений и прогнозы на будущее."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "rag для бизнеса 2026",
+      "purpose": "вторичный запрос: rag для бизнеса",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Rag: Что Это, Как Работает Система И Зачем Нужно Для Бизнеса",
+          "url": "https://cognito.ru/blog/rag/",
+          "snippet": ""
+        },
+        {
+          "title": "Исследование: Rag Для Бизнеса. Как Снизить Издержки И Ускорить Рост ...",
+          "url": "https://adpass.ru/issledovanie-rag-dlya-biznesa-kak-snizit-izderzhki-i-uskorit-rost-kompanii/",
+          "snippet": "В этой статье разберём, что такое RAG, как расшифровывается это понятие, как устроен механизм и почему внедрение становится конкурентным преимуществом для бизнеса в 2025-2026 годах."
+        },
+        {
+          "title": "Российский бизнес в 2026 году: прогноз и ключевые тенденции",
+          "url": "https://companies.rbc.ru/news/Dl9VFl2hKQ/rossijskij-biznes-v-2026-godu-prognoz-i-klyuchevyie-tendentsii/",
+          "snippet": "Хотите изучить подробнее кейсы внедрения и узнать, как RAG может трансформировать вашу компанию? Скачайте полное исследование технологии RAG с обзором международных и российских кейсов."
+        },
+        {
+          "title": "Что Такое Rag И В Чем Польза Этой Технологии Для Бизнеса",
+          "url": "https://siberian.pro/blog/rag-dlya-biznesa-kak-vnedrenie-tehnologii-pomogaet-ispolzovat-korporativnye-dannye/",
+          "snippet": "Российский бизнес входит в 2026 год в режиме «двойного сжатия»: спрос охлаждается, а издержки и требования к управлению растут. Формула года звучит просто и жестко: ВВП +0,5-1,5%, инфляция ~5-6%, деньги по-прежнему дорогие, а налоговый контур перестраивается сразу в нескольких точках."
+        },
+        {
+          "title": "Для Чего Rag Бизнесу? | Технологика",
+          "url": "https://www.technologika.ru/blog/rag-for-business",
+          "snippet": "RAG или Retrieval-Augmented Generation — это технология, помогающая радикально увеличить эффект от внедрения ИИ в бизнес и повысить точность ответов LLM."
+        },
+        {
+          "title": "Как Сделать Rag Для Своей Компании / Хабр",
+          "url": "https://habr.com/ru/articles/905076/",
+          "snippet": "Рассказываем про RAG-решения (Retrieval-Augmented Generation) в бизнес-среде. Это особенно важно для задач поддержки клиентов, автоматизации внутренних процессов и снижения нагрузки на сотрудников."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "настройка rag системы 2026",
+      "purpose": "вторичный запрос: настройка rag системы",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Rag-системы 2026: Архитектура, Цены, Кейсы",
+          "url": "https://chimitdorzhi.tech/blog/rag-sistemy-dlya-biznesa-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "RAG Tutorial 2026: Build a Retrieval-Augmented Generation",
+          "url": "https://precisionaiacademy.com/blog/rag-tutorial-python-2026",
+          "snippet": "Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов."
+        },
+        {
+          "title": "Rag-системы: Поиск И Векторы — Полное Руководство",
+          "url": "https://vlad1kudelko.github.io/posts/2026/01/02-rag-systems/",
+          "snippet": "Step-by-step RAG tutorial for 2026. Learn how to build a Retrieval-Augmented Generation system in Python using LangChain, ChromaDB, and OpenAI — with."
+        },
+        {
+          "title": "RAG-пайплайны на Python: гайд 2026 | AI Workflow Lab",
+          "url": "http://aiworkflowlab.dev/ru/article/rag-pajplajny-ot-a-do-ya-arkhitektura-prodvinutye-tekhniki-i-prakticheskaya-realizatsiya-na-python",
+          "snippet": "Освойте RAG-системы: embeddings, векторные БД, retrieval. Создавайте умный поиск по документации и данным."
+        },
+        {
+          "title": "Защита Данных В Rag-системах: Шифрование И Контроль Доступа В 2026",
+          "url": "https://promaren.ru/blog/2026/03/20/zashchita-dannyh-v-rag-sistemah-shifrovanie-i-kontrol-dostupa-2/",
+          "snippet": "Постройте RAG-пайплайн от Naive до Agentic RAG и GraphRAG. Гибридный поиск, re-ranking, семантический чанкинг и оценка качества с примерами на Python."
+        },
+        {
+          "title": "Оптимизация RAG в 2026: эффективные chunking стратегии за 5 шагов",
+          "url": "https://promaren.ru/blog/2026/04/05/optimizaciya-rag-v-2026-effektivnye-chunking-strategii/",
+          "snippet": "Шифрование и продуманный контроль доступа в RAG-системе снижают риск утечки данных в 2026 году | Марина Погодина, PROMAREN"
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "корпоративная база знаний rag 2026",
+      "purpose": "вторичный запрос: корпоративная база знаний rag",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Rag-системы Для Корпоративной Базы Знаний 2026: Гайд По Реализации",
+          "url": "https://ai.low-light.ru/blog/rag-sistemy-korporativnaya-baza-znaniy-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Корпоративная база знаний AI и RAG — PipeBot",
+          "url": "https://pipebot.ru/pages/korporativnaya-baza-znaniy-ai-i-rag/",
+          "snippet": "RAG (Retrieval-Augmented Generation) — это архитектура, которая позволяет языковой модели отвечать на вопросы по корпоративным данным без передачи их в облако и без галлюцинаций. Ниже разбираем, как такую систему собрать в 2026 году с учётом российского контекста."
+        },
+        {
+          "title": "Rag-системы: Ai-база Знаний Для Бизнеса На 2 Млн Документов",
+          "url": "https://mediaten.ru/blog/rag-sistemy-dlya-biznesa",
+          "snippet": "В 2026 году RAG стал стандартом для бизнеса, так как он позволяет избежать галлюцинаций LLM и обеспечить точность ответов."
+        },
+        {
+          "title": "Rag-система Для Базы Знаний: Что Подготовить До Разработки",
+          "url": "https://robotbull.com/handbook/proektirovanie-i-otsenka/rag-sistema-dlya-bazy-znaniy-chto-podgotovit",
+          "snippet": "Рассказываем, как современные AI-технологии решают эту проблему, и делимся реальным опытом внедрения RAG-системы на 2+ миллиона записей. По данным McKinsey, сотрудники тратят до 20% рабочего времени на поиск информации внутри компании."
+        },
+        {
+          "title": "Корпоративная база знаний с AI-поиском | RAG система | vin.team",
+          "url": "https://vin.team/services/knowledge-base",
+          "snippet": "Чек-лист подготовки RAG-системы для корпоративной базы знаний: документы, источники, права доступа, качество поиска, проверка ответов и границы пилота."
+        },
+        {
+          "title": "Rag Для Бизнеса: Как Автоматизировать Работу С Регламентами, Договорами ...",
+          "url": "https://prooftechit.com/blog/kak-avtomatizirovat-rabotu-s-reglamentami-dogovorami-i-bazoj-znanij-s-pomoshhyu-rag",
+          "snippet": "Разработка корпоративной базы знаний с AI-поиском (RAG). Снижение времени поиска информации на 80%, ускорение работы в 3-4 раза. Интеграция с SharePoint, Confluence, 1С. Стоимость от 500 тыс ₽."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "rag qdrant n8n 2026",
+      "purpose": "вторичный запрос: rag qdrant n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Build a RAG agent with n8n, Qdrant & OpenAI",
+          "url": "https://n8n.io/workflows/11468-build-a-rag-agent-with-n8n-qdrant-and-openai/",
+          "snippet": ""
+        },
+        {
+          "title": "Qdrant c n8n. Автоматизируем ИИ RAG-приложение / Хабр",
+          "url": "https://habr.com/ru/companies/amvera/articles/930250/",
+          "snippet": "It shows a complete single-vector RAG (Retrieval-Augmented Generation) system that automatically processes documents, lets you chat with it in natural language and provides accurate, source-cited responses."
+        },
+        {
+          "title": "Qdrant и vector store для RAG в n8n — для семинара С3",
+          "url": "https://gist.github.com/lukinvit/74b4dafdbc26ea478f4913e2bab40acc",
+          "snippet": "В статье будет описана инструкция по разработке no-code RAG-приложения на основе n8n с использованием Qdrant. — это открытая векторная база данных для поиска документов по схожести, написанная на Rust."
+        },
+        {
+          "title": "How To Build A RAG AI Agent With n8n, Qdrant & OpenAI (Full Guide 2026)",
+          "url": "https://www.youtube.com/watch?v=vyLkAkJ_xu8",
+          "snippet": "Семинар «AI-агент и RAG в n8n», курс «No-code и AI-агенты», ВШБ НИУ ВШЭ, 16 мая 2026. Векторная БД нужна для RAG. Выберите один из вариантов в зависимости от среды."
+        },
+        {
+          "title": "n8n: Создание локального AI агента с RAG — пошаговый шаблон и ...",
+          "url": "https://external.software/archives/74140",
+          "snippet": "In this video, we discuss how to build rag ai agent n8n systems utilizing a blazing fast qdrant vector database and deep openai integration n8n features."
+        },
+        {
+          "title": "RAG Pipeline для локального чат-бота: как создать свой AI на базе n8n ...",
+          "url": "https://blog.mindnex.ru/rag-pipeline-n8n-ollama-qdrant/",
+          "snippet": "В этой статье мы представим пошаговое руководство по созданию и развертыванию локального AI агента с RAG на базе платформы n8n. Мы рассмотрим, как интегрировать локальные большие языковые модели (LLM) с помощью Ollama и использовать векторную базу данных Qdrant для эффективного хранения и извлечения знаний."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Внедрить Rag-систему В Компании: Пошаговое Руководство",
+          "url": "https://novacom.ru/blog/rag-system-implementation-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Rag-системы Для Корпоративной Базы Знаний 2026: Гайд По Реализации",
+          "url": "https://ai.low-light.ru/blog/rag-sistemy-korporativnaya-baza-znaniy-2026/",
+          "snippet": "Полный гайд по внедрению RAG: парсинг документов, чанкинг, эмбеддинги, векторная БД, retrieval, reranking, eval. Три варианта стека — от PoC до enterprise с 152-ФЗ."
+        },
+        {
+          "title": "Rag-консультант Для Компании: Запуск Ai-базы Знаний В 2… | Nbm-it",
+          "url": "https://nbmit.ru/blog/ai/rag-ai-consultant-company-knowledge-base-2026",
+          "snippet": "RAG (Retrieval-Augmented Generation) — это архитектура, которая позволяет языковой модели отвечать на вопросы по корпоративным данным без передачи их в облако и без галлюцинаций. Ниже разбираем, как такую систему собрать в 2026 году с учётом российского контекста."
+        },
+        {
+          "title": "Rag-системы: Ai-база Знаний Для Бизнеса На 2 Млн Документов",
+          "url": "https://mediaten.ru/blog/rag-sistemy-dlya-biznesa",
+          "snippet": "Практическое руководство по внедрению RAG-консультанта для бизнеса: от выбора сценариев и данных до интеграции с CRM и метрик эффективности."
+        },
+        {
+          "title": "Внедрение Rag В Бизнесе: Руководство Для Владельца",
+          "url": "https://neograph.tech/blog/how-to-implement-rag",
+          "snippet": "Рассказываем, как современные AI-технологии решают эту проблему, и делимся реальным опытом внедрения RAG-системы на 2+ миллиона записей."
+        },
+        {
+          "title": "Rag И База Знаний На Нейросети: Пошаговый Гайд Для Бизнеса",
+          "url": "https://mayai.ru/rag-baza-znanij-nejroset-biznes-gayd/",
+          "snippet": "Как внедрить RAG в компании: что это даёт, сколько стоит, сколько длится, какие типичные ошибки. Руководство для владельцев бизнеса и руководителей."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://ai.low-light.ru/blog/rag-sistemy-korporativnaya-baza-znaniy-2026/",
+      "title": "Rag-системы Для Корпоративной Базы Знаний 2026: Гайд По Реализации",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://promaren.ru/blog/2026/02/14/obnovlenie-bazy-znaniy-rag-agenta-luchshie-praktiki-2026/",
+      "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/8f6e87c76162c951bdf9dcb0d28b32a5/",
+      "title": "SpellBook Академия | Урок 6 | Обновлённая база знаний (RAG)",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://mayai.ru/rag-baza-znanij-kompanii/",
+      "title": "RAG база знаний: пошаговый workflow для компании",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://dzen.ru/a/aZCPkdSrMzjM1DEO",
+      "title": "Обновление Базы Знаний Rag-агента: Лучшие Практики 2026",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://automate-ai.ru/blog/rag-knowledge-bases-neural-networks-2026",
+      "title": "Rag И Базы Знаний Для Нейросетей: Как Бизнесу Работать С Ии В 2026 Году",
+      "from_query": "rag база знаний 2026"
+    },
+    {
+      "url": "https://a-lux.kz/rag-sistema-baza-znaniy/",
+      "title": "Rag-система И Корпоративная База Знаний На Ии",
+      "from_query": "rag база знаний июнь 2026"
+    },
+    {
+      "url": "https://robotbull.com/handbook/proektirovanie-i-otsenka/rag-sistema-dlya-bazy-znaniy-chto-podgotovit",
+      "title": "Rag-система Для Базы Знаний: Что Подготовить До Разработки",
+      "from_query": "rag база знаний июнь 2026"
+    },
+    {
+      "url": "https://tashev.ru/blog/posts/rag-knowledge-base.html",
+      "title": "Rag-системы: Ии, Который Знает Вашу Базу Знаний",
+      "from_query": "rag база знаний июнь 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/989000/",
+      "title": "RAG-системы: что это такое, принципы ... - Habr",
+      "from_query": "rag база знаний новости 2026"
+    },
+    {
+      "url": "https://ai.itoq.ru/blog/rag-retrieval-augmented-generation-chto-eto-i-kak-rabotaet-v-2026-godu",
+      "title": "RAG (Retrieval Augmented Generation): что это и как работает в 2026 году",
+      "from_query": "rag база знаний новости 2026"
+    },
+    {
+      "url": "https://tehnofan.com/trendy-it/vektornye-bazy-dannykh-i-rag-obzor-2026-goda.html",
+      "title": "Векторные Базы Данных И Rag Обзор 2026 Года",
+      "from_query": "rag база знаний новости 2026"
+    },
+    {
+      "url": "https://runetlexbase.ru/legal_LLM_knowledgebase/aktualnoye/upravlenie-dannymi-i-pamyatyu/rag/gotovye-resheniya",
+      "title": "Готовые Решения И Проекты С Rag | База Знаний Сообщества",
+      "from_query": "rag база знаний новости 2026"
+    },
+    {
+      "url": "https://cognito.ru/blog/rag/",
+      "title": "Rag: Что Это, Как Работает Система И Зачем Нужно Для Бизнеса",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://adpass.ru/issledovanie-rag-dlya-biznesa-kak-snizit-izderzhki-i-uskorit-rost-kompanii/",
+      "title": "Исследование: Rag Для Бизнеса. Как Снизить Издержки И Ускорить Рост ...",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://companies.rbc.ru/news/Dl9VFl2hKQ/rossijskij-biznes-v-2026-godu-prognoz-i-klyuchevyie-tendentsii/",
+      "title": "Российский бизнес в 2026 году: прогноз и ключевые тенденции",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://siberian.pro/blog/rag-dlya-biznesa-kak-vnedrenie-tehnologii-pomogaet-ispolzovat-korporativnye-dannye/",
+      "title": "Что Такое Rag И В Чем Польза Этой Технологии Для Бизнеса",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://www.technologika.ru/blog/rag-for-business",
+      "title": "Для Чего Rag Бизнесу? | Технологика",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/905076/",
+      "title": "Как Сделать Rag Для Своей Компании / Хабр",
+      "from_query": "rag для бизнеса 2026"
+    },
+    {
+      "url": "https://chimitdorzhi.tech/blog/rag-sistemy-dlya-biznesa-2026/",
+      "title": "Rag-системы 2026: Архитектура, Цены, Кейсы",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "https://precisionaiacademy.com/blog/rag-tutorial-python-2026",
+      "title": "RAG Tutorial 2026: Build a Retrieval-Augmented Generation",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "https://vlad1kudelko.github.io/posts/2026/01/02-rag-systems/",
+      "title": "Rag-системы: Поиск И Векторы — Полное Руководство",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "http://aiworkflowlab.dev/ru/article/rag-pajplajny-ot-a-do-ya-arkhitektura-prodvinutye-tekhniki-i-prakticheskaya-realizatsiya-na-python",
+      "title": "RAG-пайплайны на Python: гайд 2026 | AI Workflow Lab",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "https://promaren.ru/blog/2026/03/20/zashchita-dannyh-v-rag-sistemah-shifrovanie-i-kontrol-dostupa-2/",
+      "title": "Защита Данных В Rag-системах: Шифрование И Контроль Доступа В 2026",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "https://promaren.ru/blog/2026/04/05/optimizaciya-rag-v-2026-effektivnye-chunking-strategii/",
+      "title": "Оптимизация RAG в 2026: эффективные chunking стратегии за 5 шагов",
+      "from_query": "настройка rag системы 2026"
+    },
+    {
+      "url": "https://pipebot.ru/pages/korporativnaya-baza-znaniy-ai-i-rag/",
+      "title": "Корпоративная база знаний AI и RAG — PipeBot",
+      "from_query": "корпоративная база знаний rag 2026"
+    },
+    {
+      "url": "https://mediaten.ru/blog/rag-sistemy-dlya-biznesa",
+      "title": "Rag-системы: Ai-база Знаний Для Бизнеса На 2 Млн Документов",
+      "from_query": "корпоративная база знаний rag 2026"
+    },
+    {
+      "url": "https://vin.team/services/knowledge-base",
+      "title": "Корпоративная база знаний с AI-поиском | RAG система | vin.team",
+      "from_query": "корпоративная база знаний rag 2026"
+    },
+    {
+      "url": "https://prooftechit.com/blog/kak-avtomatizirovat-rabotu-s-reglamentami-dogovorami-i-bazoj-znanij-s-pomoshhyu-rag",
+      "title": "Rag Для Бизнеса: Как Автоматизировать Работу С Регламентами, Договорами ...",
+      "from_query": "корпоративная база знаний rag 2026"
+    },
+    {
+      "url": "https://n8n.io/workflows/11468-build-a-rag-agent-with-n8n-qdrant-and-openai/",
+      "title": "Build a RAG agent with n8n, Qdrant & OpenAI",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://habr.com/ru/companies/amvera/articles/930250/",
+      "title": "Qdrant c n8n. Автоматизируем ИИ RAG-приложение / Хабр",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://gist.github.com/lukinvit/74b4dafdbc26ea478f4913e2bab40acc",
+      "title": "Qdrant и vector store для RAG в n8n — для семинара С3",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vyLkAkJ_xu8",
+      "title": "How To Build A RAG AI Agent With n8n, Qdrant & OpenAI (Full Guide 2026)",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://external.software/archives/74140",
+      "title": "n8n: Создание локального AI агента с RAG — пошаговый шаблон и ...",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://blog.mindnex.ru/rag-pipeline-n8n-ollama-qdrant/",
+      "title": "RAG Pipeline для локального чат-бота: как создать свой AI на базе n8n ...",
+      "from_query": "rag qdrant n8n 2026"
+    },
+    {
+      "url": "https://novacom.ru/blog/rag-system-implementation-guide",
+      "title": "Как Внедрить Rag-систему В Компании: Пошаговое Руководство",
+      "from_query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026"
+    },
+    {
+      "url": "https://nbmit.ru/blog/ai/rag-ai-consultant-company-knowledge-base-2026",
+      "title": "Rag-консультант Для Компании: Запуск Ai-базы Знаний В 2… | Nbm-it",
+      "from_query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026"
+    },
+    {
+      "url": "https://neograph.tech/blog/how-to-implement-rag",
+      "title": "Внедрение Rag В Бизнесе: Руководство Для Владельца",
+      "from_query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026"
+    },
+    {
+      "url": "https://mayai.ru/rag-baza-znanij-nejroset-biznes-gayd/",
+      "title": "Rag И База Знаний На Нейросети: Пошаговый Гайд Для Бизнеса",
+      "from_query": "Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026 2026"
+    }
+  ]
+}

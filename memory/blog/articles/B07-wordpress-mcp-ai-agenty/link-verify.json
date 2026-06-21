@@ -1,0 +1,46 @@
+{
+  "source": "memory/blog/articles/B07-wordpress-mcp-ai-agenty/article.html",
+  "total_links": 4,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "/geo-optimizaciya-sajta-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "/geo-optimizaciya-sajta-2026/"
+    },
+    {
+      "url": "/podklyuchenie-mcp-cursor/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "/podklyuchenie-mcp-cursor/"
+    },
+    {
+      "url": "https://t.me/horosheff",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/maya_pro",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

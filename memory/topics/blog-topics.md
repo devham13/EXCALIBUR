@@ -119,3 +119,47 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — RAG база знаний для бизнеса
+
+- **priority:** P0
+- **slug:** rag-baza-znanij-dlya-biznesa-2026
+- **h1:** Как настроить RAG базу знаний для бизнеса: пошаговое руководство 2026
+- **primary_query:** rag база знаний
+- **secondary_queries:** rag для бизнеса, настройка rag системы, корпоративная база знаний rag, rag qdrant n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. RAG vs fine-tuning: когда база знаний лучше дообучения модели
+  2. Подготовка документов: чанкинг 300–800 токенов, метаданные и очистка мусора
+  3. Выбор стека: Qdrant/pgvector, эмбеддинги и гибридный поиск (vector + BM25)
+  4. Reranker и промпт: top-K, ссылки на источники, отказ при отсутствии контекста
+  5. Golden Set и метрики: recall@5, faithfulness, eval перед продакшеном
+  6. Интеграция с n8n или Make: webhook-бот поддержки и human-in-the-loop
+- **faq_hints:** как настроить rag базу знаний; какой размер чанка выбрать для rag; чем rag отличается от обычного chatgpt
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** стопка PDF и Confluence-страниц слева, стрелки в «векторную сетку» Qdrant по центру, справа чат-бот с цитатами источников, стикеры chunk/rerank/embed, неоновый diy-коллаж
+
+---
+
+## B07 — WordPress MCP Adapter
+
+- **priority:** P0
+- **slug:** wordpress-mcp-ai-agenty
+- **h1:** Как подключить WordPress MCP Adapter: пошаговая инструкция для управления сайтом через AI
+- **primary_query:** wordpress mcp
+- **secondary_queries:** mcp adapter wordpress, подключить mcp к wordpress, wordpress abilities api, управление wordpress через ai
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. WordPress MCP в 2026: Abilities API, MCP Adapter и сценарии для бизнеса (черновики, медиа, аудит контента)
+  2. Требования и подготовка: WordPress 6.9+, PHP 8.0, Application Password, отдельный пользователь с минимальными правами
+  3. Установка MCP Adapter: плагин или Composer, активация default-server и проверка endpoint
+  4. Подключение AI-клиента: `.cursor/mcp.json`, Claude Desktop или Claude Code через `@automattic/mcp-wordpress-remote`
+  5. Первые команды агенту: список abilities, черновик поста, загрузка медиа, human-in-the-loop для публикации
+  6. Безопасность и troubleshooting: HTTPS, 401/403 от security-плагинов, whitelist `/wp-json/mcp/`, read-only режим на старте
+- **faq_hints:** что такое wordpress mcp adapter; какие версии wordpress нужны для mcp; как подключить wordpress mcp к cursor
+- **internal_links:** /podklyuchenie-mcp-cursor/, /geo-optimizaciya-sajta-2026/
+- **cover_scene_hint:** экран wp-admin слева, по центру стрелка MCP в Cursor/Claude, справа AI создаёт черновик поста, стикеры Application Password/Abilities API/6.9+, неоновый diy-коллаж
+
+---
+

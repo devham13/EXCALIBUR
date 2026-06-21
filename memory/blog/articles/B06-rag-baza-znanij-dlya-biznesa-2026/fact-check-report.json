@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B06-rag-baza-znanij-dlya-biznesa-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 10,
+  "facts": [
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "RF, RAGAS сверены с открытыми источниками на июнь 2026 года; показы Wordstat - после обновления MCP-токена. Ч",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "5 мес",
+      "kind": "metric_or_duration",
+      "context": "n8n в 5,5× дешевле коробочного LLM и сборка за 2,5 мес. вместо 6-9 мес. кастома. Схема бота: Вопрос → hy",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 мес",
+      "kind": "metric_or_duration",
+      "context": "вле коробочного LLM и сборка за 2,5 мес. вместо 6-9 мес. кастома. Схема бота: Вопрос → hybrid retrieve (k",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "8 недель",
+      "kind": "metric_or_duration",
+      "context": "~1000 документов по отраслевым оценкам занимает 6-8 недель. Не обещайте руководству \"за выходные на всю комп",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "г и метаданные Кейс на Habr: загрузка всей Wiki (~3000 док.) ухудшила ответы; после фильтра \"обновлялось",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "400",
+      "kind": "large_number",
+      "context": "еты; после фильтра \"обновлялось 2 года\" осталось ~400 док. - точность выросла. Начните с одного отдела и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "512",
+      "kind": "large_number",
+      "context": "estion: Drive / S3 / webhook → Text Splitter (400-512 tok, overlap 10-20%) → Embeddings → Qdrant или pgv",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "cl. Шаг 4: Настройте чанкинг. 400-512 tok или 500-1000 для длинных инструкций; режьте по заголовкам секци",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "11468",
+      "kind": "large_number",
+      "context": "еграция с n8n Qdrant Vector Store nodes, template 11468 Supabase/pgvector nodes или HTTP MVP time Qdrant C",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "5-20; RRF k=60 на большом корпусе, k=10-20 на 100-300 страницах. Не делайте: только vector, если в докум",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "ить об ошибке\" → задача менеджеру. Кейс Flowwow: >10 000 док., локальный RAG на n8n в 5,5× дешевле коробочн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "large_number",
+      "context": "RF, RAGAS сверены с открытыми источниками на июнь 2026 года; показы Wordstat - после обновления MCP-токен",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

@@ -86,8 +86,10 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Только Cloud Secrets / env vars. Не печатать FTP/API ключи в handoff, PR, ответах.
 
-- `FTP_*`, `PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
+- `FTP_*`, `EXCALIBUR_PUBLIC_SITE_URL`, `EXCALIBUR_BLOG_ALLOW_PUBLISH`
 - MCP через `${env:...}` в mcp.json
+
+Канонический домен: `shared/production-site.md` + `shared/site-config.json`.
 
 ## Git hygiene
 

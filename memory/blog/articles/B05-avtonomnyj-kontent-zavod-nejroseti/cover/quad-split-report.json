@@ -3,23 +3,23 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B05-avtonomnyj-kontent-zavod-nejroseti\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B05-avtonomnyj-kontent-zavod-nejroseti/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
     ],
     "panel_size_px": [
-      1022,
-      593
+      1023,
+      573
     ],
     "split_meta": {
       "split_mode": "gutter_detect",
       "h_gutter_px": {
-        "start": 593,
-        "end": 598
+        "start": 573,
+        "end": 580
       },
       "v_gutter_px": {
-        "start": 1022,
+        "start": 1023,
         "end": 1028
       }
     },
@@ -33,15 +33,15 @@
         "quadrant": "top_left",
         "box_px": {
           "left": 0,
-          "top": 9,
-          "right": 1022,
-          "bottom": 584
+          "top": 0,
+          "right": 1023,
+          "bottom": 573
         },
         "raw_box_px": {
           "left": 0,
           "top": 0,
-          "right": 1022,
-          "bottom": 593
+          "right": 1023,
+          "bottom": 573
         },
         "size_px": [
           1200,
@@ -56,15 +56,15 @@
         "quadrant": "top_right",
         "box_px": {
           "left": 1028,
-          "top": 9,
+          "top": 0,
           "right": 2048,
-          "bottom": 583
+          "bottom": 573
         },
         "raw_box_px": {
           "left": 1028,
           "top": 0,
           "right": 2048,
-          "bottom": 593
+          "bottom": 573
         },
         "size_px": [
           1200,
@@ -78,15 +78,15 @@
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
-          "left": 18,
-          "top": 598,
-          "right": 1003,
+          "left": 3,
+          "top": 580,
+          "right": 1020,
           "bottom": 1152
         },
         "raw_box_px": {
           "left": 0,
-          "top": 598,
-          "right": 1022,
+          "top": 580,
+          "right": 1023,
           "bottom": 1152
         },
         "size_px": [
@@ -101,14 +101,14 @@
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1045,
-          "top": 598,
-          "right": 2030,
+          "left": 1028,
+          "top": 580,
+          "right": 2048,
           "bottom": 1152
         },
         "raw_box_px": {
           "left": 1028,
-          "top": 598,
+          "top": 580,
           "right": 2048,
           "bottom": 1152
         },

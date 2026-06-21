@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "TL;DR / Быстрый инсайт: RAG (Retrieval-Augmented Generation) - \"шпаргалка из ваших файлов\": PDF режут на чанки, кладут в векторную базу, при вопросе находят top-K, сужают reranker-ом и отдают языковой модели",
+      "word_count": 29
+    },
+    {
+      "sentence": "Критерий Qdrant PostgreSQL + pgvector Когда брать Отдельный search-сервис, hybrid, фильтры metadata Postgres уже в контуре CRM, до ~1M векторов Hybrid search Native dense+sparse, RRF в Query API tsvector + pgvector + RRF (precision ~62% → ~84% на кейсах) Self-host / 152-ФЗ Docker/K8s, Apache 2",
+      "word_count": 37
+    },
+    {
+      "sentence": "0 Да, если БД on-prem Интеграция с n8n Qdrant Vector Store nodes, template 11468 Supabase/pgvector nodes или HTTP MVP time Qdrant Cloud trial или Docker Быстрее, если Postgres уже есть Итоговый вердикт: Qdrant - default для базы знаний с hybrid и rerank",
+      "word_count": 39
+    },
+    {
+      "sentence": "Соберите 20-30 эталонных вопросов, очистите узкий корпус, настройте ingestion в n8n (splitter → embeddings → Qdrant или pgvector), подключите AI Agent с tool retrieval, прогоните golden set и только потом открывайте бот",
+      "word_count": 29
+    }
+  ],
+  "readability": {
+    "score": 97.2,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.7,
+    "avg_syllables_per_word": 1.6
+  }
+}

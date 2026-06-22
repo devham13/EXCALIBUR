@@ -1,7 +1,7 @@
 # Promotion checklist — B06 n8n-multi-agent-orkestraciya-2026
 
 Дата публикации: 2026-06-22  
-Live URL: https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/
+Live URL: /2026/06/22/n8n-multi-agent-orkestraciya-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Честно про ~15× tokens vs single-agent (Anthropic/n8n)
 • Prerequisite: single agent из B02
 
-Читать: https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/
+Читать: /2026/06/22/n8n-multi-agent-orkestraciya-2026/
 ```
 
 ## Перелинковка

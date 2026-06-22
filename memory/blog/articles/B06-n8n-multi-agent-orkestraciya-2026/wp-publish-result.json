@@ -1,0 +1,14 @@
+{
+  "slug": "n8n-multi-agent-orkestraciya-2026",
+  "topic_id": "B06",
+  "permalink": "/2026/06/22/n8n-multi-agent-orkestraciya-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-n8n-multi-agent-orkestraciya-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1510626,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=417 slug=n8n-multi-agent-orkestraciya-2026\nOK featured_image=418\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=419 src=cover/inline-01.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-01.png\nOK inline_image_upload=420 src=cover/inline-02.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-02.png\nOK inline_image_upload=421 src=cover/inline-03.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-03.png\npermalink=/2026/06/22/n8n-multi-agent-orkestraciya-2026/\n",
+  "verdict": "pass"
+}

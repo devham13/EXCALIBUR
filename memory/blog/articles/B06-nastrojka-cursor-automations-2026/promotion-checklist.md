@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastrojka-cursor-automations-2026
 
 Дата публикации: 2026-06-22  
-Live URL: https://mayai.ru/blog/nastrojka-cursor-automations-2026/
+Live URL: /2026/06/22/nastrojka-cursor-automations-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Cursor Automations съедают бюджет — или работают са�
 • Billing guardrails: spend limit, узкий cron/GitHub-триггер, secrets в dashboard
 • Связка с MCP: сначала серверы по гайду B03, потом automation
 
-Читать: https://mayai.ru/blog/nastrojka-cursor-automations-2026/
+Читать: /2026/06/22/nastrojka-cursor-automations-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,489 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-22",
+    "today_ru": "22.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-cursor-automations-2026",
+    "h1": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026",
+    "primary_query": "cursor automations",
+    "secondary_queries": [
+      "cursor cloud agent",
+      "cursor automation github",
+      "cursor automations webhook",
+      "настройка cursor automations"
+    ],
+    "search_intent": "checklist",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "cursor automations 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Improvements to Cursor Automations · Cursor",
+          "url": "https://cursor.com/changelog/05-20-26",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "This release brings Cursor Automations to the Agents Window and introduces the ability to configure automations with multiple attached repos or no repos at all. For the next 7 days, all agent runs for newly created automations are 50% off."
+        },
+        {
+          "title": "Cursor Automations Land in the Agents Window with a 7-Day 50% Off Promo ...",
+          "url": "https://www.oflight.co.jp/en/columns/cursor-automations-agents-window-may-2026",
+          "snippet": "Learn how to use Cursor Automations, Cloud Agents, and Bugbot Autofix in March 2026. Step-by-step setup, pricing, and real workflow examples."
+        },
+        {
+          "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+          "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+          "snippet": "Cursor's May 20, 2026 (3.5) update folds the previously-announced Automations feature (March 5, 2026) into the Agents Window, adds multi-repo and no-repo support, five new marketplace templates, and a 7-day 50%-off promo on agent runs for newly created automations."
+        },
+        {
+          "title": "Version History & Features | Developer Toolkit",
+          "url": "https://developertoolkit.ai/en/cursor-ide/version-management/changelog/",
+          "snippet": "The June 2026 Cursor SDK update is not a polish release. It ships four primitives that, taken together, move Cursor from an IDE assistant into a deployable agent runtime: custom tools you can wire your own functions into, configurable persistence stores, a contextual classifier that gates tool calls before they execute, and nested ..."
+        },
+        {
+          "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+          "url": "https://releasebot.io/updates/cursor",
+          "snippet": "Complete changelog documenting Cursor's evolution from early versions through the latest releases"
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "cursor automations июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor · Automations",
+          "url": "https://cursor.com/automate",
+          "snippet": ""
+        },
+        {
+          "title": "Build agents that run automatically · Cursor",
+          "url": "https://cursor.com/blog/automations",
+          "snippet": "We built our software factory using Cursor Automations with Runlayer MCP and plugins. We move faster than teams five times our size because our agents have the right tools, the right context, and the right guardrails."
+        },
+        {
+          "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+          "url": "https://releasebot.io/updates/cursor",
+          "snippet": "We built our software factory using Cursor Automations with Runlayer MCP and plugins. We move faster than teams five times our size because our agents have the right tools, the right context, and the right guardrails."
+        },
+        {
+          "title": "Cursor 3.8 vs Cursor 3.7 vs Claude Code Automations June 2026",
+          "url": "https://andrew.ooo/answers/cursor-3-8-vs-cursor-3-7-vs-claude-code-automations-june-2026/",
+          "snippet": "Complete list of Cursor latest updates for June 2026: get every product news, release note, and changelog from Cursor summarized in one timeline."
+        },
+        {
+          "title": "Cursor AI (Курсор) в России в 2026: как ... - DTF",
+          "url": "https://dtf.ru/howto/5139760-cursor-ai-v-rossii-kak-polzovatsya-i-kakie-est-podvodnye-kamni",
+          "snippet": "Cursor 3.8 (June 18, 2026) ships the /automate skill, Slack and GitHub triggers, and computer-use for cloud agents. Compared with Cursor 3.7 and Claude Code."
+        },
+        {
+          "title": "Cursor AI (Курсор AI) в России в 2026: как ... - vc.ru",
+          "url": "https://vc.ru/services/2988725-cursor-ai-v-rossii-kak-polzovatsya-i-chto-on-umeet",
+          "snippet": "Автоматизации. В версии 3.8 от 18 июня 2026 года Cursor добавил улучшения для Automations, включая навык /automate, триггеры для GitHub и Slack, а также поддержку computer use."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "cursor automations новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Automations · Cursor",
+          "url": "https://cursor.com/changelog/03-05-26",
+          "snippet": ""
+        },
+        {
+          "title": "Build agents that run automatically · Cursor",
+          "url": "https://cursor.com/blog/automations",
+          "snippet": "Automations Cursor now supports automations for building always-on agents that run based on triggers and instructions you define. Automations run on schedules or are triggered by events from Slack, Linear, GitHub, PagerDuty, and webhooks."
+        },
+        {
+          "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+          "url": "https://releasebot.io/updates/cursor",
+          "snippet": "We built our software factory using Cursor Automations with Runlayer MCP and plugins. We move faster than teams five times our size because our agents have the right tools, the right context, and the right guardrails."
+        },
+        {
+          "title": "Cursor запускает 'Automations' — новую агентную систему кодирования ...",
+          "url": "https://creati.ai/ru/ai-news/2026-03-08/cursor-automations-agentic-coding-system-launch/",
+          "snippet": "Complete list of Cursor latest updates for June 2026: get every product news, release note, and changelog from Cursor summarized in one timeline."
+        },
+        {
+          "title": "Cursor 3.8 vs Cursor 3.7 vs Claude Code Automations June 2026",
+          "url": "https://andrew.ooo/answers/cursor-3-8-vs-cursor-3-7-vs-claude-code-automations-june-2026/",
+          "snippet": "Cursor официально запустила «Automations» — новый агентный фреймворк для написания кода (Agentic Coding Framework), разработанный для фундаментального изменения того, как инженеры-программисты взаимодействуют с искусственным интеллектом."
+        },
+        {
+          "title": "Cursor представил Automations: теперь AI-агенты работают на автопилоте",
+          "url": "https://vibecoderz.ru/news/cursor-automations-always-on-agents-cursor",
+          "snippet": "Cursor 3.8 (June 18, 2026) ships the /automate skill, Slack and GitHub triggers, and computer-use for cloud agents. Compared with Cursor 3.7 and Claude Code."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "cursor cloud agent 2026",
+      "purpose": "вторичный запрос: cursor cloud agent",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor · Cloud Agents",
+          "url": "https://cursor.com/cloud",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Run Cursor from your browser or phone. Cloud agents control their own computers to build ambitious software."
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Cursor 2026 Full Breakdown: Agent Loop, Models & Pricing",
+          "url": "https://chatgptaihub.com/what-s-new-in-cursor-2026-full-breakdown-for-developers/",
+          "snippet": "Learn how to use Cursor Automations, Cloud Agents, and Bugbot Autofix in March 2026. Step-by-step setup, pricing, and real workflow examples."
+        },
+        {
+          "title": "Cursor 3.8 vs Cursor 3.7 vs Claude Code Automations June 2026",
+          "url": "https://andrew.ooo/answers/cursor-3-8-vs-cursor-3-7-vs-claude-code-automations-june-2026/",
+          "snippet": "Every substantive change in Cursor 2026 explained — Agent Loop mechanics, GPT-5.5 and Claude Opus 4.7 support, background agents, and the March pricing..."
+        },
+        {
+          "title": "Cursor 3 Guide 2026: Agents Window, Parallel Agents, and Design Mode",
+          "url": "https://baeseokjae.github.io/posts/cursor-3-guide-2026/",
+          "snippet": "Cursor 3.7 (June 17, 2026): Cloud Environment Setup, Cloud Subagents in the Agents Window. Claude Code: Best terminal autonomous agent, sub-agents, dynamic workflows, MCP integration, Cowork for async parallel work."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "cursor automation github 2026",
+      "purpose": "вторичный запрос: cursor automation github",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Build agents that run automatically · Cursor",
+          "url": "https://cursor.com/blog/automations",
+          "snippet": ""
+        },
+        {
+          "title": "Automations · Cursor",
+          "url": "https://cursor.com/changelog/03-05-26",
+          "snippet": "We're introducing Cursor Automations to build always-on agents. These agents run on schedules or are triggered by events like a sent Slack message, a newly created Linear issue, a merged GitHub PR, or a PagerDuty incident. In addition to these built-in integrations, you can configure your own custom events with webhooks."
+        },
+        {
+          "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+          "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+          "snippet": "Automations Cursor now supports automations for building always-on agents that run based on triggers and instructions you define. Automations run on schedules or are triggered by events from Slack, Linear, GitHub, PagerDuty, and webhooks."
+        },
+        {
+          "title": "caramaschiHG/awesome-ai-agents-2026 - GitHub",
+          "url": "https://github.com/caramaschiHG/awesome-ai-agents-2026",
+          "snippet": "Cursor launched Automations on March 5, 2026, bringing always-on AI agents that trigger automatically on GitHub pull requests, Slack messages, PagerDuty incidents, or scheduled timers."
+        },
+        {
+          "title": "murataslan1/cursor-ai-tips - GitHub",
+          "url": "https://github.com/murataslan1/cursor-ai-tips",
+          "snippet": "EU AI Act: Full obligations for high-risk AI systems effective August 2, 2026 MCP adoption: Donated to Linux Foundation; adopted by Anthropic, OpenAI, Microsoft, Google"
+        },
+        {
+          "title": "Cursor 2026 Full Breakdown: Agent Loop, Models & Pricing",
+          "url": "https://chatgptaihub.com/what-s-new-in-cursor-2026-full-breakdown-for-developers/",
+          "snippet": "🆕 What's New in Cursor 2.6 (March 2026) 🎯 \"The Automation Release\" — Cursor 2.6 introduces always-on, event-driven agents (Automations), Team Plugin Marketplaces, and a controversial shift to Max Mode pricing."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "cursor automations webhook 2026",
+      "purpose": "вторичный запрос: cursor automations webhook",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Build agents that run automatically · Cursor",
+          "url": "https://cursor.com/blog/automations",
+          "snippet": ""
+        },
+        {
+          "title": "Automations · Cursor",
+          "url": "https://cursor.com/changelog/03-05-26",
+          "snippet": "We built our software factory using Cursor Automations with Runlayer MCP and plugins. We move faster than teams five times our size because our agents have the right tools, the right context, and the right guardrails."
+        },
+        {
+          "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+          "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+          "snippet": "Automations Cursor now supports automations for building always-on agents that run based on triggers and instructions you define. Automations run on schedules or are triggered by events from Slack, Linear, GitHub, PagerDuty, and webhooks."
+        },
+        {
+          "title": "How to Use Cursor Automations - A Complete Beginner's Step-by-Step ...",
+          "url": "https://dredyson.com/how-to-use-cursor-automations-a-complete-beginners-step-by-step-guide-to-setting-up-always-on-cloud-agents-triggers-slack-integrations-and-webhook-workflows-2026/",
+          "snippet": "Cursor launched Automations on March 5, 2026, bringing always-on AI agents that trigger automatically on GitHub pull requests, Slack messages, PagerDuty incidents, or scheduled timers."
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "How to Use Cursor Automations - A Complete Beginner's Step-by-Step Guide to Setting Up Always-On Cloud Agents, Triggers, Slack Integrations, and Webhook Workflows (2026)"
+        },
+        {
+          "title": "Introducing Cursor Automations - Release Discussions - Cursor ...",
+          "url": "https://forum.cursor.com/t/introducing-cursor-automations/153733",
+          "snippet": "Learn how to use Cursor Automations, Cloud Agents, and Bugbot Autofix in March 2026. Step-by-step setup, pricing, and real workflow examples."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "настройка cursor automations 2026",
+      "purpose": "вторичный запрос: настройка cursor automations",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+          "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+          "snippet": ""
+        },
+        {
+          "title": "What's New in Cursor — Latest Updates & Release Notes",
+          "url": "https://cursor.com/changelog",
+          "snippet": "Cursor Automations uses a trigger-action model: events like GitHub PRs, Slack messages, Linear issues, PagerDuty incidents, or cron schedules automatically spin up cloud sandboxes where AI agents execute custom instructions. The setup is straightforward."
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "Improvements to Cursor Automations Cursor Automations save you time by automating repetitive tasks with always-on agents. This release introduces the /automate skill, new triggers for GitHub and Slack, and support for computer use."
+        },
+        {
+          "title": "Cursor · Automations",
+          "url": "https://cursor.com/automate",
+          "snippet": "Learn how to use Cursor Automations, Cloud Agents, and Bugbot Autofix in March 2026. Step-by-step setup, pricing, and real workflow examples."
+        },
+        {
+          "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+          "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+          "snippet": "Delegate repetitive work to always-on agents. Set up Cursor Automations that run on schedules or event-based triggers to build, maintain, and fix software."
+        },
+        {
+          "title": "murataslan1/cursor-ai-tips - GitHub",
+          "url": "https://github.com/murataslan1/cursor-ai-tips",
+          "snippet": "The June 2026 Cursor SDK update is not a polish release. It ships four primitives that, taken together, move Cursor from an IDE assistant into a deployable agent runtime: custom tools you can wire your own functions into, configurable persistence stores, a contextual classifier that gates tool calls before they execute, and nested subagents that can spawn further subagents recursively. If you ..."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/ru/docs/cloud-agent/automations",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация | Cursor Docs",
+          "url": "https://cursor.com/ru/help/ai-features/automations",
+          "snippet": "Автоматизации Cursor запускают облачных агентов в фоновом режиме — по расписанию или в ответ на события из GitHub, Slack и других сервисов. Автоматизации можно использовать для таких задач, как рутинное обслуживание кода, проведение глубокого ревью на уязвимости и разбор багов в Slack."
+        },
+        {
+          "title": "Системы автоматизации Cursor: запуск облачных ИИ-агентов",
+          "url": "https://kv-ai.ru/tpost/systemy-avtomatizacii-cursor-ai-agents",
+          "snippet": "Запускайте облачных агентов по расписанию или в ответ на события из GitHub, Slack и других сервисов."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Современные системы автоматизации процессов в Cursor. Узнайте, как настроить облачных ИИ-агентов, триггеры GitHub и Slack, а также MCP для работы с кодом."
+        },
+        {
+          "title": "2026 Полный гид по Cursor Agent Skill: от SKILL.md к облачному Mac ...",
+          "url": "https://nukcloud.com/ru/blog/2026-cursor-agent-skills-guide-mac-cloud-rental-20260602.html",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "В 2026 году Cursor 2.4+, Claude Code, Codex CLI и Gemini CLI поддерживают единый открытый формат Agent Skills — опубликован Anthropic, развивается сообществом через agentskills.io. Регламенты становятся версионируемыми и переносимыми между инструментами."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://cursor.com/changelog/05-20-26",
+      "title": "Improvements to Cursor Automations · Cursor",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+      "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://www.oflight.co.jp/en/columns/cursor-automations-agents-window-may-2026",
+      "title": "Cursor Automations Land in the Agents Window with a 7-Day 50% Off Promo ...",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+      "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://developertoolkit.ai/en/cursor-ide/version-management/changelog/",
+      "title": "Version History & Features | Developer Toolkit",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://releasebot.io/updates/cursor",
+      "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+      "from_query": "cursor automations 2026"
+    },
+    {
+      "url": "https://cursor.com/automate",
+      "title": "Cursor · Automations",
+      "from_query": "cursor automations июнь 2026"
+    },
+    {
+      "url": "https://cursor.com/blog/automations",
+      "title": "Build agents that run automatically · Cursor",
+      "from_query": "cursor automations июнь 2026"
+    },
+    {
+      "url": "https://andrew.ooo/answers/cursor-3-8-vs-cursor-3-7-vs-claude-code-automations-june-2026/",
+      "title": "Cursor 3.8 vs Cursor 3.7 vs Claude Code Automations June 2026",
+      "from_query": "cursor automations июнь 2026"
+    },
+    {
+      "url": "https://dtf.ru/howto/5139760-cursor-ai-v-rossii-kak-polzovatsya-i-kakie-est-podvodnye-kamni",
+      "title": "Cursor AI (Курсор) в России в 2026: как ... - DTF",
+      "from_query": "cursor automations июнь 2026"
+    },
+    {
+      "url": "https://vc.ru/services/2988725-cursor-ai-v-rossii-kak-polzovatsya-i-chto-on-umeet",
+      "title": "Cursor AI (Курсор AI) в России в 2026: как ... - vc.ru",
+      "from_query": "cursor automations июнь 2026"
+    },
+    {
+      "url": "https://cursor.com/changelog/03-05-26",
+      "title": "Automations · Cursor",
+      "from_query": "cursor automations новости 2026"
+    },
+    {
+      "url": "https://creati.ai/ru/ai-news/2026-03-08/cursor-automations-agentic-coding-system-launch/",
+      "title": "Cursor запускает 'Automations' — новую агентную систему кодирования ...",
+      "from_query": "cursor automations новости 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/news/cursor-automations-always-on-agents-cursor",
+      "title": "Cursor представил Automations: теперь AI-агенты работают на автопилоте",
+      "from_query": "cursor automations новости 2026"
+    },
+    {
+      "url": "https://cursor.com/cloud",
+      "title": "Cursor · Cloud Agents",
+      "from_query": "cursor cloud agent 2026"
+    },
+    {
+      "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+      "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+      "from_query": "cursor cloud agent 2026"
+    },
+    {
+      "url": "https://chatgptaihub.com/what-s-new-in-cursor-2026-full-breakdown-for-developers/",
+      "title": "Cursor 2026 Full Breakdown: Agent Loop, Models & Pricing",
+      "from_query": "cursor cloud agent 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/cursor-3-guide-2026/",
+      "title": "Cursor 3 Guide 2026: Agents Window, Parallel Agents, and Design Mode",
+      "from_query": "cursor cloud agent 2026"
+    },
+    {
+      "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+      "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+      "from_query": "cursor automation github 2026"
+    },
+    {
+      "url": "https://github.com/caramaschiHG/awesome-ai-agents-2026",
+      "title": "caramaschiHG/awesome-ai-agents-2026 - GitHub",
+      "from_query": "cursor automation github 2026"
+    },
+    {
+      "url": "https://github.com/murataslan1/cursor-ai-tips",
+      "title": "murataslan1/cursor-ai-tips - GitHub",
+      "from_query": "cursor automation github 2026"
+    },
+    {
+      "url": "https://dredyson.com/how-to-use-cursor-automations-a-complete-beginners-step-by-step-guide-to-setting-up-always-on-cloud-agents-triggers-slack-integrations-and-webhook-workflows-2026/",
+      "title": "How to Use Cursor Automations - A Complete Beginner's Step-by-Step ...",
+      "from_query": "cursor automations webhook 2026"
+    },
+    {
+      "url": "https://forum.cursor.com/t/introducing-cursor-automations/153733",
+      "title": "Introducing Cursor Automations - Release Discussions - Cursor ...",
+      "from_query": "cursor automations webhook 2026"
+    },
+    {
+      "url": "https://cursor.com/changelog",
+      "title": "What's New in Cursor — Latest Updates & Release Notes",
+      "from_query": "настройка cursor automations 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/docs/cloud-agent/automations",
+      "title": "Automations | Cursor Docs",
+      "from_query": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/help/ai-features/automations",
+      "title": "Автоматизация | Cursor Docs",
+      "from_query": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026 2026"
+    },
+    {
+      "url": "https://kv-ai.ru/tpost/systemy-avtomatizacii-cursor-ai-agents",
+      "title": "Системы автоматизации Cursor: запуск облачных ИИ-агентов",
+      "from_query": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026 2026"
+    },
+    {
+      "url": "https://nukcloud.com/ru/blog/2026-cursor-agent-skills-guide-mac-cloud-rental-20260602.html",
+      "title": "2026 Полный гид по Cursor Agent Skill: от SKILL.md к облачному Mac ...",
+      "from_query": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026 2026"
+    }
+  ]
+}

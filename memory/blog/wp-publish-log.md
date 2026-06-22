@@ -200,7 +200,7 @@ permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ### Commands
 
 ```bash
-python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_link_verify.py ... --site-base <production>  # pass
 python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-subagents-2026 --dry-run  # OK
 python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-subagents-2026  # PASS
 ```
@@ -221,5 +221,5 @@ permalink=/2026/06/22/nastrojka-cursor-subagents-2026/
 ### Notes
 
 - HTTP trigger succeeded (WebFetch fallback не потребовался).
-- Schema URLs обновлены с mayai.ru на EXCALIBUR_PUBLIC_SITE_URL перед первой публикацией.
+- Schema URLs обновлены с mayai.ru на production host перед первой публикацией.
 - Повторный publish для dated permalink в schema — отменён (FTP 425 Bad IP).

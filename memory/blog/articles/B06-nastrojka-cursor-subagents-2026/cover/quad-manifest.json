@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Cursor subagents за 30 минут — reviewer + test-runner параллельно или очередь снова?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: настройка cursor subagents — параллельный reviewer и test-runner в Agent Mode",
+      "scene_hint": "reference-лицо в тёмном худи разработчика с розовым стикером «.cursor/agents/», дружелюбная улыбка, указывает на fake Cursor IDE: два параллельных Task-потока code-reviewer и test-runner, fake чат «Waiting for explore…», fake terminal pytest PASS, стикер YAML «readonly: true», meme shocked cat + facepalm cutout, розовый маркер на «параллельно», scotch tape на скринах",
+      "meme_caption_ru": "Один Agent — одна очередь?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните субагентов и Agent Mode: когда параллелить",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица «Один Agent» vs «Subagents»: линейные задачи / независимые ветки / explore+bash+browser / Task параллель — Cyrillic UI, pink sticky «когда параллелить»",
+      "alt": "Сравнение Agent Mode и subagents: когда запускать параллельные Task в Cursor"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Проверьте встроенные explore, bash и browser",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист на clipboard: Agent Mode включён, explore нашёл файлы, bash показал npm scripts, browser MCP зелёный, без дубля search-agent — галочки красной ручкой",
+      "alt": "Чеклист проверки встроенных explore, bash и browser перед кастомными subagents"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте `.cursor/agents/` и YAML frontmatter",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 шагов: папка .cursor/agents → YAML name/description/readonly → code-reviewer.md → test-runner.md → /name и parallel Task — стрелки на torn-paper strip",
+      "alt": "Схема настройки .cursor/agents/ и YAML frontmatter для cursor subagents"
+    }
+  }
+}

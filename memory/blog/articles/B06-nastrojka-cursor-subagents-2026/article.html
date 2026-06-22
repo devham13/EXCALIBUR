@@ -5,6 +5,10 @@
 <p>Субагент – узкий специалист в отдельном "кабинете": своя память, чистый главный чат. Главный Agent – оркестратор: он решает, кому отдать поиск, shell или review. Поле description в YAML – "визитка" для автоделегирования: чем конкретнее формулировка, тем чаще Agent вызовет нужную роль без `/name`. Если subagentу нужен браузер или CMS, сначала MCP по <a href="/podklyuchenie-mcp-cursor/">гайду MCP в Cursor</a> – subagents наследуют MCP-tools родителя (кроме cloud subagents).</p>
 
 <h2 id="subagents-vs-agent">1. Сравните субагентов и Agent Mode: когда параллелить</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение Agent Mode и subagents: когда запускать параллельные Task в Cursor" loading="lazy">
+</figure>
+
 
 <p>Один Agent хватит для линейных задач: "найди → исправь → проверь". Subagents нужны, когда ветки независимы: review diff, тесты и поиск по репо одновременно. С Cursor 2.4 Agent делегирует встроенным explore (поиск), bash (терминал) и browser (MCP).</p>
 
@@ -17,12 +21,20 @@
 <p><b>Делайте:</b> параллелить независимые куски (разные файлы или readonly + правки). <b>Не делайте:</b> десятки generic subagents – Agent не поймёт, когда делегировать (docs: 2–3 focused роли).</p>
 
 <h2 id="built-in">2. Проверьте встроенные explore, bash и browser</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист проверки встроенных explore, bash и browser перед кастомными subagents" loading="lazy">
+</figure>
+
 
 <p>До своих файлов дайте промпт: "Найди API key в проекте и покажи npm-скрипты в package.json". Должны сработать explore и bash без `.cursor/agents/`. Explore по умолчанию на более быстрой модели – удобно для параллельных поисков. Browser требует MCP browser tool и зелёный статус сервера в Tools &amp; MCP.</p>
 
 <p><b>Делайте:</b> один тест explore + bash и зафиксируйте, что Agent Mode включён (не Ask, не Plan). <b>Не делайте:</b> дублировать explore кастомным search-agent – лишние токены и путаница в автоделегировании.</p>
 
 <h2 id="structure">3. Настройте `.cursor/agents/` и YAML frontmatter</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема настройки .cursor/agents/ и YAML frontmatter для cursor subagents" loading="lazy">
+</figure>
+
 
 <p>Файл subagent – YAML-шапка + инструкции. Проект: `.cursor/agents/`; глобально: `~/.cursor/agents/`. Проектный файл побеждает при конфликте имён.</p>
 
@@ -81,31 +93,33 @@
 
 <p>Файл code-reviewer:</p>
 
-<pre><code>---
-name: code-reviewer
-description: Use when reviewing diffs, PRs, or recent code changes. Readonly audit for security and style.
-model: inherit
-readonly: true
-is_background: false
----
-
-You are a code reviewer. Check recent changes for secrets, injection, style, missing tests.
-Do NOT edit files. Report as a numbered list with file paths.
-</code></pre>
+<blockquote>
+  <b>code-reviewer.md:</b><br>
+  ---<br>
+  name: code-reviewer<br>
+  description: Use when reviewing diffs, PRs, or recent code changes. Readonly audit for security and style.<br>
+  model: inherit<br>
+  readonly: true<br>
+  is_background: false<br>
+  ---<br>
+  You are a code reviewer. Check recent changes for secrets, injection, style, missing tests.<br>
+  Do NOT edit files. Report as a numbered list with file paths.
+</blockquote>
 
 <p>Файл test-runner:</p>
 
-<pre><code>---
-name: test-runner
-description: Use proactively after any code changes. Run tests, fix failures, re-run until green.
-model: inherit
-readonly: false
-is_background: false
----
-
-When invoked: detect test command, run tests, fix failures minimally, re-run until green.
-Summarize command, pass/fail, files changed.
-</code></pre>
+<blockquote>
+  <b>test-runner.md:</b><br>
+  ---<br>
+  name: test-runner<br>
+  description: Use proactively after any code changes. Run tests, fix failures, re-run until green.<br>
+  model: inherit<br>
+  readonly: false<br>
+  is_background: false<br>
+  ---<br>
+  When invoked: detect test command, run tests, fix failures minimally, re-run until green.<br>
+  Summarize command, pass/fail, files changed.
+</blockquote>
 
 <p>Дальше добавьте verifier (readonly) – проверка "сделано vs заявлено". <b>Делайте:</b> инструкции в теле на английском. <b>Не делайте:</b> `readonly: false` на reviewer.</p>
 

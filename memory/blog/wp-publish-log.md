@@ -172,3 +172,51 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-06-22 — B06 claude-code-n8n-mcp-nastrojka-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | claude-code-n8n-mcp-nastrojka-2026 |
+| verdict | **PASS** |
+| post_id | 430 |
+| featured_image_id | 431 |
+| inline_images | 432, 433, 434 |
+| permalink | /2026/06/22/claude-code-n8n-mcp-nastrojka-2026/ |
+| transport | ssh_scp (FTP data channel blocked: 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight re-run)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run       # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...                 # FAIL ftplib 425 Bad IP
+# Fallback: SCP bootstrap via SSH + HTTP trigger
+```
+
+### Result
+
+```
+OK post=430 slug=claude-code-n8n-mcp-nastrojka-2026
+OK featured_image=431
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=432 src=cover/inline-01.png url=/wp-content/uploads/2026/06/claude-code-n8n-mcp-nastrojka-2026-inline-01.png
+OK inline_image_upload=433 src=cover/inline-02.png url=/wp-content/uploads/2026/06/claude-code-n8n-mcp-nastrojka-2026-inline-02.png
+OK inline_image_upload=434 src=cover/inline-03.png url=/wp-content/uploads/2026/06/claude-code-n8n-mcp-nastrojka-2026-inline-03.png
+permalink=/2026/06/22/claude-code-n8n-mcp-nastrojka-2026/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

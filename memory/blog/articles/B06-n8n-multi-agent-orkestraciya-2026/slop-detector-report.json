@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Один AI Agent в n8n закрывает FAQ, но когда в одном диалоге смешиваются база знаний, CRM и проверка качества, десять tools на одной ноде ломают выбор модели",
+      "word_count": 26
+    },
+    {
+      "sentence": "0 все AI Agent работают как Tools Agent и требуют минимум один tool sub-node; второй полноценный agent подключается как AI Agent Tool с собственной Chat Model, System Message и tools",
+      "word_count": 29
+    },
+    {
+      "sentence": "Выберите паттерн оркестрации под ваш кейс Паттерн Когда Ноды n8n Supervisor Непредсказуемый запрос, динамическое делегирование AI Agent + AI Agent Tool / Call n8n Workflow Tool Router Категории формализуемы: support / billing / docs LLM classify + Switch Pipeline Стадии: research → write → review Цепочка sub-workflows Reflexion Нужен цикл правок Worker + Critic + IF + max iterations Switch (deterministic routing) дешевле agent-routing, когда категория известна (Production AI Playbook, n8n",
+      "word_count": 58
+    },
+    {
+      "sentence": "Схема workflow: Chat Trigger → Orchestrator AI Agent → AI Agent Tool (Specialist A | B | C) ↘ Call n8n Workflow Tool → Sub-workflow workers → IF quality → Human approval → ответ Делайте: для ticket type - Router + Switch",
+      "word_count": 30
+    },
+    {
+      "sentence": "Критерий AI Agent Tool Call n8n Workflow Tool Canvas Sub-node на одном экране Отдельный workflow Когда MVP Prod, версии, команда Тесты Общий log Изолированный тест worker Sub-agent vs MCP tool: у sub-agent свой prompt, LLM и memory; MCP (стандарт подключения сервисов к модели) - только tools без отдельной роли",
+      "word_count": 47
+    },
+    {
+      "sentence": "Пройдите чеклист отладки multi-agent workflow Single agent из B02 стабилен в Chat UI Паттерн (Supervisor/Router/Pipeline/Reflexion) зафиксирован Tool description у каждого sub-agent JSON envelope: task, context, expected_output Session ID: shared или isolated - записано явно Max iterations у critic / reflexion loop Human-in-the-loop на критичных tools Continue on Error на внешних API 10-30 тест-кейсов из реальных диалогов (цель - 30+) Logs каждого sub-agent просмотрены отдельно Tokens vs single-agent baseline замерены Switch вместо LLM-routing где категория формализуема Не больше 5 tools на agent Prod workers в sub-workflows, не на перегруженном canvas Credentials без ключей в открытом тексте План B при падении LLM API Что делать дальше MVP: orchestrator + 2 AI Agent Tool на одном canvas",
+      "word_count": 108
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.1,
+    "avg_syllables_per_word": 1.3
+  }
+}

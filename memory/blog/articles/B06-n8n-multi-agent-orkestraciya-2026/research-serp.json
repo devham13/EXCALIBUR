@@ -1,0 +1,488 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-22",
+    "today_ru": "22.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "n8n-multi-agent-orkestraciya-2026",
+    "h1": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов",
+    "primary_query": "n8n агенты",
+    "secondary_queries": [
+      "n8n multi agent",
+      "ai agent tool n8n",
+      "мультиагентная система n8n",
+      "оркестрация ии агентов n8n"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "n8n агенты 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "AI агенты в 2026: как создать без кода | Zapier vs n8n (полный разбор)",
+          "url": "https://rutube.ru/video/70fde040f0fa4eb5b4fab70cda9f9076/",
+          "snippet": ""
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "AI-агенты в 2026 стали доступными каждому — теперь создавать \"цифровых сотрудников\" можно без программирования."
+        },
+        {
+          "title": "AI Агенты на n8n",
+          "url": "https://coursen8n.ru/",
+          "snippet": "Пошаговый гайд: n8n Cloud или Docker, AI Agent с Chat Model, Tools и Memory, workflow в Telegram и CRM. Сравнение с Make, шаблоны и продакшен без кода."
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и MCP — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agent-workflow-mcp/",
+          "snippet": "Разрабатываю автоматизации на n8n более 2-х лет. Показываю реальные кейсы, которые работают на бизнес. Помог клиентам заработать и сэкономить более 3 000 000 рублей с помощью автоматизаций."
+        },
+        {
+          "title": "Ai-агенты 2026 — Полная Книга, 15 Агентов С Промптами, Бесплатно",
+          "url": "https://www.digital-pro.tech/book/ai-agents/AI-Agents-2026.html",
+          "snippet": "Пошаговый гайд n8n для бизнеса: AI Agent, workflows, Telegram, RAG и MCP. Установка, сценарии автоматизации и сравнение с Make — без глубокого Python."
+        },
+        {
+          "title": "Топ-10 курсов по ИИ-агентам в 2026 году: рейтинг лучших программ",
+          "url": "https://habr.com/ru/articles/1034672/",
+          "snippet": "Читать онлайн: AI-агенты 2026. 15 готовых агентов с промптами и инструкциями. Claude, GPT, MCP, n8n. Автоматизация без программирования. Автор — Сергей Цветков →"
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "n8n агенты июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "AI Агенты на n8n",
+          "url": "https://coursen8n.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+          "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+          "snippet": "Разрабатываю автоматизации на n8n более 2-х лет. Показываю реальные кейсы, которые работают на бизнес. Помог клиентам заработать и сэкономить более 3 000 000 рублей с помощью автоматизаций."
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "ИИ-агенты Claude Code, OpenClaw, Cursor, n8n, их уникальные функции, сравнение, выбор подходящего инструмента для работы."
+        },
+        {
+          "title": "Ai-агенты 2026 — Полная Книга, 15 Агентов С Промптами, Бесплатно",
+          "url": "https://www.digital-pro.tech/book/ai-agents/AI-Agents-2026.html",
+          "snippet": "Пошаговый гайд: n8n Cloud или Docker, AI Agent с Chat Model, Tools и Memory, workflow в Telegram и CRM. Сравнение с Make, шаблоны и продакшен без кода."
+        },
+        {
+          "title": "OpenAI Agents SDK и n8n-агенты: честное сравнение кода и нод в 2026 ...",
+          "url": "https://wildbots.ru/ru/blog/openai-agents-sdk-i-n8n-agenti-chestnoe-sravnenie-koda-i-nod-v-2",
+          "snippet": "Читать онлайн: AI-агенты 2026. 15 готовых агентов с промптами и инструкциями. Claude, GPT, MCP, n8n. Автоматизация без программирования. Автор — Сергей Цветков →"
+        },
+        {
+          "title": "Как Заработать На Ии-агентах С N8n: От Нуля До 200к+ Руб/Мес ...",
+          "url": "https://teletype.in/@kossolapov_igor/nYjbE8aLoiM",
+          "snippet": "Честное сравнение по 8 критериям: память, отладка, стоимость владения, скорость прототипа, надёжность в проде. На каких задачах SDK выигрывает, а где n8n остаётся быстрее."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "n8n агенты новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Mottor n8n: обзор возможностей сервиса автоматизаций и AI-агентов для ...",
+          "url": "https://lpmotor.ru/articles/mottor-n8n-obzor-vozmozhnostej-servisa-avtomatizacij-i-ai-agentov-2604",
+          "snippet": ""
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "Подробно разбираем возможности Mottor n8n: AI-агенты, no-code автоматизации, интеграции через API и вебхуки, шаблоны workflow, CRM, чат-боты и сценарии для бизнеса в 2026 году."
+        },
+        {
+          "title": "OpenAI Agents SDK и n8n-агенты: честное сравнение кода и нод в 2026 ...",
+          "url": "https://wildbots.ru/ru/blog/openai-agents-sdk-i-n8n-agenti-chestnoe-sravnenie-koda-i-nod-v-2",
+          "snippet": "Пошаговый гайд: n8n Cloud или Docker, AI Agent с Chat Model, Tools и Memory, workflow в Telegram и CRM. Сравнение с Make, шаблоны и продакшен без кода."
+        },
+        {
+          "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+          "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+          "snippet": "Честное сравнение по 8 критериям: память, отладка, стоимость владения, скорость прототипа, надёжность в проде. На каких задачах SDK выигрывает, а где n8n остаётся быстрее."
+        },
+        {
+          "title": "Твои ИИ-агенты оживут: Раскрой мощь n8n API для беспрецедентной ...",
+          "url": "https://external.software/archives/82082",
+          "snippet": "Сравнивая n8n с ИИ-агентами, стоит понимать, что n8n — это визуализатор программирования. У n8n выше порог входа, но он идеален для сложных, контролируемых бизнес-процессов с высокой надежностью."
+        },
+        {
+          "title": "**Новости из мира n8n: что изменится для автоматизаций в 2026?** Мир ...",
+          "url": "https://vk.com/wall-236172376_69",
+          "snippet": "В этом разделе мы разберем, как n8n позиционирует себя на рынке автоматизации, и детально рассмотрим архитектурные принципы, лежащие в основе современных ИИ-агентов. Это поможет вам увидеть полную картину, понять, какие компоненты вам понадобятся, и как они взаимодействуют между собой."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "n8n multi agent 2026",
+      "purpose": "вторичный запрос: n8n multi agent",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "ai agent tool n8n 2026",
+      "purpose": "вторичный запрос: ai agent tool n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Build AI Agents with n8n 2026: RAG, Tools, Deploy | Automation Atlas",
+          "url": "https://automationatlas.io/guides/building-ai-agents-with-n8n-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Build Custom AI Agents With Logic & Control | n8n Automation Platform",
+          "url": "https://n8n.io/ai-agents/",
+          "snippet": "How to build AI agents in n8n in 2026: AI Agent node, RAG via pgvector or Pinecone, memory, and self-hosted vs Cloud deployment trade-offs."
+        },
+        {
+          "title": "Build an AI Agent with n8n — Step-by-Step Guide (2026)",
+          "url": "https://www.aitooldiscovery.com/how-to/build-ai-agent-n8n",
+          "snippet": "Build powerful, production-ready AI agents with n8n. Explore practical agent workflows, customizable templates, and 1000+ integrations to automate anything—from AI chatbots to autonomous crawlers."
+        },
+        {
+          "title": "Building AI Agent Workflows in n8n: The 2026 Complete Guide",
+          "url": "https://dev.to/kr8thor/building-ai-agent-workflows-in-n8n-the-2026-complete-guide-494",
+          "snippet": "How to Build an AI Agent with n8n (2026 Guide) Build a working AI agent in n8n using the AI Agent node, memory, tools, and custom logic. Covers OpenAI, Ollama local models, and real-world automation examples."
+        },
+        {
+          "title": "How to Build AI Agent with n8n in 2026 [Most Skip This Step]",
+          "url": "https://dextralabs.com/blog/how-to-build-ai-agent-with-n8n/",
+          "snippet": "AI agents aren't just hype anymore — they're production-ready tools that can handle complex, multi-step tasks autonomously. n8n's native AI Agent node makes building these systems accessible without writing code. This guide covers everything from basic agent concepts to advanced production patterns."
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "Learn how to build a fully functional AI agent workflow in n8n, from web form ingestion to a live AI-powered Q&A chatbot. Includes tips from Dextralabs, a leading AI agent development company."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "мультиагентная система n8n 2026",
+      "purpose": "вторичный запрос: мультиагентная система n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мультиагентный бот автоматизация общения клиент — PipeBot",
+          "url": "https://pipebot.ru/pages/multiagentnye-sistemy-n8n-langgraph/",
+          "snippet": ""
+        },
+        {
+          "title": "Обзор n8n 2026: Платформа автоматизации с «честным кодом» стоимостью $2 ...",
+          "url": "https://utilo.io/ru/home/blog/n8n-review-2026-workflow-automation",
+          "snippet": "Сегодня это сложная мультиагентная система, где несколько специализированных AI-агентов взаимодействуют друг с другом для решения задачи пользователя. В PipeBot мы строим такие системы на базе фреймворков LangGraph и CrewAI, используя n8n как основной инструмент оркестрации."
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "Если вы разработчик или техническая команда, которая хочет получить полный контроль над своей инфраструктурой автоматизации, n8n — это платформа, которая изменила правила игры, и в 2026 году ей нет равных."
+        },
+        {
+          "title": "n8n 2026: Автоматизация процессов на базе ИИ достигает новых высот",
+          "url": "https://1develop.ru/cyber-news/n8n-2026-avtomatizaciya-processov-na-baze-ii-dostigaet-novyh-vysot",
+          "snippet": "Пошаговый гайд: n8n Cloud или Docker, AI Agent с Chat Model, Tools и Memory, workflow в Telegram и CRM. Сравнение с Make, шаблоны и продакшен без кода."
+        },
+        {
+          "title": "N8N: полное руководство по автоматизации workflow 2026",
+          "url": "https://www.digitalrocket.ru/articles/n8n-avtomatizatsiya-workflow-rukovodstvo-2025/",
+          "snippet": "В феврале 2026 года разработчики представили расширенные возможности для создания автономных ИИ-агентов внутри рабочих процессов. Новые узлы позволяют бесшовно интегрировать сложные цепочки рассуждений (Reasoning chains) непосредственно в бизнес-сценарии."
+        },
+        {
+          "title": "Multi-Agent Orchestration with n8n in 2026: From Concept to ... - Medium",
+          "url": "https://medium.com/@angelosorte1/multi-agent-orchestration-with-n8n-in-2026-from-concept-to-real-world-ai-systems-bae68fa7ba03",
+          "snippet": "Простое руководство по автоматизации рутинных задач без программирования. Узнайте, как с помощью n8n настроить автоматическую работу между вашими сервисами и сэкономить десятки часов в месяц. n8n — это бесплатная программа, которая работает как «клей» между вашими сервисами."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "оркестрация ии агентов n8n 2026",
+      "purpose": "вторичный запрос: оркестрация ии агентов n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Оркестрация ИИ-агентов в 2026: как 3 ... - Habr",
+          "url": "https://habr.com/ru/articles/1008598/",
+          "snippet": ""
+        },
+        {
+          "title": "Оркестрация ИИ-агентов в 2026: как 3 агента заменили отдел из 5 человек ...",
+          "url": "https://www.braintools.ru/article/26870",
+          "snippet": "Сейчас индустрия переходит от одиночных умных агентов к оркестрации мультиагентных систем."
+        },
+        {
+          "title": "Мульти-агентные системы: оркестрация ИИ — полное руководство 2026",
+          "url": "https://prizolov.ru/multi-agentnye-sistemy-orkestracziya-ii-kak-koordinirovat-rabotu-mnozhestva-agentov-v-2026/",
+          "snippet": "Мы проанализировали пилотный проект российской ритейл-компании: три узкоспециализированных агента с координацией задач сократили время обработки возвратов с 42 до 6 минут и снизили нагрузку на операторов на 80%."
+        },
+        {
+          "title": "Проект Одисеус: как ИИ-агенты меняют бизнес и автоматизацию в 2026 году ...",
+          "url": "https://vc.ru/maxon/2984260-proekt-odiseus-ii-agenty-v-biznese-i-avtomatizatsii",
+          "snippet": "Мульти-агентные системы: оркестрация ИИ — как координировать работу множества агентов в 2026"
+        },
+        {
+          "title": "оркестрация ии - N8n - Google Sites",
+          "url": "https://sites.google.com/view/ai-agents-data/%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0/n8n",
+          "snippet": "В 2026 году концепция ИИ-агентов перестала быть футуристической гипотезой и превратилась в рабочий инструмент для тысяч компаний. Один из самых ярких проектов в этой области — Одисеус (Odysseus), платформа для создания ..."
+        },
+        {
+          "title": "Самая важная работа 2026 года: специалист по оркестрации агентов ИИ",
+          "url": "https://ru.linkedin.com/pulse/most-important-job-2026-ai-agent-orchestration-amber-grewal-emxdc?tl=ru",
+          "snippet": "Мультиагентный фреймворк CrewAI: разбор архитектуры и внутренностей Разработка AI-агентов для корпоративного использования Мультиагентные системы: как «команда ИИ» берёт сложность штурмом"
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Мультиагентные системы на n8n: оркестрация LLM в реальных пайплайнах ...",
+          "url": "https://wildbots.ru/ru/blog/multiagentnie-sistemi-na-n8n-orkestratsiya-llm-v-realnikh-paipla",
+          "snippet": ""
+        },
+        {
+          "title": "Как создать и настроить ИИ-агента в n8n: полное руководство для ...",
+          "url": "https://lpmotor.ru/articles/kak-sozdat-i-nastroit-ii-agenta-v-n8n-polnoe-rukovodstvo-2603",
+          "snippet": "Разбор архитектуры, где несколько AI-агентов взаимодействуют через n8n: распределение ролей, передача контекста, обработка ошибок. Практический шаблон с готовыми нодами."
+        },
+        {
+          "title": "Многоагентная оркестрация с n8n в 2025 году: от концепции до ...",
+          "url": "https://ru.linkedin.com/pulse/multi-agent-orchestration-n8n-2025-from-concept-practical-sorte-cp3bf?tl=ru",
+          "snippet": "Пошагово разбираем, как создать и настроить ИИ-агента в n8n: выбор модели, память, инструменты, System Message, Max Iterations, отладка и типичные ошибки."
+        },
+        {
+          "title": "Создание ИИ чат-агента в n8n: полное руководство для начинающих",
+          "url": "https://fulcrumlabs.ru/blog/sozdanie-ii-chat-agenta-v-n8n-polnoe-rukovodstvo-dlya-nachinayushih/",
+          "snippet": "В своей сути, n8n — это платформа автоматизации и управления рабочими процессами. Традиционно используемый для соединения API, баз данных и сервисов, он всё чаще применяется для оркестрации ..."
+        },
+        {
+          "title": "n8n AI агент — создание ИИ-агента с инструментами | Руководство",
+          "url": "https://aibot.direct/blog/n8n-ai-agent",
+          "snippet": "Настройка узлов, подключение OpenAI API, добавление памяти и персонализация поведения бота. Это руководство покажет, как построить полноценного AI-агента для чата с помощью n8n. Подходит как для новичков, так и для тех, кто уже знаком с платформой автоматизации."
+        },
+        {
+          "title": "Уроки по n8n на русском: полное освоение n8n за 1 день",
+          "url": "https://www.youtube.com/playlist?list=PL4ok3q-SWqW7r8IFmYw3LmtKV0ovPPaNJ",
+          "snippet": "Создайте AI-агента на n8n с доступом к инструментам: поиск, базы данных, API. Пошаговое руководство по RAG, function calling, цепочкам рассуждений."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://rutube.ru/video/70fde040f0fa4eb5b4fab70cda9f9076/",
+      "title": "AI агенты в 2026: как создать без кода | Zapier vs n8n (полный разбор)",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://mayai.ru/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+      "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://coursen8n.ru/",
+      "title": "AI Агенты на n8n",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://mayai.ru/n8n-gayd-biznes-ai-agent-workflow-mcp/",
+      "title": "n8n для бизнеса: AI-агенты, workflows и MCP — гайд 2026",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://www.digital-pro.tech/book/ai-agents/AI-Agents-2026.html",
+      "title": "Ai-агенты 2026 — Полная Книга, 15 Агентов С Промптами, Бесплатно",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/1034672/",
+      "title": "Топ-10 курсов по ИИ-агентам в 2026 году: рейтинг лучших программ",
+      "from_query": "n8n агенты 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+      "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+      "from_query": "n8n агенты июнь 2026"
+    },
+    {
+      "url": "https://wildbots.ru/ru/blog/openai-agents-sdk-i-n8n-agenti-chestnoe-sravnenie-koda-i-nod-v-2",
+      "title": "OpenAI Agents SDK и n8n-агенты: честное сравнение кода и нод в 2026 ...",
+      "from_query": "n8n агенты июнь 2026"
+    },
+    {
+      "url": "https://teletype.in/@kossolapov_igor/nYjbE8aLoiM",
+      "title": "Как Заработать На Ии-агентах С N8n: От Нуля До 200к+ Руб/Мес ...",
+      "from_query": "n8n агенты июнь 2026"
+    },
+    {
+      "url": "https://lpmotor.ru/articles/mottor-n8n-obzor-vozmozhnostej-servisa-avtomatizacij-i-ai-agentov-2604",
+      "title": "Mottor n8n: обзор возможностей сервиса автоматизаций и AI-агентов для ...",
+      "from_query": "n8n агенты новости 2026"
+    },
+    {
+      "url": "https://external.software/archives/82082",
+      "title": "Твои ИИ-агенты оживут: Раскрой мощь n8n API для беспрецедентной ...",
+      "from_query": "n8n агенты новости 2026"
+    },
+    {
+      "url": "https://vk.com/wall-236172376_69",
+      "title": "**Новости из мира n8n: что изменится для автоматизаций в 2026?** Мир ...",
+      "from_query": "n8n агенты новости 2026"
+    },
+    {
+      "url": "https://automationatlas.io/guides/building-ai-agents-with-n8n-2026/",
+      "title": "Build AI Agents with n8n 2026: RAG, Tools, Deploy | Automation Atlas",
+      "from_query": "ai agent tool n8n 2026"
+    },
+    {
+      "url": "https://n8n.io/ai-agents/",
+      "title": "Build Custom AI Agents With Logic & Control | n8n Automation Platform",
+      "from_query": "ai agent tool n8n 2026"
+    },
+    {
+      "url": "https://www.aitooldiscovery.com/how-to/build-ai-agent-n8n",
+      "title": "Build an AI Agent with n8n — Step-by-Step Guide (2026)",
+      "from_query": "ai agent tool n8n 2026"
+    },
+    {
+      "url": "https://dev.to/kr8thor/building-ai-agent-workflows-in-n8n-the-2026-complete-guide-494",
+      "title": "Building AI Agent Workflows in n8n: The 2026 Complete Guide",
+      "from_query": "ai agent tool n8n 2026"
+    },
+    {
+      "url": "https://dextralabs.com/blog/how-to-build-ai-agent-with-n8n/",
+      "title": "How to Build AI Agent with n8n in 2026 [Most Skip This Step]",
+      "from_query": "ai agent tool n8n 2026"
+    },
+    {
+      "url": "https://pipebot.ru/pages/multiagentnye-sistemy-n8n-langgraph/",
+      "title": "Мультиагентный бот автоматизация общения клиент — PipeBot",
+      "from_query": "мультиагентная система n8n 2026"
+    },
+    {
+      "url": "https://utilo.io/ru/home/blog/n8n-review-2026-workflow-automation",
+      "title": "Обзор n8n 2026: Платформа автоматизации с «честным кодом» стоимостью $2 ...",
+      "from_query": "мультиагентная система n8n 2026"
+    },
+    {
+      "url": "https://1develop.ru/cyber-news/n8n-2026-avtomatizaciya-processov-na-baze-ii-dostigaet-novyh-vysot",
+      "title": "n8n 2026: Автоматизация процессов на базе ИИ достигает новых высот",
+      "from_query": "мультиагентная система n8n 2026"
+    },
+    {
+      "url": "https://www.digitalrocket.ru/articles/n8n-avtomatizatsiya-workflow-rukovodstvo-2025/",
+      "title": "N8N: полное руководство по автоматизации workflow 2026",
+      "from_query": "мультиагентная система n8n 2026"
+    },
+    {
+      "url": "https://medium.com/@angelosorte1/multi-agent-orchestration-with-n8n-in-2026-from-concept-to-real-world-ai-systems-bae68fa7ba03",
+      "title": "Multi-Agent Orchestration with n8n in 2026: From Concept to ... - Medium",
+      "from_query": "мультиагентная система n8n 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/1008598/",
+      "title": "Оркестрация ИИ-агентов в 2026: как 3 ... - Habr",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://www.braintools.ru/article/26870",
+      "title": "Оркестрация ИИ-агентов в 2026: как 3 агента заменили отдел из 5 человек ...",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://prizolov.ru/multi-agentnye-sistemy-orkestracziya-ii-kak-koordinirovat-rabotu-mnozhestva-agentov-v-2026/",
+      "title": "Мульти-агентные системы: оркестрация ИИ — полное руководство 2026",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://vc.ru/maxon/2984260-proekt-odiseus-ii-agenty-v-biznese-i-avtomatizatsii",
+      "title": "Проект Одисеус: как ИИ-агенты меняют бизнес и автоматизацию в 2026 году ...",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://sites.google.com/view/ai-agents-data/%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0/n8n",
+      "title": "оркестрация ии - N8n - Google Sites",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://ru.linkedin.com/pulse/most-important-job-2026-ai-agent-orchestration-amber-grewal-emxdc?tl=ru",
+      "title": "Самая важная работа 2026 года: специалист по оркестрации агентов ИИ",
+      "from_query": "оркестрация ии агентов n8n 2026"
+    },
+    {
+      "url": "https://wildbots.ru/ru/blog/multiagentnie-sistemi-na-n8n-orkestratsiya-llm-v-realnikh-paipla",
+      "title": "Мультиагентные системы на n8n: оркестрация LLM в реальных пайплайнах ...",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    },
+    {
+      "url": "https://lpmotor.ru/articles/kak-sozdat-i-nastroit-ii-agenta-v-n8n-polnoe-rukovodstvo-2603",
+      "title": "Как создать и настроить ИИ-агента в n8n: полное руководство для ...",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    },
+    {
+      "url": "https://ru.linkedin.com/pulse/multi-agent-orchestration-n8n-2025-from-concept-practical-sorte-cp3bf?tl=ru",
+      "title": "Многоагентная оркестрация с n8n в 2025 году: от концепции до ...",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    },
+    {
+      "url": "https://fulcrumlabs.ru/blog/sozdanie-ii-chat-agenta-v-n8n-polnoe-rukovodstvo-dlya-nachinayushih/",
+      "title": "Создание ИИ чат-агента в n8n: полное руководство для начинающих",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    },
+    {
+      "url": "https://aibot.direct/blog/n8n-ai-agent",
+      "title": "n8n AI агент — создание ИИ-агента с инструментами | Руководство",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL4ok3q-SWqW7r8IFmYw3LmtKV0ovPPaNJ",
+      "title": "Уроки по n8n на русском: полное освоение n8n за 1 день",
+      "from_query": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов 2026"
+    }
+  ]
+}

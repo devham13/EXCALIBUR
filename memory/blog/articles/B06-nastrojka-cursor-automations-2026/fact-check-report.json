@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-cursor-automations-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "по гайду MCP в Cursor . Automations вышли 5 марта 2026: агент просыпается от триггера, поднимает sandbox",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "IDE и съедает бюджет на широких триггерах. За 30–45 минут вы создадите первую automation, выберете узкий tr",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "те GitHub/GitLab read-write; setup в docs – менее 10 минут. Шаг 1: Убедитесь, что аккаунт на paid plan и clo",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "tory и пройдите финальный чек-лист Run history: 3–7 дней оценки, затем сужайте или расширяйте triggers. Bi",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

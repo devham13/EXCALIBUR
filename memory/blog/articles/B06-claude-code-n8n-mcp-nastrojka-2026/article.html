@@ -5,6 +5,10 @@
 <p>MCP – протокол Anthropic: AI вызывает tools вместо "угадывания" синтаксиса нод. API n8n – доступ к workflow по ключу в Settings → n8n API. Логика как в <a href="/podklyuchenie-mcp-cursor/">MCP для Cursor</a>, но конфиг через CLI. Фоновые сценарии – в <a href="/avtomatizaciya-n8n-ai-agents/">гайде по n8n-агентам</a>.</p>
 
 <h2 id="why-stack">1. Поймите, зачем Claude Code и n8n в одном стеке</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Схема связки Claude Code, n8n-mcp и n8n API до webhook-теста" loading="lazy">
+</figure>
+
 
 <p>Claude Code собирает workflow текстом; n8n крутит их по webhook 24/7. n8n-mcp связывает стек: база <a href="https://github.com/czlonkowski/n8n-mcp" target="_blank">1 845 нод и 2 352 шаблона</a>, с API key – деплой JSON в инстанс.</p>
 
@@ -17,6 +21,10 @@
 <p><b>Делайте:</b> Code для проектирования, n8n для runtime. <b>Не делайте:</b> путать n8n-mcp с встроенным Instance MCP n8n – это разные продукты (таблица ниже).</p>
 
 <h2 id="prerequisites">2. Проверьте, что всё установлено до claude mcp add</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист prerequisites перед claude mcp add: Node, CLI, n8n, API key" loading="lazy">
+</figure>
+
 
 <p>Перед n8n-mcp настройка требует три опоры: Node.js 18+ (чтобы npx запустил сервер), установленный Claude Code CLI и доступный n8n – Cloud или self-hosted на порту 5678.</p>
 
@@ -31,6 +39,10 @@
 <p><b>Делайте:</b> храните ключ в env или ~/.claude.json, не в Git. <b>Не делайте:</b> пробелы в конце URL – частая причина 401 и "тишины" в /mcp.</p>
 
 <h2 id="two-mcp">3. Сравните n8n-mcp и встроенный Instance MCP n8n</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Сравнительная таблица n8n-mcp community и встроенного Instance MCP n8n" loading="lazy">
+</figure>
+
 
 <table>
   <thead>
@@ -81,23 +93,18 @@
 
 <p>Сначала doc-only (без деплоя в n8n):</p>
 
-<pre><code>claude mcp add n8n-mcp \
-  -e MCP_MODE=stdio \
-  -e LOG_LEVEL=error \
-  -e DISABLE_CONSOLE_OUTPUT=true \
-  -- npx n8n-mcp</code></pre>
+<blockquote>
+  <b>Doc-only (без API key):</b><br>
+  claude mcp add n8n-mcp -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -- npx n8n-mcp
+</blockquote>
 
 <p>После claude mcp list и зелёного статуса удалите заглушку и добавьте полный доступ:</p>
 
-<pre><code>claude mcp remove n8n-mcp
-
-claude mcp add n8n-mcp \
-  -e MCP_MODE=stdio \
-  -e LOG_LEVEL=error \
-  -e DISABLE_CONSOLE_OUTPUT=true \
-  -e N8N_API_URL=http://localhost:5678 \
-  -e N8N_API_KEY=ваш_ключ \
-  -- npx n8n-mcp</code></pre>
+<blockquote>
+  <b>Full mode (с n8n API key):</b><br>
+  claude mcp remove n8n-mcp<br>
+  claude mcp add n8n-mcp -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -e N8N_API_URL=http://localhost:5678 -e N8N_API_KEY=ваш_ключ -- npx n8n-mcp
+</blockquote>
 
 <p>Для Cloud – HTTPS URL инстанса. Опционально: /plugin install czlonkowski/n8n-skills.</p>
 

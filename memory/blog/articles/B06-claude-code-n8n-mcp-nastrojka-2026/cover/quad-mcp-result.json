@@ -1,0 +1,5 @@
+{
+  "url": "local:cover/canvas-quad.png",
+  "generation": "GenerateImage-i2i-fallback",
+  "note": "CallMcpTool user-mcp-kv/gpt-image-2 unavailable in Cloud worker (no MCP_KV_TOKEN); ONE image gen with blog-hero reference, resized 2048x1152, split PASS"
+}

@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/claude-code-n8n-mcp-nastrojka-2026/#article",
+      "headline": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция",
+      "description": "Пошаговая n8n-mcp настройка в Claude Code: claude mcp add, API key, проверка /mcp, CLAUDE.md, первый webhook workflow и troubleshooting Cloud vs self-hosted.",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/claude-code-n8n-mcp-nastrojka-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/claude-code-n8n-mcp-nastrojka-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/claude-code-n8n-mcp-nastrojka-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code n8n, n8n mcp claude code, n8n-mcp настройка, claude mcp add n8n",
+      "wordCount": 9488,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/claude-code-n8n-mcp-nastrojka-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем n8n-mcp отличается от встроенного MCP в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n-mcp – community-пакет через npx и claude mcp add. Instance MCP – официальный сервер в настройках n8n. В этом гайде путь через n8n-mcp; на Instance MCP – если нужен только first-party доступ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли API key на n8n Cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да для full mode: Settings → n8n API → Create API key. Без ключа – doc-only (validate и справочник). Ключ в env, не в Git."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проверить, что MCP подключился в Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "claude mcp list, claude mcp get n8n-mcp, в сессии /mcp. Тест: \"Перечисли workflow через n8n-mcp\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему появляется JSON parsing error?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Добавьте MCP_MODE=stdio, LOG_LEVEL=error, DISABLE_CONSOLE_OUTPUT=true. claude mcp remove n8n-mcp и установите заново."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "localhost:5678 не работает из Claude Code – что делать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Запустите n8n локально, URL без лишнего path. Для Cloud – HTTPS base URL. Проверьте ключ без пробелов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно обойтись без n8n API key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: doc-only – validate и справочник; JSON импортируете в UI. Для deploy из терминала нужен full mode с ключом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Claude Code или Cursor для n8n – что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Оба с MCP. Code – terminal-first и CI; Cursor – IDE. MCP в редакторе – гайд по Cursor."
+          }
+        }
+      ]
+    }
+  ]
+}

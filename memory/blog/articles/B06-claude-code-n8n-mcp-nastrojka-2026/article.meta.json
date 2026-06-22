@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "claude-code-n8n-mcp-nastrojka-2026",
+  "h1": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция",
+  "title": "Claude Code n8n: подключение n8n-mcp и сборка workflow из терминала",
+  "description": "Пошаговая n8n-mcp настройка в Claude Code: claude mcp add, API key, проверка /mcp, CLAUDE.md, первый webhook workflow и troubleshooting Cloud vs self-hosted.",
+  "keywords": [
+    "claude code n8n",
+    "n8n mcp claude code",
+    "n8n-mcp настройка",
+    "claude mcp add n8n"
+  ],
+  "primary_query": "claude code n8n",
+  "secondary_queries": [
+    "n8n mcp claude code",
+    "n8n-mcp настройка",
+    "claude mcp add n8n"
+  ],
+  "char_count": 9488,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как подключить n8n-mcp к claude code пошагово",
+    "claude mcp add n8n настройка из терминала",
+    "сборка n8n workflow через claude code mcp"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code n8n: подключение n8n-mcp и workflow из терминала",
+    "title_ctr": "🚀 Claude Code + n8n: подключите n8n-mcp за 30 минут и соберите workflow из терминала!",
+    "title_aeo": "Как подключить n8n-mcp к Claude Code и собрать workflow из терминала?",
+    "description_seo": "Пошаговая n8n-mcp настройка в Claude Code: claude mcp add, API key, /mcp, CLAUDE.md, первый webhook и troubleshooting для Cloud и self-hosted.",
+    "description_ctr": "⚡ Подключите n8n-mcp к Claude Code за вечер: команды claude mcp add, таблица двух MCP, чеклист и тест webhook без ручного JSON.",
+    "description_aeo": "Claude Code n8n – связка через n8n-mcp: claude mcp add с MCP_MODE=stdio, n8n API key, проверка /mcp и сборка workflow текстовым промптом."
+  },
+  "cover_family": "brand_collage"
+}

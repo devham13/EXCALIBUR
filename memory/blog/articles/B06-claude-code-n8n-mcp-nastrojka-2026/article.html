@@ -1,0 +1,248 @@
+<p>Claude Code умеет править код в терминале, но без n8n-mcp не создаст workflow в вашем n8n: агент не видит ноды, шаблоны и API инстанса. Настройка claude code n8n через команду claude mcp add занимает 20–40 минут. Ниже – API key, проверка /mcp, CLAUDE.md и первый сценарий webhook из текстового промпта. Вы активируете workflow и протестируете POST без ручного копирования JSON.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> n8n-mcp в Claude Code – MCP-сервер (Model Context Protocol, "розетка" для внешних tools), который даёт агенту справочник по 1 800+ нод n8n и доступ к вашему инстансу по API key. Базовая команда: claude mcp add n8n-mcp с env MCP_MODE=stdio и npx n8n-mcp. С ключом n8n – создание workflow из терминала; без ключа – только документация и validate. Проверка: claude mcp list и /mcp в сессии.</blockquote>
+
+<p>MCP – протокол Anthropic: AI вызывает tools вместо "угадывания" синтаксиса нод. API n8n – доступ к workflow по ключу в Settings → n8n API. Логика как в <a href="/podklyuchenie-mcp-cursor/">MCP для Cursor</a>, но конфиг через CLI. Фоновые сценарии – в <a href="/avtomatizaciya-n8n-ai-agents/">гайде по n8n-агентам</a>.</p>
+
+<h2 id="why-stack">1. Поймите, зачем Claude Code и n8n в одном стеке</h2>
+
+<p>Claude Code собирает workflow текстом; n8n крутит их по webhook 24/7. n8n-mcp связывает стек: база <a href="https://github.com/czlonkowski/n8n-mcp" target="_blank">1 845 нод и 2 352 шаблона</a>, с API key – деплой JSON в инстанс.</p>
+
+<blockquote>
+  <b>Схема связки:</b>
+  <br>
+  Текстовый промпт в Claude Code → n8n-mcp (tools) → n8n API → workflow в UI → webhook test → фоновые executions
+</blockquote>
+
+<p><b>Делайте:</b> Code для проектирования, n8n для runtime. <b>Не делайте:</b> путать n8n-mcp с встроенным Instance MCP n8n – это разные продукты (таблица ниже).</p>
+
+<h2 id="prerequisites">2. Проверьте, что всё установлено до claude mcp add</h2>
+
+<p>Перед n8n-mcp настройка требует три опоры: Node.js 18+ (чтобы npx запустил сервер), установленный Claude Code CLI и доступный n8n – Cloud или self-hosted на порту 5678.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Проверьте Node: node -v (версия 18 или выше).</li>
+  <li><b>Шаг 2:</b> Убедитесь, что claude доступен в PATH (claude --version).</li>
+  <li><b>Шаг 3:</b> Откройте n8n в браузере; для локального инстанса URL обычно http://localhost:5678 без лишнего path.</li>
+  <li><b>Шаг 4:</b> В n8n: Settings → n8n API → Create API key, label claude-code-mcp, скопируйте ключ без пробелов.</li>
+  <li><b>Шаг 5:</b> Для n8n Cloud возьмите HTTPS base URL инстанса из адресной строки (без /api/v1 в N8N_API_URL для пакета czlonkowski).</li>
+</ol>
+
+<p><b>Делайте:</b> храните ключ в env или ~/.claude.json, не в Git. <b>Не делайте:</b> пробелы в конце URL – частая причина 401 и "тишины" в /mcp.</p>
+
+<h2 id="two-mcp">3. Сравните n8n-mcp и встроенный Instance MCP n8n</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n-mcp (npm, czlonkowski)</th>
+      <th>Instance MCP (встроенный в n8n)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Кто поддерживает</b></td>
+      <td>Community (Romuald Członkowski)</td>
+      <td>n8n first-party</td>
+    </tr>
+    <tr>
+      <td><b>Установка</b></td>
+      <td>claude mcp add + npx n8n-mcp</td>
+      <td>Enable в n8n → URL в MCP-клиенте</td>
+    </tr>
+    <tr>
+      <td><b>Без API key</b></td>
+      <td>Доки нод + validate JSON</td>
+      <td>Нет доступа к инстансу</td>
+    </tr>
+    <tr>
+      <td><b>С API key</b></td>
+      <td>CRUD workflow в вашем n8n</td>
+      <td>CRUD + run exposed workflows (n8n 2.18.4+)</td>
+    </tr>
+    <tr>
+      <td><b>Лучше для</b></td>
+      <td>Claude Code CLI, шаблоны, глубокая база нод</td>
+      <td>Единый официальный мост к инстансу</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> этот гайд ведёт через <b>n8n-mcp</b> под Claude Code в терминале. На Instance MCP переходите, если нужен только официальный доступ без community-пакета – см. <a href="https://blog.n8n.io/n8n-mcp-server/" target="_blank">блог n8n</a>.
+</blockquote>
+
+<p><b>Делайте:</b> doc-only smoke test без ключа, затем full config. <b>Не делайте:</b> смешивать env переменные двух MCP в одном проекте без таблицы выше.</p>
+
+<h2 id="install-mcp">4. Подключите n8n-mcp через claude mcp add</h2>
+
+<p>claude mcp add регистрирует сервер. Флаг -- отделяет флаги Claude от npx n8n-mcp. Scope local → ~/.claude.json; --scope project → .mcp.json в корне репо.</p>
+
+<p>Сначала doc-only (без деплоя в n8n):</p>
+
+<pre><code>claude mcp add n8n-mcp \
+  -e MCP_MODE=stdio \
+  -e LOG_LEVEL=error \
+  -e DISABLE_CONSOLE_OUTPUT=true \
+  -- npx n8n-mcp</code></pre>
+
+<p>После claude mcp list и зелёного статуса удалите заглушку и добавьте полный доступ:</p>
+
+<pre><code>claude mcp remove n8n-mcp
+
+claude mcp add n8n-mcp \
+  -e MCP_MODE=stdio \
+  -e LOG_LEVEL=error \
+  -e DISABLE_CONSOLE_OUTPUT=true \
+  -e N8N_API_URL=http://localhost:5678 \
+  -e N8N_API_KEY=ваш_ключ \
+  -- npx n8n-mcp</code></pre>
+
+<p>Для Cloud – HTTPS URL инстанса. Опционально: /plugin install czlonkowski/n8n-skills.</p>
+
+<p><b>Делайте:</b> MCP_MODE=stdio и DISABLE_CONSOLE_OUTPUT=true всегда – иначе debug в stdout ломает протокол (JSON parsing error). <b>Не делайте:</b> коммитить .mcp.json с N8N_API_KEY в публичный Git.</p>
+
+<h2 id="verify-mcp">5. Проверьте подключение в Claude Code</h2>
+
+<ol>
+  <li><b>Шаг 1:</b> claude mcp list – в списке есть n8n-mcp.</li>
+  <li><b>Шаг 2:</b> claude mcp get n8n-mcp – сверьте env (URL, stdio).</li>
+  <li><b>Шаг 3:</b> Запустите сессию Claude Code и введите /mcp – статус сервера активный.</li>
+  <li><b>Шаг 4:</b> Промпт: "Перечисли workflow в моём n8n через n8n-mcp" (full mode) или "Опиши ноду Slack через n8n-mcp" (doc-only).</li>
+  <li><b>Шаг 5:</b> При таймауте старта увеличьте MCP_TIMEOUT (мс) в env Claude Code.</li>
+</ol>
+
+<p><b>Делайте:</b> один тестовый tool-call перед сборкой production workflow. <b>Не делайте:</b> игнорировать предупреждение Claude Code при output MCP больше 10 000 tokens – сузьте prompt или настройте MAX_MCP_OUTPUT_TOKENS.</p>
+
+<h2 id="claude-md">6. Настройте CLAUDE.md под n8n-проекты</h2>
+
+<p>CLAUDE.md в корне проекта задаёт правила для каждой сессии. Минимум:</p>
+
+<ul>
+  <li>Имена нод: Сервис_Действие (Telegram_SendAlert)</li>
+  <li>Перед правкой prod workflow – duplicate в n8n UI</li>
+  <li>Предпочитать native nodes; Code node – только если нет альтернативы</li>
+  <li>Timezone Europe/Moscow для Schedule Trigger</li>
+  <li>После сборки – validate workflow через n8n-mcp до activate</li>
+  <li>Список разрешённых интеграций (Slack, Telegram, Google Sheets)</li>
+</ul>
+
+<p><b>Делайте:</b> human-in-the-loop для activate и delete. <b>Не делайте:</b> просить агента "сразу включить на прод" без вашего OK в чате.</p>
+
+<h2 id="first-workflow">7. Соберите первый workflow из текстового промпта</h2>
+
+<p>Пример цепочки: Webhook → IF → Set → уведомление (Telegram, Slack или email). Скопируйте промпт в Claude Code после успешного /mcp:</p>
+
+<blockquote>
+  Создай workflow в n8n: Webhook POST /test-lead, IF email содержит @, Set поля name и source=claude-code, затем Telegram или Slack с текстом "Новый лид". Сначала validate JSON, покажи схему нод, деплой только после моего подтверждения.
+</blockquote>
+
+<p>Агент вызовет tools: поиск нод, validate, create. Проверьте canvas в UI, затем activate.</p>
+
+<p><b>Делайте:</b> validate перед deploy. <b>Не делайте:</b> править боевой workflow без duplicate – рекомендация из README n8n-mcp.</p>
+
+<h2 id="activate-test">8. Активируйте workflow и протестируйте webhook</h2>
+
+<ol>
+  <li><b>Шаг 1:</b> В n8n включите workflow (Active).</li>
+  <li><b>Шаг 2:</b> Скопируйте Production Webhook URL из ноды Webhook.</li>
+  <li><b>Шаг 3:</b> Отправьте test POST (curl или Postman) с JSON {"email":"test@example.com","name":"Demo"}.</li>
+  <li><b>Шаг 4:</b> Откройте Executions в n8n – статус success, данные прошли IF и Set.</li>
+  <li><b>Шаг 5:</b> При ошибке попросите Claude Code прочитать execution log через n8n-mcp и предложить fix.</li>
+</ol>
+
+<p><b>Делайте:</b> тест на копии workflow. <b>Не делайте:</b> публиковать webhook URL в открытых чатах без auth на ноде.</p>
+
+<h2 id="troubleshooting">9. Исправьте типичные ошибки (Cloud vs self-hosted)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Симптом</th>
+      <th>Причина</th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>JSON parsing error</b></td>
+      <td>Нет MCP_MODE=stdio или лишний вывод в консоль</td>
+      <td>Добавьте DISABLE_CONSOLE_OUTPUT=true, переустановите MCP</td>
+    </tr>
+    <tr>
+      <td><b>401 Unauthorized</b></td>
+      <td>Неверный API key или URL</td>
+      <td>Пересоздайте ключ, проверьте N8N_API_URL без пробелов</td>
+    </tr>
+    <tr>
+      <td><b>localhost:5678 недоступен</b></td>
+      <td>n8n не запущен или firewall</td>
+      <td>Запустите n8n, для Cloud – только HTTPS URL</td>
+    </tr>
+    <tr>
+      <td><b>ENOENT / npx</b></td>
+      <td>Нет Node.js в PATH</td>
+      <td>Установите Node 18+, перезапустите терминал</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Альтернатива npx – hosted dashboard.n8n-mcp.com (100 calls/day free tier).</p>
+
+<p><b>Делайте:</b> claude mcp remove и повторный add после смены env. <b>Не делайте:</b> подставлять /api/v1 в base URL для czlonkowski MCP.</p>
+
+<h2 id="checklist">10. Пройдите чеклист перед продакшеном</h2>
+
+<ul>
+  <li>Node.js 18+ и Claude Code CLI установлены</li>
+  <li>n8n API key создан с понятным label</li>
+  <li>claude mcp add с MCP_MODE=stdio и DISABLE_CONSOLE_OUTPUT=true</li>
+  <li>claude mcp list и /mcp показывают активный n8n-mcp</li>
+  <li>Тестовый tool-call (list workflows или describe node) прошёл</li>
+  <li>CLAUDE.md с naming и запретом правок prod без копии</li>
+  <li>Первый workflow прошёл validate через n8n-mcp</li>
+  <li>Activate только после вашего подтверждения в чате</li>
+  <li>Webhook протестирован POST-запросом</li>
+  <li>Execution log без ошибок на IF/Set/notify</li>
+  <li>Секреты не в Git (.mcp.json в .gitignore при project scope)</li>
+  <li>Копия боевого workflow перед AI-правками</li>
+</ul>
+
+<h2 id="next-steps">11. Что делать дальше</h2>
+
+<ol>
+  <li>Закрепите n8n-mcp в local или project scope под вашу команду.</li>
+  <li>Добавьте n8n-skills для production-паттернов.</li>
+  <li>Сверьте стек с <a href="/avtomatizaciya-n8n-ai-agents/">гайдом по n8n-агентам</a> – где терминал, где фон.</li>
+  <li>Для связки "Claude строит, Make крутит 24/7" – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс по Make.com</a> (159+ уроков, 5 800 ₽/мес).</li>
+  <li>При росте нагрузки оцените Instance MCP n8n 2.18.4+ как официальный канал.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com, n8n и MCP).<br>
+  <b>Достоверность данных:</b> команды claude mcp add, env n8n-mcp и смежный кластер Вордстат ("n8n" – 37 115, "настройка mcp сервера" – 74, "cursor mcp" – 630) верифицированы по документации Anthropic, GitHub czlonkowski/n8n-mcp и Яндекс Вордстат на июнь 2026 года.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Чем n8n-mcp отличается от встроенного MCP в n8n?</h3>
+<p>n8n-mcp – community-пакет через npx и claude mcp add. Instance MCP – официальный сервер в настройках n8n. В этом гайде путь через n8n-mcp; на Instance MCP – если нужен только first-party доступ.</p>
+
+<h3>Нужен ли API key на n8n Cloud?</h3>
+<p>Да для full mode: Settings → n8n API → Create API key. Без ключа – doc-only (validate и справочник). Ключ в env, не в Git.</p>
+
+<h3>Как проверить, что MCP подключился в Claude Code?</h3>
+<p>claude mcp list, claude mcp get n8n-mcp, в сессии /mcp. Тест: "Перечисли workflow через n8n-mcp".</p>
+
+<h3>Почему появляется JSON parsing error?</h3>
+<p>Добавьте MCP_MODE=stdio, LOG_LEVEL=error, DISABLE_CONSOLE_OUTPUT=true. claude mcp remove n8n-mcp и установите заново.</p>
+
+<h3>localhost:5678 не работает из Claude Code – что делать?</h3>
+<p>Запустите n8n локально, URL без лишнего path. Для Cloud – HTTPS base URL. Проверьте ключ без пробелов.</p>
+
+<h3>Можно обойтись без n8n API key?</h3>
+<p>Да: doc-only – validate и справочник; JSON импортируете в UI. Для deploy из терминала нужен full mode с ключом.</p>
+
+<h3>Claude Code или Cursor для n8n – что выбрать?</h3>
+<p>Оба с MCP. Code – terminal-first и CI; Cursor – IDE. MCP в редакторе – <a href="/podklyuchenie-mcp-cursor/">гайд по Cursor</a>.</p>

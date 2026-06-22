@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Мультиагентная оркестрация в n8n
+
+- **priority:** P0
+- **slug:** n8n-multi-agent-orkestraciya-2026
+- **h1:** Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов
+- **primary_query:** n8n агенты
+- **secondary_queries:** n8n multi agent, ai agent tool n8n, мультиагентная система n8n, оркестрация ии агентов n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Когда одного AI Agent мало: Supervisor-Worker vs один бот в 2026 году
+  2. Архитектура на одном canvas: AI Agent Tool node и роли специалистов
+  3. Пошаговая сборка оркестратора и sub-agents с Tools Agent
+  4. Память, session ID и изоляция контекста между агентами
+  5. Production-паттерны: sub-workflows, Queue Mode и human-in-the-loop
+  6. Чек-лист отладки multi-agent workflow перед запуском в prod
+- **faq_hints:** как работает ai agent tool в n8n; чем multi agent отличается от одного агента; сколько sub-agents можно связать в n8n
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** дирижёр-робот на центральной ноде n8n, неоновые стрелки к трём агентам-специалистам (Research, CRM, Writer), единый canvas, diy-коллаж на тёмном фоне
+
+---
+

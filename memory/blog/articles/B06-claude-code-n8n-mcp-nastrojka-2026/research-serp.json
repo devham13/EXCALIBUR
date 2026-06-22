@@ -1,0 +1,469 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-22",
+    "today_ru": "22.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-n8n-mcp-nastrojka-2026",
+    "h1": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция",
+    "primary_query": "claude code n8n",
+    "secondary_queries": [
+      "n8n mcp claude code",
+      "n8n-mcp настройка",
+      "claude mcp add n8n"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code n8n 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n vs Claude Code в 2026: что выбрать для автоматизации",
+          "url": "https://smyslokod.ru/guides/n8n-vs-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code integration for n8n - Built with n8n - n8n Community",
+          "url": "https://community.n8n.io/t/claude-code-integration-for-n8n/244183",
+          "snippet": "Claude Code нужен, когда задача требует рассуждения и работы с неструктурированным входом (письма, картинки, разговоры). Чаще всего ответ - оба, но в разных местах стека."
+        },
+        {
+          "title": "Claude Code + n8n: I Built a System That Automates EVERYTHING (Full ...",
+          "url": "https://www.youtube.com/watch?v=YkUkszTcvMw",
+          "snippet": "I've already spent too many hours trying to get this to work so I've kept it simple and am using SSH to run Claude Code through n8n, which does everything I need."
+        },
+        {
+          "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+          "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+          "snippet": "I've been creating automations on n8n and Claude Code for two years now. I use everything I show you every day. Let me know in the comments what automation you want. I'll show you how."
+        },
+        {
+          "title": "How I Connected Claude Code to My n8n Automations (And Why It Changed ...",
+          "url": "https://kevinkerner.substack.com/p/how-i-connected-claude-code-to-my",
+          "snippet": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и нейросеть, которая обновляет документацию сама Экосистема вокруг Claude Code растёт быстрее, чем кто-либо успевает её ..."
+        },
+        {
+          "title": "Claude Code vs n8n (2026): Honest Verdict | Dominik Gabor",
+          "url": "https://dominikgabor.com/blog/will-claude-code-replace-n8n.html",
+          "snippet": "Here's where it started. I typed this into Claude: \"I want to set up Claude Code to work on my n8n workflows hosted in Digital Ocean. I also have MCP working in Claude desktop with n8n. I also want to load n8n Claude Skills.\" That was it."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code n8n июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n vs Claude Code в 2026: что выбрать для автоматизации",
+          "url": "https://smyslokod.ru/guides/n8n-vs-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+          "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+          "snippet": "Один из главных трюков: Claude Code хорош там, где n8n не окупится развёртыванием. Когда 2-3 признака из шести совпали - перенос конкретного куска флоу на агент имеет смысл."
+        },
+        {
+          "title": "N8N vs Claude Code vs OpenClaw: что выбрать для автоматизации в 2026 ...",
+          "url": "https://ddpa.ru/b/n8n-vs-claude-code-vs-openclaw-2026",
+          "snippet": "Проще говоря n8n это такой своеобразный конвейер для данных. Ты один раз выстраиваешь маршрут информации, и он работает ровно так, как ты нарисовал, без самодеятельности."
+        },
+        {
+          "title": "Claude Code vs n8n (2026): Honest Verdict | Dominik Gabor",
+          "url": "https://dominikgabor.com/blog/will-claude-code-replace-n8n.html",
+          "snippet": "Конкурент N8N — не Claude Code, а сами языки программирования и профессиональные фреймворки: LangChain, LangGraph и подобные. Только для работы с ними нужен программист, а значит — высокие затраты."
+        },
+        {
+          "title": "Claude Code vs n8n: Side-by-Side Comparison From an n8n Expert",
+          "url": "https://aimaker.substack.com/p/claude-code-vs-n8n-review-comparison",
+          "snippet": "Claude Code vs n8n: honest comparison after 40+ real workflows in 2026. Which wins on speed and complexity? The honest answer, and why you need both."
+        },
+        {
+          "title": "Claude Code vs n8n: Which Should Technical Teams Use in 2026?",
+          "url": "https://synta.io/blog/claude-code-vs-n8n",
+          "snippet": "Claude Code handles orchestration and judgment calls. n8n handles deterministic steps with clear branching. The \"Claude Code is the glue\" framing from this piece is the most honest take I have seen on these two tools coexisting."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code n8n новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n vs Claude Code в 2026: что выбрать для автоматизации",
+          "url": "https://smyslokod.ru/guides/n8n-vs-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+          "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+          "snippet": "Claude Code нужен, когда задача требует рассуждения и работы с неструктурированным входом (письма, картинки, разговоры). Чаще всего ответ - оба, но в разных местах стека. Эта статья - для предпринимателя, у которого уже работает n8n или Zapier на 5-50 флоу, и он чувствует: что-то начало упираться."
+        },
+        {
+          "title": "N8N vs Claude Code vs OpenClaw: что выбрать для автоматизации в 2026 ...",
+          "url": "https://ddpa.ru/b/n8n-vs-claude-code-vs-openclaw-2026",
+          "snippet": "Проще говоря n8n это такой своеобразный конвейер для данных. Ты один раз выстраиваешь маршрут информации, и он работает ровно так, как ты нарисовал, без самодеятельности."
+        },
+        {
+          "title": "Claude Code vs n8n (2026): Honest Verdict | Dominik Gabor",
+          "url": "https://dominikgabor.com/blog/will-claude-code-replace-n8n.html",
+          "snippet": "Мир не автоматизирован, и пока компании сами дойдут до Claude Code, пройдут годы. На нём строятся реальные вещи. Контент-заводы, документооборот, управление клиентами."
+        },
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": "Claude Code vs n8n: honest comparison after 40+ real workflows in 2026. Which wins on speed and complexity? The honest answer, and why you need both."
+        },
+        {
+          "title": "Claude Code и Великая паника производительности 2026 года раскрыты",
+          "url": "https://skyread.ru/news/2026/02/27/10531-claude-code-i-velikaya-panika-proizvoditelnosti-2026-goda-raskryty/",
+          "snippet": "В этой статье я расскажу, как устроены AI Coding Agents (Claude Code, OpenAI Codex, Opencode и др), как правильно ими пользоваться и как потратить $20 так, чтобы не уволили в 2026."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "n8n mcp claude code 2026",
+      "purpose": "вторичный запрос: n8n mcp claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - czlonkowski/n8n-mcp: A MCP for Claude Desktop / Claude Code ...",
+          "url": "https://github.com/czlonkowski/n8n-mcp",
+          "snippet": ""
+        },
+        {
+          "title": "n8n Claude Code Setup: n8n-MCP Guide in 10 Minutes (2026)",
+          "url": "https://vantaige.io/blog/n8n-mcp-claude-code-setup-guide-2026",
+          "snippet": "A Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to n8n node documentation, properties, and operations. Deploy in minutes to give Claude and other AI assistants deep knowledge about n8n's 1,845 workflow automation nodes (816 core + 1,029 community)."
+        },
+        {
+          "title": "n8n + Claude Code: Build AI Workflows Without Touching the UI (2026 Guide)",
+          "url": "https://syncbricks.com/n8n-claude-code-build-ai-workflows-without-touching-ui/",
+          "snippet": "Build n8n Workflows with Claude Code in 10 Minutes: The n8n-MCP Setup Guide (2026) You can now describe an n8n workflow in plain English and watch Claude Code build it inside your live n8n instance."
+        },
+        {
+          "title": "Connect n8n and Claude Code: Complete MCP Integration Guide 2026",
+          "url": "https://www.contextstudios.ai/blog/connect-n8n-and-claude-code-complete-mcp-integration-guide-2026",
+          "snippet": "Learn how Claude Code, Qwen Code, and agentic coding platforms can build, deploy, and troubleshoot n8n workflows using MCP servers and Skills — 10x faster than manual UI work."
+        },
+        {
+          "title": "The Ultimate n8n Workflow in 2026: AI Agents, MCP, and the Automation ...",
+          "url": "https://www.frankx.ai/blog/ultimate-n8n-workflow-2026",
+          "snippet": "Complete guide to integrating n8n with Claude Code via the Model Context Protocol (MCP). Learn how to automatically create, validate, and deploy n8n workflows with AI - using just a single prompt."
+        },
+        {
+          "title": "Use n8n-MCP to Build n8n Workflow with Claude Code",
+          "url": "https://apidog.com/blog/n8n-mcp-with-claude-code/",
+          "snippet": "The complete 2026 guide to building production n8n workflows: self-host vs cloud, the AI Agent node, MCP Server Trigger and Client Tool, content repurposing, RAG, and wiring n8n as the action backend for Claude Code."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "n8n-mcp настройка 2026",
+      "purpose": "вторичный запрос: n8n-mcp настройка",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Set up and use n8n MCP server | n8n Docs",
+          "url": "https://docs.n8n.io/advanced-ai/mcp/accessing-n8n-mcp-server/",
+          "snippet": ""
+        },
+        {
+          "title": "n8n-mcp-2026/docs at main · lincoln-automates/n8n-mcp-2026 · GitHub",
+          "url": "https://github.com/lincoln-automates/n8n-mcp-2026/tree/main/docs",
+          "snippet": "Create and edit workflows and data tables Difference between instance-level MCP access and MCP Server Trigger node Instance-level MCP access lets you create one connection per n8n instance, use centralized authentication, and choose which workflows to enable for access. Enabled workflows are easy to find and run without extra setup for each ..."
+        },
+        {
+          "title": "Единственный Гайд На N8n Который Тебе Нужен, 100% Автоматизация N8n",
+          "url": "https://www.youtube.com/watch?v=ix8mM59eRb0",
+          "snippet": "README.md n8n-MCP Documentation Welcome to the n8n-MCP documentation. This directory contains comprehensive guides for installation, configuration, and troubleshooting."
+        },
+        {
+          "title": "MCP интеграция: Революция в связности AI и n8n",
+          "url": "https://market-n8n.ru/tpost/8o0ybt0hs1-mcp-integratsiya-revolyutsiya-v-svyaznos",
+          "snippet": "Рассказал и показал, как с помощью MCP-сервера заставить нейросеть (Claude или Cursor) генерировать сложные и рабочие workflow для n8n. В видео рассмотрен процесс установки через Docker,..."
+        },
+        {
+          "title": "The Ultimate n8n Workflow in 2026: AI Agents, MCP, and the Automation ...",
+          "url": "https://www.frankx.ai/blog/ultimate-n8n-workflow-2026",
+          "snippet": "Разбираем, как настроить MCP Server n8n и Client для управления инструментами через LLM. Архитектура, примеры с GitHub и кейсы внедрения автономных агентов в бизнес."
+        },
+        {
+          "title": "Путь Обучения | N8n + Mcp",
+          "url": "https://n8n-mcp.ru/start/learning-path/",
+          "snippet": "The complete 2026 guide to building production n8n workflows: self-host vs cloud, the AI Agent node, MCP Server Trigger and Client Tool, content repurposing, RAG, and wiring n8n as the action backend for Claude Code."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude mcp add n8n 2026",
+      "purpose": "вторичный запрос: claude mcp add n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - czlonkowski/n8n-mcp: A MCP for Claude Desktop / Claude Code ...",
+          "url": "https://github.com/czlonkowski/n8n-mcp",
+          "snippet": ""
+        },
+        {
+          "title": "GitHub - lincoln-automates/n8n-mcp-2026: A MCP for Claude Desktop ...",
+          "url": "https://github.com/lincoln-automates/n8n-mcp-2026",
+          "snippet": "A Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to n8n node documentation, properties, and operations. Deploy in minutes to give Claude and other AI assistants deep knowledge about n8n's 1,845 workflow automation nodes (816 core + 1,029 community)."
+        },
+        {
+          "title": "n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your ...",
+          "url": "https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/",
+          "snippet": "A Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to n8n node documentation, properties, and operations. Deploy in minutes to give Claude and other AI assistants deep knowledge about n8n's 545 workflow automation nodes."
+        },
+        {
+          "title": "Set up and use n8n MCP server | n8n Docs",
+          "url": "https://docs.n8n.io/advanced-ai/mcp/accessing-n8n-mcp-server/",
+          "snippet": "How to integrate n8n with Model Context Protocol (MCP) in 2026 — set up n8n as an MCP server, connect Claude Desktop, and build workflows without touching the UI."
+        },
+        {
+          "title": "n8n Claude Code Setup: n8n-MCP Guide in 10 Minutes (2026)",
+          "url": "https://vantaige.io/blog/n8n-mcp-claude-code-setup-guide-2026",
+          "snippet": "Advanced AI Instance-level MCP server Accessing and using n8n MCP server Connect supported MCP clients to your n8n workflows through n8n's built-in MCP server. The server allows clients such as Lovable or Claude Desktop to connect securely to an n8n instance. Once connected, these clients can: Search for your workflows Interact with workflows marked as available in MCP Trigger and test exposed ..."
+        },
+        {
+          "title": "n8n-MCP + Claude Code: The Complete 2026 Setup Guide for AI-Powered ...",
+          "url": "https://yaohehe.github.io/archive/2026-05-17/2026-05-17-n8n-mcp-claude-code-the-complete-2026-setup-guide--en.html",
+          "snippet": "Build n8n Workflows with Claude Code in 10 Minutes: The n8n-MCP Setup Guide (2026) You can now describe an n8n workflow in plain English and watch Claude Code build it inside your live n8n instance."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как создавать ИИ-агентов n8n с помощью Claude MCP (полное руководство)",
+          "url": "https://lilys.ai/ru/notes/claude-mcp-20251216/n8n-claude-mcp-ai-agents",
+          "snippet": ""
+        },
+        {
+          "title": "Mcp: Как Заставить Claude Выполнять Задачи В N8n Из Одного Окна",
+          "url": "https://rutube.ru/video/f30d516b55d13fb8930ca726a59c3ef3/",
+          "snippet": "Вы узнаете пошаговый процесс установки сервера MCP, создания Workflow Resource Document (WRD), и получения рабочего JSON-файла для автоматизации. Освойте этот метод, чтобы создавать сложные рабочие процессы, такие как агрегатор новостей, менее чем за 10 минут, значительно ускоряя вашу автоматизацию. 1."
+        },
+        {
+          "title": "Claude Code + n8n: ИИ-агенты из облака | Библиотека 2030 AI",
+          "url": "https://2030ai.ru/library/kak-podklyuchat-mcp-n8n-k-claude-code-484b3bcd",
+          "snippet": "На примере я покажу, как Claude находит workflow в n8n, запускает его, генерирует изображение через Nano Banana 2 и отправляет результат в Telegram. То есть это уже не просто теория про AI-агентов, а живая демонстрация, как MCP работает в реальном сценарии."
+        },
+        {
+          "title": "n8n-mcp/docs/CLAUDE_CODE_SETUP.md at main - GitHub",
+          "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/CLAUDE_CODE_SETUP.md",
+          "snippet": "Покажем, как управлять автоматизациями и исправлять ошибки через ИИ, даже без опыта работы в Nathan. Этот мастер-класс — вторая часть цикла о том, как подружить искусственный интеллект с n8n."
+        },
+        {
+          "title": "Как создать ЧТО УГОДНО с помощью n8n + Claude (Пошаговая инструкция)",
+          "url": "https://lilys.ai/ru/notes/claude-skills-20251020/build-anything-with-n8n-and-claude",
+          "snippet": "Claude Code Setup Connect n8n-MCP to Claude Code CLI for enhanced n8n workflow development from the command line."
+        },
+        {
+          "title": "Mcp: Как Заставить Claude Выполнять Задачи В N8n Из Одного Окна",
+          "url": "https://www.youtube.com/watch?v=ndLcfEfvKbM",
+          "snippet": "Это руководство покажет, как использовать n8n MCP с Claude для автоматического создания рабочих процессов в n8n, значительно упрощая сложную интеграцию."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://smyslokod.ru/guides/n8n-vs-claude-code",
+      "title": "n8n vs Claude Code в 2026: что выбрать для автоматизации",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://community.n8n.io/t/claude-code-integration-for-n8n/244183",
+      "title": "Claude Code integration for n8n - Built with n8n - n8n Community",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YkUkszTcvMw",
+      "title": "Claude Code + n8n: I Built a System That Automates EVERYTHING (Full ...",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+      "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://kevinkerner.substack.com/p/how-i-connected-claude-code-to-my",
+      "title": "How I Connected Claude Code to My n8n Automations (And Why It Changed ...",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://dominikgabor.com/blog/will-claude-code-replace-n8n.html",
+      "title": "Claude Code vs n8n (2026): Honest Verdict | Dominik Gabor",
+      "from_query": "claude code n8n 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2795424-gid-po-ii-agentam-claude-code-cursor-openclaw-n8n",
+      "title": "ПОЛНЫЙ ГАЙД НА ИИ-АГЕНТОВ: Claude Code, Cursor, OpenClaw, n8n - и ...",
+      "from_query": "claude code n8n июнь 2026"
+    },
+    {
+      "url": "https://ddpa.ru/b/n8n-vs-claude-code-vs-openclaw-2026",
+      "title": "N8N vs Claude Code vs OpenClaw: что выбрать для автоматизации в 2026 ...",
+      "from_query": "claude code n8n июнь 2026"
+    },
+    {
+      "url": "https://aimaker.substack.com/p/claude-code-vs-n8n-review-comparison",
+      "title": "Claude Code vs n8n: Side-by-Side Comparison From an n8n Expert",
+      "from_query": "claude code n8n июнь 2026"
+    },
+    {
+      "url": "https://synta.io/blog/claude-code-vs-n8n",
+      "title": "Claude Code vs n8n: Which Should Technical Teams Use in 2026?",
+      "from_query": "claude code n8n июнь 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987382/",
+      "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+      "from_query": "claude code n8n новости 2026"
+    },
+    {
+      "url": "https://skyread.ru/news/2026/02/27/10531-claude-code-i-velikaya-panika-proizvoditelnosti-2026-goda-raskryty/",
+      "title": "Claude Code и Великая паника производительности 2026 года раскрыты",
+      "from_query": "claude code n8n новости 2026"
+    },
+    {
+      "url": "https://github.com/czlonkowski/n8n-mcp",
+      "title": "GitHub - czlonkowski/n8n-mcp: A MCP for Claude Desktop / Claude Code ...",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://vantaige.io/blog/n8n-mcp-claude-code-setup-guide-2026",
+      "title": "n8n Claude Code Setup: n8n-MCP Guide in 10 Minutes (2026)",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://syncbricks.com/n8n-claude-code-build-ai-workflows-without-touching-ui/",
+      "title": "n8n + Claude Code: Build AI Workflows Without Touching the UI (2026 Guide)",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://www.contextstudios.ai/blog/connect-n8n-and-claude-code-complete-mcp-integration-guide-2026",
+      "title": "Connect n8n and Claude Code: Complete MCP Integration Guide 2026",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://www.frankx.ai/blog/ultimate-n8n-workflow-2026",
+      "title": "The Ultimate n8n Workflow in 2026: AI Agents, MCP, and the Automation ...",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://apidog.com/blog/n8n-mcp-with-claude-code/",
+      "title": "Use n8n-MCP to Build n8n Workflow with Claude Code",
+      "from_query": "n8n mcp claude code 2026"
+    },
+    {
+      "url": "https://docs.n8n.io/advanced-ai/mcp/accessing-n8n-mcp-server/",
+      "title": "Set up and use n8n MCP server | n8n Docs",
+      "from_query": "n8n-mcp настройка 2026"
+    },
+    {
+      "url": "https://github.com/lincoln-automates/n8n-mcp-2026/tree/main/docs",
+      "title": "n8n-mcp-2026/docs at main · lincoln-automates/n8n-mcp-2026 · GitHub",
+      "from_query": "n8n-mcp настройка 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ix8mM59eRb0",
+      "title": "Единственный Гайд На N8n Который Тебе Нужен, 100% Автоматизация N8n",
+      "from_query": "n8n-mcp настройка 2026"
+    },
+    {
+      "url": "https://market-n8n.ru/tpost/8o0ybt0hs1-mcp-integratsiya-revolyutsiya-v-svyaznos",
+      "title": "MCP интеграция: Революция в связности AI и n8n",
+      "from_query": "n8n-mcp настройка 2026"
+    },
+    {
+      "url": "https://n8n-mcp.ru/start/learning-path/",
+      "title": "Путь Обучения | N8n + Mcp",
+      "from_query": "n8n-mcp настройка 2026"
+    },
+    {
+      "url": "https://github.com/lincoln-automates/n8n-mcp-2026",
+      "title": "GitHub - lincoln-automates/n8n-mcp-2026: A MCP for Claude Desktop ...",
+      "from_query": "claude mcp add n8n 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/",
+      "title": "n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your ...",
+      "from_query": "claude mcp add n8n 2026"
+    },
+    {
+      "url": "https://yaohehe.github.io/archive/2026-05-17/2026-05-17-n8n-mcp-claude-code-the-complete-2026-setup-guide--en.html",
+      "title": "n8n-MCP + Claude Code: The Complete 2026 Setup Guide for AI-Powered ...",
+      "from_query": "claude mcp add n8n 2026"
+    },
+    {
+      "url": "https://lilys.ai/ru/notes/claude-mcp-20251216/n8n-claude-mcp-ai-agents",
+      "title": "Как создавать ИИ-агентов n8n с помощью Claude MCP (полное руководство)",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/f30d516b55d13fb8930ca726a59c3ef3/",
+      "title": "Mcp: Как Заставить Claude Выполнять Задачи В N8n Из Одного Окна",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://2030ai.ru/library/kak-podklyuchat-mcp-n8n-k-claude-code-484b3bcd",
+      "title": "Claude Code + n8n: ИИ-агенты из облака | Библиотека 2030 AI",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/CLAUDE_CODE_SETUP.md",
+      "title": "n8n-mcp/docs/CLAUDE_CODE_SETUP.md at main - GitHub",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://lilys.ai/ru/notes/claude-skills-20251020/build-anything-with-n8n-and-claude",
+      "title": "Как создать ЧТО УГОДНО с помощью n8n + Claude (Пошаговая инструкция)",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ndLcfEfvKbM",
+      "title": "Mcp: Как Заставить Claude Выполнять Задачи В N8n Из Одного Окна",
+      "from_query": "Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция 2026"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 10,
+  "over_long_sentences": [
+    {
+      "sentence": "TL;DR / Быстрый инсайт: n8n-mcp в Claude Code – MCP-сервер (Model Context Protocol, \"розетка\" для внешних tools), который даёт агенту справочник по 1 800+ нод n8n и доступ к вашему инстансу по API key",
+      "word_count": 30
+    },
+    {
+      "sentence": "Сравните n8n-mcp и встроенный Instance MCP n8n Критерий n8n-mcp (npm, czlonkowski) Instance MCP (встроенный в n8n) Кто поддерживает Community (Romuald Członkowski) n8n first-party Установка claude mcp add + npx n8n-mcp Enable в n8n → URL в MCP-клиенте Без API key Доки нод + validate JSON Нет доступа к инстансу С API key CRUD workflow в вашем n8n CRUD + run exposed workflows (n8n 2",
+      "word_count": 52
+    },
+    {
+      "sentence": "4+) Лучше для Claude Code CLI, шаблоны, глубокая база нод Единый официальный мост к инстансу Итоговый вердикт: этот гайд ведёт через n8n-mcp под Claude Code в терминале",
+      "word_count": 26
+    },
+    {
+      "sentence": "Сначала doc-only (без деплоя в n8n): Doc-only (без API key): claude mcp add n8n-mcp -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -- npx n8n-mcp После claude mcp list и зелёного статуса удалите заглушку и добавьте полный доступ: Full mode (с n8n API key): claude mcp remove n8n-mcp claude mcp add n8n-mcp -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -e N8N_API_URL=http://localhost:5678 -e N8N_API_KEY=ваш_ключ -- npx n8n-mcp Для Cloud – HTTPS URL инстанса",
+      "word_count": 64
+    },
+    {
+      "sentence": "Минимум: Имена нод: Сервис_Действие (Telegram_SendAlert) Перед правкой prod workflow – duplicate в n8n UI Предпочитать native nodes; Code node – только если нет альтернативы Timezone Europe/Moscow для Schedule Trigger После сборки – validate workflow через n8n-mcp до activate Список разрешённых интеграций (Slack, Telegram, Google Sheets) Делайте: human-in-the-loop для activate и delete",
+      "word_count": 46
+    },
+    {
+      "sentence": "Скопируйте промпт в Claude Code после успешного /mcp: Создай workflow в n8n: Webhook POST /test-lead, IF email содержит @, Set поля name и source=claude-code, затем Telegram или Slack с текстом \"Новый лид\"",
+      "word_count": 31
+    },
+    {
+      "sentence": "Исправьте типичные ошибки (Cloud vs self-hosted) Симптом Причина Действие JSON parsing error Нет MCP_MODE=stdio или лишний вывод в консоль Добавьте DISABLE_CONSOLE_OUTPUT=true, переустановите MCP 401 Unauthorized Неверный API key или URL Пересоздайте ключ, проверьте N8N_API_URL без пробелов localhost:5678 недоступен n8n не запущен или firewall Запустите n8n, для Cloud – только HTTPS URL ENOENT / npx Нет Node",
+      "word_count": 50
+    },
+    {
+      "sentence": "js 18+ и Claude Code CLI установлены n8n API key создан с понятным label claude mcp add с MCP_MODE=stdio и DISABLE_CONSOLE_OUTPUT=true claude mcp list и /mcp показывают активный n8n-mcp Тестовый tool-call (list workflows или describe node) прошёл CLAUDE",
+      "word_count": 36
+    },
+    {
+      "sentence": "md с naming и запретом правок prod без копии Первый workflow прошёл validate через n8n-mcp Activate только после вашего подтверждения в чате Webhook протестирован POST-запросом Execution log без ошибок на IF/Set/notify Секреты не в Git (",
+      "word_count": 37
+    },
+    {
+      "sentence": "Достоверность данных: команды claude mcp add, env n8n-mcp и смежный кластер Вордстат (\"n8n\" – 37 115, \"настройка mcp сервера\" – 74, \"cursor mcp\" – 630) верифицированы по документации Anthropic, GitHub czlonkowski/n8n-mcp и Яндекс Вордстат на июнь 2026 года",
+      "word_count": 30
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.0,
+    "avg_syllables_per_word": 1.2
+  }
+}

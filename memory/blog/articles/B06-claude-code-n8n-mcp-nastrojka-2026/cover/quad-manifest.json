@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code без n8n-mcp — агент слепой к вашим workflow?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: подключение n8n-mcp к Claude Code — claude mcp add, терминал и первый workflow",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; тёмный dev-хoodie с оранжевым акцентом n8n; указывает на fake терминал с командой claude mcp add n8n-mcp и статус /mcp Connected; рядом fake n8n canvas с webhook-нодой; розовый стикер «1845 нод — 0 workflow?»; скотч, рваная бумага, shocked meme + facepalm; highlight на слове «слепой»",
+      "meme_caption_ru": "1845 нод — workflow где?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Поймите, зачем Claude Code и n8n в одном стеке",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема стека без героя: промпт в терминале Claude Code → n8n-mcp tools → n8n API → workflow в UI → webhook test → фоновые executions; стрелки, иконки CLI и n8n; лёгкий pink sticky «Code проектирует, n8n крутит 24/7»",
+      "alt": "Схема связки Claude Code, n8n-mcp и n8n API до webhook-теста"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Проверьте, что всё установлено до claude mcp add",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист prerequisites: Node.js 18+, claude --version, n8n на :5678, API key в Settings, N8N_API_URL без пробелов; галочки/крестики; скотч на углу, розовый маркер на «API key»",
+      "alt": "Чеклист prerequisites перед claude mcp add: Node, CLI, n8n, API key"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Сравните n8n-mcp и встроенный Instance MCP n8n",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица n8n-mcp (npm czlonkowski) vs Instance MCP n8n: установка, без API key, с API key, кто поддерживает; колонки с иконками terminal vs n8n logo; sticky note «этот гайд → n8n-mcp»",
+      "alt": "Сравнительная таблица n8n-mcp community и встроенного Instance MCP n8n"
+    }
+  }
+}

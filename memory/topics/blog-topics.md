@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Claude Code + n8n MCP
+
+- **priority:** P0
+- **slug:** claude-code-n8n-mcp-nastrojka-2026
+- **h1:** Как подключить n8n-mcp к Claude Code и собирать workflow из терминала: пошаговая инструкция
+- **primary_query:** claude code n8n
+- **secondary_queries:** n8n mcp claude code, n8n-mcp настройка, claude mcp add n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем связка Claude Code + n8n в 2026: builder (CLI) vs runtime (оркестратор)
+  2. Что понадобится: n8n API key, Node.js 18+, Claude Code CLI
+  3. Установка n8n-mcp и подключение через `claude mcp add`
+  4. CLAUDE.md: правила workflow, naming нод и паттерны для n8n
+  5. Пошаговая сборка первого workflow из текстового промпта
+  6. Активация, тест webhook и troubleshooting (Cloud vs self-hosted)
+- **faq_hints:** чем n8n-mcp отличается от встроенного Instance MCP в n8n; нужен ли API key на n8n Cloud; как проверить что MCP-сервер подключился в Claude Code
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** терминал Claude Code с зелёным промптом, рядом canvas n8n с цветными нодами, стикеры MCP/API/workflow, неоновый diy-коллаж
+
+---
+

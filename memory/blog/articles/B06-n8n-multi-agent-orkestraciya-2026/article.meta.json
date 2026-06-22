@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-multi-agent-orkestraciya-2026",
+  "h1": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов",
+  "title": "n8n агенты: пошаговая оркестрация multi-agent системы в 2026",
+  "description": "Как собрать мультиагентную систему в n8n: orchestrator, AI Agent Tool, sub-workflows, session ID и чеклист из 16 пунктов перед prod. Prerequisite - single agent из B02.",
+  "keywords": [
+    "n8n агенты",
+    "n8n multi agent",
+    "ai agent tool n8n",
+    "мультиагентная система n8n",
+    "оркестрация ии агентов n8n"
+  ],
+  "primary_query": "n8n агенты",
+  "secondary_queries": [
+    "n8n multi agent",
+    "ai agent tool n8n",
+    "мультиагентная система n8n",
+    "оркестрация ии агентов n8n"
+  ],
+  "char_count": 8721,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить мультиагентную систему в n8n пошагово",
+    "оркестрация ии агентов n8n с ai agent tool",
+    "multi-agent workflow n8n orchestrator и sub-agents"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n агенты: пошаговая оркестрация multi-agent системы",
+    "title_ctr": "🚀 n8n агенты: один бот захлебнулся в tools? Соберите orchestrator + 3 specialists!",
+    "title_aeo": "Как настроить мультиагентную систему в n8n с AI Agent Tool?",
+    "description_seo": "Пошаговая оркестрация n8n агентов: Supervisor/Router, AI Agent Tool vs sub-workflow, session ID, чеклист prod. Для тех, кто уже собрал single agent.",
+    "description_ctr": "⚡ Multi-agent в n8n за вечер: 8 шагов сборки orchestrator, таблица паттернов, 16 пунктов чеклиста и 7 FAQ. Честно про tokens и когда хватит одного agent.",
+    "description_aeo": "Мультиагентная система n8n - orchestrator делегирует задачи specialist sub-agents через AI Agent Tool или Call n8n Workflow Tool. Настройка memory, session ID и prod-чеклист."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,14 +1,6 @@
 {
   "site_base": "https://mayai.ru",
   "total_articles": 6,
-  "opportunities_found": 1,
-  "suggestions": [
-    {
-      "source": "B02-avtomatizaciya-n8n-ai-agents",
-      "target": "B06-n8n-multi-agent-orkestraciya-2026",
-      "keyword": "n8n агенты",
-      "context": "к \"розеткам\".</p>  <p>Запросы \"n8n ai\" (720 показов/мес) и \"n8n агенты\" (699) растут вместе с интересом к автоматизации бизнеса бе",
-      "link_replacement": "<a href=\"/blog/n8n-multi-agent-orkestraciya-2026/\">n8n агенты</a>"
-    }
-  ]
+  "opportunities_found": 0,
+  "suggestions": []
 }

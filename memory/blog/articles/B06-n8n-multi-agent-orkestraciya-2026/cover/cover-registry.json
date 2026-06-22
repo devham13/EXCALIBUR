@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-multi-agent-orkestraciya-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: n8n multi-agent — orchestrator делегирует задачи specialist sub-agents вместо одного перегруженного AI Agent",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-06-22T04:26:32+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: n8n multi-agent — orchestrator делегирует задачи specialist sub-agents вместо одного перегруженного AI Agent",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист: когда одного AI Agent в n8n мало — смешанные системы, модели и anti-pattern",
+      "h2_anchor": "Проверьте, когда одного AI Agent мало",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица паттернов оркестрации n8n: Supervisor, Router, Pipeline, Reflexion",
+      "h2_anchor": "Выберите паттерн оркестрации под ваш кейс",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема сборки multi-agent в n8n: orchestrator, AI Agent Tool и sub-workflows",
+      "h2_anchor": "Соберите orchestrator и sub-agents пошагово",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-n8n-multi-agent-orkestraciya-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1035,
+      584
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 584,
+        "end": 591
+      },
+      "v_gutter_px": {
+        "start": 1035,
+        "end": 1045
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1035,
+          "bottom": 584
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1035,
+          "bottom": 584
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: n8n multi-agent — orchestrator делегирует задачи specialist sub-agents вместо одного перегруженного AI Agent",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1045,
+          "top": 10,
+          "right": 2048,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 1045,
+          "top": 0,
+          "right": 2048,
+          "bottom": 584
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист: когда одного AI Agent в n8n мало — смешанные системы, модели и anti-pattern",
+        "h2_anchor": "Проверьте, когда одного AI Agent мало"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 19,
+          "top": 591,
+          "right": 1016,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 591,
+          "right": 1035,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица паттернов оркестрации n8n: Supervisor, Router, Pipeline, Reflexion",
+        "h2_anchor": "Выберите паттерн оркестрации под ваш кейс"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1048,
+          "top": 591,
+          "right": 2045,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1045,
+          "top": 591,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема сборки multi-agent в n8n: orchestrator, AI Agent Tool и sub-workflows",
+        "h2_anchor": "Соберите orchestrator и sub-agents пошагово"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Проверьте, когда одного AI Agent мало",
+    "injected inline_2 after H2 — Выберите паттерн оркестрации под ваш кейс",
+    "injected inline_3 after H2 — Соберите orchestrator и sub-agents пошагово"
+  ]
+}

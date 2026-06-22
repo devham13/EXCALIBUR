@@ -7,6 +7,10 @@
 <p>Запросы "n8n ai" (720 показов/мес) и "n8n агенты" (699) растут вместе с интересом к оркестрации ии агентов n8n. Если задача однородная (только FAQ или только CRM), остановитесь на single agent + RAG (поиск по вашим документам перед ответом) из B02. Multi-agent нужен при разных доменах, моделях или tool noise при 10+ инструментах на одной ноде. Менее 2,5% сложных неструктурированных задач автономные системы закрывают без human-in-the-loop - планируйте эскалацию заранее.</p>
 
 <h2 id="when-one-agent-enough">Проверьте, когда одного AI Agent мало</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Чеклист: когда одного AI Agent в n8n мало — смешанные системы, модели и anti-pattern" loading="lazy">
+</figure>
+
 
 <p>Multi-agent оправдан в трёх типичных сценариях:</p>
 
@@ -21,6 +25,10 @@
 <p><b>Делайте:</b> выпишите 5 реальных диалогов и отметьте, сколько систем задействовано. <b>Не делайте:</b> sub-agents "на будущее" без задачи для каждого.</p>
 
 <h2 id="choose-pattern">Выберите паттерн оркестрации под ваш кейс</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Таблица паттернов оркестрации n8n: Supervisor, Router, Pipeline, Reflexion" loading="lazy">
+</figure>
+
 
 <table>
   <thead>
@@ -67,6 +75,10 @@
 <p><b>Делайте:</b> для ticket type - Router + Switch. <b>Не делайте:</b> LLM-routing, если CRM или keyword уже даёт категорию.</p>
 
 <h2 id="build-orchestrator">Соберите orchestrator и sub-agents пошагово</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема сборки multi-agent в n8n: orchestrator, AI Agent Tool и sub-workflows" loading="lazy">
+</figure>
+
 
 <ol>
   <li><b>Шаг 1: Prerequisite.</b> Single agent из B02 отвечает в Chat UI. Иначе сначала B02.</li>
@@ -76,11 +88,11 @@
   <li><b>Шаг 5: JSON task envelope.</b> Структурированный контекст между agents:</li>
 </ol>
 
-<pre><code>{
-  "task": "найти тариф в базе знаний",
-  "context": {"client_id": "12345"},
-  "expected_output": "ответ с ссылкой на регламент"
-}</code></pre>
+<blockquote>
+  <b>Пример JSON task envelope:</b>
+  <br>
+  {"task": "найти тариф в базе знаний", "context": {"client_id": "12345"}, "expected_output": "ответ с ссылкой на регламент"}
+</blockquote>
 
 <ol start="6">
   <li><b>Шаг 6: Prod.</b> Call n8n Workflow Tool вместо embedded AI Agent Tool - отдельный workflow на worker.</li>

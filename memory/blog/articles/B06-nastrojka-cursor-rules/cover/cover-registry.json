@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-rules",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: Agent игнорирует Cursor Rules — настройка .mdc за 30 минут",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-06-20T14:17:12+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: Agent игнорирует Cursor Rules — настройка .mdc за 30 минут",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Чеклист миграции: проверка legacy .cursorrules и выбор формата .mdc",
+      "h2_anchor": "1. Проверьте legacy и выберите формат .mdc",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Таблица frontmatter Cursor Rules: alwaysApply, globs, description и режимы",
+      "h2_anchor": "2. Создайте папку .cursor/rules и разберите frontmatter",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема workflow: 9 шагов настройки первых Cursor Rules в проекте",
+      "h2_anchor": "3. Настройте первые правила пошагово",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

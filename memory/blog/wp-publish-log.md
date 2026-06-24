@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-20 — B06 nastrojka-cursor-rules — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-cursor-rules |
+| verdict | **PASS** |
+| post_id | 296 |
+| featured_image_id | 297 |
+| inline_images | 298, 299, 300 |
+| permalink | https://mayai.ru/2026/06/20/nastrojka-cursor-rules/ |
+| trigger | Cloud Automation publish B06 |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (3/3, preflight publish)
+- schema.jsonld: present (BlogPosting + FAQPage + HowTo)
+- cover/cover.png + alt: present (fallback GenerateImage)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B06-nastrojka-cursor-rules/article.html -o .../link-verify.json --site-base https://mayai.ru  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-rules --dry-run  # OK, PHP bytes ~10MB
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-rules  # PASS
+```
+
+### Result
+
+```
+OK post=296 slug=nastrojka-cursor-rules
+OK featured_image=297
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=298 src=cover/inline-01.png
+OK inline_image_upload=299 src=cover/inline-02.png
+OK inline_image_upload=300 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/20/nastrojka-cursor-rules/
+```

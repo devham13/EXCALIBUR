@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Agent игнорирует rules — а .mdc точно подключены?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Agent игнорирует Cursor Rules — настройка .mdc за 30 минут",
+      "scene_hint": "reference-лицо в тёмной dev-худи с логотипом Cursor, дружелюбная улыбка, указывает на fake Cursor Settings UI «Rules: 0 active» и split-screen .cursorrules vs .mdc с красным YAML error «globs invalid», розовый highlight на «0 active», стикер «Agent хаос», meme facepalm + shocked cat cutout, torn paper + scotch tape",
+      "meme_caption_ru": "Rules молчат — Agent хаос"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Проверьте legacy и выберите формат .mdc",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на доске: «Проверить .cursorrules в корне», «Settings → Rules», «Выбрать .mdc, не plain .md», «Не править legacy параллельно» — розовый стикер «жиза», без лица героя",
+      "alt": "Чеклист миграции: проверка legacy .cursorrules и выбор формата .mdc"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Создайте папку .cursor/rules и разберите frontmatter",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица frontmatter-ключей: alwaysApply / globs / description / manual — колонки «Ключ», «Тип», «Когда срабатывает», пример YAML snippet внизу, лёгкий sticky note «<500 строк»",
+      "alt": "Таблица frontmatter Cursor Rules: alwaysApply, globs, description и режимы"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте первые правила пошагово",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 9 шагов: legacy check → mkdir .cursor/rules → New Cursor Rule → general.mdc → stack globs → Agent test → @rule → git commit — стрелки, номера в кружках, mini Cursor IDE icon",
+      "alt": "Схема workflow: 9 шагов настройки первых Cursor Rules в проекте"
+    }
+  }
+}

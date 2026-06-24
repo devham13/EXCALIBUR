@@ -1,0 +1,212 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#article",
+      "headline": "Как настроить Make AI Agents: пошаговая инструкция для автоматизации бизнеса",
+      "description": "Настройка Make AI Agents с нуля: Instructions, Model, tools с Return output, Reasoning Panel и чек-лист credits перед продом. Гайд для no-code автоматизации без программирования.",
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-06-20",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/make-ai-agents-nastrojka-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "make ai agents, make ai agents настройка, создание ai агента make, make com автоматизация ии, reasoning panel make",
+      "wordCount": 8997,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Make AI Agents отличается от обычного сценария Make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Агент сам выбирает tools по контексту сообщения; сценарий идёт по фиксированным модулям. Откройте таблицу в начале гайда: если вход структурирован – оставьте линейный workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли код для Make AI Agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Агенты собираются в visual builder на том же канвасе, что и классические сценарии. Зарегистрируйтесь на make.com, откройте Scenario Builder и модуль Run an agent (new)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как подключить CRM, Google Sheets или Telegram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add tool в настройках агента → выберите модуль платформы или Call a scenario. Для сценария-tool добавьте Return output в конце, иначе агент не получит данные."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько credits тратит Make AI Agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Стандартный модуль – 1 credit за действие. AI-фичи потребляют variable credits в зависимости от объёма. Не гадайте: смотрите Credit usage history после тестов, не фиксированные цифры из сторонних блогов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Make AI Agents или n8n AI Agent – что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make – SaaS, 3000+ apps, Reasoning Panel, быстрый старт. n8n – self-host, executions, глубокая кастомизация. Сравнительная таблица выше; детальный разбор n8n – в статье B02."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Агент вызывает не тот tool – что делать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Уточните descriptions (до ~240 символов), уберите дубли и лишние tools, прогоните три теста в in-canvas chat и смотрите Reasoning Panel после каждого прогона."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда обязателен human-in-the-loop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Любые платежи, удаление данных, публикации от имени компании. Добавьте approval-модуль или стоп-флаг перед рискованным tool – не полагайтесь на \"агент сам разберётся\"."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#howto",
+      "name": "Как настроить Make AI Agents: пошаговая инструкция для автоматизации бизнеса",
+      "description": "Настройка Make AI Agents с нуля: Instructions, Model, tools с Return output, Reasoning Panel и чек-лист credits перед продом. Гайд для no-code автоматизации без программирования.",
+      "inLanguage": "ru",
+      "totalTime": "PT3H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Аккаунт Make.com (Free или платный тариф)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Make AI provider или API-ключ OpenAI / Anthropic"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Создайте сценарий-триггер",
+          "text": "Новый scenario, модуль Gmail Watch emails, Webhook или Slack New message. Сохраните без активации.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Добавьте Run an agent (new)",
+          "text": "Раздел Make AI Agents (New) → Run an agent. Свяжите с триггером. В поле message передайте текст письма или JSON из webhook.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Нажмите Create agent на канвасе",
+          "text": "Задайте имя по роли: support_router, lead_qualifier. Имя видно в Library of Agents.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Напишите Instructions",
+          "text": "Роль (\"ты менеджер поддержки\"), формат ответа, запрет выдумывать цены, правило \"действуй только через tools\". Это system prompt агента.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Выберите Model",
+          "text": "Large – для многошаговых диалогов; small – для быстрой классификации. После теста можно переключить.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Добавьте Knowledge (опционально)",
+          "text": "Загрузите PDF/CSV с регламентами, если ответы должны опираться на ваши документы, а не на \"память\" модели.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Подключите 2-3 tools",
+          "text": "Add tool → модуль (Google Sheets, Slack) или Call a scenario. У on-demand сценария в конце обязателен Return output или structured scenario outputs.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Опишите каждый tool",
+          "text": "Name и description до ~240 символов: когда вызывать, что вернёт. Модель читает только это, не ваш код.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Протестируйте in-canvas chat",
+          "text": "Три промпта: нормальный запрос, edge case (пустое поле), off-topic. Смотрите Reasoning Panel – какой tool выбрал агент и почему.",
+          "url": "https://mayai.ru/blog/make-ai-agents-nastrojka-2026/#build-agent"
+        }
+      ]
+    }
+  ]
+}

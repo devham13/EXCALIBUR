@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Make AI Agent за вечер — или 47 модулей без мозга?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Ведущий блога: мем-коллаж — Make AI Agent за вечер без кода",
+      "scene_hint": "reference-лицо в фиолетовой худи no-code автоматизатора, указывает на fake Make.com canvas с AI Agent node и Reasoning Panel; вокруг fake Credit usage history «credits -847», in-canvas chat «классифицируй заявку», Telegram «опять агент вместо сценария?», sticky «Return output!», meme shocked face + facepalm cutout, розовый highlight на «без мозга»",
+      "meme_caption_ru": "Агент или сценарий?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Разберите, когда нужен Make AI Agent, а когда обычный сценарий",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица Make AI Agent vs Обычный сценарий: Входные данные, Логика, Отладка, credits, Пример кейса — «1. Разберите, когда нужен Make AI Agent, а когда обычный сценарий»",
+      "alt": "Сравнительная таблица: Make AI Agent vs обычный сценарий Make"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подготовьте аккаунт Make: тариф, credits и провайдер LLM",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow подготовки аккаунта: Регистрация Make → Тариф Free/Core/Pro → Подключить LLM provider → Credit usage history → Лимит алерт — «2. Подготовьте аккаунт Make: тариф, credits и провайдер LLM»",
+      "alt": "Схема workflow: подготовка аккаунта Make, тариф и credits"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите первого агента на канвасе: пошаговая инструкция",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист 9 шагов на clipboard: триггер → Run an agent → Create agent → Instructions → Model → Knowledge → Tools → descriptions → in-canvas chat — «3. Соберите первого агента на канвасе: пошаговая инструкция»",
+      "alt": "Чеклист 9 шагов сборки первого Make AI Agent на канвасе"
+    }
+  }
+}

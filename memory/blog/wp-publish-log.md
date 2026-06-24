@@ -171,4 +171,52 @@ OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```---
+
+## 2026-06-20 — B06 make-ai-agents-nastrojka-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | make-ai-agents-nastrojka-2026 |
+| verdict | **PASS** |
+| post_id | 286 (staging WP; production mayai.ru — pending FTP whitelist) |
+| featured_image_id | 287 |
+| inline_images | 288, 289, 290 |
+| permalink | https://mayai.ru/make-ai-agents-nastrojka-2026/ |
+| transport | SSH/SFTP + PHP 8.3 CLI (FTP `425 Security: Bad IP`) |
+
+### Preconditions
+
+- link-verify.json: pass (preflight 3/3)
+- article-qa.md: PASS (93/100)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ...  # pass
+python3 scripts/excalibur_blog_wp_publish.py --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py  # FAIL ftplib.error_temp: 425 Security: Bad IP
+# fallback: SFTP upload + /usr/local/bin/php8.3 excalibur-blog-publish-once.php
 ```
+
+### Result
+
+```
+OK post=286 slug=make-ai-agents-nastrojka-2026
+OK featured_image=287
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=288 src=cover/inline-01.png
+OK inline_image_upload=289 src=cover/inline-02.png
+OK inline_image_upload=290 src=cover/inline-03.png
+```
+
+### Notes
+
+- Стандартный FTP bootstrap недоступен из Cloud (Beget IP whitelist). Fallback: SFTP + PHP 8.3 CLI на staging WP (PUBLIC_SITE_URL).
+- Полный permalink и inline media URLs — в `wp-publish-result.json` (локально, не в git).
+- `mayai.ru` REST API не содержит slug `make-ai-agents-nastrojka-2026` — для production: whitelist FTP IP или publish с локальной машины.

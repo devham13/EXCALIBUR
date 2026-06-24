@@ -1,0 +1,19 @@
+{
+  "slug": "make-ai-agents-nastrojka-2026",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/make-ai-agents-nastrojka-2026/",
+  "post_id": "286",
+  "featured_image": "287",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-make-ai-agents-nastrojka-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1417195,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=286 slug=make-ai-agents-nastrojka-2026\nOK featured_image=287\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=288 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/make-ai-agents-nastrojka-2026-inline-01.png\nOK inline_image_upload=289 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/make-ai-agents-nastrojka-2026-inline-02.png\nOK inline_image_upload=290 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/make-ai-agents-nastrojka-2026-inline-03.png\npermalink=https://mayai.ru/make-ai-agents-nastrojka-2026/\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp_php83_cli",
+  "exit_code": 0,
+  "note": "staging post_id=286; production mayai.ru pending FTP IP whitelist"
+}

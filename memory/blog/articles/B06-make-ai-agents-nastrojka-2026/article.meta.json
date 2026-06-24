@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "make-ai-agents-nastrojka-2026",
+  "h1": "Как настроить Make AI Agents: пошаговая инструкция для автоматизации бизнеса",
+  "title": "Make AI Agents: пошаговая настройка агента на Make.com для бизнеса",
+  "description": "Настройка Make AI Agents с нуля: Instructions, Model, tools с Return output, Reasoning Panel и чек-лист credits перед продом. Гайд для no-code автоматизации без программирования.",
+  "keywords": [
+    "make ai agents",
+    "make ai agents настройка",
+    "создание ai агента make",
+    "make com автоматизация ии",
+    "reasoning panel make"
+  ],
+  "primary_query": "make ai agents",
+  "secondary_queries": [
+    "make com ai agents",
+    "make ai agents настройка",
+    "make com автоматизация ии",
+    "создание ai агента make"
+  ],
+  "char_count": 8997,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить make ai agents пошагово",
+    "создание ai агента в make com для бизнеса",
+    "make ai agents настройка tools и reasoning panel"
+  ],
+  "meta_ab": {
+    "title_seo": "Make AI Agents: пошаговая настройка агента на Make.com для бизнеса",
+    "title_ctr": "🚀 Make AI Agents: соберите первого агента на Make.com за один вечер без кода!",
+    "title_aeo": "Как настроить Make AI Agents для автоматизации бизнеса без программирования?",
+    "description_seo": "Настройка Make AI Agents: Instructions, Model, tools с Return output, тест в Reasoning Panel и чек-лист credits. Пошаговый гайд для no-code автоматизации.",
+    "description_ctr": "⚡ 9 шагов до рабочего Make AI Agent: канвас, tools, Return output, сравнение с n8n и чек-лист из 12 пунктов перед продом. Без кода!",
+    "description_aeo": "Make AI Agents – модули на канвасе Make.com, которые выбирают tools по контексту. Настройка: Run an agent, Instructions, Reasoning Panel, credits и human approval."
+  },
+  "cover_family": "brand_collage"
+}

@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Make AI Agents (New)
+
+- **priority:** P0
+- **slug:** make-ai-agents-nastrojka-2026
+- **h1:** Как настроить Make AI Agents: пошаговая инструкция для автоматизации бизнеса
+- **primary_query:** make ai agents
+- **secondary_queries:** make com ai agents, make ai agents настройка, make com автоматизация ии, создание ai агента make
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Make AI Agents (New) в 2026: чем отличается от старых сценариев и когда выбирать Make вместо n8n
+  2. Подготовка аккаунта: тарифы, credits, выбор провайдера LLM (Make AI / OpenAI / Anthropic)
+  3. Пошаговая сборка первого агента в Scenario Builder: Instructions, Model, Knowledge
+  4. Подключение tools: модули платформы, Call a scenario, MCP-серверы
+  5. Тестирование в Reasoning Panel и отладка ошибок tool-calls
+  6. Чек-лист перед продакшеном: лимиты credits, guardrails, human approval для рискованных действий
+- **faq_hints:** как создать ai агента в make; чем make ai agents отличается от n8n ai agent; сколько credits тратит make ai agents
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** канвас Make.com с модулем AI Agent в центре, Reasoning Panel как «окно мыслей» агента, стикеры Tools/Knowledge/MCP, неоновый diy-коллаж в стиле no-code
+
+---
+

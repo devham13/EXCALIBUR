@@ -1,0 +1,15 @@
+{
+  "slug": "chat-bot-dlya-biznesa-rag",
+  "topic_id": "B06",
+  "permalink": "/2026/06/21/chat-bot-dlya-biznesa-rag/",
+  "post_id": 407,
+  "featured_image_id": 408,
+  "inline_image_ids": [
+    409,
+    410,
+    411
+  ],
+  "raw_output": "OK post=407 slug=chat-bot-dlya-biznesa-rag\nOK featured_image=408\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=409 src=cover/inline-01.png\nOK inline_image_upload=410 src=cover/inline-02.png\nOK inline_image_upload=411 src=cover/inline-03.png\npermalink=/2026/06/21/chat-bot-dlya-biznesa-rag/",
+  "verdict": "pass",
+  "publish_method": "sftp_bootstrap_fallback (FTP data channel blocked: 425 Bad IP)"
+}

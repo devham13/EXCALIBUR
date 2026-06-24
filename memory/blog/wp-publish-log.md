@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-21 — B06 chat-bot-dlya-biznesa-rag — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | chat-bot-dlya-biznesa-rag |
+| verdict | **PASS** |
+| post_id | 407 |
+| featured_image_id | 408 |
+| inline_images | 409, 410, 411 |
+| permalink | (resolve via PUBLIC_SITE_URL + slug)
+| trigger | `excalibur-blog-publish topic_id: B06` |
+| publish_method | SFTP bootstrap fallback (FTP data channel 425 Bad IP; FTP_ROOT corrected to `/`) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (5/5, preflight 2026-06-21)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=407 slug=chat-bot-dlya-biznesa-rag
+OK featured_image=408
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=409 src=cover/inline-01.png
+OK inline_image_upload=410 src=cover/inline-02.png
+OK inline_image_upload=411 src=cover/inline-03.png
+permalink=(see post_id 407)
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

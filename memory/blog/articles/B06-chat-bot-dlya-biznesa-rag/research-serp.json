@@ -1,0 +1,468 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-21",
+    "today_ru": "21.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-23",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-21 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "chat-bot-dlya-biznesa-rag",
+    "h1": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM",
+    "primary_query": "чат боты для бизнеса",
+    "secondary_queries": [
+      "ии чат бот для бизнеса",
+      "чат бот для бизнеса telegram",
+      "чат бот для бизнеса макс",
+      "как сделать чат бот для бизнеса"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "чат боты для бизнеса 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чат-боты для бизнеса: как выбрать и внедрить в 2026 году",
+          "url": "https://aibusinessbot.ru/chat-boty-dlya-biznesa-kak-vybrat-i-vnedrit-v-2026-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "ТОП чат-ботов для бизнеса в 2026 году — сравнение и кейсы",
+          "url": "https://bothelp.io/ru/blog/luchshie-chat-boty-dlya-biznesa",
+          "snippet": "Главное изменение 2026 года — появление ИИ-менеджеров. Это не просто чат-боты с шаблонными ответами, а полноценные агенты, которые ведут переговоры, дожимают сделки и увеличивают доходимость клиентов."
+        },
+        {
+          "title": "Лучшие чат-боты для бизнеса: обновленный рейтинг на 2026 год.",
+          "url": "https://ru.bytebio.com/%D0%91%D0%BB%D0%BE%D0%B3/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0",
+          "snippet": "ТОП платформ для создания чат-ботов: сравнение, кейсы и реальные результаты. Узнайте, как автоматизировать продажи и не терять клиентов."
+        },
+        {
+          "title": "Чат-боты для бизнеса в 2026: 11 типов, кейсы, цены",
+          "url": "https://mbk-agent.ru/blog/chat-boty-dlya-biznesa-2026",
+          "snippet": "В этой статье вы поймете, как работает чат-бот, почему вам следует использовать его в своей компании, и увидите обновленный рейтинг 7 лучших чат-ботов для развития вашего бизнеса в 2026 году."
+        },
+        {
+          "title": "Лучшие чат-боты и ИИ-агенты для бизнеса в 2026: обзор платформ и тренды",
+          "url": "https://flow-masters.ru/blog/chatbots-business-2026/",
+          "snippet": "Разбираем 11 рабочих типов ботов и как выбрать тот, что окупится за квартал. «Чат-бот для бизнеса» в 2026 — это уже не «здравствуйте, чем могу помочь?» с тремя кнопками. Современный бот квалифицирует холодных лидов, поднимает «пропавших» клиентов из CRM, проводит онбординг, продаёт допуслуги."
+        },
+        {
+          "title": "ТОП конструкторов чат-ботов для бизнеса 2026: полный обзор платформ для ...",
+          "url": "https://dtf.ru/id2419219/3971202-luchshie-konstruktory-chat-botov-dlya-biznesa-2025-obzor-platform",
+          "snippet": "Обзор лучших платформ чат-ботов 2026: BotHelp, SaleBot, ChatPlace и кастомные решения. Тренды ИИ-агентов и выбор под нишу."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "чат боты для бизнеса июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чат-бот для бизнеса 2026 — руководство по выбору",
+          "url": "https://deplox.ru/blog/chat-bot-dlya-biznesa-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Чат-боты для бизнеса в 2026: 11 типов, кейсы, цены",
+          "url": "https://mbk-agent.ru/blog/chat-boty-dlya-biznesa-2026",
+          "snippet": "Полное руководство по чат-ботам для бизнеса в 2026: типы ботов, сценарии использования, стоимость внедрения и критерии выбора платформы."
+        },
+        {
+          "title": "Лучшие чат-боты для бизнеса в 2026 | NeuronChat",
+          "url": "https://chatneuron.ru/blog/luchshie-chatboty-dlya-biznesa-2026",
+          "snippet": "Разбираем 11 рабочих типов ботов и как выбрать тот, что окупится за квартал. «Чат-бот для бизнеса» в 2026 — это уже не «здравствуйте, чем могу помочь?» с тремя кнопками. Современный бот квалифицирует холодных лидов, поднимает «пропавших» клиентов из CRM, проводит онбординг, продаёт допуслуги."
+        },
+        {
+          "title": "10 лучших чат-ботов ИИ для бизнеса и веб-сайтов (июнь 2026)",
+          "url": "https://www.unite.ai/ru/chatbots/",
+          "snippet": "Сравнивая лучшие ии агенты и чат-платформы, смотрите не только на интерфейс, но и на бизнес-результат: квалификация лида, скорость ответа, интеграции, стоимость сопровождения."
+        },
+        {
+          "title": "ТОП чат-ботов для бизнеса в 2026 году — сравнение и кейсы",
+          "url": "https://bothelp.io/ru/blog/luchshie-chat-boty-dlya-biznesa",
+          "snippet": "Вот взгляд на 10 лучших платформ чат-ботов ИИ на рынке: 1. Chatling — это платформа чат-ботов ИИ без кода, предназначенная для того, чтобы помочь бизнесу быстро развернуть интеллектуальные чат-боты, обученные на их собственном контенте."
+        },
+        {
+          "title": "Лучшие чат-боты для бизнеса: обновленный рейтинг на 2026 год.",
+          "url": "https://ru.bytebio.com/%D0%91%D0%BB%D0%BE%D0%B3/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0",
+          "snippet": "ТОП платформ для создания чат-ботов: сравнение, кейсы и реальные результаты. Узнайте, как автоматизировать продажи и не терять клиентов."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "чат боты для бизнеса новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Нейросети в бизнесе 2026: от чат-ботов до цифровых аналитиков",
+          "url": "https://vc.ru/id1005869/2231345-neyroseti-v-biznese-2026-chat-boty-analitika-i-novye-tehnologii",
+          "snippet": ""
+        },
+        {
+          "title": "Чат-боты для бизнеса: как выбрать и внедрить в 2026 году",
+          "url": "https://aibusinessbot.ru/chat-boty-dlya-biznesa-kak-vybrat-i-vnedrit-v-2026-godu/",
+          "snippet": "В этой статье разбираем, как чат-боты, автономные агенты и цифровая аналитика меняют бизнес в 2026 году и какие возможности открывают для компаний."
+        },
+        {
+          "title": "Чат-боты для бизнеса в 2026: 11 типов, кейсы, цены",
+          "url": "https://mbk-agent.ru/blog/chat-boty-dlya-biznesa-2026",
+          "snippet": "Главное изменение 2026 года — появление ИИ-менеджеров. Это не просто чат-боты с шаблонными ответами, а полноценные агенты, которые ведут переговоры, дожимают сделки и увеличивают доходимость клиентов."
+        },
+        {
+          "title": "Лучшие чат-боты и ИИ-агенты для бизнеса в 2026: обзор платформ и тренды",
+          "url": "https://flow-masters.ru/blog/chatbots-business-2026/",
+          "snippet": "Разбираем 11 рабочих типов ботов и как выбрать тот, что окупится за квартал. «Чат-бот для бизнеса» в 2026 — это уже не «здравствуйте, чем могу помочь?» с тремя кнопками. Современный бот квалифицирует холодных лидов, поднимает «пропавших» клиентов из CRM, проводит онбординг, продаёт допуслуги."
+        },
+        {
+          "title": "Каким должен быть чат-бот для бизнеса в 2026 году",
+          "url": "https://ngs55.ru/text/business/2026/03/28/76318967/?erid=2SDnjdG4fbP",
+          "snippet": "Обзор лучших платформ чат-ботов 2026: BotHelp, SaleBot, ChatPlace и кастомные решения. Тренды ИИ-агентов и выбор под нишу."
+        },
+        {
+          "title": "Лучшие чат-боты для бизнеса в 2026 | NeuronChat",
+          "url": "https://chatneuron.ru/blog/luchshie-chatboty-dlya-biznesa-2026",
+          "snippet": "Российский бизнес перестал воспринимать роботов для чатов как экзотику. Они стали привычным и удобным инструментом, который существенно облегчает работу с клиентами."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "ии чат бот для бизнеса 2026",
+      "purpose": "вторичный запрос: ии чат бот для бизнеса",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чат-боты для бизнеса: как выбрать и внедрить в 2026 году",
+          "url": "https://aibusinessbot.ru/chat-boty-dlya-biznesa-kak-vybrat-i-vnedrit-v-2026-godu/",
+          "snippet": ""
+        },
+        {
+          "title": "10 лучших чат-ботов ИИ для бизнеса и веб-сайтов (июнь 2026)",
+          "url": "https://www.unite.ai/ru/chatbots/",
+          "snippet": "Главное изменение 2026 года — появление ИИ-менеджеров. Это не просто чат-боты с шаблонными ответами, а полноценные агенты, которые ведут переговоры, дожимают сделки и увеличивают доходимость клиентов."
+        },
+        {
+          "title": "Лучшие чат-боты и ИИ-агенты для бизнеса в 2026: обзор платформ и тренды",
+          "url": "https://flow-masters.ru/blog/chatbots-business-2026/",
+          "snippet": "Вот взгляд на 10 лучших платформ чат-ботов ИИ на рынке: 1. Chatling — это платформа чат-ботов ИИ без кода, предназначенная для того, чтобы помочь бизнесу быстро развернуть интеллектуальные чат-боты, обученные на их собственном контенте."
+        },
+        {
+          "title": "ИИ-бот для бизнеса 2026: гайд по запуску и настройке",
+          "url": "https://blog.chatplace.io/ii-bot-dlya-biznesa-gayd-po-zapusku-v-2026/",
+          "snippet": "Обзор лучших платформ чат-ботов 2026: BotHelp, SaleBot, ChatPlace и кастомные решения. Тренды ИИ-агентов и выбор под нишу."
+        },
+        {
+          "title": "Какие ИИ-чат-боты станут лучшим...",
+          "url": "https://www.radaar.io/ru/resources-121/blog-388/which-ai-chatbot-tools-best-serve-growing-businesses-in-2026-16291/",
+          "snippet": "Узнайте, как запустить ИИ-бота для вашего бизнеса в 2026 году. Полное руководство: от выбора модели до автоматизации продаж и поддержки клиентов."
+        },
+        {
+          "title": "Для бизнеса: 7 лучших ИИ-чат-ботов для обслуживания клиентов в 2026 году",
+          "url": "https://respond.io/ru/blog/best-ai-chatbot-for-customer-service",
+          "snippet": "Какие ИИ-чат-боты станут лучшими помощниками бизнеса в 2026? Изучите 8 топовых ИИ-чат-ботов для стартапов, малого бизнеса и агентств для управления соцсетями в 2026 году."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "чат бот для бизнеса telegram 2026",
+      "purpose": "вторичный запрос: чат бот для бизнеса telegram",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чат-бот в Telegram 2026: автоматизация продаж и сервиса",
+          "url": "https://blog.chatplace.io/chat-bot-v-telegram-dlya-biznesa-kak-avtomatizirovat-prodazhi-i-zamenit-otdel-podderzhki/",
+          "snippet": ""
+        },
+        {
+          "title": "Чат-бот для бизнеса в Telegram [стоимость и ROI] 2026",
+          "url": "https://konsol.pro/blog/chat-bot-dlya-biznesa-v-telegram-polnoe-rukovodstvo",
+          "snippet": "Пошаговое руководство по созданию Telegram-бота для бизнеса. Разбираем, как перевести продажи и техподдержку на автопилот и повысить лояльность."
+        },
+        {
+          "title": "ТОП-14 конструкторов чат-ботов в Telegram в 2026 году",
+          "url": "https://tproger.ru/articles/top-14-konstruktorov-chat-botov-v-telegram-v-2026-godu",
+          "snippet": "Что такое Telegram-бот для бизнеса и как он помогает автоматизировать задачи? Если упростить, Telegram-бот — это чат-бот, который выполняет действия за пользователя и команду, работая внутри экосистемы мессенджера. Это не просто автоответчик."
+        },
+        {
+          "title": "Telegram для бизнеса",
+          "url": "https://telegram.org/blog/telegram-business/?setln=ru",
+          "snippet": "Полный рейтинг 14 лучших конструкторов для создания чат-ботов в Telegram в 2026 году. Сравнение функционала, интеграций, AI-возможностей и цен."
+        },
+        {
+          "title": "Как создать чат-бота в Телеграм: полное руководство 2026 | BotHelp",
+          "url": "https://bothelp.io/ru/blog/kak-sozdat-chat-bot-v-telegram-polnoe-rukovodstvo",
+          "snippet": "С сегодняшнего дня каждый может превратить свой аккаунт в Telegram в бизнес-аккаунт — и получить доступ к таким функциям для бизнеса, как часы работы и адрес, быстрые ответы, автоматические сообщения, настройка сообщения на пустой странице чата, поддержка чат-ботов и многое другое."
+        },
+        {
+          "title": "Telegram для бизнеса 2026: бизнес-аккаунты, реклама и боты",
+          "url": "https://elama.ru/blog/telegram-dlya-biznesa-kakie-instrumenty-predlagaet-messendzher-1-v-rossii/",
+          "snippet": "Полное пошаговое руководство по созданию функционального Telegram-бота для бизнеса за 15 минут с помощью конструктора BotHelp. Telegram-боты стали незаменимым инструментом для автоматизации бизнеса и привлечения клиентов."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "чат бот для бизнеса макс 2026",
+      "purpose": "вторичный запрос: чат бот для бизнеса макс",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Max Для Бизнеса: Уведомления, Мини-приложения, Чат-боты",
+          "url": "https://business.max.ru/",
+          "snippet": ""
+        },
+        {
+          "title": "Как Создать Чат-бота В Max С Нуля В 2026: Пошаговый Гайд Для Бизнеса",
+          "url": "https://vk.com/@m.digital-kak-sozdat-chat-bota-v-max-s-nulya-v-2026-poshagovyi-gaid-dl",
+          "snippet": "Единая платформа для уведомлений по номеру телефона, кодов подтверждения, рассылок и автоматизации процессов через мини-приложения и чат-боты. Простая интеграция и подробная аналитика."
+        },
+        {
+          "title": "Max Для Бизнеса В 2026 Году: Чат-боты, Мини-приложения И Каналы Для ...",
+          "url": "https://townsend.ru/messendzher-max-dlya-biznesa-v-2026-godu",
+          "snippet": "В 2026 году это не просто средство связи, а полноценная торговая площадка. Разберемся, как создать чат-бота в MAX и делегировать ему рутину за 1 день. Почему вашему бизнесу нужен бот в MAX?"
+        },
+        {
+          "title": "Чат-бот В Max Для Бизнеса — Полное Руководство 2026",
+          "url": "https://textback.ru/chat-bot-v-max-kak-sozdat-i-ispolzovat-dlya-biznesa-polnoe-rukovodstvo-2026/",
+          "snippet": "В этой статье разберём, какие возможности MAX уже предлагает бизнесу в 2026 году и как их можно использовать на практике."
+        },
+        {
+          "title": "МАКС для бизнеса в 2026: каналы, боты, продвижение — полный гайд",
+          "url": "https://blog.t-traf.ru/max-dlya-biznesa-2026/",
+          "snippet": "Разбираем как создать и настроить чат-бот в MAX, как подключить к CRM или CDP, сценарии использования с примерами для разных ниш"
+        },
+        {
+          "title": "Как Создать Чат-бота В Max С Нуля В 2026: Пошаговый Гайд Для Бизнеса",
+          "url": "https://rabotaem.app/post/2994-kak-sozdat-chat-bota-v-max-s-nulya-v-2026-poshagovyy-gayd-dlya-biznesa",
+          "snippet": "Что такое МАКС для бизнеса в 2026 МАКС — отечественный мессенджер, который в 2025-2026 годах вырос из «ещё одного клиента» в площадку с собственной экосистемой для компаний."
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "как сделать чат бот для бизнеса 2026",
+      "purpose": "вторичный запрос: как сделать чат бот для бизнеса",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Чат-бот для бизнеса: как создать с нуля в 2026 году",
+          "url": "https://aibot.direct/blog/chatbot-dlya-biznesa",
+          "snippet": ""
+        },
+        {
+          "title": "Как создать чат бот — пошаговая инструкция 2026",
+          "url": "https://dzen.guru/blog/kak-sozdat-chat-bot",
+          "snippet": "Как сделать чат-бота для бизнеса без программирования. Пошаговое руководство: от выбора платформы до запуска. Примеры, сравнение инструментов, стоимость."
+        },
+        {
+          "title": "ТОП конструкторов чат-ботов для бизнеса 2026: полный обзор платформ для ...",
+          "url": "https://dtf.ru/id2419219/3971202-luchshie-konstruktory-chat-botov-dlya-biznesa-2025-obzor-platform",
+          "snippet": "Как создать чат бот — разбираем по шагам: что это, как работает, примеры использования. Актуальный гайд 2026 с инструкциями."
+        },
+        {
+          "title": "Рейтинг 15 лучших конструкторов чат-бота — как создать чат-бота ...",
+          "url": "https://vc.ru/services/2615399-15-luchshikh-konstruktorov-chat-botov",
+          "snippet": "В этом обзоре мы рассмотрим лучшие конструкторы чат-ботов, которые позволяют создавать умных помощников без навыков программирования."
+        },
+        {
+          "title": "Как Создать Чат-бота В Max С Нуля В 2026: Пошаговый Гайд Для Бизнеса",
+          "url": "https://vk.com/@m.digital-kak-sozdat-chat-bota-v-max-s-nulya-v-2026-poshagovyi-gaid-dl",
+          "snippet": "В статье собраны наиболее удобные и функциональные конструкторы для создания чат-ботов, как платных, так и бесплатных."
+        },
+        {
+          "title": "Чат-бот для бизнеса: полное руководство 2026 — Vitaly-AI",
+          "url": "https://vitaly-ai.ru/blog/chatbot-dlya-biznesa-polnoe-rukovodstvo",
+          "snippet": "В 2026 году это не просто средство связи, а полноценная торговая площадка. Разберемся, как создать чат-бота в MAX и делегировать ему рутину за 1 день. Почему вашему бизнесу нужен бот в MAX?"
+        }
+      ],
+      "searched_at": "2026-06-21"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-06-21"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://aibusinessbot.ru/chat-boty-dlya-biznesa-kak-vybrat-i-vnedrit-v-2026-godu/",
+      "title": "Чат-боты для бизнеса: как выбрать и внедрить в 2026 году",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://bothelp.io/ru/blog/luchshie-chat-boty-dlya-biznesa",
+      "title": "ТОП чат-ботов для бизнеса в 2026 году — сравнение и кейсы",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://ru.bytebio.com/%D0%91%D0%BB%D0%BE%D0%B3/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0",
+      "title": "Лучшие чат-боты для бизнеса: обновленный рейтинг на 2026 год.",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://mbk-agent.ru/blog/chat-boty-dlya-biznesa-2026",
+      "title": "Чат-боты для бизнеса в 2026: 11 типов, кейсы, цены",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://flow-masters.ru/blog/chatbots-business-2026/",
+      "title": "Лучшие чат-боты и ИИ-агенты для бизнеса в 2026: обзор платформ и тренды",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://dtf.ru/id2419219/3971202-luchshie-konstruktory-chat-botov-dlya-biznesa-2025-obzor-platform",
+      "title": "ТОП конструкторов чат-ботов для бизнеса 2026: полный обзор платформ для ...",
+      "from_query": "чат боты для бизнеса 2026"
+    },
+    {
+      "url": "https://deplox.ru/blog/chat-bot-dlya-biznesa-2026",
+      "title": "Чат-бот для бизнеса 2026 — руководство по выбору",
+      "from_query": "чат боты для бизнеса июнь 2026"
+    },
+    {
+      "url": "https://chatneuron.ru/blog/luchshie-chatboty-dlya-biznesa-2026",
+      "title": "Лучшие чат-боты для бизнеса в 2026 | NeuronChat",
+      "from_query": "чат боты для бизнеса июнь 2026"
+    },
+    {
+      "url": "https://www.unite.ai/ru/chatbots/",
+      "title": "10 лучших чат-ботов ИИ для бизнеса и веб-сайтов (июнь 2026)",
+      "from_query": "чат боты для бизнеса июнь 2026"
+    },
+    {
+      "url": "https://vc.ru/id1005869/2231345-neyroseti-v-biznese-2026-chat-boty-analitika-i-novye-tehnologii",
+      "title": "Нейросети в бизнесе 2026: от чат-ботов до цифровых аналитиков",
+      "from_query": "чат боты для бизнеса новости 2026"
+    },
+    {
+      "url": "https://ngs55.ru/text/business/2026/03/28/76318967/?erid=2SDnjdG4fbP",
+      "title": "Каким должен быть чат-бот для бизнеса в 2026 году",
+      "from_query": "чат боты для бизнеса новости 2026"
+    },
+    {
+      "url": "https://blog.chatplace.io/ii-bot-dlya-biznesa-gayd-po-zapusku-v-2026/",
+      "title": "ИИ-бот для бизнеса 2026: гайд по запуску и настройке",
+      "from_query": "ии чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://www.radaar.io/ru/resources-121/blog-388/which-ai-chatbot-tools-best-serve-growing-businesses-in-2026-16291/",
+      "title": "Какие ИИ-чат-боты станут лучшим...",
+      "from_query": "ии чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://respond.io/ru/blog/best-ai-chatbot-for-customer-service",
+      "title": "Для бизнеса: 7 лучших ИИ-чат-ботов для обслуживания клиентов в 2026 году",
+      "from_query": "ии чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://blog.chatplace.io/chat-bot-v-telegram-dlya-biznesa-kak-avtomatizirovat-prodazhi-i-zamenit-otdel-podderzhki/",
+      "title": "Чат-бот в Telegram 2026: автоматизация продаж и сервиса",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://konsol.pro/blog/chat-bot-dlya-biznesa-v-telegram-polnoe-rukovodstvo",
+      "title": "Чат-бот для бизнеса в Telegram [стоимость и ROI] 2026",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://tproger.ru/articles/top-14-konstruktorov-chat-botov-v-telegram-v-2026-godu",
+      "title": "ТОП-14 конструкторов чат-ботов в Telegram в 2026 году",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://telegram.org/blog/telegram-business/?setln=ru",
+      "title": "Telegram для бизнеса",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://bothelp.io/ru/blog/kak-sozdat-chat-bot-v-telegram-polnoe-rukovodstvo",
+      "title": "Как создать чат-бота в Телеграм: полное руководство 2026 | BotHelp",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://elama.ru/blog/telegram-dlya-biznesa-kakie-instrumenty-predlagaet-messendzher-1-v-rossii/",
+      "title": "Telegram для бизнеса 2026: бизнес-аккаунты, реклама и боты",
+      "from_query": "чат бот для бизнеса telegram 2026"
+    },
+    {
+      "url": "https://business.max.ru/",
+      "title": "Max Для Бизнеса: Уведомления, Мини-приложения, Чат-боты",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://vk.com/@m.digital-kak-sozdat-chat-bota-v-max-s-nulya-v-2026-poshagovyi-gaid-dl",
+      "title": "Как Создать Чат-бота В Max С Нуля В 2026: Пошаговый Гайд Для Бизнеса",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://townsend.ru/messendzher-max-dlya-biznesa-v-2026-godu",
+      "title": "Max Для Бизнеса В 2026 Году: Чат-боты, Мини-приложения И Каналы Для ...",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://textback.ru/chat-bot-v-max-kak-sozdat-i-ispolzovat-dlya-biznesa-polnoe-rukovodstvo-2026/",
+      "title": "Чат-бот В Max Для Бизнеса — Полное Руководство 2026",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://blog.t-traf.ru/max-dlya-biznesa-2026/",
+      "title": "МАКС для бизнеса в 2026: каналы, боты, продвижение — полный гайд",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://rabotaem.app/post/2994-kak-sozdat-chat-bota-v-max-s-nulya-v-2026-poshagovyy-gayd-dlya-biznesa",
+      "title": "Как Создать Чат-бота В Max С Нуля В 2026: Пошаговый Гайд Для Бизнеса",
+      "from_query": "чат бот для бизнеса макс 2026"
+    },
+    {
+      "url": "https://aibot.direct/blog/chatbot-dlya-biznesa",
+      "title": "Чат-бот для бизнеса: как создать с нуля в 2026 году",
+      "from_query": "как сделать чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://dzen.guru/blog/kak-sozdat-chat-bot",
+      "title": "Как создать чат бот — пошаговая инструкция 2026",
+      "from_query": "как сделать чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://vc.ru/services/2615399-15-luchshikh-konstruktorov-chat-botov",
+      "title": "Рейтинг 15 лучших конструкторов чат-бота — как создать чат-бота ...",
+      "from_query": "как сделать чат бот для бизнеса 2026"
+    },
+    {
+      "url": "https://vitaly-ai.ru/blog/chatbot-dlya-biznesa-polnoe-rukovodstvo",
+      "title": "Чат-бот для бизнеса: полное руководство 2026 — Vitaly-AI",
+      "from_query": "как сделать чат бот для бизнеса 2026"
+    }
+  ]
+}

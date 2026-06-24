@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B06-chat-bot-dlya-biznesa-rag/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "Kinsey верифицированы по первоисточникам на 21.06.2026. Объёмы Яндекс Вордстат по primary query будут ут",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": ": канал, Vector Store, handoff и метрики FCR за 7-14 дней. После гайда вы зафиксируете MVP-задачу, проиндек",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "ector Store → CRM. При готовом FAQ MVP занимает 3-7 дней; без базы знаний не запускайте - будет галлюцинац",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "стрее стартует без Docker. Перед продакшеном - 50-100 тест-кейсов и пилот с FCR 60-80%, CSAT и fallback",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "нет\". Нарежьте документы на chunks (куски) по 500-1000 токенов с overlap 100-200 (10-20%) - как перекрыва",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1200",
+      "kind": "large_number",
+      "context": "цы справочника. Для support-кейсов практикуют 800-1200 символов на chunk и top-k 3-5 фрагментов на запрос",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "смене цен и регламентов. Не делайте: один PDF на 200 страниц без нарезки - поиск станет неточным. 3. Со",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2500",
+      "kind": "large_number",
+      "context": "тарт без DevOps Cloud trial; Starter от 20 €/мес, 2500 executions Free 1000 credits/мес; регистрация за м",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "ted CE бесплатно + свой vector store Облако Make, 3000+ интеграций из коробки AI Agent Tools Agent, Vect",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 800",
+      "kind": "large_number",
+      "context": "рите модульную сборку на курсе Make.com (подписка 5 800 ₽/мес, 159+ уроков) - там же сценарии AI Agents с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

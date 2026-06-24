@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/chat-bot-dlya-biznesa-rag/#article",
+      "headline": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM",
+      "description": "Пошаговый workflow чат-бота для бизнеса с RAG: Telegram, n8n или Make, Vector Store, эскалация оператору и CRM. Чеклист запуска за 7-14 дней без программиста.",
+      "datePublished": "2026-06-21",
+      "dateModified": "2026-06-21",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/chat-bot-dlya-biznesa-rag-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "чат боты для бизнеса, ии чат бот для бизнеса, чат бот для бизнеса telegram, чат бот для бизнеса макс, как сделать чат бот для бизнеса, rag чат бот n8n make",
+      "wordCount": 9422,
+      "articleSection": "Чат-боты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/chat-bot-dlya-biznesa-rag/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как создать чат-бот для бизнеса без программиста?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зафиксируйте одну задачу (FAQ или лиды), выберите канал и соберите workflow в n8n или Make: триггер → AI Agent → Vector Store → CRM. При готовом FAQ MVP занимает 3-7 дней; без базы знаний не запускайте - будет галлюцинации."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем чат-бот с RAG отличается от конструктора без базы знаний?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Конструктор без RAG отвечает \"из головы\" модели. RAG подтягивает ваши документы перед ответом. Настройте system prompt \"только из контекста\" и эскалацию, если chunk не найден."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ИИ чат-бот для бизнеса бесплатно - реально?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n Community Edition бесплатен, но нужны сервер и оплата API LLM. Make Free даёт 1000 credits/мес. \"Бесплатно без RAG\" - риск выдуманных цен; минимум - vector store и тест-кейсы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как подключить чат-бота в Telegram для бизнеса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BotFather → токен → Business mode → Telegram Trigger в n8n или модуль в Make → memory по chat_id → 20 тестовых диалогов до рекламы. Проверьте эскалацию на фразу \"оператор\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли MAX, если уже есть Telegram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На MVP - не обязателен. Добавляйте MAX после стабильных FCR/CSAT в Telegram; учитывайте модерацию до 48 рабочих часов и лимит 5 ботов на организацию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда эскалировать диалог оператору?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет факта в базе, жалоба, медицина/юридические темы, низкая confidence, триггер-слова. Передавайте полный transcript в CRM и ставьте pause bot для этого chat_id до ответа человека."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/chat-bot-dlya-biznesa-rag/#howto",
+      "name": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM",
+      "description": "Пошаговый workflow чат-бота для бизнеса с RAG: Telegram, n8n или Make, Vector Store, эскалация оператору и CRM. Чеклист запуска за 7-14 дней без программиста.",
+      "inLanguage": "ru",
+      "totalTime": "P14D",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud или n8n self-hosted / Make.com"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Vector store (Qdrant, Pinecone, pgvector или Supabase)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "API-ключ OpenAI или аналог LLM"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Telegram Bot или Chat Trigger для тестов"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Поднимите vector store",
+          "text": "Qdrant, Pinecone, pgvector или Supabase - любой вариант с embeddings. В n8n: Data Loader → split → OpenAI Embeddings → insert; в Make - knowledge module или HTTP к вашей БД.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте workflow с триггером",
+          "text": "n8n: Telegram Trigger или Chat Trigger для тестов без мессенджера. Make: instant trigger + AI Agent (доступен на всех тарифах).",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Добавьте AI Agent и Chat Model",
+          "text": "OpenAI gpt-4o-mini или аналог для MVP. API-ключ храните в Credentials, не в открытом тексте.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Подключите Vector Store Tool",
+          "text": "Limit chunks + Include Metadata в n8n. Агент ищет факты перед ответом - как консультант с папкой регламентов.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Включите Memory",
+          "text": "session_id = chat_id; Simple Memory в n8n по умолчанию хранит 5 interactions - хватает для уточняющих вопросов.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Напишите system prompt",
+          "text": "\"Отвечай только из retrieved context. Если факта нет - эскалируй, не выдумывай цены.\" Задайте max iterations, чтобы агент не зациклился.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Протестируйте в Chat UI",
+          "text": "10 реальных вопросов из поддержки + 5 провокаций (\"скидка 90%\", \"аллергия\", цена без прайса). Смотрите логи: какие chunks подтянулись.",
+          "url": "https://mayai.ru/chat-bot-dlya-biznesa-rag/"
+        }
+      ]
+    }
+  ]
+}

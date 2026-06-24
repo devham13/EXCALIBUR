@@ -1,0 +1,39 @@
+{
+  "topic_id": "B06",
+  "slug": "chat-bot-dlya-biznesa-rag",
+  "h1": "Как создать чат-бот для бизнеса с RAG: пошаговый workflow в n8n/Make с эскалацией и CRM",
+  "title": "Чат боты для бизнеса: RAG-бот в n8n/Make с CRM и эскалацией",
+  "description": "Пошаговый workflow чат-бота для бизнеса с RAG: Telegram, n8n или Make, Vector Store, эскалация оператору и CRM. Чеклист запуска за 7-14 дней без программиста.",
+  "keywords": [
+    "чат боты для бизнеса",
+    "ии чат бот для бизнеса",
+    "чат бот для бизнеса telegram",
+    "чат бот для бизнеса макс",
+    "как сделать чат бот для бизнеса",
+    "rag чат бот n8n make"
+  ],
+  "primary_query": "чат боты для бизнеса",
+  "secondary_queries": [
+    "ии чат бот для бизнеса",
+    "чат бот для бизнеса telegram",
+    "чат бот для бизнеса макс",
+    "как сделать чат бот для бизнеса"
+  ],
+  "char_count": 9422,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как создать чат бот для бизнеса с rag в n8n",
+    "пошаговый workflow чат бота с эскалацией и crm",
+    "сравнение n8n и make для ии чат бота поддержки"
+  ],
+  "meta_ab": {
+    "title_seo": "Чат боты для бизнеса: RAG-бот в n8n/Make с CRM и эскалацией",
+    "title_ctr": "🚀 Чат-бот для бизнеса с RAG: FAQ за 7 дней или эскалация в CRM?",
+    "title_aeo": "Как создать чат-бот для бизнеса с RAG в n8n или Make?",
+    "description_seo": "Пошаговый workflow чат-бота для бизнеса с RAG: Telegram, n8n или Make, Vector Store, эскалация оператору и CRM. Чеклист запуска за 7-14 дней.",
+    "description_ctr": "⚡ Соберите RAG-бота для FAQ и лидов: 7 шагов в n8n/Make, таблица каналов, handoff в CRM и 12 пунктов чеклиста перед рекламой. Без выдуманных цен.",
+    "description_aeo": "Чат-бот для бизнеса с RAG отвечает из ваших FAQ через Vector Store в n8n или Make, эскалирует оператору при низкой уверенности и пишет лиды в CRM."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-22",
+    "today_ru": "22.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-cursor-subagents-2026",
+    "h1": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды",
+    "primary_query": "cursor subagents",
+    "secondary_queries": [
+      "субагенты cursor",
+      "cursor агенты настройка",
+      "настройка subagents cursor",
+      "cursor 2.4 subagents"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "cursor subagents 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "cursor subagents июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "cursor subagents новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "субагенты cursor 2026",
+      "purpose": "вторичный запрос: субагенты cursor"
+    },
+    {
+      "id": "secondary_2",
+      "query": "cursor агенты настройка 2026",
+      "purpose": "вторичный запрос: cursor агенты настройка"
+    },
+    {
+      "id": "secondary_3",
+      "query": "настройка subagents cursor 2026",
+      "purpose": "вторичный запрос: настройка subagents cursor"
+    },
+    {
+      "id": "secondary_4",
+      "query": "cursor 2.4 subagents 2026",
+      "purpose": "вторичный запрос: cursor 2.4 subagents"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastrojka-cursor-subagents-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

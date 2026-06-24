@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-cursor-subagents-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ки с собственным контекстом (с версии 2.4, январь 2026). Кастомный subagent – markdown с YAML-шапкой в `",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "ьной памятью, которые работают параллельно. За 20–30 минут вы создадите двоих в `.cursor/agents/`: reviewer",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

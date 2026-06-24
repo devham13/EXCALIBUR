@@ -1,0 +1,484 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-22",
+    "today_ru": "22.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-24",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-22 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-cursor-subagents-2026",
+    "h1": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды",
+    "primary_query": "cursor subagents",
+    "secondary_queries": [
+      "субагенты cursor",
+      "cursor агенты настройка",
+      "настройка subagents cursor",
+      "cursor 2.4 subagents"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "cursor subagents 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Subagents, Skills, and Image Generation · Cursor",
+          "url": "https://cursor.com/changelog/2-4",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/docs/subagents",
+          "snippet": "Cursor includes default subagents for researching your codebase, running terminal commands, and executing parallel work streams. These will automatically start improving the quality of your agent conversations in the editor and the Cursor CLI."
+        },
+        {
+          "title": "Cursor AI v3: Complete Guide to Background Agents and Subagents (2026)",
+          "url": "https://tutorials.technology/tutorials/cursor-ai-v3-complete-guide-2026.html",
+          "snippet": "Create specialized AI subagents for task-specific workflows and context management."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Subagents were added to Cursor in January 2026. Where a single Agent Mode session operates sequentially — one file at a time, one step at a time — Subagents allow you to spin up multiple Claude instances in parallel, each with its own independent context window and task scope."
+        },
+        {
+          "title": "Cursor Subagents — Complete Guide | by Code and Bird | Medium",
+          "url": "https://medium.com/@codeandbird/cursor-subagents-complete-guide-5853e8d39176",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Субагенты в Cursor: как создать субагента — гайд для новичков",
+          "url": "https://khar-ag.ru/docs/cursor-subagents-guide/",
+          "snippet": "When you kick off a complex task in Cursor 2.4, you'll see subagents appear in the agent sidebar. The main agent is orchestrating; the subagents are executing in parallel."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "cursor subagents июнь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+          "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/docs/subagents",
+          "snippet": "Cursor's bet is that keeping the interactive and programmatic surfaces unified — one tool, one mental model — is worth something. With custom tools, nested subagents, auto-review, and configurable stores shipping together, that bet looks more credible than it did a week ago."
+        },
+        {
+          "title": "Subagents, Skills, and Image Generation · Cursor",
+          "url": "https://cursor.com/changelog/2-4",
+          "snippet": "Create specialized AI subagents for task-specific workflows and context management."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Cursor includes default subagents for researching your codebase, running terminal commands, and executing parallel work streams. These will automatically start improving the quality of your agent conversations in the editor and the Cursor CLI."
+        },
+        {
+          "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+          "url": "https://releasebot.io/updates/cursor",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Cursor 2026: Skills, Subagents, Modes, Rules, MCP, Hooks, Commands ...",
+          "url": "https://www.youtube.com/watch?v=TMxDSeMJXcU",
+          "snippet": "Complete list of Cursor latest updates for June 2026: get every product news, release note, and changelog from Cursor summarized in one timeline."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "cursor subagents новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Subagents, Skills, and Image Generation · Cursor",
+          "url": "https://cursor.com/changelog/2-4",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+          "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+          "snippet": "Cursor includes default subagents for researching your codebase, running terminal commands, and executing parallel work streams. These will automatically start improving the quality of your agent conversations in the editor and the Cursor CLI."
+        },
+        {
+          "title": "What's New in Cursor — Latest Updates & Release Notes",
+          "url": "https://cursor.com/changelog",
+          "snippet": "Cursor's bet is that keeping the interactive and programmatic surfaces unified — one tool, one mental model — is worth something. With custom tools, nested subagents, auto-review, and configurable stores shipping together, that bet looks more credible than it did a week ago."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Cloud Environment Setup and Cloud Subagents in Agents Window This release introduces updates to cloud agents in the Agents Window of the Cursor desktop app."
+        },
+        {
+          "title": "Cursor AI v3: Complete Guide to Background Agents and Subagents (2026)",
+          "url": "https://tutorials.technology/tutorials/cursor-ai-v3-complete-guide-2026.html",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Актуальный гайд на Cursor в 2026 году / Хабр",
+          "url": "https://habr.com/ru/companies/bothub/articles/1044774/",
+          "snippet": "Master Cursor AI v3 in 2026. Background Agents run async while you code, Subagents parallelize large refactors, Plan Mode reviews before executing. Teams report 20-40% faster delivery."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "субагенты cursor 2026",
+      "purpose": "вторичный запрос: субагенты cursor",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/ru/docs/subagents",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Cursor 2026 - Best Practices for Agent-Based Development",
+          "url": "https://www.youtube.com/watch?v=Nk0GcIYol30",
+          "snippet": "Вы можете использовать субагентов в Редакторе, CLI и Cloud Agents. У каждого субагента есть собственное контекстное окно. Длительные исследовательские или поисковые задачи не занимают место в вашей основной беседе. Запускайте несколько субагентов одновременно."
+        },
+        {
+          "title": "Cursor AI v3: Complete Guide to Background Agents and Subagents (2026)",
+          "url": "https://tutorials.technology/tutorials/cursor-ai-v3-complete-guide-2026.html",
+          "snippet": "В этом видео разбираем лучшие практики работы с агентами в Cursor, которые помогают выжать максимум из AI ..."
+        },
+        {
+          "title": "Субагенты в Cursor: как создать субагента — гайд для новичков",
+          "url": "https://khar-ag.ru/docs/cursor-subagents-guide/",
+          "snippet": "Master Cursor AI v3 in 2026. Background Agents run async while you code, Subagents parallelize large refactors, Plan Mode reviews before executing. Teams report 20-40% faster delivery."
+        },
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/docs/subagents",
+          "snippet": "Короткий ответ: Что такое субагенты в Cursor, зачем они нужны, как оформить файл в .cursor/agents/ и чем субагент отличается от скилла и команды — пошагово для новичков."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "cursor агенты настройка 2026",
+      "purpose": "вторичный запрос: cursor агенты настройка",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Настройка | Cursor Docs",
+          "url": "https://cursor.com/ru/docs/cloud-agent/setup",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Настройка агентов | Cursor Learn",
+          "url": "https://cursor.com/ru/learn/customizing-agents",
+          "snippet": "Настройте облачные агенты с конфигурацией инфраструктуры, командами запуска и секретами."
+        },
+        {
+          "title": "ИИ Агенты 2026: полный гайд — создание в Cursor и заработок",
+          "url": "https://vibecoding.by/blog/ii-agenty-polnyj-gajd-2026",
+          "snippet": "Узнайте, как формировать поведение агента с помощью правил для статического контекста и навыков для динамических возможностей."
+        },
+        {
+          "title": "Cursor 2026 - лучшие практики разработки с агентами",
+          "url": "https://rutube.ru/video/1158af70051ba10c238bf6b3b0647cfb/",
+          "snippet": "Разбираемся, что такое ИИ-агенты, как создавать их в Cursor, реальные кейсы применения, лучшие практики и способы заработка на AI-агентах в 2026 году. Искусственный интеллект перестал быть просто чат-ботом."
+        },
+        {
+          "title": "Актуальный гайд на Cursor в 2026 году / Хабр",
+          "url": "https://habr.com/ru/companies/bothub/articles/1044774/",
+          "snippet": "В этом видео разбираем лучшие практики работы с агентами в Cursor, которые помогают выжать максимум из AI-разработки. 🔥 Хотите научиться грамотной AI-driven разработке ИИ-агентов?"
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "настройка subagents cursor 2026",
+      "purpose": "вторичный запрос: настройка subagents cursor",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor AI: Полный гайд по вайбкодингу с нуля. Subagents, Hooks, Skills ...",
+          "url": "https://rutube.ru/video/3eedc300725e05681f75716b99569177/",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Субагенты в Cursor: как создать субагента — гайд для новичков",
+          "url": "https://khar-ag.ru/docs/cursor-subagents-guide/",
+          "snippet": "Все, что нужно знать о Cursor AI в 2026 году, чтобы начать вайбкодить на максималках! Полный урок от установки Cursor IDE до создания сайта за 1 промпт. В этом видео мы разберем все возможности и настройки курсора в одном видео ..."
+        },
+        {
+          "title": "Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents для ...",
+          "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+          "snippet": "Короткий ответ: Что такое субагенты в Cursor, зачем они нужны, как оформить файл в .cursor/agents/ и чем субагент отличается от скилла и команды — пошагово для новичков."
+        },
+        {
+          "title": "Cursor 3.3: контекст агента — rules, skills, MCP и subagents — Обучение ...",
+          "url": "https://mayai.ru/cursor-3-3-agent-context-mcp-subagents/",
+          "snippet": "Полный гайд по инструментам Cursor: настройка .cursorrules, использование MCP серверов, динамические навыки Skills и управление субагентами для AI-разработки."
+        },
+        {
+          "title": "Cursor 2026: Skills, Subagents, Modes, Rules, MCP, Hooks, Commands ...",
+          "url": "https://www.youtube.com/watch?v=TMxDSeMJXcU",
+          "snippet": "В релизе Cursor 3.3 (май 2026) добавлена разбивка использования контекста агента: можно увидеть, какие категории «съедают» бюджет, и настроить rules, skills, MCP и subagents осознаннее."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "cursor 2.4 subagents 2026",
+      "purpose": "вторичный запрос: cursor 2.4 subagents",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Subagents, Skills, and Image Generation · Cursor",
+          "url": "https://cursor.com/changelog/2-4",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/docs/subagents",
+          "snippet": "Cursor includes default subagents for researching your codebase, running terminal commands, and executing parallel work streams. These will automatically start improving the quality of your agent conversations in the editor and the Cursor CLI."
+        },
+        {
+          "title": "Cursor 2.4: Subagents & Skills Explained | AI Makers Blog",
+          "url": "https://www.aimakers.co/blog/cursor-2-4-subagents/",
+          "snippet": "Create specialized AI subagents for task-specific workflows and context management."
+        },
+        {
+          "title": "How to Master Cursor 2.4 Subagents: A Complete Step-by-Step Beginner's ...",
+          "url": "https://dredyson.com/how-to-master-cursor-2-4-subagents-a-complete-step-by-step-beginners-guide-with-real-world-examples/",
+          "snippet": "Cursor 2.4 represents a massive leap in AI-assisted development. With subagents, Agent Skills, cloud execution, and enterprise features like Cursor Blame, this update transforms how teams build software. Here's everything you need to know. The January 2026 release packs several game-changing features:"
+        },
+        {
+          "title": "Cursor 2.4 и Subagents: новый уровень многозадачности в AI-редакторе ...",
+          "url": "https://forumai.io/threads/cursor-2-4-i-subagents-novyi-uroven-mnogozadachnosti-v-ai-redaktore-koda-rocketlaptop-computer.10047/",
+          "snippet": "In this guide, I'll walk you through exactly what I wish someone had shown me on day one. What Are Subagents in Cursor 2.4? Remember that time you tried to refactor code while answering emails? Subagents are like cloning yourself - but better. I've got three specialized helpers now:"
+        },
+        {
+          "title": "Cursor 2.4 представил Subagents и встроенную генерацию изображений",
+          "url": "https://www.computerra.ru/334399/cursor-2-4-predstavil-subagents-i-vstroennuyu-generatsiyu-izobrazhenij/",
+          "snippet": "Итог: Cursor становится ещё ближе к «умному IDE» Subagents, улучшенная работа с кодом и встроенные инструменты делают Cursor 2.4 одним из самых продвинутых AI-редакторов на сегодня."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Subagents | Cursor Docs",
+          "url": "https://cursor.com/ru/docs/subagents",
+          "snippet": ""
+        },
+        {
+          "title": "Мультиагентная разработка в Cursor: как заставить субагентов работать ...",
+          "url": "https://habr.com/ru/articles/971620/",
+          "snippet": "Субагенты — это специализированные AI-ассистенты, которым агент Cursor может делегировать задачи. Каждый субагент работает в собственном контекстном окне, обрабатывает определённые типы задач и возвращает результат родительскому агенту."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Каждый подход показал свои сильные и слабые стороны. Есть подход Cursor, где..."
+        },
+        {
+          "title": "Субагенты в Cursor: гайд по делегированию задач ИИ-агенту",
+          "url": "https://kv-ai.ru/tpost/subagenty-cursor-guide",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        },
+        {
+          "title": "Agent mode | Cursor Docs",
+          "url": "https://cursor.com/ru/help/ai-features/agent",
+          "snippet": "В этом материале — как устроены субагенты, зачем они нужны разработчикам и как создавать своих. Cursor — редактор кода с встроенным ИИ-агентом. Агент получает задачу от пользователя, анализирует кодовую базу, запускает команды и вносит изменения."
+        },
+        {
+          "title": "Субагенты в Cursor: как создать субагента — гайд для новичков",
+          "url": "https://khar-ag.ru/docs/cursor-subagents-guide/",
+          "snippet": "Может ли Agent делегировать задачи субагентам? Да. Agent может запускать специализированных субагентов, чтобы параллельно выполнять поиск информации, команды оболочки или действия в браузере."
+        }
+      ],
+      "searched_at": "2026-06-22"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://cursor.com/changelog/2-4",
+      "title": "Subagents, Skills, and Image Generation · Cursor",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://cursor.com/docs/subagents",
+      "title": "Subagents | Cursor Docs",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://tutorials.technology/tutorials/cursor-ai-v3-complete-guide-2026.html",
+      "title": "Cursor AI v3: Complete Guide to Background Agents and Subagents (2026)",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+      "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://medium.com/@codeandbird/cursor-subagents-complete-guide-5853e8d39176",
+      "title": "Cursor Subagents — Complete Guide | by Code and Bird | Medium",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://khar-ag.ru/docs/cursor-subagents-guide/",
+      "title": "Субагенты в Cursor: как создать субагента — гайд для новичков",
+      "from_query": "cursor subagents 2026"
+    },
+    {
+      "url": "https://byteiota.com/cursor-sdk-june-2026-custom-tools-stores-auto-review/",
+      "title": "Cursor SDK June 2026: Custom Tools, Stores, and Auto-Review",
+      "from_query": "cursor subagents июнь 2026"
+    },
+    {
+      "url": "https://releasebot.io/updates/cursor",
+      "title": "Cursor Release Notes - June 2026 Latest Updates - Releasebot",
+      "from_query": "cursor subagents июнь 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TMxDSeMJXcU",
+      "title": "Cursor 2026: Skills, Subagents, Modes, Rules, MCP, Hooks, Commands ...",
+      "from_query": "cursor subagents июнь 2026"
+    },
+    {
+      "url": "https://cursor.com/changelog",
+      "title": "What's New in Cursor — Latest Updates & Release Notes",
+      "from_query": "cursor subagents новости 2026"
+    },
+    {
+      "url": "https://habr.com/ru/companies/bothub/articles/1044774/",
+      "title": "Актуальный гайд на Cursor в 2026 году / Хабр",
+      "from_query": "cursor subagents новости 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/docs/subagents",
+      "title": "Subagents | Cursor Docs",
+      "from_query": "субагенты cursor 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Nk0GcIYol30",
+      "title": "Cursor 2026 - Best Practices for Agent-Based Development",
+      "from_query": "субагенты cursor 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/docs/cloud-agent/setup",
+      "title": "Настройка | Cursor Docs",
+      "from_query": "cursor агенты настройка 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/learn/customizing-agents",
+      "title": "Настройка агентов | Cursor Learn",
+      "from_query": "cursor агенты настройка 2026"
+    },
+    {
+      "url": "https://vibecoding.by/blog/ii-agenty-polnyj-gajd-2026",
+      "title": "ИИ Агенты 2026: полный гайд — создание в Cursor и заработок",
+      "from_query": "cursor агенты настройка 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/1158af70051ba10c238bf6b3b0647cfb/",
+      "title": "Cursor 2026 - лучшие практики разработки с агентами",
+      "from_query": "cursor агенты настройка 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/3eedc300725e05681f75716b99569177/",
+      "title": "Cursor AI: Полный гайд по вайбкодингу с нуля. Subagents, Hooks, Skills ...",
+      "from_query": "настройка subagents cursor 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+      "title": "Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents для ...",
+      "from_query": "настройка subagents cursor 2026"
+    },
+    {
+      "url": "https://mayai.ru/cursor-3-3-agent-context-mcp-subagents/",
+      "title": "Cursor 3.3: контекст агента — rules, skills, MCP и subagents — Обучение ...",
+      "from_query": "настройка subagents cursor 2026"
+    },
+    {
+      "url": "https://www.aimakers.co/blog/cursor-2-4-subagents/",
+      "title": "Cursor 2.4: Subagents & Skills Explained | AI Makers Blog",
+      "from_query": "cursor 2.4 subagents 2026"
+    },
+    {
+      "url": "https://dredyson.com/how-to-master-cursor-2-4-subagents-a-complete-step-by-step-beginners-guide-with-real-world-examples/",
+      "title": "How to Master Cursor 2.4 Subagents: A Complete Step-by-Step Beginner's ...",
+      "from_query": "cursor 2.4 subagents 2026"
+    },
+    {
+      "url": "https://forumai.io/threads/cursor-2-4-i-subagents-novyi-uroven-mnogozadachnosti-v-ai-redaktore-koda-rocketlaptop-computer.10047/",
+      "title": "Cursor 2.4 и Subagents: новый уровень многозадачности в AI-редакторе ...",
+      "from_query": "cursor 2.4 subagents 2026"
+    },
+    {
+      "url": "https://www.computerra.ru/334399/cursor-2-4-predstavil-subagents-i-vstroennuyu-generatsiyu-izobrazhenij/",
+      "title": "Cursor 2.4 представил Subagents и встроенную генерацию изображений",
+      "from_query": "cursor 2.4 subagents 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/971620/",
+      "title": "Мультиагентная разработка в Cursor: как заставить субагентов работать ...",
+      "from_query": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды 2026"
+    },
+    {
+      "url": "https://kv-ai.ru/tpost/subagenty-cursor-guide",
+      "title": "Субагенты в Cursor: гайд по делегированию задач ИИ-агенту",
+      "from_query": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды 2026"
+    },
+    {
+      "url": "https://cursor.com/ru/help/ai-features/agent",
+      "title": "Agent mode | Cursor Docs",
+      "from_query": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды 2026"
+    }
+  ]
+}

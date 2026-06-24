@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-subagents-2026",
+  "h1": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды",
+  "title": "Cursor subagents: пошаговая настройка субагентов и параллель",
+  "description": "Как настроить cursor subagents за 20–30 минут: .cursor/agents/, YAML frontmatter, code-reviewer и test-runner, вызов /name, параллель в Agent Mode и сравнение с MCP и Background Agents.",
+  "keywords": [
+    "cursor subagents",
+    "субагенты cursor",
+    "cursor агенты настройка",
+    "настройка subagents cursor",
+    "cursor 2.4 subagents"
+  ],
+  "primary_query": "cursor subagents",
+  "secondary_queries": [
+    "субагенты cursor",
+    "cursor агенты настройка",
+    "настройка subagents cursor",
+    "cursor 2.4 subagents"
+  ],
+  "char_count": 8899,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor subagents пошагово",
+    "настройка субагентов cursor agents yaml frontmatter",
+    "параллельные subagents в cursor agent mode"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor subagents: пошаговая настройка субагентов и параллель",
+    "title_ctr": "🚀 Cursor subagents за 30 минут: reviewer + test-runner параллельно!",
+    "title_aeo": "Как настроить субагентов (cursor subagents) в Cursor для параллельной работы?",
+    "description_seo": "Настройка cursor subagents: .cursor/agents/, readonly reviewer, test-runner, /name, параллель Task, file ownership. Сравнение subagents vs MCP vs Background Agents.",
+    "description_ctr": "⚡ Соберите первую ИИ-команду в Cursor: 7 шагов, 2 готовых subagent-файла, таблица frontmatter и чеклист перед git commit. Без enterprise-оркестратора.",
+    "description_aeo": "Cursor subagents – markdown в .cursor/agents/ с YAML frontmatter; явный /name или автоделегирование; параллель через Task tool с Cursor 2.4+."
+  },
+  "cover_family": "brand_collage"
+}

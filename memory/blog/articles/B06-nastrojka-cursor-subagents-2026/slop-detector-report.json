@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "Поле По умолчанию Когда менять name имя файла Вызов `/name` description – Автоделегирование; \"use proactively\" для test-runner model inherit Другая модель, если разрешено планом readonly false true – без прав на файлы и shell is_background false true – прогресс в `~/",
+      "word_count": 36
+    },
+    {
+      "sentence": "Review – readonly на весь diff; test-runner – тестовые файлы и код, который чинит падения; две фичи – разные каталоги или отдельные git worktrees, чтобы агенты не трогали одни paths",
+      "word_count": 27
+    },
+    {
+      "sentence": "Сравните subagents, Background Agents и MCP-tools Критерий Subagents Background Agents MCP-tools Суть Агент с промптом и моделью Долгая cloud/automation задача Доступ к API, браузеру, GitHub Изоляция Свой context window Отдельная сессия Tool внутри одного агента Параллель Несколько Task в одном сообщении Фон без блокировки Последовательные вызовы Когда Review + tests + search PR на cloud, babysit Внешние данные Настройка `",
+      "word_count": 58
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.4,
+    "avg_syllables_per_word": 1.3
+  }
+}

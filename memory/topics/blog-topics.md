@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Субагенты Cursor
+
+- **priority:** P0
+- **slug:** nastrojka-cursor-subagents-2026
+- **h1:** Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды
+- **primary_query:** cursor subagents
+- **secondary_queries:** субагенты cursor, cursor агенты настройка, настройка subagents cursor, cursor 2.4 subagents
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Субагенты vs Agent Mode: когда делегировать задачи параллельно в 2026 году
+  2. Структура `.cursor/agents/`: YAML frontmatter, model, readonly, is_background
+  3. Пошаговая настройка первого кастомного субагента (reviewer + test-writer)
+  4. Оркестрация параллельных subagents: file ownership, worktrees, troubleshooting
+  5. Сравнение: subagents vs Background Agents vs MCP-tools — что выбрать
+- **faq_hints:** как создать субагента в cursor; чем subagents отличаются от cursor rules; почему субагент не появляется в task tool
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** IDE Cursor в центре, вокруг экрана три «мини-робота»-субагента со стикерами explore/reviewer/test-writer, параллельные неоновые стрелки задач, diy-коллаж
+
+---
+

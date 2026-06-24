@@ -1,0 +1,254 @@
+<p>Agent в Cursor по умолчанию делает задачи по очереди: пока ищет файлы, не запускает тесты. Субагенты (cursor subagents) – узкие помощники с отдельной памятью, которые работают параллельно. За 20–30 минут вы создадите двоих в `.cursor/agents/`: reviewer только смотрит код, test-runner гоняет тесты. Настроите вызов `/name`, параллель из Agent Mode и правила, чтобы git не сломался.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Субагенты Cursor – независимые ИИ-помощники с собственным контекстом (с версии 2.4, январь 2026). Кастомный subagent – markdown с YAML-шапкой в `.cursor/agents/`. Встроенные explore, bash и browser работают без настройки. Начните с 2–3 ролей, readonly для аудита, явный `/name` или автоделегирование через description. Пять subagents параллельно ≈ пять диалогов по токенам – разведите file ownership до commit.</blockquote>
+
+<p>Субагент – узкий специалист в отдельном "кабинете": своя память, чистый главный чат. Главный Agent – оркестратор: он решает, кому отдать поиск, shell или review. Поле description в YAML – "визитка" для автоделегирования: чем конкретнее формулировка, тем чаще Agent вызовет нужную роль без `/name`. Если subagentу нужен браузер или CMS, сначала MCP по <a href="/podklyuchenie-mcp-cursor/">гайду MCP в Cursor</a> – subagents наследуют MCP-tools родителя (кроме cloud subagents).</p>
+
+<h2 id="subagents-vs-agent">1. Сравните субагентов и Agent Mode: когда параллелить</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение Agent Mode и subagents: когда запускать параллельные Task в Cursor" loading="lazy">
+</figure>
+
+
+<p>Один Agent хватит для линейных задач: "найди → исправь → проверь". Subagents нужны, когда ветки независимы: review diff, тесты и поиск по репо одновременно. С Cursor 2.4 Agent делегирует встроенным explore (поиск), bash (терминал) и browser (MCP).</p>
+
+<blockquote>
+  <b>Workflow:</b>
+  <br>
+  Задача → Agent → Task tool → subagent(s) параллельно → отчёты → вы принимаете diff
+</blockquote>
+
+<p><b>Делайте:</b> параллелить независимые куски (разные файлы или readonly + правки). <b>Не делайте:</b> десятки generic subagents – Agent не поймёт, когда делегировать (docs: 2–3 focused роли).</p>
+
+<h2 id="built-in">2. Проверьте встроенные explore, bash и browser</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист проверки встроенных explore, bash и browser перед кастомными subagents" loading="lazy">
+</figure>
+
+
+<p>До своих файлов дайте промпт: "Найди API key в проекте и покажи npm-скрипты в package.json". Должны сработать explore и bash без `.cursor/agents/`. Explore по умолчанию на более быстрой модели – удобно для параллельных поисков. Browser требует MCP browser tool и зелёный статус сервера в Tools &amp; MCP.</p>
+
+<p><b>Делайте:</b> один тест explore + bash и зафиксируйте, что Agent Mode включён (не Ask, не Plan). <b>Не делайте:</b> дублировать explore кастомным search-agent – лишние токены и путаница в автоделегировании.</p>
+
+<h2 id="structure">3. Настройте `.cursor/agents/` и YAML frontmatter</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема настройки .cursor/agents/ и YAML frontmatter для cursor subagents" loading="lazy">
+</figure>
+
+
+<p>Файл subagent – YAML-шапка + инструкции. Проект: `.cursor/agents/`; глобально: `~/.cursor/agents/`. Проектный файл побеждает при конфликте имён.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Поле</th>
+      <th>По умолчанию</th>
+      <th>Когда менять</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>name</b></td>
+      <td>имя файла</td>
+      <td>Вызов `/name`</td>
+    </tr>
+    <tr>
+      <td><b>description</b></td>
+      <td>–</td>
+      <td>Автоделегирование; "use proactively" для test-runner</td>
+    </tr>
+    <tr>
+      <td><b>model</b></td>
+      <td>inherit</td>
+      <td>Другая модель, если разрешено планом</td>
+    </tr>
+    <tr>
+      <td><b>readonly</b></td>
+      <td>false</td>
+      <td>true – без прав на файлы и shell</td>
+    </tr>
+    <tr>
+      <td><b>is_background</b></td>
+      <td>false</td>
+      <td>true – прогресс в `~/.cursor/subagents/`</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> коммитьте `.cursor/agents/` в git. <b>Не делайте:</b> JSON из сторонних гайдов – канон только `.md` + YAML (<a href="https://cursor.com/docs/subagents" target="_blank">docs</a>).</p>
+
+<h2 id="create-agents">4. Создайте code-reviewer и test-runner пошагово</h2>
+
+<p>Cursor 2.4+, Agent Mode. Шаги:</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Папка `.cursor/agents/` в корне проекта.</li>
+  <li><b>Шаг 2:</b> `code-reviewer.md` с `readonly: true`.</li>
+  <li><b>Шаг 3:</b> `test-runner.md` с "use proactively" в description.</li>
+  <li><b>Шаг 4:</b> Сохраните – перезапуск не нужен.</li>
+  <li><b>Шаг 5:</b> Тест: `/code-reviewer проверь последние изменения` – без записи в файлы.</li>
+  <li><b>Шаг 6:</b> Параллель: "Review API changes and update tests in parallel" – два Task-потока.</li>
+  <li><b>Шаг 7:</b> Commit `.cursor/agents/`; разведите зоны файлов.</li>
+</ol>
+
+<p>Файл code-reviewer:</p>
+
+<blockquote>
+  <b>code-reviewer.md:</b><br>
+  ---<br>
+  name: code-reviewer<br>
+  description: Use when reviewing diffs, PRs, or recent code changes. Readonly audit for security and style.<br>
+  model: inherit<br>
+  readonly: true<br>
+  is_background: false<br>
+  ---<br>
+  You are a code reviewer. Check recent changes for secrets, injection, style, missing tests.<br>
+  Do NOT edit files. Report as a numbered list with file paths.
+</blockquote>
+
+<p>Файл test-runner:</p>
+
+<blockquote>
+  <b>test-runner.md:</b><br>
+  ---<br>
+  name: test-runner<br>
+  description: Use proactively after any code changes. Run tests, fix failures, re-run until green.<br>
+  model: inherit<br>
+  readonly: false<br>
+  is_background: false<br>
+  ---<br>
+  When invoked: detect test command, run tests, fix failures minimally, re-run until green.<br>
+  Summarize command, pass/fail, files changed.
+</blockquote>
+
+<p>Дальше добавьте verifier (readonly) – проверка "сделано vs заявлено". <b>Делайте:</b> инструкции в теле на английском. <b>Не делайте:</b> `readonly: false` на reviewer.</p>
+
+<h2 id="invoke-parallel">5. Вызовите `/name` и параллельный запуск</h2>
+
+<p><b>Явно:</b> `/code-reviewer проверь auth flow` – когда нужна конкретная роль без риска ошибочного выбора. <b>Авто:</b> Agent читает description и вызывает Task tool; фразы "use proactively" и "always use for" усиливают триггер (официальная docs). Foreground subagent блокирует родителя до отчёта – удобно перед merge. Background (`is_background: true`) возвращает управление сразу; прогресс в `~/.cursor/subagents/`, можно resume по agent ID. С Cursor 2.5+ subagents запускают дочерних (лимит вложенности; у subagent второго уровня дальше нельзя).</p>
+
+<p><b>Делайте:</b> две независимые цели в одном сообщении – параллельные Task calls. <b>Не делайте:</b> параллельные правки одного файла – merge conflict.</p>
+
+<h2 id="orchestration">6. Оркестрируйте: file ownership и worktrees</h2>
+
+<p>Пять subagents ≈ пять context windows и ~5× tokens (docs) – закладывайте бюджет, если гоняете review, tests и explore одновременно. Review – readonly на весь diff; test-runner – тестовые файлы и код, который чинит падения; две фичи – разные каталоги или отдельные git worktrees, чтобы агенты не трогали одни paths. Остановка родителя останавливает дочерних subagents. Cloud Agents: `/in-cloud` отправляет задачу на VM/branch, `/babysit` ведёт итерации по PR; MCP там из team config на cursor.com/agents, не из вашей локальной mcp.json.</p>
+
+<p><b>Делайте:</b> background для long tasks. <b>Не делайте:</b> shell-оркестратор как единственный путь – для старта хватит Agent + `.cursor/agents/`.</p>
+
+<h2 id="comparison">7. Сравните subagents, Background Agents и MCP-tools</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Subagents</th>
+      <th>Background Agents</th>
+      <th>MCP-tools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Суть</b></td>
+      <td>Агент с промптом и моделью</td>
+      <td>Долгая cloud/automation задача</td>
+      <td>Доступ к API, браузеру, GitHub</td>
+    </tr>
+    <tr>
+      <td><b>Изоляция</b></td>
+      <td>Свой context window</td>
+      <td>Отдельная сессия</td>
+      <td>Tool внутри одного агента</td>
+    </tr>
+    <tr>
+      <td><b>Параллель</b></td>
+      <td>Несколько Task в одном сообщении</td>
+      <td>Фон без блокировки</td>
+      <td>Последовательные вызовы</td>
+    </tr>
+    <tr>
+      <td><b>Когда</b></td>
+      <td>Review + tests + search</td>
+      <td>PR на cloud, babysit</td>
+      <td>Внешние данные</td>
+    </tr>
+    <tr>
+      <td><b>Настройка</b></td>
+      <td>`.cursor/agents/*.md`</td>
+      <td>Cloud / Automations</td>
+      <td>mcp.json, Tools &amp; MCP</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Вердикт:</b> Subagents – параллельные роли в IDE. Background – работа на часы в cloud. MCP – внешние сервисы; subagents наследуют tools. Skills дополняют, но не заменяют изоляцию контекста.
+</blockquote>
+
+<h2 id="troubleshooting">8. Исправьте типичные ошибки</h2>
+
+<p>Subagent не в Task tool – проверьте путь `.cursor/agents/name.md`, YAML между `---`, режим Agent (не Ask). Vague description "helps with coding" – anti-pattern: Agent не делегирует.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Нет в Task tool – путь, YAML, Agent mode, конкретный description.</li>
+  <li><b>Шаг 2:</b> name в frontmatter = файл = `/name`.</li>
+  <li><b>Шаг 3:</b> Wrong model – оставьте inherit или смените в настройках.</li>
+  <li><b>Шаг 4:</b> Review правит файлы – `readonly: true`.</li>
+  <li><b>Шаг 5:</b> Дорого – меньше параллели; помните про 5× tokens.</li>
+</ol>
+
+<p><b>Делайте:</b> hooks subagentStart/subagentStop для логов. <b>Не делайте:</b> JSON-формат из EN-блогов.</p>
+
+<h2 id="checklist">9. Пройдите чеклист перед git commit</h2>
+
+<ul>
+  <li>Cursor 2.4+ (Help → About)</li>
+  <li>Agent Mode в чате</li>
+  <li>explore/bash на тестовом промпте</li>
+  <li>`.cursor/agents/` в корне</li>
+  <li>code-reviewer: readonly + description</li>
+  <li>test-runner: "use proactively"</li>
+  <li>Тест `/code-reviewer` без записи в файлы</li>
+  <li>Параллельный промпт – два потока</li>
+  <li>File ownership разведён</li>
+  <li>`.cursor/agents/` в git</li>
+  <li>MCP, если нужен browser/CMS</li>
+  <li>Не больше 2–3 subagents на старте</li>
+</ul>
+
+<h2 id="next-steps">10. Что делать дальше</h2>
+
+<ol>
+  <li>Добавьте verifier (readonly).</li>
+  <li>MCP – <a href="/podklyuchenie-mcp-cursor/">инструкция</a>.</li>
+  <li>Фон 24/7 – <a href="/avtomatizaciya-n8n-ai-agents/">n8n и ИИ-агенты</a>.</li>
+  <li>Cloud subagents: `/in-cloud`, Agents Window.</li>
+  <li>Make + Cursor – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a>.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, Cursor и MCP).<br>
+  <b>Достоверность:</b> формат agents, frontmatter и параллель сверены с <a href="https://cursor.com/docs/subagents" target="_blank">docs Cursor</a> и changelog 2.4 на 22.06.2026. Цифры Вордstat по "cursor subagents" не включены – объёмы на дату прогона не собирались.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Как создать субагента в Cursor?</h3>
+<p>Markdown в `.cursor/agents/имя.md`: YAML (name, description, model, readonly, is_background) + инструкции. Сохраните и вызовите `/имя задача` в Agent Mode.</p>
+
+<h3>Чем subagents отличаются от Cursor Rules?</h3>
+<p>Rules – статический контекст главного агента. Subagents – отдельное окно и Task tool. Rules – стиль; subagents – параллельные роли.</p>
+
+<h3>Почему субагент не появляется в Task tool?</h3>
+<p>Проверьте путь, YAML, Agent mode, description без vague "helps with coding". Смотрите hooks/policy на subagentStart.</p>
+
+<h3>Нужен ли Cursor 2.4+?</h3>
+<p>Да, релиз 22.01.2026. Help → About. Nested subagents – с 2.5+.</p>
+
+<h3>Foreground или background?</h3>
+<p>Foreground – отчёт до следующего шага. Background – long tasks, прогресс в `~/.cursor/subagents/`.</p>
+
+<h3>Subagents или Skills?</h3>
+<p>Skills – повторяемые процедуры в `.cursor/skills/`. Subagents – изоляция и параллель. Skills для чеклистов, subagents для review + tests одновременно.</p>
+
+<h3>Можно ли параллелить правки одного файла?</h3>
+<p>Нет – merge conflict. Один subagent на файл, readonly audit на diff, или git worktrees.</p>

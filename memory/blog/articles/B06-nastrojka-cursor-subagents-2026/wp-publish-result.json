@@ -1,0 +1,14 @@
+{
+  "slug": "nastrojka-cursor-subagents-2026",
+  "topic_id": "B06",
+  "permalink": "https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-cursor-subagents-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1397791,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=423 slug=nastrojka-cursor-subagents-2026\nOK featured_image=424\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=425 src=cover/inline-01.png url=https://neurinix.com/wp-content/uploads/2026/06/nastrojka-cursor-subagents-2026-inline-01.png\nOK inline_image_upload=426 src=cover/inline-02.png url=https://neurinix.com/wp-content/uploads/2026/06/nastrojka-cursor-subagents-2026-inline-02.png\nOK inline_image_upload=427 src=cover/inline-03.png url=https://neurinix.com/wp-content/uploads/2026/06/nastrojka-cursor-subagents-2026-inline-03.png\npermalink=https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/\n",
+  "verdict": "pass"
+}

@@ -172,3 +172,54 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-06-22 — B06 nastrojka-cursor-subagents-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-cursor-subagents-2026 |
+| verdict | **PASS** |
+| post_id | 423 |
+| featured_image_id | 424 |
+| inline_images | 425, 426, 427 |
+| permalink | /2026/06/22/nastrojka-cursor-subagents-2026/ (production WP) |
+| site | production (env PUBLIC_SITE_URL) |
+| status | published |
+
+### Preconditions
+
+- article-qa.md: PASS (97/100)
+- link-verify.json: pass (5/5, production site-base)
+- schema.jsonld: present (mayai.ru → production site перед publish)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base <production>  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-subagents-2026 --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-subagents-2026  # PASS
+```
+
+### Result
+
+```
+OK post=423 slug=nastrojka-cursor-subagents-2026
+OK featured_image=424
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=425 src=cover/inline-01.png
+OK inline_image_upload=426 src=cover/inline-02.png
+OK inline_image_upload=427 src=cover/inline-03.png
+permalink=/2026/06/22/nastrojka-cursor-subagents-2026/
+```
+
+### Notes
+
+- HTTP trigger succeeded (WebFetch fallback не потребовался).
+- Schema URLs обновлены с mayai.ru на production host перед первой публикацией.
+- Повторный publish для dated permalink в schema — отменён (FTP 425 Bad IP).

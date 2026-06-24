@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://neurinix.com/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://neurinix.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://neurinix.com/#logo",
+        "url": "https://neurinix.com/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://neurinix.com/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://neurinix.com/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://neurinix.com/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/#article",
+      "headline": "Как настроить субагентов в Cursor: пошаговое руководство по параллельной работе ИИ-команды",
+      "description": "Как настроить cursor subagents за 20–30 минут: .cursor/agents/, YAML frontmatter, code-reviewer и test-runner, вызов /name, параллель в Agent Mode и сравнение с MCP и Background Agents.",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "inLanguage": "ru",
+      "url": "https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://neurinix.com/wp-content/uploads/blog/nastrojka-cursor-subagents-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://neurinix.com/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://neurinix.com/#organization"
+      },
+      "keywords": "cursor subagents, субагенты cursor, cursor агенты настройка, настройка subagents cursor, cursor 2.4 subagents",
+      "wordCount": 8899,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://neurinix.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://neurinix.com/2026/06/22/nastrojka-cursor-subagents-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как создать субагента в Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Markdown в `.cursor/agents/имя.md`: YAML (name, description, model, readonly, is_background) + инструкции. Сохраните и вызовите `/имя задача` в Agent Mode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем subagents отличаются от Cursor Rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rules – статический контекст главного агента. Subagents – отдельное окно и Task tool. Rules – стиль; subagents – параллельные роли."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему субагент не появляется в Task tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте путь, YAML, Agent mode, description без vague \"helps with coding\". Смотрите hooks/policy на subagentStart."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Cursor 2.4+?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, релиз 22.01.2026. Help → About. Nested subagents – с 2.5+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Foreground или background?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Foreground – отчёт до следующего шага. Background – long tasks, прогресс в `~/.cursor/subagents/`."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Subagents или Skills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skills – повторяемые процедуры в `.cursor/skills/`. Subagents – изоляция и параллель. Skills для чеклистов, subagents для review + tests одновременно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли параллелить правки одного файла?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет – merge conflict. Один subagent на файл, readonly audit на diff, или git worktrees."
+          }
+        }
+      ]
+    }
+  ]
+}

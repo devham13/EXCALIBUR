@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Automations
+
+- **priority:** P0
+- **slug:** nastrojka-cursor-automations-2026
+- **h1:** Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026
+- **primary_query:** cursor automations
+- **secondary_queries:** cursor cloud agent, cursor automation github, cursor automations webhook, настройка cursor automations
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Cursor Automations vs Background Agents vs subagents: что выбрать в 2026
+  2. Подготовка: Pro-план, GitHub, on-demand billing и Agents Window
+  3. Создание Automation: Marketplace-шаблон или Blank (триггер + prompt + tools)
+  4. Настройка триггеров: cron, GitHub PR, Slack, Linear, PagerDuty, webhook
+  5. Scope репозитория: no-repo, single-repo и multi-repo environment
+  6. Подключение MCP-tools и чек-лист безопасности (secrets, auto-run, Team Owned)
+- **faq_hints:** что такое cursor automations; как запустить automation по расписанию; чем automations отличаются от background agents
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** панель Cursor Automations на экране ноутбука, вокруг стикеры-триггеры GitHub PR / Slack / Cron / Webhook, cloud-агент открывает PR с видео-демо, неоновый diy-коллаж
+
+---
+

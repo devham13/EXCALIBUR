@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-automations-2026",
+  "h1": "Как настроить Cursor Automations: чек-лист автоматических cloud-агентов в 2026",
+  "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+  "description": "Пошаговая настройка Cursor Automations: триггеры GitHub и cron, repo scope, MCP, secrets, billing guardrails и Run history. Сравнение с Cloud Agents.",
+  "keywords": [
+    "cursor automations",
+    "настройка cursor automations",
+    "cursor cloud agent",
+    "cursor automation github",
+    "cursor automations webhook"
+  ],
+  "primary_query": "cursor automations",
+  "secondary_queries": [
+    "cursor cloud agent",
+    "cursor automation github",
+    "cursor automations webhook",
+    "настройка cursor automations"
+  ],
+  "char_count": 9027,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor automations пошаговый чеклист",
+    "cursor automations триггеры github webhook и billing",
+    "настройка cursor cloud agent automation для команды"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+    "title_ctr": "🚀 Cursor Automations за 45 минут: настройте cloud-агент без слива бюджета!",
+    "title_aeo": "Как настроить Cursor Automations и выбрать триггер для cloud-агента?",
+    "description_seo": "Чек-лист cursor automations: триггеры cron и GitHub PR, repo scope, MCP, secrets, spend limit и проверка Run history. Сравнение с Cloud Agents.",
+    "description_ctr": "⚡ Запустите первую Cursor Automation за вечер: узкий trigger, SOP-instructions, MCP и billing guardrails. Пошаговый гайд для команд 2026.",
+    "description_aeo": "Cursor Automations – cloud agents по триггеру (schedule, GitHub, Slack, webhook). Настройка: trigger → instructions → tools/MCP → repo scope → test в Run history."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "com/agents Родительский agent в одной задаче Когда использовать PR review, weekly digest, реакция на инцидент Разовая фича, исследование, ручной fix Разбить сложный prompt на подзадачи Память между runs Да, memory tool учится на прошлых прогонах Новая сессия при каждом старте Только в рамках одного run Нужен paid plan Да Да, Max Mode всегда включён Зависит от родительской сессии Billing API pricing модели за каждый run То же + spend limit при первом использовании Внутри одного Cloud Agent run Делайте: Automations для повторяющихся событий с чётким SOP",
+      "word_count": 86
+    },
+    {
+      "sentence": "Workflow создания: Выбор шаблона или Blank → trigger (один узкий) → instructions-SOP → tools (Comment PR, Slack, MCP) → repo scope → visibility Private → Save → test run → Run history Шаг 1: Откройте Agents Window → Automations → New или выберите шаблон Marketplace",
+      "word_count": 34
+    },
+    {
+      "sentence": "Trigger Когда срабатывает Типичный кейс Scheduled (cron) По расписанию Weekly digest, health-check репо GitHub PR / push / CI PR opened, push, workflow completed Авто-review, запрос reviewers Slack message / emoji Сообщение в канале или реакция Эскалация, ручной старт SOP Linear / PagerDuty Issue, cycle, инцидент On-call digest, triage Webhook POST на URL automation CI, мониторинг, внешние системы Делайте: cursor automation github на одно событие (например PR opened) или cron раз в неделю",
+      "word_count": 69
+    },
+    {
+      "sentence": "Paid plan и spend limit заданы до массовых cron GitHub/GitLab подключён только если нужен код или PR Первый trigger узкий: одно PR-событие или weekly cron Instructions оформлены как SOP, не разовый prompt Включены только нужные tools (Slack, MCP, Comment PR) Secrets в cloud-agents dashboard, не в prompt Memories с осторожностью при внешнем untrusted input Test PR или manual webhook → проверка Run history 3–7 дней мониторинг usage перед расширением triggers Private scope на этапе эксперимента Team Owned – после доверия; rotate webhook key при promote MCP OAuth переведён на team account при смене scope Делайте: human-in-the-loop на merge",
+      "word_count": 96
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.8,
+    "avg_syllables_per_word": 1.3
+  }
+}

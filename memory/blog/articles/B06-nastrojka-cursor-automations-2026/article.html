@@ -1,0 +1,217 @@
+<p>Cursor Automations запускают cloud-агента без вашего участия: PR в GitHub, сообщение в Slack или cron сами поднимают sandbox с инструкциями и tools. Настройка cursor automations путается с ручным Cloud Agent из IDE и съедает бюджет на широких триггерах. За 30–45 минут вы создадите первую automation, выберете узкий trigger, repo scope и MCP, проверите run в history и поставите spend limit.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cursor Automations – always-on cloud agents по событию (расписание, GitHub, Slack, webhook), а не чат в редакторе. Создание: Agents Window или cursor.com/automations → trigger → instructions-SOP → tools/MCP → repo scope → save → test в Run history. Начинайте с одного узкого триггера и Private scope; billing – API pricing модели за каждый run. Для MCP сначала настройте серверы по <a href="/podklyuchenie-mcp-cursor/">гайду MCP в Cursor</a>.</blockquote>
+
+<p>Automations вышли 5 марта 2026: агент просыпается от триггера, поднимает sandbox и выполняет регламент. Cloud Agent вы запускаете из IDE; subagents – помощники внутри одной сессии. Ниже – чек-лист без путаницы и слива usage.</p>
+
+<h2 id="compare-modes">1. Сравните Automations, Cloud Agents и subagents</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Automations, Cloud Agents и subagents" loading="lazy">
+</figure>
+
+
+<p>Триггер – будильник: Slack, GitHub или cron будят агента. Instructions – SOP (стандартная процедура): что проверять и куда писать результат. Tools – разрешённые действия: Comment on PR, Send to Slack, MCP server.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Cursor Automations</th>
+      <th>Cloud Agent (Background)</th>
+      <th>Subagents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Кто запускает</b></td>
+      <td>Триггер: schedule, GitHub, Slack, webhook</td>
+      <td>Вы из IDE или cursor.com/agents</td>
+      <td>Родительский agent в одной задаче</td>
+    </tr>
+    <tr>
+      <td><b>Когда использовать</b></td>
+      <td>PR review, weekly digest, реакция на инцидент</td>
+      <td>Разовая фича, исследование, ручной fix</td>
+      <td>Разбить сложный prompt на подзадачи</td>
+    </tr>
+    <tr>
+      <td><b>Память между runs</b></td>
+      <td>Да, memory tool учится на прошлых прогонах</td>
+      <td>Новая сессия при каждом старте</td>
+      <td>Только в рамках одного run</td>
+    </tr>
+    <tr>
+      <td><b>Нужен paid plan</b></td>
+      <td>Да</td>
+      <td>Да, Max Mode всегда включён</td>
+      <td>Зависит от родительской сессии</td>
+    </tr>
+    <tr>
+      <td><b>Billing</b></td>
+      <td>API pricing модели за каждый run</td>
+      <td>То же + spend limit при первом использовании</td>
+      <td>Внутри одного Cloud Agent run</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> Automations для повторяющихся событий с чётким SOP. <b>Не делайте:</b> дублировать ту же задачу ручным Cloud Agent каждый понедельник – это дороже и не масштабируется.</p>
+
+<h2 id="prepare-access">2. Подготовьте доступ: план, GitHub и billing guardrails</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема подготовки: план, GitHub, billing guardrails для Automations" loading="lazy">
+</figure>
+
+
+<p>Нужен paid Cursor plan. В <a href="https://cursor.com/dashboard/cloud-agents">dashboard cloud-agents</a> задайте spend limit и secrets – не в prompt. Для PR review подключите GitHub/GitLab read-write; setup в docs – менее 10 минут.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Убедитесь, что аккаунт на paid plan и cloud agents включены.</li>
+  <li><b>Шаг 2:</b> Откройте cloud-agents dashboard и установите spend limit до первых автоматических runs.</li>
+  <li><b>Шаг 3:</b> Подключите GitHub/GitLab, если automation будет комментировать PR или менять код.</li>
+  <li><b>Шаг 4:</b> Сохраните API keys и OAuth-токены в secrets dashboard, не в prompt.</li>
+  <li><b>Шаг 5:</b> Откройте Agents Window в IDE (релиз 3.5+) или закладку Automations в браузере.</li>
+</ol>
+
+<p><b>Делайте:</b> лимит до экспериментов. <b>Не делайте:</b> триггер "every push to main" на busy monorepo без теста – usage сгорит за день.</p>
+
+<h2 id="create-automation">3. Создайте automation: Marketplace, Blank или skill /automate</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист создания automation: Marketplace, Blank или /automate" loading="lazy">
+</figure>
+
+
+<p>Входы: Marketplace-шаблон, Blank в <a href="https://cursor.com/automations/new">cursor.com/automations/new</a> или skill <b>/automate</b> (3.8+): опишите задачу, Cursor предложит triggers и tools. Канон – UI в Agents Window; YAML-only без help не считайте единственным путём.</p>
+
+<blockquote>
+  <b>Workflow создания:</b>
+  <br>
+  Выбор шаблона или Blank → trigger (один узкий) → instructions-SOP → tools (Comment PR, Slack, MCP) → repo scope → visibility Private → Save → test run → Run history
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Откройте Agents Window → Automations → New или выберите шаблон Marketplace.</li>
+  <li><b>Шаг 2:</b> Задайте имя automation и один стартовый trigger (PR opened или weekly Scheduled).</li>
+  <li><b>Шаг 3:</b> Напишите instructions как регламент: что проверять, когда молчать, куда постить результат.</li>
+  <li><b>Шаг 4:</b> Включите только нужные tools; computer use для demo – только если реально нужны артефакты.</li>
+  <li><b>Шаг 5:</b> Выберите repo scope (следующий раздел), visibility Private, нажмите Save.</li>
+  <li><b>Шаг 6:</b> Для webhook: после Save скопируйте URL и API key – они появляются только после сохранения.</li>
+</ol>
+
+<p><b>Делайте:</b> первый прогон на шаблоне PR review или no-repo Slack digest. <b>Не делайте:</b> ten triggers в первый день – сначала стабильность одного события.</p>
+
+<h2 id="triggers">4. Настройте триггеры: cron, GitHub, Slack и webhook</h2>
+
+<p>Несколько triggers на одну automation – срабатывает любой. С 3.8: Slack emoji и новые GitHub-события (review comment, workflow completed и др.).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trigger</th>
+      <th>Когда срабатывает</th>
+      <th>Типичный кейс</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Scheduled (cron)</b></td>
+      <td>По расписанию</td>
+      <td>Weekly digest, health-check репо</td>
+    </tr>
+    <tr>
+      <td><b>GitHub PR / push / CI</b></td>
+      <td>PR opened, push, workflow completed</td>
+      <td>Авто-review, запрос reviewers</td>
+    </tr>
+    <tr>
+      <td><b>Slack message / emoji</b></td>
+      <td>Сообщение в канале или реакция</td>
+      <td>Эскалация, ручной старт SOP</td>
+    </tr>
+    <tr>
+      <td><b>Linear / PagerDuty</b></td>
+      <td>Issue, cycle, инцидент</td>
+      <td>On-call digest, triage</td>
+    </tr>
+    <tr>
+      <td><b>Webhook</b></td>
+      <td>POST на URL automation</td>
+      <td>CI, мониторинг, внешние системы</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> cursor automation github на одно событие (например PR opened) или cron раз в неделю. <b>Не делайте:</b> webhook без ротации ключа при переводе automation в Team Owned.</p>
+
+<h2 id="repo-scope">5. Выберите repo scope: no-repo, single-repo или multi-repo</h2>
+
+<p><b>No-repo</b> – без кода (Slack, MCP, webhook); PR и правки недоступны. <b>Single-repo</b> – review одного репо. <b>Multi-repo</b> (3.5+) – несколько баз в одном environment. Cron без кода: repo только если нужны PR.</p>
+
+<p><b>Делайте:</b> no-repo для бизнес-MCP (аналитика, FAQ digest из Marketplace). <b>Не делайте:</b> подключать GitHub read-write, если достаточно Send to Slack и MCP без правок кода.</p>
+
+<h2 id="tools-mcp-security">6. Подключите MCP, secrets и чек-лист безопасности</h2>
+
+<p>MCP – "розетки" для сервисов: agent вызывает tool, не пароль в prompt. Включите MCP server и secrets из dashboard; база – <a href="/podklyuchenie-mcp-cursor/">гайд cursor mcp</a>. Scope: Private → Team Visible → Team Owned (admin). При promote – rotate webhook key и MCP OAuth на team account. Memories осторожно с untrusted Slack/webhook; на prod держите human-in-the-loop на выходе.</p>
+
+<p><b>Делайте:</b> минимальный набор tools (Comment on PR + один MCP). <b>Не делайте:</b> копировать secrets в instructions или коммитить их в репозиторий.</p>
+
+<h2 id="monitor-checklist">7. Проверьте Run history и пройдите финальный чек-лист</h2>
+
+<p>Run history: 3–7 дней оценки, затем сужайте или расширяйте triggers. Billing – API pricing модели за run. Скидка 50% первые 7 дней после создания была в 3.5 (май 2026) – сверяйте changelog на дату чтения.</p>
+
+<ul>
+  <li>Paid plan и spend limit заданы до массовых cron</li>
+  <li>GitHub/GitLab подключён только если нужен код или PR</li>
+  <li>Первый trigger узкий: одно PR-событие или weekly cron</li>
+  <li>Instructions оформлены как SOP, не разовый prompt</li>
+  <li>Включены только нужные tools (Slack, MCP, Comment PR)</li>
+  <li>Secrets в cloud-agents dashboard, не в prompt</li>
+  <li>Memories с осторожностью при внешнем untrusted input</li>
+  <li>Test PR или manual webhook → проверка Run history</li>
+  <li>3–7 дней мониторинг usage перед расширением triggers</li>
+  <li>Private scope на этапе эксперимента</li>
+  <li>Team Owned – после доверия; rotate webhook key при promote</li>
+  <li>MCP OAuth переведён на team account при смене scope</li>
+</ul>
+
+<p><b>Делайте:</b> human-in-the-loop на merge. <b>Не делайте:</b> auto-merge PR без review на старте. Код – Automations; CRM и воронки – Make: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a>.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Создайте первую automation по шагам выше и дождитесь run в history.</li>
+  <li>Подключите MCP по <a href="/podklyuchenie-mcp-cursor/">гайду MCP</a>, если automation ходит во внешние сервисы.</li>
+  <li>Сузьте trigger, если usage растёт быстрее ожиданий.</li>
+  <li>После стабилизации переведите в Team Visible или Team Owned с ротацией webhook.</li>
+  <li>Для оркестрации вне Cursor – сценарии Make; первые занятия – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</li>
+</ol>
+
+<p>Вопросы по связке Cursor Automations + бизнес-процессы – в Telegram <a href="https://t.me/maya_pro" target="_blank">@maya_pro</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, MCP и Make.com).<br>
+  <b>Достоверность данных:</b> факты сверены с help Cursor и changelog 03-05, 05-20, 06-18-2026. LSI – SERP и смежный "cursor mcp" (630/мес, B03, июнь 2026).
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Что такое Cursor Automations?</h3>
+<p>Always-on cloud agents, которые стартуют по триггеру (расписание, GitHub, Slack, webhook, Linear, PagerDuty), а не когда вы открыли чат в IDE. Agent поднимает sandbox, выполняет instructions и использует настроенные tools и MCP.</p>
+
+<h3>Как запустить automation по расписанию?</h3>
+<p>Создайте automation → trigger Scheduled (cron) → укажите repo scope, если нужен код → напишите instructions → save → дождитесь первого run в Run history и проверьте output.</p>
+
+<h3>Чем Automations отличаются от Background и Cloud Agents?</h3>
+<p>Cloud Agent вы инициируете из IDE или dashboard; Automation инициирует внешнее событие. У Automations есть memory между runs и параллельные прогоны по разным триггерам; subagents работают только внутри одной родительской задачи.</p>
+
+<h3>Нужен ли репозиторий для automation?</h3>
+<p>Нет для no-repo сценариев (Slack digest, MCP, webhook). Да для PR review, комментариев к коду и изменений в git – выберите single-repo или multi-repo environment.</p>
+
+<h3>Как настроить cursor automations webhook?</h3>
+<p>Сохраните automation → скопируйте URL и API key из настроек → отправьте POST из CI или мониторинга с нужным телом. При смене на Team Owned перегенерируйте ключ.</p>
+
+<h3>Сколько стоит каждый run automation?</h3>
+<p>Каждый run = Cloud Agent run по API pricing выбранной модели. Следите за частотой cron и шириной GitHub-триггеров; spend limit задаётся в cloud-agents dashboard.</p>
+
+<h3>Как подключить MCP к automation?</h3>
+<p>В шаге tools включите MCP server, secrets добавьте в <a href="https://cursor.com/dashboard/cloud-agents">cursor.com/dashboard/cloud-agents</a>. Базовая настройка mcp.json и OAuth – в <a href="/podklyuchenie-mcp-cursor/">инструкции по MCP в Cursor</a>.</p>

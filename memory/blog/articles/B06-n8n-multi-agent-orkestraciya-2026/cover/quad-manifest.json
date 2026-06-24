@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Один AI Agent захлебнулся в 10 tools? Собери orchestrator + 3 specialists",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: n8n multi-agent — orchestrator делегирует задачи specialist sub-agents вместо одного перегруженного AI Agent",
+      "scene_hint": "reference-лицо, тёмный худи с оранжевым акцентом n8n, жест указывает на fake n8n canvas с 10 tools на одной ноде и красным «ERROR». Рядом fake Wordstat «n8n агенты 699», Telegram «бот тупит на CRM», torn paper + pink sticky «orchestrator спасёт». Мем facepalm + shocked cat. Розовый маркер на слове «orchestrator».",
+      "meme_caption_ru": "10 tools — 0 делегаций?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Проверьте, когда одного AI Agent мало",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист на доске: 3 сценария «нужен multi-agent» (смешанные системы, разные модели, Reflexion) vs anti-pattern «MAS вместо RAG». Без лица героя. Pink sticky «5 диалогов — выпиши системы». Tape corner.",
+      "alt": "Чеклист: когда одного AI Agent в n8n мало — смешанные системы, модели и anti-pattern"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Выберите паттерн оркестрации под ваш кейс",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица 4 паттерна: Supervisor, Router, Pipeline, Reflexion — колонки «Когда» и «Ноды n8n». Highlight Router + Switch. Без героя. Mini n8n node icons, marker arrow «ticket type → Router».",
+      "alt": "Таблица паттернов оркестрации n8n: Supervisor, Router, Pipeline, Reflexion"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Соберите orchestrator и sub-agents пошагово",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow-схема: Chat Trigger → Orchestrator AI Agent → AI Agent Tool (A|B|C) + Call n8n Workflow Tool → IF quality → Human approval. 8 numbered steps sticker. Без лица. n8n canvas aesthetic, coral arrows.",
+      "alt": "Схема сборки multi-agent в n8n: orchestrator, AI Agent Tool и sub-workflows"
+    }
+  }
+}

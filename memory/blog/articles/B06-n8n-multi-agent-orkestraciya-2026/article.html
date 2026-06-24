@@ -1,0 +1,216 @@
+<p>Один AI Agent в n8n закрывает FAQ, но когда в одном диалоге смешиваются база знаний, CRM и проверка качества, десять tools на одной ноде ломают выбор модели. Мультиагентная система делегирует задачи orchestrator и 2-3 specialist sub-agents. Ниже вы выберете паттерн Supervisor или Router, соберёте схему на canvas или в sub-workflows, настроите session ID и пройдёте prod-чеклист. Prerequisite: первый agent работает по <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">гайду по n8n агентам</a>.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Мультиагентная система в n8n - orchestrator (главный AI Agent) плюс specialists через AI Agent Tool или Call n8n Workflow Tool. Каждый sub-agent имеет свой prompt, модель и память. По данным Anthropic (n8n.io), multi-agent даёт +90,2% к single-agent, но ~15x больше tokens. "n8n агенты" в Вордстате - 699 показов/мес (B02, июнь 2026). MVP: 2-3 sub-agents на canvas; prod: workers в sub-workflows.</blockquote>
+
+<p>Мультиагентная система в n8n разделяет роли: orchestrator (дирижёр) решает, кому передать задачу, specialists выполняют узкие действия. С версии 1.82.0 все AI Agent работают как Tools Agent и требуют минимум один tool sub-node; второй полноценный agent подключается как AI Agent Tool с собственной Chat Model, System Message и tools.</p>
+
+<p>Запросы "n8n ai" (720 показов/мес) и "n8n агенты" (699) растут вместе с интересом к оркестрации ии агентов n8n. Если задача однородная (только FAQ или только CRM), остановитесь на single agent + RAG (поиск по вашим документам перед ответом) из B02. Multi-agent нужен при разных доменах, моделях или tool noise при 10+ инструментах на одной ноде. Менее 2,5% сложных неструктурированных задач автономные системы закрывают без human-in-the-loop - планируйте эскалацию заранее.</p>
+
+<h2 id="when-one-agent-enough">Проверьте, когда одного AI Agent мало</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Чеклист: когда одного AI Agent в n8n мало — смешанные системы, модели и anti-pattern" loading="lazy">
+</figure>
+
+
+<p>Multi-agent оправдан в трёх типичных сценариях:</p>
+
+<ul>
+  <li><b>Смешанные системы:</b> база знаний + CRM + эскалация менеджеру в одном диалоге.</li>
+  <li><b>Разные модели:</b> gpt-4o-mini для routing, Claude для финального текста.</li>
+  <li><b>Reflexion:</b> worker пишет черновик, critic проверяет - отдельные prompt и max iterations.</li>
+</ul>
+
+<p>Anti-pattern: MAS вместо одного agent с RAG и 2-3 tools. Coordination overhead: 3 агента - 3 связи, 10 агентов - 45 (n8n.io). Официальный tutorial n8n строит hierarchical MAS: main agent + email sub-agent + RAG sub-agent - тот же принцип для бизнес-кейсов.</p>
+
+<p><b>Делайте:</b> выпишите 5 реальных диалогов и отметьте, сколько систем задействовано. <b>Не делайте:</b> sub-agents "на будущее" без задачи для каждого.</p>
+
+<h2 id="choose-pattern">Выберите паттерн оркестрации под ваш кейс</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Таблица паттернов оркестрации n8n: Supervisor, Router, Pipeline, Reflexion" loading="lazy">
+</figure>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Паттерн</th>
+      <th>Когда</th>
+      <th>Ноды n8n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Supervisor</b></td>
+      <td>Непредсказуемый запрос, динамическое делегирование</td>
+      <td>AI Agent + AI Agent Tool / Call n8n Workflow Tool</td>
+    </tr>
+    <tr>
+      <td><b>Router</b></td>
+      <td>Категории формализуемы: support / billing / docs</td>
+      <td>LLM classify + Switch</td>
+    </tr>
+    <tr>
+      <td><b>Pipeline</b></td>
+      <td>Стадии: research → write → review</td>
+      <td>Цепочка sub-workflows</td>
+    </tr>
+    <tr>
+      <td><b>Reflexion</b></td>
+      <td>Нужен цикл правок</td>
+      <td>Worker + Critic + IF + max iterations</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Switch (deterministic routing) дешевле agent-routing, когда категория известна (Production AI Playbook, n8n.io). Multi-agent по умолчанию sequential; параллель - Execute sub-workflow или HTTP Request.</p>
+
+<blockquote>
+  <b>Схема workflow:</b>
+  <br>
+  Chat Trigger → Orchestrator AI Agent → AI Agent Tool (Specialist A | B | C)
+  <br>
+  ↘ Call n8n Workflow Tool → Sub-workflow workers → IF quality → Human approval → ответ
+</blockquote>
+
+<p><b>Делайте:</b> для ticket type - Router + Switch. <b>Не делайте:</b> LLM-routing, если CRM или keyword уже даёт категорию.</p>
+
+<h2 id="build-orchestrator">Соберите orchestrator и sub-agents пошагово</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема сборки multi-agent в n8n: orchestrator, AI Agent Tool и sub-workflows" loading="lazy">
+</figure>
+
+
+<ol>
+  <li><b>Шаг 1: Prerequisite.</b> Single agent из B02 отвечает в Chat UI. Иначе сначала B02.</li>
+  <li><b>Шаг 2: Orchestrator.</b> Chat Trigger → AI Agent → Chat Model. В System Message перечислите sub-agents по зонам ответственности.</li>
+  <li><b>Шаг 3: Specialists (MVP).</b> 2-3 AI Agent Tool sub-nodes: своя модель, prompt, 1-3 tools каждый.</li>
+  <li><b>Шаг 4: Tool description.</b> 2-4 предложения: что делает, вход, выход, когда не вызывать. Без description orchestrator не делегирует.</li>
+  <li><b>Шаг 5: JSON task envelope.</b> Структурированный контекст между agents:</li>
+</ol>
+
+<blockquote>
+  <b>Пример JSON task envelope:</b>
+  <br>
+  {"task": "найти тариф в базе знаний", "context": {"client_id": "12345"}, "expected_output": "ответ с ссылкой на регламент"}
+</blockquote>
+
+<ol start="6">
+  <li><b>Шаг 6: Prod.</b> Call n8n Workflow Tool вместо embedded AI Agent Tool - отдельный workflow на worker.</li>
+  <li><b>Шаг 7: Лимит tools.</b> Не больше 5 на agent; при 15 tools и использовании ~3 - split на focused agents (n8n playbook).</li>
+  <li><b>Шаг 8: Continue on Error</b> на внешних API tools.</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>AI Agent Tool</th>
+      <th>Call n8n Workflow Tool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Canvas</b></td>
+      <td>Sub-node на одном экране</td>
+      <td>Отдельный workflow</td>
+    </tr>
+    <tr>
+      <td><b>Когда</b></td>
+      <td>MVP</td>
+      <td>Prod, версии, команда</td>
+    </tr>
+    <tr>
+      <td><b>Тесты</b></td>
+      <td>Общий log</td>
+      <td>Изолированный тест worker</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sub-agent vs MCP tool: у sub-agent свой prompt, LLM и memory; MCP (стандарт подключения сервисов к модели) - только tools без отдельной роли.</p>
+
+<p><b>Делайте:</b> два specialists (RAG-support + CRM). <b>Не делайте:</b> embedded agents на prod без плана sub-workflows.</p>
+
+<h2 id="memory-session">Настройте память и session ID между агентами</h2>
+
+<p>Simple Memory или Postgres на orchestrator хранит диалог. У specialists:</p>
+
+<ul>
+  <li><b>Shared session ID:</b> видит историю orchestrator - continuity, но лишние tokens.</li>
+  <li><b>Isolated session ID:</b> только JSON из tool call - безопаснее и дешевле.</li>
+</ul>
+
+<p>Между agents передавайте file_id или ссылку на документ, не full content PDF - иначе tokens съедают бюджет быстрее single-agent baseline. API (интерфейс связи n8n с CRM, почтой, LLM) credentials храните только в Credentials, не в открытом тексте workflow.</p>
+
+<p><b>Делайте:</b> isolated для CRM/billing. <b>Не делайте:</b> shared memory без явной нужды.</p>
+
+<h2 id="production">Подготовьте multi-agent систему к production</h2>
+
+<p>Reflexion: worker + critic, IF на quality, max iterations у critic. Human-in-the-loop перед оплатой, удалением, массовой рассылкой. ~40% пилотов автономных агентов отменяются из-за скрытых затрат - мерьте tokens с первого дня.</p>
+
+<p>Cloud Starter n8n - от 20 €/мес при годовой оплате, 2 500 executions; один execution = полный прогон workflow, не каждый step (n8n.io/pricing, июнь 2026). Trial Starter/Pro без карты. Business self-hosted - Queue mode (несколько worker instances) при нагрузке. Self-host (свой сервер) даёт контроль данных в EU (Frankfurt на Cloud) - актуально для регламентов компании.</p>
+
+<p>Простой CRM-routing без RAG и sub-workflows часто быстрее закрыть Make AI Agents из облака без Docker. Если multi-agent оказался тяжелее ожиданий - сравните оба стека на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (первые занятия бесплатны).</p>
+
+<p><b>Делайте:</b> error workflow на каждый sub-workflow. <b>Не делайте:</b> prod без max iterations у critic и эскалации к человеку.</p>
+
+<h2 id="debug-checklist">Пройдите чеклист отладки multi-agent workflow</h2>
+
+<ol>
+  <li>Single agent из B02 стабилен в Chat UI</li>
+  <li>Паттерн (Supervisor/Router/Pipeline/Reflexion) зафиксирован</li>
+  <li>Tool description у каждого sub-agent</li>
+  <li>JSON envelope: task, context, expected_output</li>
+  <li>Session ID: shared или isolated - записано явно</li>
+  <li>Max iterations у critic / reflexion loop</li>
+  <li>Human-in-the-loop на критичных tools</li>
+  <li>Continue on Error на внешних API</li>
+  <li>10-30 тест-кейсов из реальных диалогов (цель - 30+)</li>
+  <li>Logs каждого sub-agent просмотрены отдельно</li>
+  <li>Tokens vs single-agent baseline замерены</li>
+  <li>Switch вместо LLM-routing где категория формализуема</li>
+  <li>Не больше 5 tools на agent</li>
+  <li>Prod workers в sub-workflows, не на перегруженном canvas</li>
+  <li>Credentials без ключей в открытом тексте</li>
+  <li>План B при падении LLM API</li>
+</ol>
+
+<h2 id="next-steps">Что делать дальше</h2>
+
+<ol>
+  <li>MVP: orchestrator + 2 AI Agent Tool на одном canvas.</li>
+  <li>10 реальных запросов, Logs каждого sub-agent.</li>
+  <li>Замер tokens vs single agent из B02.</li>
+  <li>Вынесите workers в Call n8n Workflow Tool перед prod.</li>
+  <li>Если избыточно - Router + Switch или single agent + RAG.</li>
+</ol>
+
+<p>Нужна помощь с архитектурой под ваш CRM и мессенджеры - команда Maya AI подскажет по внедрению n8n или Make.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, автор курса по Make.com).<br>
+  <b>Достоверность данных:</b> AI Agent node, паттерны multi-agent и Вордстат ("n8n агенты" - 699, "n8n ai" - 720) по первоисточникам и B02, июнь 2026.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как работает AI Agent Tool в n8n?</h3>
+<p>Sub-node orchestrator: полный agent вызывается как tool через function calling. Добавьте AI Agent Tool, пропишите description, протестируйте делегирование в Chat UI.</p>
+
+<h3>Чем multi-agent отличается от одного агента с десятью tools?</h3>
+<p>Разные prompt, модель, память - меньше tool noise. Цена - coordination и ~15x tokens vs single-agent (Anthropic/n8n). Split agents при tool noise, не "для красоты".</p>
+
+<h3>Сколько sub-agents можно связать?</h3>
+<p>MVP: 2-5. При 10 agents - 45 связей overhead. Третий specialist - только с новой зоной ответственности.</p>
+
+<h3>AI Agent Tool или sub-workflow для production?</h3>
+<p>Tool - MVP на canvas. Call n8n Workflow Tool - prod: изолированные тесты, версии, error workflow.</p>
+
+<h3>Как разделить память между агентами?</h3>
+<p>Isolated session + JSON в tool call для CRM/billing. Shared - когда specialist должен видеть всю историю. Зафиксируйте выбор письменно.</p>
+
+<h3>Когда Switch вместо orchestrator?</h3>
+<p>Категория формализуема: ticket type, keyword, поле CRM. LLM classify → Switch → workflow. Agent-routing - для неоднозначных формулировок.</p>
+
+<h3>Типичные ошибки multi-agent в n8n?</h3>
+<p>Нет descriptions, лишний shared memory, critic без max iterations, embedded agents на prod. Пройдите чеклист из 16 пунктов и 30 test-кейсов до клиентов.</p>

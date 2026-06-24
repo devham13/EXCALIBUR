@@ -1,0 +1,7 @@
+{
+  "url": "local://GenerateImage-fallback",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud (no CallMcpTool, no MCP_KV_TOKEN). Generated via GenerateImage with reference_image_paths=blog-hero-reference.png, resized to 2048x1152, split PASS.",
+  "reference_url_hosted": "https://sun9-6.userapi.com/s/v1/ig2/AKT0pLS5MijU83CAZcLFwc2Sp71oIe2MkfhG51-M5fv2QtyKo4TjwL7qWkG46q6GpnxApjbmqqvyfVIHrn718f5W.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1080x1621,1280x1921,1440x2161,1706x2560&from=bu&cs=1706x0",
+  "mcp_mode_intended": "image-to-image",
+  "fallback": "GenerateImage+reference"
+}

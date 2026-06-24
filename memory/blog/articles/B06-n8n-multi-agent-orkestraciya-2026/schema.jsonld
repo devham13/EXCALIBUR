@@ -1,0 +1,205 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#article",
+      "headline": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов",
+      "description": "Как собрать мультиагентную систему в n8n: orchestrator, AI Agent Tool, sub-workflows, session ID и чеклист из 16 пунктов перед prod. Prerequisite - single agent из B02.",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/n8n-multi-agent-orkestraciya-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n агенты, n8n multi agent, ai agent tool n8n, мультиагентная система n8n, оркестрация ии агентов n8n",
+      "wordCount": 8721,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как работает AI Agent Tool в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sub-node orchestrator: полный agent вызывается как tool через function calling. Добавьте AI Agent Tool, пропишите description, протестируйте делегирование в Chat UI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем multi-agent отличается от одного агента с десятью tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Разные prompt, модель, память - меньше tool noise. Цена - coordination и ~15x tokens vs single-agent (Anthropic/n8n). Split agents при tool noise, не \"для красоты\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько sub-agents можно связать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MVP: 2-5. При 10 agents - 45 связей overhead. Третий specialist - только с новой зоной ответственности."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI Agent Tool или sub-workflow для production?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tool - MVP на canvas. Call n8n Workflow Tool - prod: изолированные тесты, versии, error workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как разделить память между агентами?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Isolated session + JSON в tool call для CRM/billing. Shared - когда specialist должен видеть всю историю. Зафиксируйте выбор письменно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда Switch вместо orchestrator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Категория формализуема: ticket type, keyword, поле CRM. LLM classify → Switch → workflow. Agent-routing - для неоднозначных формулировок."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Типичные ошибки multi-agent в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет descriptions, лишний shared memory, critic без max iterations, embedded agents на prod. Пройдите чеклист из 16 пунктов и 30 test-кейсов до клиентов."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#howto",
+      "name": "Как настроить мультиагентную систему в n8n: пошаговое руководство по оркестрации ИИ-агентов",
+      "description": "Как собрать мультиагентную систему в n8n: orchestrator, AI Agent Tool, sub-workflows, session ID и чеклист из 16 пунктов перед prod. Prerequisite - single agent из B02.",
+      "inLanguage": "ru",
+      "totalTime": "PT3H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud trial или n8n self-hosted"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "API-ключ OpenAI или Anthropic"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Prerequisite",
+          "text": "Single agent из B02 отвечает в Chat UI. Иначе сначала B02.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Orchestrator",
+          "text": "Chat Trigger → AI Agent → Chat Model. В System Message перечислите sub-agents по зонам ответственности.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Specialists (MVP)",
+          "text": "2-3 AI Agent Tool sub-nodes: своя модель, prompt, 1-3 tools каждый.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Tool description",
+          "text": "2-4 предложения: что делает, вход, выход, когда не вызывать. Без description orchestrator не делегирует.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "JSON task envelope",
+          "text": "Структурированный контекст между agents: task, context, expected_output в JSON.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Prod",
+          "text": "Call n8n Workflow Tool вместо embedded AI Agent Tool - отдельный workflow на worker.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Лимит tools",
+          "text": "Не больше 5 на agent; при 15 tools и использовании ~3 - split на focused agents (n8n playbook).",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Continue on Error",
+          "text": "Включите Continue on Error на внешних API tools.",
+          "url": "https://mayai.ru/blog/n8n-multi-agent-orkestraciya-2026/#build-orchestrator"
+        }
+      ]
+    }
+  ]
+}

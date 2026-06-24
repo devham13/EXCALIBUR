@@ -28,7 +28,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 ### Blockers
 
 1. **Network:** HTTPS к `mayai.ru:443` недоступен из локальной среды (WinError 10060). FTP (порт 21) работает, HTTP-триггер bootstrap — нет.
-2. **FTP path:** аккаунт `***_blog` видит только `/index.php` + `/cgi-bin/`, **без** `wp-load.php`. WordPress на `https://mayai.ru/blog/` — другой document root.
+2. **FTP path:** аккаунт `***_blog` видит только `/index.php` + `/cgi-bin/`, **без** `wp-load.php`. WordPress на `/blog/` — другой document root.
 3. **Bootstrap 404:** загруженный `excalibur-blog-publish-once.php` (и тестовый `excalibur-test-once.php`) отдают HTTP 404 снаружи, хотя `index.php` в том же FTP root отдаётся на главной.
 
 ### Cleanup
@@ -52,7 +52,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 | verdict | **PASS** |
 | post_id | 13324 |
 | featured_image_id | 13325 |
-| permalink | https://mayai.ru/avtomatizaciya-n8n-ai-agents/ |
+| permalink | /avtomatizaciya-n8n-ai-agents/ |
 | FTP_ROOT | `/` |
 
 ### Fix applied
@@ -67,7 +67,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 OK post=13324 slug=avtomatizaciya-n8n-ai-agents
 OK featured_image=13325
 OK schema_meta=1
-permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
+permalink=/avtomatizaciya-n8n-ai-agents/
 ```
 
 ---
@@ -82,7 +82,7 @@ permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
 | post_id | 13335 |
 | featured_image_id | 13336 |
 | inline_images | 13337, 13338, 13339 |
-| permalink | https://mayai.ru/podklyuchenie-mcp-cursor/ |
+| permalink | /podklyuchenie-mcp-cursor/ |
 | trigger | `/excalibur-blog-run topic_id: B03 publish: yes` (publish вручную после fix оркестратора) |
 
 ### Result
@@ -94,7 +94,7 @@ OK schema_meta=1
 OK inline_image_upload=13337 src=cover/inline-01.png
 OK inline_image_upload=13338 src=cover/inline-02.png
 OK inline_image_upload=13339 src=cover/inline-03.png
-permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
+permalink=/podklyuchenie-mcp-cursor/
 ```
 
 ---
@@ -109,7 +109,7 @@ permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
 | post_id | 13361 |
 | featured_image_id | 13362 |
 | inline_images | 13363, 13364, 13365 |
-| permalink | https://mayai.ru/geo-optimizaciya-sajta-2026/ |
+| permalink | /geo-optimizaciya-sajta-2026/ |
 | trigger | `/excalibur-blog-run topic_id: B04 publish: yes` |
 
 ### Preconditions
@@ -127,10 +127,10 @@ OK post=13361 slug=geo-optimizaciya-sajta-2026
 OK featured_image=13362
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13363 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
-OK inline_image_upload=13364 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
-OK inline_image_upload=13365 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
-permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
+OK inline_image_upload=13363 src=cover/inline-01.png url=/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
+OK inline_image_upload=13364 src=cover/inline-02.png url=/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
+OK inline_image_upload=13365 src=cover/inline-03.png url=/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
+permalink=/geo-optimizaciya-sajta-2026/
 ```
 
 ### Post-publish
@@ -149,7 +149,7 @@ permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
 | post_id | 13369 |
 | featured_image_id | 13370 |
 | inline_images | 13371, 13372, 13373 |
-| permalink | https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/ |
+| permalink | /avtonomnyj-kontent-zavod-nejroseti/ |
 | trigger | `/excalibur-blog-run topic_id: B05 publish: yes` |
 
 ### Preconditions
@@ -167,8 +167,44 @@ OK post=13369 slug=avtonomnyj-kontent-zavod-nejroseti
 OK featured_image=13370
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
-OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
-OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
-permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+OK inline_image_upload=13371 src=cover/inline-01.png url=/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
+OK inline_image_upload=13372 src=cover/inline-02.png url=/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
+OK inline_image_upload=13373 src=cover/inline-03.png url=/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
+permalink=/avtonomnyj-kontent-zavod-nejroseti/
+```
+---
+
+## 2026-06-22 — B06 n8n-multi-agent-orkestraciya-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | n8n-multi-agent-orkestraciya-2026 |
+| verdict | **PASS** |
+| post_id | 417 |
+| featured_image_id | 418 |
+| inline_images | 419, 420, 421 |
+| permalink | /2026/06/22/n8n-multi-agent-orkestraciya-2026/ |
+| transport | SFTP (FTP blocked: 425 Bad IP) |
+| trigger | Cloud automation B06 publish |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (3/3)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=417 slug=n8n-multi-agent-orkestraciya-2026
+OK featured_image=418
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=419 src=cover/inline-01.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-01.png
+OK inline_image_upload=420 src=cover/inline-02.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-02.png
+OK inline_image_upload=421 src=cover/inline-03.png url=/wp-content/uploads/2026/06/n8n-multi-agent-orkestraciya-2026-inline-03.png
+permalink=/2026/06/22/n8n-multi-agent-orkestraciya-2026/
 ```

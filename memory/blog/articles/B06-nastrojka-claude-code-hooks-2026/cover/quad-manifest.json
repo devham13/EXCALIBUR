@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code без hooks — агент уже прочитал .env?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: настройка Claude Code — hooks guardrails, settings.json и блокировка чтения .env",
+      "scene_hint": "reference-лицо в тёмном dev-худи с терминалом на фоне; жест указывает на красный fake-скрин Claude Code «Read(.env) DENIED» и settings.json с hooks; розовый маркер на слове hooks; fake Telegram «агент слил ключи»; рваная бумага, скотч, sticky «охранник»; meme facepalm cutout — не копировать белую футболку с reference",
+      "meme_caption_ru": "Hooks — охранник .env"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Установите Claude Code и выполните первый запуск",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица «YOLO auto-mode vs безопасный старт»: полный auto / подтверждение Bash / /login / /config — Cyrillic, розовый стикер «не включай YOLO»; без лица героя",
+      "alt": "Сравнение: безопасный первый запуск Claude Code vs YOLO auto-mode без hooks"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте иерархию settings.json в репозитории",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow-диаграмма scope: Managed → CLI args → Local → Project → User с путями ~/.claude и .claude/settings.json; стрелки приоритета, sticky «коммить project, секреты в local» — без лица",
+      "alt": "Схема иерархии settings.json: User, Project, Local, Managed — приоритет scope"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Напишите лаконичный CLAUDE.md без перегруза",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист CLAUDE.md: build/test, layout, стиль коммитов, ≤200 строк, без дубля README; clipboard с галочками, розовый highlighter — без лица героя",
+      "alt": "Чеклист лаконичного CLAUDE.md: build/test, layout, стиль коммитов без перегруза"
+    }
+  }
+}

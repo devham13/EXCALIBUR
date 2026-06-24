@@ -1,0 +1,80 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-06-20",
+    "today_ru": "20.06.2026",
+    "year": 2026,
+    "month": 6,
+    "month_name_ru": "июнь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-03-22",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-06-20 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-claude-code-hooks-2026",
+    "h1": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md",
+    "primary_query": "claude code",
+    "secondary_queries": [
+      "claude code hooks",
+      "claude code settings json",
+      "настройка claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code июнь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code hooks 2026",
+      "purpose": "вторичный запрос: claude code hooks"
+    },
+    {
+      "id": "secondary_2",
+      "query": "claude code settings json 2026",
+      "purpose": "вторичный запрос: claude code settings json"
+    },
+    {
+      "id": "secondary_3",
+      "query": "настройка claude code 2026",
+      "purpose": "вторичный запрос: настройка claude code"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Claude Code: пошаговая инструкция по hooks, settings.json и CLAUDE.md 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastrojka-claude-code-hooks-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

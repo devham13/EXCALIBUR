@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-claude-code-hooks-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "lls, plugins, hooks и MCP ( релиз недели 24, июнь 2026 ). Делайте: allow lint/test. Не делайте: deny тол",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "60 минут",
+      "kind": "metric_or_duration",
+      "context": "ерез settings.json, CLAUDE.md и hooks занимает 45-60 минут. Ниже - установка CLI, три guardrails-хука, permi",
+      "verified": true,
+      "reason": "Numerical value '60' matched in fact-bank context"
+    },
+    {
+      "fact": "181",
+      "kind": "large_number",
+      "context": "анд, не включайте полный auto-mode. Шаг 5: С v2.1.181 меняйте опции через /config key=value без UI. Дела",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "18960",
+      "kind": "large_number",
+      "context": "t-map hooks из старых гайдов - невалидно ( issue #18960 ). 3. Напишите лаконичный CLAUDE.md без перегруза",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": ": 15-25 строк, команды одной строкой. Не делайте: 200 строк правил - съедают контекст без гарантии испол",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "600",
+      "kind": "large_number",
+      "context": "ompt, agent - для старта хватит command. Timeout: 600 с для command, 30 с для prompt. Делайте: nested ма",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

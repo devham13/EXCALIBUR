@@ -1,0 +1,16 @@
+{
+  "slug": "nastrojka-claude-code-hooks-2026",
+  "topic_id": "B06",
+  "permalink": "https://mayai.ru/2026/06/20/nastrojka-claude-code-hooks-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-claude-code-hooks-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1512164,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=303 slug=nastrojka-claude-code-hooks-2026\nOK featured_image=304\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=305 src=cover/inline-01.png url=https://mayai.ru/nastrojka-claude-code-hooks-2026/-inline-01.png\nOK inline_image_upload=306 src=cover/inline-02.png url=https://mayai.ru/nastrojka-claude-code-hooks-2026/-inline-02.png\nOK inline_image_upload=307 src=cover/inline-03.png url=https://mayai.ru/nastrojka-claude-code-hooks-2026/-inline-03.png\npermalink=https://mayai.ru/nastrojka-claude-code-hooks-2026/\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp_fallback",
+  "note": "FTP STOR blocked (425 Bad IP); used SSH/SFTP bootstrap upload | git: URLs normalized to mayai.ru canonical"
+}

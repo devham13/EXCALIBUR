@@ -3,15 +3,26 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B01-primer-seo-stati\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
     ],
     "panel_size_px": [
-      1024,
-      576
+      1019,
+      572
     ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 572,
+        "end": 580
+      },
+      "v_gutter_px": {
+        "start": 1019,
+        "end": 1029
+      }
+    },
     "output_size_px": [
       1200,
       675
@@ -23,41 +34,59 @@
         "box_px": {
           "left": 0,
           "top": 0,
-          "right": 1024,
-          "bottom": 576
+          "right": 1019,
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 572
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+        "alt": "Эксперт блога указывает на fake Wordstat с 15 000 ключей и analytics «0% дочитывания» — мем-коллаж про SEO-текст для людей",
         "h2_anchor": null
       },
       "inline_1": {
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1024,
+          "left": 1029,
           "top": 0,
           "right": 2048,
-          "bottom": 576
+          "bottom": 572
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 572
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-        "h2_anchor": "Зачем SEO и GEO в одной статье"
+        "alt": "Таблица сравнения SEO и GEO в одном longread — критерии, цели и форматы ответа",
+        "h2_anchor": "Объедините SEO и GEO в одном longread"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
           "left": 0,
-          "top": 576,
-          "right": 1024,
+          "top": 580,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 580,
+          "right": 1019,
           "bottom": 1152
         },
         "size_px": [
@@ -65,15 +94,21 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-        "h2_anchor": "Структура longread: от семантики до читабельности"
+        "alt": "Скриншот Вордстат и outline H2 по интенту — сбор семантики для SEO-статьи",
+        "h2_anchor": "Соберите семантику и outline по интенту"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1024,
-          "top": 576,
+          "left": 1029,
+          "top": 580,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 580,
           "right": 2048,
           "bottom": 1152
         },
@@ -82,14 +117,14 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-        "h2_anchor": "FAQ и schema: зачем и как"
+        "alt": "Схема workflow из 9 шагов — от интента до публикации SEO longread с answer-first блоками",
+        "h2_anchor": "Напишите черновик с answer-first блоками"
       }
     }
   },
   "html_inject": [
-    "skip inline_1: already injected",
-    "skip inline_2: already injected",
-    "skip inline_3: already injected"
+    "injected inline_1 after H2 — Объедините SEO и GEO в одном longread",
+    "injected inline_2 after H2 — Соберите семантику и outline по интенту",
+    "injected inline_3 after H2 — Напишите черновик с answer-first блоками"
   ]
 }

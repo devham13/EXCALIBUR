@@ -1,0 +1,14 @@
+{
+  "site_base": "https://example.com",
+  "total_articles": 5,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B01-primer-seo-stati",
+      "target": "B04-geo-optimizaciya-sajta-2026",
+      "keyword": "geo оптимизация",
+      "context": "ой запрос, \"seo текст для блога\", техника (title, schema), \"geo оптимизация статьи\". <b>Делайте:</b> фиксируйте кластеры в таблице до т",
+      "link_replacement": "<a href=\"/blog/geo-optimizaciya-sajta-2026/\">geo оптимизация</a>"
+    }
+  ]
+}

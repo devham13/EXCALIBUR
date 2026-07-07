@@ -1,0 +1,18 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://mayai.ru/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 480,
+  "inline_image_ids": [481, 482, 483],
+  "status": "published",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=480\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=481 src=cover/inline-01.png\nOK inline_image_upload=482 src=cover/inline-02.png\nOK inline_image_upload=483 src=cover/inline-03.png\npermalink=https://mayai.ru/2026/06/19/primer-seo-stati/",
+  "verdict": "pass",
+  "publish_method": "sftp_upload_fallback",
+  "note": "FTP STOR blocked (425 Bad IP) for 8MB payload; uploaded bootstrap via SFTP, HTTP trigger OK"
+}

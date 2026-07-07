@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-07 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 480 |
+| inline_images | 481, 482, 483 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| status | published |
+| trigger | Cloud Automation publish (excalibur-blog-publish) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (7/7)
+- schema.jsonld: present (BlogPosting + FAQPage + HowTo)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o .../link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP 8243210 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FTP STOR fail 425 Bad IP (8MB)
+# Workaround: SFTP upload bootstrap + curl HTTP trigger — OK
+```
+
+### Notes
+
+- FTP passive STOR блокируется хостингом для payload ~8 MB (`425 Security: Bad IP connecting`); малые файлы через FTP проходят.
+- Bootstrap `excalibur-blog-publish-once.php` загружен через SFTP, HTTP trigger с Cloud — OK, bootstrap удалён.
+- Обновлён существующий post_id=238 (permalink с датой 2026/06/19).
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=480
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=481 src=cover/inline-01.png
+OK inline_image_upload=482 src=cover/inline-02.png
+OK inline_image_upload=483 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```

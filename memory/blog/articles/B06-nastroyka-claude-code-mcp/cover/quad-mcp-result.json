@@ -1,0 +1,5 @@
+{
+  "url": "",
+  "source": "generate_image_fallback_local",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud; canvas generated via GenerateImage i2i + resize 2048x1152; local cover/canvas-quad.png"
+}

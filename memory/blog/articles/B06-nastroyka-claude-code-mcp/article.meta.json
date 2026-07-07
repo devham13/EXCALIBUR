@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-claude-code-mcp",
+  "h1": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks",
+  "title": "Claude Code: пошаговая настройка MCP и hooks для автоматизации",
+  "description": "Установка Claude Code native install, вход Pro/Max, CLAUDE.md, claude mcp add, .mcp.json, hooks и чеклист pipeline для Windows и macOS. Гайд для автоматизаторов без dev-бэкграунда.",
+  "keywords": [
+    "claude code",
+    "claude code mcp",
+    "как установить claude code",
+    "claude code windows",
+    "claude code hooks"
+  ],
+  "primary_query": "claude code",
+  "secondary_queries": [
+    "claude code mcp",
+    "как установить claude code",
+    "claude code windows",
+    "claude code hooks"
+  ],
+  "char_count": 8648,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить claude code mcp и hooks пошагово",
+    "установка claude code на windows с native install",
+    "claude code для автоматизации контента без программирования"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code: пошаговая настройка MCP и hooks для автоматизации",
+    "title_ctr": "💻 Claude Code за 45 минут: install, MCP, hooks и первый pipeline!",
+    "title_aeo": "Как настроить Claude Code с MCP и hooks для автоматизации?",
+    "description_seo": "Установка Claude Code native install, Pro/Max, CLAUDE.md, claude mcp add, .mcp.json, hooks и чеклист pipeline. Windows и macOS, без dev-сленга.",
+    "description_ctr": "⚡ Пройдите путь install → MCP → hook за один вечер: команды PowerShell и bash, таблица vs Cursor, 12 пунктов чеклиста. Гайд для автоматизаторов.",
+    "description_aeo": "Claude Code настраивается через native install, OAuth Pro/Max, CLAUDE.md, claude mcp add или .mcp.json и hooks в .claude/settings.json; проверка /mcp и /hooks."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#article",
+      "headline": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks",
+      "description": "Установка Claude Code native install, вход Pro/Max, CLAUDE.md, claude mcp add, .mcp.json, hooks и чеклист pipeline для Windows и macOS. Гайд для автоматизаторов без dev-бэкграунда.",
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/nastroyka-claude-code-mcp/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastroyka-claude-code-mcp-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code, claude code mcp, как установить claude code, claude code windows, claude code hooks",
+      "wordCount": 8648,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как установить Claude Code на Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте PowerShell и выполните irm https://claude.ai/install.ps1 | iex. Проверьте claude --version. При command not found перезапустите терминал; для bash-команд установите Git for Windows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли подписка для Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: Pro, Max, Team, Enterprise или Console. Бесплатный план Claude.ai Claude Code не включает. Альтернатива - ANTHROPIC_API_KEY с отдельной API-биллинг-логикой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Claude Code отличается от Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Code - CLI-агент в терминале и CI; Cursor - IDE с Agent. MCP похож по идее, конфиг разный: claude mcp / .mcp.json против .cursor/mcp.json."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как подключить MCP к Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "claude mcp add --transport stdio|http с параметрами или .mcp.json в project scope. Проверка: claude mcp list и /mcp в сессии - server connected, tools видны."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где настроить hooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В ~/.claude/settings.json или .claude/settings.json проекта. После правки откройте Claude Code и введите /hooks - список активных триггеров."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое mcp_tool hook?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hook, который на событии (например PostToolUse) вызывает MCP tool напрямую, без shell-скрипта. Нужен уже подключенный MCP server и matcher mcp__server__tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли Claude Code из России?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зависит от доступа к Anthropic, оплаты и аккаунта. Мы не обещаем стабильность; перед оплатой проверьте вход на claude.ai и условия вашего региона."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#howto",
+      "name": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks",
+      "description": "Установка Claude Code native install, вход Pro/Max, CLAUDE.md, claude mcp add, .mcp.json, hooks и чеклист pipeline для Windows и macOS. Гайд для автоматизаторов без dev-бэкграунда.",
+      "inLanguage": "ru",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code (native install)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Node.js LTS (для stdio MCP через npx)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Git for Windows (для bash-команд на Windows)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Сравните Claude Code и Cursor",
+          "text": "Определите, нужен ли CLI-агент в терминале и CI (Claude Code) или IDE с Agent (Cursor). Не дублируйте одинаковые MCP в обоих инструментах.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#choose-tool"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Установите Claude Code native install",
+          "text": "macOS/Linux/WSL: curl -fsSL https://claude.ai/install.sh | bash. Windows PowerShell: irm https://claude.ai/install.ps1 | iex. Проверьте claude --version и при сбоях claude doctor.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Войдите под Pro/Max",
+          "text": "Запустите claude в каталоге проекта и пройдите browser OAuth. Нужен план Pro, Max, Team или Enterprise; бесплатный Claude.ai Claude Code не включает. Не подключайте MCP до успешного входа.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#auth"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Создайте CLAUDE.md и permissions",
+          "text": "Добавьте CLAUDE.md в корень репозитория или .claude/CLAUDE.md с правилами проекта. Настройте permissions через /permissions и ~/.claude/settings.json или .claude/settings.json.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#claude-md"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Подключите MCP",
+          "text": "Добавьте сервер через claude mcp add --transport stdio или .mcp.json в project scope. Проверьте claude mcp list и /mcp в сессии — server connected, tools видны.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#mcp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Настройте hook",
+          "text": "Добавьте hook типа command или mcp_tool в .claude/settings.json (например PostToolUse для автоформата). Проверьте список через /hooks в сессии Claude Code.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#hooks"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Прогоните чеклист pipeline",
+          "text": "Пройдите install → auth → CLAUDE.md → MCP → hook и выполните тестовый prompt с MCP tool. Для CI используйте non-interactive флаг -p из quickstart docs.",
+          "url": "https://mayai.ru/blog/nastroyka-claude-code-mcp/#pipeline"
+        }
+      ]
+    }
+  ]
+}

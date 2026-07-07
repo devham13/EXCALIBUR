@@ -1,0 +1,202 @@
+<p>Хотите, чтобы ИИ сам правил файлы в проекте, дергал внешние сервисы и запускал сценарии без ручного копирования в чат? Claude Code - это агент в терминале от Anthropic: он читает код, вызывает инструменты и работает в CI. За 30-45 минут вы пройдете путь install - auth - CLAUDE.md - MCP - hook и проверите первый pipeline. Ниже команды для Windows и macOS, таблица выбора против Cursor и чеклист без лишней теории.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Claude Code ставится одной командой (native install), требует подписку Pro/Max или API key. MCP (Model Context Protocol) - "розетки" к filesystem, GitHub и webhooks; подключается через claude mcp add или .mcp.json. Hooks в .claude/settings.json - автоправила на события (формат файла, уведомление). Проверка: claude --version, в сессии /mcp и /hooks.</blockquote>
+
+<p>Claude Code - agentic CLI: программа в терминале, которая сама правит файлы и вызывает ваши инструменты. MCP - открытый протокол интеграции AI с сервисами (анонс Anthropic, ноябрь 2024); hooks - триггеры "если агент сделал X, выполни Y". API (Application Programming Interface) здесь - не ручные запросы, а готовые tools, которые агент выбирает сам. Для IDE с похожей логикой см. <a href="/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>; для оркестрации публикаций - <a href="/avtomatizaciya-n8n-ai-agents/">автоматизация n8n с ИИ-агентами</a>.</p>
+
+<h2 id="choose-tool">1. Сравните Claude Code и Cursor: когда CLI, когда IDE</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица Claude Code и Cursor: CLI, MCP-конфиг, сценарии использования" loading="lazy">
+</figure>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Claude Code</th>
+      <th>Cursor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где работает</b></td>
+      <td>Терминал, скрипты, CI/headless</td>
+      <td>Редактор кода с чатом и Agent</td>
+    </tr>
+    <tr>
+      <td><b>MCP-конфиг</b></td>
+      <td>claude mcp add, .mcp.json</td>
+      <td>.cursor/mcp.json, Tools &amp; MCP</td>
+    </tr>
+    <tr>
+      <td><b>Лучше для</b></td>
+      <td>Пакетная правка файлов, cron, подготовка артеfactов</td>
+      <td>Визуальная разработка, рефакторинг в IDE</td>
+    </tr>
+    <tr>
+      <td><b>Подписка</b></td>
+      <td>Pro/Max/Team/Enterprise; free Claude.ai не дает Code</td>
+      <td>Отдельный тариф Cursor</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> Claude Code для скриптов и headless-задач, Cursor для ежедневной работы в редакторе. <b>Не делайте:</b> ставить оба инструмента с десятком одинаковых MCP - дубли путают и вы съедаете лимиты.</p>
+
+<h2 id="install">2. Установите Claude Code native install и проверьте систему</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист установки Claude Code: native install, проверка версии и системы" loading="lazy">
+</figure>
+
+
+<p>Требования по <a href="https://code.claude.com/docs/ru/setup" target="_blank">официальной docs</a>: macOS 13+, Windows 10 1809+, Ubuntu 20.04+; от 4 ГБ ОЗУ; x64 или ARM64. На Windows без Git for Windows shell-tool переключится на PowerShell - для bash-команд лучше поставить Git for Windows.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> macOS/Linux/WSL - выполните curl -fsSL https://claude.ai/install.sh | bash</li>
+  <li><b>Шаг 2:</b> Windows PowerShell (админ не обязателен) - irm https://claude.ai/install.ps1 | iex</li>
+  <li><b>Шаг 3:</b> Альтернатива: brew install --cask claude-code или winget install Anthropic.ClaudeCode</li>
+  <li><b>Шаг 4:</b> Проверьте claude --version; при сбоях - claude doctor</li>
+  <li><b>Шаг 5:</b> Если command not found на Windows - перезапустите терминал и проверьте PATH</li>
+</ol>
+
+<p>Native install обновляется в фоне; Homebrew/WinGet - вручную. <b>Делайте:</b> native install для ежедневной работы. <b>Не делайте:</b> смешивать npm-обертки с native без необходимости - лишние точки отказа.</p>
+
+<h2 id="auth">3. Войдите под Pro/Max и проверьте биллинг до MCP</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема: вход Pro/Max, проверка биллинга и подготовка к MCP" loading="lazy">
+</figure>
+
+
+<p>Запустите claude в каталоге проекта - откроется browser OAuth. Нужен план Pro ($20/мес), Max 5x ($100/мес), Max 20x ($200/мес), Team или Enterprise; бесплатный Claude.ai Claude Code не включает. Лимиты Pro/Max общие для web и Code.</p>
+
+<p>Если задан ANTHROPIC_API_KEY, аутентификация может идти по API с отдельной биллинг-логикой - для лимита подписки уберите ключ из env на время входа. Доступ из вашего региона зависит от аккаунта Anthropic и оплаты; гарантий не даем - смотрите актуальные условия на claude.ai.</p>
+
+<p><b>Делайте:</b> один способ оплаты на старте (Pro/Max или API). <b>Не делайте:</b> подключать MCP до успешного входа - без auth серверы не поднимутся.</p>
+
+<h2 id="claude-md">4. Создайте CLAUDE.md и базовые permissions проекта</h2>
+
+<p>CLAUDE.md - "память" проекта: тон, стек, запреты. Файл кладут в корень репозитория или .claude/CLAUDE.md; глобально - ~/.claude/CLAUDE.md. Настройки - ~/.claude/settings.json (все проекты) или .claude/settings.json (только репо); локально .claude/settings.local.json.</p>
+
+<p>Минимум для автоматизатора контента: язык ответов, список папок "можно трогать", запрет на rm -rf и публикацию без подтверждения. Команды в сессии: /config, /permissions.</p>
+
+<p><b>Делайте:</b> 15-20 строк правил вместо романа. <b>Не делайте:</b> копировать чужой CLAUDE.md с GitHub без адаптации под свой стек.</p>
+
+<h2 id="mcp">5. Подключите MCP через claude mcp add и .mcp.json</h2>
+
+<p>MCP дает агенту tools: чтение файлов, GitHub, HTTP-webhooks к Make/n8n. Scope: local (по умолчанию), project (.mcp.json в репо, нужно одобрение), user (все проекты).</p>
+
+<p>Stdio-сервер filesystem (замените путь на свою папку):</p>
+
+<blockquote>
+  <b>Команда claude mcp add (stdio):</b><br>
+  claude mcp add --transport stdio myfs -- npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir
+</blockquote>
+
+<p>Project-scope .mcp.json в корне (команда после -- обязательна):</p>
+
+<blockquote>
+  <b>Пример .mcp.json (project scope):</b><br>
+  { "mcpServers": { "myfs": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "./content"] } } }
+</blockquote>
+
+<p>HTTP remote: claude mcp add --transport http myapi https://example.com/mcp. Управление: claude mcp list, claude mcp remove; в сессии /mcp - статус connected и список tools.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сервер</th>
+      <th>Зачем</th>
+      <th>Когда добавить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Filesystem</b></td>
+      <td>Черновики статей, правки markdown</td>
+      <td>Первым, на шаге 5</td>
+    </tr>
+    <tr>
+      <td><b>GitHub MCP</b></td>
+      <td>PR и issues контент-репо</td>
+      <td>После filesystem, с PAT в --env</td>
+    </tr>
+    <tr>
+      <td><b>HTTP webhook</b></td>
+      <td>Триггер Make/n8n после правки</td>
+      <td>Когда pipeline стабилен</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> один полный пример (filesystem), остальное - вторым шагом. <b>Не делайте:</b> коммитить секреты в .mcp.json.</p>
+
+<h2 id="hooks">6. Настройте hook: command или mcp_tool</h2>
+
+<p>Hooks срабатывают на события (PostToolUse, Notification и др.). Типы: command, http, mcp_tool, prompt. Просмотр: /hooks в сессии Claude Code.</p>
+
+<p>Пример PostToolUse - автоформат после правки файла (фрагмент .claude/settings.json):</p>
+
+<blockquote>
+  <b>Пример hook PostToolUse в settings.json:</b><br>
+  { "hooks": { "PostToolUse": [ { "matcher": "Edit|Write", "hooks": [ { "type": "command", "command": "npx prettier --write ${tool_input.file_path}" } ] } ] } }
+</blockquote>
+
+<p>Hook type mcp_tool вызывает tool уже подключенного MCP без bash - паттерн matcher: mcp__&lt;server&gt;__&lt;tool&gt;. <b>Делайте:</b> один hook на старте (формат или desktop Notification). <b>Не делайте:</b> auto-approve опасных shell-команд на продакшен-аккаунте.</p>
+
+<h2 id="pipeline">7. Прогоните чеклист pipeline install - MCP - hook - тест</h2>
+
+<blockquote>
+  <b>Workflow:</b>
+  <br>
+  Проверка ОС - native install - claude --version - OAuth Pro/Max - CLAUDE.md - claude mcp add - /mcp OK - hook в settings.json - /hooks OK - тестовый prompt с MCP tool
+</blockquote>
+
+<p>Чеклист перед headless/CI (10+ пунктов):</p>
+
+<ol>
+  <li>claude --version без ошибок</li>
+  <li>claude doctor без критических предупреждений</li>
+  <li>Вход под нужным планом (не free)</li>
+  <li>CLAUDE.md описывает проект и запреты</li>
+  <li>Permissions настроены через /permissions</li>
+  <li>Минимум один MCP в claude mcp list</li>
+  <li>/mcp показывает connected и tools</li>
+  <li>Project .mcp.json одобрен в интерактивной сессии</li>
+  <li>Hook виден в /hooks</li>
+  <li>Тестовый prompt изменил файл и hook сработал</li>
+  <li>Секреты не в Git</li>
+  <li>Для CI зафиксирован non-interactive режим (-p из quickstart docs)</li>
+</ol>
+
+<p>Тест: "Прочитай README в ./content и добавь строку в changelog". Агент вызовет MCP filesystem; hook отформатирует или залогирует шаг. Для cron или GitHub Actions используйте non-interactive флаг -p из <a href="https://code.claude.com/docs/ru/quickstart" target="_blank">quickstart</a>: один prompt на stdin, результат в stdout без диалога.</p>
+
+<p>Дальше свяжите выход с Make/n8n - на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> разбираем цепочки webhook без программирования. Если нужен разбор вашего стека - <a href="https://kv-ai.ru/artur-horosheff" target="_blank">профиль автора</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Артур Хорошев (CEO Maya AI, автор курса по Make.com).<br>
+  <b>Достоверность данных:</b> команды, тарифы и требования сверены с официальной документацией Anthropic (code.claude.com/docs/ru) на 07.07.2026; LSI-запросы claude code mcp и claude code hooks - по SERP, объемы Вордстат уточняются при подключении MCP Wordstat.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как установить Claude Code на Windows?</h3>
+<p>Откройте PowerShell и выполните irm https://claude.ai/install.ps1 | iex. Проверьте claude --version. При command not found перезапустите терминал; для bash-команд установите Git for Windows.</p>
+
+<h3>Нужна ли подписка для Claude Code?</h3>
+<p>Да: Pro, Max, Team, Enterprise или Console. Бесплатный план Claude.ai Claude Code не включает. Альтернатива - ANTHROPIC_API_KEY с отдельной API-биллинг-логикой.</p>
+
+<h3>Чем Claude Code отличается от Cursor?</h3>
+<p>Claude Code - CLI-агент в терминале и CI; Cursor - IDE с Agent. MCP похож по идее, конфиг разный: claude mcp / .mcp.json против .cursor/mcp.json.</p>
+
+<h3>Как подключить MCP к Claude Code?</h3>
+<p>claude mcp add --transport stdio|http с параметрами или .mcp.json в project scope. Проверка: claude mcp list и /mcp в сессии - server connected, tools видны.</p>
+
+<h3>Где настроить hooks?</h3>
+<p>В ~/.claude/settings.json или .claude/settings.json проекта. После правки откройте Claude Code и введите /hooks - список активных триггеров.</p>
+
+<h3>Что такое mcp_tool hook?</h3>
+<p>Hook, который на событии (например PostToolUse) вызывает MCP tool напрямую, без shell-скрипта. Нужен уже подключенный MCP server и matcher mcp__server__tool.</p>
+
+<h3>Работает ли Claude Code из России?</h3>
+<p>Зависит от доступа к Anthropic, оплаты и аккаунта. Мы не обещаем стабильность; перед оплатой проверьте вход на claude.ai и условия вашего региона.</p>

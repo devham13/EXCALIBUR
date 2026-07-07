@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-claude-code-mcp/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "нтеграции AI с сервисами (анонс Anthropic, ноябрь 2024); hooks - триггеры \"если агент сделал X, выполни",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "цией Anthropic (code.claude.com/docs/ru) на 07.07.2026; LSI-запросы claude code mcp и claude code hooks",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "код, вызывает инструменты и работает в CI. За 30-45 минут вы пройдете путь install - auth - CLAUDE.md - MCP",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 1809",
+      "kind": "large_number",
+      "context": "ебования по официальной docs : macOS 13+, Windows 10 1809+, Ubuntu 20.04+; от 4 ГБ ОЗУ; x64 или ARM64. На W",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-07",
+    "today_ru": "07.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-07 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastroyka-claude-code-mcp",
+    "h1": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks",
+    "primary_query": "claude code",
+    "secondary_queries": [
+      "claude code mcp",
+      "как установить claude code",
+      "claude code windows",
+      "claude code hooks"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code mcp 2026",
+      "purpose": "вторичный запрос: claude code mcp"
+    },
+    {
+      "id": "secondary_2",
+      "query": "как установить claude code 2026",
+      "purpose": "вторичный запрос: как установить claude code"
+    },
+    {
+      "id": "secondary_3",
+      "query": "claude code windows 2026",
+      "purpose": "вторичный запрос: claude code windows"
+    },
+    {
+      "id": "secondary_4",
+      "query": "claude code hooks 2026",
+      "purpose": "вторичный запрос: claude code hooks"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastroyka-claude-code-mcp",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

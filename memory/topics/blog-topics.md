@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Dynamic Workflows в Claude Code
+
+- **priority:** P0
+- **slug:** dinamicheskie-workflow-claude-code
+- **h1:** Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов
+- **primary_query:** claude code workflow
+- **secondary_queries:** claude code ultracode, dynamic workflows claude code, claude code subagents workflow, /workflows claude code
+- **search_intent:** workflow
+- **article_mode:** B
+- **h2_outline:**
+  1. Dynamic workflows vs MCP, hooks и обычные subagents: когда нужен ultracode (GA Anthropic, v2.1.154+)
+  2. Проверка версии Claude Code и включение Dynamic workflows в `/config`
+  3. Первый запуск: ключевое слово `ultracode`, «use a workflow» и режим `/effort ultracode`
+  4. Панель `/workflows`: мониторинг, пауза, сохранение скрипта в `~/.claude/workflows/`
+  5. Практические сценарии: аудит кодовой базы, миграция, встроенный `/deep-research`
+  6. Чек-лист безопасности, бюджета токенов и resume после прерывания
+- **faq_hints:** что такое ultracode в claude code; чем workflow отличается от agent teams; как сохранить workflow для повторного запуска; сколько токенов тратит dynamic workflow
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** терминал Claude Code с панелью `/workflows`, параллельные «окна-субагентов» как неоновые карточки, стикер `ultracode`, diy-коллаж на тёмном фоне
+
+---
+

@@ -1,0 +1,8 @@
+{
+  "slug": "nastroyka-claude-code-mcp",
+  "topic_id": "B06",
+  "permalink": "/2026/07/07/nastroyka-claude-code-mcp/",
+  "raw_output": "OK post=464 slug=nastroyka-claude-code-mcp\nOK featured_image=465\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=466 src=cover/inline-01.png url=/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-01.png\nOK inline_image_upload=467 src=cover/inline-02.png url=/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-02.png\nOK inline_image_upload=468 src=cover/inline-03.png url=/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-03.png\npermalink=/2026/07/07/nastroyka-claude-code-mcp/\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp"
+}

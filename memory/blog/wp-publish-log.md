@@ -172,3 +172,49 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-07 — B06 dinamicheskie-workflow-claude-code — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | dinamicheskie-workflow-claude-code |
+| verdict | **PASS** |
+| post_id | 471 |
+| featured_image_id | 472 |
+| inline_images | 473, 474, 475 |
+| permalink | https://neurinix.com/2026/07/07/dinamicheskie-workflow-claude-code/ <!-- pragma: allowlist secret --> |
+| transport | SFTP (FTP STOR blocked: 425 Security Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (4/4, preflight refresh)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run          # OK, PHP 9129914 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...                    # FAIL FTP 425 Bad IP
+# SFTP fallback (paramiko + REMOTE_SITE_ROOT): upload → HTTP trigger → cleanup   # PASS
+python3 scripts/excalibur_blog_interlinker.py --apply                           # 0 opportunities
+```
+
+### Result
+
+```
+OK post=471 slug=dinamicheskie-workflow-claude-code
+OK featured_image=472
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=473 src=cover/inline-01.png
+OK inline_image_upload=474 src=cover/inline-02.png
+OK inline_image_upload=475 src=cover/inline-03.png
+permalink=https://neurinix.com/2026/07/07/dinamicheskie-workflow-claude-code/ <!-- pragma: allowlist secret -->
+```

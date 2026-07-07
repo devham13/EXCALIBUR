@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "dinamicheskie-workflow-claude-code",
+  "h1": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов",
+  "title": "Claude code workflow: пошаговый запуск dynamic workflows и ultracode",
+  "description": "Как запустить dynamic workflows в Claude Code: версия 2.1.154+, /config, ultracode, /workflows, save и чеклист токенов. Сравнение с subagents и MCP.",
+  "keywords": [
+    "claude code workflow",
+    "claude code ultracode",
+    "dynamic workflows claude code",
+    "workflows claude code",
+    "claude code subagents workflow"
+  ],
+  "primary_query": "claude code workflow",
+  "secondary_queries": [
+    "claude code ultracode",
+    "dynamic workflows claude code",
+    "claude code subagents workflow",
+    "/workflows claude code"
+  ],
+  "char_count": 8907,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как запустить dynamic workflows в claude code пошагово",
+    "claude code ultracode и панель workflows для аудита кода",
+    "dynamic workflows claude code сравнение с subagents и MCP"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude code workflow: запуск dynamic workflows и ultracode",
+    "title_ctr": "🚀 Claude code workflow: запустите ultracode и /workflows за 30 минут!",
+    "title_aeo": "Как запустить dynamic workflows и ultracode в Claude Code?",
+    "description_seo": "Пошаговый claude code workflow: версия 2.1.154+, /config, ultracode, /workflows, save скрипта и чеклист токенов. Сравнение с subagents.",
+    "description_ctr": "⚡ Dynamic workflows в Claude Code за один вечер: ultracode, /deep-research, мониторинг /workflows и save. Гайд для техлидов без лишней теории.",
+    "description_aeo": "Claude code workflow – dynamic workflows через ultracode или /deep-research, контроль в /workflows (pause/save), лимиты 16/1000 агентов и возврат /effort high."
+  },
+  "cover_family": "brand_collage"
+}

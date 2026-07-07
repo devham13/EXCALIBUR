@@ -1,0 +1,15 @@
+{
+  "slug": "dinamicheskie-workflow-claude-code",
+  "topic_id": "B06",
+  "permalink": "/2026/07/07/dinamicheskie-workflow-claude-code/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-dinamicheskie-workflow-claude-code/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1371940,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=471 slug=dinamicheskie-workflow-claude-code\nOK featured_image=472\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=473 src=cover/inline-01.png url=/wp-content/uploads/2026/07/dinamicheskie-workflow-claude-code-inline-01.png\nOK inline_image_upload=474 src=cover/inline-02.png url=/wp-content/uploads/2026/07/dinamicheskie-workflow-claude-code-inline-02.png\nOK inline_image_upload=475 src=cover/inline-03.png url=/wp-content/uploads/2026/07/dinamicheskie-workflow-claude-code-inline-03.png\npermalink=/2026/07/07/dinamicheskie-workflow-claude-code/\n",
+  "verdict": "pass",
+  "transport": "sftp"
+}

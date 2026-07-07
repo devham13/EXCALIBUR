@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-07",
+    "today_ru": "07.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-07 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "dinamicheskie-workflow-claude-code",
+    "h1": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов",
+    "primary_query": "claude code workflow",
+    "secondary_queries": [
+      "claude code ultracode",
+      "dynamic workflows claude code",
+      "claude code subagents workflow",
+      "/workflows claude code"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "workflow",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code workflow 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code workflow июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code workflow новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code ultracode 2026",
+      "purpose": "вторичный запрос: claude code ultracode"
+    },
+    {
+      "id": "secondary_2",
+      "query": "dynamic workflows claude code 2026",
+      "purpose": "вторичный запрос: dynamic workflows claude code"
+    },
+    {
+      "id": "secondary_3",
+      "query": "claude code subagents workflow 2026",
+      "purpose": "вторичный запрос: claude code subagents workflow"
+    },
+    {
+      "id": "secondary_4",
+      "query": "/workflows claude code 2026",
+      "purpose": "вторичный запрос: /workflows claude code"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-dinamicheskie-workflow-claude-code",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

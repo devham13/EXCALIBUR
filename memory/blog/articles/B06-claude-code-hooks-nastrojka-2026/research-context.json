@@ -1,0 +1,80 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-hooks-nastrojka-2026",
+    "h1": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации",
+    "primary_query": "claude code hooks",
+    "secondary_queries": [
+      "настройка hooks claude code",
+      "PreToolUse hook claude code",
+      "hooks settings.json claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code hooks 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code hooks июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code hooks новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "настройка hooks claude code 2026",
+      "purpose": "вторичный запрос: настройка hooks claude code"
+    },
+    {
+      "id": "secondary_2",
+      "query": "PreToolUse hook claude code 2026",
+      "purpose": "вторичный запрос: PreToolUse hook claude code"
+    },
+    {
+      "id": "secondary_3",
+      "query": "hooks settings.json claude code 2026",
+      "purpose": "вторичный запрос: hooks settings.json claude code"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-claude-code-hooks-nastrojka-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

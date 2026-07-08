@@ -1,0 +1,235 @@
+<p>Claude Code выполняет команды, но без hooks вы снова просите "не трогай .env" и "запусти prettier". Настройка claude code hooks в settings.json занимает 20-40 минут: три рабочих hook (формат, защита секретов, bash guard), проверка через /hooks и понимание exit 2. После гайда у вас детерминированные quality gates, которые срабатывают каждый раз, а не когда модель "вспомнит".</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Hooks в Claude Code – скрипты в settings.json на lifecycle events (PreToolUse до tool, PostToolUse после). Блокировка: exit 2 или JSON deny на exit 0; exit 1 только предупреждает. Командные hooks – .claude/settings.json в репо; личные – settings.local.json или ~/.claude/settings.json. Проверка: /hooks.</blockquote>
+
+<p>Hooks – user-defined обработчики lifecycle Claude Code: shell-команда, HTTP endpoint, MCP-tool, prompt или agent. Они живут вне основного контекста чата, поэтому не "съедают" токены, как длинный CLAUDE.md. MCP (Model Context Protocol) – открытый стандарт "розеток" для внешних сервисов в редакторе; hooks перехватывают события внутри Claude Code без отдельного сервера. Подробнее про MCP – в <a href="/podklyuchenie-mcp-cursor/">гайде по подключению MCP в Cursor</a>; здесь – только hooks и settings.json.</p>
+
+<h2 id="hooks-vs-claude-md">1. Сравните hooks с CLAUDE.md, skills и MCP</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица hooks vs CLAUDE.md vs MCP: гарантии и когда что выбирать" loading="lazy">
+</figure>
+
+
+<p>CLAUDE.md и skills – инструкции в контексте: модель может их проигнорировать под нагрузкой. Hooks – код снаружи: после каждого Edit|Write prettier запустится, даже если агент "забыл". PreToolUse срабатывает до permission-check и может заблокировать tool даже в bypassPermissions или --dangerously-skip-permissions – жёстче любой фразы в CLAUDE.md.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Механизм</th>
+      <th>Гарантия</th>
+      <th>Когда выбирать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>CLAUDE.md / skills</b></td>
+      <td>Нет</td>
+      <td>Стиль и soft-правила</td>
+    </tr>
+    <tr>
+      <td><b>Hooks</b></td>
+      <td>Да, на событии</td>
+      <td>Формат, секреты, bash guard</td>
+    </tr>
+    <tr>
+      <td><b>MCP</b></td>
+      <td>Да, при вызове tool</td>
+      <td>Браузер, GitHub, CMS снаружи IDE</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> автоформат и .env guard через hooks. <b>Не делайте:</b> те же правила только в CLAUDE.md – exit 2 не заменить текстом.</p>
+
+<h2 id="config-scope">2. Выберите scope: project, local или global</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема выбора scope hooks: project, local или global settings.json" loading="lazy">
+</figure>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Файл</th>
+      <th>Область</th>
+      <th>Git</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>.claude/settings.json</b></td>
+      <td>Проект команды</td>
+      <td>Коммит</td>
+    </tr>
+    <tr>
+      <td><b>.claude/settings.local.json</b></td>
+      <td>Только ваш ПК</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <td><b>~/.claude/settings.json</b></td>
+      <td>Все проекты</td>
+      <td>Нет</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Plugin hooks лежат в hooks/hooks.json плагина; skills могут объявлять hooks во frontmatter. Для команды автоматизации коммитьте .claude/settings.json; личные эксперименты – в settings.local.json (gitignored) или ~/.claude/settings.json.</p>
+
+<p><b>Делайте:</b> переменную $CLAUDE_PROJECT_DIR в путях к .claude/hooks/*.sh. <b>Не делайте:</b> хранить production guardrails только в global, если команда работает из одного репо – коллеги не увидят hooks.</p>
+
+<h2 id="setup-walkthrough">3. Настройте production pack hooks пошагово</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист production pack hooks: 7 шагов от .claude/hooks до /hooks verify" loading="lazy">
+</figure>
+
+
+<blockquote>
+  <b>Workflow:</b> PreToolUse (Edit|Write / Bash) → exit 0/2 → tool → PostToolUse (Edit|Write) → prettier → Stop / Notification (опционально)
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Создайте .claude/hooks/, chmod +x для shell на Linux/macOS.</li>
+  <li><b>Шаг 2:</b> Добавьте блок "hooks" в .claude/settings.json.</li>
+  <li><b>Шаг 3:</b> PostToolUse, matcher Edit|Write: jq читает stdin, prettier на file_path.</li>
+  <li><b>Шаг 4:</b> protect-files.sh: match .env/secrets → stderr + exit 2; PreToolUse Edit|Write.</li>
+  <li><b>Шаг 5:</b> PreToolUse Bash guard: блок rm -rf /, drop table.</li>
+  <li><b>Шаг 6:</b> Команда /hooks – events, matchers, source Project.</li>
+  <li><b>Шаг 7:</b> Тест: read .env или blocked bash – deny в transcript.</li>
+</ol>
+
+<p>Фрагмент settings.json:</p>
+
+<blockquote>
+  <b>Фрагмент .claude/settings.json:</b><br>
+  {<br>
+  &nbsp;&nbsp;"hooks": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"PostToolUse": [{"matcher": "Edit|Write", "hooks": [{"type": "command", "command": "jq -r '.tool_input.file_path' | xargs -I{} npx prettier --write {}"}]}],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"PreToolUse": [{"matcher": "Edit|Write", "hooks": [{"type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/protect-files.sh"}]}]<br>
+  &nbsp;&nbsp;}<br>
+  }
+</blockquote>
+
+<p>protect-files.sh (из <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank">hooks-guide</a>):</p>
+
+<blockquote>
+  <b>protect-files.sh</b> (из hooks-guide):<br>
+  #!/bin/bash<br>
+  FILE=$(jq -r '.tool_input.file_path // empty')<br>
+  echo "$FILE" | grep -qE '\.(env|pem|key)$|/secrets/' &amp;&amp; { echo "Blocked: $FILE" &gt;&amp;2; exit 2; }<br>
+  exit 0
+</blockquote>
+
+<p><b>Делайте:</b> echo '{"tool_input":{"file_path":".env"}}' | ./protect-files.sh – exit 2. <b>Не делайте:</b> exit 2 + JSON на stdout – JSON игнорируется при exit 2.</p>
+
+<h2 id="pretooluse-posttooluse">4. Настройте PreToolUse guard и PostToolUse format</h2>
+
+<p>PostToolUse срабатывает после успешного tool. Matcher Edit|Write – regex через символ |. Handler type command – самый частый старт; timeout по умолчанию 600 сек для command. JSON на stdout при exit 0 может дополнить контекст, но для prettier достаточно shell.</p>
+
+<p>PreToolUse inspect tool call до выполнения. Блокировка: exit 2 (stderr уходит в feedback Claude) или exit 0 + JSON с hookSpecificOutput и permissionDecision deny. Несколько PreToolUse hooks: приоритет deny → defer → ask → allow. Для Bash matcher проверяйте tool_input.command на rm -rf, curl|bash, drop table.</p>
+
+<blockquote>
+  <b>JSON deny на exit 0:</b><br>
+  {<br>
+  &nbsp;&nbsp;"hookSpecificOutput": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"permissionDecision": "deny",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"permissionDecisionReason": "Destructive bash blocked by team policy"<br>
+  &nbsp;&nbsp;}<br>
+  }
+</blockquote>
+
+<p>Exit 1 и другие коды ≠2 – non-blocking для большинства events: tool всё равно выполнится. Для policy enforcement – только exit 2 или JSON deny на exit 0.</p>
+
+<p><b>Делайте:</b> отдельные matcher Edit|Write и Bash. <b>Не делайте:</b> тяжёлые тесты в PostToolUse на каждый save.</p>
+
+<h2 id="optional-hooks">5. Добавьте Notification, SessionStart и Stop</h2>
+
+<p>Notification (matcher пустой) – desktop alert: notify-send на Linux, osascript на macOS, PowerShell toast на Windows. SessionStart (startup|resume) – только type command или mcp_tool; stdout может дать additionalContext при старте сессии. Stop – проверка перед завершением агента (lint, незакоммиченные тесты).</p>
+
+<p>В non-interactive режиме -p PermissionRequest hooks не срабатывают – для CI и автomation pipeline используйте только PreToolUse guards, не ждите диалога разрешений. Связка hooks в IDE + сценарии Make/n8n описана на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>.</p>
+
+<p><b>Делайте:</b> SessionStart с git branch. <b>Не делайте:</b> длинные prompt-hooks в SessionStart.</p>
+
+<h2 id="production-checklist">6. Пройдите чеклист из 10+ hooks и troubleshooting</h2>
+
+<ul>
+  <li>PostToolUse Edit|Write – prettier/eslint</li>
+  <li>PreToolUse Edit|Write – protect-files.sh, exit 2</li>
+  <li>PreToolUse Bash – rm -rf, drop table</li>
+  <li>PreToolUse Read – те же protected paths (опционально)</li>
+  <li>Notification – алерт на долгие задачи</li>
+  <li>SessionStart – контекст ветки</li>
+  <li>Stop – lint или commit reminder</li>
+  <li>Скрипты: chmod +x, $CLAUDE_PROJECT_DIR</li>
+  <li>/hooks – Project layer виден</li>
+  <li>Тест deny на .env и bash</li>
+  <li>disableAllHooks – только отладка</li>
+  <li>CI -p: PreToolUse, не PermissionRequest</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exit</th>
+      <th>Поведение</th>
+      <th>Когда</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>0</b></td>
+      <td>JSON на stdout работает</td>
+      <td>Allow или JSON deny</td>
+    </tr>
+    <tr>
+      <td><b>2</b></td>
+      <td>Block, stderr → Claude</td>
+      <td>Секреты, destructive bash</td>
+    </tr>
+    <tr>
+      <td><b>1, ≠2</b></td>
+      <td>Non-blocking</td>
+      <td>Лог, не policy</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Официальный reference перечисляет 30 hook events; команда /hooks – read-only browser с source layer User/Project/Local/Plugin. Типичные ошибки: matcher Edit вместо Edit|Write; скрипт без chmod +x; exit 1 вместо 2; битый JSON wrapper; смешение exit 2 и JSON на stdout. Сообщение hook error в transcript – смотрите stderr и /hooks source layer.</p>
+
+<p><b>Делайте:</b> версионировать .claude/settings.json и hooks в Git. <b>Не делайте:</b> inline shell на 20 строк в JSON – вынесите в .claude/hooks/.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Закоммитьте .claude/settings.json и hooks после теста deny.</li>
+  <li>Свяжите с <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a> – hooks внутри, MCP снаружи.</li>
+  <li>Цепочки публикации – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a> (hooks + Make 24/7).</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, Claude Code и Make).<br>
+  <b>Достоверность данных:</b> exit codes и 30 events – <a href="https://code.claude.com/docs/en/hooks" target="_blank">docs Claude Code</a>, 08.07.2026; без выдуманных показов Вордстат.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Что такое hooks в Claude Code?</h3>
+<p>Это обработчики в settings.json (command, http, mcp_tool, prompt или agent), которые запускаются на lifecycle events – от SessionStart до PostToolUse. Они выполняются детерминированно, вне основного контекста чата. Добавьте блок "hooks", положите скрипты в .claude/hooks/ и проверьте список командой /hooks.</p>
+
+<h3>Как добавить hook в settings.json?</h3>
+<p>Откройте .claude/settings.json, добавьте ключ "hooks" с массивом по имени event (PreToolUse, PostToolUse и др.), внутри – matcher и объект type plus command. Сохраните JSON, перезапустите сессию Claude Code и откройте /hooks – должны отображаться event, matcher и source Project.</p>
+
+<h3>PreToolUse vs PostToolUse – в чём разница?</h3>
+<p>PreToolUse срабатывает до tool и может заблокировать вызов через exit 2 или JSON deny. PostToolUse – после успешного tool: форматирование, аудит, уведомления; уже выполненное действие не отменит. Для секретов и bash используйте PreToolUse; для prettier – PostToolUse с matcher Edit|Write.</p>
+
+<h3>Почему hook не блокирует, хотя скрипт падает?</h3>
+<p>Скорее всего exit code 1, а не 2: для большинства events exit 1 non-blocking и tool выполнится. Для policy enforcement используйте только exit 2 или JSON permissionDecision deny на exit 0. Проверьте код выхода: echo test JSON | ./script.sh.</p>
+
+<h3>Чем hooks отличаются от skills?</h3>
+<p>Skills – инструкции и workflow в контексте модели; hooks – код и команды снаружи, с гарантированным запуском на событии. Skills задают "как думать"; hooks – "что всегда сделать или запретить". Не заменяйте bash guard текстом skill.</p>
+
+<h3>Чем hooks отличаются от MCP?</h3>
+<p>MCP подключает внешние tools и данные (браузер, GitHub, CMS) к агенту. Hooks перехватывают lifecycle внутри Claude Code без отдельного сервера. Связка: MCP для интеграций, hooks для format и security gates; см. <a href="/podklyuchenie-mcp-cursor/">подключение MCP</a>.</p>
+
+<h3>Где хранить settings.json для команды?</h3>
+<p>Командные hooks – .claude/settings.json в репозитории (commit в Git). Личные overrides – .claude/settings.local.json или ~/.claude/settings.json. Enterprise может включить allowManagedHooksOnly – тогда user/project hooks блокируются политикой организации.</p>

@@ -1,0 +1,414 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-hooks-nastrojka-2026",
+    "h1": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации",
+    "primary_query": "claude code hooks",
+    "secondary_queries": [
+      "настройка hooks claude code",
+      "PreToolUse hook claude code",
+      "hooks settings.json claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code hooks 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hooks reference - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code 2026: Complete Cheat Sheet — Slash Commands, MCP, Hooks ...",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-2026-cheat-sheet-hooks-mcp-commands/",
+          "snippet": "In addition to command, HTTP, and MCP tool hooks, Claude Code supports prompt-based hooks (type: \"prompt\") that use an LLM to evaluate whether to allow or block an action, and agent hooks (type: \"agent\") that spawn an agentic verifier with tool access."
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+          "snippet": "The definitive 2026 Claude Code reference: every slash command, MCP transport setup, hooks JSON schema, keyboard shortcuts, and recently-shipped features lik... The Core Engineering Shift In a landscape dominated by rapid technological pivots, this latest update represents a foundational rethinking of system architecture."
+        },
+        {
+          "title": "Steering Claude Code: skills, hooks, subagents and more | Claude by ...",
+          "url": "[PRODUCTION_SITE]/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+          "snippet": "Learn Claude Code hooks from zero to production. 20+ copy-paste configurations for auto-formatting, security, notifications, and advanced prompt hooks. The complete 2026 reference."
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "Learn about the seven methods for instructing Claude's behavior to understand the context cost and authority of each."
+        },
+        {
+          "title": "Claude Code Cheat Sheet 2026 — Every Command, Shortcut & Hook",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-cheat-sheet-2026/",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code hooks июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hooks reference - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code 2026: Complete Cheat Sheet — Slash Commands, MCP, Hooks ...",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-2026-cheat-sheet-hooks-mcp-commands/",
+          "snippet": "In addition to command, HTTP, and MCP tool hooks, Claude Code supports prompt-based hooks (type: \"prompt\") that use an LLM to evaluate whether to allow or block an action, and agent hooks (type: \"agent\") that spawn an agentic verifier with tool access."
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "The definitive 2026 Claude Code reference: every slash command, MCP transport setup, hooks JSON schema, keyboard shortcuts, and recently-shipped features lik... The Core Engineering Shift In a landscape dominated by rapid technological pivots, this latest update represents a foundational rethinking of system architecture."
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Steering Claude Code: skills, hooks, subagents and more | Claude by ...",
+          "url": "[PRODUCTION_SITE]/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+          "snippet": "Learn Claude Code hooks from zero to production. 20+ copy-paste configurations for auto-formatting, security, notifications, and advanced prompt hooks. The complete 2026 reference."
+        },
+        {
+          "title": "Claude Code Cheat Sheet 2026 — Every Command, Shortcut & Hook",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-cheat-sheet-2026/",
+          "snippet": "Claude is built to work the way you work, and in Claude Code you can customize it. There are seven methods for instructing Claude's behavior: CLAUDE.md files, rules, skills, subagents, hooks, output styles, and appending the system prompt. Each method controls: When an instruction loads into context;"
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code hooks новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+          "url": "[PRODUCTION_SITE]/claudedry/2983306-polnyj-gajd-po-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "Гайд по Claude Code, автоматическое обновление документации, 220 проверенных источников, репозиторий на GitHub, уникальные навыки и плагины"
+        },
+        {
+          "title": "Claude Code 2026: Complete Cheat Sheet — Slash Commands, MCP, Hooks ...",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-2026-cheat-sheet-hooks-mcp-commands/",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+          "url": "[PRODUCTION_SITE]/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "The definitive 2026 Claude Code reference: every slash command, MCP transport setup, hooks JSON schema, keyboard shortcuts, and recently-shipped features lik... The Core Engineering Shift In a landscape dominated by rapid technological pivots, this latest update represents a foundational rethinking of system architecture."
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+          "snippet": "И вот сейчас хочу подробно рассказать про три вещи, которые реально изменили мой подход к работе с этим инструментом: Skills (навыки), Sub-agents (субагенты) и Hooks (хуки)."
+        },
+        {
+          "title": "Claude Code Hooks: автоматизация рабочего процесса (2026)",
+          "url": "[PRODUCTION_SITE]/claude-code-hooks-avtomatizatsiya/",
+          "snippet": "Learn Claude Code hooks from zero to production. 20+ copy-paste configurations for auto-formatting, security, notifications, and advanced prompt hooks. The complete 2026 reference."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "настройка hooks claude code 2026",
+      "purpose": "вторичный запрос: настройка hooks claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Хуки в Claude Code 2026: 7 готовых примеров и настройка settings.json",
+          "url": "[PRODUCTION_SITE]/guides/hooks-v-claude-code",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Справочник по hooks - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/ru/hooks",
+          "snippet": "Самый быстрый способ создать первый хук - интерактивное меню /hooks прямо в Claude Code. Выбираешь событие из списка, выбираешь matcher (например, Bash или Edit), вставляешь команду."
+        },
+        {
+          "title": "Hooks в Claude Code: 10 защитных хуков и примеры настройки в 2026",
+          "url": "[PRODUCTION_SITE]/blog/hooks-claude-code/",
+          "snippet": "Используйте этот справочник для поиска схем событий, параметров конфигурации, форматов JSON входа/выхода и расширенных функций, таких как асинхронные hooks, HTTP hooks и MCP tool hooks."
+        },
+        {
+          "title": "Claude Code 2026: Complete Cheat Sheet — Slash Commands, MCP, Hooks ...",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-2026-cheat-sheet-hooks-mcp-commands/",
+          "snippet": "Гайд написан так, чтобы пригодился и разработчику, и маркетологу, который пользуется Claude Code для работы с текстами и таблицами."
+        },
+        {
+          "title": "Claude Code Setup 2026: MCP Servers, Hooks, Skills",
+          "url": "[PRODUCTION_SITE]/claude-code-setup-mcp-hooks-skills-2026/",
+          "snippet": "The definitive 2026 Claude Code reference: every slash command, MCP transport setup, hooks JSON schema, keyboard shortcuts, and recently-shipped features lik... The Core Engineering Shift In a landscape dominated by rapid technological pivots, this latest update represents a foundational rethinking of system architecture."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "PreToolUse hook claude code 2026",
+      "purpose": "вторичный запрос: PreToolUse hook claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hooks reference - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Hooks: PreToolUse & PostToolUse Tutorial",
+          "url": "[PRODUCTION_SITE]/posts/claude-code-hooks-pretooluse-posttooluse/",
+          "snippet": "In addition to command, HTTP, and MCP tool hooks, Claude Code supports prompt-based hooks (type: \"prompt\") that use an LLM to evaluate whether to allow or block an action, and agent hooks (type: \"agent\") that spawn an agentic verifier with tool access."
+        },
+        {
+          "title": "Claude Code Hooks (2026): Block Claude Reading .env + 30 Hook Events ...",
+          "url": "[PRODUCTION_SITE]/claude-code-hooks",
+          "snippet": "Hooks are user-defined event handlers that execute shell commands, LLM prompts, or agentic verifiers at specific points in Claude Code's workflow. They were introduced in June 2025 as part of Anthropic's push toward agentic coding tools, and have grown from 6 event types to 17 as of early 2026."
+        },
+        {
+          "title": "Claude Code Hooks in 2026: A Production Playbook (PreToolUse ...",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks-totalum",
+          "snippet": "Claude Code Hooks (2026): How to Block Claude From Reading .env, Plus the 30 Hook Events, JSON Input Shapes, and Exit Codes The PreToolUse hook that blocks Claude from reading .env files (exit code 2 on a file_path match), plus all 30 Claude Code / Agent SDK hook events with exact stdin JSON input fields, JSON output, exit-code semantics, matchers, and the settings.json hooks block. PreToolUse ..."
+        },
+        {
+          "title": "Automate actions with hooks - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks-guide",
+          "snippet": "Claude Code hooks: a 2026 production playbook covering PreToolUse, PostToolUse, Stop, SubagentStop, security guard rails, and a Skills plus Hooks recipe."
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+          "snippet": "Use hooks to enforce project rules, automate repetitive tasks, and integrate Claude Code with your existing tools. For decisions that require judgment rather than deterministic rules, you can also use prompt-based hooks or agent-based hooks that use a Claude model to evaluate conditions."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "hooks settings.json claude code 2026",
+      "purpose": "вторичный запрос: hooks settings.json claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Хуки в Claude Code 2026: 7 готовых примеров и настройка settings.json",
+          "url": "[PRODUCTION_SITE]/guides/hooks-v-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Hooks reference - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks",
+          "snippet": "Хуки в Claude Code - это shell-команды, HTTP-вызовы или короткие LLM-проверки, которые запускаются автоматически до или после действия Claude."
+        },
+        {
+          "title": "Настройка Claude Code: settings.json гайд (2026)",
+          "url": "[PRODUCTION_SITE]/claude-code-settings-json/",
+          "snippet": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, HTTP hooks, prompt hooks, and MCP tool hooks."
+        },
+        {
+          "title": "Automate actions with hooks - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/en/hooks-guide",
+          "snippet": "TL;DR: settings.json — главный файл конфигурации Claude Code. Через него настраивается всё: разрешения, модели, sandbox, hooks, плагины, переменные окружения."
+        },
+        {
+          "title": "Claude Code Hooks Complete Guide (March 2026 Edition)",
+          "url": "[PRODUCTION_SITE]/en/generative-ai/claude/claude-code-hooks-guide/",
+          "snippet": "To create a hook, add a hooks block to a settings file. This walkthrough creates a desktop notification hook, so you get alerted whenever Claude is waiting for your input instead of watching the terminal. Open ~/.claude/settings.json and add a Notification hook."
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+          "snippet": "What this guide gives you that AI search cannot AI assistants can explain what hooks are. This guide gives you copy-paste configs that work, tested against Claude Code v2.x in production: 5 ready-to-use .claude/settings.json snippets below -- paste one and it works in 10 seconds Behavior differences across 21 lifecycle events (which exit codes block, which don't) Real debugging patterns for ..."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация действий с помощью hooks - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/ru/hooks-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Хуки в Claude Code 2026: 7 готовых примеров и настройка settings.json",
+          "url": "[PRODUCTION_SITE]/guides/hooks-v-claude-code",
+          "snippet": "Это пошаговое руководство создаёт hook для уведомлений на рабочем столе, чтобы вы получали оповещение всякий раз, когда Claude ждёт вашего ввода вместо того, чтобы смотреть на терминал."
+        },
+        {
+          "title": "Справочник по hooks - Claude Code Docs",
+          "url": "[PRODUCTION_SITE]/docs/ru/hooks",
+          "snippet": "Самый быстрый способ создать первый хук - интерактивное меню /hooks прямо в Claude Code. Выбираешь событие из списка, выбираешь matcher (например, Bash или Edit), вставляешь команду."
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "Hooks — это определяемые пользователем команды оболочки, конечные точки HTTP или подсказки LLM, которые выполняются автоматически в определённых точках жизненного цикла Claude Code."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+          "url": "[PRODUCTION_SITE]/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "Хуки — это shell-команды, которые автоматически срабатывают на события внутри Claude Code. Перед коммитом, после вызова инструмента, когда агент лезет в определённые файлы — перехватить ..."
+        },
+        {
+          "title": "Практическое руководство по Hooks в Claude Code",
+          "url": "[PRODUCTION_SITE]/ru/prakticheskoe-rukovodstvo-po-hooks-v-claude-code/",
+          "snippet": "И вот сейчас хочу подробно рассказать про три вещи, которые реально изменили мой подход к работе с этим инструментом: Skills (навыки), Sub-agents (субагенты) и Hooks (хуки). Это не абстрактная теория — я покажу конкретные конфиги, реальные сценарии и грабли, на которые уже наступил."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "[PRODUCTION_SITE]/docs/en/hooks",
+      "title": "Hooks reference - Claude Code Docs",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/posts/claude-code-2026-cheat-sheet-hooks-mcp-commands/",
+      "title": "Claude Code 2026: Complete Cheat Sheet — Slash Commands, MCP, Hooks ...",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/blog/claude-code-hooks",
+      "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+      "title": "Steering Claude Code: skills, hooks, subagents and more | Claude by ...",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claude-code-nastrojka-mcp-hooks-skills-2026/",
+      "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/posts/claude-code-cheat-sheet-2026/",
+      "title": "Claude Code Cheat Sheet 2026 — Every Command, Shortcut & Hook",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claudedry/2983306-polnyj-gajd-po-claude-code",
+      "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+      "from_query": "claude code hooks новости 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+      "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+      "from_query": "claude code hooks новости 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claude-code-hooks-avtomatizatsiya/",
+      "title": "Claude Code Hooks: автоматизация рабочего процесса (2026)",
+      "from_query": "claude code hooks новости 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/guides/hooks-v-claude-code",
+      "title": "Хуки в Claude Code 2026: 7 готовых примеров и настройка settings.json",
+      "from_query": "настройка hooks claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/docs/ru/hooks",
+      "title": "Справочник по hooks - Claude Code Docs",
+      "from_query": "настройка hooks claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/blog/hooks-claude-code/",
+      "title": "Hooks в Claude Code: 10 защитных хуков и примеры настройки в 2026",
+      "from_query": "настройка hooks claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claude-code-setup-mcp-hooks-skills-2026/",
+      "title": "Claude Code Setup 2026: MCP Servers, Hooks, Skills",
+      "from_query": "настройка hooks claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/posts/claude-code-hooks-pretooluse-posttooluse/",
+      "title": "Claude Code Hooks: PreToolUse & PostToolUse Tutorial",
+      "from_query": "PreToolUse hook claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claude-code-hooks",
+      "title": "Claude Code Hooks (2026): Block Claude Reading .env + 30 Hook Events ...",
+      "from_query": "PreToolUse hook claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/blog/claude-code-hooks-totalum",
+      "title": "Claude Code Hooks in 2026: A Production Playbook (PreToolUse ...",
+      "from_query": "PreToolUse hook claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/docs/en/hooks-guide",
+      "title": "Automate actions with hooks - Claude Code Docs",
+      "from_query": "PreToolUse hook claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/claude-code-settings-json/",
+      "title": "Настройка Claude Code: settings.json гайд (2026)",
+      "from_query": "hooks settings.json claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/en/generative-ai/claude/claude-code-hooks-guide/",
+      "title": "Claude Code Hooks Complete Guide (March 2026 Edition)",
+      "from_query": "hooks settings.json claude code 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/docs/ru/hooks-guide",
+      "title": "Автоматизация действий с помощью hooks - Claude Code Docs",
+      "from_query": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации 2026"
+    },
+    {
+      "url": "[PRODUCTION_SITE]/ru/prakticheskoe-rukovodstvo-po-hooks-v-claude-code/",
+      "title": "Практическое руководство по Hooks в Claude Code",
+      "from_query": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации 2026"
+    }
+  ]
+}

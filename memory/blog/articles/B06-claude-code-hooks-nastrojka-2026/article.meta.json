@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "claude-code-hooks-nastrojka-2026",
+  "h1": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации",
+  "title": "Claude Code hooks: настройка PreToolUse и PostToolUse в settings.json",
+  "description": "Пошаговая настройка claude code hooks: PostToolUse prettier, PreToolUse protect .env и bash guard, exit 2, команда /hooks и production-чеклист для команды.",
+  "keywords": [
+    "claude code hooks",
+    "настройка hooks claude code",
+    "PreToolUse hook claude code",
+    "hooks settings.json claude code"
+  ],
+  "primary_query": "claude code hooks",
+  "secondary_queries": [
+    "настройка hooks claude code",
+    "PreToolUse hook claude code",
+    "hooks settings.json claude code"
+  ],
+  "char_count": 9097,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить hooks claude code в settings.json",
+    "PreToolUse и PostToolUse hooks для автоматизации",
+    "claude code hooks protect env и bash guard"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code hooks: настройка PreToolUse и PostToolUse в settings.json",
+    "title_ctr": "🚀 Claude Code hooks за 30 минут: три guardrail для команды!",
+    "title_aeo": "Как настроить hooks в Claude Code для детерминированной автоматизации?",
+    "description_seo": "Пошаговая настройка claude code hooks: PostToolUse prettier, PreToolUse protect .env и bash guard, exit 2, команда /hooks и production-чеклист для команды.",
+    "description_ctr": "⚡ Три рабочих hook за вечер: prettier после Edit|Write, блок .env через exit 2, bash guard и /hooks verify. Гайд без воды для автоматизаторов.",
+    "description_aeo": "Claude Code hooks настраиваются в .claude/settings.json: PreToolUse блокирует опасные tool до выполнения, PostToolUse форматирует код; проверка через /hooks."
+  },
+  "cover_family": "brand_collage"
+}

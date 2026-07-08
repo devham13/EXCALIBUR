@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B06-claude-code-hooks-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "exit codes и 30 events – docs Claude Code , 08.07.2026; без выдуманных показов Вордстат. Частые вопросы",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "йка claude code hooks в settings.json занимает 20-40 минут: три рабочих hook (формат, защита секретов, bash",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "600",
+      "kind": "large_number",
+      "context": "ommand – самый частый старт; timeout по умолчанию 600 сек для command. JSON на stdout при exit 0 может д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

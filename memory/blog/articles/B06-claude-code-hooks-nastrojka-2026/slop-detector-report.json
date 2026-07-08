@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "md / skills Нет Стиль и soft-правила Hooks Да, на событии Формат, секреты, bash guard MCP Да, при вызове tool Браузер, GitHub, CMS снаружи IDE Делайте: автоформат и",
+      "word_count": 27
+    },
+    {
+      "sentence": "sh, exit 2 PreToolUse Bash – rm -rf, drop table PreToolUse Read – те же protected paths (опционально) Notification – алерт на долгие задачи SessionStart – контекст ветки Stop – lint или commit reminder Скрипты: chmod +x, $CLAUDE_PROJECT_DIR /hooks – Project layer виден Тест deny на",
+      "word_count": 38
+    },
+    {
+      "sentence": "env и bash disableAllHooks – только отладка CI -p: PreToolUse, не PermissionRequest Exit Поведение Когда 0 JSON на stdout работает Allow или JSON deny 2 Block, stderr → Claude Секреты, destructive bash 1, ≠2 Non-blocking Лог, не policy Официальный reference перечисляет 30 hook events; команда /hooks – read-only browser с source layer User/Project/Local/Plugin",
+      "word_count": 48
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.1,
+    "avg_syllables_per_word": 1.1
+  }
+}

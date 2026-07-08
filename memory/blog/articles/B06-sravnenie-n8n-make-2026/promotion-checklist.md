@@ -1,7 +1,7 @@
 # Promotion checklist — B06 sravnenie-n8n-make-2026
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/blog/sravnenie-n8n-make-2026/ (заполнить после publish)
+Дата публикации: 2026-07-08  
+Live URL: https://mayai.ru/2026/07/08/sravnenie-n8n-make-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Чеклист 15 пунктов перед пилотом
 • TCO на 12 мес без marketing-bias
 
-Читать: https://mayai.ru/blog/sravnenie-n8n-make-2026/
+Читать: https://mayai.ru/2026/07/08/sravnenie-n8n-make-2026/
 ```
 
 ## Перелинковка

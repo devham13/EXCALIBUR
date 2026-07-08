@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "sravnenie-n8n-make-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка n8n vs Make: герой указывает на сравнение credits и executions на коллаже с pricing-скринами",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-08T14:22:12+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка n8n vs Make: герой указывает на сравнение credits и executions на коллаже с pricing-скринами",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица критериев выбора n8n vs Make: объём, команда, 152-ФЗ и ИИ-агенты",
+      "h2_anchor": "1. Оцените критерии выбора в 2026: объём, команда, 152-ФЗ и ИИ-агенты",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow выбора платформы: от инвентаризации до пилота n8n vs Make",
+      "h2_anchor": "2. Сравните n8n и Make.com по таблице: цена, интеграции, self-hosted, AI",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист: когда выбирать Make.com — быстрый старт без DevOps",
+      "h2_anchor": "3. Выберите Make.com, если нужен быстрый старт без DevOps",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

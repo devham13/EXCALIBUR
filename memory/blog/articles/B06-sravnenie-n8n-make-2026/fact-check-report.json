@@ -1,0 +1,101 @@
+{
+  "article": "memory/blog/articles/B06-sravnenie-n8n-make-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 13,
+  "verified_facts_count": 5,
+  "unverified_facts_count": 8,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "вязывает форму, CRM, почту и ИИ в одну цепочку. В 2026 и n8n, и Make.com умеют AI-агентов, но считают пот",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "тов, но считают потребление по-разному: с августа 2025 Make списывает credits за каждый модуль, n8n – оди",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "верены с семантическим кластером Вордстат на июнь 2026 года. Частые вопросы Что лучше n8n или Make в 2026? Ma",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "12 мес",
+      "kind": "metric_or_duration",
+      "context": "и → compliance → таблица → матрица 6 кейсов → TCO 12 мес → тариф → чеклист 15 → пилот 1 workflow Инвентари",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 мин",
+      "kind": "metric_or_duration",
+      "context": "nts, Reasoning, Make Grid Time-to-first workflow ~30 мин cloud; дни self-host 5–15 мин простой сценарий Co",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "15 мин",
+      "kind": "metric_or_duration",
+      "context": "-to-first workflow ~30 мин cloud; дни self-host 5–15 мин простой сценарий Compliance Self-host + cloud EU",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
+    },
+    {
+      "fact": "3 мес",
+      "kind": "metric_or_duration",
+      "context": "ключение. Владелец сценария и пересмотр TCO через 3 мес. Делайте: UAT на копии. Не делайте: прод без алер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000",
+      "kind": "large_number",
+      "context": "-code сценариях и быстром старте без DevOps: Free 1 000 credits, Core от 12 $/мес за 10 000 credits. n8n с",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "з DevOps: Free 1 000 credits, Core от 12 $/мес за 10 000 credits. n8n силён там, где важны executions без ш",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 500",
+      "kind": "large_number",
+      "context": "credit; AI может &gt;1 Старт cloud Starter 20 €, 2 500 runs; Pro 50 €, 10K runs Free 1K credits; Core 12",
+      "verified": true,
+      "reason": "Numerical value '2500' matched in fact-bank context"
+    },
+    {
+      "fact": "3 000",
+      "kind": "large_number",
+      "context": "ко облако Make Интеграции 1 000+ + HTTP/community 3 000+ apps, визуальный каталог Код в workflow JS/Pytho",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "27001",
+      "kind": "large_number",
+      "context": "e Self-host + cloud EU Frankfurt Cloud; GDPR, ISO 27001 Лучший объём 100K+ runs, много шагов Короткие сцен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 800",
+      "kind": "large_number",
+      "context": "есплатно в курсе Make.com и вайбкодинга (подписка 5 800 ₽/мес, 159+ уроков). Оценка TCO под ключ – Telegr",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

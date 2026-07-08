@@ -1,0 +1,5 @@
+{
+  "url": "local://GenerateImage/B06-canvas-quad.png",
+  "source": "generate_image_fallback",
+  "note": "user-mcp-kv unavailable in Cloud; canvas from GenerateImage + reference i2i intent"
+}

@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Claude Code Hooks
+
+- **priority:** P0
+- **slug:** claude-code-hooks-nastrojka-2026
+- **h1:** Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации
+- **primary_query:** claude code hooks
+- **secondary_queries:** настройка hooks claude code, PreToolUse hook claude code, hooks settings.json claude code
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Hooks vs CLAUDE.md и skills: когда нужны гарантированные quality gates
+  2. Где хранить конфиг: ~/.claude/settings.json, .claude/settings.json и settings.local.json
+  3. PostToolUse: автоформатирование и линтер после Edit/Write
+  4. PreToolUse: блокировка опасных Bash-команд и защита секретов (.env, credentials)
+  5. Stop, SessionStart и Notification: проверка перед завершением, контекст при старте, алерты
+  6. Чек-лист из 10 hooks для production-команды и troubleshooting типичных ошибок
+- **faq_hints:** что такое hooks в claude code; как добавить hook в settings.json; чем hooks отличаются от skills и MCP
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** терминал Claude Code, JSON-файл settings.json на стикере, цепочка событий PreToolUse → PostToolUse → Stop с иконками shield/format/bell, неоновый diy-коллаж
+
+---
+

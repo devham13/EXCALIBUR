@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Сравнение n8n и Make.com
+
+- **priority:** P0
+- **slug:** sravnenie-n8n-make-2026
+- **h1:** Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году
+- **primary_query:** n8n vs make
+- **secondary_queries:** сравнение n8n и make, make или n8n, что выбрать n8n или make, автоматизация бизнеса n8n
+- **search_intent:** comparison
+- **article_mode:** B
+- **h2_outline:**
+  1. Критерии выбора в 2026: объём операций, команда, 152-ФЗ и ИИ-агенты
+  2. Сравнительная таблица: цена, интеграции, self-hosted, Make AI Agents vs n8n AI Agent
+  3. Когда выбрать Make.com: быстрый старт без DevOps и Reasoning Panel
+  4. Когда выбрать n8n: приватность данных, масштаб и LangChain/RAG/MCP
+  5. Матрица решений: 6 типовых сценариев бизнеса → рекомендуемая платформа
+  6. Чек-лист перед запуском: 15 пунктов выбора и миграции с Zapier
+- **faq_hints:** что лучше n8n или make; n8n или make для малого бизнеса; чем отличается n8n от make в 2026 году
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** весы с логотипами n8n (розовые ноды) и Make (фиолетовые «пузыри»), между ними таблица-сравнение на неоновых стикерах, рука ставит галочку на нужной стороне, diy-коллаж на столе автоматизатора
+
+---
+

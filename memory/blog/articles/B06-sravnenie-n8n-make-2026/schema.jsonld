@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/sravnenie-n8n-make-2026/#article",
+      "headline": "Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году",
+      "description": "Сравнение n8n и Make.com: таблица billing, матрица 6 сценариев, чеклист 15 пунктов и расчёт credits vs executions. Выберите платформу и тариф без marketing-bias.",
+      "datePublished": "2026-07-08",
+      "dateModified": "2026-07-08",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/sravnenie-n8n-make-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/sravnenie-n8n-make-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/sravnenie-n8n-make-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n vs make, сравнение n8n и make, make или n8n, что выбрать n8n или make, автоматизация бизнеса n8n",
+      "wordCount": 8705,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/sravnenie-n8n-make-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что лучше n8n или Make в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make – короткие no-code сценарии без DevOps. n8n – многошаговые runs, self-host, RAG/MCP. Пересчитайте credits vs executions на своих workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "n8n или Make для малого бизнеса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До ~50K ops/мес без on-prem – Make Free/Core 12 $. При длинных цепочках пересчитайте: n8n может выйти дешевле."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается n8n от Make в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Execution vs credit за модуль. Self-host только n8n. Make – 3 000+ apps и Grid; n8n – JS/Python, LangChain, MCP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда self-hosted n8n окупается?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Когда credits Make растут быстрее VPS+админки. Считайте TCO 12 мес: CE/Business + DevOps vs Make Pro/Teams."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли мигрировать с Zapier на Make или n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: инвентаризация zaps, пересчёт tasks, один пилот, пункты 11–14 чеклиста, UAT перед отключением Zapier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как учитывать AI в тарифах Make после 2025?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI-модули >1 credit. Запас 30% + оплата LLM API отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли DevOps для n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для CE self-host – да. n8n Cloud и Make – SaaS без своего сервера."
+          }
+        }
+      ]
+    }
+  ]
+}

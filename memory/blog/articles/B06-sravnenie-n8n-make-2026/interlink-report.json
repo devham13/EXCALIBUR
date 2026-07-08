@@ -1,0 +1,14 @@
+{
+  "site_base": "https://mayai.ru",
+  "total_articles": 6,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B02-avtomatizaciya-n8n-ai-agents",
+      "target": "B06-sravnenie-n8n-make-2026",
+      "keyword": "n8n vs make",
+      "context": "реальных клиентов, не только \"привет\"</li>   <li>Сравнение n8n vs Make зафиксировано письменно для команды</li>   <li>План B: кто",
+      "link_replacement": "<a href=\"/blog/sravnenie-n8n-make-2026/\">n8n vs Make</a>"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+<p>Счёт за автоматизацию растёт не от числа запусков, а от числа шагов внутри сценария? В n8n vs make это разные модели: у Make каждый модуль съедает credit, у n8n весь workflow считается одним execution. Ниже – сравнение n8n и Make.com с таблицей, матрицей из 6 бизнес-сценариев и чеклистом из 15 пунктов. После чтения вы пересчитаете свой объём, выберете платформу и тариф, а не останетесь в вечном "а что лучше".</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Make.com выигрывает на коротких no-code сценариях и быстром старте без DevOps: Free 1 000 credits, Core от 12 $/мес за 10 000 credits. n8n силён там, где важны executions без штрафа за шаги, self-host под 152-ФЗ и глубокий AI (RAG, MCP). Сравните billing на своих 3–5 workflow, сверьтесь с матрицей 6 сценариев и пройдите чеклист из 15 пунктов перед пилотом.</blockquote>
+
+<p>Платформа автоматизации связывает форму, CRM, почту и ИИ в одну цепочку. В 2026 и n8n, и Make.com умеют AI-агентов, но считают потребление по-разному: с августа 2025 Make списывает credits за каждый модуль, n8n – один execution за полный прогон workflow. Запросы "n8n vs make" и "сравнение n8n и make" ведут на marketing-compare – ниже decision workflow интегратора без обещания "одна платформа для всех".</p>
+
+<h2 id="criteria">1. Оцените критерии выбора в 2026: объём, команда, 152-ФЗ и ИИ-агенты</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица критериев выбора n8n vs Make: объём, команда, 152-ФЗ и ИИ-агенты" loading="lazy">
+</figure>
+
+
+<p>Self-hosted (свой сервер) – программа на вашем VPS, а не только в облаке вендора. DevOps – роль, которая ставит Docker, PostgreSQL и бэкапы. Webhook – входящий сигнал на URL: сайт "стучится", сценарий стартует. API (Application Programming Interface) – "розетка" связи с CRM, почтой или LLM.</p>
+
+<blockquote>
+  <b>Схема выбора:</b>
+  <br>
+  Инвентаризация сценариев → пересчёт credits vs executions → команда и сроки → compliance → таблица → матрица 6 кейсов → TCO 12 мес → тариф → чеклист 15 → пилот 1 workflow
+</blockquote>
+
+<ol>
+  <li><b>Инвентаризируйте 3–5 автоматизаций:</b> модули, runs/мес, AI и медиа.</li>
+  <li><b>Пересчитайте потребление:</b> Make = модули × runs (10×1 000 = 10 000 credits); n8n = только runs (1 000 executions).</li>
+  <li><b>Зафиксируйте команду:</b> DevOps есть или нужен SaaS за неделю?</li>
+  <li><b>Проверьте compliance:</b> on-prem по 152-ФЗ или EU-cloud.</li>
+  <li><b>Оцените AI:</b> RAG/MCP → n8n; Reasoning Panel/Grid → Make.</li>
+  <li><b>Заполните таблицу</b> ниже и отметьте критичные строки.</li>
+  <li><b>Сверьтесь с матрицей 6 сценариев</b> – вердикт Make / n8n cloud / self-host.</li>
+  <li><b>Посчитайте TCO на 12 мес:</b> подписка + VPS + админка + LLM API.</li>
+  <li><b>Выберите тариф с запасом 20–30%</b> и запустите один пилот.</li>
+</ol>
+
+<p><b>Делайте:</b> считать на реальных сценариях, а не на "среднем бизнесе". <b>Не делайте:</b> выбирать платформу только по красивому интерфейсу – billing съест экономию на старте.</p>
+
+<h2 id="comparison-table">2. Сравните n8n и Make.com по таблице: цена, интеграции, self-hosted, AI</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow выбора платформы: от инвентаризации до пилота n8n vs Make" loading="lazy">
+</figure>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n</th>
+      <th>Make.com</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Модель billing</b></td>
+      <td>1 run = 1 execution, шаги бесплатны</td>
+      <td>1 модуль ≈ 1 credit; AI может &gt;1</td>
+    </tr>
+    <tr>
+      <td><b>Старт cloud</b></td>
+      <td>Starter 20 €, 2 500 runs; Pro 50 €, 10K runs</td>
+      <td>Free 1K credits; Core 12 $, 10K credits</td>
+    </tr>
+    <tr>
+      <td><b>Self-host</b></td>
+      <td>CE бесплатно + infra; Business 667 €, 40K runs</td>
+      <td>Нет, только облако Make</td>
+    </tr>
+    <tr>
+      <td><b>Интеграции</b></td>
+      <td>1 000+ + HTTP/community</td>
+      <td>3 000+ apps, визуальный каталог</td>
+    </tr>
+    <tr>
+      <td><b>Код в workflow</b></td>
+      <td>JS/Python на всех планах</td>
+      <td>Custom functions – Enterprise; ядро no-code</td>
+    </tr>
+    <tr>
+      <td><b>AI-агенты</b></td>
+      <td>AI Agent, LangChain, RAG, MCP</td>
+      <td>AI Agents, Reasoning, Make Grid</td>
+    </tr>
+    <tr>
+      <td><b>Time-to-first workflow</b></td>
+      <td>~30 мин cloud; дни self-host</td>
+      <td>5–15 мин простой сценарий</td>
+    </tr>
+    <tr>
+      <td><b>Compliance</b></td>
+      <td>Self-host + cloud EU Frankfurt</td>
+      <td>Cloud; GDPR, ISO 27001</td>
+    </tr>
+    <tr>
+      <td><b>Лучший объём</b></td>
+      <td>100K+ runs, много шагов</td>
+      <td>Короткие сценарии до ~50K credits</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Пример: 10 шагов × 1 000 runs = 1 000 executions (n8n) vs 10 000 credits (Make). Тарифы: <a href="https://n8n.io/pricing/" target="_blank">n8n.io/pricing</a>, <a href="https://www.make.com/en/pricing" target="_blank">make.com/en/pricing</a>, 08.07.2026. <b>Делайте:</b> запас 20–30%. <b>Не делайте:</b> брать Core $9 с compare-страницы – канон $12 на pricing.</p>
+
+<h2 id="choose-make">3. Выберите Make.com, если нужен быстрый старт без DevOps</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист: когда выбирать Make.com — быстрый старт без DevOps" loading="lazy">
+</figure>
+
+
+<p>Make – SaaS с drag-and-drop: Free 1 000 credits, 2 active scenarios, интервал от 15 мин – хватит на пилот "форма → CRM → Telegram". Сильные стороны: 3 000+ интеграций, Make Grid для обзора всей автоматизации, Reasoning Panel у AI Agents. Прототип короткого пайплайна на Make часто собирается на ~40% быстрее (mayai.ru) – если сценарий без тяжёлого медиа.</p>
+
+<p>Маркетинговая команда без Docker, 5–10 сценариев, CRM-лиды (4 модуля, 2K runs/мес) – классика для Core 12 $. API от Core, 60 calls/min; на Free API нет.</p>
+
+<p><b>Делайте:</b> начинать с Free или Core и одного пилота. <b>Не делайте:</b> строить high-frequency polling с 10+ модулями каждую минуту – credits сгорят быстрее, чем executions у n8n.</p>
+
+<h2 id="choose-n8n">4. Выберите n8n, если важны приватность, масштаб и глубокий AI</h2>
+
+<p>n8n Cloud Starter 20 € (2 500 runs) или Pro 50 € (10 000 runs) – вход без своего сервера. Community Edition на GitHub бесплатна, но нужны VPS, Docker, бэкапы и обновления.</p>
+
+<p>RAG (Retrieval-Augmented Generation) – ответы из ваших PDF и регламентов, а не выдумки модели: Document Loader → Vector Store → tool в AI Agent. MCP (Model Context Protocol) – стандарт "розеток" для внешних сервисов; см. <a href="/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>. Медиа-пайплайны, RAG-боты и 152-ФЗ on-prem – n8n self-host; executions предсказуемее credit burn (mayai.ru: до +35% маржи медиа).</p>
+
+<p>AI-агенты в n8n: <a href="/avtomatizaciya-n8n-ai-agents/">пошаговый гайд</a> с Chat Trigger и tools.</p>
+
+<p><b>Делайте:</b> self-host, когда compliance или объём оправдывают DevOps. <b>Не делайте:</b> поднимать CE "на выходных" без плана бэкапов и мониторинга – один сбой VPS = простой всех workflow.</p>
+
+<h2 id="scenario-matrix">5. Сопоставьте кейс с матрицей: 6 типовых сценариев и платформа</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сценарий</th>
+      <th>Рекомендация</th>
+      <th>Почему</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CRM-лиды: форма → amoCRM → Telegram (4 модуля, ~2K/мес)</td>
+      <td>Make Core</td>
+      <td>Мало шагов, быстрый старт, укладывается в 10K credits</td>
+    </tr>
+    <tr>
+      <td>Контент-пайплайн с видео/медиа (высокий credit burn)</td>
+      <td>n8n self-host</td>
+      <td>Executions без штрафа за число модулей; контроль infra</td>
+    </tr>
+    <tr>
+      <td>AI support-бот с RAG по внутренним регламентам</td>
+      <td>n8n cloud/self-host</td>
+      <td>Vector Store, on-prem данные, LangChain из коробки</td>
+    </tr>
+    <tr>
+      <td>Маркетинг без DevOps, 5–10 сценариев, Make AI Agents</td>
+      <td>Make Pro/Teams</td>
+      <td>SaaS, Grid, роли команды, variables на Pro+</td>
+    </tr>
+    <tr>
+      <td>152-ФЗ / персональные данные только on-prem</td>
+      <td>n8n self-host</td>
+      <td>Полный контроль хостинга и маршрута данных</td>
+    </tr>
+    <tr>
+      <td>High-frequency polling (каждую минуту, 10+ модулей)</td>
+      <td>n8n cloud/self-host</td>
+      <td>1 run = 1 execution независимо от глубины цепочки</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> короткие сценарии без DevOps → Make Free/Core. Многошаговые runs, RAG/MCP или 152-ФЗ → n8n; считайте TCO на 12 мес.
+</blockquote>
+
+<p><b>Делайте:</b> сопоставить свой кейс с ближайшей строкой матрицы. <b>Не делайте:</b> мигрировать все Zapier-задачи разом – сначала один пилот с пересчётом tasks → credits/executions.</p>
+
+<h2 id="checklist-15">6. Пройдите чеклист из 15 пунктов перед пилотом и миграцией</h2>
+
+<ol>
+  <li>Инвентаризация workflow: модули и runs/мес.</li>
+  <li>Пересчёт credits (Make) и executions (n8n) по каждому сценарию.</li>
+  <li>Решение: self-host или EU-cloud.</li>
+  <li>Проверка 152-ФЗ / GDPR с ИБ.</li>
+  <li>Оценка DevOps: Docker, бэкапы, обновления.</li>
+  <li>Тариф с запасом 20–30%.</li>
+  <li>Бюджет LLM API и &gt;1 credit на AI-модули Make.</li>
+  <li>Сверка интеграций в каталогах до оплаты.</li>
+  <li>Тестовые credentials, не продакшен-ключи.</li>
+  <li>Пилот одного сценария с логами ошибок.</li>
+  <li>Human-in-the-loop: эскалация человеку на критичных шагах (&lt;2,5% задач полностью автономны).</li>
+  <li>Webhooks + idempotency (без дублей лидов).</li>
+  <li>Бэкап: JSON (n8n) или blueprint (Make).</li>
+  <li>Миграция с Zapier: пилот, UAT, потом отключение.</li>
+  <li>Владелец сценария и пересмотр TCO через 3 мес.</li>
+</ol>
+
+<p><b>Делайте:</b> UAT на копии. <b>Не делайте:</b> прод без алертов об ошибках.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Заполните таблицу из раздела 2 под свои 3–5 сценариев.</li>
+  <li>Отметьте строку в матрице 6 сценариев и зафиксируйте вердикт Make / n8n.</li>
+  <li>Откройте Free Make или trial n8n Cloud и соберите пилот за 1–2 дня.</li>
+  <li>Пройдите все 15 пунктов чеклиста до переноса клиентских данных.</li>
+  <li>Если нужен быстрый no-code старт на Make – первые уроки бесплатно в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (подписка 5 800 ₽/мес, 159+ уроков).</li>
+</ol>
+
+<p>Оценка TCO под ключ – <a href="https://t.me/maya_pro" target="_blank">Telegram "Ковчег"</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Елена Ковалева (Главный эксперт по SEO/GEO).<br>
+  <b>Достоверность данных:</b> тарифы и модели billing верифицированы по официальным страницам n8n.io и make.com; ключевые формулировки сверены с семантическим кластером Вордстат на июнь 2026 года.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Что лучше n8n или Make в 2026?</h3>
+<p>Make – короткие no-code сценарии без DevOps. n8n – многошаговые runs, self-host, RAG/MCP. Пересчитайте credits vs executions на своих workflow.</p>
+
+<h3>n8n или Make для малого бизнеса?</h3>
+<p>До ~50K ops/мес без on-prem – Make Free/Core 12 $. При длинных цепочках пересчитайте: n8n может выйти дешевле.</p>
+
+<h3>Чем отличается n8n от Make в 2026?</h3>
+<p>Execution vs credit за модуль. Self-host только n8n. Make – 3 000+ apps и Grid; n8n – JS/Python, LangChain, MCP.</p>
+
+<h3>Когда self-hosted n8n окупается?</h3>
+<p>Когда credits Make растут быстрее VPS+админки. Считайте TCO 12 мес: CE/Business + DevOps vs Make Pro/Teams.</p>
+
+<h3>Можно ли мигрировать с Zapier на Make или n8n?</h3>
+<p>Да: инвентаризация zaps, пересчёт tasks, один пилот, пункты 11–14 чеклиста, UAT перед отключением Zapier.</p>
+
+<h3>Как учитывать AI в тарифах Make после 2025?</h3>
+<p>AI-модули &gt;1 credit. Запас 30% + оплата LLM API отдельно.</p>
+
+<h3>Нужен ли DevOps для n8n?</h3>
+<p>Для CE self-host – да. n8n Cloud и Make – SaaS без своего сервера.</p>

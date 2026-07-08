@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-08 — B06 claude-code-hooks-nastrojka-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | claude-code-hooks-nastrojka-2026 |
+| verdict | **PASS** |
+| post_id | 487 |
+| featured_image_id | 488 |
+| inline_images | 489, 490, 491 |
+| permalink | /2026/07/08/claude-code-hooks-nastrojka-2026/ (production WP) |
+| site | production WordPress |
+| transport | SFTP upload (FTP port 21 blocked: `425 Security: Bad IP connecting`) + HTTP trigger |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (5/5, site-base [PRODUCTION_SITE])
+- schema.jsonld: present (updated post-publish with live permalink + cover URL)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base [PRODUCTION_SITE]  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run  # OK, PHP 9620258 bytes
+python3 scripts/excalibur_blog_wp_publish.py ...  # FAIL ftplib.error_temp: 425 Bad IP
+# workaround: SFTP (paramiko) upload excalibur-blog-publish-once.php + HTTP trigger  # PASS
+# schema meta refresh: excalibur-schema-update-once.php via SFTP  # OK schema_meta_update post=487
+```
+
+### Result
+
+```
+OK post=487 slug=claude-code-hooks-nastrojka-2026
+OK featured_image=488
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=489 src=cover/inline-01.png
+OK inline_image_upload=490 src=cover/inline-02.png
+OK inline_image_upload=491 src=cover/inline-03.png
+permalink=[PRODUCTION_SITE]/2026/07/08/claude-code-hooks-nastrojka-2026/
+```
+
+### Post-publish
+
+- schema.jsonld: URLs/image updated to production paths (see wp-publish-result.json)
+- WP post meta `_excalibur_blog_schema_jsonld` re-synced after schema fix

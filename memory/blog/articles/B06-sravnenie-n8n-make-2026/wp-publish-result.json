@@ -1,0 +1,14 @@
+{
+  "slug": "sravnenie-n8n-make-2026",
+  "topic_id": "B06",
+  "permalink": "https://[REDACTED]/2026/07/08/sravnenie-n8n-make-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-sravnenie-n8n-make-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1575617,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=503 slug=sravnenie-n8n-make-2026\nOK featured_image=504\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=505 src=cover/inline-01.png url=https://[REDACTED]/wp-content/uploads/2026/07/sravnenie-n8n-make-2026-inline-01.png\nOK inline_image_upload=506 src=cover/inline-02.png url=https://[REDACTED]/wp-content/uploads/2026/07/sravnenie-n8n-make-2026-inline-02.png\nOK inline_image_upload=507 src=cover/inline-03.png url=https://[REDACTED]/wp-content/uploads/2026/07/sravnenie-n8n-make-2026-inline-03.png\npermalink=https://[REDACTED]/2026/07/08/sravnenie-n8n-make-2026/\n",
+  "verdict": "pass"
+}

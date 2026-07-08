@@ -1,0 +1,479 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "sravnenie-n8n-make-2026",
+    "h1": "Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году",
+    "primary_query": "n8n vs make",
+    "secondary_queries": [
+      "сравнение n8n и make",
+      "make или n8n",
+      "что выбрать n8n или make",
+      "автоматизация бизнеса n8n"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "n8n vs make 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make vs N8N in 2026 | Compare features & pricing | Make",
+          "url": "https://www.make.com/en/compare/make-vs-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "n8n vs Make 2026: Which Automation Platform Should You Use?",
+          "url": "https://aitoolpick.org/blog/n8n-vs-make-2026/",
+          "snippet": "Comparing Make & n8n? Explore our detailed comparison of features, pricing, and use cases. Find the best automation tool for your team or developers."
+        },
+        {
+          "title": "n8n vs Make (Integromat): Which Automation Platform Is Right for You in ...",
+          "url": "https://massivegrid.com/blog/n8n-vs-make-comparison/",
+          "snippet": "n8n vs Make (formerly Integromat) compared in 2026. Pricing, self-hosting, AI workflows, ease of use, and which automation tool fits your team."
+        },
+        {
+          "title": "Make vs n8n 2026: Which Open-Source Automation Tool Wins?",
+          "url": "https://baeseokjae.github.io/posts/make-vs-n8n-comparison-2026/",
+          "snippet": "Honest comparison of n8n and Make (Integromat) in 2026: pricing, AI capabilities, self-hosting, ease of use. Find which platform fits your automation needs."
+        },
+        {
+          "title": "n8n vs Make (Integromat): Honest Comparison for Technical Teams (2026)",
+          "url": "https://techconcepts.org/blog/n8n-vs-make",
+          "snippet": "Make vs n8n 2026: Which Open-Source Automation Tool Wins? Make vs n8n 2026: operations vs executions billing, 1,500+ connectors vs 400+ nodes, self-hosting, AI features, and which platform fits your team."
+        },
+        {
+          "title": "n8n vs Make (2026): open source or visual builder | 2sync",
+          "url": "https://2sync.com/blog/n8n-vs-make",
+          "snippet": "n8n wins for technical teams. If your workflows need anything beyond \"transform JSON,\" n8n's code support is dramatically more capable. Self-hosting Make: not available. SaaS only. n8n: yes, freely. Docker image, docker-compose ready, runs on any VPS. The community edition is the same software as the cloud version (minus the user management UI)."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "n8n vs make июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make vs N8N in 2026 | Compare features & pricing | Make",
+          "url": "https://www.make.com/en/compare/make-vs-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация процессов: n8n или Make.com — что выбрать в 2026?",
+          "url": "https://[REDACTED]/avtomatizacziya-proczessov-n8n-ili-make-com-chto-vybrat-v-2026/",
+          "snippet": "Comparing Make & n8n? Explore our detailed comparison of features, pricing, and use cases. Find the best automation tool for your team or developers."
+        },
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://[REDACTED]/n8n-ili-make-com-chto-vybrat-dlya-avtomatizaczii-v-2026/",
+          "snippet": "В 2026 году выбор между n8n и Make.com — это стратегическое решение между скоростью сборки и масштабируемостью. Если вам нужно быстро связать SaaS-сервисы без глубоких технических знаний, выбирайте Make (оплата за операции)."
+        },
+        {
+          "title": "n8n vs Make (2026): open source or visual builder | 2sync",
+          "url": "https://2sync.com/blog/n8n-vs-make",
+          "snippet": "В 2026 году n8n лидирует благодаря глубокой интеграции с LangChain и поддержке памяти. Make догоняет с упрощенными инструментами, но для серьезной разработки n8n гибче."
+        },
+        {
+          "title": "Make.com Vs N8n In 2026: The Honest Breakdown By Triumphoid",
+          "url": "https://triumphoid.com/make-com-vs-n8n-honest-breakdown/",
+          "snippet": "n8n vs Make in 2026: pricing at volume, self-hosting, AI agents, and a decision matrix to pick the right automation tool today."
+        },
+        {
+          "title": "n8n vs Make (Integromat): Which Automation Platform Is Right for You in ...",
+          "url": "https://massivegrid.com/blog/n8n-vs-make-comparison/",
+          "snippet": "In 2026 it's more complicated — n8n has closed the usability gap significantly and Make's pricing has become a genuine liability at scale."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "n8n vs make новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make vs N8N in 2026 | Compare features & pricing | Make",
+          "url": "https://www.make.com/en/compare/make-vs-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://aibotmanager.ru/make-vs-n8n/",
+          "snippet": "Comparing Make & n8n? Explore our detailed comparison of features, pricing, and use cases. Find the best automation tool for your team or developers."
+        },
+        {
+          "title": "n8n vs Make (Integromat): Which Automation Platform Is Right for You in ...",
+          "url": "https://massivegrid.com/blog/n8n-vs-make-comparison/",
+          "snippet": "Сравниваем Make и n8n по цене, гибкости и приватности данных. Таблица параметров, расчёт стоимости владения и рекомендации для бизнеса в России 2026."
+        },
+        {
+          "title": "No-code автоматизация: n8n и Make для бизнес-процессов",
+          "url": "https://flow-masters.ru/blog/n8n-make-automation-business/",
+          "snippet": "Honest comparison of n8n and Make (Integromat) in 2026: pricing, AI capabilities, self-hosting, ease of use. Find which platform fits your automation needs."
+        },
+        {
+          "title": "n8n vs Make для PR-агентств: честное сравнение по 12 параметрам",
+          "url": "https://кельва.рф/blog/n8n-vs-make-dlya-pr-agentstv",
+          "snippet": "Сравнение n8n, Make и Zapier для автоматизации бизнеса в 2026: сценарии, примеры workflow, стоимость и когда нужна кастомная разработка."
+        },
+        {
+          "title": "n8n vs Zapier vs Make vs Power Automate (May 2026) - Automation Atlas",
+          "url": "https://automationatlas.io/guides/automation-tool-comparison-2026/",
+          "snippet": "Этот текст — про 12 параметров, по которым выбор реально отличается, и про четыре типичных PR-сценария с конкретным вердиктом для каждого."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "сравнение n8n и make 2026",
+      "purpose": "вторичный запрос: сравнение n8n и make",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n vs Make vs Zapier в 2026: какую no-code платформу выбрать под ...",
+          "url": "https://atresulting.ru/n8n-vs-make-vs-zapier-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://arslanov-ai.ru/instrumenty/make-vs-n8n/",
+          "snippet": "Сравнение n8n, Make и Zapier в 2026 году: когда что брать, цены в рублях, реальные ограничения, российские реалии. Без рекламы — только опыт работы со всеми тремя."
+        },
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://promaren.ru/blog/podborki/n8n-ili-make-2026/",
+          "snippet": "Сравнение Make и n8n: цены, функции, интеграции. Что лучше для малого бизнеса в 2026 году — разбираем на реальных кейсах."
+        },
+        {
+          "title": "Zapier vs Make vs n8n: полное сравнение для бизнеса 2026",
+          "url": "https://atlasceo.ru/build/atlas-26-zapier-vs-make-vs-n8n-polnoe-sravnenie-dlya-biznesa-2026",
+          "snippet": "Сравнение n8n и Make.com по задачам, ценам и нюансам в РФ. Сценарии, где какой инструмент выигрывает."
+        },
+        {
+          "title": "n8n vs Make: что выбрать для автоматизации бизнеса — честное сравнение ...",
+          "url": "https://vibecoderz.ru/blog/n8n-vs-make",
+          "snippet": "Сравнение Zapier, Make и n8n для бизнес-задач: критерии выбора, кейсы интеграций, расчет TCO и прогноз на 2026 год от стратега."
+        },
+        {
+          "title": "Make.com и n8n: автоматизация без кода с AI в 2026",
+          "url": "https://ai-uchi.ru/tools/make-com-n8n-avtomatizatsiia-bez-koda-ai-2026/",
+          "snippet": "N8n и Make, это две самые обсуждаемые системы автоматизации бизнеса в 2026 году. Оба сервиса соединяют приложения между собой без единой строчки кода, но устроены по-разному и стоят по ..."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "make или n8n 2026",
+      "purpose": "вторичный запрос: make или n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация процессов: n8n или Make.com — что выбрать в 2026?",
+          "url": "https://[REDACTED]/avtomatizacziya-proczessov-n8n-ili-make-com-chto-vybrat-v-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://aibotmanager.ru/make-vs-n8n/",
+          "snippet": "В 2026 году выбор между n8n и Make.com — это стратегическое решение между скоростью сборки и масштабируемостью. Если вам нужно быстро связать SaaS-сервисы без глубоких технических знаний, выбирайте Make (оплата за операции)."
+        },
+        {
+          "title": "n8n или Make com: что выбрать для контент-завода и фриланса в 2026 году",
+          "url": "https://[REDACTED]/n8n-ili-make-com-chto-vybrat-dlya-kontent-zavoda-i-frilansa-v-2026-godu/",
+          "snippet": "Сравниваем Make и n8n по цене, гибкости и приватности данных. Таблица параметров, расчёт стоимости владения и рекомендации для бизнеса в России 2026."
+        },
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://promaren.ru/blog/podborki/n8n-ili-make-2026/",
+          "snippet": "Выбираете движок для контент-завода и не хотите получить счет на тысячи долларов за генерацию видео? В 2026 году спор о том, что лучше make или n8n, перестал быть делом вкуса. Теперь это выбор между экосистемой мгновенных облачных решений и собственной архитектурой ИИ-агентов."
+        },
+        {
+          "title": "Make vs N8N in 2026 | Compare features & pricing | Make",
+          "url": "https://www.make.com/en/compare/make-vs-n8n",
+          "snippet": "Сравнение n8n и Make.com по задачам, ценам и нюансам в РФ. Сценарии, где какой инструмент выигрывает."
+        },
+        {
+          "title": "n8n vs Make: что выбрать для автоматизации бизнеса — честное сравнение ...",
+          "url": "https://vibecoderz.ru/blog/n8n-vs-make",
+          "snippet": "Comparing Make & n8n? Explore our detailed comparison of features, pricing, and use cases. Find the best automation tool for your team or developers."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "что выбрать n8n или make 2026",
+      "purpose": "вторичный запрос: что выбрать n8n или make",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://promaren.ru/blog/podborki/n8n-ili-make-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация процессов: n8n или Make.com — что выбрать в 2026?",
+          "url": "https://[REDACTED]/avtomatizacziya-proczessov-n8n-ili-make-com-chto-vybrat-v-2026/",
+          "snippet": "Сравнение n8n и Make.com по задачам, ценам и нюансам в РФ. Сценарии, где какой инструмент выигрывает."
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://aibotmanager.ru/make-vs-n8n/",
+          "snippet": "Сегодня я разложу по полочкам, какой инструмент выбрать, чтобы ваша автоматизация процессов не стала черной дырой для бюджета, и почему в этом году «Low-code» побеждает «No-code»."
+        },
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://[REDACTED]/n8n-ili-make-com-chto-vybrat-dlya-avtomatizaczii-v-2026/",
+          "snippet": "Сравниваем Make и n8n по цене, гибкости и приватности данных. Таблица параметров, расчёт стоимости владения и рекомендации для бизнеса в России 2026."
+        },
+        {
+          "title": "n8n vs Make: что выбрать для автоматизации бизнеса — честное сравнение ...",
+          "url": "https://vibecoderz.ru/blog/n8n-vs-make",
+          "snippet": "Что лучше для создания AI-агентов? В 2026 году n8n лидирует благодаря глубокой интеграции с LangChain и поддержке памяти. Make догоняет с упрощенными инструментами, но для серьезной разработки ..."
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://arslanov-ai.ru/instrumenty/make-vs-n8n/",
+          "snippet": "N8n и Make, это две самые обсуждаемые системы автоматизации бизнеса в 2026 году. Оба сервиса соединяют приложения между собой без единой строчки кода, но устроены по-разному и стоят по ..."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "автоматизация бизнеса n8n 2026",
+      "purpose": "вторичный запрос: автоматизация бизнеса n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация на n8n для бизнеса 2026: задачи, цена, self-hosted vs ...",
+          "url": "https://bot-craft.ru/blog/n8n-automation-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Автоматизация n8n: пошаговый гайд по ИИ-агентам для бизнеса",
+          "url": "https://[REDACTED]/2026/06/18/avtomatizaciya-n8n-ai-agents/",
+          "snippet": "Гайд по автоматизации бизнес-процессов на n8n в 2026: какие задачи решает, сколько стоит интеграция, self-hosted или cloud, интеграция с CRM, реальные кейсы и кто делает в России."
+        },
+        {
+          "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+          "url": "https://[REDACTED]/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+          "snippet": "Ниже - пошаговая автоматизация n8n: Chat Trigger, AI Agent, инструменты и честное сравнение с Make.com. После гайда вы запустите тестового бота в Chat UI и поймёте, какая платформа вам ближе - свой сервер или no-code из облака."
+        },
+        {
+          "title": "n8n автоматизация с AI: пошаговый гайд для бизнеса [2026] | НейроСкоп",
+          "url": "https://neiroscop.ru/blog/n8n-avtomatizaciya-s-ai-gajd",
+          "snippet": "Пошаговый гайд: n8n Cloud или Docker, AI Agent с Chat Model, Tools и Memory, workflow в Telegram и CRM. Сравнение с Make, шаблоны и продакшен без кода."
+        },
+        {
+          "title": "N8N: полное руководство по автоматизации workflow 2026",
+          "url": "https://www.digitalrocket.ru/articles/n8n-avtomatizatsiya-workflow-rukovodstvo-2025/",
+          "snippet": "n8n + AI — это самый экономичный способ автоматизировать бизнес-процессы в 2026 году. За ~1 750₽/мес (VPS + API) вы получаете 7 автоматизаций, которые экономят 15-20 часов/неделю."
+        },
+        {
+          "title": "n8n автоматизация бизнеса 2026: полное руководство",
+          "url": "https://landingpro.by/blog/n8n-avtomatizatsiya-biznesa-2026.html",
+          "snippet": "Простое руководство по автоматизации рутинных задач без программирования. Узнайте, как с помощью n8n настроить автоматическую работу между вашими сервисами и сэкономить десятки ..."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://arslanov-ai.ru/instrumenty/make-vs-n8n/",
+          "snippet": ""
+        },
+        {
+          "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+          "url": "https://promaren.ru/blog/podborki/n8n-ili-make-2026/",
+          "snippet": "Сравнение Make и n8n: цены, функции, интеграции. Что лучше для малого бизнеса в 2026 году — разбираем на реальных кейсах."
+        },
+        {
+          "title": "n8n vs Make: что выбрать для автоматизации бизнеса — честное сравнение ...",
+          "url": "https://vibecoderz.ru/blog/n8n-vs-make",
+          "snippet": "Сравнение n8n и Make.com по задачам, ценам и нюансам в РФ. Сценарии, где какой инструмент выигрывает."
+        },
+        {
+          "title": "n8n vs Make vs Zapier в 2026: какую no-code платформу выбрать под ...",
+          "url": "https://atresulting.ru/n8n-vs-make-vs-zapier-2026/",
+          "snippet": "N8n и Make, это две самые обсуждаемые системы автоматизации бизнеса в 2026 году. Оба сервиса соединяют приложения между собой без единой строчки кода, но устроены по-разному и стоят по ..."
+        },
+        {
+          "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+          "url": "https://aibotmanager.ru/make-vs-n8n/",
+          "snippet": "Сравнение n8n, Make и Zapier в 2026 году: когда что брать, цены в рублях, реальные ограничения, российские реалии. Без рекламы — только опыт работы со всеми тремя."
+        },
+        {
+          "title": "No-code автоматизация: n8n и Make для бизнес-процессов",
+          "url": "https://flow-masters.ru/blog/n8n-make-automation-business/",
+          "snippet": "Сравниваем Make и n8n по цене, гибкости и приватности данных. Таблица параметров, расчёт стоимости владения и рекомендации для бизнеса в России 2026."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.make.com/en/compare/make-vs-n8n",
+      "title": "Make vs N8N in 2026 | Compare features & pricing | Make",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://aitoolpick.org/blog/n8n-vs-make-2026/",
+      "title": "n8n vs Make 2026: Which Automation Platform Should You Use?",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://massivegrid.com/blog/n8n-vs-make-comparison/",
+      "title": "n8n vs Make (Integromat): Which Automation Platform Is Right for You in ...",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/make-vs-n8n-comparison-2026/",
+      "title": "Make vs n8n 2026: Which Open-Source Automation Tool Wins?",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://techconcepts.org/blog/n8n-vs-make",
+      "title": "n8n vs Make (Integromat): Honest Comparison for Technical Teams (2026)",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://2sync.com/blog/n8n-vs-make",
+      "title": "n8n vs Make (2026): open source or visual builder | 2sync",
+      "from_query": "n8n vs make 2026"
+    },
+    {
+      "url": "https://[REDACTED]/avtomatizacziya-proczessov-n8n-ili-make-com-chto-vybrat-v-2026/",
+      "title": "Автоматизация процессов: n8n или Make.com — что выбрать в 2026?",
+      "from_query": "n8n vs make июль 2026"
+    },
+    {
+      "url": "https://[REDACTED]/n8n-ili-make-com-chto-vybrat-dlya-avtomatizaczii-v-2026/",
+      "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+      "from_query": "n8n vs make июль 2026"
+    },
+    {
+      "url": "https://triumphoid.com/make-com-vs-n8n-honest-breakdown/",
+      "title": "Make.com Vs N8n In 2026: The Honest Breakdown By Triumphoid",
+      "from_query": "n8n vs make июль 2026"
+    },
+    {
+      "url": "https://aibotmanager.ru/make-vs-n8n/",
+      "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+      "from_query": "n8n vs make новости 2026"
+    },
+    {
+      "url": "https://flow-masters.ru/blog/n8n-make-automation-business/",
+      "title": "No-code автоматизация: n8n и Make для бизнес-процессов",
+      "from_query": "n8n vs make новости 2026"
+    },
+    {
+      "url": "https://кельва.рф/blog/n8n-vs-make-dlya-pr-agentstv",
+      "title": "n8n vs Make для PR-агентств: честное сравнение по 12 параметрам",
+      "from_query": "n8n vs make новости 2026"
+    },
+    {
+      "url": "https://automationatlas.io/guides/automation-tool-comparison-2026/",
+      "title": "n8n vs Zapier vs Make vs Power Automate (May 2026) - Automation Atlas",
+      "from_query": "n8n vs make новости 2026"
+    },
+    {
+      "url": "https://atresulting.ru/n8n-vs-make-vs-zapier-2026/",
+      "title": "n8n vs Make vs Zapier в 2026: какую no-code платформу выбрать под ...",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://arslanov-ai.ru/instrumenty/make-vs-n8n/",
+      "title": "Make vs n8n 2026: что выбрать для автоматизации бизнеса",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://promaren.ru/blog/podborki/n8n-ili-make-2026/",
+      "title": "n8n или Make.com: что выбрать для автоматизации в 2026",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://atlasceo.ru/build/atlas-26-zapier-vs-make-vs-n8n-polnoe-sravnenie-dlya-biznesa-2026",
+      "title": "Zapier vs Make vs n8n: полное сравнение для бизнеса 2026",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/n8n-vs-make",
+      "title": "n8n vs Make: что выбрать для автоматизации бизнеса — честное сравнение ...",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://ai-uchi.ru/tools/make-com-n8n-avtomatizatsiia-bez-koda-ai-2026/",
+      "title": "Make.com и n8n: автоматизация без кода с AI в 2026",
+      "from_query": "сравнение n8n и make 2026"
+    },
+    {
+      "url": "https://[REDACTED]/n8n-ili-make-com-chto-vybrat-dlya-kontent-zavoda-i-frilansa-v-2026-godu/",
+      "title": "n8n или Make com: что выбрать для контент-завода и фриланса в 2026 году",
+      "from_query": "make или n8n 2026"
+    },
+    {
+      "url": "https://bot-craft.ru/blog/n8n-automation-2026/",
+      "title": "Автоматизация на n8n для бизнеса 2026: задачи, цена, self-hosted vs ...",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    },
+    {
+      "url": "https://[REDACTED]/2026/06/18/avtomatizaciya-n8n-ai-agents/",
+      "title": "Автоматизация n8n: пошаговый гайд по ИИ-агентам для бизнеса",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    },
+    {
+      "url": "https://[REDACTED]/n8n-gayd-biznes-ai-agenty-avtomatizaciya-2026/",
+      "title": "n8n для бизнеса: AI-агенты, workflows и автоматизация — гайд 2026",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    },
+    {
+      "url": "https://neiroscop.ru/blog/n8n-avtomatizaciya-s-ai-gajd",
+      "title": "n8n автоматизация с AI: пошаговый гайд для бизнеса [2026] | НейроСкоп",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    },
+    {
+      "url": "https://www.digitalrocket.ru/articles/n8n-avtomatizatsiya-workflow-rukovodstvo-2025/",
+      "title": "N8N: полное руководство по автоматизации workflow 2026",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    },
+    {
+      "url": "https://landingpro.by/blog/n8n-avtomatizatsiya-biznesa-2026.html",
+      "title": "n8n автоматизация бизнеса 2026: полное руководство",
+      "from_query": "автоматизация бизнеса n8n 2026"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "source": "memory/blog/articles/B06-sravnenie-n8n-make-2026/article.html",
+  "total_links": 6,
+  "failed_count": 1,
+  "verdict": "fail",
+  "links": [
+    {
+      "url": "https://n8n.io/pricing/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://www.make.com/en/pricing",
+      "status": 403,
+      "ok": false,
+      "method": "GET",
+      "error": "HTTP Error 403: Forbidden",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://[REDACTED]/podklyuchenie-mcp-cursor/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://[REDACTED]/podklyuchenie-mcp-cursor/"
+    },
+    {
+      "url": "https://[REDACTED]/avtomatizaciya-n8n-ai-agents/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://[REDACTED]/avtomatizaciya-n8n-ai-agents/"
+    },
+    {
+      "url": "https://kv-ai.ru/obuchenie-po-make",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/maya_pro",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

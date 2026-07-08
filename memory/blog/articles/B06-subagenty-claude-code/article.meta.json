@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "subagenty-claude-code",
+  "h1": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+  "title": "Subagents Claude Code: пошаговая настройка субагентов и 7 ролей",
+  "description": "Пошаговая настройка subagents в Claude Code 2.1.198+: .claude/agents/, YAML frontmatter, 7 готовых ролей, background/Ctrl+B, чеклист безопасности. Без устаревшего wizard /agents.",
+  "keywords": [
+    "subagents claude code",
+    "claude code субагенты",
+    "как создать subagent claude code",
+    "claude code agents настройка",
+    "параллельные агенты claude code"
+  ],
+  "primary_query": "subagents claude code",
+  "secondary_queries": [
+    "claude code субагенты",
+    "как создать subagent claude code",
+    "claude code agents настройка",
+    "параллельные агенты claude code"
+  ],
+  "char_count": 9459,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить subagents в claude code пошагово",
+    "субагенты claude code семь готовых ролей",
+    "claude code agents настройка без wizard agents"
+  ],
+  "meta_ab": {
+    "title_seo": "Subagents Claude Code: пошаговая настройка субагентов и 7 ролей",
+    "title_ctr": "🚀 Subagents Claude Code за 20 минут: 7 ролей без wizard /agents!",
+    "title_aeo": "Как настроить subagents в Claude Code 2.1.198+ с готовыми ролями?",
+    "description_seo": "Пошаговая настройка subagents в Claude Code 2.1.198+: .claude/agents/, YAML frontmatter, 7 готовых ролей, background и чеклист безопасности. Без wizard /agents.",
+    "description_ctr": "⚡ Создайте первый subagent в .claude/agents/: 7 copy-paste ролей, auto-routing по description, Ctrl+B и /tasks. Актуальный гайд без устаревшего /agents.",
+    "description_aeo": "Subagents Claude Code – Markdown-файлы в .claude/agents/ с YAML frontmatter; с 2.1.198 wizard /agents удалён, subagents по умолчанию в background."
+  },
+  "cover_family": "brand_collage"
+}

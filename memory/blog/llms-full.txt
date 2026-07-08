@@ -928,3 +928,98 @@ n8n (self-hosted)
 Вас забанят, если вы будете использовать полностью автономный генератор спама. Если же вы используете схему Human-in-the-loop, где ИИ готовит качественный черновик, а финальное редактирование, добавление пользы (Information Gain) и публикацию контролирует человек, блокировки вам не грозят.
 
 ---
+
+---
+
+Steps, risks, file list; no code until approved.
+
+Делайте: один commit с семью файлами. Не делайте: выдуманные built-in reviewer/test-writer из коробки.
+
+5. Настройте параллель: background и /tasks
+
+Subagents в одной сессии; родитель не видит tool calls – только итог. Вложенность до 5 уровней. С 2.1.198 background по умолчанию. Agent Teams – эксперимент (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1), отдельные context windows; для старта хватит project subagents.
+
+Делайте: foreground, когда следующий шаг ждёт ответ. Не делайте: путать background subagents с Agent Teams.
+
+6. Добавьте политику в CLAUDE.md
+
+Пример: "Before commit → code-reviewer (read-only)" и "Auth/payments → security-reviewer". Explore/Plan не грузят CLAUDE.md родителя. Отключить built-in Explore/Plan: CLAUDE_CODE_DISABLE_EXPLORE_PLAN_AGENTS=1. Разовые роли без диска – флаг --agents JSON.
+
+Делайте: короткие императивы. Не делайте: дублировать длинные prompt из .md в CLAUDE.md.
+
+7. Пройдите чеклист безопасности и troubleshooting
+
+Claude Code 2.1.198+
+
+Scope .claude/agents/ или ~/.claude/agents/ выбран осознанно
+
+Уникальный name в scope; /doctor без duplicates
+
+Перезапуск после первого создания каталога agents
+
+description с поведенческим триггером и "Use proactively" где нужно
+
+Read-only без Write, Edit, Bash
+
+test-writer с явным allowlist, не наследование всех tools
+
+Запрет nested Agent tool при необходимости
+
+Permission prompts background subagents в main session (2.1.186+)
+
+Subagents в git; секреты не в frontmatter
+
+Тест явного и автоматического вызова
+
+Параллель проверен через /tasks
+
+Agent Teams не включены без причины
+
+При сбое: перезапуск, /doctor, "Use the X agent"
+
+Делайте: deny опасные tools через allowlist. Не делайте: reviewer с Bash на prod credentials.
+
+8. Что делать дальше
+
+code-reviewer.md + тест на реальном diff.
+
+Шесть ролей из таблицы одним commit.
+
+CLAUDE.md с политикой review/security.
+
+Оркестрация с Make – курс по Make.com (AI-агенты без кода).
+
+ Материал проверен: эксперт Артур Хорошев (CEO Maya AI, практик Make.com и Claude Code).
+ Достоверность данных: v2.1.198 (1 июля 2026), удаление "/agents", scope .claude/agents/ и background-by-default – официальная docs Anthropic на 8 июля 2026.
+
+Частые вопросы
+
+Где хранить subagents?
+
+Команда – .claude/agents/ + git. Личное – ~/.claude/agents/. Приоритет: managed → --agents CLI → project → user → plugin.
+
+Как создать subagent в 2.1.198+?
+
+Prompt Claude создать .md с YAML или файл вручную в .claude/agents/. "/agents" wizard удалён с 2.1.198.
+
+Почему subagent не вызывается?
+
+Слабый description, нет перезапуска после создания каталога, duplicate name в /doctor. Явно: "Use the code-reviewer agent".
+
+Чем subagent отличается от Skill?
+
+Subagent – изолированный context, итог в main. Skill – workflow on-demand в основном чате. Skills, когда сценарий остаётся в main context.
+
+Можно ли параллельно?
+
+Да; с 2.1.198 background по умолчанию, Ctrl+B и /tasks. Agent Teams – отдельный experimental механизм.
+
+Subagents vs Agent Teams?
+
+Subagents – одна сессия, отчёт родителю. Agent Teams – peer сессии + shared tasks; CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1.
+
+Как ограничить tools?
+
+Allowlist в tools (Read, Grep, Glob для reviewer). disallowedTools дополнительно. Без tools – наследование всех tools родителя.
+
+---

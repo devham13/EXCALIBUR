@@ -1,0 +1,284 @@
+<p>Claude Code умеет делегировать задачи субагентам (subagents), но многие русскоязычные гайды советуют wizard "/agents", который удалили в версии 2.1.198 от 1 июля 2026. Если нужны code review, тесты и security-проверки без ручного копания в каждом файле, настройка subagents claude code начинается с папки .claude/agents/ в репозитории. За 15–25 минут вы создадите первую роль, проверите автоделегирование по полю description и скопируете семь готовых шаблонов под команду.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Subagent – отдельный помощник в своём контекстном окне: работает с tools и промптом, в основную сессию возвращает только итог. С 2.1.198 subagents по умолчанию в background, wizard "/agents" не открывается. Создавайте роли через prompt Claude или файл .md в .claude/agents/. Поле description – главный триггер автоделегирования; для reviewer ограничивайте tools явным allowlist.</blockquote>
+
+<p>Subagent – Markdown-файл с YAML-шапкой (frontmatter): имя, описание когда вызывать, tools и job prompt в теле. Встроенные роли – только Explore, Plan и general-purpose; code-reviewer и test-writer добавляете сами. Логика похожа на <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>: главный агент выбирает специалиста по задаче, а не тащит всё в один чат.</p>
+
+<h2 id="compare">1. Сравните subagent, Skill и Agent Teams: когда делегировать</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица Subagent vs Skill vs Agent Teams: когда делегировать" loading="lazy">
+</figure>
+
+
+<p>Делегируйте при изолированных задачах (review, audit, тесты) или при 10+ файлах и 3+ независимых подзадачах (блог Anthropic, 7 апреля 2026). Для коротких сценариев в одном чате хватит Skill в .claude/skills/.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Subagent</th>
+      <th>Skill</th>
+      <th>Agent Teams</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Контекст</b></td>
+      <td>Отдельное окно, родитель видит только итог</td>
+      <td>Инструкции on-demand в main session</td>
+      <td>Несколько сессий + общий task list</td>
+    </tr>
+    <tr>
+      <td><b>Где лежит</b></td>
+      <td>.claude/agents/*.md</td>
+      <td>.claude/skills/</td>
+      <td>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбирать</b></td>
+      <td>Review, security, тесты, discovery</td>
+      <td>Чеклист в том же диалоге</td>
+      <td>Долгие параллельные ветки peer-to-peer</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote><b>Итоговый вердикт:</b> Для команды – project subagents в git. Skills – повторяемые сценарии в main chat. Agent Teams – только осознанный эксперимент, не onboarding.</blockquote>
+
+<p><b>Делайте:</b> одна роль – одна задача. <b>Не делайте:</b> дублировать Skill и subagent с одним prompt.</p>
+
+<h2 id="first-subagent">2. Создайте первый subagent в .claude/agents/ (без wizard /agents)</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: 7 шагов создания первого subagent в .claude/agents/" loading="lazy">
+</figure>
+
+
+<p>С 2.1.198 "/agents" не открывает мастер (до 2.1.197 – Running/Library). Путь: prompt Claude или ручной .md. Project – .claude/agents/ (commit в git); личные – ~/.claude/agents/.</p>
+
+<blockquote><b>Workflow:</b> версия 2.1.198+ → scope → code-reviewer.md → перезапуск → тест → commit → /tasks</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> <b>claude --version</b> – ориентир 2.1.198+. Обновление: <b>npm i -g @anthropic-ai/claude-code</b>.</li>
+  <li><b>Шаг 2:</b> Создайте .claude/agents/ в корне repo или ~/.claude/agents/.</li>
+  <li><b>Шаг 3:</b> Добавьте code-reviewer.md – пример в следующем разделе.</li>
+  <li><b>Шаг 4:</b> Каталог создан после старта сессии – перезапустите Claude Code.</li>
+  <li><b>Шаг 5:</b> <b>/doctor</b> – duplicate agent names с 2.1.196.</li>
+  <li><b>Шаг 6:</b> Тест: "Use the code-reviewer agent on staged changes", затем auto-routing без имени.</li>
+  <li><b>Шаг 7:</b> Commit .claude/agents/ и строка в README для команды.</li>
+</ol>
+
+<p><b>Делайте:</b> description с "Use proactively" перед commit. <b>Не делайте:</b> onboarding через "/agents wizard" – legacy.</p>
+
+<h2 id="yaml-frontmatter">3. Настройте YAML-frontmatter: description, tools, model</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист YAML-frontmatter subagent: description, tools, model" loading="lazy">
+</figure>
+
+
+<p>Обязательны name и description. Description – триггер автоделегирования: когда вызывать, не биография. tools – allowlist через запятую; без поля subagent наследует все tools родителя. С 2.1.198 background по умолчанию; Ctrl+B – в фон, /tasks – список задач.</p>
+
+<blockquote>---<br>
+name: code-reviewer<br>
+description: Review code for bugs, security, style. Use proactively after edits and before commit.<br>
+tools: Read, Grep, Glob<br>
+model: sonnet<br>
+---<br>
+<br>
+You are a senior reviewer. List findings by severity; do not rewrite code unless asked.</blockquote>
+
+<p><b>Делайте:</b> read-only без Write, Edit, Bash. <b>Не делайте:</b> Bash с сетью у security-ролей.</p>
+
+<h2 id="seven-roles">4. Скопируйте семь готовых ролей под репозиторий</h2>
+
+<p>Семь файлов в .claude/agents/. Built-in только Explore, Plan, general-purpose – остальное custom.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Файл</th>
+      <th>name</th>
+      <th>tools</th>
+      <th>model</th>
+      <th>Когда</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code-reviewer.md</td>
+      <td>code-reviewer</td>
+      <td>Read, Grep, Glob</td>
+      <td>sonnet</td>
+      <td>Перед commit</td>
+    </tr>
+    <tr>
+      <td>security-reviewer.md</td>
+      <td>security-reviewer</td>
+      <td>Read, Grep, Glob</td>
+      <td>sonnet</td>
+      <td>Auth, payments, PII</td>
+    </tr>
+    <tr>
+      <td>test-writer.md</td>
+      <td>test-writer</td>
+      <td>Read, Write, Edit, Bash, Grep, Glob</td>
+      <td>sonnet</td>
+      <td>Нет тестов у фичи</td>
+    </tr>
+    <tr>
+      <td>doc-writer.md</td>
+      <td>doc-writer</td>
+      <td>Read, Write, Edit, Grep, Glob</td>
+      <td>haiku</td>
+      <td>README, API docs</td>
+    </tr>
+    <tr>
+      <td>migration-checker.md</td>
+      <td>migration-checker</td>
+      <td>Read, Grep, Glob, Bash</td>
+      <td>sonnet</td>
+      <td>SQL migrations</td>
+    </tr>
+    <tr>
+      <td>codebase-explorer.md</td>
+      <td>codebase-explorer</td>
+      <td>Read, Grep, Glob, Bash</td>
+      <td>haiku</td>
+      <td>Discovery repo</td>
+    </tr>
+    <tr>
+      <td>architecture-planner.md</td>
+      <td>architecture-planner</td>
+      <td>Read, Grep, Glob</td>
+      <td>sonnet</td>
+      <td>Design before code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Шаблон security-reviewer (остальные – та же структура, другие name/description/tools):</p>
+
+<blockquote>---<br>
+name: security-reviewer<br>
+description: Audit auth, payments, PII. Use proactively on security-sensitive changes.<br>
+tools: Read, Grep, Glob<br>
+model: sonnet<br>
+---<br>
+<br>
+Find OWASP risks, secret leaks, unsafe defaults. Severity list only; no edits.<br>
+<br>
+---<br>
+name: test-writer<br>
+description: Write tests for new code. Use proactively when coverage is missing.<br>
+tools: Read, Write, Edit, Bash, Grep, Glob<br>
+model: sonnet<br>
+---<br>
+<br>
+Match project test framework; happy path + edge cases.<br>
+<br>
+---<br>
+name: doc-writer<br>
+description: Update README/API docs after changes.<br>
+tools: Read, Write, Edit, Grep, Glob<br>
+model: haiku<br>
+---<br>
+<br>
+Clear examples and install steps; match existing tone.<br>
+<br>
+---<br>
+name: migration-checker<br>
+description: Validate DB migrations before deploy.<br>
+tools: Read, Grep, Glob, Bash<br>
+model: sonnet<br>
+---<br>
+<br>
+Check rollback, locks, data loss; suggest dry-run.<br>
+<br>
+---<br>
+name: codebase-explorer<br>
+description: Map repo structure. Use proactively on large codebases.<br>
+tools: Read, Grep, Glob, Bash<br>
+model: haiku<br>
+---<br>
+<br>
+Summarize modules and entry points; read-only.<br>
+<br>
+---<br>
+name: architecture-planner<br>
+description: Design before multi-file features.<br>
+tools: Read, Grep, Glob<br>
+model: sonnet<br>
+---<br>
+<br>
+Steps, risks, file list; no code until approved.</blockquote>
+
+<p><b>Делайте:</b> один commit с семью файлами. <b>Не делайте:</b> выдуманные built-in reviewer/test-writer из коробки.</p>
+
+<h2 id="parallel">5. Настройте параллель: background и /tasks</h2>
+
+<p>Subagents в одной сессии; родитель не видит tool calls – только итог. Вложенность до 5 уровней. С 2.1.198 background по умолчанию. Agent Teams – эксперимент (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1), отдельные context windows; для старта хватит project subagents.</p>
+
+<p><b>Делайте:</b> foreground, когда следующий шаг ждёт ответ. <b>Не делайте:</b> путать background subagents с Agent Teams.</p>
+
+<h2 id="claude-md">6. Добавьте политику в CLAUDE.md</h2>
+
+<p>Пример: "Before commit → code-reviewer (read-only)" и "Auth/payments → security-reviewer". Explore/Plan не грузят CLAUDE.md родителя. Отключить built-in Explore/Plan: CLAUDE_CODE_DISABLE_EXPLORE_PLAN_AGENTS=1. Разовые роли без диска – флаг --agents JSON.</p>
+
+<p><b>Делайте:</b> короткие императивы. <b>Не делайте:</b> дублировать длинные prompt из .md в CLAUDE.md.</p>
+
+<h2 id="security-checklist">7. Пройдите чеклист безопасности и troubleshooting</h2>
+
+<ul>
+  <li>Claude Code 2.1.198+</li>
+  <li>Scope .claude/agents/ или ~/.claude/agents/ выбран осознанно</li>
+  <li>Уникальный name в scope; /doctor без duplicates</li>
+  <li>Перезапуск после первого создания каталога agents</li>
+  <li>description с поведенческим триггером и "Use proactively" где нужно</li>
+  <li>Read-only без Write, Edit, Bash</li>
+  <li>test-writer с явным allowlist, не наследование всех tools</li>
+  <li>Запрет nested Agent tool при необходимости</li>
+  <li>Permission prompts background subagents в main session (2.1.186+)</li>
+  <li>Subagents в git; секреты не в frontmatter</li>
+  <li>Тест явного и автоматического вызова</li>
+  <li>Параллель проверен через /tasks</li>
+  <li>Agent Teams не включены без причины</li>
+  <li>При сбое: перезапуск, /doctor, "Use the X agent"</li>
+</ul>
+
+<p><b>Делайте:</b> deny опасные tools через allowlist. <b>Не делайте:</b> reviewer с Bash на prod credentials.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>code-reviewer.md + тест на реальном diff.</li>
+  <li>Шесть ролей из таблицы одним commit.</li>
+  <li>CLAUDE.md с политикой review/security.</li>
+  <li>Оркестрация с Make – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс по Make.com</a> (AI-агенты без кода).</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com и Claude Code).<br>
+  <b>Достоверность данных:</b> v2.1.198 (1 июля 2026), удаление "/agents", scope .claude/agents/ и background-by-default – официальная docs Anthropic на 8 июля 2026.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Где хранить subagents?</h3>
+<p>Команда – .claude/agents/ + git. Личное – ~/.claude/agents/. Приоритет: managed → --agents CLI → project → user → plugin.</p>
+
+<h3>Как создать subagent в 2.1.198+?</h3>
+<p>Prompt Claude создать .md с YAML или файл вручную в .claude/agents/. "/agents" wizard удалён с 2.1.198.</p>
+
+<h3>Почему subagent не вызывается?</h3>
+<p>Слабый description, нет перезапуска после создания каталога, duplicate name в /doctor. Явно: "Use the code-reviewer agent".</p>
+
+<h3>Чем subagent отличается от Skill?</h3>
+<p>Subagent – изолированный context, итог в main. Skill – workflow on-demand в основном чате. Skills, когда сценарий остаётся в main context.</p>
+
+<h3>Можно ли параллельно?</h3>
+<p>Да; с 2.1.198 background по умолчанию, Ctrl+B и /tasks. Agent Teams – отдельный experimental механизм.</p>
+
+<h3>Subagents vs Agent Teams?</h3>
+<p>Subagents – одна сессия, отчёт родителю. Agent Teams – peer сессии + shared tasks; CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1.</p>
+
+<h3>Как ограничить tools?</h3>
+<p>Allowlist в tools (Read, Grep, Glob для reviewer). disallowedTools дополнительно. Без tools – наследование всех tools родителя.</p>

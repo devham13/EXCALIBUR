@@ -1,0 +1,218 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/subagenty-claude-code/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/07/subagenty-claude-code.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Subagents Claude Code: пошаговая настройка субагентов и 7 ролей"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/subagenty-claude-code/#webpage",
+      "url": "https://mayai.ru/subagenty-claude-code/",
+      "name": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/subagenty-claude-code/#primaryimage"
+      },
+      "description": "Пошаговая настройка subagents в Claude Code 2.1.198+: .claude/agents/, YAML frontmatter, 7 готовых ролей, background и чеклист безопасности. Без wizard /agents."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/subagenty-claude-code/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/subagenty-claude-code/#webpage"
+      },
+      "headline": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+      "description": "Пошаговая настройка subagents в Claude Code 2.1.198+: .claude/agents/, YAML frontmatter, 7 готовых ролей, background и чеклист безопасности. Без wizard /agents.",
+      "datePublished": "2026-07-08T12:00:00+03:00",
+      "dateModified": "2026-07-08T12:00:00+03:00",
+      "mainEntityOfPage": "https://mayai.ru/subagenty-claude-code/",
+      "inLanguage": "ru",
+      "keywords": "subagents claude code, claude code субагенты, как создать subagent claude code, claude code agents настройка, параллельные агенты claude code",
+      "image": {
+        "@id": "https://mayai.ru/subagenty-claude-code/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/subagenty-claude-code/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/subagenty-claude-code/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Где хранить subagents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Команда – .claude/agents/ + git. Личное – ~/.claude/agents/. Приоритет: managed → --agents CLI → project → user → plugin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как создать subagent в 2.1.198+?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompt Claude создать .md с YAML или файл вручную в .claude/agents/. \"/agents\" wizard удалён с 2.1.198."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему subagent не вызывается?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Слабый description, нет перезапуска после создания каталога, duplicate name в /doctor. Явно: \"Use the code-reviewer agent\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем subagent отличается от Skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subagent – изолированный context, итог в main. Skill – workflow on-demand в основном чате. Skills, когда сценарий остаётся в main context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли параллельно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да; с 2.1.198 background по умолчанию, Ctrl+B и /tasks. Agent Teams – отдельный experimental механизм."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Subagents vs Agent Teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subagents – одна сессия, отчёт родителю. Agent Teams – peer сессии + shared tasks; CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как ограничить tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Allowlist в tools (Read, Grep, Glob для reviewer). disallowedTools дополнительно. Без tools – наследование всех tools родителя."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/subagenty-claude-code/#howto",
+      "isPartOf": {
+        "@id": "https://mayai.ru/subagenty-claude-code/#webpage"
+      },
+      "name": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+      "description": "Создание первого custom subagent в .claude/agents/, настройка YAML frontmatter, семь готовых ролей и проверка parallel/background без устаревшего wizard /agents.",
+      "inLanguage": "ru",
+      "totalTime": "PT25M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code 2.1.198+"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "npm (@anthropic-ai/claude-code)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Git"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте версию Claude Code",
+          "text": "Выполните claude --version — ориентир 2.1.198+. Обновление: npm i -g @anthropic-ai/claude-code.",
+          "url": "https://mayai.ru/subagenty-claude-code/#first-subagent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте каталог agents",
+          "text": "Создайте .claude/agents/ в корне repo (project, commit в git) или ~/.claude/agents/ (личные роли).",
+          "url": "https://mayai.ru/subagenty-claude-code/#first-subagent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Добавьте code-reviewer.md",
+          "text": "Создайте файл с YAML frontmatter: name, description с поведенческим триггером и Use proactively, tools: Read, Grep, Glob, model: sonnet и job prompt reviewer в теле.",
+          "url": "https://mayai.ru/subagenty-claude-code/#yaml-frontmatter"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Перезапустите Claude Code",
+          "text": "Каталог agents подхватывается после старта сессии — перезапустите Claude Code, если каталог создавали впервые.",
+          "url": "https://mayai.ru/subagenty-claude-code/#first-subagent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте /doctor",
+          "text": "Запустите /doctor и убедитесь, что нет duplicate agent names (проверка с 2.1.196).",
+          "url": "https://mayai.ru/subagenty-claude-code/#first-subagent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Протестируйте делегирование",
+          "text": "Prompt: Use the code-reviewer agent on staged changes, затем проверьте auto-routing без явного имени агента.",
+          "url": "https://mayai.ru/subagenty-claude-code/#first-subagent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Закоммитьте роли и добавьте политику",
+          "text": "Commit .claude/agents/ и строка в README для команды. Опционально добавьте политику review/security в CLAUDE.md; проверьте parallel через /tasks.",
+          "url": "https://mayai.ru/subagenty-claude-code/#claude-md"
+        }
+      ]
+    }
+  ]
+}

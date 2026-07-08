@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-subagenty-claude-code/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1021,
+      574
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 574,
+        "end": 578
+      },
+      "v_gutter_px": {
+        "start": 1021,
+        "end": 1027
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1021,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: subagents Claude Code — 7 ролей без wizard /agents, ведущий указывает на .claude/agents/",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1027,
+          "top": 0,
+          "right": 2048,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 1027,
+          "top": 0,
+          "right": 2048,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица Subagent vs Skill vs Agent Teams: когда делегировать",
+        "h2_anchor": "1. Сравните subagent, Skill и Agent Teams: когда делегировать"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 578,
+          "right": 1021,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 578,
+          "right": 1021,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow: 7 шагов создания первого subagent в .claude/agents/",
+        "h2_anchor": "2. Создайте первый subagent в .claude/agents/ (без wizard /agents)"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1027,
+          "top": 578,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1027,
+          "top": 578,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист YAML-frontmatter subagent: description, tools, model",
+        "h2_anchor": "3. Настройте YAML-frontmatter: description, tools, model"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Сравните subagent, Skill и Agent Teams: когда делегировать",
+    "injected inline_2 after H2 — 2. Создайте первый subagent в .claude/agents/ (без wizard /agents)",
+    "injected inline_3 after H2 — 3. Настройте YAML-frontmatter: description, tools, model"
+  ]
+}

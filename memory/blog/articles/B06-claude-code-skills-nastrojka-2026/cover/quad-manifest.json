@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code без skills — вы каждый раз объясняете одно и то же?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: эксперт у ноутбука с Claude Code, SKILL.md и мем-коллаж про повторяющиеся инструкции",
+      "scene_hint": "ноутбук с терминалом Claude Code и открытым SKILL.md; вокруг fake скрины: чат «опиши commit ещё раз», папка .claude/skills/, красный /skills без auto-invocation; reference-лицо в тёмной dev-худи с логотипом терминала, указывает на YAML frontmatter description; розовый маркер на «SKILL.md», скотч и рваная бумага, мем facepalm + confused cat cutout",
+      "meme_caption_ru": "Опять с нуля?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Выберите skill, а не hook, subagent или MCP",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица «SKILL.md vs Hook vs Subagent vs MCP»: механизм, когда использовать, не использовать; Cyrillic UI, розовый стикер «не путай», без лица героя",
+      "alt": "Сравнительная таблица: skill, hook, subagent и MCP — когда что выбирать в Claude Code"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте scope: personal или project skills",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема 2 ветки: ~/.claude/skills/ (personal, все проекты) и .claude/skills/ (project, git commit); стрелки, иконки папок, маркер «выбери scope»",
+      "alt": "Workflow: personal skill в домашней папке vs project skill в репозитории"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Разберите анатомию SKILL.md: frontmatter и тело",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист анатомии SKILL.md: YAML frontmatter (name, description, allowed-tools), тело инструкций, optional !cmd; clipboard с галочками, лимиты 1536/500 строк",
+      "alt": "Чеклист структуры SKILL.md: frontmatter, description-триггер и тело skill"
+    }
+  }
+}

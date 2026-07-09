@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "claude-code-skills-nastrojka-2026",
+  "h1": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд",
+  "title": "Claude Code skills: пошаговая настройка SKILL.md с нуля",
+  "description": "Как создать skill Claude Code: каталог .claude/skills/, YAML frontmatter, auto-invocation по description, ручной /skill-name, production-поля и чеклист перед git commit.",
+  "keywords": [
+    "claude code skills",
+    "claude code skill md",
+    "как создать skill claude code",
+    "claude code custom skills",
+    "настройка skills claude code"
+  ],
+  "primary_query": "claude code skills",
+  "secondary_queries": [
+    "claude code skill md",
+    "как создать skill claude code",
+    "claude code custom skills",
+    "настройка skills claude code"
+  ],
+  "char_count": 8816,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как создать claude code skills с нуля пошагово",
+    "настройка SKILL.md для claude code в проекте",
+    "claude code custom skills auto-invocation и slash command"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code skills: пошаговая настройка SKILL.md с нуля",
+    "title_ctr": "💻 Claude Code skills за 45 минут: создайте SKILL.md и проверьте auto-invocation!",
+    "title_aeo": "Как создать skill Claude Code и настроить SKILL.md?",
+    "description_seo": "Как создать skill Claude Code: .claude/skills/, YAML frontmatter, auto-invocation, /skill-name, disable-model-invocation, allowed-tools и чеклист перед commit.",
+    "description_ctr": "⚡ Первый Claude Code skill за вечер: mkdir, SKILL.md, 7 шагов, таблица skill vs MCP и production-чеклист из 12 пунктов. Гайд для разработчиков и автоматизаторов.",
+    "description_aeo": "Claude Code skill – каталог с SKILL.md в ~/.claude/skills/ или .claude/skills/. Description триггерит auto-invocation; ручной вызов – /имя-каталога. Лимиты: 500 строк, description до 1536 символов."
+  },
+  "cover_family": "brand_collage"
+}

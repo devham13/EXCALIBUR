@@ -1,0 +1,15 @@
+{
+  "slug": "claude-code-skills-nastrojka-2026",
+  "topic_id": "B06",
+  "permalink": "{{PUBLIC_SITE_URL}}/2026/07/09/claude-code-skills-nastrojka-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-claude-code-skills-nastrojka-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1443754,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=522 slug=claude-code-skills-nastrojka-2026\nOK featured_image=523\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=524 src=cover/inline-01.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/07/claude-code-skills-nastrojka-2026-inline-01.png\nOK inline_image_upload=525 src=cover/inline-02.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/07/claude-code-skills-nastrojka-2026-inline-02.png\nOK inline_image_upload=526 src=cover/inline-03.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/07/claude-code-skills-nastrojka-2026-inline-03.png\npermalink={{PUBLIC_SITE_URL}}/2026/07/09/claude-code-skills-nastrojka-2026/\n",
+  "verdict": "pass",
+  "transport": "sftp"
+}

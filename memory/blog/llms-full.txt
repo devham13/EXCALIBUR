@@ -4,7 +4,7 @@ This file contains full plain-text articles optimized for AI reasoning and seman
 ---
 
 ## Как писать SEO-статьи и что такое GEO в одном материале?
-- **URL**: https://mayai.ru/blog/primer-seo-stati/
+- **URL**: {{PUBLIC_SITE_URL}}/blog/primer-seo-stati/
 - **Summary**: SEO-статья закрывает запрос человека и упакована для AI-ответов: lead 350–500 знаков, атомарные H2, BlogPosting + FAQPage, llms.txt. Объём — по SERP, не по мифической норме.
 
 SEO-статья — текст, который закрывает конкретный запрос человека и при этом читается как нормальный материал, а не набор ключей. В 2026 году этого мало: нейропоиск (Яндекс Нейро, Google AI Overviews) вытаскивает короткие фрагменты, а не страницу целиком. Ниже — единый workflow: от семантики до GEO-чанков, FAQ и schema. Эта страница сама следует тем правилам, которые описывает.
@@ -158,10 +158,10 @@ llms.txt — файл подсказок для AI-краулеров (стан�
 ---
 
 ## Как настроить ИИ-агентов в n8n для автоматизации бизнеса?
-- **URL**: https://mayai.ru/blog/avtomatizaciya-n8n-ai-agents/
+- **URL**: {{PUBLIC_SITE_URL}}/blog/avtomatizaciya-n8n-ai-agents/
 - **Summary**: Автоматизация n8n с ИИ-агентами: Chat Trigger, AI Agent node, System Message, tools и Simple Memory. Когда выбрать Make.com вместо self-host n8n.
 
-Вы слышали про n8n и ИИ-агентов, но в интерфейсе с десятком нод теряетесь: где триггер, где модель, зачем память? Я прошёл этот путь как практик Make.com и собрал первого агента в n8n за вечер. Ниже – пошаговая автоматизация n8n: Chat Trigger, AI Agent, инструменты и честное сравнение с Make.com. После гайда вы запустите тестового бота в Chat UI и поймёте, какая платформа вам ближе – свой сервер или no-code из облака.
+Вы слышали про n8n и ИИ-агентов, но в интерфейсе с десятком нод теряетесь: где триггер, где модель, зачем память? Я прошёл этот путь как интегратор {{PUBLIC_SITE_URL}} и собрал первого агента в n8n за вечер. Ниже – пошаговая автоматизация n8n: Chat Trigger, AI Agent, инструменты и честное сравнение с Make.com. После гайда вы запустите тестового бота в Chat UI и поймёте, какая платформа вам ближе – свой сервер или no-code из облака.
 
 TL;DR / Быстрый инсайт: ИИ-агент в n8n – это узел-дирижёр: он принимает вопрос, подключает языковую модель, память и инструменты (tools), а сам решает, что вызвать. Схема MVP: Chat Trigger → AI Agent → Chat Model + System Message + 1-2 tools. Для базы знаний (RAG) добавьте Vector Store. n8n силён в self-host и глубоком AI; Make.com – в скорости без Docker. Запрос "автоматизация n8n" в Вордстате – 539 показов в месяц, head-запрос "n8n" – 37 115.
 
@@ -235,7 +235,7 @@ Support-бот: Chat Trigger + RAG по базе знаний + tool "эскал
 
 Webhook – входящий "звонок" на URL n8n: сайт стучится, workflow стартует. Для Telegram-бота замените Chat Trigger на Telegram Trigger, логика агента та же.
 
-Если кейс – типовая CRM-воронка или контент-завод без сервера, посмотрите услуги автоматизации на mayai.ru и оцените, не быстрее ли закрыть задачу на Make.
+Если кейс – типовая CRM-воронка или контент-завод без сервера, посмотрите услуги автоматизации на {{PUBLIC_SITE_URL}} и оцените, не быстрее ли закрыть задачу на Make.
 
 5. Сравните n8n и Make.com и примите решение
 
@@ -271,7 +271,7 @@ Webhook – входящий "звонок" на URL n8n: сайт стучит�
 
 Выбирайте Make, если: нет желания админить Docker, команда no-code, типовые интеграции CRM/SMM/Telegram "из коробки". Make AI Agents доступны на всех тарифах.
 
- Итоговый вердикт: n8n – глубина AI и self-host. Make – скорость и визуальный builder без DevOps. Я веду курс по Make.com (159+ уроков, 5 800 ₽/мес) именно для тех, кто хочет агентов без серверов. n8n оставьте, когда инфраструктура уже есть.
+ Итоговый вердикт: n8n – глубина AI и self-host. Make – скорость и визуальный builder без DevOps. {{PUBLIC_SITE_URL}} на {{PUBLIC_SITE_URL}} – команда внедрит n8n или Make под ваши процессы. n8n оставьте, когда инфраструктура уже есть.
 
 6. Пройдите чеклист перед продакшеном
 
@@ -309,11 +309,11 @@ Human-in-the-Loop на опасных действиях (удаление, оп
 
 Сверьте таблицу n8n vs Make с вашим стеком (CRM, мессенджеры, бюджет).
 
-При выборе Make – зайдите в обучение по Make: там разбор AI Agents и вайбкодинга на живых сценариях.
+При выборе Make – {{PUBLIC_SITE_URL}}: разберём ваш кейс и подберём стек (n8n, Make, CRM).
 
-Вопросы по нодам и ошибкам – в Telegram @maya_pro, там же разборы сценариев учеников.
+Вопросы по нодам и ошибкам – напишите в {{PUBLIC_SITE_URL}}, команда подскажет по внедрению.
 
- Материал проверен: эксперт Артур Хорошев (CEO Maya AI, практик Make.com и AI-агентов).
+ Материал проверен: эксперт Редакция {{PUBLIC_SITE_URL}} (практики AI-автоматизации и n8n/Make).
  Достоверность данных: цены n8n и Make, параметры AI Agent node и показатели Вордстат верифицированы по первоисточникам на июнь 2026 года.
 
 Частые вопросы
@@ -349,12 +349,12 @@ CE бесплатно плюс VPS и оплата LLM API отдельно. Clo
 ---
 
 ## Как подключить MCP-серверы в Cursor для автоматизации?
-- **URL**: https://mayai.ru/blog/podklyuchenie-mcp-cursor/
+- **URL**: {{PUBLIC_SITE_URL}}/blog/podklyuchenie-mcp-{{PUBLIC_SITE_URL}}/
 - **Summary**: Cursor MCP – подключение серверов через Tools & MCP или mcp.json (stdio/url), проверка статуса, allowlist и исправление красного индикатора через MCP Logs.
 
-Cursor пишет код и отвечает в чате, но без MCP (Model Context Protocol) агент не видит ваши сервисы: не откроет сайт, не подтянет документацию, не тронет CMS. Настройка cursor mcp занимает 15–30 минут. Ниже – подключение через Tools &amp; MCP или файл mcp.json. Вы увидите зелёный статус сервера, вызовете первый tool из Agent и соберёте минимальный стек под автоматизацию.
+Cursor пишет код и отвечает в чате, но без MCP (Model Context Protocol) агент не видит ваши сервисы: не откроет сайт, не подтянет документацию, не тронет CMS. Настройка {{PUBLIC_SITE_URL}} mcp занимает 15–30 минут. Ниже – подключение через Tools &amp; MCP или файл mcp.json. Вы увидите зелёный статус сервера, вызовете первый tool из Agent и соберёте минимальный стек под автоматизацию.
 
-TL;DR / Быстрый инсайт: MCP в Cursor – "розетки" для внешних инструментов (браузер, GitHub, CMS). Конфиг: ~/.cursor/mcp.json или .cursor/mcp.json в проекте. Подключение – кнопка "Add to Cursor" или JSON с command/args (stdio) / url (облако). После правки перезапустите Cursor. Agent по умолчанию спрашивает подтверждение перед вызовом tool.
+TL;DR / Быстрый инсайт: MCP в Cursor – "розетки" для внешних инструментов (браузер, GitHub, CMS). Конфиг: ~/.{{PUBLIC_SITE_URL}}/mcp.json или .{{PUBLIC_SITE_URL}}/mcp.json в проекте. Подключение – кнопка "Add to Cursor" или JSON с command/args (stdio) / url (облако). После правки перезапустите Cursor. Agent по умолчанию спрашивает подтверждение перед вызовом tool.
 
 MCP – открытый стандарт Anthropic (ноябрь 2024): способ дать нейросети доступ к данным вне чата. API (Application Programming Interface) – "розетка" между Cursor и сервисом: Agent вызывает tool, а не копирует пароли в prompt. MCP дополняет n8n и Make: в IDE готовите черновик, а автоматизация n8n с ИИ-агентами публикует и шлёт уведомления 24/7.
 
@@ -369,8 +369,8 @@ MCP – открытый стандарт Anthropic (ноябрь 2024): спо�
  Проектный конфиг
 
  Путь (Windows)
- C:\Users\&lt;user&gt;\.cursor\mcp.json
- &lt;корень проекта&gt;\.cursor\mcp.json
+ C:\Users\&lt;user&gt;\.{{PUBLIC_SITE_URL}}\mcp.json
+ &lt;корень проекта&gt;\.{{PUBLIC_SITE_URL}}\mcp.json
 
  Область
  Все проекты на этом ПК
@@ -387,7 +387,7 @@ MCP – открытый стандарт Anthropic (ноябрь 2024): спо�
 
 3. Подключите сервер через Tools &amp; MCP (способ A)
 
-Самый быстрый вход – без редактирования JSON. Откройте Settings (Ctrl+Shift+J на Windows, Cmd+Shift+J на Mac) → раздел Tools &amp; MCP. В Marketplace или на cursor.directory нажмите "Add to Cursor" у нужного mcp сервера для cursor. Пройдите OAuth или подтвердите установку.
+Самый быстрый вход – без редактирования JSON. Откройте Settings (Ctrl+Shift+J на Windows, Cmd+Shift+J на Mac) → раздел Tools &amp; MCP. В Marketplace или на {{PUBLIC_SITE_URL}}.directory нажмите "Add to Cursor" у нужного mcp сервера для {{PUBLIC_SITE_URL}}. Пройдите OAuth или подтвердите установку.
 
 Шаг 1: Обновите Cursor до актуальной версии и откройте Tools &amp; MCP.
 
@@ -430,21 +430,21 @@ MCP – открытый стандарт Anthropic (ноябрь 2024): спо�
 
  Browser / Playwright MCP
  QA лендингов, скриншоты, проверка форм
- playwright mcp cursor – 18
+ playwright mcp {{PUBLIC_SITE_URL}} – 18
 
  Context7 / docs MCP
  Актуальная документация без "галлюцинаций"
- context 7 mcp cursor – 9
+ context 7 mcp {{PUBLIC_SITE_URL}} – 9
 
  Figma MCP
  Макет → текст/структура для контента
- figma cursor mcp – 48
+ figma {{PUBLIC_SITE_URL}} mcp – 48
 
  GitHub MCP
  Issues, PR, репозиторий контент-завода
- cursor github mcp – 4
+ {{PUBLIC_SITE_URL}} github mcp – 4
 
-Старт: Browser + Context7 + GitHub или WordPress MCP (команды из README на cursor.directory). Свой сервер с нуля – в гайде по созданию MCP. Make закрывает цепочки "триггер → CRM → Telegram"; на курсе по Make (159+ уроков, 5 800 ₽/мес) разбираем связку MCP + публикация.
+Старт: Browser + Context7 + GitHub или WordPress MCP (команды из README на {{PUBLIC_SITE_URL}}.directory). Свой сервер с нуля – в гайде по созданию MCP. Make закрывает цепочки "триггер → CRM → Telegram"; на курсе по Make (159+ уроков, 5 800 ₽/мес) разбираем связку MCP + публикация.
 
 7. Исправьте типичные ошибки (красный статус, ENOENT, JSON)
 
@@ -501,17 +501,17 @@ API-ключи в env, не в Git
 Вопросы по связке Cursor + автоматизация – в Telegram @maya_pro.
 
  Материал проверен: эксперт Артур Хорошев (CEO Maya AI, практик Make.com, Cursor и MCP).
- Достоверность данных: пути конфигов, поведение Tools &amp; MCP и показатели Вордстат ("cursor mcp" – 630, "настройка mcp сервера" – 74) верифицированы по документации Cursor и Яндекс Вордстат на июнь 2026 года.
+ Достоверность данных: пути конфигов, поведение Tools &amp; MCP и показатели Вордстат ("{{PUBLIC_SITE_URL}} mcp" – 630, "настройка mcp сервера" – 74) верифицированы по документации Cursor и Яндекс Вордстат на июнь 2026 года.
 
 Частые вопросы
 
 Как подключить MCP к Cursor?
 
-Откройте Settings (Ctrl+Shift+J) → Tools &amp; MCP → "Add to Cursor" у нужного сервера. Либо создайте ~/.cursor/mcp.json или .cursor/mcp.json, добавьте блок mcpServers, сохраните валидный JSON и перезапустите Cursor. Проверьте активный статус сервера и вызовите tool тестовым prompt в Agent.
+Откройте Settings (Ctrl+Shift+J) → Tools &amp; MCP → "Add to Cursor" у нужного сервера. Либо создайте ~/.{{PUBLIC_SITE_URL}}/mcp.json или .{{PUBLIC_SITE_URL}}/mcp.json, добавьте блок mcpServers, сохраните валидный JSON и перезапустите Cursor. Проверьте активный статус сервера и вызовите tool тестовым prompt в Agent.
 
 Где файл mcp.json на Windows?
 
-Глобально: C:\Users\&lt;ваш_логин&gt;\.cursor\mcp.json. Для одного проекта: папка .cursor в корне репозитория. При совпадении имён сервера приоритет у проектного файла.
+Глобально: C:\Users\&lt;ваш_логин&gt;\.{{PUBLIC_SITE_URL}}\mcp.json. Для одного проекта: папка .{{PUBLIC_SITE_URL}} в корне репозитория. При совпадении имён сервера приоритет у проектного файла.
 
 Почему MCP сервер красный и не подключается?
 
@@ -523,7 +523,7 @@ API-ключи в env, не в Git
 
 Сколько MCP-серверов можно включить?
 
-Формально много; в 2026 dynamic context снижает нагрузку от большого числа tools. На практике держите 3–5 серверов под реальные задачи, а не весь каталог cursor.directory.
+Формально много; в 2026 dynamic context снижает нагрузку от большого числа tools. На практике держите 3–5 серверов под реальные задачи, а не весь каталог {{PUBLIC_SITE_URL}}.directory.
 
 Чем MCP отличается от Skills в Cursor?
 
@@ -536,7 +536,7 @@ MCP усиливает Agent в IDE при разработке и контен�
 ---
 
 ## Как настроить geo оптимизацию сайта для попадания в ответы нейросетей?
-- **URL**: https://mayai.ru/blog/geo-optimizaciya-sajta-2026/
+- **URL**: {{PUBLIC_SITE_URL}}/blog/geo-optimizaciya-sajta-2026/
 - **Summary**: Geo оптимизация сайта – настройка robots.txt, answer-first блоков, FAQPage Schema и мониторинга промптов, чтобы нейросети цитировали ваш бренд как источник.
 
 Вы вкладываетесь в SEO, а ChatGPT и Алиса отвечают на запросы клиентов без перехода на ваш сайт? GEO (Generative Engine Optimization) – настройка страниц так, чтобы нейросети цитировали вас как источник. За 60–90 минут вы проверите robots.txt, добавите блоки "ответ сразу" и FAQ, внедрите Schema.org и составите таблицу мониторинга. Ниже – чек-лист geo оптимизации сайта с приоритетами: сначала критичное, потом важное и бонус.
@@ -793,7 +793,7 @@ GEO заменяет SEO?
 ---
 
 ## Как создать автономный контент-завод на нейросетях без навыков программирования?
-- **URL**: https://mayai.ru/blog/avtonomnyj-kontent-zavod-nejroseti/
+- **URL**: {{PUBLIC_SITE_URL}}/blog/avtonomnyj-kontent-zavod-nejroseti/
 - **Summary**: ИИ-контент-завод — это система автономных ИИ-агентов (исследователь, копирайтер, критик) на no-code движках (n8n/Make) для генерации, проверки и автодистрибуции контента.
 
 Как запустить контент-завод на нейросетях: пошаговое руководство по автоматизации без программирования
@@ -844,7 +844,7 @@ n8n (self-hosted)
 
 Чтобы контент-завод не скатывался в самоповторы, подключается технология RAG – система доступа к внешней базе знаний.
 
-Для создания таких агентных систем подходит среда разработки Cursor. Благодаря поддержке протокола MCP (универсального переходника для подключения инструментов к ИИ) вы можете давать нейросети доступ к базе данных, файлам сценариев или браузеру. Подробнее о том, как использовать технологию, читайте в нашей инструкции cursor mcp.
+Для создания таких агентных систем подходит среда разработки Cursor. Благодаря поддержке протокола MCP (универсального переходника для подключения инструментов к ИИ) вы можете давать нейросети доступ к базе данных, файлам сценариев или браузеру. Подробнее о том, как использовать технологию, читайте в нашей инструкции {{PUBLIC_SITE_URL}} mcp.
 
 Рекомендация: Никогда не позволяйте агенту-копирайтеру публиковать текст без проверки критиком.
 
@@ -926,5 +926,226 @@ n8n (self-hosted)
 Забанят ли соцсети или поисковики за использование ИИ?
 
 Вас забанят, если вы будете использовать полностью автономный генератор спама. Если же вы используете схему Human-in-the-loop, где ИИ готовит качественный черновик, а финальное редактирование, добавление пользы (Information Gain) и публикацию контролирует человек, блокировки вам не грозят.
+
+---
+
+## Как создать skill Claude Code и настроить SKILL.md?
+- **URL**: {{PUBLIC_SITE_URL}}/blog/claude-code-skills-nastrojka-2026/
+- **Summary**: Claude Code skill – каталог с SKILL.md в ~/.claude/skills/ или .claude/skills/. Description триггерит auto-invocation; ручной вызов – /имя-каталога. Лимиты: 500 строк, description до 1536 символов.
+
+Claude Code пишет код быстро, но без skills вы каждый раз заново объясняете одно и то же: как оформлять коммиты, что проверять перед деплоем, как читать diff. Skill – это папка с файлом SKILL.md: короткий YAML-триггер в шапке и инструкции, которые Claude подгружает сам или по команде /имя-skill. За 30–45 минут вы соберёте первый рабочий skill, проверите автоматическую активацию по description и закоммитите его в git для команды.
+
+TL;DR / Быстрый инсайт: Claude Code skill – каталог с обязательным SKILL.md. Храните личные skills в ~/.claude/skills/, командные – в .claude/skills/. Поле description – триггер для auto-invocation; ручной вызов – /имя-каталога. Для опасных сценариев ставьте disable-model-invocation: true, для git-команд – allowed-tools. Тест: 5 промптов, лимиты 1536 символов в description и 500 строк в SKILL.md, затем commit.
+
+Skills следуют открытому стандарту Agent Skills; Claude Code добавляет управление вызовом, subagents и dynamic context. Это не замена настройке MCP (внешние API и сервисы) и не дублирует hooks (жёсткие реакции на события). Skill – "шпаргалка с процедурой", которую модель подтягивает, когда задача похожа на ваш workflow.
+
+1. Выберите skill, а не hook, subagent или MCP
+
+Перед mkdir спросите: это повторяемая инструкция или внешний сервис? Skill – текстовый workflow с опциональными скриптами. MCP – "розетка" к API, БД, OAuth-сервисам. Hook срабатывает на событие (PreToolUse, Stop) без обучения модели. Subagent изолирует контекст для тяжёлых параллельных ролей.
+
+ Механизм
+ Когда использовать
+ Не использовать когда
+
+ SKILL.md
+ Повторяемый чеклист, domain conventions, lazy-load инструкций
+ Разовый факт про проект – положите в CLAUDE.md
+
+ Slash command / skill
+ То же, что skill; legacy .claude/commands/deploy.md = /deploy
+ Нужны references и scripts – делайте каталог skill
+
+ Hooks
+ Детерминированные события без "думания" модели
+ Обучение "как писать API" – это skill
+
+ Subagents
+ Изоляция контекста, параллельные роли (subagents в Claude Code)
+ Простая одношаговая инструкция
+
+ MCP
+ Внешние tools: GitHub, Notion, CRM через протокол
+ Только текстовые правила без tools
+
+Делайте: один skill = одна повторяемая задача (commit message, code review, deploy prep). Не делайте: свалку "всё про проект" в SKILL.md – для этого есть CLAUDE.md.
+
+2. Настройте scope: personal или project skills
+
+Имя каталога = команда вызова: папка deploy-staging даёт /deploy-staging. При совпадении имён побеждает enterprise, затем personal, затем project; project skill перекрывает bundled skill с тем же именем.
+
+ Параметр
+ Personal skill
+ Project skill
+
+ Путь
+ ~/.claude/skills/&lt;name&gt;/SKILL.md
+ .claude/skills/&lt;name&gt;/SKILL.md
+
+ Кто видит
+ Все ваши проекты на этом ПК
+ Только текущий репозиторий
+
+ Когда выбирать
+ Личные привычки (стиль коммитов, заметки)
+ Командные регламенты, deploy, review
+
+ Git
+ Не коммитится (домашняя папка)
+ Коммитьте .claude/skills/ в репозиторий
+
+Live change detection: правки в существующем каталоге подхватываются без перезапуска сессии; новый top-level каталог skills может потребовать restart. Делайте: project skills для команды. Не делайте: хранить production-регламент только в ~/.claude/skills/ – коллеги его не увидят.
+
+3. Разберите анатомию SKILL.md: frontmatter и тело
+
+Skill – каталог с обязательным SKILL.md. YAML frontmatter (метаданные между ---) задаёт name и description; markdown-тело – пошаговые инструкции. Имя name: lowercase, цифры, дефисы, макс. 64 символа, совпадает с именем каталога. Description – до 1024 символов по спецификации Agent Skills; в listing Claude Code description и when_to_use обрезаются на 1536 символах. Основной SKILL.md – до 500 строк; детали выносите в references/, scripts/, assets/.
+
+Минимальный рабочий пример summarize-changes (канон из официальной документации):
+
+ Пример summarize-changes/SKILL.md:
+ ---
+ name: summarize-changes
+ description: Summarize git diff or uncommitted changes. Use when user asks what changed, review pending work, or summarize recent commits.
+ ---
+
+ # Summarize changes
+
+ ## Steps
+ 1. Read the injected git diff below
+ 2. List changed files grouped by purpose
+ 3. Note breaking changes or TODOs
+ 4. Keep summary under 200 words
+
+ ## Output format
+ - Scope: one line
+ - Files: bullet list
+ - Risk: breaking / migrations / none
+
+ !`git diff HEAD`
+
+Строка с восклицательным знаком и обратными кавычками – dynamic context: вывод shell-команды подставляется в prompt до отправки Claude. Делайте: description с явными trigger phrases ("what changed", "review pending work"). Не делайте: marketing-текст в description – модель undertrigger skills; skill-creator от Anthropic советует формулировки "чуть настойчивее".
+
+4. Создайте первый skill пошагово и проверьте auto-invocation
+
+Workflow от идеи до рабочего skill:
+
+ Схема:
+
+ Задача → mkdir каталога → SKILL.md (YAML + body) → Claude Code /skills → тест auto → тест /skill-name → production frontmatter → git commit
+
+Шаг 1: Сформулируйте одну повторяемую задачу – не "весь проект", а "summarize git diff" или "checklist перед PR".
+
+Шаг 2: Создайте каталог: mkdir -p .claude/skills/summarize-changes/ (kebab-case = будущая команда /summarize-changes).
+
+Шаг 3: Создайте SKILL.md с frontmatter name, description и телом из numbered steps + формат выхода.
+
+Шаг 4: При необходимости добавьте одну строку dynamic context, например !`git diff HEAD`.
+
+Шаг 5: Запустите Claude Code в корне проекта; откройте меню /skills или autocomplete по / – skill должен появиться.
+
+Шаг 6 (тест A – auto): Напишите промпт, совпадающий с description: "What changed in git since last commit?" – skill должен подгрузиться автоматически.
+
+Шаг 7 (тест B – manual): Вызовите /summarize-changes – Claude выполнит инструкции из SKILL.md.
+
+Custom commands из .claude/commands/ объединены со skills: deploy.md и skills/deploy/SKILL.md оба дают /deploy. Для supporting files выбирайте каталог skill. Делайте: оба теста A и B перед тем, как звать skill "готовым". Не делайте: полагаться только на auto-invocation – проверьте ручной /skill-name.
+
+5. Настройте production frontmatter и изоляцию
+
+После базового теста добавьте поля управления вызовом из документации Claude Code:
+
+disable-model-invocation: true – только ручной вызов пользователем (deploy, миграции, side effects).
+
+user-invocable: false – скрыть из / menu; Claude может вызывать автоматически.
+
+allowed-tools: Bash(git *) – разрешённые tools без подтверждения на каждый вызов, пока skill активен.
+
+context: fork – skill выполняется в изолированном subagent (связка с subagents).
+
+Пример production-шапки для deploy-skill:
+
+ Пример production-шапки deploy-staging:
+ ---
+ name: deploy-staging
+ description: Deploy to staging after tests pass. Use when user says deploy staging or push to stage.
+ disable-model-invocation: true
+ allowed-tools: Bash(git *), Bash(npm *)
+ context: fork
+ ---
+
+Стек skills: /code-review /fix-issue 123 (Claude Code v2.1.199+, до 6 skills). Nested qualified names /apps/web:deploy – v2.1.203+. Делайте: disable-model-invocation для опасных workflow. Не делайте: allowed-tools на широкий Bash(*) без необходимости.
+
+6. Пройдите production-чеклист перед commit
+
+Перед merge в main прогоните пять тест-кейсов с промптами, которые должны и не должны триггерить skill. Опционально: /plugin install skill-creator@claude-plugins-official для eval description (репозиторий anthropics/skills).
+
+Одна задача на skill – не смешивайте review и deploy
+
+name совпадает с именем каталога, kebab-case, до 64 символов
+
+description с trigger phrases, не реклама; до 1536 символов в listing
+
+SKILL.md до 500 строк; длинные детали – в references/
+
+Тест A: auto-invocation по description
+
+Тест B: ручной /skill-name
+
+Тест C: промпт вне scope – skill не должен лишний раз активироваться
+
+disable-model-invocation для side-effect сценариев
+
+allowed-tools только для доверенных команд
+
+Project skill закоммичен: git add .claude/skills/
+
+Меню /skills: Space переключает visibility → skillOverrides в .claude/settings.local.json
+
+Bundled skills (/code-review, /debug) не дублируете именем без нужды
+
+Skills дополняют MCP: skill учит "как работать", MCP даёт доступ к внешним системам – см. гайд по MCP. Для фоновых цепочек CRM и мессенджеров – курс Make.com и вайбкодинга (159+ уроков): Claude Code готовит черновик, Make публикует и шлёт уведомления 24/7.
+
+7. Что делать дальше
+
+Закрепите summarize-changes или свой skill в .claude/skills/ и прогоните 5 тест-промптов.
+
+Добавьте disable-model-invocation и allowed-tools под ваш deploy или review.
+
+Свяжите skill с hooks – skill для процедуры, hook для жёсткого события.
+
+Установите skill-creator для оптимизации description, если auto-invocation слабый.
+
+Масштабируйте на команду: commit .claude/skills/, README с примерами вызова /skill-name.
+
+ Материал проверен: эксперт Артур Хорошев (CEO Maya AI, практик Claude Code, MCP и Make.com).
+ Достоверность данных: пути skills, лимиты frontmatter и поведение /skills сверены с официальной документацией Claude Code (code.claude.com/docs/ru/skills) и Agent Skills spec на июль 2026 года.
+
+Частые вопросы
+
+Где хранятся skills Claude Code?
+
+Личные – в ~/.claude/skills/&lt;name&gt;/SKILL.md (все проекты на ПК). Командные – в .claude/skills/&lt;name&gt;/SKILL.md в корне репозитория. Для monorepo поддерживаются nested qualified names. Project skills коммитьте в git.
+
+Чем skill отличается от slash command?
+
+Механизмы объединены: .claude/commands/deploy.md и .claude/skills/deploy/SKILL.md оба дают /deploy. Skill – каталог с frontmatter, телом инструкций и optional scripts/references; command – один markdown-файл без supporting files.
+
+Как вызвать skill вручную?
+
+Введите /имя-каталога в Claude Code, например /summarize-changes. Стек: /code-review /fix-issue 123 (v2.1.199+). Если стоит disable-model-invocation: true, только такой ручной вызов сработает.
+
+Почему Claude не активирует skill автоматически?
+
+Усилите description явными trigger phrases. Проверьте disable-model-invocation: true (блокирует auto). Запустите eval через skill-creator. Убедитесь, что skill виден в /skills и не скрыт skillOverrides.
+
+Сколько строк допустимо в SKILL.md?
+
+До 500 строк в основном файле. Детали, длинные примеры и справочники – в references/, scripts/, assets/. Description и when_to_use обрезаются на 1536 символах в listing.
+
+Нужен ли перезапуск после правки skill?
+
+Правки в существующем каталоге ~/.claude/skills/ или .claude/skills/ подхватываются без перезапуска сессии. Новый top-level каталог skills может потребовать restart Claude Code.
+
+Skill или MCP – что выбрать?
+
+Skill – инструкции и workflow внутри Claude Code. MCP – подключение внешних API, БД и OAuth-сервисов. Используйте оба: skill задаёт "как", MCP даёт "куда стучаться". Подробнее в настройке MCP.
 
 ---

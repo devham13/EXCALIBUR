@@ -28,7 +28,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 ### Blockers
 
 1. **Network:** HTTPS к `mayai.ru:443` недоступен из локальной среды (WinError 10060). FTP (порт 21) работает, HTTP-триггер bootstrap — нет.
-2. **FTP path:** аккаунт `***_blog` видит только `/index.php` + `/cgi-bin/`, **без** `wp-load.php`. WordPress на `https://mayai.ru/blog/` — другой document root.
+2. **FTP path:** аккаунт `***_blog` видит только `/index.php` + `/cgi-bin/`, **без** `wp-load.php`. WordPress на `{{PUBLIC_SITE_URL}}/blog/` — другой document root.
 3. **Bootstrap 404:** загруженный `excalibur-blog-publish-once.php` (и тестовый `excalibur-test-once.php`) отдают HTTP 404 снаружи, хотя `index.php` в том же FTP root отдаётся на главной.
 
 ### Cleanup
@@ -38,7 +38,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 ### Next steps (для оператора)
 
 1. Обновить `memory/site.env.local`: FTP_USER/FTP_PASS + `FTP_ROOT=/` (корень FTP после login, где `wp-load.php`). Путь панели хостинга: `FTP_PANEL_PATH=/your-account.beget.tech/public_html/`.
-2. Либо запустить publish с машины/сети, где `curl https://mayai.ru` отвечает < 5 с.
+2. Либо запустить publish с машины/сети, где `curl {{PUBLIC_SITE_URL}}` отвечает < 5 с.
 3. Альтернатива: WP Application Password + REST API / MCP WordPress blob publish.
 
 ---
@@ -52,7 +52,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 | verdict | **PASS** |
 | post_id | 13324 |
 | featured_image_id | 13325 |
-| permalink | https://mayai.ru/avtomatizaciya-n8n-ai-agents/ |
+| permalink | {{PUBLIC_SITE_URL}}/avtomatizaciya-n8n-ai-agents/ |
 | FTP_ROOT | `/` |
 
 ### Fix applied
@@ -67,34 +67,34 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 OK post=13324 slug=avtomatizaciya-n8n-ai-agents
 OK featured_image=13325
 OK schema_meta=1
-permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
+permalink={{PUBLIC_SITE_URL}}/avtomatizaciya-n8n-ai-agents/
 ```
 
 ---
 
-## 2026-06-11 — B03 podklyuchenie-mcp-cursor — **PASS**
+## 2026-06-11 — B03 podklyuchenie-mcp-{{PUBLIC_SITE_URL}} — **PASS**
 
 | Field | Value |
 |-------|-------|
 | topic_id | B03 |
-| slug | podklyuchenie-mcp-cursor |
+| slug | podklyuchenie-mcp-{{PUBLIC_SITE_URL}} |
 | verdict | **PASS** |
 | post_id | 13335 |
 | featured_image_id | 13336 |
 | inline_images | 13337, 13338, 13339 |
-| permalink | https://mayai.ru/podklyuchenie-mcp-cursor/ |
+| permalink | {{PUBLIC_SITE_URL}}/podklyuchenie-mcp-{{PUBLIC_SITE_URL}}/ |
 | trigger | `/excalibur-blog-run topic_id: B03 publish: yes` (publish вручную после fix оркестратора) |
 
 ### Result
 
 ```
-OK post=13335 slug=podklyuchenie-mcp-cursor
+OK post=13335 slug=podklyuchenie-mcp-{{PUBLIC_SITE_URL}}
 OK featured_image=13336
 OK schema_meta=1
 OK inline_image_upload=13337 src=cover/inline-01.png
 OK inline_image_upload=13338 src=cover/inline-02.png
 OK inline_image_upload=13339 src=cover/inline-03.png
-permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
+permalink={{PUBLIC_SITE_URL}}/podklyuchenie-mcp-{{PUBLIC_SITE_URL}}/
 ```
 
 ---
@@ -109,7 +109,7 @@ permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
 | post_id | 13361 |
 | featured_image_id | 13362 |
 | inline_images | 13363, 13364, 13365 |
-| permalink | https://mayai.ru/geo-optimizaciya-sajta-2026/ |
+| permalink | {{PUBLIC_SITE_URL}}/geo-optimizaciya-sajta-2026/ |
 | trigger | `/excalibur-blog-run topic_id: B04 publish: yes` |
 
 ### Preconditions
@@ -127,10 +127,10 @@ OK post=13361 slug=geo-optimizaciya-sajta-2026
 OK featured_image=13362
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13363 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
-OK inline_image_upload=13364 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
-OK inline_image_upload=13365 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
-permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
+OK inline_image_upload=13363 src=cover/inline-01.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
+OK inline_image_upload=13364 src=cover/inline-02.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
+OK inline_image_upload=13365 src=cover/inline-03.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
+permalink={{PUBLIC_SITE_URL}}/geo-optimizaciya-sajta-2026/
 ```
 
 ### Post-publish
@@ -149,7 +149,7 @@ permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
 | post_id | 13369 |
 | featured_image_id | 13370 |
 | inline_images | 13371, 13372, 13373 |
-| permalink | https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/ |
+| permalink | {{PUBLIC_SITE_URL}}/avtonomnyj-kontent-zavod-nejroseti/ |
 | trigger | `/excalibur-blog-run topic_id: B05 publish: yes` |
 
 ### Preconditions
@@ -167,8 +167,58 @@ OK post=13369 slug=avtonomnyj-kontent-zavod-nejroseti
 OK featured_image=13370
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
-OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
-OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
-permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+OK inline_image_upload=13371 src=cover/inline-01.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
+OK inline_image_upload=13372 src=cover/inline-02.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
+OK inline_image_upload=13373 src=cover/inline-03.png url={{PUBLIC_SITE_URL}}/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
+permalink={{PUBLIC_SITE_URL}}/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-09 — B06 claude-code-skills-nastrojka-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | claude-code-skills-nastrojka-2026 |
+| verdict | **PASS** |
+| post_id | 522 |
+| featured_image_id | 523 |
+| inline_images | 524, 525, 526 |
+| permalink | {{PUBLIC_SITE_URL}}/2026/07/09/claude-code-skills-nastrojka-2026/ |
+| transport | SFTP (FTP data channel blocked: 425 Bad IP) |
+| trigger | excalibur-blog-publish subagent, topic_id B06 |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (7/7) — preflight `--site-base {{PUBLIC_SITE_URL}}`
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base {{PUBLIC_SITE_URL}}  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run --public-base {{PUBLIC_SITE_URL}}  # OK
+# FTP STOR failed: 425 Security Bad IP → SFTP upload + HTTP trigger (paramiko)
+```
+
+### Result
+
+```
+OK post=522 slug=claude-code-skills-nastrojka-2026
+OK featured_image=523
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=524 src=cover/inline-01.png
+OK inline_image_upload=525 src=cover/inline-02.png
+OK inline_image_upload=526 src=cover/inline-03.png
+permalink={{PUBLIC_SITE_URL}}/2026/07/09/claude-code-skills-nastrojka-2026/
+```
+
+### Post-publish
+
+- Live page verified via WebFetch (title, FAQ, internal links OK)
+- interlinker --apply: 0 new opportunities (same as indexer step)

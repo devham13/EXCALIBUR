@@ -1,0 +1,42 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 7,
+  "over_long_sentences": [
+    {
+      "sentence": "Claude Code пишет код быстро, но без skills вы каждый раз заново объясняете одно и то же: как оформлять коммиты, что проверять перед деплоем, как читать diff",
+      "word_count": 27
+    },
+    {
+      "sentence": "md = /deploy Нужны references и scripts – делайте каталог skill Hooks Детерминированные события без \"думания\" модели Обучение \"как писать API\" – это skill Subagents Изоляция контекста, параллельные роли ( subagents в Claude Code ) Простая одношаговая инструкция MCP Внешние tools: GitHub, Notion, CRM через протокол Только текстовые правила без tools Делайте: один skill = одна повторяемая задача (commit message, code review, deploy prep)",
+      "word_count": 58
+    },
+    {
+      "sentence": "md Кто видит Все ваши проекты на этом ПК Только текущий репозиторий Когда выбирать Личные привычки (стиль коммитов, заметки) Командные регламенты, deploy, review Git Не коммитится (домашняя папка) Коммитьте",
+      "word_count": 29
+    },
+    {
+      "sentence": "md (YAML + body) → Claude Code /skills → тест auto → тест /skill-name → production frontmatter → git commit Шаг 1: Сформулируйте одну повторяемую задачу – не \"весь проект\", а \"summarize git diff\" или \"checklist перед PR\"",
+      "word_count": 30
+    },
+    {
+      "sentence": "Настройте production frontmatter и изоляцию После базового теста добавьте поля управления вызовом из документации Claude Code : disable-model-invocation: true – только ручной вызов пользователем (deploy, миграции, side effects)",
+      "word_count": 26
+    },
+    {
+      "sentence": "Одна задача на skill – не смешивайте review и deploy name совпадает с именем каталога, kebab-case, до 64 символов description с trigger phrases, не реклама; до 1536 символов в listing SKILL",
+      "word_count": 28
+    },
+    {
+      "sentence": "md до 500 строк; длинные детали – в references/ Тест A: auto-invocation по description Тест B: ручной /skill-name Тест C: промпт вне scope – skill не должен лишний раз активироваться disable-model-invocation для side-effect сценариев allowed-tools только для доверенных команд Project skill закоммичен: git add",
+      "word_count": 41
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.4,
+    "avg_syllables_per_word": 1.3
+  }
+}

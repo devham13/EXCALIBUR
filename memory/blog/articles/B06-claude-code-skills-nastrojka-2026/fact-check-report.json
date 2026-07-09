@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B06-claude-code-skills-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "e.com/docs/ru/skills) и Agent Skills spec на июль 2026 года. Частые вопросы Где хранятся skills Claude Code?",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "e подгружает сам или по команде /имя-skill. За 30–45 минут вы соберёте первый рабочий skill, проверите автом",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1536",
+      "kind": "large_number",
+      "context": "-команд – allowed-tools. Тест: 5 промптов, лимиты 1536 символов в description и 500 строк в SKILL.md, зат",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "5 промптов, лимиты 1536 символов в description и 500 строк в SKILL.md, затем commit. Skills следуют отк",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "1024",
+      "kind": "large_number",
+      "context": "ла, совпадает с именем каталога. Description – до 1024 символов по спецификации Agent Skills; в listing C",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "e breaking changes or TODOs 4. Keep summary under 200 words ## Output format - Scope: one line - Files:",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "large_number",
+      "context": "e.com/docs/ru/skills) и Agent Skills spec на июль 2026 года. Частые вопросы Где хранятся skills Claude Co",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

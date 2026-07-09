@@ -1,0 +1,236 @@
+<p>Claude Code пишет код быстро, но без skills вы каждый раз заново объясняете одно и то же: как оформлять коммиты, что проверять перед деплоем, как читать diff. Skill – это папка с файлом SKILL.md: короткий YAML-триггер в шапке и инструкции, которые Claude подгружает сам или по команде /имя-skill. За 30–45 минут вы соберёте первый рабочий skill, проверите автоматическую активацию по description и закоммитите его в git для команды.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Claude Code skill – каталог с обязательным SKILL.md. Храните личные skills в ~/.claude/skills/, командные – в .claude/skills/. Поле description – триггер для auto-invocation; ручной вызов – /имя-каталога. Для опасных сценариев ставьте disable-model-invocation: true, для git-команд – allowed-tools. Тест: 5 промптов, лимиты 1536 символов в description и 500 строк в SKILL.md, затем commit.</blockquote>
+
+<p>Skills следуют открытому стандарту Agent Skills; Claude Code добавляет управление вызовом, subagents и dynamic context. Это не замена <a href="/nastroyka-claude-code-mcp/">настройке MCP</a> (внешние API и сервисы) и не дублирует <a href="/claude-code-hooks-nastrojka-2026/">hooks</a> (жёсткие реакции на события). Skill – "шпаргалка с процедурой", которую модель подтягивает, когда задача похожа на ваш workflow.</p>
+
+<h2 id="decision-tree">1. Выберите skill, а не hook, subagent или MCP</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: skill, hook, subagent и MCP — когда что выбирать в Claude Code" loading="lazy">
+</figure>
+
+
+<p>Перед mkdir спросите: это повторяемая инструкция или внешний сервис? Skill – текстовый workflow с опциональными скриптами. MCP – "розетка" к API, БД, OAuth-сервисам. Hook срабатывает на событие (PreToolUse, Stop) без обучения модели. Subagent изолирует контекст для тяжёлых параллельных ролей.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Механизм</th>
+      <th>Когда использовать</th>
+      <th>Не использовать когда</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>SKILL.md</b></td>
+      <td>Повторяемый чеклист, domain conventions, lazy-load инструкций</td>
+      <td>Разовый факт про проект – положите в CLAUDE.md</td>
+    </tr>
+    <tr>
+      <td><b>Slash command / skill</b></td>
+      <td>То же, что skill; legacy .claude/commands/deploy.md = /deploy</td>
+      <td>Нужны references и scripts – делайте каталог skill</td>
+    </tr>
+    <tr>
+      <td><b>Hooks</b></td>
+      <td>Детерминированные события без "думания" модели</td>
+      <td>Обучение "как писать API" – это skill</td>
+    </tr>
+    <tr>
+      <td><b>Subagents</b></td>
+      <td>Изоляция контекста, параллельные роли (<a href="/subagenty-claude-code/">subagents в Claude Code</a>)</td>
+      <td>Простая одношаговая инструкция</td>
+    </tr>
+    <tr>
+      <td><b>MCP</b></td>
+      <td>Внешние tools: GitHub, Notion, CRM через протокол</td>
+      <td>Только текстовые правила без tools</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> один skill = одна повторяемая задача (commit message, code review, deploy prep). <b>Не делайте:</b> свалку "всё про проект" в SKILL.md – для этого есть CLAUDE.md.</p>
+
+<h2 id="storage-scope">2. Настройте scope: personal или project skills</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow: personal skill в домашней папке vs project skill в репозитории" loading="lazy">
+</figure>
+
+
+<p>Имя каталога = команда вызова: папка deploy-staging даёт /deploy-staging. При совпадении имён побеждает enterprise, затем personal, затем project; project skill перекрывает bundled skill с тем же именем.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>Personal skill</th>
+      <th>Project skill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Путь</b></td>
+      <td>~/.claude/skills/&lt;name&gt;/SKILL.md</td>
+      <td>.claude/skills/&lt;name&gt;/SKILL.md</td>
+    </tr>
+    <tr>
+      <td><b>Кто видит</b></td>
+      <td>Все ваши проекты на этом ПК</td>
+      <td>Только текущий репозиторий</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбирать</b></td>
+      <td>Личные привычки (стиль коммитов, заметки)</td>
+      <td>Командные регламенты, deploy, review</td>
+    </tr>
+    <tr>
+      <td><b>Git</b></td>
+      <td>Не коммитится (домашняя папка)</td>
+      <td>Коммитьте .claude/skills/ в репозиторий</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Live change detection: правки в существующем каталоге подхватываются без перезапуска сессии; новый top-level каталог skills может потребовать restart. <b>Делайте:</b> project skills для команды. <b>Не делайте:</b> хранить production-регламент только в ~/.claude/skills/ – коллеги его не увидят.</p>
+
+<h2 id="anatomy">3. Разберите анатомию SKILL.md: frontmatter и тело</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист структуры SKILL.md: frontmatter, description-триггер и тело skill" loading="lazy">
+</figure>
+
+
+<p>Skill – каталог с обязательным SKILL.md. YAML frontmatter (метаданные между ---) задаёт name и description; markdown-тело – пошаговые инструкции. Имя name: lowercase, цифры, дефисы, макс. 64 символа, совпадает с именем каталога. Description – до 1024 символов по спецификации Agent Skills; в listing Claude Code description и when_to_use обрезаются на 1536 символах. Основной SKILL.md – до 500 строк; детали выносите в references/, scripts/, assets/.</p>
+
+<p>Минимальный рабочий пример summarize-changes (канон из <a href="https://code.claude.com/docs/ru/skills" target="_blank">официальной документации</a>):</p>
+
+<blockquote>
+  <b>Пример summarize-changes/SKILL.md:</b><br>
+  ---<br>
+  name: summarize-changes<br>
+  description: Summarize git diff or uncommitted changes. Use when user asks what changed, review pending work, or summarize recent commits.<br>
+  ---<br>
+  <br>
+  # Summarize changes<br>
+  <br>
+  ## Steps<br>
+  1. Read the injected git diff below<br>
+  2. List changed files grouped by purpose<br>
+  3. Note breaking changes or TODOs<br>
+  4. Keep summary under 200 words<br>
+  <br>
+  ## Output format<br>
+  - <b>Scope:</b> one line<br>
+  - <b>Files:</b> bullet list<br>
+  - <b>Risk:</b> breaking / migrations / none<br>
+  <br>
+  !`git diff HEAD`
+</blockquote>
+
+<p>Строка с восклицательным знаком и обратными кавычками – dynamic context: вывод shell-команды подставляется в prompt до отправки Claude. <b>Делайте:</b> description с явными trigger phrases ("what changed", "review pending work"). <b>Не делайте:</b> marketing-текст в description – модель undertrigger skills; skill-creator от Anthropic советует формулировки "чуть настойчивее".</p>
+
+<h2 id="create-step-by-step">4. Создайте первый skill пошагово и проверьте auto-invocation</h2>
+
+<p>Workflow от идеи до рабочего skill:</p>
+
+<blockquote>
+  <b>Схема:</b>
+  <br>
+  Задача → mkdir каталога → SKILL.md (YAML + body) → Claude Code /skills → тест auto → тест /skill-name → production frontmatter → git commit
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Сформулируйте одну повторяемую задачу – не "весь проект", а "summarize git diff" или "checklist перед PR".</li>
+  <li><b>Шаг 2:</b> Создайте каталог: mkdir -p .claude/skills/summarize-changes/ (kebab-case = будущая команда /summarize-changes).</li>
+  <li><b>Шаг 3:</b> Создайте SKILL.md с frontmatter name, description и телом из numbered steps + формат выхода.</li>
+  <li><b>Шаг 4:</b> При необходимости добавьте одну строку dynamic context, например !`git diff HEAD`.</li>
+  <li><b>Шаг 5:</b> Запустите Claude Code в корне проекта; откройте меню /skills или autocomplete по / – skill должен появиться.</li>
+  <li><b>Шаг 6 (тест A – auto):</b> Напишите промпт, совпадающий с description: "What changed in git since last commit?" – skill должен подгрузиться автоматически.</li>
+  <li><b>Шаг 7 (тест B – manual):</b> Вызовите /summarize-changes – Claude выполнит инструкции из SKILL.md.</li>
+</ol>
+
+<p>Custom commands из .claude/commands/ объединены со skills: deploy.md и skills/deploy/SKILL.md оба дают /deploy. Для supporting files выбирайте каталог skill. <b>Делайте:</b> оба теста A и B перед тем, как звать skill "готовым". <b>Не делайте:</b> полагаться только на auto-invocation – проверьте ручной /skill-name.</p>
+
+<h2 id="production-frontmatter">5. Настройте production frontmatter и изоляцию</h2>
+
+<p>После базового теста добавьте поля управления вызовом из <a href="https://code.claude.com/docs/ru/skills" target="_blank">документации Claude Code</a>:</p>
+
+<ul>
+  <li><b>disable-model-invocation: true</b> – только ручной вызов пользователем (deploy, миграции, side effects).</li>
+  <li><b>user-invocable: false</b> – скрыть из / menu; Claude может вызывать автоматически.</li>
+  <li><b>allowed-tools: Bash(git *)</b> – разрешённые tools без подтверждения на каждый вызов, пока skill активен.</li>
+  <li><b>context: fork</b> – skill выполняется в изолированном subagent (связка с <a href="/subagenty-claude-code/">subagents</a>).</li>
+</ul>
+
+<p>Пример production-шапки для deploy-skill:</p>
+
+<blockquote>
+  <b>Пример production-шапки deploy-staging:</b><br>
+  ---<br>
+  name: deploy-staging<br>
+  description: Deploy to staging after tests pass. Use when user says deploy staging or push to stage.<br>
+  disable-model-invocation: true<br>
+  allowed-tools: Bash(git *), Bash(npm *)<br>
+  context: fork<br>
+  ---
+</blockquote>
+
+<p>Стек skills: /code-review /fix-issue 123 (Claude Code v2.1.199+, до 6 skills). Nested qualified names /apps/web:deploy – v2.1.203+. <b>Делайте:</b> disable-model-invocation для опасных workflow. <b>Не делайте:</b> allowed-tools на широкий Bash(*) без необходимости.</p>
+
+<h2 id="production-checklist">6. Пройдите production-чеклист перед commit</h2>
+
+<p>Перед merge в main прогоните пять тест-кейсов с промптами, которые должны и не должны триггерить skill. Опционально: /plugin install skill-creator@claude-plugins-official для eval description (репозиторий <a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a>).</p>
+
+<ul>
+  <li>Одна задача на skill – не смешивайте review и deploy</li>
+  <li>name совпадает с именем каталога, kebab-case, до 64 символов</li>
+  <li>description с trigger phrases, не реклама; до 1536 символов в listing</li>
+  <li>SKILL.md до 500 строк; длинные детали – в references/</li>
+  <li>Тест A: auto-invocation по description</li>
+  <li>Тест B: ручной /skill-name</li>
+  <li>Тест C: промпт вне scope – skill не должен лишний раз активироваться</li>
+  <li>disable-model-invocation для side-effect сценариев</li>
+  <li>allowed-tools только для доверенных команд</li>
+  <li>Project skill закоммичен: git add .claude/skills/</li>
+  <li>Меню /skills: Space переключает visibility → skillOverrides в .claude/settings.local.json</li>
+  <li>Bundled skills (/code-review, /debug) не дублируете именем без нужды</li>
+</ul>
+
+<p>Skills дополняют MCP: skill учит "как работать", MCP даёт доступ к внешним системам – см. <a href="/nastroyka-claude-code-mcp/">гайд по MCP</a>. Для фоновых цепочек CRM и мессенджеров – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com и вайбкодинга</a> (159+ уроков): Claude Code готовит черновик, Make публикует и шлёт уведомления 24/7.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Закрепите summarize-changes или свой skill в .claude/skills/ и прогоните 5 тест-промптов.</li>
+  <li>Добавьте disable-model-invocation и allowed-tools под ваш deploy или review.</li>
+  <li>Свяжите skill с <a href="/claude-code-hooks-nastrojka-2026/">hooks</a> – skill для процедуры, hook для жёсткого события.</li>
+  <li>Установите skill-creator для оптимизации description, если auto-invocation слабый.</li>
+  <li>Масштабируйте на команду: commit .claude/skills/, README с примерами вызова /skill-name.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Claude Code, MCP и Make.com).<br>
+  <b>Достоверность данных:</b> пути skills, лимиты frontmatter и поведение /skills сверены с официальной документацией Claude Code (code.claude.com/docs/ru/skills) и Agent Skills spec на июль 2026 года.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Где хранятся skills Claude Code?</h3>
+<p>Личные – в ~/.claude/skills/&lt;name&gt;/SKILL.md (все проекты на ПК). Командные – в .claude/skills/&lt;name&gt;/SKILL.md в корне репозитория. Для monorepo поддерживаются nested qualified names. Project skills коммитьте в git.</p>
+
+<h3>Чем skill отличается от slash command?</h3>
+<p>Механизмы объединены: .claude/commands/deploy.md и .claude/skills/deploy/SKILL.md оба дают /deploy. Skill – каталог с frontmatter, телом инструкций и optional scripts/references; command – один markdown-файл без supporting files.</p>
+
+<h3>Как вызвать skill вручную?</h3>
+<p>Введите /имя-каталога в Claude Code, например /summarize-changes. Стек: /code-review /fix-issue 123 (v2.1.199+). Если стоит disable-model-invocation: true, только такой ручной вызов сработает.</p>
+
+<h3>Почему Claude не активирует skill автоматически?</h3>
+<p>Усилите description явными trigger phrases. Проверьте disable-model-invocation: true (блокирует auto). Запустите eval через skill-creator. Убедитесь, что skill виден в /skills и не скрыт skillOverrides.</p>
+
+<h3>Сколько строк допустимо в SKILL.md?</h3>
+<p>До 500 строк в основном файле. Детали, длинные примеры и справочники – в references/, scripts/, assets/. Description и when_to_use обрезаются на 1536 символах в listing.</p>
+
+<h3>Нужен ли перезапуск после правки skill?</h3>
+<p>Правки в существующем каталоге ~/.claude/skills/ или .claude/skills/ подхватываются без перезапуска сессии. Новый top-level каталог skills может потребовать restart Claude Code.</p>
+
+<h3>Skill или MCP – что выбрать?</h3>
+<p>Skill – инструкции и workflow внутри Claude Code. MCP – подключение внешних API, БД и OAuth-сервисов. Используйте оба: skill задаёт "как", MCP даёт "куда стучаться". Подробнее в <a href="/nastroyka-claude-code-mcp/">настройке MCP</a>.</p>

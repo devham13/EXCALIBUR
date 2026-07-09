@@ -1,0 +1,494 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-09",
+    "today_ru": "09.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-10",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-09 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-skills-nastrojka-2026",
+    "h1": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд",
+    "primary_query": "claude code skills",
+    "secondary_queries": [
+      "claude code skill md",
+      "как создать skill claude code",
+      "claude code custom skills",
+      "настройка skills claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code skills 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "10 Claude Code Skills Every Developer Needs in 2026 - Medium",
+          "url": "https://medium.com/@anilmathewm/10-claude-code-skills-every-developer-needs-in-2026-ac584b5c27e9",
+          "snippet": ""
+        },
+        {
+          "title": "15 Best Claude Code Skills in 2026 (Tested with Real Proj...",
+          "url": "https://www.agensi.io/learn/best-claude-code-skills-2026",
+          "snippet": "10 Claude Code Skills Every Developer Needs in 2026 Most developers are using Claude Code at 20% of its potential. I was one of them. I had Claude set up, I was getting reasonably..."
+        },
+        {
+          "title": "Top 100 Claude Code Skills — April 2026",
+          "url": "https://alimabsoute.github.io/claude-skills-100/",
+          "snippet": "The 15 best Claude Code skills we installed and tested on real codebases. Code review, testing, frontend, DevOps, and documentation skills ranked by impact."
+        },
+        {
+          "title": "obviousworks/Claude-AI-skills-collection-2026 - GitHub",
+          "url": "https://github.com/obviousworks/Claude-AI-skills-collection-2026",
+          "snippet": "The 100 most popular new Claude Code skills and skill packs from GitHub and the plugin marketplace. Cards, details, use cases, direct links."
+        },
+        {
+          "title": "The 10 Best Claude Code Skills for Developers in 2026",
+          "url": "https://deftsoft.com/the-10-best-claude-code-skills-to-boost-developer-productivity-in-2026/",
+          "snippet": "This repository gathers and organizes all publicly available Claude Skills, including both built-in tools by Anthropic and creative contributions from the community."
+        },
+        {
+          "title": "The definitive list of Claude Skills for developers in 2026",
+          "url": "https://www.linkedin.com/pulse/definitive-list-claude-skills-developers-2026-josip-vlah-azoff",
+          "snippet": "Discover the 10 best Claude Code skills every developer needs in 2026. From smarter debugging to frontend design, build faster, ship cleaner code."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code skills июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Trending Claude Skills - GitHub",
+          "url": "https://github.com/linny006/trending-claude-skills",
+          "snippet": ""
+        },
+        {
+          "title": "10 Must-Have Skills for Claude (and Any Coding Agent) in 2026",
+          "url": "https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051",
+          "snippet": "Auto-updated leaderboard of trending claude-skills and AI agent repos, refreshed every 15 minutes - linny006/trending-claude-skills"
+        },
+        {
+          "title": "obviousworks/Claude-AI-skills-collection-2026 - GitHub",
+          "url": "https://github.com/obviousworks/Claude-AI-skills-collection-2026",
+          "snippet": "The definitive guide to agent skills that change how Claude Code, Cursor, Gemini CLI, and other AI coding assistants perform in production. Humans watching agents work. Collaboration in N..."
+        },
+        {
+          "title": "Best Claude Code Skills & Plugins (2026 Guide) - DEV Community",
+          "url": "https://dev.to/raxxostudios/best-claude-code-skills-plugins-2026-guide-4ak4",
+          "snippet": "This repository gathers and organizes all publicly available Claude Skills, including both built-in tools by Anthropic and creative contributions from the community."
+        },
+        {
+          "title": "Awesome Claude Code Skills: The Curated List (2026)",
+          "url": "https://designrevision.com/blog/awesome-claude-code-skills",
+          "snippet": "The best Claude Code skills and plugins in 2026. Curated list of community skills for development, design, content creation, and productivity. Tagged with ai, productivity, claudecode, automation."
+        },
+        {
+          "title": "15 Best Claude Code Skills in 2026 (Tested with Real Proj...",
+          "url": "https://www.agensi.io/learn/best-claude-code-skills-2026",
+          "snippet": "An awesome Claude Code skills list for 2026 — a curated, categorized directory of the best official and community skills, each with a GitHub repo link."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code skills новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "10 Must-Have Skills for Claude (and Any Coding Agent) in 2026",
+          "url": "https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "The definitive guide to agent skills that change how Claude Code, Cursor, Gemini CLI, and other AI coding assistants perform in production."
+        },
+        {
+          "title": "15 Best Claude Code Skills in 2026 (Tested with Real Proj...",
+          "url": "https://www.agensi.io/learn/best-claude-code-skills-2026",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+          "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "The 15 best Claude Code skills we installed and tested on real codebases. Code review, testing, frontend, DevOps, and documentation skills ranked by impact."
+        },
+        {
+          "title": "Best Claude Code Skills & Plugins (2026 Guide) - DEV Community",
+          "url": "https://dev.to/raxxostudios/best-claude-code-skills-plugins-2026-guide-4ak4",
+          "snippet": "И вот сейчас хочу подробно рассказать про три вещи, которые реально изменили мой подход к работе с этим инструментом: Skills (навыки), Sub-agents (субагенты) и Hooks (хуки)."
+        },
+        {
+          "title": "Awesome Claude Code Skills: The Curated List (2026)",
+          "url": "https://designrevision.com/blog/awesome-claude-code-skills",
+          "snippet": "The best Claude Code skills and plugins in 2026. Curated list of community skills for development, design, content creation, and productivity."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code skill md 2026",
+      "purpose": "вторичный запрос: claude code skill md",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - alirezarezvani/claude-skills: 345 Claude Code skills & agent ...",
+          "url": "https://github.com/alirezarezvani/claude-skills",
+          "snippet": ""
+        },
+        {
+          "title": "10 Must-Have Skills for Claude (and Any Coding Agent) in 2026",
+          "url": "https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051",
+          "snippet": "354 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools. The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents."
+        },
+        {
+          "title": "Claude Code Skills: The Complete Guide (2026)",
+          "url": "https://duet.so/guides/claude-code-skills-complete-guide",
+          "snippet": "The definitive guide to agent skills that change how Claude Code, Cursor, Gemini CLI, and other AI coding assistants perform in production."
+        },
+        {
+          "title": "Claude Code Explained (2026): MCP, Skills, Subagents, Hooks & Plugins",
+          "url": "https://alexop.dev/posts/understanding-claude-code-full-stack/",
+          "snippet": "Everything you need to know about Claude Code Skills — what they are, how SKILL.md works, when to use Skills vs MCP vs Subagents, how to build your first skill, and how to share them across a team."
+        },
+        {
+          "title": "obviousworks/Claude-AI-skills-collection-2026 - GitHub",
+          "url": "https://github.com/obviousworks/Claude-AI-skills-collection-2026",
+          "snippet": "A practical guide to Claude Code's features: MCP, CLAUDE.md, slash commands, subagents, hooks, plugins, skills, and scheduled tasks. Updated April 2026 with deferred ..."
+        },
+        {
+          "title": "The Ultimate Claude Code Resource List 2026: Agents, Skills, Plugins & More",
+          "url": "https://www.scriptbyai.com/claude-code-resource-list/",
+          "snippet": "📦 Claude Skills Collection A curated collection of official and community-built Claude Skills. Anthropic Skills are modular tools that extend the capabilities of Claude AI—unlocking workflows for coding, document creation, design, data analysis, research, and more."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "как создать skill claude code 2026",
+      "purpose": "вторичный запрос: как создать skill claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Расширьте Claude с помощью skills - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/skills",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Skills 2026: что это, лучшие скиллы и как создать свой",
+          "url": "https://vibecoderz.ru/blog/claude-code-skills-2026",
+          "snippet": "Создавайте, управляйте и делитесь skills для расширения возможностей Claude в Claude Code. Включает пользовательские команды и встроенные skills."
+        },
+        {
+          "title": "Claude Code Skills в 2026: инструкция и 5 готовых наборов",
+          "url": "https://smyslokod.ru/guides/skills-dlya-claude-code",
+          "snippet": "В этой статье разберем, какие skills уже работают (frontend-design, figma skill, skill creator), где их брать, как создать свой SKILL.md с нуля — и почему 99% людей устанавливают их неправильно."
+        },
+        {
+          "title": "Как создать свой skill для Claude Code: пошагово",
+          "url": "https://ru.hexlet.io/blog/posts/claudeskills",
+          "snippet": "Как сделать Claude Code Skills: структура SKILL.md, формула description, 5 готовых наборов от Anthropic и Matt Pocock, антипаттерны. Пошагово за 30 минут."
+        },
+        {
+          "title": "Skills в Claude Code: как создать свой первый скилл с нуля",
+          "url": "https://checkroi.ru/blog/claude-code-skills-kak-sozdat/",
+          "snippet": "Разбираем по шагам, как написать SKILL.md, который работает стабильно — с двумя готовыми примерами и разбором типичных ошибок."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks - itnots.ru",
+          "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "Пошаговая инструкция, как создать свой Skill для Claude Code в 2026 году. Структура SKILL.md, готовый пример анти-AI-фильтра, разбор 5 ошибок новичков. В октябре 2025-го Anthropic выкатил для Claude новую штуку — Skills."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude code custom skills 2026",
+      "purpose": "вторичный запрос: claude code custom skills",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "GitHub - alirezarezvani/claude-skills: 345 Claude Code skills & agent ...",
+          "url": "https://github.com/alirezarezvani/claude-skills",
+          "snippet": ""
+        },
+        {
+          "title": "Best Claude Code Plugins & Skills (2026)",
+          "url": "https://alirezarezvani.github.io/claude-skills/guides/best-claude-code-plugins/",
+          "snippet": "Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes: One repo, thirteen platforms."
+        },
+        {
+          "title": "Best Claude Code Skills & Plugins (2026 Guide) - DEV Community",
+          "url": "https://dev.to/raxxostudios/best-claude-code-skills-plugins-2026-guide-4ak4",
+          "snippet": "This guide covers 20 production-ready plugins and agent skills — from engineering and DevOps to marketing, product management, and C-level advisory. All plugins listed here are open-source (MIT), tested in production, and installable in one command."
+        },
+        {
+          "title": "Best Claude Code Skills in 2026: 20 Slash Commands to Install",
+          "url": "https://toolradar.com/blog/best-claude-code-skills-2026",
+          "snippet": "The best Claude Code skills and plugins in 2026. Curated list of community skills for development, design, content creation, and productivity. Tagged with ai, productivity, claudecode, automation."
+        },
+        {
+          "title": "obviousworks/Claude-AI-skills-collection-2026 - GitHub",
+          "url": "https://github.com/obviousworks/Claude-AI-skills-collection-2026",
+          "snippet": "Curated list of 20 best Claude Code skills and custom slash commands for 2026. Git workflows, code review, testing, architecture, and tool recommendations."
+        },
+        {
+          "title": "The Ultimate Claude Code Resource List 2026: Agents, Skills, Plugins & More",
+          "url": "https://www.scriptbyai.com/claude-code-resource-list/",
+          "snippet": "This repository gathers and organizes all publicly available Claude Skills, including both built-in tools by Anthropic and creative contributions from the community."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "настройка skills claude code 2026",
+      "purpose": "вторичный запрос: настройка skills claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Расширьте Claude с помощью skills - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/skills",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "Создавайте, управляйте и делитесь skills для расширения возможностей Claude в Claude Code. Включает пользовательские команды и встроенные skills."
+        },
+        {
+          "title": "Claude Code: полный гайд 2026 — установка, настройка, реальный кейс",
+          "url": "https://vibecoding.ru/media/blog/claude-code-guide-2026",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Claude Code: гайд по skills, hooks и MCP для бизнеса — Обучение по ...",
+          "url": "https://mayai.ru/claude-code-gayd-skills-hooks-mcp-biznes/",
+          "snippet": "Как использовать Claude Code для вайбкодинга в 2026 году: от установки до деплоя реального продукта. SDLC-фреймворк, slash-команды, MCP, Cursor как обёртка — всё что нужно."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+          "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "Пошаговый гайд Claude Code 2026: установка CLI, настройка skills и hooks, подключение MCP-серверов и вайбкодинг для автоматизации маркетинга и контента без"
+        },
+        {
+          "title": "10 Must-Have Skills for Claude (and Any Coding Agent) in 2026",
+          "url": "https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051",
+          "snippet": "И вот сейчас хочу подробно рассказать про три вещи, которые реально изменили мой подход к работе с этим инструментом: Skills (навыки), Sub-agents (субагенты) и Hooks (хуки)."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Расширьте Claude с помощью skills - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/skills",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Skills: как настроить Claude Code под свои задачи (Гайд на ...",
+          "url": "https://vc.ru/ai/2863948-claude-skills-nastroika-claude-code",
+          "snippet": "Создавайте, управляйте и делитесь skills для расширения возможностей Claude в Claude Code. Включает пользовательские команды и встроенные skills."
+        },
+        {
+          "title": "Claude Skills: полный гайд от синтаксиса SKILL.md до Deep Research и ...",
+          "url": "https://vc.ru/ai/2804382-claude-skills-gajd-po-skill-md-deep-research-i-instrumentam",
+          "snippet": "В этом гайде я покажу, что такое скиллы, как их поставить за пару минут и какие из них реально пригодятся маркетологу."
+        },
+        {
+          "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+          "url": "https://thecode.media/claude-code-gajd/",
+          "snippet": "Claude Skills: полный гайд от синтаксиса SKILL.md до Deep Research и сетевых инструментов Skills — это не функция только для терминала."
+        },
+        {
+          "title": "Claude Code Skills в 2026: инструкция и 5 готовых наборов",
+          "url": "https://smyslokod.ru/guides/skills-dlya-claude-code",
+          "snippet": "Claude Code — что это такое, как установить, настроить CLAUDE.md, MCP и кастомные команды. Полный гайд с реальными примерами для разработчиков"
+        },
+        {
+          "title": "Skills в Claude Code: что это и как создать свой",
+          "url": "https://ya.zerocoder.ru/claude-code-skills/",
+          "snippet": "Как сделать Claude Code Skills: структура SKILL.md, формула description, 5 готовых наборов от Anthropic и Matt Pocock, антипаттерны. Пошагово за 30 минут."
+        }
+      ],
+      "searched_at": "2026-07-09"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://medium.com/@anilmathewm/10-claude-code-skills-every-developer-needs-in-2026-ac584b5c27e9",
+      "title": "10 Claude Code Skills Every Developer Needs in 2026 - Medium",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://www.agensi.io/learn/best-claude-code-skills-2026",
+      "title": "15 Best Claude Code Skills in 2026 (Tested with Real Proj...",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://alimabsoute.github.io/claude-skills-100/",
+      "title": "Top 100 Claude Code Skills — April 2026",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://github.com/obviousworks/Claude-AI-skills-collection-2026",
+      "title": "obviousworks/Claude-AI-skills-collection-2026 - GitHub",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://deftsoft.com/the-10-best-claude-code-skills-to-boost-developer-productivity-in-2026/",
+      "title": "The 10 Best Claude Code Skills for Developers in 2026",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://www.linkedin.com/pulse/definitive-list-claude-skills-developers-2026-josip-vlah-azoff",
+      "title": "The definitive list of Claude Skills for developers in 2026",
+      "from_query": "claude code skills 2026"
+    },
+    {
+      "url": "https://github.com/linny006/trending-claude-skills",
+      "title": "Trending Claude Skills - GitHub",
+      "from_query": "claude code skills июль 2026"
+    },
+    {
+      "url": "https://medium.com/@unicodeveloper/10-must-have-skills-for-claude-and-any-coding-agent-in-2026-b5451b013051",
+      "title": "10 Must-Have Skills for Claude (and Any Coding Agent) in 2026",
+      "from_query": "claude code skills июль 2026"
+    },
+    {
+      "url": "https://dev.to/raxxostudios/best-claude-code-skills-plugins-2026-guide-4ak4",
+      "title": "Best Claude Code Skills & Plugins (2026 Guide) - DEV Community",
+      "from_query": "claude code skills июль 2026"
+    },
+    {
+      "url": "https://designrevision.com/blog/awesome-claude-code-skills",
+      "title": "Awesome Claude Code Skills: The Curated List (2026)",
+      "from_query": "claude code skills июль 2026"
+    },
+    {
+      "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+      "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+      "from_query": "claude code skills новости 2026"
+    },
+    {
+      "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+      "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+      "from_query": "claude code skills новости 2026"
+    },
+    {
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "title": "GitHub - alirezarezvani/claude-skills: 345 Claude Code skills & agent ...",
+      "from_query": "claude code skill md 2026"
+    },
+    {
+      "url": "https://duet.so/guides/claude-code-skills-complete-guide",
+      "title": "Claude Code Skills: The Complete Guide (2026)",
+      "from_query": "claude code skill md 2026"
+    },
+    {
+      "url": "https://alexop.dev/posts/understanding-claude-code-full-stack/",
+      "title": "Claude Code Explained (2026): MCP, Skills, Subagents, Hooks & Plugins",
+      "from_query": "claude code skill md 2026"
+    },
+    {
+      "url": "https://www.scriptbyai.com/claude-code-resource-list/",
+      "title": "The Ultimate Claude Code Resource List 2026: Agents, Skills, Plugins & More",
+      "from_query": "claude code skill md 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/skills",
+      "title": "Расширьте Claude с помощью skills - Claude Code Docs",
+      "from_query": "как создать skill claude code 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/claude-code-skills-2026",
+      "title": "Claude Code Skills 2026: что это, лучшие скиллы и как создать свой",
+      "from_query": "как создать skill claude code 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/skills-dlya-claude-code",
+      "title": "Claude Code Skills в 2026: инструкция и 5 готовых наборов",
+      "from_query": "как создать skill claude code 2026"
+    },
+    {
+      "url": "https://ru.hexlet.io/blog/posts/claudeskills",
+      "title": "Как создать свой skill для Claude Code: пошагово",
+      "from_query": "как создать skill claude code 2026"
+    },
+    {
+      "url": "https://checkroi.ru/blog/claude-code-skills-kak-sozdat/",
+      "title": "Skills в Claude Code: как создать свой первый скилл с нуля",
+      "from_query": "как создать skill claude code 2026"
+    },
+    {
+      "url": "https://alirezarezvani.github.io/claude-skills/guides/best-claude-code-plugins/",
+      "title": "Best Claude Code Plugins & Skills (2026)",
+      "from_query": "claude code custom skills 2026"
+    },
+    {
+      "url": "https://toolradar.com/blog/best-claude-code-skills-2026",
+      "title": "Best Claude Code Skills in 2026: 20 Slash Commands to Install",
+      "from_query": "claude code custom skills 2026"
+    },
+    {
+      "url": "https://vibecoding.ru/media/blog/claude-code-guide-2026",
+      "title": "Claude Code: полный гайд 2026 — установка, настройка, реальный кейс",
+      "from_query": "настройка skills claude code 2026"
+    },
+    {
+      "url": "https://mayai.ru/claude-code-gayd-skills-hooks-mcp-biznes/",
+      "title": "Claude Code: гайд по skills, hooks и MCP для бизнеса — Обучение по ...",
+      "from_query": "настройка skills claude code 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2863948-claude-skills-nastroika-claude-code",
+      "title": "Claude Skills: как настроить Claude Code под свои задачи (Гайд на ...",
+      "from_query": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2804382-claude-skills-gajd-po-skill-md-deep-research-i-instrumentam",
+      "title": "Claude Skills: полный гайд от синтаксиса SKILL.md до Deep Research и ...",
+      "from_query": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд 2026"
+    },
+    {
+      "url": "https://thecode.media/claude-code-gajd/",
+      "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+      "from_query": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд 2026"
+    },
+    {
+      "url": "https://ya.zerocoder.ru/claude-code-skills/",
+      "title": "Skills в Claude Code: что это и как создать свой",
+      "from_query": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд 2026"
+    }
+  ]
+}

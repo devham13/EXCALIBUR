@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Claude Code Skills
+
+- **priority:** P0
+- **slug:** claude-code-skills-nastrojka-2026
+- **h1:** Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд
+- **primary_query:** claude code skills
+- **secondary_queries:** claude code skill md, как создать skill claude code, claude code custom skills, настройка skills claude code
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Skills vs hooks vs subagents: когда нужен SKILL.md, а не другой механизм
+  2. Где хранить skills: ~/.claude/skills/ (глобально) и .claude/skills/ (проект)
+  3. Анатомия SKILL.md: frontmatter name/description и тело инструкций
+  4. Пошаговое создание первого skill и проверка auto-invocation по description
+  5. Ручной вызов /skill-name, disable-model-invocation и context: fork для изоляции
+  6. Чек-лист production: allowed-tools, тест триггеров, версионирование через git
+- **faq_hints:** где хранятся skills claude code; чем skill отличается от slash command; как вызвать skill вручную claude code
+- **internal_links:** /subagenty-claude-code/, /claude-code-hooks-nastrojka-2026/, /nastroyka-claude-code-mcp/
+- **cover_scene_hint:** терминал Claude Code, папки skills как стикеры-конструктор, SKILL.md с YAML-frontmatter на экране, неоновый diy-коллаж
+
+---
+

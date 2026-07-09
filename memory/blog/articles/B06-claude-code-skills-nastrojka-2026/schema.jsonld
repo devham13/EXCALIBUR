@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/07/claude-code-skills-nastrojka-2026.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Как создать Claude Code skills: пошаговая настройка SKILL.md"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#webpage",
+      "url": "https://mayai.ru/claude-code-skills-nastrojka-2026/",
+      "name": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#primaryimage"
+      },
+      "description": "Как создать skill Claude Code: каталог .claude/skills/, YAML frontmatter, auto-invocation по description, ручной /skill-name, production-поля и чеклист перед git commit."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#webpage"
+      },
+      "headline": "Как создать Claude Code skills: пошаговая настройка SKILL.md и кастомных команд",
+      "description": "Как создать skill Claude Code: каталог .claude/skills/, YAML frontmatter, auto-invocation по description, ручной /skill-name, production-поля и чеклист перед git commit.",
+      "datePublished": "2026-07-09T14:00:00+03:00",
+      "dateModified": "2026-07-09T14:00:00+03:00",
+      "inLanguage": "ru",
+      "mainEntityOfPage": "https://mayai.ru/claude-code-skills-nastrojka-2026/",
+      "image": {
+        "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      },
+      "keywords": "claude code skills, claude code skill md, как создать skill claude code, claude code custom skills, настройка skills claude code"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/claude-code-skills-nastrojka-2026/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Где хранятся skills Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Личные – в ~/.claude/skills/<name>/SKILL.md (все проекты на ПК). Командные – в .claude/skills/<name>/SKILL.md в корне репозитория. Для monorepo поддерживаются nested qualified names. Project skills коммитьте в git."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем skill отличается от slash command?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Механизмы объединены: .claude/commands/deploy.md и .claude/skills/deploy/SKILL.md оба дают /deploy. Skill – каталог с frontmatter, телом инструкций и optional scripts/references; command – один markdown-файл без supporting files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как вызвать skill вручную?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Введите /имя-каталога в Claude Code, например /summarize-changes. Стек: /code-review /fix-issue 123 (v2.1.199+). Если стоит disable-model-invocation: true, только такой ручной вызов сработает."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему Claude не активирует skill автоматически?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Усилите description явными trigger phrases. Проверьте disable-model-invocation: true (блокирует auto). Запустите eval через skill-creator. Убедитесь, что skill виден в /skills и не скрыт skillOverrides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько строк допустимо в SKILL.md?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До 500 строк в основном файле. Детали, длинные примеры и справочники – в references/, scripts/, assets/. Description и when_to_use обрезаются на 1536 символах в listing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли перезапуск после правки skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Правки в существующем каталоге ~/.claude/skills/ или .claude/skills/ подхватываются без перезапуска сессии. Новый top-level каталог skills может потребовать restart Claude Code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Skill или MCP – что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skill – инструкции и workflow внутри Claude Code. MCP – подключение внешних API, БД и OAuth-сервисов. Используйте оба: skill задаёт \"как\", MCP даёт \"куда стучаться\"."
+          }
+        }
+      ]
+    }
+  ]
+}

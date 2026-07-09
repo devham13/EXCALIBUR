@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-09 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| trigger | Cloud Automation publish step |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight 2026-07-09)
+- schema.jsonld: present
+- cover/cover.png + alt: present (3 inline figures)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug primer-seo-stati, PHP bytes 10952558)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base $EXCALIBUR_PUBLIC_SITE_URL  # FAIL
+```
+
+### Blockers
+
+1. **FTP data channel:** `ftplib.error_temp: 425 Security: Bad IP connecting.` — Beget FTP login OK, STOR (upload bootstrap PHP) rejected on data connection. Cloud Agent egress IP not whitelisted.
+2. **HTTP bootstrap:** `excalibur-blog-publish-once.php` not on server (404) — upload never completed; WebFetch fallback not applicable.
+
+### Next steps (оператор)
+
+1. Whitelist Cloud Agent egress IP in Beget FTP security **или** запустить publish с self-hosted worker pool (`CLOUD-AUTOMATION.md`).
+2. Либо выполнить publish локально/с машины, где FTP STOR проходит (как B02–B05 2026-06-11).
+3. Альтернатива: WP Application Password + REST API publish script.

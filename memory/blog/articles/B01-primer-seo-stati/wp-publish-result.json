@@ -1,0 +1,8 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_temp: 425 Security: Bad IP connecting.\nFTP login OK, STOR excalibur-blog-publish-once.php failed (Beget IP whitelist on data channel).\nCloud Agent egress IP not allowed for FTP data transfer.",
+  "verdict": "fail"
+}

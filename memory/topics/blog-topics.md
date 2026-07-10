@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Auto Mode в Claude Code
+
+- **priority:** P0
+- **slug:** nastrojka-claude-code-auto-mode-2026
+- **h1:** Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году
+- **primary_query:** claude code auto mode
+- **secondary_queries:** claude code режим разрешений, настройка auto mode claude code, claude code permissions settings, claude auto-mode config environment
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Auto Mode vs Manual и `--dangerously-skip-permissions`: когда какой режим выбрать в 2026
+  2. Требования: план (Pro/Team/Max), модель Sonnet 4.6+ / Opus 4.6+, `CLAUDE_CODE_ENABLE_AUTO_MODE` на Bedrock/Vertex
+  3. Включение: `Shift+Tab`, `--permission-mode auto`, `defaultMode: "auto"` только в `~/.claude/settings.json`
+  4. Настройка `autoMode.environment`, `allow` / `soft_deny` / `hard_deny` и проверка через `claude auto-mode config`
+  5. Связка с hooks и sandbox: четырёхслойная защита перед unattended-сессиями
+  6. Чек-лист безопасного запуска Auto Mode для команды (10+ пунктов)
+- **faq_hints:** чем auto mode отличается от bypass permissions; можно ли включить auto mode в settings проекта; как отключить auto mode администратору Team; сколько стоит auto mode по токенам
+- **internal_links:** /claude-code-hooks-nastrojka-2026/, /dinamicheskie-workflow-claude-code/, /nastroyka-claude-code-mcp/
+- **cover_scene_hint:** терминал Claude Code с переключателем режимов Shift+Tab, стикеры «auto / manual / plan», щит-блокировка опасных команд, diy-коллаж с неоновым светом
+
+---
+

@@ -2,70 +2,56 @@
   "article": "memory/blog/articles/B01-primer-seo-stati/article.html",
   "fact_bank_source": "memory/brief/fact-bank.md",
   "verdict": "pass",
-  "total_extracted_facts": 9,
+  "total_extracted_facts": 7,
   "verified_facts_count": 1,
-  "unverified_facts_count": 8,
+  "unverified_facts_count": 6,
   "facts": [
     {
       "fact": "2026",
       "kind": "date_or_year",
-      "context": "тся как нормальный материал, а не набор ключей. В 2026 году этого мало: нейропоиск (Яндекс Нейро, Google",
+      "context": "счётчики, а живые клиенты уходят в нейроответ? В 2026 году одной \"оптимизации ключей\" мало: нужен longre",
       "verified": true,
       "reason": "Exact match found in fact-bank"
     },
     {
-      "fact": "2024",
-      "kind": "date_or_year",
-      "context": "овка Schema JSON-LD, llms.txt, FAQ в HTML С осени 2024 Алиса AI встроена в основную выдачу Яндекса. Аудит",
+      "fact": "90 минут",
+      "kind": "metric_or_duration",
+      "context": "аты для Яндекс Нейро и Google AI Overviews. За 60–90 минут вы соберёте семантику в Wordstat, составите струк",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
-      "fact": "2024 года",
-      "kind": "date_or_year",
-      "context": "ейросетей в России растёт: по данным исследований 2024 года значимая часть пользователей хотя бы раз пробовал",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "150",
+      "fact": "120",
       "kind": "large_number",
-      "context": "жен быть понятен без соседних абзацев. Первые 100–150 слов страницы — ключевая зона для извлечения ответ",
+      "context": ". H1 с главным ключом (один на страницу). Lead 40–120 слов с прямым ответом. 4–6 H2 с глаголами действия",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "800",
+      "kind": "large_number",
+      "context": "в (атомарный чанк). Абзацы 3–5 строк; how-to – от 800 слов, уникальный, с LSI. E-E-A-T lite: пример или",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "160",
+      "kind": "large_number",
+      "context": "H1 – на странице; не дублируйте. Description – 70–160 символов, польза + мягкий CTA; влияет на CTR. Янде",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "8 500",
       "kind": "large_number",
-      "context": "ыдаче. Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды.",
+      "context": "оту ответа и SERP. Для how-to longread Excalibur: 8 500–9 500 знаков. Сравните топ-5 и закройте пробелы.",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "9 500",
       "kind": "large_number",
-      "context": "Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды. Семант",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "500",
-      "kind": "large_number",
-      "context": "ложение секции = тезис. Шаг 4: Напишите lead. 350–500 знаков: боль, суть ответа, что получит читатель —",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "1 500",
-      "kind": "large_number",
-      "context": "и топ SERP по вашему запросу. Короткая заметка на 1 500 знаков не закроет how-to «как писать seo статьи»,",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "15 000",
-      "kind": "large_number",
-      "context": "онкуренты дают чек-листы и примеры. Раздувание до 15 000 знаков без новых фактов тоже не помогает — AI и лю",
+      "context": "вета и SERP. Для how-to longread Excalibur: 8 500–9 500 знаков. Сравните топ-5 и закройте пробелы. Что так",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     }

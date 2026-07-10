@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-claude-code-auto-mode-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: настройка Claude Code Auto Mode — Shift+Tab, autoMode.environment и безопасный автопилот без --dangerously-skip-permissions",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-10T10:13:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: настройка Claude Code Auto Mode — Shift+Tab, autoMode.environment и безопасный автопилот без --dangerously-skip-permissions",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица режимов Claude Code: Manual, Auto Mode и bypass permissions",
+      "h2_anchor": "1. Сравните Auto Mode с Manual и bypass permissions",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист требований для Claude Code Auto Mode: план, модель и переменные окружения",
+      "h2_anchor": "2. Проверьте требования: план, модель и env",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема включения Auto Mode: Shift+Tab, CLI-флаг и defaultMode в settings.json",
+      "h2_anchor": "3. Включите Auto Mode: Shift+Tab, CLI и defaultMode",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

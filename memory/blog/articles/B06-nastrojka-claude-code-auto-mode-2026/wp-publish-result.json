@@ -1,0 +1,15 @@
+{
+  "slug": "nastrojka-claude-code-auto-mode-2026",
+  "topic_id": "B06",
+  "permalink": "/2026/07/10/nastrojka-claude-code-auto-mode-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-claude-code-auto-mode-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1298454,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=537 slug=nastrojka-claude-code-auto-mode-2026\nOK featured_image=538\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=539 src=cover/inline-01.png url=/2026/07/10/nastrojka-claude-code-auto-mode-2026/\nOK inline_image_upload=540 src=cover/inline-02.png url=/2026/07/10/nastrojka-claude-code-auto-mode-2026/\nOK inline_image_upload=541 src=cover/inline-03.png url=/2026/07/10/nastrojka-claude-code-auto-mode-2026/\npermalink=/2026/07/10/nastrojka-claude-code-auto-mode-2026/\n",
+  "verdict": "pass",
+  "transport": "sftp"
+}

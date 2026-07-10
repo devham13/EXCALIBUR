@@ -161,7 +161,7 @@ llms.txt — файл подсказок для AI-краулеров (стан�
 - **URL**: https://mayai.ru/blog/avtomatizaciya-n8n-ai-agents/
 - **Summary**: Автоматизация n8n с ИИ-агентами: Chat Trigger, AI Agent node, System Message, tools и Simple Memory. Когда выбрать Make.com вместо self-host n8n.
 
-Вы слышали про n8n и ИИ-агентов, но в интерфейсе с десятком нод теряетесь: где триггер, где модель, зачем память? Я прошёл этот путь как практик Make.com и собрал первого агента в n8n за вечер. Ниже – пошаговая автоматизация n8n: Chat Trigger, AI Agent, инструменты и честное сравнение с Make.com. После гайда вы запустите тестового бота в Chat UI и поймёте, какая платформа вам ближе – свой сервер или no-code из облака.
+Вы слышали про n8n и ИИ-агентов, но в интерфейсе с десятком нод теряетесь: где триггер, где модель, зачем память? Я прошёл этот путь как интегратор ${SITE_BRAND} и собрал первого агента в n8n за вечер. Ниже – пошаговая автоматизация n8n: Chat Trigger, AI Agent, инструменты и честное сравнение с Make.com. После гайда вы запустите тестового бота в Chat UI и поймёте, какая платформа вам ближе – свой сервер или no-code из облака.
 
 TL;DR / Быстрый инсайт: ИИ-агент в n8n – это узел-дирижёр: он принимает вопрос, подключает языковую модель, память и инструменты (tools), а сам решает, что вызвать. Схема MVP: Chat Trigger → AI Agent → Chat Model + System Message + 1-2 tools. Для базы знаний (RAG) добавьте Vector Store. n8n силён в self-host и глубоком AI; Make.com – в скорости без Docker. Запрос "автоматизация n8n" в Вордстате – 539 показов в месяц, head-запрос "n8n" – 37 115.
 
@@ -235,7 +235,7 @@ Support-бот: Chat Trigger + RAG по базе знаний + tool "эскал
 
 Webhook – входящий "звонок" на URL n8n: сайт стучится, workflow стартует. Для Telegram-бота замените Chat Trigger на Telegram Trigger, логика агента та же.
 
-Если кейс – типовая CRM-воронка или контент-завод без сервера, посмотрите услуги автоматизации на mayai.ru и оцените, не быстрее ли закрыть задачу на Make.
+Если кейс – типовая CRM-воронка или контент-завод без сервера, посмотрите услуги автоматизации на ${SITE_BRAND} и оцените, не быстрее ли закрыть задачу на Make.
 
 5. Сравните n8n и Make.com и примите решение
 
@@ -271,7 +271,7 @@ Webhook – входящий "звонок" на URL n8n: сайт стучит�
 
 Выбирайте Make, если: нет желания админить Docker, команда no-code, типовые интеграции CRM/SMM/Telegram "из коробки". Make AI Agents доступны на всех тарифах.
 
- Итоговый вердикт: n8n – глубина AI и self-host. Make – скорость и визуальный builder без DevOps. Я веду курс по Make.com (159+ уроков, 5 800 ₽/мес) именно для тех, кто хочет агентов без серверов. n8n оставьте, когда инфраструктура уже есть.
+ Итоговый вердикт: n8n – глубина AI и self-host. Make – скорость и визуальный builder без DevOps. ${PRIMARY_CTA_LABEL} на ${SITE_BRAND} – команда внедрит n8n или Make под ваши процессы. n8n оставьте, когда инфраструктура уже есть.
 
 6. Пройдите чеклист перед продакшеном
 
@@ -309,11 +309,11 @@ Human-in-the-Loop на опасных действиях (удаление, оп
 
 Сверьте таблицу n8n vs Make с вашим стеком (CRM, мессенджеры, бюджет).
 
-При выборе Make – зайдите в обучение по Make: там разбор AI Agents и вайбкодинга на живых сценариях.
+При выборе Make – ${PRIMARY_CTA_LABEL}: разберём ваш кейс и подберём стек (n8n, Make, CRM).
 
-Вопросы по нодам и ошибкам – в Telegram @maya_pro, там же разборы сценариев учеников.
+Вопросы по нодам и ошибкам – напишите в ${SITE_BRAND}, команда подскажет по внедрению.
 
- Материал проверен: эксперт Артур Хорошев (CEO Maya AI, практик Make.com и AI-агентов).
+ Материал проверен: эксперт Редакция ${SITE_BRAND} (практики AI-автоматизации и n8n/Make).
  Достоверность данных: цены n8n и Make, параметры AI Agent node и показатели Вордстат верифицированы по первоисточникам на июнь 2026 года.
 
 Частые вопросы
@@ -926,5 +926,194 @@ n8n (self-hosted)
 Забанят ли соцсети или поисковики за использование ИИ?
 
 Вас забанят, если вы будете использовать полностью автономный генератор спама. Если же вы используете схему Human-in-the-loop, где ИИ готовит качественный черновик, а финальное редактирование, добавление пользы (Information Gain) и публикацию контролирует человек, блокировки вам не грозят.
+
+---
+
+## Как настроить Auto Mode в Claude Code для безопасной автоматизации?
+- **URL**: https://mayai.ru/blog/nastrojka-claude-code-auto-mode-2026/
+- **Summary**: Claude Code Auto Mode включается через Shift+Tab или --permission-mode auto; autoMode.environment и hard_deny настраиваются в ~/.claude/settings.json с проверкой claude auto-mode config.
+
+Длинная задача в Claude Code упирается в десятки подтверждений: push, тесты, деплой. Auto Mode снимает рутину, но не отключает защиту, как флаг --dangerously-skip-permissions. За 20–40 минут вы проверите eligibility, включите auto через Shift+Tab или CLI, пропишете autoMode.environment в ~/.claude/settings.json, проверите правила через claude auto-mode config и пройдете чеклист перед unattended-сессией.
+
+TL;DR / Быстрый инсайт: Auto Mode – режим, где классификатор решает, можно ли выполнить tool call без вашего клика. Настройка только в ~/.claude/settings.json: defaultMode, autoMode.environment с "$defaults", при необходимости hard_deny. Проверка: claude auto-mode defaults → claude auto-mode config. Не путайте с /goal и не используйте bypass permissions на prod.
+
+Auto Mode вышел 24 марта 2026 как research preview permission mode. По данным Anthropic, пользователи вручную одобряют 93% permission prompts – значит, узкое место не в "опасности", а в частых кликах. Классификатор (отдельная проверка перед tool call) видит ваши сообщения и вызовы инструментов, но не внутренние рассуждения ассистента. При 3 блокировках подряд или 20 суммарно сессия эскалирует к человеку. Запись файлов внутри проекта часто идет без классификатора – Tier 2 в терминологии docs.
+
+1. Сравните Auto Mode с Manual и bypass permissions
+
+Permission mode задает, кто жмет "разрешить" перед действием агента. Manual спрашивает почти всегда. acceptEdits принимает правки файлов. plan строит план. auto добавляет классификатор на остальные calls. --dangerously-skip-permissions отключает проверки – как ехать без ремня.
+
+ Режим
+ Когда
+ Защита
+ Риск
+
+ Manual
+ Новый репо, prod
+ Максимальная
+ Много кликов
+
+ acceptEdits / plan
+ Локальный рефакторинг
+ Средняя
+ Shell все еще спрашивает
+
+ Auto Mode
+ Refactor + tests на доверенной инфра
+ Классификатор + deny
+ False positive (~8.5%) или пропуск (~17% FNR)
+
+ --dangerously-skip-permissions
+ Только изолированный sandbox
+ Минимальная
+ Force push, curl | bash
+
+ Итоговый вердикт: Для unattended на shared infra – auto mode с autoMode.environment. Bypass – только в контейнере без секретов. Auto не равен /goal: auto убирает prompts на tool внутри хода, /goal оценивает прогресс между ходами. См. также динамические workflow Claude Code.
+
+Делайте: сначала manual, потом auto. Не делайте: bypass на репо с deploy keys.
+
+2. Проверьте требования: план, модель и env
+
+Нужен Claude Code v2.1.83+ (claude --version). Auto на всех планах; на Team/Enterprise Owner включает в admin. Модели: API – Opus 4.6+ или Sonnet 4.6+; Bedrock/Vertex/Foundry – Sonnet 5, Opus 4.7/4.8. Там auto выключен без CLAUDE_CODE_ENABLE_AUTO_MODE=1 (v2.1.158+).
+
+Шаг 1: Обновите CLI, выполните claude --version.
+
+Шаг 2: Проверьте модель из списка eligibility.
+
+Шаг 3: На Team/Enterprise – Owner включил auto; нет disableAutoMode: "disable".
+
+Шаг 4: На cloud – CLAUDE_CODE_ENABLE_AUTO_MODE=1 в env.
+
+Шаг 5: Если auto нет в Shift+Tab – сверьте пункты 1–4, перезапустите сессию.
+
+Делайте: фиксируйте версию CLI в README. Не делайте: полагаться на анонс "только Team" от 24.03 – docs на июль 2026 указывает все планы.
+
+3. Включите Auto Mode: Shift+Tab, CLI и defaultMode
+
+В активной сессии нажимайте Shift+Tab: default → acceptEdits → plan → auto (если eligible). Первый вход в auto – one-time opt-in: вы явно соглашаетесь с правилами research preview. Для одной сессии без переключения: claude --permission-mode auto. Чтобы каждый запуск стартовал в auto, добавьте defaultMode: "auto" в ~/.claude/settings.json (Linux/macOS) или %USERPROFILE%\.claude\settings.json (Windows). С v2.1.142+ project-level .claude/settings.json и settings.local.json игнорируют defaultMode: "auto" – это защита от подмены правил через pull чужого репо.
+
+ Workflow: Eligibility → Shift+Tab или --permission-mode auto → opt-in → defaultMode (опц.) → тест → /permissions → Recently denied
+
+{
+ "permissions": { "defaultMode": "auto" }
+}
+
+Делайте: user-level или managed policy. Не делайте: коммитить autoMode в shared .claude/settings.json – репозиторий не может inject allow rules.
+
+4. Настройте autoMode.environment и проверьте CLI
+
+Блок autoMode – prose rules на английском, понятные классификатору. environment описывает контекст: trusted GitHub org, internal API, staging domains. allow перечисляет разрешенные паттерны, soft_deny – "спросить, если сомнение", hard_deny – красные линии без override. Всегда включайте "$defaults" в allow – иначе потеряете штатные блокировки Anthropic: curl | bash, force push, prod deploys, mass cloud delete, IAM grants. Приоритет правил: hard_deny → soft_deny → allow → explicit user intent (для soft). Репозиторий не может положить autoMode в shared settings – inject allow rules из pull request невозможен.
+
+{
+ "permissions": { "defaultMode": "auto" },
+ "autoMode": {
+ "environment": "GitHub org mycompany. API api.mycompany.internal.",
+ "allow": ["$defaults", "git push github.com/mycompany/*", "npm test"],
+ "hard_deny": ["force push main", "delete cloud resources or IAM"]
+ }
+}
+
+Шаг 1: claude auto-mode defaults – baseline Anthropic.
+
+Шаг 2: claude auto-mode config – ваши effective rules.
+
+Шаг 3: claude auto-mode critique – sanity-check custom rules.
+
+При входе в auto сбрасываются Bash(*) и wildcard allows. Denials – /permissions → Recently denied (v2.1.193+ с reason). classifyAllShell: true прогоняет каждую shell-команду через классификатор.
+
+Делайте: при false positive расширьте environment и повторите с explicit intent. Не делайте: удалять "$defaults".
+
+5. Усильте защиту: hooks, sandbox и managed deny
+
+Четыре слоя перед unattended:
+
+Managed permissions.deny – до классификатора (prod creds, terraform destroy).
+
+autoMode hard_deny – красные линии org в user settings.
+
+Hooks PermissionDenied – лог или стоп; см. гайд hooks.
+
+Sandbox – эксперименты без prod secrets.
+
+Managed permissions.deny срабатывает до классификатора и не перебивается allow rules – используйте для terraform destroy, kubectl delete, доступа к vault. Hook PermissionDenied позволяет программно отреагировать на deny: записать в лог, отправить alert, остановить loop. Sandbox изолирует эксперименты: даже при ошибке классификатора prod credentials недостижимы. MCP-лимиты auto не отменяет – сверьте настройку MCP. Classifier calls добавляют latency и tokens на tool calls – закладывайте запас в бюджет, фиксированный процент без billing docs не называйте.
+
+Делайте: тест refactor + tests на безопасном репо. Не делайте: unattended на monorepo с prod deploy hooks.
+
+6. Пройдите чеклист безопасного запуска
+
+Claude Code v2.1.83+, версия в onboarding
+
+Модель Sonnet 4.6+ / Opus 4.6+ в runbook
+
+Owner включил auto; нет disableAutoMode
+
+CLAUDE_CODE_ENABLE_AUTO_MODE=1 на cloud при необходимости
+
+defaultMode и autoMode только user/managed settings
+
+"$defaults" в autoMode.allow
+
+environment описывает trusted orgs и domains
+
+hard_deny: force push, prod deploy, IAM, mass delete
+
+claude auto-mode config пройден до prod
+
+Managed permissions.deny для destructive команд
+
+Hook PermissionDenied протестирован
+
+Sandbox для экспериментов; prod keys вне reach
+
+Тестовая unattended без неожиданных deny
+
+Runbook при 3 consecutive denials
+
+Запрет bypass на shared infra в policy
+
+7. Что делать дальше
+
+Включите auto на тестовом репо через Shift+Tab.
+
+Добавьте environment и hard_deny в settings.json.
+
+Сохраните вывод claude auto-mode config в wiki.
+
+Подключите hooks и MCP по гайдам выше.
+
+Для цепочек IDE + публикация – курс Make.com: Claude готовит, Make публикует 24/7.
+
+ Материал проверен: эксперт Артур Хорошев (CEO Maya AI, Claude Code, Make, MCP).
+ Достоверность данных: версии CLI, autoMode и метрики (93% approve, FPR 8.5%, FNR 17%) сверены с docs Anthropic на 10.07.2026. Wordstat по "claude code auto mode" в этом прогоне недоступен (MCP offline).
+
+Частые вопросы
+
+Чем auto mode отличается от --dangerously-skip-permissions?
+
+Auto пропускает безопасные tool calls через двухстадийный классификатор и блокирует опасные: force push, curl | bash, prod deploys. Bypass (--dangerously-skip-permissions) отключает почти все permission prompts. На prod и shared infra используйте auto с настроенным autoMode.environment и hard_deny; bypass оставьте для одноразового sandbox без API keys и deploy tokens.
+
+Можно ли включить auto mode в settings проекта?
+
+Нет. С v2.1.142+ defaultMode: "auto" и autoMode игнорируются в .claude/settings.json проекта – только ~/.claude/settings.json или managed.
+
+Почему auto mode не появляется в Shift+Tab?
+
+Проверьте: CLI 2.1.83+, модель Sonnet 4.6+/Opus 4.6+, Owner enablement, CLAUDE_CODE_ENABLE_AUTO_MODE=1 на cloud, нет disableAutoMode. Перезапустите сессию.
+
+Как администратор Team отключает auto mode?
+
+permissions.disableAutoMode: "disable" в managed settings. Auto недоступен до снятия ограничения.
+
+Сколько стоит auto mode по токенам?
+
+Classifier calls добавляют latency и tokens. Точный процент зависит от задачи – смотрите usage в консоли Anthropic без выдуманных цифр.
+
+Что делать при блокировке легитимного push?
+
+Откройте /permissions → Recently denied и прочитайте reason (v2.1.193+). Добавьте GitHub org и branch policy в autoMode.environment, обновите allow rules, выполните claude auto-mode config для сверки effective rules. Повторите push с explicit intent в prompt: укажите org, repo и ветку. Если блокировка повторяется – рассмотрите classifyAllShell: true или soft_deny вместо hard block.
+
+Auto mode или /goal?
+
+Auto – per-tool prompts внутри хода. /goal – evaluator между ходами. Режимы дополняют друг друга.
 
 ---

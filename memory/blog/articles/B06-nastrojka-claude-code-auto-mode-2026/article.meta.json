@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-claude-code-auto-mode-2026",
+  "h1": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году",
+  "title": "Claude Code Auto Mode: пошаговая настройка для безопасной автоматизации",
+  "description": "Как включить и настроить Auto Mode в Claude Code: Shift+Tab, autoMode.environment, claude auto-mode config, hooks и чеклист без --dangerously-skip-permissions.",
+  "keywords": [
+    "claude code auto mode",
+    "настройка auto mode claude code",
+    "claude code режим разрешений",
+    "claude auto-mode config",
+    "claude code permissions settings"
+  ],
+  "primary_query": "claude code auto mode",
+  "secondary_queries": [
+    "claude code режим разрешений",
+    "настройка auto mode claude code",
+    "claude code permissions settings",
+    "claude auto-mode config environment"
+  ],
+  "char_count": 11412,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить auto mode в claude code пошагово",
+    "claude code auto mode без dangerously skip permissions",
+    "настройка autoMode environment и claude auto-mode config"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code Auto Mode: пошаговая настройка безопасной автоматизации",
+    "title_ctr": "🚀 Claude Code Auto Mode: настройте безопасный автопилот без bypass permissions!",
+    "title_aeo": "Как настроить Auto Mode в Claude Code для безопасной автоматизации?",
+    "description_seo": "Пошаговая настройка claude code auto mode: Shift+Tab, ~/.claude/settings.json, autoMode.environment, claude auto-mode config, hooks и чеклист команды без bypass.",
+    "description_ctr": "⚡ Auto Mode за 30 минут: eligibility, JSON-конфиг, CLI-проверка и 15 пунктов чеклиста. Без --dangerously-skip-permissions на prod.",
+    "description_aeo": "Claude Code Auto Mode включается через Shift+Tab или --permission-mode auto; autoMode.environment и hard_deny настраиваются в ~/.claude/settings.json с проверкой claude auto-mode config."
+  },
+  "cover_family": "brand_collage"
+}

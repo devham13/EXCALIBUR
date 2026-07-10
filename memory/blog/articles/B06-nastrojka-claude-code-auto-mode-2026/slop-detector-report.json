@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "Режим Когда Защита Риск Manual Новый репо, prod Максимальная Много кликов acceptEdits / plan Локальный рефакторинг Средняя Shell все еще спрашивает Auto Mode Refactor + tests на доверенной инфра Классификатор + deny False positive (~8",
+      "word_count": 31
+    },
+    {
+      "sentence": "deny для destructive команд Hook PermissionDenied протестирован Sandbox для экспериментов; prod keys вне reach Тестовая unattended без неожиданных deny Runbook при 3 consecutive denials Запрет bypass на shared infra в policy 7",
+      "word_count": 30
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 6.8,
+    "avg_syllables_per_word": 1.2
+  }
+}

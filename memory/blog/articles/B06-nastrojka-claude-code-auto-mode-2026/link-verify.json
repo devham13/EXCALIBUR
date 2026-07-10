@@ -1,0 +1,65 @@
+{
+  "source": "memory/blog/articles/B06-nastrojka-claude-code-auto-mode-2026/article.html",
+  "total_links": 6,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "${PUBLIC_SITE_URL}/dinamicheskie-workflow-claude-code/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/dinamicheskie-workflow-claude-code/"
+    },
+    {
+      "url": "${PUBLIC_SITE_URL}/claude-code-hooks-nastrojka-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/claude-code-hooks-nastrojka-2026/"
+    },
+    {
+      "url": "${PUBLIC_SITE_URL}/nastroyka-claude-code-mcp/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/nastroyka-claude-code-mcp/"
+    },
+    {
+      "url": "https://kv-ai.ru/obuchenie-po-make",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://kv-ai.ru/artur-horosheff",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "${PUBLIC_SITE_URL}/docs/en/auto-mode-config",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

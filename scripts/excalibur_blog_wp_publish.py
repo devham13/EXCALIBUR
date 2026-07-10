@@ -7,7 +7,10 @@ import base64
 import ftplib
 import io
 import json
+import os
+import subprocess
 import sys
+import tempfile
 import urllib.request
 from pathlib import Path
 
@@ -21,17 +24,27 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    if not env:
+        raise FileNotFoundError("site.env.local not found under memory/")
+    prefixes = ("FTP_", "SFTP_", "REMOTE_", "PUBLIC_", "EXCALIBUR_", "WP_")
+    for key, value in os.environ.items():
+        if key.startswith(prefixes) and value.strip():
+            env.setdefault(key, value.strip())
+    if env.get("FTP_PASS") in (None, "") and os.environ.get("FTP_PASSWORD"):
+        env["FTP_PASS"] = os.environ["FTP_PASSWORD"]
+    if env.get("FTP_PASS") in (None, "") and os.environ.get("SFTP_PASSWORD"):
+        env["FTP_PASS"] = os.environ["SFTP_PASSWORD"]
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -275,6 +288,60 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
+def _sftp_remote_root(env: dict[str, str]) -> str:
+    root = (env.get("REMOTE_SITE_ROOT") or env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if not root.startswith("/"):
+        root = "/" + root
+    return root.rstrip("/")
+
+
+def _sftp_credentials(env: dict[str, str]) -> tuple[str, str, str, str] | None:
+    host = (env.get("SFTP_HOST") or "").strip()
+    user = (env.get("SFTP_USER") or "").strip()
+    password = (env.get("SFTP_PASSWORD") or env.get("FTP_PASS") or "").strip()
+    port = (env.get("SFTP_PORT") or "22").strip()
+    if host and user and password:
+        return host, user, password, port
+    return None
+
+
+def upload_via_sftp(env: dict[str, str], remote_name: str, data: bytes) -> None:
+    creds = _sftp_credentials(env)
+    if not creds:
+        raise RuntimeError("SFTP credentials missing")
+    host, user, password, port = creds
+    remote_path = f"{_sftp_remote_root(env)}/{remote_name}"
+    url = f"sftp://{host}:{port}{remote_path}"
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+        tmp.write(data)
+        local_path = tmp.name
+    try:
+        result = subprocess.run(
+            ["curl", "-sS", "-m", "180", "--upload-file", local_path, url, "-u", f"{user}:{password}", "-k"],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f"SFTP upload failed: {result.stderr.strip() or result.stdout.strip()}")
+        print(f"OK sftp_upload={remote_path}")
+    finally:
+        Path(local_path).unlink(missing_ok=True)
+
+
+def delete_via_sftp(env: dict[str, str], remote_name: str) -> None:
+    creds = _sftp_credentials(env)
+    if not creds:
+        return
+    host, user, password, port = creds
+    remote_path = f"{_sftp_remote_root(env)}/{remote_name}"
+    url = f"sftp://{host}:{port}{remote_path}"
+    subprocess.run(
+        ["curl", "-sS", "-m", "60", "-Q", f"-rm {remote_path}", url, "-u", f"{user}:{password}", "-k"],
+        capture_output=True,
+        text=True,
+    )
+
+
 def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
     remote = "excalibur-blog-publish-once.php"
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
@@ -291,9 +358,13 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    use_sftp = _sftp_credentials(env) is not None
+    if use_sftp:
+        upload_via_sftp(env, remote, php.encode("utf-8"))
+    else:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+        ftp.quit()
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +395,15 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    if use_sftp:
+        delete_via_sftp(env, remote)
+    else:
+        ftp = ftp_connect()
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
     return out
 
 

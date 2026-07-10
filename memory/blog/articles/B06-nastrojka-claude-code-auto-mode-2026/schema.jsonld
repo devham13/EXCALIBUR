@@ -1,0 +1,208 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#article",
+      "headline": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году",
+      "description": "Как включить и настроить Auto Mode в Claude Code: Shift+Tab, autoMode.environment, claude auto-mode config, hooks и чеклист без --dangerously-skip-permissions.",
+      "datePublished": "2026-07-10",
+      "dateModified": "2026-07-10",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastrojka-claude-code-auto-mode-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code auto mode, настройка auto mode claude code, claude code режим разрешений, claude auto-mode config, claude code permissions settings",
+      "wordCount": 11412,
+      "articleSection": "Claude Code",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем auto mode отличается от --dangerously-skip-permissions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Auto пропускает безопасные tool calls через двухстадийный классификатор и блокирует опасные: force push, curl | bash, prod deploys. Bypass (--dangerously-skip-permissions) отключает почти все permission prompts. На prod и shared infra используйте auto с настроенным autoMode.environment и hard_deny; bypass оставьте для одноразового sandbox без API keys и deploy tokens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли включить auto mode в settings проекта?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. С v2.1.142+ defaultMode: \"auto\" и autoMode игнорируются в .claude/settings.json проекта – только ~/.claude/settings.json или managed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему auto mode не появляется в Shift+Tab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте: CLI 2.1.83+, модель Sonnet 4.6+/Opus 4.6+, Owner enablement, CLAUDE_CODE_ENABLE_AUTO_MODE=1 на cloud, нет disableAutoMode. Перезапустите сессию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как администратор Team отключает auto mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "permissions.disableAutoMode: \"disable\" в managed settings. Auto недоступен до снятия ограничения."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит auto mode по токенам?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Classifier calls добавляют latency и tokens. Точный процент зависит от задачи – смотрите usage в консоли Anthropic без выдуманных цифр."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать при блокировке легитимного push?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте /permissions → Recently denied и прочитайте reason (v2.1.193+). Добавьте GitHub org и branch policy в autoMode.environment, обновите allow rules, выполните claude auto-mode config для сверки effective rules. Повторите push с explicit intent в prompt: укажите org, repo и ветку. Если блокировка повторяется – рассмотрите classifyAllShell: true или soft_deny вместо hard block."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Auto mode или /goal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Auto – per-tool prompts внутри хода. /goal – evaluator между ходами. Режимы дополняют друг друга."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#howto",
+      "name": "Как настроить Auto Mode в Claude Code для безопасной автоматизации",
+      "description": "Пошаговая настройка Claude Code Auto Mode: eligibility, включение через Shift+Tab, autoMode.environment в ~/.claude/settings.json, проверка claude auto-mode config и чеклист перед unattended-сессией.",
+      "totalTime": "PT40M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code CLI"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Claude Code v2.1.83 или новее"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Файл ~/.claude/settings.json (user-level или managed settings)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Обновите Claude Code до v2.1.83+",
+          "text": "Выполните claude --version. На Bedrock, Vertex или Foundry добавьте CLAUDE_CODE_ENABLE_AUTO_MODE=1 в env user или managed settings.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#requirements"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Проверьте eligibility auto mode",
+          "text": "Убедитесь в подходящем плане и модели Sonnet 4.6+ или Opus 4.6+ (на cloud providers – Sonnet 5 или Opus 4.7+). На Team и Enterprise Owner должен включить auto mode; проверьте отсутствие disableAutoMode: \"disable\".",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#requirements"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Включите auto mode в сессии",
+          "text": "Нажимайте Shift+Tab до статуса auto и примите one-time opt-in или запустите claude --permission-mode auto для одной сессии.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#enable-auto"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Задайте defaultMode в user settings",
+          "text": "В ~/.claude/settings.json добавьте \"permissions\": {\"defaultMode\": \"auto\"}. Не прописывайте defaultMode и autoMode в project .claude/settings.json.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#enable-auto"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Настройте autoMode.environment и hard_deny",
+          "text": "В user settings добавьте блок autoMode с environment, allow (включая \"$defaults\"), при необходимости hard_deny для org-specific red lines.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#automode-config"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Проверьте effective rules через CLI",
+          "text": "Выполните claude auto-mode defaults, затем claude auto-mode config; при custom rules – claude auto-mode critique.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#automode-config"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Усильте защиту hooks, sandbox и managed deny",
+          "text": "Добавьте managed или user permissions.deny для критичных паттернов, hooks на PermissionDenied, sandbox для экспериментов; при необходимости classifyAllShell: true.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#layers"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Проведите тестовую unattended-задачу",
+          "text": "Запустите refactor и tests на безопасном репо, мониторьте /permissions → Recently denied; при повторных deny расширьте environment или добавьте explicit intent.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#checklist"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Пройдите чеклист команды перед prod",
+          "text": "Сверьте 15 пунктов чеклиста: версия CLI, модель, Owner enablement, \"$defaults\" в allow, hard_deny, claude auto-mode config, hooks, sandbox и запрет bypass на shared infra.",
+          "url": "https://mayai.ru/nastrojka-claude-code-auto-mode-2026/#checklist"
+        }
+      ]
+    }
+  ]
+}

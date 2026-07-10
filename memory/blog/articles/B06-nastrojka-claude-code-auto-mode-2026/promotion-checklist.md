@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastrojka-claude-code-auto-mode-2026
 
 Дата публикации: 2026-07-10  
-Live URL: https://mayai.ru/blog/nastrojka-claude-code-auto-mode-2026/
+Live URL: ${PUBLIC_SITE_URL}/2026/07/10/nastrojka-claude-code-auto-mode-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,14 +30,14 @@ Auto Mode в Claude Code снимает десятки подтверждени�
 • 4 слоя защиты: hard_deny, managed deny, hooks, sandbox
 • Чеклист 15 пунктов перед unattended-сессией на shared infra
 
-Читать: https://mayai.ru/blog/nastrojka-claude-code-auto-mode-2026/
+Читать: ${PUBLIC_SITE_URL}/2026/07/10/nastrojka-claude-code-auto-mode-2026/
 ```
 
 ## Перелинковка
 
 - [ ] Добавить ссылку на новый пост с главной blog section (если Aurora не auto)
 - [ ] Обновить B03 (MCP Cursor) → link to B06 на упоминании Claude Code / permission mode (если anchor встречается)
-- [ ] После publish — перезапустить interlinker с `--site-base https://mayai.ru` для inbound из B01–B05
+- [ ] После publish — перезапустить interlinker с `--site-base ${PUBLIC_SITE_URL} для inbound из B01–B05
 
 ## Метрики (7 дней)
 

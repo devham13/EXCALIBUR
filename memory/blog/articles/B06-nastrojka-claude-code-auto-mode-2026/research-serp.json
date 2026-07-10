@@ -1,0 +1,514 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-10",
+    "today_ru": "10.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-11",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-10 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-claude-code-auto-mode-2026",
+    "h1": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году",
+    "primary_query": "claude code auto mode",
+    "secondary_queries": [
+      "claude code режим разрешений",
+      "настройка auto mode claude code",
+      "claude code permissions settings",
+      "claude auto-mode config environment"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code auto mode 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Auto mode for Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/auto-mode",
+          "snippet": ""
+        },
+        {
+          "title": "Configure auto mode - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/auto-mode-config",
+          "snippet": "Auto mode lets Claude Code make permission decisions with built-in safeguards — fewer interruptions than default, less risk than skipping permissions."
+        },
+        {
+          "title": "How we built Claude Code auto mode: a safer way to skip permissions",
+          "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+          "snippet": "If Claude Code reports auto mode as unavailable for your account, check the full requirements, which also cover the supported models and Owner enablement on Team and Enterprise plans."
+        },
+        {
+          "title": "Claude Code Auto Mode Tutorial 2026 - AICC - AI.cc",
+          "url": "https://www.ai.cc/blogs/claude-code-auto-mode-tutorial-2026-zero-approval-automated-development-api/",
+          "snippet": "How we built Claude Code auto mode: a safer way to skip permissions Published Mar 25, 2026 Claude Code users approve 93% of permission prompts. We built classifiers to automate some decisions, increasing safety while reducing approval fatigue. Here's what it catches, and what it misses."
+        },
+        {
+          "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+          "snippet": "Discover how to use Claude Code Auto Mode in 2026 for truly zero-approval automated development. Complete step-by-step tutorial with real workflows, API integration examples using Anthropic SDK"
+        },
+        {
+          "title": "Claude Code Auto Mode: Unlock Safer, Faster AI Coding (2026 Guide)",
+          "url": "https://www.buildfastwithai.com/blogs/claude-code-auto-mode-2026",
+          "snippet": "Claude Code Auto Mode — новый research preview permission mode от Anthropic для тех, кто уже активно пользуется Claude Code и устал подтверждать однотипные низкорисковые действия в длинных сессиях."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code auto mode июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Auto mode for Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/auto-mode",
+          "snippet": ""
+        },
+        {
+          "title": "Configure auto mode - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/auto-mode-config",
+          "snippet": "Auto mode is available in Claude Code as a research preview for Claude Team users today, and will roll out to Enterprise and API users in the coming days. It works with both Claude Sonnet 4.6 and Opus 4.6."
+        },
+        {
+          "title": "Claude Code Auto Mode Tutorial 2026 - AICC - AI.cc",
+          "url": "https://www.ai.cc/blogs/claude-code-auto-mode-tutorial-2026-zero-approval-automated-development-api/",
+          "snippet": "If Claude Code reports auto mode as unavailable for your account, check the full requirements, which also cover the supported models and Owner enablement on Team and Enterprise plans."
+        },
+        {
+          "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+          "snippet": "Discover how to use Claude Code Auto Mode in 2026 for truly zero-approval automated development. Complete step-by-step tutorial with real workflows, API integration examples using Anthropic SDK"
+        },
+        {
+          "title": "Claude Code Changelog (July 2026)",
+          "url": "https://www.gradually.ai/en/changelogs/claude-code/",
+          "snippet": "Claude Code Auto Mode — новый research preview permission mode от Anthropic для тех, кто уже активно пользуется Claude Code и устал подтверждать однотипные низкорисковые действия в длинных сессиях."
+        },
+        {
+          "title": "Claude Code Updates by Anthropic - July 2026 - Releasebot",
+          "url": "https://releasebot.io/updates/anthropic/claude-code",
+          "snippet": "All updates, new features and bug fixes for Claude Code at a glance, documented from March 2025 to July 2026 and updated regularly."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code auto mode новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code 2026: Computer Use, Auto Mode, Voice — полный разбор ...",
+          "url": "https://www.galson.pro/articles/claude-code-2026-computer-use-auto-mode-voice-update/",
+          "snippet": ""
+        },
+        {
+          "title": "Auto mode for Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/auto-mode",
+          "snippet": "Auto Mode убирает ручной контроль там, где он не нужен. Voice Mode убирает клавиатуру как обязательный интерфейс. Extended Thinking убирает компромисс между скоростью и качеством."
+        },
+        {
+          "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+          "snippet": "Today, we're introducing auto mode, a new permissions mode in Claude Code where Claude makes permission decisions on your behalf, with safeguards monitoring actions before they run."
+        },
+        {
+          "title": "How we built Claude Code auto mode: a safer way to skip permissions",
+          "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+          "snippet": "Auto Mode был анонсирован 24 марта 2026 года как более безопасная альтернатива --dangerously-skip-permissions. Текущая документация описывает его как Team-функцию; rollout для Enterprise и API еще продолжается. Если у вас личный Pro или Max, не считайте, что доступ уже есть."
+        },
+        {
+          "title": "Anthropic запустил режим auto для Claude Code, AI самостоятельно ...",
+          "url": "https://www.gate.com/ru/news/detail/anthropic-launches-auto-mode-for-claude-code-ai-autonomously-assesses-19746598",
+          "snippet": "How we built Claude Code auto mode: a safer way to skip permissions Published Mar 25, 2026 Claude Code users approve 93% of permission prompts. We built classifiers to automate some decisions, increasing safety while reducing approval fatigue. Here's what it catches, and what it misses."
+        },
+        {
+          "title": "Claude Code представляет Auto Mode: ИИ автоматически определяет права ...",
+          "url": "https://www.gate.com/ru/news/detail/claude-code-launches-auto-mode-ai-automatically-determines-execution-19754920",
+          "snippet": "Auto mode в настоящее время доступен в исследовательской предварительной версии для пользователей Team, а пользователи Enterprise и API получат доступ в ближайшее время."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code режим разрешений 2026",
+      "purpose": "вторичный запрос: claude code режим разрешений",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Режимы разрешений Claude Code: 5 режимов",
+          "url": "https://arte.itlibra.com/ru/articles/claude-code-permission-modes",
+          "snippet": ""
+        },
+        {
+          "title": "Выберите режим разрешений - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/permission-modes",
+          "snippet": "Чем отличаются 5 режимов разрешений Claude Code, как переключать их через Shift+Tab, как работает auto mode и какой режим выбирать для безопасной работы."
+        },
+        {
+          "title": "Настройка разрешений - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/permissions",
+          "snippet": "Каждый режим делает разный компромисс между удобством и контролем. Таблица ниже показывает, что Claude может делать без запроса разрешения в каждом режиме."
+        },
+        {
+          "title": "Claude Code 2.1.200 переименовывает режим разрешений по умолчанию в ...",
+          "url": "https://startdebugging.net/ru/2026/07/claude-code-2-1-200-renames-default-permission-mode-to-manual/",
+          "snippet": "Вы можете просматривать и управлять разрешениями инструментов Claude Code с помощью /permissions. Этот интерфейс отображает все правила разрешений и файлы settings.json, из которых они берутся."
+        },
+        {
+          "title": "Claude Code: правила разрешений и settings.json",
+          "url": "https://arte.itlibra.com/ru/articles/claude-code-permission-rules-settings",
+          "snippet": "Claude Code v2.1.200 вышел 3 июля 2026 года и делает две вещи, которые затрагивают всех, кто запускает агента в интерактивном режиме: он переименовывает режим разрешений, который вы привыкли ..."
+        },
+        {
+          "title": "Разрешения в Claude Code: allow, deny, sandbox (2026)",
+          "url": "https://matveev.tech/claude-code-permissions-sandbox/",
+          "snippet": "В этом руководстве разбираем, что такое правила разрешений (и чем они отличаются от режимов разрешений), приоритет allow/ask/deny, синтаксис правил, иерархию settings.json и практические рецепты ..."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "настройка auto mode claude code 2026",
+      "purpose": "вторичный запрос: настройка auto mode claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Настройка режима auto - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/auto-mode-config",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code 2026: Computer Use, Auto Mode, Voice — полный разбор ...",
+          "url": "https://www.galson.pro/articles/claude-code-2026-computer-use-auto-mode-voice-update/",
+          "snippet": "Установите контекст окружения, переопределите правила блокировки и разрешения по умолчанию и проверьте вашу эффективную конфигурацию с помощью подкоманд CLI auto-mode."
+        },
+        {
+          "title": "Configure auto mode - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/auto-mode-config",
+          "snippet": "Установи последнюю версию: npm install -g @anthropic/claude-code. Попробуй Auto Mode на одной безопасной задаче. Настрой один MCP-сервер. Добавь первый Hook."
+        },
+        {
+          "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+          "snippet": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands."
+        },
+        {
+          "title": "One File That Changes Everything in Claude Code (2026)",
+          "url": "https://www.youtube.com/watch?v=X-df83DUzVM",
+          "snippet": "Это не облегченный и не усиленный вариант Auto Mode. Он нужен тогда, когда вас волнует не скорость исполнения, а ясность маршрута: архитектура, последовательность, риски, tradeoffs."
+        },
+        {
+          "title": "Claude Code Auto Mode Tutorial 2026 - AICC - AI.cc",
+          "url": "https://www.ai.cc/blogs/claude-code-auto-mode-tutorial-2026-zero-approval-automated-development-api/",
+          "snippet": "Fully customize Claude Code for 2026 in 5 minutes: teaching AI your work style from scratch 🔥 In this video, I show you in detail how to customize Claude Code using the CLAUDE.md..."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude code permissions settings 2026",
+      "purpose": "вторичный запрос: claude code permissions settings",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Permissions (2026): Allow Lists, Deny Rules, and Sandboxing ...",
+          "url": "https://www.claudedirectory.org/blog/claude-code-permissions-guide",
+          "snippet": ""
+        },
+        {
+          "title": "Configure permissions - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/permissions",
+          "snippet": "The practical guide to Claude Code permissions. How allow/deny rules work, the four permission modes, sandboxed Bash, MCP tool approval, and the configurations real teams ship."
+        },
+        {
+          "title": "Claude Code Permissions, Sandbox & Security (2026)",
+          "url": "https://skillsplayground.com/guides/claude-code-permissions/",
+          "snippet": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies."
+        },
+        {
+          "title": "Claude Code settings - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/settings",
+          "snippet": "Master Claude Code permissions, sandbox modes, and security controls. Learn how to configure tool permissions, set up sandboxed execution, manage file access, and secure your AI coding workflow for individuals and teams."
+        },
+        {
+          "title": "Claude Code Admin Settings Guide 2026: Permissions, Auto Mode",
+          "url": "https://vantagepoint.io/blog/ai/anthropic/claude-code-admin-settings-business-guide",
+          "snippet": "Configure Claude Code with global and project-level settings, and environment variables."
+        },
+        {
+          "title": "Claude Code Permissions: A Practical settings.json Guide for Allow ...",
+          "url": "https://www.developersdigest.tech/blog/claude-code-permissions-settings-guide",
+          "snippet": "Learn what changed in Claude Code admin settings, what admins must do before June 5, and how to govern AI coding tools with practical permission."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "claude auto-mode config environment 2026",
+      "purpose": "вторичный запрос: claude auto-mode config environment",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Configure auto mode - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/auto-mode-config",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code settings - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/settings",
+          "snippet": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands."
+        },
+        {
+          "title": "claude-code-best-practice/best-practice/claude-settings.md at main ...",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice/blob/main/best-practice/claude-settings.md",
+          "snippet": "Configure Claude Code with global and project-level settings, and environment variables."
+        },
+        {
+          "title": "Claude Code Auto Mode: The Complete Developer Guide for 2026 — EasyClaw",
+          "url": "https://easyclaw.com/blog/knowledge/claude-code-auto-mode-guide/",
+          "snippet": "A comprehensive guide to all available configuration options in Claude Code's settings.json files. As of v2.1.205, Claude Code exposes 80+ settings and 200+ environment variables (use the \"env\" field in settings.json to avoid wrapper scripts)."
+        },
+        {
+          "title": "How to Use Claude Code Auto Mode: Step-by-Step Tutorial (2026)",
+          "url": "https://a2a-mcp.org/blog/how-to-use-claude-code-auto-mode",
+          "snippet": "Learn how Claude Code auto mode works in 2026 — how to enable it, configure trusted repos and domains, understand the safety classifier, and decide when to use it over default mode or --dangerously-skip-permissions."
+        },
+        {
+          "title": "claude-wiki/02-Claude-Code-CLI/auto-mode-config-f0dacf5866.md ... - GitHub",
+          "url": "https://github.com/johnzfitch/claude-wiki/blob/master/02-Claude-Code-CLI/auto-mode-config-f0dacf5866.md",
+          "snippet": "Learn exactly how to enable and use Claude Code Auto Mode for safer autonomous coding. Full tutorial with installation, configuration, switching modes, and troubleshooting for Team/Enterprise users."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Настройка режима auto - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/auto-mode-config",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code: практический гайд по настройке, автоматизации и работе с ...",
+          "url": "https://habr.com/ru/articles/987094/",
+          "snippet": "Установите контекст окружения, переопределите правила блокировки и разрешения по умолчанию и проверьте вашу эффективную конфигурацию с помощью подкоманд CLI auto-mode."
+        },
+        {
+          "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+          "snippet": "Claude Code работает из любого терминала, но связка с мощным редактором открывает отслеживание файлов в реальном времени, быструю навигацию и встроенный запуск команд."
+        },
+        {
+          "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+          "url": "https://thecode.media/claude-code-gajd/",
+          "snippet": "Claude Code Auto Mode — новый research preview permission mode от Anthropic для тех, кто уже активно пользуется Claude Code и устал подтверждать однотипные низкорисковые действия в длинных сессиях."
+        },
+        {
+          "title": "Auto mode в Claude Code — Сергей Пахандрин на vc.ru",
+          "url": "https://vc.ru/id17467/2811948-novyj-rezhim-auto-mode-v-claude-code",
+          "snippet": "Это не чат-бот, а агент. В этом гайде пройдём весь путь: что это такое, как поставить на любую систему, какие есть команды, как настроить под свой проект и сколько это стоит."
+        },
+        {
+          "title": "Как настроить Claude Code, чтобы он не сломал проект: гайд 2026",
+          "url": "https://smyslokod.ru/guides/kak-zashchitit-claude-code-ot-polomok",
+          "snippet": "Auto mode предоставляет более безопасную альтернативу для выполнения длительных задач вместо --dangerously-skip-permissions. По умолчанию, любой вызов команд агентом требует одобрения пользователем."
+        }
+      ],
+      "searched_at": "2026-07-10"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://claude.com/blog/auto-mode",
+      "title": "Auto mode for Claude Code | Claude by Anthropic",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/auto-mode-config",
+      "title": "Configure auto mode - Claude Code Docs",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      "title": "How we built Claude Code auto mode: a safer way to skip permissions",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://www.ai.cc/blogs/claude-code-auto-mode-tutorial-2026-zero-approval-automated-development-api/",
+      "title": "Claude Code Auto Mode Tutorial 2026 - AICC - AI.cc",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://blog.laozhang.ai/ru/posts/claude-code-auto-mode",
+      "title": "Claude Code Auto Mode: как это работает, что блокирует и когда ...",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://www.buildfastwithai.com/blogs/claude-code-auto-mode-2026",
+      "title": "Claude Code Auto Mode: Unlock Safer, Faster AI Coding (2026 Guide)",
+      "from_query": "claude code auto mode 2026"
+    },
+    {
+      "url": "https://www.gradually.ai/en/changelogs/claude-code/",
+      "title": "Claude Code Changelog (July 2026)",
+      "from_query": "claude code auto mode июль 2026"
+    },
+    {
+      "url": "https://releasebot.io/updates/anthropic/claude-code",
+      "title": "Claude Code Updates by Anthropic - July 2026 - Releasebot",
+      "from_query": "claude code auto mode июль 2026"
+    },
+    {
+      "url": "https://www.galson.pro/articles/claude-code-2026-computer-use-auto-mode-voice-update/",
+      "title": "Claude Code 2026: Computer Use, Auto Mode, Voice — полный разбор ...",
+      "from_query": "claude code auto mode новости 2026"
+    },
+    {
+      "url": "https://www.gate.com/ru/news/detail/anthropic-launches-auto-mode-for-claude-code-ai-autonomously-assesses-19746598",
+      "title": "Anthropic запустил режим auto для Claude Code, AI самостоятельно ...",
+      "from_query": "claude code auto mode новости 2026"
+    },
+    {
+      "url": "https://www.gate.com/ru/news/detail/claude-code-launches-auto-mode-ai-automatically-determines-execution-19754920",
+      "title": "Claude Code представляет Auto Mode: ИИ автоматически определяет права ...",
+      "from_query": "claude code auto mode новости 2026"
+    },
+    {
+      "url": "https://arte.itlibra.com/ru/articles/claude-code-permission-modes",
+      "title": "Режимы разрешений Claude Code: 5 режимов",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/permission-modes",
+      "title": "Выберите режим разрешений - Claude Code Docs",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/permissions",
+      "title": "Настройка разрешений - Claude Code Docs",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://startdebugging.net/ru/2026/07/claude-code-2-1-200-renames-default-permission-mode-to-manual/",
+      "title": "Claude Code 2.1.200 переименовывает режим разрешений по умолчанию в ...",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://arte.itlibra.com/ru/articles/claude-code-permission-rules-settings",
+      "title": "Claude Code: правила разрешений и settings.json",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://matveev.tech/claude-code-permissions-sandbox/",
+      "title": "Разрешения в Claude Code: allow, deny, sandbox (2026)",
+      "from_query": "claude code режим разрешений 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/auto-mode-config",
+      "title": "Настройка режима auto - Claude Code Docs",
+      "from_query": "настройка auto mode claude code 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=X-df83DUzVM",
+      "title": "One File That Changes Everything in Claude Code (2026)",
+      "from_query": "настройка auto mode claude code 2026"
+    },
+    {
+      "url": "https://www.claudedirectory.org/blog/claude-code-permissions-guide",
+      "title": "Claude Code Permissions (2026): Allow Lists, Deny Rules, and Sandboxing ...",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/permissions",
+      "title": "Configure permissions - Claude Code Docs",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://skillsplayground.com/guides/claude-code-permissions/",
+      "title": "Claude Code Permissions, Sandbox & Security (2026)",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/settings",
+      "title": "Claude Code settings - Claude Code Docs",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://vantagepoint.io/blog/ai/anthropic/claude-code-admin-settings-business-guide",
+      "title": "Claude Code Admin Settings Guide 2026: Permissions, Auto Mode",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://www.developersdigest.tech/blog/claude-code-permissions-settings-guide",
+      "title": "Claude Code Permissions: A Practical settings.json Guide for Allow ...",
+      "from_query": "claude code permissions settings 2026"
+    },
+    {
+      "url": "https://github.com/shanraisshan/claude-code-best-practice/blob/main/best-practice/claude-settings.md",
+      "title": "claude-code-best-practice/best-practice/claude-settings.md at main ...",
+      "from_query": "claude auto-mode config environment 2026"
+    },
+    {
+      "url": "https://easyclaw.com/blog/knowledge/claude-code-auto-mode-guide/",
+      "title": "Claude Code Auto Mode: The Complete Developer Guide for 2026 — EasyClaw",
+      "from_query": "claude auto-mode config environment 2026"
+    },
+    {
+      "url": "https://a2a-mcp.org/blog/how-to-use-claude-code-auto-mode",
+      "title": "How to Use Claude Code Auto Mode: Step-by-Step Tutorial (2026)",
+      "from_query": "claude auto-mode config environment 2026"
+    },
+    {
+      "url": "https://github.com/johnzfitch/claude-wiki/blob/master/02-Claude-Code-CLI/auto-mode-config-f0dacf5866.md",
+      "title": "claude-wiki/02-Claude-Code-CLI/auto-mode-config-f0dacf5866.md ... - GitHub",
+      "from_query": "claude auto-mode config environment 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987094/",
+      "title": "Claude Code: практический гайд по настройке, автоматизации и работе с ...",
+      "from_query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026"
+    },
+    {
+      "url": "https://thecode.media/claude-code-gajd/",
+      "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+      "from_query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026"
+    },
+    {
+      "url": "https://vc.ru/id17467/2811948-novyj-rezhim-auto-mode-v-claude-code",
+      "title": "Auto mode в Claude Code — Сергей Пахандрин на vc.ru",
+      "from_query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/kak-zashchitit-claude-code-ot-polomok",
+      "title": "Как настроить Claude Code, чтобы он не сломал проект: гайд 2026",
+      "from_query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026"
+    }
+  ]
+}

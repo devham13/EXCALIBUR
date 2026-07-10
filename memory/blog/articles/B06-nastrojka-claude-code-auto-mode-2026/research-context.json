@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-10",
+    "today_ru": "10.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "пятница",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-11",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-10 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-claude-code-auto-mode-2026",
+    "h1": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году",
+    "primary_query": "claude code auto mode",
+    "secondary_queries": [
+      "claude code режим разрешений",
+      "настройка auto mode claude code",
+      "claude code permissions settings",
+      "claude auto-mode config environment"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code auto mode 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code auto mode июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code auto mode новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code режим разрешений 2026",
+      "purpose": "вторичный запрос: claude code режим разрешений"
+    },
+    {
+      "id": "secondary_2",
+      "query": "настройка auto mode claude code 2026",
+      "purpose": "вторичный запрос: настройка auto mode claude code"
+    },
+    {
+      "id": "secondary_3",
+      "query": "claude code permissions settings 2026",
+      "purpose": "вторичный запрос: claude code permissions settings"
+    },
+    {
+      "id": "secondary_4",
+      "query": "claude auto-mode config environment 2026",
+      "purpose": "вторичный запрос: claude auto-mode config environment"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Auto Mode в Claude Code: пошаговая инструкция для безопасной автоматизации в 2026 году 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastrojka-claude-code-auto-mode-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

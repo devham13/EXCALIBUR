@@ -1,0 +1,188 @@
+<p>Длинная задача в Claude Code упирается в десятки подтверждений: push, тесты, деплой. Auto Mode снимает рутину, но не отключает защиту, как флаг --dangerously-skip-permissions. За 20–40 минут вы проверите eligibility, включите auto через Shift+Tab или CLI, пропишете autoMode.environment в ~/.claude/settings.json, проверите правила через claude auto-mode config и пройдете чеклист перед unattended-сессией.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Auto Mode – режим, где классификатор решает, можно ли выполнить tool call без вашего клика. Настройка только в ~/.claude/settings.json: defaultMode, autoMode.environment с "$defaults", при необходимости hard_deny. Проверка: claude auto-mode defaults → claude auto-mode config. Не путайте с /goal и не используйте bypass permissions на prod.</blockquote>
+
+<p>Auto Mode вышел 24 марта 2026 как research preview permission mode. По данным Anthropic, пользователи вручную одобряют 93% permission prompts – значит, узкое место не в "опасности", а в частых кликах. Классификатор (отдельная проверка перед tool call) видит ваши сообщения и вызовы инструментов, но не внутренние рассуждения ассистента. При 3 блокировках подряд или 20 суммарно сессия эскалирует к человеку. Запись файлов внутри проекта часто идет без классификатора – Tier 2 в терминологии docs.</p>
+
+<h2 id="compare-modes">1. Сравните Auto Mode с Manual и bypass permissions</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица режимов Claude Code: Manual, Auto Mode и bypass permissions" loading="lazy">
+</figure>
+
+
+<p>Permission mode задает, кто жмет "разрешить" перед действием агента. Manual спрашивает почти всегда. acceptEdits принимает правки файлов. plan строит план. auto добавляет классификатор на остальные calls. --dangerously-skip-permissions отключает проверки – как ехать без ремня.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Режим</th>
+      <th>Когда</th>
+      <th>Защита</th>
+      <th>Риск</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Manual</b></td>
+      <td>Новый репо, prod</td>
+      <td>Максимальная</td>
+      <td>Много кликов</td>
+    </tr>
+    <tr>
+      <td><b>acceptEdits / plan</b></td>
+      <td>Локальный рефакторинг</td>
+      <td>Средняя</td>
+      <td>Shell все еще спрашивает</td>
+    </tr>
+    <tr>
+      <td><b>Auto Mode</b></td>
+      <td>Refactor + tests на доверенной инфра</td>
+      <td>Классификатор + deny</td>
+      <td>False positive (~8.5%) или пропуск (~17% FNR)</td>
+    </tr>
+    <tr>
+      <td><b>--dangerously-skip-permissions</b></td>
+      <td>Только изолированный sandbox</td>
+      <td>Минимальная</td>
+      <td>Force push, curl | bash</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Для unattended на shared infra – <b>auto mode</b> с autoMode.environment. Bypass – только в контейнере без секретов. Auto не равен /goal: auto убирает prompts на tool внутри хода, /goal оценивает прогресс между ходами. См. также <a href="/dinamicheskie-workflow-claude-code/">динамические workflow Claude Code</a>.
+</blockquote>
+
+<p><b>Делайте:</b> сначала manual, потом auto. <b>Не делайте:</b> bypass на репо с deploy keys.</p>
+
+<h2 id="requirements">2. Проверьте требования: план, модель и env</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист требований для Claude Code Auto Mode: план, модель и переменные окружения" loading="lazy">
+</figure>
+
+
+<p>Нужен Claude Code v2.1.83+ (claude --version). Auto на всех планах; на Team/Enterprise Owner включает в admin. Модели: API – Opus 4.6+ или Sonnet 4.6+; Bedrock/Vertex/Foundry – Sonnet 5, Opus 4.7/4.8. Там auto выключен без CLAUDE_CODE_ENABLE_AUTO_MODE=1 (v2.1.158+).</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Обновите CLI, выполните claude --version.</li>
+  <li><b>Шаг 2:</b> Проверьте модель из списка eligibility.</li>
+  <li><b>Шаг 3:</b> На Team/Enterprise – Owner включил auto; нет disableAutoMode: "disable".</li>
+  <li><b>Шаг 4:</b> На cloud – CLAUDE_CODE_ENABLE_AUTO_MODE=1 в env.</li>
+  <li><b>Шаг 5:</b> Если auto нет в Shift+Tab – сверьте пункты 1–4, перезапустите сессию.</li>
+</ol>
+
+<p><b>Делайте:</b> фиксируйте версию CLI в README. <b>Не делайте:</b> полагаться на анонс "только Team" от 24.03 – docs на июль 2026 указывает все планы.</p>
+
+<h2 id="enable-auto">3. Включите Auto Mode: Shift+Tab, CLI и defaultMode</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Схема включения Auto Mode: Shift+Tab, CLI-флаг и defaultMode в settings.json" loading="lazy">
+</figure>
+
+
+<p>В активной сессии нажимайте Shift+Tab: default → acceptEdits → plan → auto (если eligible). Первый вход в auto – one-time opt-in: вы явно соглашаетесь с правилами research preview. Для одной сессии без переключения: claude --permission-mode auto. Чтобы каждый запуск стартовал в auto, добавьте defaultMode: "auto" в ~/.claude/settings.json (Linux/macOS) или %USERPROFILE%\.claude\settings.json (Windows). С v2.1.142+ project-level .claude/settings.json и settings.local.json игнорируют defaultMode: "auto" – это защита от подмены правил через pull чужого репо.</p>
+
+<blockquote>
+  <b>Workflow:</b> Eligibility → Shift+Tab или --permission-mode auto → opt-in → defaultMode (опц.) → тест → /permissions → Recently denied
+</blockquote>
+
+<blockquote>{
+  "permissions": { "defaultMode": "auto" }
+}</blockquote>
+
+<p><b>Делайте:</b> user-level или managed policy. <b>Не делайте:</b> коммитить autoMode в shared .claude/settings.json – репозиторий не может inject allow rules.</p>
+
+<h2 id="automode-config">4. Настройте autoMode.environment и проверьте CLI</h2>
+
+<p>Блок autoMode – prose rules на английском, понятные классификатору. environment описывает контекст: trusted GitHub org, internal API, staging domains. allow перечисляет разрешенные паттерны, soft_deny – "спросить, если сомнение", hard_deny – красные линии без override. Всегда включайте "$defaults" в allow – иначе потеряете штатные блокировки Anthropic: curl | bash, force push, prod deploys, mass cloud delete, IAM grants. Приоритет правил: hard_deny → soft_deny → allow → explicit user intent (для soft). Репозиторий не может положить autoMode в shared settings – inject allow rules из pull request невозможен.</p>
+
+<blockquote>{
+  "permissions": { "defaultMode": "auto" },
+  "autoMode": {
+    "environment": "GitHub org mycompany. API api.mycompany.internal.",
+    "allow": ["$defaults", "git push github.com/mycompany/*", "npm test"],
+    "hard_deny": ["force push main", "delete cloud resources or IAM"]
+  }
+}</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> claude auto-mode defaults – baseline Anthropic.</li>
+  <li><b>Шаг 2:</b> claude auto-mode config – ваши effective rules.</li>
+  <li><b>Шаг 3:</b> claude auto-mode critique – sanity-check custom rules.</li>
+</ol>
+
+<p>При входе в auto сбрасываются Bash(*) и wildcard allows. Denials – /permissions → Recently denied (v2.1.193+ с reason). classifyAllShell: true прогоняет каждую shell-команду через классификатор.</p>
+
+<p><b>Делайте:</b> при false positive расширьте environment и повторите с explicit intent. <b>Не делайте:</b> удалять "$defaults".</p>
+
+<h2 id="layers">5. Усильте защиту: hooks, sandbox и managed deny</h2>
+
+<p>Четыре слоя перед unattended:</p>
+
+<ul>
+  <li><b>Managed permissions.deny</b> – до классификатора (prod creds, terraform destroy).</li>
+  <li><b>autoMode hard_deny</b> – красные линии org в user settings.</li>
+  <li><b>Hooks PermissionDenied</b> – лог или стоп; см. <a href="/claude-code-hooks-nastrojka-2026/">гайд hooks</a>.</li>
+  <li><b>Sandbox</b> – эксперименты без prod secrets.</li>
+</ul>
+
+<p>Managed permissions.deny срабатывает до классификатора и не перебивается allow rules – используйте для terraform destroy, kubectl delete, доступа к vault. Hook PermissionDenied позволяет программно отреагировать на deny: записать в лог, отправить alert, остановить loop. Sandbox изолирует эксперименты: даже при ошибке классификатора prod credentials недостижимы. MCP-лимиты auto не отменяет – сверьте <a href="/nastroyka-claude-code-mcp/">настройку MCP</a>. Classifier calls добавляют latency и tokens на tool calls – закладывайте запас в бюджет, фиксированный процент без billing docs не называйте.</p>
+
+<p><b>Делайте:</b> тест refactor + tests на безопасном репо. <b>Не делайте:</b> unattended на monorepo с prod deploy hooks.</p>
+
+<h2 id="checklist">6. Пройдите чеклист безопасного запуска</h2>
+
+<ul>
+  <li>Claude Code v2.1.83+, версия в onboarding</li>
+  <li>Модель Sonnet 4.6+ / Opus 4.6+ в runbook</li>
+  <li>Owner включил auto; нет disableAutoMode</li>
+  <li>CLAUDE_CODE_ENABLE_AUTO_MODE=1 на cloud при необходимости</li>
+  <li>defaultMode и autoMode только user/managed settings</li>
+  <li>"$defaults" в autoMode.allow</li>
+  <li>environment описывает trusted orgs и domains</li>
+  <li>hard_deny: force push, prod deploy, IAM, mass delete</li>
+  <li>claude auto-mode config пройден до prod</li>
+  <li>Managed permissions.deny для destructive команд</li>
+  <li>Hook PermissionDenied протестирован</li>
+  <li>Sandbox для экспериментов; prod keys вне reach</li>
+  <li>Тестовая unattended без неожиданных deny</li>
+  <li>Runbook при 3 consecutive denials</li>
+  <li>Запрет bypass на shared infra в policy</li>
+</ul>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Включите auto на тестовом репо через Shift+Tab.</li>
+  <li>Добавьте environment и hard_deny в settings.json.</li>
+  <li>Сохраните вывод claude auto-mode config в wiki.</li>
+  <li>Подключите hooks и MCP по гайдам выше.</li>
+  <li>Для цепочек IDE + публикация – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a>: Claude готовит, Make публикует 24/7.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, Claude Code, Make, MCP).<br>
+  <b>Достоверность данных:</b> версии CLI, autoMode и метрики (93% approve, FPR 8.5%, FNR 17%) сверены с <a href="https://code.claude.com/docs/en/auto-mode-config" target="_blank">docs Anthropic</a> на 10.07.2026. Wordstat по "claude code auto mode" в этом прогоне недоступен (MCP offline).
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем auto mode отличается от --dangerously-skip-permissions?</h3>
+<p>Auto пропускает безопасные tool calls через двухстадийный классификатор и блокирует опасные: force push, curl | bash, prod deploys. Bypass (--dangerously-skip-permissions) отключает почти все permission prompts. На prod и shared infra используйте auto с настроенным autoMode.environment и hard_deny; bypass оставьте для одноразового sandbox без API keys и deploy tokens.</p>
+
+<h3>Можно ли включить auto mode в settings проекта?</h3>
+<p>Нет. С v2.1.142+ defaultMode: "auto" и autoMode игнорируются в .claude/settings.json проекта – только ~/.claude/settings.json или managed.</p>
+
+<h3>Почему auto mode не появляется в Shift+Tab?</h3>
+<p>Проверьте: CLI 2.1.83+, модель Sonnet 4.6+/Opus 4.6+, Owner enablement, CLAUDE_CODE_ENABLE_AUTO_MODE=1 на cloud, нет disableAutoMode. Перезапустите сессию.</p>
+
+<h3>Как администратор Team отключает auto mode?</h3>
+<p>permissions.disableAutoMode: "disable" в managed settings. Auto недоступен до снятия ограничения.</p>
+
+<h3>Сколько стоит auto mode по токенам?</h3>
+<p>Classifier calls добавляют latency и tokens. Точный процент зависит от задачи – смотрите usage в консоли Anthropic без выдуманных цифр.</p>
+
+<h3>Что делать при блокировке легитимного push?</h3>
+<p>Откройте /permissions → Recently denied и прочитайте reason (v2.1.193+). Добавьте GitHub org и branch policy в autoMode.environment, обновите allow rules, выполните claude auto-mode config для сверки effective rules. Повторите push с explicit intent в prompt: укажите org, repo и ветку. Если блокировка повторяется – рассмотрите classifyAllShell: true или soft_deny вместо hard block.</p>
+
+<h3>Auto mode или /goal?</h3>
+<p>Auto – per-tool prompts внутри хода. /goal – evaluator между ходами. Режимы дополняют друг друга.</p>

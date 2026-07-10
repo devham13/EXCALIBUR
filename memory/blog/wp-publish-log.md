@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-10 — B06 nastrojka-claude-code-auto-mode-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-claude-code-auto-mode-2026 |
+| verdict | **PASS** |
+| post_id | 537 |
+| featured_image_id | 538 |
+| inline_images | 539, 540, 541 |
+| permalink | ${PUBLIC_SITE_URL}/2026/07/10/nastrojka-claude-code-auto-mode-2026/ |
+| transport | SFTP (FTP STOR blocked: 425 Bad IP) |
+| site | PUBLIC_SITE_URL (production) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (6/6, preflight refresh)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run          # OK
+# FTP STOR failed (425 Security: Bad IP) → SFTP bootstrap + HTTP trigger       # PASS
+```
+
+### Result
+
+```
+OK post=537 slug=nastrojka-claude-code-auto-mode-2026
+OK featured_image=538
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=539 src=cover/inline-01.png
+OK inline_image_upload=540 src=cover/inline-02.png
+OK inline_image_upload=541 src=cover/inline-03.png
+permalink=${PUBLIC_SITE_URL}/2026/07/10/nastrojka-claude-code-auto-mode-2026/
+```

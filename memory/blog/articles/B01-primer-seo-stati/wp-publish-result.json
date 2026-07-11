@@ -1,0 +1,15 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 597,
+  "inline_image_ids": [
+    598,
+    599,
+    600
+  ],
+  "publish_method": "ssh_scp_fallback (FTP blocked: Bad IP)",
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=597\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=598 src=cover/inline-01.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-01-21.png\nOK inline_image_upload=599 src=cover/inline-02.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-02-21.png\nOK inline_image_upload=600 src=cover/inline-03.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-03-21.png\npermalink=/2026/06/19/primer-seo-stati/",
+  "verdict": "pass"
+}

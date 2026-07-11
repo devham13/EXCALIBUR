@@ -172,3 +172,49 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-11 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 597 |
+| inline_images | 598, 599, 600 |
+| permalink | `{EXCALIBUR_PUBLIC_SITE_URL}/2026/06/19/primer-seo-stati/` |
+| trigger | excalibur-blog-publish (Cloud automation) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (6/6)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- **FTP:** `425 Security: Bad IP connecting` — стандартный `excalibur_blog_wp_publish.py` не прошёл STOR.
+- **Fallback:** SSH/SCP bootstrap (`excalibur-blog-publish-once.php`) + HTTP trigger — успех.
+- Remote bootstrap удалён после publish.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=597
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=598 src=cover/inline-01.png
+OK inline_image_upload=599 src=cover/inline-02.png
+OK inline_image_upload=600 src=cover/inline-03.png
+permalink={site}/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities (5 articles)

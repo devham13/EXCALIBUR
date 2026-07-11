@@ -8,6 +8,7 @@ import ftplib
 import io
 import json
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -291,9 +292,23 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    php_bytes = php.encode("utf-8")
+    max_stor_attempts = int(env.get("FTP_STOR_MAX_ATTEMPTS", "50"))
+    for attempt in range(1, max_stor_attempts + 1):
+        try:
+            ftp = ftp_connect()
+            ftp.storbinary(f"STOR {remote}", io.BytesIO(php_bytes))
+            ftp.quit()
+            break
+        except (ftplib.error_temp, OSError) as exc:
+            try:
+                ftp.quit()
+            except Exception:
+                pass
+            if attempt >= max_stor_attempts:
+                raise RuntimeError(f"FTP STOR failed after {max_stor_attempts} attempts: {exc}") from exc
+            print(f"FTP STOR attempt {attempt}/{max_stor_attempts} failed ({exc}); retrying...", file=sys.stderr)
+            time.sleep(2)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -312,7 +327,6 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         fallback_file = project_root() / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
         
-        import time
         for i in range(120):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")

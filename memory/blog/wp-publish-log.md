@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-11 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 583 |
+| inline_images | 584, 585, 586 |
+| permalink | /2026/06/19/primer-seo-stati/ |
+| trigger | Cloud automation publish (FTP + WebFetch fallback) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (7/7)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- FTP STOR flaky (`425 Security: Bad IP connecting`) — resolved via `FTP_STOR_MAX_ATTEMPTS=50` retry in `excalibur_blog_wp_publish.py`
+- HTTP trigger timeout (15s) — Cloud WebFetch/curl fallback (300s) → `memory/webfetch-response.txt`
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=583
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=584 src=cover/inline-01.png
+OK inline_image_upload=585 src=cover/inline-02.png
+OK inline_image_upload=586 src=cover/inline-03.png
+permalink=/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (B01→B04 already applied at indexer)

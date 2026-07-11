@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
-Live URL: https://... (заполнить после publish)
+Дата публикации: 2026-07-11  
+Live URL: /2026/06/19/primer-seo-stati/ (full URL in wp-publish-result.json)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -27,21 +27,22 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 
 • Один longread вместо двух проектов: интент, H2-чанки, BlogPosting + FAQPage
 • Lead 350–500 знаков, атомарные блоки для нейропоиска
-• Чеклист из 15 пунктов перед публикацией
+• Чеклист из 16 пунктов перед публикацией
 
-Читать: [URL]
+Читать: /2026/06/19/primer-seo-stati/
 ```
 
 ## Перелинковка
 
 - [ ] Добавить ссылку на новый пост с главной blog section (если Aurora не auto)
-- [ ] Обновить 1–2 старых поста → link to new (если есть)
+- [ ] Обновить B04 → link to B01 на упоминании «пример SEO-статьи» (href после publish)
+- [ ] После publish — перезапустить `excalibur_blog_interlinker.py --apply --site-base https://mayai.ru` для inbound из B02/B03/B05
 
 ## Метрики (7 дней)
 
 - [ ] Metrika / GA4 — goal `blog_read` или из conversion map
-- [ ] Позиция primary query (ручная проверка / Wordstat)
+- [ ] Позиция primary query «как писать seo статьи» (ручная проверка / Wordstat)
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-07-11): interlinker --apply — 0 автоматических вставок (5 статей в `memory/blog/articles`; slug `geo-optimizaciya-sajta-2026` уже в B01, anchor_variants B02/B03/B05 не встречаются в тексте B01). Outbound в B01: `/` (главная блога), `/geo-optimizaciya-sajta-2026/` (B04). llms.txt и llms-full.txt обновлены: 5 статей. Отчёт: `memory/blog/interlink-suggestions.json`.

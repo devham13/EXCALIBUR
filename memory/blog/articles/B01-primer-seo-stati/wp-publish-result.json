@@ -1,0 +1,16 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://example.com/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 632,
+  "inline_images": [
+    633,
+    634,
+    635
+  ],
+  "bootstrap_transport": "sftp",
+  "trigger": "webfetch_fallback",
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=632\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=633 src=cover/inline-01.png url=https://example.com/wp-content/uploads/2026/06/primer-seo-stati-inline-01-26.png\nOK inline_image_upload=634 src=cover/inline-02.png url=https://example.com/wp-content/uploads/2026/06/primer-seo-stati-inline-02-26.png\nOK inline_image_upload=635 src=cover/inline-03.png url=https://example.com/wp-content/uploads/2026/06/primer-seo-stati-inline-03-26.png\npermalink=https://example.com/2026/06/19/primer-seo-stati/",
+  "verdict": "pass"
+}

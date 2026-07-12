@@ -1,0 +1,15 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "post_id": 238,
+  "permalink": "/2026/06/19/primer-seo-stati/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1440625,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=613\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=614 src=cover/inline-01.png\nOK inline_image_upload=615 src=cover/inline-02.png\nOK inline_image_upload=616 src=cover/inline-03.png\npermalink=/2026/06/19/primer-seo-stati/\n",
+  "verdict": "pass"
+}

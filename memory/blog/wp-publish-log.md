@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-12 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 632 |
+| inline_images | 633, 634, 635 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| bootstrap | SFTP fallback (FTP 425 Bad IP) + WebFetch/curl fallback (HTTP 15s timeout) |
+| trigger | `/excalibur-blog-run topic_id: B01 publish: yes` |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (8/8, preflight 2026-07-12)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP 8054354 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # SFTP upload OK; HTTP trigger timeout → WebFetch
+curl -m 600 $PUBLIC_SITE_URL/excalibur-blog-publish-once.php → memory/webfetch-response.txt
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=632
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=633 src=cover/inline-01.png
+OK inline_image_upload=634 src=cover/inline-02.png
+OK inline_image_upload=635 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Notes
+
+- Cloud Agent FTP data channel blocked (425 Security: Bad IP). Added SFTP fallback in `excalibur_blog_wp_publish.py`.
+- Bootstrap PHP (~8 MB payload) exceeds default 15s HTTP read timeout; used curl/WebFetch with 600s timeout.
+- Bootstrap file removed via SFTP after publish.

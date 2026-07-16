@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "TL;DR / Быстрый инсайт: Dynamic workflow – JavaScript-скрипт, который Claude пишет под задачу; runtime запускает десятки субагентов в фоне, а промежуточные данные хранятся в переменных скрипта, а не в окне чата",
+      "word_count": 30
+    },
+    {
+      "sentence": "Критерий Subagents / Skills Agent teams Dynamic workflows Кто оркестрирует Claude по turn в чате Lead-агент + peers JS-скрипт + runtime Где данные между шагами Context window чата Общий task list Переменные скрипта Масштаб Несколько задач за turn Handful peers Десятки–сотни агентов (до 16 параллельно) Прерывание Restart turn Teammates продолжают Resume в той же сессии Когда брать Точечная делегация Долгие peer-сессии Аудит, migration, research на весь repo Итоговый вердикт: Для \"проверь один файл\" хватит subagents",
+      "word_count": 72
+    },
+    {
+      "sentence": "Схема первого прогона: claude --version → /config ON → узкий промпт (ultracode: или /deep-research) → approve plan → /workflows → save (s) → /effort high Безопасный первый run – не весь monorepo, а одна папка или один research-вопрос: Пример /deep-research: /deep-research Какие breaking changes в React 19 для migrate с 18",
+      "word_count": 42
+    },
+    {
+      "sentence": "Примените сценарии: аудит, migration и /deep-research Типовые задачи, где claude code ultracode окупается: Аудит legacy-кода: ultracode: пройти модуль X, собрать список deprecated API и missing tests",
+      "word_count": 26
+    },
+    {
+      "sentence": "154, Dynamic workflows ON Первый run – узкая папка или /deep-research MCP-tools в allowlist до длинного run Git-ветка перед migration с правками /workflows открыт, token totals под контролем Dynamic workflow size = small на v2",
+      "word_count": 31
+    },
+    {
+      "sentence": "202+ Pause (p) при росте токенов, stop (x) при ошибке Save (s) после проверки результата /effort high после ultracode Resume только в той же сессии CLI Отключение: /config, disableWorkflows или CLAUDE_CODE_DISABLE_WORKFLOWS=1 Делайте: смотреть token totals в /workflows как на счётчик расхода",
+      "word_count": 39
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.7,
+    "avg_syllables_per_word": 1.4
+  }
+}

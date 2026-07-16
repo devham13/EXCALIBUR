@@ -1,0 +1,8 @@
+{
+  "url": "local:cover/canvas-quad.png",
+  "mcp_server": "user-mcp-kv",
+  "mcp_tool": "gpt-image-2",
+  "mcp_status": "unavailable",
+  "fallback": "GenerateImage + blog-hero-reference.png i2i, resized 2048x1152",
+  "note": "CallMcpTool user-mcp-kv/gpt-image-2 failed: MCP server not configured in Cloud (MCP_KV_TOKEN absent). Canvas generated via fallback; split PASS."
+}

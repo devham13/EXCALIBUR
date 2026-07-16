@@ -1,0 +1,194 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/dinamicheskie-workflow-claude-code/#article",
+      "headline": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов",
+      "description": "Как запустить dynamic workflows в Claude Code: версия 2.1.154+, /config, ultracode, /workflows, save и чеклист токенов. Сравнение с subagents и MCP.",
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/dinamicheskie-workflow-claude-code/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/dinamicheskie-workflow-claude-code-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code workflow, claude code ultracode, dynamic workflows claude code, workflows claude code, claude code subagents workflow",
+      "wordCount": 8907,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/dinamicheskie-workflow-claude-code/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое ultracode в Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Два входа: ключевое слово ultracode: в одном промпте или команда /effort ultracode на сессию. Это xhigh reasoning плюс автоматическое планирование dynamic workflow для substantive tasks. После задачи верните /effort high – ultracode не для рутины на весь день."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем dynamic workflow отличается от agent teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Workflow – исполняемый JS-скрипт и runtime с переменными между шагами; teams – lead и peers в одном чате с общим task list. Workflow масштабируется на десятки агентов; teams – на handful peers. Выбирайте workflow для audit/migration всего repo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как сохранить workflow для повторного запуска?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте /workflows, выберите завершённый run и нажмите s (save). Файл попадёт в .claude/workflows/ проекта или ~/.claude/workflows/ для личных сценариев. Скрипт можно diff и relaunch без переписывания промпта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько токенов тратит dynamic workflow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Значительно больше обычной сессии – смотрите token totals в /workflows. Начните с узкой задачи или /deep-research. На v2.1.202+ поставьте Dynamic workflow size = small в /config. При росте расхода – p (pause) или x (stop)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая минимальная версия Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "v2.1.154 или новее. Проверка: claude --version в терминале. Релиз dynamic workflows – 28 мая 2026; фича GA на Pro, Max, Team, Enterprise и через API/Bedrock/Vertex."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужно ли включать dynamic workflows вручную на Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: /config → Dynamic workflows → ON. На Max, Team, Enterprise и при API – обычно включено по умолчанию. Enterprise-админ может отключить для организации."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли продолжить workflow после паузы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, в той же сессии Claude Code: /workflows → выберите run → p уже нажат для pause → resume из панели. Закрыли CLI – следующий запуск начинается с нуля, save помогает не потерять скрипт."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/dinamicheskie-workflow-claude-code/#howto",
+      "name": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов",
+      "description": "Как запустить dynamic workflows в Claude Code: версия 2.1.154+, /config, ultracode, /workflows, save и чеклист токенов. Сравнение с subagents и MCP.",
+      "inLanguage": "ru",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code v2.1.154 или новее"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте версию Claude Code",
+          "text": "В терминале выполните claude --version и убедитесь, что номер ≥ 2.1.154. При необходимости обновите через claude update.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#version-config"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Включите Dynamic workflows в /config",
+          "text": "Запустите Claude Code в проекте, откройте /config и переключите Dynamic workflows в ON (обязательно на Pro). На v2.1.202+ задайте Dynamic workflow size: small для экономии.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#version-config"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Добавьте MCP-tools в allowlist",
+          "text": "Перед длинным run добавьте нужные MCP-tools в allowlist, чтобы субагенты могли вызывать внешние сервисы без сюрпризов.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#version-config"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Запустите первый workflow",
+          "text": "Отправьте узкий промпт с ultracode: или команду /deep-research с конкретным вопросом. Claude покажет план – подтвердите запуск.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#first-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Контролируйте прогресс в /workflows",
+          "text": "Откройте /workflows и следите за token totals. При перерасходе – p (pause); полная остановка – x (stop).",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#workflows-panel"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Сохраните скрипт workflow",
+          "text": "После успешного run нажмите s (save). Файл попадёт в .claude/workflows/ проекта или ~/.claude/workflows/ для повторного запуска.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#workflows-panel"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Верните /effort high",
+          "text": "После задачи верните /effort high для рутины – ultracode не предназначен для работы на весь день.",
+          "url": "https://mayai.ru/dinamicheskie-workflow-claude-code/#workflows-panel"
+        }
+      ]
+    }
+  ]
+}

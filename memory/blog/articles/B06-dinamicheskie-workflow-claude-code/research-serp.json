@@ -1,0 +1,514 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-07",
+    "today_ru": "07.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-07 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "dinamicheskie-workflow-claude-code",
+    "h1": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов",
+    "primary_query": "claude code workflow",
+    "secondary_queries": [
+      "claude code ultracode",
+      "dynamic workflows claude code",
+      "claude code subagents workflow",
+      "/workflows claude code"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code workflow 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code in 2026: Practical End-to-End SDLC Workflow for Modern ...",
+          "url": "https://developersvoice.com/blog/ai/claude_code_2026_end_to_end_sdlc/",
+          "snippet": "Dynamic workflows in Claude Code let Claude tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you."
+        },
+        {
+          "title": "Claude Code Workflow Examples (2026): Plugins, Memory, Hooks I Run ...",
+          "url": "https://www.openaitoolshub.org/en/blog/claude-code-workflow-examples",
+          "snippet": "A practical, hands-on guide to using Claude Code across the full software development lifecycle. Learn real workflows for requirements, architecture, coding, testing, CI/CD, and Day 2 operations with human-in-the-loop control."
+        },
+        {
+          "title": "Claude Code Workflows - GitHub",
+          "url": "https://github.com/shinpr/claude-code-workflows",
+          "snippet": "Hands-on Claude Code workflow examples from 6 months of daily use across 12 repos. Plugin combinations, memory routing, hook recipes, and 4 setups I rolled back. May 2026 update with real .claude/skills paths and command outputs."
+        },
+        {
+          "title": "Claude Guide 2026: Fable 5, Claude Code, Cowork, Agents",
+          "url": "https://kersai.com/claude-platform-guide-june-2026-business-implementation/",
+          "snippet": "End-to-end development workflows for Claude Code that produce code aligned with design docs and tests. Specialized agents handle requirements, design, implementation, and quality checks, so what you get is code that actually passes its tests and matches its design docs."
+        },
+        {
+          "title": "Orchestrate subagents at scale with dynamic workflows - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/workflows",
+          "snippet": "This guide explains Claude Platform, Fable 5, Opus 4.8, Code, Cowork, scheduled tasks, routines, managed agents, MCP and how Kersai helps businesses implement Claude properly."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code workflow июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code in 2026: Practical End-to-End SDLC Workflow for Modern ...",
+          "url": "https://developersvoice.com/blog/ai/claude_code_2026_end_to_end_sdlc/",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Updates by Anthropic - July 2026 - Releasebot",
+          "url": "https://releasebot.io/updates/anthropic/claude-code",
+          "snippet": "A practical, hands-on guide to using Claude Code across the full software development lifecycle. Learn real workflows for requirements, architecture, coding, testing, CI/CD, and Day 2 operations with human-in-the-loop control."
+        },
+        {
+          "title": "Claude Code Workflow Examples (2026): Plugins, Memory, Hooks I Run ...",
+          "url": "https://www.openaitoolshub.org/en/blog/claude-code-workflow-examples",
+          "snippet": "Claude Code adds a Dynamic workflow size setting, richer workflow telemetry, and clearer /workflows, MCP, and remote control behavior. It also fixes a long list of crashes, login, sync, install, voice, and session issues, and restores /review to a fast single-pass flow."
+        },
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": "Hands-on Claude Code workflow examples from 6 months of daily use across 12 repos. Plugin combinations, memory routing, hook recipes, and 4 setups I rolled back. May 2026 update with real .claude/skills paths and command outputs."
+        },
+        {
+          "title": "Claude Code | Anthropic's agentic coding system",
+          "url": "https://www.anthropic.com/product/claude-code",
+          "snippet": "Update: Dynamic workflows are now generally available. Today we're introducing dynamic workflows in Claude Code, helping Claude take on the most challenging tasks end-to-end. Work you'd normally plan in quarters now finishes in days."
+        },
+        {
+          "title": "2026 Guide to Upgrading Claude Code Workflows - Geeky Gadgets",
+          "url": "https://www.geeky-gadgets.com/claude-code-evolution-2026/",
+          "snippet": "Claude Code is an agentic coding system that reads your codebase, makes changes across files, runs tests, and delivers committed code. For builders without an engineering background, it's an entry point to software development that didn't exist until recently."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code workflow новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code in 2026: Practical End-to-End SDLC Workflow for Modern ...",
+          "url": "https://developersvoice.com/blog/ai/claude_code_2026_end_to_end_sdlc/",
+          "snippet": ""
+        },
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": "A practical, hands-on guide to using Claude Code across the full software development lifecycle. Learn real workflows for requirements, architecture, coding, testing, CI/CD, and Day 2 operations with human-in-the-loop control."
+        },
+        {
+          "title": "2026 Guide to Upgrading Claude Code Workflows - Geeky Gadgets",
+          "url": "https://www.geeky-gadgets.com/claude-code-evolution-2026/",
+          "snippet": "Update: Dynamic workflows are now generally available. Today we're introducing dynamic workflows in Claude Code, helping Claude take on the most challenging tasks end-to-end. Work you'd normally plan in quarters now finishes in days."
+        },
+        {
+          "title": "Effective Claude Code Workflows in 2026: What Changed and What ... - Medium",
+          "url": "https://medium.com/data-science-collective/effective-claude-code-workflows-in-2026-what-changed-and-what-works-now-c93ebc6f8f50",
+          "snippet": "Discover how community-driven tools and advanced memory systems have quietly transformed Claude Code into a powerful workflow automation engine in 2026."
+        },
+        {
+          "title": "Что такое Claude Code? Самое полное руководство на 2026 год: установка ...",
+          "url": "https://www.gate.com/ru/news/detail/what-is-claude-code-the-most-complete-guide-for-2026-cli-installation-20448542",
+          "snippet": "Effective Claude Code Workflows in 2026: What Changed and What Works Now How to get the most out of Claude Code today, why the harness around the model matters more than the model alone, and what ..."
+        },
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": "Claude Code — это платформа для кодирования на базе ИИ, запущенная Anthropic в 2024 году и доведённая до зрелости в 2026 году."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code ultracode 2026",
+      "purpose": "вторичный запрос: claude code ultracode",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Ultracode in Claude Code: Effort Setting Explained",
+          "url": "https://claudefa.st/blog/guide/development/ultracode",
+          "snippet": "Dynamic workflows in Claude Code let Claude tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you."
+        },
+        {
+          "title": "Ultracode в Claude Code 2026: режим xhigh и dynamic workflows",
+          "url": "https://smyslokod.ru/guides/ultracode-v-claude-code",
+          "snippet": "It shipped in Claude Code v2.1.154 on May 28, 2026, alongside Claude Opus 4.8. This guide covers what ultracode is, how it differs from xhigh, max, and ultrathink, how to enable it, where it runs, and the open-ended token cost you need to understand before turning it on for routine work. What Ultracode Actually Is"
+        },
+        {
+          "title": "What Is \"ultracode\" Mode in Claude Code? Explained",
+          "url": "https://www.bitsminds.com/news/claude-code-ultra-code-mode-ultracode-explained-2026",
+          "snippet": "With ultracode on, Claude decides when a task warrants a workflow. A single request can turn into several workflows in a row: one to understand the code, one to make the change, and one to verify it."
+        },
+        {
+          "title": "Claude Code Ultracode: что это, как включить /effort ultracode и как не ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-ultracode",
+          "snippet": "Seen the violet \"ultracode\" in Claude Code and wondered what \"Ultra Code Mode\" is? Here is the focused how-it-works guide: what the setting does, how to turn it on with /effort ultracode or the ultracode keyword, what happens under the hood, and when not to use it."
+        },
+        {
+          "title": "Настройка effort в Claude Code: 5 уровней и Ultracode",
+          "url": "https://arte.itlibra.com/ru/articles/claude-code-effort-setting",
+          "snippet": "На 3 июня 2026 года Claude Code Ultracode — это не отдельная модель и не универсальная кнопка качества. Это настройка сессии Claude Code: модель получает xhigh effort, а Claude Code может автоматически оркестрировать dynamic workflows для существенных задач. Команда короткая: /effort ultracode."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "dynamic workflows claude code 2026",
+      "purpose": "вторичный запрос: dynamic workflows claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Orchestrate subagents at scale with dynamic workflows - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/workflows",
+          "snippet": "Today we're introducing dynamic workflows in Claude Code, helping Claude take on the most challenging tasks end-to-end. Work you'd normally plan in quarters now finishes in days."
+        },
+        {
+          "title": "Dynamic Workflows в Claude Code: запуск сотен агентов 2026",
+          "url": "https://smyslokod.ru/guides/dynamic-workflows-v-claude-code",
+          "snippet": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research."
+        },
+        {
+          "title": "Claude Code Dynamic Workflows: Scripts Replace Context Windows ...",
+          "url": "https://www.techtimes.com/articles/317363/20260529/claude-code-dynamic-workflows-scripts-replace-context-windows-ultracode-automates-orchestration.htm",
+          "snippet": "Dynamic workflows могут съедать существенно больше токенов, чем обычная сессия Claude Code, поэтому мы рекомендуем начинать на узкой задаче, чтобы прочувствовать расход на своей работе."
+        },
+        {
+          "title": "Claude Code Dynamic Workflows 2026: The Complete Guide to AI Agent ...",
+          "url": "https://ralphable.com/blog/claude-code-dynamic-workflows-2026-complete-guide-agent-harnesses",
+          "snippet": "Claude Code Dynamic Workflows, launched May 28, 2026, replaces context-window orchestration with a JavaScript script Claude writes on the fly for each task. Runs cap at 1,000 parallel subagents ..."
+        },
+        {
+          "title": "Claude Code Dynamic Workflows — Guide + 24 Copy-Paste Scripts",
+          "url": "https://awesomeclaude.ai/claude-code-workflows",
+          "snippet": "In this guide, you'll learn exactly how dynamic workflows operate, how to wield them for complex software tasks, and how Ralph Loop's generator turns your high‑level goals into battle‑tested agent orchestrations."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude code subagents workflow 2026",
+      "purpose": "вторичный запрос: claude code subagents workflow",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Subagents and Multi-Agent Workflows (2026)",
+          "url": "https://explainx.ai/blog/claude-code-subagents-multi-agent-workflows-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Subagents 2026: Setup Parallel Agents | Ivern AI Blog",
+          "url": "https://ivern.ai/blog/claude-code-subagents-multi-agent-guide-2026",
+          "snippet": "Learn how Claude Code subagents work — the orchestrator/worker model, git worktrees for isolation, parallel vs serial workflows, and real multi-agent patterns for coding tasks."
+        },
+        {
+          "title": "Claude Code Subagents: Parallel AI Workflows (2026) - agensi.io",
+          "url": "https://www.agensi.io/learn/claude-code-subagents-guide",
+          "snippet": "Instead of asking one Claude instance to do everything -- research, write code, run tests, review changes -- you delegate each task to a dedicated subagent that works in parallel and reports back with structured output."
+        },
+        {
+          "title": "Claude Code Agent Teams, Subagents, and MCP: The 2026 Playbook",
+          "url": "https://www.developersdigest.tech/blog/claude-code-agent-teams-subagents-2026",
+          "snippet": "Subagents in Claude Code are independent Claude instances that handle subtasks in parallel. Learn how to use /batch, explicit delegation, and combine subagents with skills."
+        },
+        {
+          "title": "Claude Code Subagents Tutorial: 8 Working Examples (2026)",
+          "url": "https://precisionaiacademy.com/insights/claude-code-subagents-tutorial-2026",
+          "snippet": "Developers want exact workflow maps: what subagents to create, what permissions to give them, when MCP is worth it, and how to keep the final diff reviewable. That is the 2026 Claude Code playbook."
+        },
+        {
+          "title": "Claude Code Subagents: Complete Guide to Parallel Agents",
+          "url": "https://www.vibecodingacademy.ai/blog/claude-code-subagents-complete-guide",
+          "snippet": "This tutorial walks through what subagents are in 2026, the three patterns that cover most real use cases, and eight working code examples you can drop into your own workflow today."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "/workflows claude code 2026",
+      "purpose": "вторичный запрос: /workflows claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Introducing dynamic workflows | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code in 2026: Practical End-to-End SDLC Workflow for Modern ...",
+          "url": "https://developersvoice.com/blog/ai/claude_code_2026_end_to_end_sdlc/",
+          "snippet": "Dynamic workflows in Claude Code let Claude tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you."
+        },
+        {
+          "title": "Orchestrate subagents at scale with dynamic workflows - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/workflows",
+          "snippet": "A practical, hands-on guide to using Claude Code across the full software development lifecycle. Learn real workflows for requirements, architecture, coding, testing, CI/CD, and Day 2 operations with human-in-the-loop control."
+        },
+        {
+          "title": "Claude Code Workflows - GitHub",
+          "url": "https://github.com/shinpr/claude-code-workflows",
+          "snippet": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research."
+        },
+        {
+          "title": "Claude Code Ultimate Guide - GitHub",
+          "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide",
+          "snippet": "End-to-end development workflows for Claude Code that produce code aligned with design docs and tests. Specialized agents handle requirements, design, implementation, and quality checks, so what you get is code that actually passes its tests and matches its design docs."
+        },
+        {
+          "title": "Claude Code Tutorial 2026: Complete Setup and Workflow Guide",
+          "url": "https://baeseokjae.github.io/posts/claude-code-tutorial-2026/",
+          "snippet": "This guide is the result of 6 months of daily practice with Claude Code. The goal isn't to be exhaustive (the tool evolves too fast), but to share what works in production."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Оркестрируйте множество подагентов с помощью динамических workflows",
+          "url": "https://code.claude.com/docs/ru/workflows",
+          "snippet": ""
+        },
+        {
+          "title": "Dynamic Workflows в Claude Code: запуск сотен агентов 2026",
+          "url": "https://smyslokod.ru/guides/dynamic-workflows-v-claude-code",
+          "snippet": "Dynamic workflows оркестрируют множество подагентов из скрипта, который пишет Claude, и вы можете его переиспользовать. Используйте их для аудитов кодовой базы, крупных миграций и перекрёстной проверки исследований."
+        },
+        {
+          "title": "Руководство по динамическим рабочим процессам Claude Code | QCode",
+          "url": "https://qcode.cc/ru/claude-code-dynamic-workflows-guide",
+          "snippet": "Claude динамически пишет скрипты-оркестраторы, которые запускают от десятков до сотен параллельных субагентов в одной сессии и проверяют свою работу до того, как результат доходит до ..."
+        },
+        {
+          "title": "Динамические рабочие процессы Claude Code: официальное пошаговое ...",
+          "url": "https://agentpedia.codes/ru/blog/claude-opus-4-8-claude-code-workflows",
+          "snippet": "Что такое динамические рабочие процессы в Claude Code, как запускать их с помощью ключевого слова workflow, ultracode и /deep-research, и когда применять их для аудитов, миграций и исследований."
+        },
+        {
+          "title": "Ultracode в Claude Code 2026: режим xhigh и dynamic workflows",
+          "url": "https://smyslokod.ru/guides/ultracode-v-claude-code",
+          "snippet": "Dynamic workflows let Claude Code turn a hard task into a script-driven, multi-agent run. This guide explains what launched on May 28, 2026, how to use it, and where the official docs draw the limits."
+        },
+        {
+          "title": "Dynamic Workflows в Claude Code — как это работает",
+          "url": "https://voicepad.ru/dynamic-workflows-claude-code.html",
+          "snippet": "Ultracode - это session-only настройка в Claude Code, которая совмещает максимальный уровень рассуждений (xhigh) с автоматической оркестрацией dynamic workflows."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://claude.com/blog/introducing-dynamic-workflows-in-claude-code",
+      "title": "Introducing dynamic workflows | Claude by Anthropic",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://developersvoice.com/blog/ai/claude_code_2026_end_to_end_sdlc/",
+      "title": "Claude Code in 2026: Practical End-to-End SDLC Workflow for Modern ...",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://www.openaitoolshub.org/en/blog/claude-code-workflow-examples",
+      "title": "Claude Code Workflow Examples (2026): Plugins, Memory, Hooks I Run ...",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://github.com/shinpr/claude-code-workflows",
+      "title": "Claude Code Workflows - GitHub",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://kersai.com/claude-platform-guide-june-2026-business-implementation/",
+      "title": "Claude Guide 2026: Fable 5, Claude Code, Cowork, Agents",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/workflows",
+      "title": "Orchestrate subagents at scale with dynamic workflows - Claude Code Docs",
+      "from_query": "claude code workflow 2026"
+    },
+    {
+      "url": "https://releasebot.io/updates/anthropic/claude-code",
+      "title": "Claude Code Updates by Anthropic - July 2026 - Releasebot",
+      "from_query": "claude code workflow июль 2026"
+    },
+    {
+      "url": "https://www.anthropic.com/product/claude-code",
+      "title": "Claude Code | Anthropic's agentic coding system",
+      "from_query": "claude code workflow июль 2026"
+    },
+    {
+      "url": "https://www.geeky-gadgets.com/claude-code-evolution-2026/",
+      "title": "2026 Guide to Upgrading Claude Code Workflows - Geeky Gadgets",
+      "from_query": "claude code workflow июль 2026"
+    },
+    {
+      "url": "https://medium.com/data-science-collective/effective-claude-code-workflows-in-2026-what-changed-and-what-works-now-c93ebc6f8f50",
+      "title": "Effective Claude Code Workflows in 2026: What Changed and What ... - Medium",
+      "from_query": "claude code workflow новости 2026"
+    },
+    {
+      "url": "https://www.gate.com/ru/news/detail/what-is-claude-code-the-most-complete-guide-for-2026-cli-installation-20448542",
+      "title": "Что такое Claude Code? Самое полное руководство на 2026 год: установка ...",
+      "from_query": "claude code workflow новости 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987382/",
+      "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+      "from_query": "claude code workflow новости 2026"
+    },
+    {
+      "url": "https://claudefa.st/blog/guide/development/ultracode",
+      "title": "Ultracode in Claude Code: Effort Setting Explained",
+      "from_query": "claude code ultracode 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/ultracode-v-claude-code",
+      "title": "Ultracode в Claude Code 2026: режим xhigh и dynamic workflows",
+      "from_query": "claude code ultracode 2026"
+    },
+    {
+      "url": "https://www.bitsminds.com/news/claude-code-ultra-code-mode-ultracode-explained-2026",
+      "title": "What Is \"ultracode\" Mode in Claude Code? Explained",
+      "from_query": "claude code ultracode 2026"
+    },
+    {
+      "url": "https://blog.laozhang.ai/ru/posts/claude-code-ultracode",
+      "title": "Claude Code Ultracode: что это, как включить /effort ultracode и как не ...",
+      "from_query": "claude code ultracode 2026"
+    },
+    {
+      "url": "https://arte.itlibra.com/ru/articles/claude-code-effort-setting",
+      "title": "Настройка effort в Claude Code: 5 уровней и Ultracode",
+      "from_query": "claude code ultracode 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/dynamic-workflows-v-claude-code",
+      "title": "Dynamic Workflows в Claude Code: запуск сотен агентов 2026",
+      "from_query": "dynamic workflows claude code 2026"
+    },
+    {
+      "url": "https://www.techtimes.com/articles/317363/20260529/claude-code-dynamic-workflows-scripts-replace-context-windows-ultracode-automates-orchestration.htm",
+      "title": "Claude Code Dynamic Workflows: Scripts Replace Context Windows ...",
+      "from_query": "dynamic workflows claude code 2026"
+    },
+    {
+      "url": "https://ralphable.com/blog/claude-code-dynamic-workflows-2026-complete-guide-agent-harnesses",
+      "title": "Claude Code Dynamic Workflows 2026: The Complete Guide to AI Agent ...",
+      "from_query": "dynamic workflows claude code 2026"
+    },
+    {
+      "url": "https://awesomeclaude.ai/claude-code-workflows",
+      "title": "Claude Code Dynamic Workflows — Guide + 24 Copy-Paste Scripts",
+      "from_query": "dynamic workflows claude code 2026"
+    },
+    {
+      "url": "https://explainx.ai/blog/claude-code-subagents-multi-agent-workflows-2026",
+      "title": "Claude Code Subagents and Multi-Agent Workflows (2026)",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://ivern.ai/blog/claude-code-subagents-multi-agent-guide-2026",
+      "title": "Claude Code Subagents 2026: Setup Parallel Agents | Ivern AI Blog",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://www.agensi.io/learn/claude-code-subagents-guide",
+      "title": "Claude Code Subagents: Parallel AI Workflows (2026) - agensi.io",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://www.developersdigest.tech/blog/claude-code-agent-teams-subagents-2026",
+      "title": "Claude Code Agent Teams, Subagents, and MCP: The 2026 Playbook",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://precisionaiacademy.com/insights/claude-code-subagents-tutorial-2026",
+      "title": "Claude Code Subagents Tutorial: 8 Working Examples (2026)",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://www.vibecodingacademy.ai/blog/claude-code-subagents-complete-guide",
+      "title": "Claude Code Subagents: Complete Guide to Parallel Agents",
+      "from_query": "claude code subagents workflow 2026"
+    },
+    {
+      "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide",
+      "title": "Claude Code Ultimate Guide - GitHub",
+      "from_query": "/workflows claude code 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/claude-code-tutorial-2026/",
+      "title": "Claude Code Tutorial 2026: Complete Setup and Workflow Guide",
+      "from_query": "/workflows claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/workflows",
+      "title": "Оркестрируйте множество подагентов с помощью динамических workflows",
+      "from_query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026"
+    },
+    {
+      "url": "https://qcode.cc/ru/claude-code-dynamic-workflows-guide",
+      "title": "Руководство по динамическим рабочим процессам Claude Code | QCode",
+      "from_query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026"
+    },
+    {
+      "url": "https://agentpedia.codes/ru/blog/claude-opus-4-8-claude-code-workflows",
+      "title": "Динамические рабочие процессы Claude Code: официальное пошаговое ...",
+      "from_query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026"
+    },
+    {
+      "url": "https://voicepad.ru/dynamic-workflows-claude-code.html",
+      "title": "Dynamic Workflows в Claude Code — как это работает",
+      "from_query": "Как запустить dynamic workflows в Claude Code: пошаговая инструкция по ultracode и оркестрации субагентов 2026"
+    }
+  ]
+}

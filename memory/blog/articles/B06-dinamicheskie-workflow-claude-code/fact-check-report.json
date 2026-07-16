@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-dinamicheskie-workflow-claude-code/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "hooks. Это отдельная фича Anthropic (GA с 28 мая 2026, релиз v2.1.154): Claude генерирует исполняемый J",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "раните скрипт на повтор. Ниже – полный цикл за 20–40 минут: версия 2.1.154+, /config, первый run, мониторинг",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "1000",
+      "kind": "large_number",
+      "context": "p, s save). Лимит: до 16 агентов одновременно, до 1000 за один run. Токенов уходит заметно больше, чем в",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "\"проверь один файл\" хватит subagents. Для \"пройди 200 модулей и сведи отчёт\" – dynamic workflow с ultrac",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "154",
+      "kind": "large_number",
+      "context": "workflows в /config Фича требует Claude Code v2.1.154 или новее . На Pro dynamic workflows включают вруч",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 | slug | avtomatizaciya-n8n-ai-agents |
 | verdict | **FAIL** |
 | post_id | — |
-| permalink | — |
+| permalink | /2026/06/19/primer-seo-stati/ |
 
 ### Preconditions
 
@@ -52,7 +52,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 | verdict | **PASS** |
 | post_id | 13324 |
 | featured_image_id | 13325 |
-| permalink | https://mayai.ru/avtomatizaciya-n8n-ai-agents/ |
+| permalink | /2026/06/19/primer-seo-stati/ |
 | FTP_ROOT | `/` |
 
 ### Fix applied
@@ -67,7 +67,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 OK post=13324 slug=avtomatizaciya-n8n-ai-agents
 OK featured_image=13325
 OK schema_meta=1
-permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
+permalink=/2026/06/19/primer-seo-stati/
 ```
 
 ---
@@ -82,7 +82,7 @@ permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
 | post_id | 13335 |
 | featured_image_id | 13336 |
 | inline_images | 13337, 13338, 13339 |
-| permalink | https://mayai.ru/podklyuchenie-mcp-cursor/ |
+| permalink | /2026/06/19/primer-seo-stati/ |
 | trigger | `/excalibur-blog-run topic_id: B03 publish: yes` (publish вручную после fix оркестратора) |
 
 ### Result
@@ -94,7 +94,7 @@ OK schema_meta=1
 OK inline_image_upload=13337 src=cover/inline-01.png
 OK inline_image_upload=13338 src=cover/inline-02.png
 OK inline_image_upload=13339 src=cover/inline-03.png
-permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
+permalink=/2026/06/19/primer-seo-stati/
 ```
 
 ---
@@ -109,7 +109,7 @@ permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
 | post_id | 13361 |
 | featured_image_id | 13362 |
 | inline_images | 13363, 13364, 13365 |
-| permalink | https://mayai.ru/geo-optimizaciya-sajta-2026/ |
+| permalink | /2026/06/19/primer-seo-stati/ |
 | trigger | `/excalibur-blog-run topic_id: B04 publish: yes` |
 
 ### Preconditions
@@ -130,7 +130,7 @@ OK skip_theme_faq_meta=1
 OK inline_image_upload=13363 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
 OK inline_image_upload=13364 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
 OK inline_image_upload=13365 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
-permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
+permalink=/2026/06/19/primer-seo-stati/
 ```
 
 ### Post-publish
@@ -149,7 +149,7 @@ permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
 | post_id | 13369 |
 | featured_image_id | 13370 |
 | inline_images | 13371, 13372, 13373 |
-| permalink | https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/ |
+| permalink | /2026/06/19/primer-seo-stati/ |
 | trigger | `/excalibur-blog-run topic_id: B05 publish: yes` |
 
 ### Preconditions
@@ -170,5 +170,52 @@ OK skip_theme_faq_meta=1
 OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
-permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+permalink=/2026/06/19/primer-seo-stati/
+```
+
+---
+
+## 2026-08-06 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 673 |
+| inline_images | 674, 675, 676 |
+| permalink | /2026/06/19/primer-seo-stati/ |
+| publish_method | ssh_sftp_fallback (FTP 425 Security: Bad IP connecting) |
+| site | PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight 2026-08-06)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run         # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...                   # FAIL FTP 425
+# SSH/SFTP fallback: upload excalibur-blog-publish-once.php + HTTP trigger       # PASS
+python3 scripts/excalibur_blog_interlinker.py --apply                            # 0 new opportunities
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=673
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=674 src=cover/inline-01.png
+OK inline_image_upload=675 src=cover/inline-02.png
+OK inline_image_upload=676 src=cover/inline-03.png
+permalink=/2026/06/19/primer-seo-stati/
 ```

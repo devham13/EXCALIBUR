@@ -275,25 +275,97 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
+def _ftp_root(env: dict[str, str]) -> str:
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
     if not ftp_root.startswith("/"):
         ftp_root = "/" + ftp_root
     if not ftp_root.endswith("/"):
         ftp_root += "/"
+    return ftp_root
 
-    def ftp_connect() -> ftplib.FTP:
+
+def _upload_bootstrap(env: dict[str, str], remote: str, php: str) -> str:
+    """Upload bootstrap PHP; returns transport used ('ftp' or 'sftp')."""
+    ftp_root = _ftp_root(env)
+    data = php.encode("utf-8")
+
+    def try_ftp() -> None:
         ftp = ftplib.FTP()
         ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
         ftp.login(env["FTP_USER"], env["FTP_PASS"])
         ftp.set_pasv(True)
         ftp.cwd(ftp_root)
-        return ftp
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+        ftp.quit()
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    try:
+        try_ftp()
+        return "ftp"
+    except (ftplib.error_temp, ftplib.error_perm, OSError) as exc:
+        print(f"FTP upload failed ({type(exc).__name__}: {exc}); trying SFTP...")
+
+    try:
+        import paramiko
+    except ImportError as exc:
+        raise RuntimeError("FTP upload failed and paramiko is not installed for SFTP fallback") from exc
+
+    host = env.get("SFTP_HOST") or env["FTP_HOST"]
+    user = env.get("SFTP_USER") or env["FTP_USER"]
+    password = env.get("SFTP_PASSWORD") or env.get("SFTP_PASS") or env["FTP_PASS"]
+    port = int(env.get("SFTP_PORT", "22"))
+    remote_path = (ftp_root.rstrip("/") + "/" + remote).replace("//", "/")
+
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        with sftp.file(remote_path.lstrip("/"), "w") as handle:
+            handle.write(data)
+    finally:
+        sftp.close()
+        transport.close()
+    print(f"SFTP upload OK ({remote_path.lstrip('/')})")
+    return "sftp"
+
+
+def _delete_bootstrap(env: dict[str, str], remote: str, transport: str) -> None:
+    ftp_root = _ftp_root(env)
+    if transport == "ftp":
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+        return
+
+    import paramiko
+
+    host = env.get("SFTP_HOST") or env["FTP_HOST"]
+    user = env.get("SFTP_USER") or env["FTP_USER"]
+    password = env.get("SFTP_PASSWORD") or env.get("SFTP_PASS") or env["FTP_PASS"]
+    port = int(env.get("SFTP_PORT", "22"))
+    remote_path = (ftp_root.rstrip("/") + "/" + remote).replace("//", "/")
+
+    transport_conn = paramiko.Transport((host, port))
+    transport_conn.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport_conn)
+    try:
+        sftp.remove(remote_path.lstrip("/"))
+    except OSError:
+        pass
+    finally:
+        sftp.close()
+        transport_conn.close()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    transport = _upload_bootstrap(env, remote, php)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +396,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    _delete_bootstrap(env, remote, transport)
     return out
 
 

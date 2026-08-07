@@ -1,3 +1,8 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "url": "local://canvas-quad.png",
+  "generator": "GenerateImage-fallback",
+  "reference": "cover/reference-face.jpg",
+  "aspect_ratio": "16:9",
+  "canvas_size_px": [2048, 1152],
+  "note": "MCP user-mcp-kv/gpt-image-2 unavailable; generated via GenerateImage i2i fallback, upscaled to 2048x1152 before split"
 }

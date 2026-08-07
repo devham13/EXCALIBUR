@@ -1,0 +1,17 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "/2026/06/19/primer-seo-stati/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1472586,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=679\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=680 src=cover/inline-01.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-01-33.png\nOK inline_image_upload=681 src=cover/inline-02.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-02-33.png\nOK inline_image_upload=682 src=cover/inline-03.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-03-33.png\npermalink=/2026/06/19/primer-seo-stati/\n",
+  "stderr": "",
+  "exit_status": 0,
+  "verdict": "pass",
+  "transport": "ssh_php_cli_php81"
+}

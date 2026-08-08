@@ -172,3 +172,50 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-08 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 694 |
+| inline_images | 695, 696, 697 |
+| permalink | [REDACTED]/2026/06/19/primer-seo-stati/ |
+| transport | SFTP (FTP STOR blocked: 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (6/6, site-base production)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run
+# publish: SFTP bootstrap (FTP 425 fallback)
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=694
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=695 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-01-35.png
+OK inline_image_upload=696 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-02-35.png
+OK inline_image_upload=697 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-03-35.png
+permalink=[REDACTED]/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (B01→B04 already at indexer)

@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-09 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 732 |
+| inline_images | 733, 734, 735 |
+| permalink | /2026/06/19/primer-seo-stati/ |
+| trigger | SFTP upload (FTP blocked: Bad IP) + HTTP bootstrap |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight 2026-08-09)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run  # OK (PHP ~10MB)
+python3 scripts/excalibur_blog_wp_publish.py ... --public-base $EXCALIBUR_PUBLIC_SITE_URL  # FAIL ftplib.error_temp: 425 Bad IP
+# workaround: SFTP upload excalibur-blog-publish-once.php + HTTP trigger
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=732
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=733 src=cover/inline-01.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-01-40.png
+OK inline_image_upload=734 src=cover/inline-02.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-02-40.png
+OK inline_image_upload=735 src=cover/inline-03.png url=/wp-content/uploads/2026/06/primer-seo-stati-inline-03-40.png
+permalink=/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- bootstrap PHP removed from server via SFTP

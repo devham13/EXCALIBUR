@@ -172,3 +172,52 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-09 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 725 |
+| inline_images | 726, 727, 728 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP+HTTP (FTP blocked: 425 Bad IP; SSH fallback) |
+| trigger | `/excalibur-blog-run topic_id: B01 publish: yes` |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (4/4, preflight 2026-08-09)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --dry-run  # OK, PHP 10947290 bytes
+python3 scripts/excalibur_blog_wp_publish.py  # FAIL ftplib.error_temp: 425 Security: Bad IP
+# SFTP fallback (paramiko SSH): upload + HTTP trigger — PASS
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=725
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=726 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-39.png
+OK inline_image_upload=727 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-39.png
+OK inline_image_upload=728 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-39.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities (5 articles)

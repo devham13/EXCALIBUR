@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
 Дата публикации: 2026-08-10  
-Live URL: https://... (заполнить после publish)
+Live URL: /2026/06/19/primer-seo-stati/ (prepend PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

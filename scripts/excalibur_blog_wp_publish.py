@@ -21,17 +21,32 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    for key in (
+        "FTP_HOST", "FTP_PORT", "FTP_USER", "FTP_PASS", "FTP_PASSWORD", "FTP_ROOT", "FTP_PATH",
+        "SFTP_HOST", "SFTP_PORT", "SFTP_USER", "SFTP_PASSWORD", "SFTP_ROOT",
+        "PUBLIC_SITE_URL", "EXCALIBUR_PUBLIC_SITE_URL", "WP_HOME", "WP_SITE_URL",
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    ):
+        val = __import__("os").environ.get(key, "").strip()
+        if val:
+            env[key] = val
+    if env.get("FTP_PASSWORD") and not env.get("FTP_PASS"):
+        env["FTP_PASS"] = env["FTP_PASSWORD"]
+    if env.get("EXCALIBUR_PUBLIC_SITE_URL") and not env.get("PUBLIC_SITE_URL"):
+        env["PUBLIC_SITE_URL"] = env["EXCALIBUR_PUBLIC_SITE_URL"]
+    if not env.get("FTP_HOST") and not env.get("SFTP_HOST"):
+        raise FileNotFoundError("site.env.local or FTP_/SFTP_ env vars required under memory/")
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -275,61 +290,147 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+class _RemoteTransport:
+    def __init__(self, mode: str) -> None:
+        self.mode = mode
 
-    def ftp_connect() -> ftplib.FTP:
+    def close(self) -> None:
+        return
+
+
+class _FtpTransport(_RemoteTransport):
+    def __init__(self, env: dict[str, str], remote_root: str) -> None:
+        super().__init__("ftp")
+        self._env = env
+        self._remote_root = remote_root
+        self._ftp = self._connect()
+
+    def _connect(self) -> ftplib.FTP:
         ftp = ftplib.FTP()
-        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
-        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.connect(self._env["FTP_HOST"], int(self._env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(self._env["FTP_USER"], self._env["FTP_PASS"])
         ftp.set_pasv(True)
-        ftp.cwd(ftp_root)
+        ftp.cwd(self._remote_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    def upload(self, remote: str, data: bytes) -> None:
+        self._ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
 
-    url = public_base.rstrip("/") + "/" + remote
-    out = ""
+    def delete(self, remote: str) -> None:
+        try:
+            self._ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+
+    def close(self) -> None:
+        self._ftp.quit()
+
+
+class _SftpTransport(_RemoteTransport):
+    def __init__(self, env: dict[str, str], remote_root: str) -> None:
+        super().__init__("sftp")
+        import paramiko
+
+        host = env.get("SFTP_HOST") or env["FTP_HOST"]
+        user = env.get("SFTP_USER") or env["FTP_USER"]
+        password = env.get("SFTP_PASSWORD") or env["FTP_PASS"]
+        port = int(env.get("SFTP_PORT") or "22")
+        self._remote_root = remote_root.strip("/")
+        transport = paramiko.Transport((host, port))
+        transport.connect(username=user, password=password)
+        self._sftp = paramiko.SFTPClient.from_transport(transport)
+        self._transport = transport
+
+    def _remote_path(self, remote: str) -> str:
+        if self._remote_root:
+            return f"{self._remote_root}/{remote}".lstrip("/")
+        return remote
+
+    def upload(self, remote: str, data: bytes) -> None:
+        with self._sftp.file(self._remote_path(remote), "w") as handle:
+            handle.write(data)
+
+    def delete(self, remote: str) -> None:
+        try:
+            self._sftp.remove(self._remote_path(remote))
+        except OSError:
+            pass
+
+    def close(self) -> None:
+        self._sftp.close()
+        self._transport.close()
+
+
+def _remote_root(env: dict[str, str]) -> str:
+    root = (env.get("SFTP_ROOT") or env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if not root.startswith("/"):
+        root = "/" + root
+    if not root.endswith("/"):
+        root += "/"
+    return root
+
+
+def _open_transport(env: dict[str, str]) -> _RemoteTransport:
+    remote_root = _remote_root(env)
+    prefer_sftp = bool(env.get("SFTP_HOST") or env.get("SFTP_USER") or env.get("SFTP_PASSWORD"))
+    if prefer_sftp:
+        print("Using SFTP transport (SFTP_* env detected)...")
+        return _SftpTransport(env, remote_root)
+    try:
+        return _FtpTransport(env, remote_root)
+    except ftplib.error_temp as exc:
+        if "Bad IP" not in str(exc):
+            raise
+        print(f"FTP blocked ({exc}); falling back to SFTP...")
+        return _SftpTransport(env, remote_root)
+
+
+def _trigger_publish(url: str) -> str:
     try:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=15,
+            timeout=120,
         ) as response:
-            out = response.read().decode("utf-8", errors="replace")
+            return response.read().decode("utf-8", errors="replace")
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        
+
         fallback_file = project_root() / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        
+
         import time
-        for i in range(120):
+        for _ in range(120):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
                 fallback_file.unlink()
                 print("Cloud response detected successfully!")
-                break
+                return out
             time.sleep(1)
-        
-        if not out:
-            raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
+        raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    transport = _open_transport(env)
     try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+        transport.upload(remote, php.encode("utf-8"))
+    except Exception:
+        transport.close()
+        raise
+
+    url = public_base.rstrip("/") + "/" + remote
+    out = _trigger_publish(url)
+
+    cleanup = _open_transport(env)
+    try:
+        cleanup.delete(remote)
+    finally:
+        cleanup.close()
+    transport.close()
     return out
 
 

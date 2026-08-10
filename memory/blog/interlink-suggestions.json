@@ -1,6 +1,21 @@
 {
-  "site_base": "https://mayai.ru",
+  "site_base": "https://example.com",
   "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "opportunities_found": 2,
+  "suggestions": [
+    {
+      "source": "B01-primer-seo-stati",
+      "target": "B04-geo-optimizaciya-sajta-2026",
+      "keyword": "geo оптимизация",
+      "context": "похожих запросов\"; secondary вроде \"seo текст для блога\" и \"geo оптимизация статьи\" распределите по H2 без переспама.</li>   <li><b>Шаг",
+      "link_replacement": "<a href=\"/blog/geo-optimizaciya-sajta-2026/\">geo оптимизация</a>"
+    },
+    {
+      "source": "B01-primer-seo-stati",
+      "target": "B04-geo-optimizaciya-sajta-2026",
+      "keyword": "geo оптимизация сайта",
+      "context": "ная <a href=\"/\">блога</a>, релевантные материалы (например, geo оптимизация сайта, когда опубликован hub B04).</p>  <p>Перед выкладкой пройди",
+      "link_replacement": "<a href=\"/blog/geo-optimizaciya-sajta-2026/\">geo оптимизация сайта</a>"
+    }
+  ]
 }

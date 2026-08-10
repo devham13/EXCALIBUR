@@ -8,7 +8,7 @@
 | slug | avtomatizaciya-n8n-ai-agents |
 | verdict | **FAIL** |
 | post_id | — |
-| permalink | — |
+| permalink | `/2026/06/19/primer-seo-stati/` (site root mayai.ru) |
 
 ### Preconditions
 
@@ -171,4 +171,44 @@ OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```
+---
+
+## 2026-08-10 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 765 |
+| inline_images | 766, 767, 768 |
+| permalink | `/2026/06/19/primer-seo-stati/` (site root mayai.ru) |
+| trigger | Cloud publish (FTP bootstrap + curl 600s fallback; HTTP 15s timeout on 8MB payload) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, production site base)
+- schema.jsonld: present
+- cover/cover.png + alt: present (1.5 MB PNG)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- Стандартный `excalibur_blog_wp_publish.py` HTTP-триггер (15s) и WebFetch fallback (120s) не успели на payload ~8 MB; успешно через ручной curl 600s после FTP upload.
+- Intermittent FTP `425 Security: Bad IP connecting` — retry на upload.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=765
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=766 src=cover/inline-01.png
+OK inline_image_upload=767 src=cover/inline-02.png
+OK inline_image_upload=768 src=cover/inline-03.png
+permalink=/2026/06/19/primer-seo-stati/
 ```

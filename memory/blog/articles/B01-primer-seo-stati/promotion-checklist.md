@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
 Дата публикации: 2026-08-11  
-Live URL: https://mayai.ru/blog/primer-seo-stati/ (заполнить после publish)
+Live URL: [PUBLIC_SITE_URL]/2026/06/19/primer-seo-stati/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ SEO-статья в 2026 — не поле ключей, а longread с прям
 • Lead 350–500 знаков, атомарные блоки для нейропоиска
 • Таблица SEO vs GEO + island test для каждого H2
 
-Читать: https://mayai.ru/blog/primer-seo-stati/
+Читать: [PUBLIC_SITE_URL]/2026/06/19/primer-seo-stati/
 ```
 
 ## Перелинковка

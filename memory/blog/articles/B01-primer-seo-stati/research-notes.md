@@ -14,7 +14,7 @@
 |---|-----|-----|-----------------|------------------|-------------------|
 | 1 | [direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | Официальный гайд Яндекса (янв. 2026) | Авторитет; 5 шагов (тема → семантика → структура → текст → оптимизация); «плохо/хорошо»; естественность ключей; Wordstat/Вебмастер | Нет GEO-слоя; CTA Директа; без printable-чеклиста | Блок про Директ; дублировать канон без практики |
 | 2 | [texterra.ru/blog/seo-tekst-kak-pravilno-optimizirovat-statyu-i-drugoy-kontent-dlya-sayta.html](https://texterra.ru/blog/seo-tekst-kak-pravilno-optimizirovat-statyu-i-drugoy-kontent-dlya-sayta.html) | Чек-лист 9 критериев (июн. 2026) | E-E-A-T + ЭПОС; answer-first; AI Overviews / Алиса AI; FAQ только под реальные вопросы | Agency tone; нет единого workflow «с нуля до publish» | Переспам «уникальность 99%» как цель |
-| 3 | [1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii](https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/) | Longread 2026 + ИИ | Кластеры 3–5 групп; правило «ответ сразу после H2»; LSI без насилия | Длинный sales-narrative; ИИ как центр, не human-first | Копировать 7-разделную структу1:1 |
+| 3 | [1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii](https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/) | Longread 2026 + ИИ | Кластеры 3–5 групп; правило «ответ сразу после H2»; LSI без насилия | Длинный sales-narrative; ИИ как центр, не human-first | Копировать 7-разделную структуру 1:1 |
 | 4 | [pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | Агентский гайд + чек-лист | E-E-A-T, Schema Article+FAQPage, Title ~65 знаков | Непроверенные кейсы «+140%»; перегруз agency | Непроверенные проценты в кейсах |
 | 5 | [tolk.digital/kak-pisat-seo-teksty-v-2026-godu-formula-kotoraya-rabotaet](https://tolk.digital/kak-pisat-seo-teksty-v-2026-godu-formula-kotoraya-rabotaet/) | Формула E-E-A-T (2026) | Интент vs ключи; 6-пунктовый pre-publish чек; форматы под intent | Мало техники (meta, schema, GEO) | Agency CTA в конце |
 | 6 | [olegweb.ru/sdelai-sajt-sam/kak-napisat-seo-statyu](https://olegweb.ru/sdelai-sajt-sam/kak-napisat-seo-statyu/) | 13 шагов до WordPress | Полный pipeline от ключа до индексации | Узко под WP; нет GEO-блока | 13 H2 как каркас 1:1 |
@@ -36,7 +36,7 @@
 **Запросы для ручного прогона в Wordstat (редактору):**
 - `как писать seo статьи` (primary)
 - `seo текст для блога` (secondary)
-- `geo оптimizaciya статьи` (secondary)
+- `geo оптимизация статьи` (secondary)
 - смежные: `как написать seo статью`, `seo копирайтинг`, `структура seo статьи`, `чеклист seo статьи`
 
 ### LSI для writer (экспертная оценка по SERP + secondary_queries, без цифр)
@@ -51,7 +51,7 @@
 | GEO-слой | geo оптимизация статьи, AI-выдача, нейроответ, FAQ для ИИ, answer-first, BlogPosting FAQPage |
 | Блог | seo текст для блога, контент-план, статья для сайта, публикация в WordPress |
 
-**SEO-стратегия:** primary «как писать seo статьи» в H1/lead; «seo текст для блога» — в блок про формат блога; «geo оптimizaciya статьи» — отдельный H2 (не путать с локальной geo-SEO).
+**SEO-стратегия:** primary «как писать seo статьи» в H1/lead; «seo текст для блога» — в блок про формат блога; «geo оптимизация статьи» — отдельный H2 (не путать с локальной geo-SEO).
 
 ---
 
@@ -121,7 +121,7 @@
 | Schema handoff | Не в HTML body | BlogPosting + FAQPage |
 | Internal link | Из карточки | `/` |
 
-**Целевые формулировки:** «как писать seo статьи», «seo текст для блога», «geo оптimizaciya статьи», «сколько символов в seo статье», «что такое geo в seo».
+**Целевые формулировки:** «как писать seo статьи», «seo текст для блога», «geo оптимизация статьи», «сколько символов в seo статье», «что такое geo в seo».
 
 ---
 

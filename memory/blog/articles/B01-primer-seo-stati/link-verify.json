@@ -23,21 +23,22 @@
       "skipped": false
     },
     {
-      "url": "https://example.com/#services",
+      "url": "/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
-      "skipped": false
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "[PUBLIC_SITE_URL]/"
     },
     {
-      "url": "https://example.com/",
+      "url": "https://kv-ai.ru/obuchenie-po-make",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
+      "kind": "external",
       "skipped": false
     }
   ]

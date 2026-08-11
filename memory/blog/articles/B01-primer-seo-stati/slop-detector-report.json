@@ -2,33 +2,29 @@
   "verdict": "pass",
   "total_slop_hits": 0,
   "slop_hits": [],
-  "total_over_long_sentences": 5,
+  "total_over_long_sentences": 4,
   "over_long_sentences": [
     {
-      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование в AI-ответах (Нейро, AI Overviews) Формат ответа Сниппет Title + Description Короткий фрагмент из H2 или FAQ Структура H1–H3, списки, внутренние ссылки Атомарные чанки, front-loading тезиса в абзаце Техника Мета, alt, Wordstat, перелинковка Schema JSON-LD, llms",
-      "word_count": 45
+      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование в AI-ответах (Нейро, AI Overviews) Формат ответа Сниппет Title + Description Короткий фрагмент из H2 или FAQ Структура H1-H3, списки, внутренние ссылки Атомарные чанки, тезис в первом предложении секции Техника Мета, alt, Wordstat, перелинковка Schema JSON-LD, FAQ в HTML, доступ AI-краулеров Схема единого workflow: Запрос и интент → семантика (Wordstat / Вебмастер) → outline H2-H3 → lead-абзац → текст с чанками → мета → FAQ → schema JSON-LD → чеклист перед публикацией Что такое GEO в SEO простыми словами GEO (Generative Engine Optimization) - оптимизация под ChatGPT, Perplexity, Яндекс с Алисой",
+      "word_count": 91
     },
     {
-      "sentence": "Схема единого workflow: Запрос и интент → семантика (Wordstat) → outline H2/H3 → lead-абзац → текст с чанками → мета → FAQ → schema JSON-LD → чеклист перед публикацией Что такое GEO в SEO простыми словами GEO дополняет SEO: вы упаковываете уже полезный текст так, чтобы AI мог вырезать определение, шаг или ответ на вопрос",
-      "word_count": 46
+      "sentence": "Ошибка Как проверить Что делать Переспам ключей Читаете вслух - текст \"ломается\" Оставьте primary в H1 и lead, LSI - по смыслу Title = H1 Сравните два поля Title для сниппета, H1 для страницы - разные формулировки H2 без ответа Island test: вырежьте блок Первое предложение секции = готовый тезис Добавьте schema и блок вопросов для выдачи и AI Блок \"Частые вопросы\" в HTML - не декор",
+      "word_count": 57
     },
     {
-      "sentence": "E-E-A-T без фейковых кейсов Experience, Expertise, Authoritativeness, Trustworthiness — не отдельный раздел «мы лучшие», а следы в тексте: автор или редакция, дата актуализации, ссылки на первоисточники, честные ограничения («универсальной нормы объёма нет»)",
-      "word_count": 31
+      "sentence": "Primary query закрыт в lead и H2; secondary без переспама Title 60-65 знаков, ≠ H1; Description с ключом Один H1 (в теме WP); в body только H2-H3 Каждый H2: тезис в первом предложении (island test) Абзацы 3-5 строк; FAQ 5-7 пар Schema BlogPosting + FAQPage; даты актуальны Внутренние ссылки 2-3: главная блога Внешние ссылки на первоисточники (Яндекс Direct, web",
+      "word_count": 53
     },
     {
-      "sentence": "Primary query закрыт в lead и H2; secondary вписаны без переспама Title ~65 знаков, отличается от H1; Description с обещанием и ключом Один H1 на странице (в теме WP), в body только H2/H3 Каждый H2: тезис в первом предложении, блок понятен без контекста Абзацы 3–5 строк; списки и таблица, где уместно FAQ 5–7 пар; ответы короткие и фактурные Schema BlogPosting + FAQPage; даты datePublished / dateModified актуальны Внутренние ссылки 2–3: главная, релевантные landing Внешние ссылки на первоисточники (Вордстат, официальные гайды) Нет выдуманной статистики и запрещённых штампов из редакционного контракта Читабельность: прогоните текст вслух — где спотыкается, сократите llms",
-      "word_count": 86
-    },
-    {
-      "sentence": "txt: AI-краулеры не закрыты случайно Обложка 16:9, alt по сцене, без текста на картинке CTA не больше трёх упоминаний офера на статью Финальный island test: вырежьте один H2 — смысл сохраняется",
-      "word_count": 28
+      "sentence": "dev) Нет выдуманной статистики; E-E-A-T: автор, дата GEO: answer-first; robots не блокирует AI-ботов Core Web Vitals: LCP ≤ 2,5 с, INP ≤ 200 мс, CLS ≤ 0,1 CTA ≤ 3; орфография; Rich Results Test без ошибок Обложка 16:9 с alt по содержанию сцены Island test: вырежьте H2 - смысл сохраняется Нет штампов из slop-blocklist и выдуманной статистики Нужен системный контент-пайплайн, а не разовый гайд - посмотрите курс Make",
+      "word_count": 56
     }
   ],
   "readability": {
-    "score": 74.0,
-    "level": "Easy (Standard modern readable web content)",
-    "avg_sentence_len": 11.5,
-    "avg_syllables_per_word": 2.0
+    "score": 87.1,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.2,
+    "avg_syllables_per_word": 1.8
   }
 }

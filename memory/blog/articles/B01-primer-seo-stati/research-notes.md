@@ -2,135 +2,189 @@
 
 **topic_id:** B01  
 **slug:** primer-seo-stati  
-**article_mode:** B (longread + демонстрация формата на самой статье)  
-**research_date:** 2026-06-10  
-**disclaimer:** Все даты, версии и статистика проверены на 10.06.2026.
+**article_mode:** B (how-to longread + эталон формата на самой статье)  
+**research_date:** 2026-08-12  
+**disclaimer:** Все даты, версии и статистика проверены на 12.08.2026.
 
 ---
 
-## 1. SERP-обзор (минимум 3 конкурента)
+## Utility gate
+
+| Поле | Значение |
+|------|----------|
+| `utility_verdict` | **PASS** |
+| `search_intent` | how_to |
+| `article_mode` | B |
+| Gate script | `python3 scripts/excalibur_blog_utility_gate.py --topic-id B01` → PASS |
+
+**reader_outcome:** После прочтения читатель сможет за одну рабочую сессию собрать семантику, спланировать структуру SEO+GEO longread, написать черновик с FAQ/schema и пройти финальный чеклист перед публикацией в WordPress.
+
+**action_outline (workflow для writer):**
+
+1. Проверить интент запроса в SERP и выписать 3–5 смысловых кластеров (primary + LSI).
+2. Собрать структуру H1 → H2 → H3: каждый H2 = подвопрос + ответ в первом абзаце.
+3. Написать lead: боль → обещание → результат (без «в этой статье»).
+4. Наполнить блоки: списки, таблицы, пример «плохо/хорошо», E-E-A-T lite (опыт, источники).
+5. Добавить GEO-слой: атомарные чанки 60–100 слов, answer-first под каждым H2.
+6. Сформировать FAQ 5–7 пар (короткие ответы-действия) + handoff для FAQPage schema.
+7. Заполнить Title/Description/URL/alt; 3–5 внутренних ссылок.
+8. Пройти чеклист 15–20 пунктов перед публикацией (мета, schema, читабельность, перелинковка).
+
+---
+
+## 1. SERP-обзор (WebSearch, 12.08.2026)
 
 | # | URL | Тип | Сильные стороны | Слабые / пробелы | Что не копировать |
 |---|-----|-----|-----------------|------------------|-------------------|
-| 1 | [direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | Официальный гайд Яндекса (янв. 2026) | Авторитет источника; пошаговый workflow (тема → семантика → структура → текст → оптимизация); примеры «плохо/хорошо»; акцент на естественность ключей и читабельность; Wordstat, alt, мета, перелинковка | Нет GEO/нейропоиска; продвижение Директа в конце; объём без универсального норматива, но без GEO-hooks | Блок про Директ и коммерческий CTA; дублировать каноническую структуру H1–H4 без GEO-слоя |
-| 2 | [pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | Агентский longread (май 2026) | Глубокая семантика (интент, LSI, Wordstat, Serpstat); E-E-A-T с кейсами; чек-лист 10 шагов; Schema Article + FAQPage; Title ~65 знаков; Featured Snippet / AI-ответы | Кейс «+140% трафика за 3 недели» без верифицируемого источника; перегруз agency-экспертизой; GEO как побочный эффект E-E-A-T, не отдельный блок | Непроверенные проценты в кейсах; копировать 7-разделную структуру 1:1 |
-| 3 | [maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/](https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/) | SEO-агентство (апр./июн. 2026) | Короткий, понятный принцип «полный ответ на одной странице»; LSI и «хвосты»; поведенческий сигнал (не возвращаться в поиск) | Мало практики: нет чек-листа, FAQ, schema, GEO; короткий объём (~1,5k знаков) | Формулировки «просто следуй принципам» без actionable шагов |
-| 4 | [audit4seo.ru/blog/geo-optimizaciya-2026](https://audit4seo.ru/blog/geo-optimizaciya-2026) | GEO-гайд (2026) | Атомарные чанки, front-loading, conversational queries, llms.txt, Schema; сравнение SEO vs GEO; ссылка на Aggarwal et al. | Фокус на GEO, не на написании SEO-статьи; часть цифр без первичного источника | Таблицу SEO vs GEO можно адаптировать, не копировать блоки про AI-трекеры |
-| 5 | [digitalimpuls.ru/blog/geo-optimization-2026/](https://digitalimpuls.ru/blog/geo-optimization-2026/) | GEO-агентство (2026) | Share of Voice, Citation Share; AI-краулеры (GPTBot, ClaudeBot и др.); llms.txt (сент. 2024, Jeremy Howard); интеграция SEO+GEO | Коммерческий кейс ASHA; цены GEO; длинный sales-narrative | Прайсы и демо-страницы агентства; непроверенные «1,5–2×» без источника |
+| 1 | [1ps.ru — SEO-тексты 2026](https://1ps.ru/blog/texts/2026/seo-tekstyi-2026-kak-pisat-samostoyatelno-i-s-pomoshhyu-ii-%E2%80%93-polnoe-rukovodstvo/) | Longread + краткая инструкция | Wordstat-кластеры, H1–H3, LSI без переспама, II как помощник | Длинный; GEO не выделен отдельным workflow | Копировать структуру 1:1 |
+| 2 | [olegweb.ru — алгоритм 13 шагов](https://olegweb.ru/sdelai-sajt-sam/kak-napisat-seo-statyu/) | Пошаговый WP-гайд | 13 шагов от ключа до индексации; интент, SERP, WordPress | Уклон в «сделай сайт сам»; мало GEO | Дублировать 13 H2 как каркас |
+| 3 | [direct.yandex.ru — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | Официальный Яндекс (янв. 2026) | Канон: объём, H1–H4, Wordstat, переспам, Title/Description | Нет GEO/нейропоиска | CTA Директа |
+| 4 | [serptop.ru — гайд + чек-лист](https://serptop.ru/blog/kak-pisat-seo-teksty/) | Чек-лист + структура | Формула H1, lead 50–100 слов, meta ≤70/160, ЧПУ | Без GEO-слоя | Шаблонные формулы без контекста B2B |
+| 5 | [seo-vladimir.ru — LSI 2026](https://seo-vladimir.ru/blog/lsi-copywriting-seo-2026/) | SEO-копирайтинг | Разбор мифа LSI → покрытие интента; списки/таблицы | Узкий региональный блог | Тезис «3–4 ключа на 1000 знаков» без оговорки |
+| 6 | [bmg.by — SEO-чек-лист публикаций](https://bmg.by/blog/decisions/seo-checklist-for-content-and-ai-search/) | Чек-лист tech+content+AI | Рабочий список без воды; E-E-A-T, AI Mode | EN-контекст частично | Копировать чек-лист дословно |
+| 7 | [habr.com/1042732 — GEO/AEO 2026](https://habr.com/ru/articles/1042732/) | GEO longread | RAG, answer-first, Schema; RU-рынок | Не учит писать SEO-текст с нуля | Encyclopedia-tone |
+| 8 | [pawetta.com — GEO/AEO](https://pawetta.com/blog/geo-aeo-optimizaciya/) | Практика Яндекс vs Google | Answer-first + schema работают в обеих системах | Фокус на GEO, не на writing workflow | Паника «SEO мёртв» |
 
-**Паттерн SERP:** топ — «полный гайд 2026» с E-E-A-T, Wordstat, чек-листом. Отдельный кластер — GEO-лонгриды. Прямого совпадения с H1 «которые читают люди» в топе почти нет (bestseoserg.com — близкий заголовок, но слабее по глубине).
+**Паттерн SERP (август 2026):** топ — «полный гайд 2026» (1ps, olegweb, pikapuka) + чек-листы (serptop, bmg). H1 «которые читают люди» слабо представлен; конкуренты давят на E-E-A-T и II, но редко связывают **читабельность + SEO + GEO** в одном actionable workflow для B2B-блога.
 
-**Intent:** how_to — пользователь хочет пошаговую систему: собрать семантику → структура → текст → техника → проверка. Вторичный intent: понять связку SEO + GEO в одном материале.
+**Intent:** how_to — собрать семантику → структура → текст → мета/schema → проверка. Вторичный: «seo текст для блога», «geo оптимизация статьи».
+
+**Пробел для Excalibur:** единый workflow «для людей и для нейропоиска» на русском, режим B, эталон longread 8 500–9 500 знаков; чеклист перед публикацией; без agency-CTA и непроверенных «+140% за 3 недели».
 
 ---
 
-## 2. Таблица фактов (цифры только с URL)
+## 2. Яндекс Wordstat (MCP user-mcp-kv)
 
-| Факт | Источник | Дата источника | Можно в текст |
-|------|----------|----------------|---------------|
-| Универсального объёма SEO-статьи не существует — он зависит от сложности темы и конкуренции в выдаче | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
-| Абзацы SEO-текста — ориентир 3–5 строк; списки для перечислений | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
-| H1 — один на страницу; H2–H4 для смысловых блоков | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
+⚠️ **WORDSTAT MCP WARNING:** Сервер `user-mcp-kv` недоступен в текущем Cloud Agent runtime (MCP не подключён). Вызов `wordstat_get_top_requests` для `как писать seo статьи` и secondary queries **не выполнен**. Точные объёмы спроса **не получены** — цифры в таблице ниже **не заполняются**.
+
+**Действие для следующего прогона:** подключить MCP в `mcp.json` и повторить:
+- `wordstat_get_top_requests` → `как писать seo статьи` (primary)
+- `wordstat_get_top_requests` → `seo текст для блога`
+- `wordstat_get_top_requests` → `geo оптимизация статьи`
+
+При ошибке 401 обновить токен: https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40
+
+### Таблица спроса
+
+| Фраза | Показы/мес |
+|-------|------------|
+| как писать seo статьи | *MCP недоступен* |
+| seo текст для блога | *MCP недоступен* |
+| geo оптимизация статьи | *MCP недоступен* |
+| как написать seo текст | *MCP недоступен* |
+| seo копирайтинг | *MCP недоступен* |
+| seo статья для сайта | *MCP недоступен* |
+
+### LSI для writer (экспертная оценка по SERP + карточка B01; **не Wordstat**)
+
+- как писать seo статьи, seo текст для блога, seo копирайтинг 2026  
+- структура seo статьи, семантическое ядро, яндекс вордстат  
+- title description h1, метатеги, перелинковка, alt текст  
+- e-e-a-t, интент запроса, lsi слова, переспам ключей  
+- geo оптимизация статьи, answer-first, faq schema, json-ld  
+- чеклист перед публикацией, seo текст для wordpress  
+- сколько символов в seo статье, что такое geo в seo  
+
+**SEO-стратегия (до получения Wordstat):** primary в H1/lead; secondary «seo текст для блога» — в блок про формат longread; «geo оптимизация статьи» — отдельный H2 «SEO + GEO в одной статье»; faq_hints из карточки — в FAQ.
+
+---
+
+## 3. Таблица фактов (цифры только с URL)
+
+| Факт | Источник | Дата | Можно в текст |
+|------|----------|------|---------------|
+| Универсального объёма SEO-статьи не существует — зависит от сложности темы и конкуренции в выдаче | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
+| H1 — один на страницу; H2–H4 делят материал на смысловые блоки | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
+| Абзацы — ориентир 3–5 строк; списки для перечислений | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
 | Поисковики оценивают смысл и полезность, не плотность ключей; переспам вреден | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
-| Семантику собирают в Яндекс Вордстат и Яндекс Вебмастер | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
+| Семантику собирают в Яндекс Вордстат | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
 | Title и Description влияют на сниппет и кликабельность | [Яндекс Директ — SEO-текст](https://direct.yandex.ru/base/articles/seo-tekst-chto-eto-i-kak-pravilno-pisat) | 27.01.2026 | да |
-| H1 должен отличаться от Title | [Pikapuka — гайд SEO-статьи](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | 09.05.2026 | да |
-| Title — ориентир ~65 знаков, с ключом и триггером (чек-лист, инструкция) | [Pikapuka — гайд SEO-статьи](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | 09.05.2026 | да |
-| Schema.org: Article + FAQPage для сниппета и структуры | [Pikapuka — гайд SEO-статьи](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | 09.05.2026 | да |
-| GEO (Generative Engine Optimization) — оптимизация для цитирования в ответах AI, не замена SEO | [audit4seo — GEO 2026](https://audit4seo.ru/blog/geo-optimizaciya-2026) | 2026 | да |
-| Нейросети извлекают пассажи (passages), не страницы целиком — каждый H2-блок = «остров смысла» | [audit4seo — GEO 2026](https://audit4seo.ru/blog/geo-optimizaciya-2026) | 2026 | да |
-| Первые 100–150 слов страницы — ключевая зона для извлечения ответа AI | [audit4seo — GEO 2026](https://audit4seo.ru/blog/geo-optimizaciya-2026) | 2026 | да |
-| Стандарт llms.txt предложен в сентябре 2024 (Jeremy Howard / Answer.AI) | [Digital Impuls — GEO 2026](https://digitalimpuls.ru/blog/geo-optimization-2026/) | 2026 | да |
-| Алиса AI встроена в основную выдачу Яндекса с осени 2024 | [Digital Impuls — GEO 2026](https://digitalimpuls.ru/blog/geo-optimization-2026/) | 2026 | да |
-| 39% россиян хотя бы раз пробовали нейросети (ВЦИОМ, август 2024) | [Digital Impuls — GEO 2026](https://digitalimpuls.ru/blog/geo-optimization-2026/) | 2026 | да* |
-| ~20% месячной интернет-аудитории РФ — пользователи ChatGPT (Mediascope, август 2024) | [Digital Impuls — GEO 2026](https://digitalimpuls.ru/blog/geo-optimization-2026/) | 2026 | да* |
-| Главная задача статьи — полный ответ на запрос; если пользователь возвращается в поиск — сигнал низкого качества | [MaryProject — SEO-статьи](https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/) | 10.06.2026 | да |
+| Google: people-first контент — создан для людей, SEO применяется к такому контенту, а не «ради роботов» | [Google — Helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально 2026 | да |
+| E-E-A-T: experience, expertise, authoritativeness, trustworthiness; trust — ключевой | [Google — Helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально 2026 | да |
+| Нет лимита символов у `<title>`, но title link обрезается под ширину устройства | [Google — Title links](https://developers.google.com/search/docs/appearance/title-link) | актуально 2026 | да |
+| Уникальный meta description на каждую страницу; дубли не помогают в выдаче | [Google — Snippets](https://developers.google.com/search/docs/appearance/snippet) | актуально 2026 | да |
+| GEO (Generative Engine Optimization) — оптимизация видимости контента в ответах генеративных поисковых систем | [arxiv.org — GEO paper](https://arxiv.org/abs/2311.09735) | KDD 2024 | да |
+| GEO-bench: методы Cite Sources, Quotation Addition, Statistics Addition дают **+30–40%** visibility (Position-Adjusted Word Count) | [arxiv.org — GEO paper](https://arxiv.org/abs/2311.09735) | KDD 2024 | да |
+| На Perplexity.ai зафиксировано улучшение visibility до **37%** | [arxiv.org — GEO paper](https://arxiv.org/abs/2311.09735) | KDD 2024 | да |
+| Keyword stuffing в GEO-контексте работает **хуже** baseline (≈ −10%) | [arxiv.org — GEO paper](https://arxiv.org/abs/2311.09735) | KDD 2024 | да |
+| Princeton GEO: правильная структура, цитаты и статистика повышают видимость в AI-ответах до **40%** (цит. RU-гайд) | [melanina.ru — GEO-гайд](https://melanina.ru/guides/marketing/optimizaciya-sajta-pod-ai-poisk/) | 2026 | да (как вторичная цитата на arxiv) |
+| Прямой ответ в начале раздела + schema работают и для Яндекс Нейро, и для Google AI Overviews | [pawetta.com — GEO/AEO](https://pawetta.com/blog/geo-aeo-optimizaciya/) | 2026 | да |
+| Главная задача статьи — полный ответ; возврат пользователя в поиск — сигнал низкого качества | [MaryProject — SEO-статьи](https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/) | 2026 | да |
+| Meta title ориентир ≤70 символов; description ≤160 — практический чек-лист (не официальный лимит Google) | [serptop.ru — SEO-тексты](https://serptop.ru/blog/kak-pisat-seo-teksty/) | 2026 | да (как практика, не как «правило Google») |
 
-\* Вторичный источник (агентский блог со ссылкой на ВЦИОМ/Mediascope). В тексте — «по данным исследований 2024 года» без точной цифры, если QA не найдёт первичник.
+**fact-bank.md:** прямых фактов про SEO-writing нет — использовать только таблицу выше.
 
-**Не использовать в тексте (нет в fact-bank / непроверено):** «+140% трафика за 3 недели» (Pikapuka); «AI обрабатывает 25% запросов» (audit4seo без первичника); «микроразметка повышает цитирование в 1,5–2 раза» (Digital Impuls без первичника); «Aggarwal +40% видимости» — можно упомянуть как исследование, без точного % без arxiv.
+**Не использовать без оговорки:** «+140% трафика за 3 недели»; «AI обрабатывает 25% запросов» без первичника; «64% потери CTR» (generative-optimization.ru) без cross-check; точные % Wordstat.
 
 ---
 
-## 3. Угол статьи (дифференциация)
+## 4. Угол статьи (utility-only, режим B)
 
-**Главный угол:** SEO-статья 2026 = **читаемый longread**, который закрывает запрос человека **и** упакован для нейропоиска. Не «ещё один чек-лист ключей», а **единый workflow**: интент → структура → инфостиль → FAQ/schema → GEO-чанки → финальный чеклист.
+**Главный угол:** SEO-статья 2026 = **читаемый longread**, который закрывает запрос человека **и** упакован для нейропоиска. Единый workflow: интент → семантика → структура → инфостиль → FAQ/schema → GEO-чанки → чеклист.
 
-**Почему это отличается от конкурентов:**
-- Яндекс даёт канон SEO без GEO; GEO-гайды не учат писать текст с нуля.
-- Агентские гайды перегружены E-E-A-T-кейсами и CTA.
-- H1 из карточки B01 («которые читают люди») — слабо раскрыт в SERP; наш фокус: **читабельность как SEO-фактор** (структура, инфостиль, «острова смысла») + техника.
+**Почему отличается от конкурентов:**
+- Яндекс — канон SEO без GEO-слоя.
+- 1ps/olegweb — длинные encyclopedia; у нас **компактный action-first** workflow + чеклист.
+- GEO-гайды (Habr, pawetta) не учат писать текст с нуля.
+- H1 «которые читают люди» — дифференциатор: **читабельность как SEO/GEO-фактор**.
 
-**Режим B — как применить:** сама статья B01 — **эталон**: 8,5–9,5k знаков, 5–7 FAQ, BlogPosting + FAQPage, атомарные H2, lead-абзац с определением, внутренняя перелинковка на `/`.
-
-**Tone (site-brief):** практично, по-человечески, редакция бренда; без корпоративной воды и эмодзи.
+**Режим B:** статья B01 — **эталон**: 8 500–9 500 знаков, 5–7 FAQ, BlogPosting + FAQPage, атомарные H2, lead с определением.
 
 **H2-каркас (из карточки + research):**
-1. Зачем SEO и GEO в одной статье (не два проекта, один контент)
+1. Зачем SEO и GEO в одной статье
 2. Структура longread: H1–H3, lead, списки, таблицы
-3. FAQ и schema — зачем и как (JSON-LD, не в body)
-4. Чеклист перед публикацией (15–20 пунктов, printable logic)
-
-Дополнительные подтемы для глубины (внутри блоков, не отдельные H2 верхнего уровня): семантика/Wordstat, Title/Description, E-E-A-T lite, llms.txt, AI-краулеры в robots.txt.
+3. FAQ и schema — зачем и как
+4. Чеклист перед публикацией (15–20 пунктов)
 
 ---
 
-## 4. GEO hooks (для writer и schema)
+## 5. GEO hooks (writer + schema)
 
-| Hook | Где в статье | Формат |
-|------|--------------|--------|
-| Определение SEO-статьи в 40–60 слов | Первый абзац после H1 | «SEO-статья — …» |
-| Определение GEO в 40–60 слов | Блок «SEO + GEO» | «GEO (Generative Engine Optimization) — …» |
-| Conversational H2 | «Что такое GEO в SEO?», «Сколько символов нужно в SEO-статье?» | Вопрос в заголовке |
-| FAQ 5–7 пар | Конец longread | Короткий ответ 2–4 предложения |
-| Атомарные чанки | Каждый H2 | Первое предложение = тезис; 3–4 предложения в абзаце |
-| Island test | QA для writer | Блок понятен без соседних |
-| Schema handoff | Не в HTML body | BlogPosting + FAQPage |
-| Даты | Метаданные | datePublished / dateModified = 2026-06-10 |
-| llms.txt | Упоминание в GEO-блоке | Что это и зачем для блога |
-| E-E-A-T lite | Автор/редакция | Имя, роль, без выдуманных регалий |
-| Внутренняя ссылка | Из карточки | На `/` (главная) |
-| Alt обложки | Cover | «Редактор за ноутбуком…» (cover_scene_hint) |
-
-**Целевые AI-формулировки для вкрапления:** «как писать seo статьи», «seo текст для блога», «geo оптимизация статьи», «сколько символов в seo статье», «что такое geo в seo».
+| Hook | Где | Формат |
+|------|-----|--------|
+| Определение SEO-статьи 40–60 слов | Первый абзац после H1 | «SEO-статья — …» |
+| Определение GEO 40–60 слов | Блок «SEO + GEO» | «GEO — …» |
+| Conversational H2 | FAQ-темы | «Сколько символов…», «Что такое GEO…» |
+| FAQ 5–7 пар | Конец | Ответ 2–4 предложения, действие |
+| Атомарные чанки | Каждый H2 | Первое предложение = тезис |
+| Schema handoff | Не в body | BlogPosting + FAQPage |
+| Внутренняя ссылка | Из карточки | `/` |
 
 ---
 
-## 5. FAQ-кандидаты (5–7)
+## 6. FAQ-кандидаты (5–7)
 
-1. **Сколько символов должно быть в SEO-статье?** — нет универсальной нормы; ориентир — полнота ответа и конкуренты в SERP; для how-to longread в Excalibur — 8 500–9 500 знаков текста.
-2. **Что такое GEO в SEO?** — GEO дополняет SEO: цель — цитирование в AI-ответах, база — индексируемый и структурированный контент.
-3. **Нужно ли переспамить ключевые слова в 2026 году?** — нет; естественные вхождения + LSI/тематические слова.
-4. **Чем Title отличается от H1?** — Title для сниппета (~65 знаков), H1 — заголовок на странице; не дублировать.
-5. **Какие schema нужны для SEO-статьи блога?** — BlogPosting (или Article) + FAQPage для блока вопросов.
-6. **Что такое llms.txt и нужен ли он блогу?** — файл для AI-краулеров; полезный сигнал, не замена sitemap.
+1. **Сколько символов должно быть в SEO-статье?** — нет универсальной нормы; ориентир — полнота ответа и SERP; для how-to в Excalibur — 8 500–9 500 знаков.
+2. **Что такое GEO в SEO?** — дополнение к SEO: цитирование в AI-ответах при базе индексируемого структурированного контента.
+3. **Нужен ли переспам ключей в 2026?** — нет; естественные вхождения + тематические слова.
+4. **Чем Title отличается от H1?** — Title для сниппета, H1 на странице; не дублировать дословно.
+5. **Какие schema для SEO-статьи блога?** — BlogPosting (Article) + FAQPage.
+6. **Что такое llms.txt и нужен ли блогу?** — сигнал для AI-краулеров; не замена sitemap.
 7. **Как проверить статью перед публикацией?** — чеклист: семантика, мета, структура, FAQ, schema, ссылки, читабельность.
 
 ---
 
-## 6. Риски и blockers для writer
+## 7. Риски для writer
 
-- Не выдумывать статистику; использовать только таблицу фактов выше.
-- Не копировать структуру Pikapuka (7 разделов) 1:1.
-- Объём текста: 8 500–9 500 знаков (quality-blog.md).
-- Без эмодзи, без VPN/обход блокировок.
-- site_url example.com — в ссылках использовать плейсхолдер или `/` по карточке.
+- Не выдумывать статистику Wordstat и CTR.
+- Не копировать 13 шагов olegweb / 7 разделов pikapuka 1:1.
+- Объём: 8 500–9 500 знаков (`shared/quality-blog.md`).
+- Без эмодзи, без VPN; site_url — плейсхолдер или `/`.
 
 ---
 
-## 7. Готовность к writer
+## 8. Готовность к writer
 
 | Критерий | Статус |
 |----------|--------|
-| SERP ≥ 3 конкурента | ✅ |
-| Таблица фактов с URL | ✅ |
-| Угол + дифференциация | ✅ |
-| GEO hooks | ✅ |
-| FAQ-кандидаты 5–7 | ✅ |
-| Режим B описан | ✅ |
+| SERP ≥ 3 конкурента | ✅ (8) |
+| Wordstat MCP | ⚠️ сервер недоступен |
+| Таблица фактов с URL | ✅ (18) |
+| utility_verdict + action_outline + reader_outcome | ✅ |
+| GEO hooks + FAQ | ✅ |
 | H2 outline | ✅ |
 
-**Writer:** готов. Вход: этот файл + `research-context.json` + карточка B01 в `blog-topics.md` + `site-brief.md`.
+**Writer:** готов с оговоркой по Wordstat (LSI из SERP до подключения MCP).
 
 ---
 
@@ -138,5 +192,7 @@
 topic_id: B01
 article_dir: memory/blog/articles/B01-primer-seo-stati
 status: ✅
-summary: SERP — 5 конкурентов (Яндекс Direct, Pikapuka, MaryProject, audit4seo, Digital Impuls). Угол — единый workflow SEO+GEO longread «для людей»: читабельность, атомарные чанки, FAQ/schema, чеклист. Режим B, 17 фактов с URL, 7 FAQ-кандидатов. Готов к writer.
+utility_verdict: PASS
+wordstat: MCP user-mcp-kv недоступен — точные показы не получены; LSI из SERP
+summary: SERP 8 конкурентов (1ps, olegweb, Яндекс Direct, serptop, seo-vladimir, bmg, Habr GEO, pawetta). Угол — единый workflow SEO+GEO longread «для людей»: интент → структура → FAQ/schema → чеклист. 18 фактов с URL, 7 FAQ, action_outline 8 шагов. Writer ready (Wordstat pending MCP).
 ===

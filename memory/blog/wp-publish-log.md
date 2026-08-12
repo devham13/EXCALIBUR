@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-12 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 812 |
+| inline_images | 813, 814, 815 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP (FTP blocked: Bad IP from Cloud Agent) |
+| trigger | excalibur-blog-publish automation |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (7/7)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati
+python3 scripts/excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles --site-base $PUBLIC_SITE_URL
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=812
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=813 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-51.png
+OK inline_image_upload=814 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-51.png
+OK inline_image_upload=815 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-51.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

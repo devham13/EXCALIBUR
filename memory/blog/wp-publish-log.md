@@ -127,9 +127,9 @@ OK post=13361 slug=geo-optimizaciya-sajta-2026
 OK featured_image=13362
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13363 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
-OK inline_image_upload=13364 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
-OK inline_image_upload=13365 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
+OK inline_image_upload=13363 src=cover/inline-01.png url=<wp-media>
+OK inline_image_upload=13364 src=cover/inline-02.png url=<wp-media>
+OK inline_image_upload=13365 src=cover/inline-03.png url=<wp-media>
 permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
 ```
 
@@ -167,8 +167,52 @@ OK post=13369 slug=avtonomnyj-kontent-zavod-nejroseti
 OK featured_image=13370
 OK schema_meta=1
 OK skip_theme_faq_meta=1
-OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-01.jpg
-OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
-OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
+OK inline_image_upload=13371 src=cover/inline-01.png url=<wp-media>
+OK inline_image_upload=13372 src=cover/inline-02.png url=<wp-media>
+OK inline_image_upload=13373 src=cover/inline-03.png url=<wp-media>
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```
+---
+
+## 2026-08-12 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 797 |
+| inline_images | 798, 799, 800 |
+| permalink | /2026/06/19/primer-seo-stati/ |
+| site-base | EXCALIBUR_PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (8/8)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base $EXCALIBUR_PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles --site-base $EXCALIBUR_PUBLIC_SITE_URL
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=797
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=798 src=cover/inline-01.png url=<wp-media>
+OK inline_image_upload=799 src=cover/inline-02.png url=<wp-media>
+OK inline_image_upload=800 src=cover/inline-03.png url=<wp-media>
+permalink=/2026/06/19/primer-seo-stati/
 ```

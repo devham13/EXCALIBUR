@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code за 30 минут — или снова command not found?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Claude Code за 30 минут — установка CLI без command not found",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; тёмный hoodie с orange terminal-sticker; указывает на fake terminal «command not found: claude» + install.sh progress 80%; Telegram «MCP не коннектится»; sticky «sudo npm? нет!»; meme shocked face + facepalm cat cutout; розовый highlight на «command not found»",
+      "meme_caption_ru": "command not found?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Claude Code, Cursor и чат Claude - что выбрать",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица 3 колонки: Claude Code CLI / Cursor IDE / Claude.ai чат — строки: терминал+CI, MCP, hooks, headless claude -p; розовый sticky «выбери по месту работы»; без лица героя",
+      "alt": "Сравнительная таблица Claude Code vs Cursor vs чат Claude"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Установите Claude Code CLI на macOS, Linux и Windows",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow install: native sh/ps1 → brew/winget → PATH → claude doctor → auth; иконки macOS/Linux/Windows; стрелки и номера шагов; mini terminal snippet «curl install.sh»; без лица героя",
+      "alt": "Схема установки Claude Code CLI на macOS, Linux и Windows"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Авторизуйтесь и инициализируйте проект (CLAUDE.md, permissions)",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на рваной бумаге: claude login ✓, CLAUDE.md ✓, /init ✓, permissions allowlist ✓; scotch tape corner; без лица героя",
+      "alt": "Чеклист auth и CLAUDE.md для Claude Code"
+    }
+  }
+}

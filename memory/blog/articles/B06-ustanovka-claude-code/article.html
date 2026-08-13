@@ -1,0 +1,226 @@
+<p>Claude Code ставят в терминале, а через неделю CLI не находят, MCP не подключается, headless-скрипт падает на auth. За 20-40 минут можно пройти полный цикл: native install на своей ОС, вход в аккаунт, CLAUDE.md, первый MCP-сервер, hook и проверка `claude -p` для автоматизации. Ниже - пошаговый claude code cli без воды: таблица выбора инструмента, команды установки, чеклист ошибок.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Claude Code - agentic CLI от Anthropic: агент читает репозиторий и выполняет команды в терминале с вашим подтверждением. Ставьте native installer (не sudo npm), проверяйте PATH через `claude doctor`, настраивайте CLAUDE.md и `.mcp.json`, hooks в settings.json и headless через `claude -p`. Бесплатный план Claude.ai Claude Code не включает - нужен Pro ($20/мес) или Console API.</blockquote>
+
+<p>Claude Code - программа в терминале (CLI - "командная строка"), не браузерный чат. MCP - "розетка" для внешних tools (см. <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>), конфиг: `.mcp.json` и `claude mcp add`. Hooks - скрипты на события без участия Claude.</p>
+
+<h2 id="choose-tool">1. Сравните Claude Code, Cursor и чат Claude - что выбрать</h2>
+
+<p>Выберите по месту работы, не по рейтингу.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Claude Code (CLI)</th>
+      <th>Cursor (IDE)</th>
+      <th>Claude.ai (чат)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где работает</b></td>
+      <td>Терминал, CI, VS Code extension</td>
+      <td>IDE (форк VS Code)</td>
+      <td>Браузер и приложения</td>
+    </tr>
+    <tr>
+      <td><b>Правка файлов и bash</b></td>
+      <td>Да, с approve</td>
+      <td>Да, Agent mode</td>
+      <td>Ограниченно (artifacts)</td>
+    </tr>
+    <tr>
+      <td><b>MCP</b></td>
+      <td>`.mcp.json`, `claude mcp add`, `/mcp`</td>
+      <td>`.cursor/mcp.json`</td>
+      <td>Connectors (другой UX)</td>
+    </tr>
+    <tr>
+      <td><b>Headless / CI</b></td>
+      <td>`claude -p`, JSON output</td>
+      <td>Cloud Agents (отдельно)</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <td><b>Hooks</b></td>
+      <td>`.claude/settings.json`</td>
+      <td>Rules (другой API)</td>
+      <td>Нет</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> IDE каждый день - Cursor; terminal, git-воркфлоу, серверы и CI - Claude Code; брейншторм и документы - чат. Оба редактора могут сосуществовать на одном проекте.
+</blockquote>
+
+<p><b>Делайте:</b> ставьте Claude Code, если нужны скрипты и headless. <b>Не делайте:</b> ждать от чата Claude полноценного agentic-доступа к репозиторию.</p>
+
+<h2 id="install-cli">2. Установите Claude Code CLI на macOS, Linux и Windows</h2>
+
+<p>Требования: macOS 13.0+, Windows 10 1809+, Ubuntu 20.04+, 4+ ГБ ОЗУ, интернет. Claude Code не входит в бесплатный Claude.ai - нужен Pro ($20/мес), Max (от $100/мес) или Console/API (<a href="https://claude.com/pricing" target="_blank">pricing</a>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Метод</th>
+      <th>Команда</th>
+      <th>Auto-update</th>
+      <th>Когда выбирать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Native (рекомендуется)</b></td>
+      <td>install.sh / install.ps1</td>
+      <td>Да, в фоне</td>
+      <td>Первый раз на любой ОС</td>
+    </tr>
+    <tr>
+      <td><b>Homebrew</b></td>
+      <td>`brew install --cask claude-code`</td>
+      <td>Ручное</td>
+      <td>macOS, уже используете brew</td>
+    </tr>
+    <tr>
+      <td><b>WinGet</b></td>
+      <td>`winget install Anthropic.ClaudeCode`</td>
+      <td>Ручное</td>
+      <td>Windows без PowerShell-скриптов</td>
+    </tr>
+    <tr>
+      <td><b>npm</b></td>
+      <td>`npm install -g @anthropic-ai/claude-code`</td>
+      <td>Ручное (`@latest`)</td>
+      <td>Уже есть Node.js 22+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Native installer (<a href="https://code.claude.com/docs/ru/quickstart" target="_blank">quickstart</a>):</p>
+
+<p><b>macOS / Linux / WSL 2:</b></p>
+<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+
+<p><b>Windows PowerShell:</b></p>
+<pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+
+<p><b>Windows CMD:</b></p>
+<pre><code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></pre>
+
+<ol>
+  <li><b>Шаг 1:</b> Выберите native install, если Node.js 22+ ещё нет.</li>
+  <li><b>Шаг 2:</b> Выполните команду для своей ОС из таблицы выше.</li>
+  <li><b>Шаг 3:</b> Закройте и откройте терминал - обновится PATH.</li>
+  <li><b>Шаг 4:</b> Проверьте: `claude --version`.</li>
+  <li><b>Шаг 5:</b> При "command not found" добавьте `~/.local/bin` (Unix) или `%USERPROFILE%\.local\bin` (Windows) в PATH.</li>
+  <li><b>Шаг 6:</b> Запустите `claude doctor` - диагностика окружения.</li>
+</ol>
+
+<p><b>Делайте:</b> native installer для автообновлений. <b>Не делайте:</b> `sudo npm install -g` - риск прав и безопасности (<a href="https://code.claude.com/docs/ru/setup" target="_blank">setup docs</a>).</p>
+
+<h2 id="auth-project">3. Авторизуйтесь и инициализируйте проект (CLAUDE.md, permissions)</h2>
+
+<p>Первый запуск: введите `claude` - откроется браузер для входа. Смена аккаунта в сеансе: `/login`. Если задан `ANTHROPIC_API_KEY`, CLI может конфликтовать с подпиской - снимите переменную или явно выберите метод auth.</p>
+
+<blockquote>
+  <b>Workflow от нуля до первого агента:</b>
+  <br>
+  install → auth (`claude`) → `cd` в репозиторий → `/init` или CLAUDE.md → permissions в `.claude/settings.json` → MCP → hook → `claude -p` тест
+</blockquote>
+
+<p>CLAUDE.md (`./CLAUDE.md` или `./.claude/CLAUDE.md`) - память проекта: build/test, стиль. Автогенерация: `/init`. Папка `.claude/` - settings и локальные файлы.</p>
+
+<p>Пример минимального CLAUDE.md:</p>
+<pre><code># Проект
+npm test          # запуск тестов
+npm run build     # сборка
+Коммиты: conventional commits, язык - русский в docs/</code></pre>
+
+<p><b>Делайте:</b> опишите в CLAUDE.md реальные команды build/test - агент перестанет угадывать. <b>Не делайте:</b> класть секреты в CLAUDE.md - только команды и conventions.</p>
+
+<h2 id="mcp-connect">4. Подключите MCP-сервер через claude mcp add и .mcp.json</h2>
+
+<p>MCP подключает браузер, GitHub, docs. Конфиг проекта - <b>`.mcp.json` в корне repo</b>, не в `.claude/`.</p>
+
+<p>Scopes: `local`, `project` (.mcp.json), `user`. CLI:</p>
+<pre><code>claude mcp add --scope project --transport http myserver https://example.com/mcp
+claude mcp add --scope project mytool -- npx -y @modelcontextprotocol/server-filesystem ./src</code></pre>
+
+<p>Проверка в сеансе: `/mcp`. Отличия от Cursor - в <a href="/podklyuchenie-mcp-cursor/">гайде MCP Cursor</a>.</p>
+
+<p><b>Делайте:</b> один MCP под задачу, approve tools при первом вызове. <b>Не делайте:</b> копировать `.cursor/mcp.json` в `.claude/` - пути и формат отличаются.</p>
+
+<h2 id="hooks-headless">5. Настройте hooks и проверьте headless-режим (claude -p)</h2>
+
+<p>Hooks - ключ `"hooks"` в `.claude/settings.json` или `~/.claude/settings.json`. События: PreToolUse, SessionStart. Список: `/hooks`.</p>
+
+<p>Headless (без интерактива) - флаг `-p` ("print mode"):</p>
+<pre><code>claude -p "кратко опиши структуру репозитория"
+claude -p "запусти npm test и верни только ошибки" --output-format json</code></pre>
+
+<p>Plan Mode - только план без правок до approve:</p>
+<pre><code>claude -p "план рефакторинга auth модуля" --permission-mode plan</code></pre>
+
+<p>Лимиты - скользящее 5-часовое окно; CLI и чат делят пул (<a href="https://claude.com/pricing" target="_blank">FAQ</a>).</p>
+
+<p><b>Делайте:</b> тестируйте `-p` локально перед CI. <b>Не делайте:</b> гонять headless на Pro без `--max-budget-usd` в продакшен-скриптах - легко упереться в лимит.</p>
+
+<h2 id="troubleshooting">6. Исправьте типичные ошибки (npm, PATH, Node, лимиты)</h2>
+
+<ul>
+  <li>`claude: command not found` - PATH: `~/.local/bin` или `%USERPROFILE%\.local\bin`; затем `claude doctor`</li>
+  <li>EBADENGINE при npm - нужен Node.js 22+ (с v2.1.198 пакета), не 18 из старых гайдов</li>
+  <li>`sudo npm install -g` - переустановите через native installer без sudo</li>
+  <li>403 на curl install - см. troubleshoot-install в <a href="https://code.claude.com/docs/ru/setup" target="_blank">setup docs</a></li>
+  <li>Windows без Git Bash - shell tool = PowerShell; с Git for Windows - Bash tool</li>
+  <li>WSL 2 - sandboxed command execution; WSL 1 - без sandbox</li>
+  <li>Конфликт ANTHROPIC_API_KEY и Pro - unset env или выберите один auth</li>
+  <li>MCP не виден - `.mcp.json` в корне repo, не в `.claude/`; проверка `/mcp`</li>
+  <li>npm update не обновляет CLI - используйте `npm install -g @anthropic-ai/claude-code@latest`</li>
+  <li>Исчерпан лимит - Settings &gt; Usage или апгрейд Max</li>
+  <li>Desktop app - альтернатива CLI без терминала (macOS/Windows/Linux)</li>
+</ul>
+
+<p><b>Делайте:</b> `claude doctor` после смены PATH. <b>Не делайте:</b> обход подписки через сторонние API.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Установите native CLI и пройдите `claude doctor` без ошибок.</li>
+  <li>Сгенерируйте CLAUDE.md через `/init` под ваш stack.</li>
+  <li>Подключите один MCP (filesystem или docs) и проверьте `/mcp`.</li>
+  <li>Добавьте hook на PreToolUse для git или тестов.</li>
+  <li>Запустите `claude -p` из shell-скрипта - прототип CI.</li>
+</ol>
+
+<p>Claude Code готовит repo, Make/n8n публикует. AI-сценарии - на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, Claude Code и MCP).<br>
+  <b>Достоверность данных:</b> команды установки, требования ОС, цены Pro/Max и поведение CLI сверены с документацией <a href="https://code.claude.com/docs/ru/setup" target="_blank">code.claude.com</a> и <a href="https://claude.com/pricing" target="_blank">claude.com/pricing</a> на 13.08.2026. Точные показы Wordstat по запросу "claude code" в этой сессии не собирались (MCP Wordstat недоступен).
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Как установить Claude Code на Windows?</h3>
+<p>Откройте PowerShell от пользователя и выполните `irm https://claude.ai/install.ps1 | iex`. Альтернатива: WSL 2 + `curl -fsSL https://claude.ai/install.sh | bash`. Перезапустите терминал, проверьте `%USERPROFILE%\.local\bin` в PATH и `claude doctor`.</p>
+
+<h3>Нужен ли Node.js для Claude Code?</h3>
+<p>Для native install - нет. Для npm-пути да: Node.js 22+ (пакет `@anthropic-ai/claude-code` с v2.1.198). Обновление: `npm install -g @anthropic-ai/claude-code@latest`, не `npm update -g`.</p>
+
+<h3>Чем Claude Code отличается от Cursor?</h3>
+<p>Cursor - IDE-first с Agent в редакторе. Claude Code - terminal/CI-first: headless `claude -p`, hooks, git-воркфлоу на сервере. MCP общий по идее; конфиги разные (.mcp.json vs .cursor/mcp.json).</p>
+
+<h3>Как подключить MCP к Claude Code?</h3>
+<p>Выполните `claude mcp add --scope project ...` или создайте `.mcp.json` в корне репозитория. В сеансе одобрите tools и проверьте `/mcp`. Не кладите MCP config в папку `.claude/`.</p>
+
+<h3>Бесплатно ли Claude Code?</h3>
+<p>Нет. Бесплатный план Claude.ai Claude Code не включает. Нужен Claude Pro ($20/мес), Max (от $100/мес), Team/Enterprise или оплата через Console/API credits.</p>
+
+<h3>Что делать, если claude: command not found?</h3>
+<p>Добавьте в PATH каталог `~/.local/bin` (macOS/Linux) или `%USERPROFILE%\.local\bin` (Windows). Перезапустите терминал. Запустите `claude doctor` - он подскажет, что не так с установкой.</p>
+
+<h3>Можно ли запускать Claude Code без интерактива?</h3>
+<p>Да: `claude -p "ваша задача"`. Для CI добавьте `--output-format json` и при необходимости `--permission-mode plan` или `--max-budget-usd` для контроля расхода.</p>

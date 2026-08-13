@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "ai (чат) Где работает Терминал, CI, VS Code extension IDE (форк VS Code) Браузер и приложения Правка файлов и bash Да, с approve Да, Agent mode Ограниченно (artifacts) MCP `",
+      "word_count": 29
+    },
+    {
+      "sentence": "Headless (без интерактива) - флаг `-p` (\"print mode\"): `claude -p \"кратко опиши структуру репозитория\"` `claude -p \"запусти npm test и верни только ошибки\" --output-format json` Plan Mode - только план без правок до approve: `claude -p \"план рефакторинга auth модуля\" --permission-mode plan` Лимиты - скользящее 5-часовое окно; CLI и чат делят пул ( FAQ )",
+      "word_count": 50
+    },
+    {
+      "sentence": "troubleshoot-install в setup docs Windows без Git Bash - shell tool = PowerShell; с Git for Windows - Bash tool WSL 2 - sandboxed command execution; WSL 1 - без sandbox Конфликт ANTHROPIC_API_KEY и Pro - unset env или выберите один auth MCP не виден - `",
+      "word_count": 36
+    },
+    {
+      "sentence": "claude/`; проверка `/mcp` npm update не обновляет CLI - используйте `npm install -g @anthropic-ai/claude-code@latest` Исчерпан лимит - Settings &gt; Usage или апгрейд Max Desktop app - альтернатива CLI без терминала (macOS/Windows/Linux) Делайте: `claude doctor` после смены PATH",
+      "word_count": 38
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 6.5,
+    "avg_syllables_per_word": 1.1
+  }
+}

@@ -100,14 +100,11 @@
 
 <p>Native installer (<a href="https://code.claude.com/docs/ru/quickstart" target="_blank">quickstart</a>):</p>
 
-<p><b>macOS / Linux / WSL 2:</b></p>
-<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+<blockquote><b>macOS / Linux / WSL 2:</b><br>`curl -fsSL https://claude.ai/install.sh | bash`</blockquote>
 
-<p><b>Windows PowerShell:</b></p>
-<pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+<blockquote><b>Windows PowerShell:</b><br>`irm https://claude.ai/install.ps1 | iex`</blockquote>
 
-<p><b>Windows CMD:</b></p>
-<pre><code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></pre>
+<blockquote><b>Windows CMD:</b><br>`curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd`</blockquote>
 
 <ol>
   <li><b>Шаг 1:</b> Выберите native install, если Node.js 22+ ещё нет.</li>
@@ -132,11 +129,12 @@
 
 <p>CLAUDE.md (`./CLAUDE.md` или `./.claude/CLAUDE.md`) - память проекта: build/test, стиль. Автогенерация: `/init`. Папка `.claude/` - settings и локальные файлы.</p>
 
-<p>Пример минимального CLAUDE.md:</p>
-<pre><code># Проект
-npm test          # запуск тестов
-npm run build     # сборка
-Коммиты: conventional commits, язык - русский в docs/</code></pre>
+<blockquote><b>Пример минимального CLAUDE.md:</b><br>
+`# Проект`<br>
+`npm test` — запуск тестов<br>
+`npm run build` — сборка<br>
+Коммиты: conventional commits, язык — русский в docs/
+</blockquote>
 
 <p><b>Делайте:</b> опишите в CLAUDE.md реальные команды build/test - агент перестанет угадывать. <b>Не делайте:</b> класть секреты в CLAUDE.md - только команды и conventions.</p>
 
@@ -145,8 +143,10 @@ npm run build     # сборка
 <p>MCP подключает браузер, GitHub, docs. Конфиг проекта - <b>`.mcp.json` в корне repo</b>, не в `.claude/`.</p>
 
 <p>Scopes: `local`, `project` (.mcp.json), `user`. CLI:</p>
-<pre><code>claude mcp add --scope project --transport http myserver https://example.com/mcp
-claude mcp add --scope project mytool -- npx -y @modelcontextprotocol/server-filesystem ./src</code></pre>
+<blockquote>
+`claude mcp add --scope project --transport http myserver https://example.com/mcp`<br>
+`claude mcp add --scope project mytool -- npx -y @modelcontextprotocol/server-filesystem ./src`
+</blockquote>
 
 <p>Проверка в сеансе: `/mcp`. Отличия от Cursor - в <a href="/podklyuchenie-mcp-cursor/">гайде MCP Cursor</a>.</p>
 
@@ -157,11 +157,13 @@ claude mcp add --scope project mytool -- npx -y @modelcontextprotocol/server-fil
 <p>Hooks - ключ `"hooks"` в `.claude/settings.json` или `~/.claude/settings.json`. События: PreToolUse, SessionStart. Список: `/hooks`.</p>
 
 <p>Headless (без интерактива) - флаг `-p` ("print mode"):</p>
-<pre><code>claude -p "кратко опиши структуру репозитория"
-claude -p "запусти npm test и верни только ошибки" --output-format json</code></pre>
+<blockquote>
+`claude -p "кратко опиши структуру репозитория"`<br>
+`claude -p "запусти npm test и верни только ошибки" --output-format json`
+</blockquote>
 
 <p>Plan Mode - только план без правок до approve:</p>
-<pre><code>claude -p "план рефакторинга auth модуля" --permission-mode plan</code></pre>
+<blockquote>`claude -p "план рефакторинга auth модуля" --permission-mode plan`</blockquote>
 
 <p>Лимиты - скользящее 5-часовое окно; CLI и чат делят пул (<a href="https://claude.com/pricing" target="_blank">FAQ</a>).</p>
 

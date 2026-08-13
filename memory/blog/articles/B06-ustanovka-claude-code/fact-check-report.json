@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-ustanovka-claude-code/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ией code.claude.com и claude.com/pricing на 13.08.2026. Точные показы Wordstat по запросу \"claude code\"",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "дключается, headless-скрипт падает на auth. За 20-40 минут можно пройти полный цикл: native install на своей",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "10 1809",
+      "kind": "large_number",
+      "context": "Linux и Windows Требования: macOS 13.0+, Windows 10 1809+, Ubuntu 20.04+, 4+ ГБ ОЗУ, интернет. Claude Code",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "198",
+      "kind": "large_number",
+      "context": "r` EBADENGINE при npm - нужен Node.js 22+ (с v2.1.198 пакета), не 18 из старых гайдов `sudo npm install",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "403",
+      "kind": "large_number",
+      "context": "- переустановите через native installer без sudo 403 на curl install - см. troubleshoot-install в setup",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

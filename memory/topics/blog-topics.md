@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Установка и настройка Claude Code
+
+- **priority:** P0
+- **slug:** ustanovka-claude-code
+- **h1:** Как установить и настроить Claude Code: пошаговая инструкция для автоматизации разработки
+- **primary_query:** claude code
+- **secondary_queries:** claude code установка, claude code mcp, claude code hooks, как пользоваться claude code, claude code cli
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Claude Code vs Cursor vs чат Claude: что выбрать для автоматизации в 2026 году
+  2. Установка CLI на macOS, Linux и Windows (WSL): npm, curl и системные требования
+  3. Авторизация, CLAUDE.md и папка .claude: skills, permissions и project memory
+  4. Подключение MCP-серверов через /mcp и headless-режим (-p) для CI/CD-скриптов
+  5. Hooks и Routines: автоматизация коммитов, тестов и фоновых задач без ручного запуска
+  6. Troubleshooting: ошибки npm, sudo install, лимиты API и Plan Mode
+- **faq_hints:** как установить claude code на windows; чем claude code отличается от cursor; как подключить mcp к claude code
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** терминал с логотипом Claude Code, вокруг экрана «кубики» CLAUDE.md, hooks и MCP-серверы, стикеры Routines/Headless, неоновый diy-коллаж
+
+---
+

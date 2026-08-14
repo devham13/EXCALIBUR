@@ -32,22 +32,24 @@
       "skipped": false
     },
     {
-      "url": "/blog/geo-optimizaciya-sajta-2026/",
+      "url": "https://mayai.ru/blog/geo-optimizaciya-sajta-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
-      "skipped": false
+      "skipped": false,
+      "checked_url": "https://mayai.ru/blog/geo-optimizaciya-sajta-2026/"
     },
     {
-      "url": "/",
+      "url": "https://mayai.ru/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
-      "skipped": false
+      "skipped": false,
+      "checked_url": "https://mayai.ru/"
     },
     {
       "url": "https://kv-ai.ru/obuchenie-po-make",

@@ -38,7 +38,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 ### Next steps (для оператора)
 
 1. Обновить `memory/site.env.local`: FTP_USER/FTP_PASS + `FTP_ROOT=/` (корень FTP после login, где `wp-load.php`). Путь панели хостинга: `FTP_PANEL_PATH=/your-account.beget.tech/public_html/`.
-2. Либо запустить publish с машины/сети, где `curl https://mayai.ru` отвечает < 5 с.
+2. Либо запустить publish с машины/сети, где `curl https://mayai.ru отвечает < 5 с.
 3. Альтернатива: WP Application Password + REST API / MCP WordPress blob publish.
 
 ---
@@ -172,3 +172,51 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-15 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 847 |
+| inline_images | 848, 849, 850 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | ssh_sftp_fallback (FTP 425 Bad IP from Cloud Agent) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (8/8)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+# FTP blocked: 425 Security Bad IP — publish via SSH SFTP + HTTP trigger
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=847
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=848 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-54.png
+OK inline_image_upload=849 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-54.png
+OK inline_image_upload=850 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-54.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

@@ -14,14 +14,14 @@
       "skipped": false
     },
     {
-      "url": "https://mayai.ru/podklyuchenie-mcp-cursor/",
+      "url": "https://neurinix.com/podklyuchenie-mcp-cursor/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "https://mayai.ru/podklyuchenie-mcp-cursor/"
+      "checked_url": "https://neurinix.com/podklyuchenie-mcp-cursor/"
     },
     {
       "url": "https://github.com/PatrickJS/awesome-cursorrules",

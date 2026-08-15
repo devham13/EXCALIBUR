@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastrojka-cursor-rules-mdc
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/blog/nastrojka-cursor-rules-mdc/
+Дата публикации: 2026-08-15  
+Live URL: https://neurinix.com/2026/08/15/nastrojka-cursor-rules-mdc/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Agent в Cursor каждый раз «забывает» язык и стек? �
 • Чеклист из 15 пунктов перед git commit
 • Связка с MCP: rules = поведение, MCP = доступ к API
 
-Читать: https://mayai.ru/blog/nastrojka-cursor-rules-mdc/
+Читать: https://neurinix.com/2026/08/15/nastrojka-cursor-rules-mdc/
 ```
 
 ## Перелинковка

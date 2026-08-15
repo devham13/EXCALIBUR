@@ -7,6 +7,10 @@
 <p>Rules – "как думать в проекте". Внешние сервисы – через MCP: <a href="/podklyuchenie-mcp-cursor/">гайд по MCP в Cursor</a>. Rules = поведение, MCP = доступ к API и браузеру.</p>
 
 <h2 id="rules-vs-cursorrules">1. Сравните Cursor Rules и legacy .cursorrules</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Cursor Rules .mdc против legacy .cursorrules" loading="lazy">
+</figure>
+
 
 <p>Раньше .cursorrules в корне читался целиком в каждый запрос. С ~v0.43 (конец 2024) рекомендуют Project Rules: каталог .cursor/rules/ с .mdc и режимами активации. Legacy-файл ещё читается, но deprecated – два формата дают конфликтующие инструкции.</p>
 
@@ -45,6 +49,10 @@
 <p><b>Делайте:</b> если в корне есть .cursorrules – переименуйте в .cursorrules.bak, перенесите смысл в 00-project-overview.mdc с alwaysApply: true. <b>Не делайте:</b> оставлять legacy-файл рядом с .mdc – Agent получит противоречивые указания и "забудет" часть правил.</p>
 
 <h2 id="create-folder">2. Создайте папку .cursor/rules/ и первый .mdc</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: создание папки .cursor/rules/ и первого .mdc-файла" loading="lazy">
+</figure>
+
 
 <p>Project Rules версионируются в git. Нужна папка .cursor/rules/, не файл rules. Plain .md без YAML rules-система игнорирует – только .mdc с frontmatter между ---.</p>
 
@@ -65,6 +73,10 @@
 <p>Docs: правило короче 500 строк. <b>Делайте:</b> короткие императивы. <b>Не делайте:</b> alwaysApply на 400 строк с GitHub – сожмите до 20–40 строк.</p>
 
 <h2 id="four-modes">3. Выберите режим: alwaysApply, globs, description, @-mention</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист режимов Cursor Rules: alwaysApply, globs, description и @-mention" loading="lazy">
+</figure>
+
 
 <p>В интерфейсе Cursor (Customize → Rules) четыре типа. В YAML они задаются полями alwaysApply, globs и description. При alwaysApply: true поля globs и description игнорируются – не смешивайте "всегда" с привязкой к файлам в одном файле.</p>
 

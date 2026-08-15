@@ -185,7 +185,7 @@ permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 | post_id | 238 |
 | featured_image_id | 847 |
 | inline_images | 848, 849, 850 |
-| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| permalink | {PUBLIC_SITE_URL}/2026/06/19/primer-seo-stati/ | |
 | transport | ssh_sftp_fallback (FTP 425 Bad IP from Cloud Agent) |
 
 ### Preconditions

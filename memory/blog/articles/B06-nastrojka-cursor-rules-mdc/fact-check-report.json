@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-cursor-rules-mdc/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ают постоянный контекст. По Яндекс Вордстат (июнь 2026): \"cursor rules\" – ~248 показов/мес, \"как настрои",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "читался целиком в каждый запрос. С ~v0.43 (конец 2024) рекомендуют Project Rules: каталог .cursor/rules",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "ре), которые подставляются в каждый запрос. За 30–45 минут вы создадите папку .cursor/rules/, два .mdc-файла",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "248",
+      "kind": "large_number",
+      "context": "По Яндекс Вордстат (июнь 2026): \"cursor rules\" – ~248 показов/мес, \"как настроить cursor\" – ~186. Канон",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "ustomize → Rules → Add Rule. Docs: правило короче 500 строк. Делайте: короткие императивы. Не делайте: a",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "400",
+      "kind": "large_number",
+      "context": ": короткие императивы. Не делайте: alwaysApply на 400 строк с GitHub – сожмите до 20–40 строк. 3. Выбери",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

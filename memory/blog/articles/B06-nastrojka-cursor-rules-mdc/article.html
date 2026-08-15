@@ -106,33 +106,37 @@
 
 <p>Минимальный рабочий набор – два файла: общий overview и одно file-scoped правило. Пример overview для автоматизатора или маркетолога с лендингами и скриптами:</p>
 
-<pre><code>---
-description: Общие правила проекта
-alwaysApply: true
----
-
-- Отвечай на русском, простым языком без жаргона.
-- Перед удалением файлов или деплоем – спроси подтверждение.
-- Стек: HTML/CSS, Make-сценарии, Python для утилит.
-- Коммиты: короткое сообщение на русском или английском, без "fix".
-- Не выдумывай API-ключи и цены – если данных нет, скажи об этом.
-</code></pre>
+<blockquote>
+  <b>Пример 00-project-overview.mdc:</b><br>
+  ---<br>
+  description: Общие правила проекта<br>
+  alwaysApply: true<br>
+  ---<br>
+  <br>
+  - Отвечай на русском, простым языком без жаргона.<br>
+  - Перед удалением файлов или деплоем – спроси подтверждение.<br>
+  - Стек: HTML/CSS, Make-сценарии, Python для утилит.<br>
+  - Коммиты: короткое сообщение на русском или английском, без "fix".<br>
+  - Не выдумывай API-ключи и цены – если данных нет, скажи об этом.
+</blockquote>
 
 <p>Второй файл – под конкретный тип файлов. Пример для HTML-шаблонов:</p>
 
-<pre><code>---
-description: Правила для HTML-страниц и лендингов
-alwaysApply: false
-globs: **/*.html,**/*.htm
----
+<blockquote>
+  <b>Пример stack-scoped .mdc (HTML):</b><br>
+  ---<br>
+  description: Правила для HTML-страниц и лендингов<br>
+  alwaysApply: false<br>
+  globs: **/*.html,**/*.htm<br>
+  ---<br>
+  <br>
+  - Семантическая разметка: один h1, дальше h2/h3.<br>
+  - Без inline style="..." – стили в отдельном CSS.<br>
+  - Alt у каждого img, ссылки с понятным текстом.<br>
+  - CTA-кнопки – контрастные, текст действия глаголом.
+</blockquote>
 
-- Семантическая разметка: один h1, дальше h2/h3.
-- Без inline style="..." – стили в отдельном CSS.
-- Alt у каждого img, ссылки с понятным текстом.
-- CTA-кнопки – контрастные, текст действия глаголом.
-</code></pre>
-
-<p>Шаблоны: <a href="https://cursor.directory" target="_blank">cursor.directory</a>, <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> – сократите под свой кейс. AGENTS.md – без YAML; .mdc – когда нужны globs. <b>Делайте:</b> 3–15 пунктов. <b>Не делайте:</b> абстракции вроде "будь полезным".</p>
+<p>Шаблоны: cursor.directory, <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> – сократите под свой кейс. AGENTS.md – без YAML; .mdc – когда нужны globs. <b>Делайте:</b> 3–15 пунктов. <b>Не делайте:</b> абстракции вроде "будь полезным".</p>
 
 <h2 id="verify-active">5. Проверьте Active Rules и устраните типичные сбои</h2>
 

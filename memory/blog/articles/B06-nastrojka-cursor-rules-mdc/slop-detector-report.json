@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "mdc-файла (общий overview и правило под тип файлов), проверите Active Rules и закоммитите набор в git – без копипаста одних и тех же требований в каждый prompt",
+      "word_count": 26
+    },
+    {
+      "sentence": "mdc с YAML frontmatter Режимы Всегда целиком в контексте Always / по файлам / умно / вручную Git и команда Один монолит Модули: overview + правила под HTML, Python и т",
+      "word_count": 27
+    },
+    {
+      "sentence": "Режим в UI Frontmatter Когда использовать Always Apply alwaysApply: true Язык, тон, запреты, стек – 1–2 коротких файла Apply to Specific Files alwaysApply: false + globs Правила для HTML, Python, Make-сценариев и т",
+      "word_count": 30
+    },
+    {
+      "sentence": "Apply Intelligently description (без alwaysApply) Agent сам решает по описанию, когда правило уместно Apply Manually без alwaysApply и без globs Подключение через @-mention имени правила в чате Несколько globs – через запятую: **/*",
+      "word_count": 31
+    },
+    {
+      "sentence": "md Customize → Rules показывает ожидаемые типы (Always / Specific Files) Новый Agent-чат видит overview в Active Rules Открытый файл под glob активирует второе правило Тестовый prompt выполнен без копипаста инструкций в чат User Rules не дублируют Project Rules",
+      "word_count": 37
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 6.6,
+    "avg_syllables_per_word": 1.5
+  }
+}

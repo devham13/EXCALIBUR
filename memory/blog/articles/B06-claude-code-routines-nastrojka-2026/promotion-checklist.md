@@ -1,7 +1,7 @@
 # Promotion checklist — B06 claude-code-routines-nastrojka-2026
 
 Дата публикации: 2026-08-16  
-Live URL: https://mayai.ru/claude-code-routines-nastrojka-2026/
+Live URL: https://mayai.ru/2026/08/16/claude-code-routines-nastrojka-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -32,7 +32,7 @@ Claude Code Routines — облачный «сотрудник с будильн
 • Лимиты: Pro 5 / Max 15 / Team 25 запусков в день; /web-setup не ставит App
 • 5 готовых сценариев + production-чек-лист на 10 пунктов
 
-Читать: https://mayai.ru/claude-code-routines-nastrojka-2026/
+Читать: https://mayai.ru/2026/08/16/claude-code-routines-nastrojka-2026/
 ```
 
 ## Перелинковка

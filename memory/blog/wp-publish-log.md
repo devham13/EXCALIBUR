@@ -172,3 +172,50 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-16 — B06 claude-code-routines-nastrojka-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | claude-code-routines-nastrojka-2026 |
+| verdict | **PASS** |
+| post_id | 864 |
+| featured_image_id | 865 |
+| inline_images | 866, 867, 868 |
+| permalink | https://mayai.ru/2026/08/16/claude-code-routines-nastrojka-2026/ |
+| transport | SFTP fallback (FTP passive: `425 Security: Bad IP connecting`) |
+| schema_image | https://mayai.ru/wp-content/uploads/2026/08/claude-code-routines-nastrojka-2026-cover.png |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6)
+- schema.jsonld: present (+ post-publish URL update)
+- cover/cover.png + 3 inline PNG: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base https://mayai.ru  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run         # OK, PHP 8946306 bytes
+# FTP STOR failed (425 Bad IP) → publish via SFTP + HTTP trigger (paramiko)
+# schema.jsonld image URL + canonical paths updated → schema meta re-push post=864
+```
+
+### Result
+
+```
+OK post=864 slug=claude-code-routines-nastrojka-2026
+OK featured_image=865
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=866 src=cover/inline-01.png
+OK inline_image_upload=867 src=cover/inline-02.png
+OK inline_image_upload=868 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/08/16/claude-code-routines-nastrojka-2026/
+OK schema_meta_update=1 post=864
+```

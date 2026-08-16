@@ -1,0 +1,92 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-08-16",
+    "today_ru": "16.08.2026",
+    "year": 2026,
+    "month": 8,
+    "month_name_ru": "август",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-05-18",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-08-16 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-routines-nastrojka-2026",
+    "h1": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам",
+    "primary_query": "claude code routines",
+    "secondary_queries": [
+      "claude code рутины",
+      "настройка claude code routines",
+      "/schedule claude code",
+      "claude code github trigger",
+      "claude code api trigger"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "claude code routines 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "claude code routines август 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "claude code routines новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code рутины 2026",
+      "purpose": "вторичный запрос: claude code рутины"
+    },
+    {
+      "id": "secondary_2",
+      "query": "настройка claude code routines 2026",
+      "purpose": "вторичный запрос: настройка claude code routines"
+    },
+    {
+      "id": "secondary_3",
+      "query": "/schedule claude code 2026",
+      "purpose": "вторичный запрос: /schedule claude code"
+    },
+    {
+      "id": "secondary_4",
+      "query": "claude code github trigger 2026",
+      "purpose": "вторичный запрос: claude code github trigger"
+    },
+    {
+      "id": "secondary_5",
+      "query": "claude code api trigger 2026",
+      "purpose": "вторичный запрос: claude code api trigger"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-claude-code-routines-nastrojka-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

@@ -64,9 +64,9 @@
   Подготовка аккаунта → claude.ai/code/routines → New routine → промпт + repo + environment → trigger Schedule → Create → Run now → проверка transcript
 </blockquote>
 
-<p>Откройте <a href="https://claude.ai/code/routines" target="_blank">claude.ai/code/routines</a> и нажмите New routine. Задайте имя, промпт (что сделать с кодом), выберите репозиторий и environment: Default (Trusted network) или Custom с allowlist доменов. Добавьте trigger Schedule - preset nightly или weekly. Нажмите Create, затем Run now.</p>
+<p>Откройте <a href="https://code.claude.com/docs/en/routines" target="_blank">claude.ai/code/routines</a> (интерфейс Routines в Claude Code on the web) и нажмите New routine. Задайте имя, промпт (что сделать с кодом), выберите репозиторий и environment: Default (Trusted network) или Custom с allowlist доменов. Добавьте trigger Schedule - preset nightly или weekly. Нажмите Create, затем Run now.</p>
 
-<p>Альтернатива из CLI: в сессии Claude Code выполните, например, <code>/schedule daily Review open PRs and summarize blockers</code>. Команда /schedule создает только scheduled routines; алиас - /routines. Управление: /schedule list, /schedule update, /schedule run. Routine должна появиться в том же web UI.</p>
+<p>Альтернатива из CLI: в сессии Claude Code выполните, например, <b>/schedule daily Review open PRs and summarize blockers</b>. Команда /schedule создает только scheduled routines; алиас - /routines. Управление: /schedule list, /schedule update, /schedule run. Routine должна появиться в том же web UI.</p>
 
 <p><b>Делайте:</b> после Create сразу Run now и откройте session transcript. <b>Не делайте:</b> доверять только зеленому статусу run - он означает отсутствие infra-ошибки, а не успех задачи.</p>
 
@@ -82,12 +82,15 @@
 
 <p>Endpoint: POST на https://api.anthropic.com/v1/claude_code/routines/{routine_id}/fire. ID в URL начинается с trig_, не routine_. Поле text в JSON опционально, до 65536 символов - передайте stack trace или контекст алерта. Каждый POST создает новую сессию; idempotency key нет.</p>
 
-<pre><code>curl -X POST "https://api.anthropic.com/v1/claude_code/routines/trig_XXXXX/fire" \
-  -H "Authorization: Bearer sk-ant-oat01-ВАШ_ТОКЕН" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Разбери stack trace и предложи draft fix PR"}'</code></pre>
+<blockquote>
+  <b>Пример curl для API trigger:</b><br>
+  curl -X POST "https://api.anthropic.com/v1/claude_code/routines/trig_XXXXX/fire" \<br>
+  &nbsp;&nbsp;-H "Authorization: Bearer sk-ant-oat01-ВАШ_ТОКЕН" \<br>
+  &nbsp;&nbsp;-H "anthropic-version: 2023-06-01" \<br>
+  &nbsp;&nbsp;-H "anthropic-beta: experimental-cc-routine-2026-04-01" \<br>
+  &nbsp;&nbsp;-H "Content-Type: application/json" \<br>
+  &nbsp;&nbsp;-d '{"text": "Разбери stack trace и предложи draft fix PR"}'
+</blockquote>
 
 <p>Без header anthropic-beta: experimental-cc-routine-2026-04-01 ответ будет 400. Не путайте bearer sk-ant-oat01- с Platform API key (x-api-key) - это разные ключи. Успешный ответ 200 содержит claude_code_session_id и claude_code_session_url.</p>
 

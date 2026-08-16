@@ -1,0 +1,539 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-08-16",
+    "today_ru": "16.08.2026",
+    "year": 2026,
+    "month": 8,
+    "month_name_ru": "август",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-05-18",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-08-16 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "claude-code-routines-nastrojka-2026",
+    "h1": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам",
+    "primary_query": "claude code routines",
+    "secondary_queries": [
+      "claude code рутины",
+      "настройка claude code routines",
+      "/schedule claude code",
+      "claude code github trigger",
+      "claude code api trigger"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code routines 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": ""
+        },
+        {
+          "title": "Introducing routines in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+          "snippet": "Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure. Routines are in research preview. Behavior, limits, and the API surface may change."
+        },
+        {
+          "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+          "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+          "snippet": "Today, we're introducing routines in Claude Code in research preview. A routine is a Claude Code automation you configure once — including a prompt, repo, and connectors — and then run on a schedule, from an API call, or in response to an event."
+        },
+        {
+          "title": "Claude Code Scheduled Tasks & Routines: The Complete Guide (2026)",
+          "url": "https://popularaitools.ai/blog/claude-code-scheduled-tasks-routines-2026",
+          "snippet": "Routines в Claude Code 2026: 3 типа триггеров (cron/webhook/GitHub), 5 готовых рутин под копирование, лимиты по тарифам, пошаговая настройка."
+        },
+        {
+          "title": "Claude Code Routines: The Complete Guide to Scheduled Cloud Agents (2026)",
+          "url": "https://makerkit.dev/blog/tutorials/claude-code-routines-guide",
+          "snippet": "The Claude Code Power User Kit includes CLAUDE.md templates and hook configurations that work well as a starting point for scheduled task prompts. And our 43+ slash commands guide covers the full command vocabulary available within scheduled sessions."
+        },
+        {
+          "title": "Claude Routines: A Practical Guide to Claude Code Routines (2026 ...",
+          "url": "https://nimbalyst.com/blog/claude-code-routines-practical-guide/",
+          "snippet": "What Claude Code routines are, the three triggers that start them, how to set one up, and when a routine beats a cron job, a subagent, or a Managed Agent."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code routines август 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+          "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": "Routines в Claude Code 2026: 3 типа триггеров (cron/webhook/GitHub), 5 готовых рутин под копирование, лимиты по тарифам, пошаговая настройка."
+        },
+        {
+          "title": "Introducing routines in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+          "snippet": "Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure. Routines are in research preview. Behavior, limits, and the API surface may change."
+        },
+        {
+          "title": "Claude Code Routines: Schedule, API Triggers, and GitHub Automation (2026)",
+          "url": "https://thepromptshelf.dev/blog/claude-code-routines-scheduled-tasks-guide-2026/",
+          "snippet": "Today, we're introducing routines in Claude Code in research preview. A routine is a Claude Code automation you configure once — including a prompt, repo, and connectors — and then run on a schedule, from an API call, or in response to an event."
+        },
+        {
+          "title": "Claude Code Scheduled Tasks & Routines: The Complete Guide (2026)",
+          "url": "https://popularaitools.ai/blog/claude-code-scheduled-tasks-routines-2026",
+          "snippet": "Complete guide to Claude Code Routines — cloud-scheduled automation that runs when your laptop is closed. Covers schedule triggers, API endpoints, GitHub event triggers, branch permissions, and connector configuration."
+        },
+        {
+          "title": "Claude Code Routines (2026): Schedule, Webhook, and GitHub-Triggered ...",
+          "url": "https://www.claudedirectory.org/blog/claude-code-routines-guide",
+          "snippet": "The Claude Code Power User Kit includes CLAUDE.md templates and hook configurations that work well as a starting point for scheduled task prompts. And our 43+ slash commands guide covers the full command vocabulary available within scheduled sessions."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code routines новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+          "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Introducing routines in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+          "snippet": "Anthropic запустил Routines 14 апреля 2026 как часть research preview. Описание из официальной документации: Routine - это сохранённая конфигурация Claude Code: промпт, один или несколько репозиториев и набор коннекторов, упакованных один раз и запускающихся автоматически."
+        },
+        {
+          "title": "Что такое Claude Code? Самое полное руководство на 2026 год: установка ...",
+          "url": "https://www.gate.com/ru/news/detail/what-is-claude-code-the-most-complete-guide-for-2026-cli-installation-20448542",
+          "snippet": "Today, we're introducing routines in Claude Code in research preview. A routine is a Claude Code automation you configure once — including a prompt, repo, and connectors — and then run on a schedule, from an API call, or in response to an event."
+        },
+        {
+          "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+          "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+          "snippet": "Самое полное руководство на 2026 год: установка через CLI, настольная версия, автоматизация Routines, MCP и полный разбор структуры прав для .claude. Claude Code — это платформа для кодирования на базе ИИ, запущенная Anthropic в 2024 году и доведённая до зрелости в 2026 году."
+        },
+        {
+          "title": "Routines в Claude Code: автоматизация кода Anthropic",
+          "url": "https://chernovdev.ru/posts/2026-05-16-anthropic-predstavila-routines-dlya-avtomatizatsii-v-claude-code/",
+          "snippet": "Гайд по Claude Code, автоматическое обновление документации, 220 проверенных источников, репозиторий на GitHub, уникальные навыки и плагины"
+        },
+        {
+          "title": "Claude Code Routines: запускай ИИ по расписанию без сервера",
+          "url": "https://www.galson.pro/articles/claude-code-routines-avtomatizaciya-zadach",
+          "snippet": "16 мая 2026 г. Anthropic выпустила новую функцию — Routines для Claude Code. Она позволяет разработчикам настраивать автоматизированные рабочие процессы кодирования."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code рутины 2026",
+      "purpose": "вторичный запрос: claude code рутины",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация работы с помощью рутин - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/routines",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code 2026 — Убийца рутины - YouTube",
+          "url": "https://www.youtube.com/watch?v=qU935uBg3GU",
+          "snippet": "На этой странице рассматривается создание рутины, настройка каждого типа триггера, управление запусками и применение ограничений использования."
+        },
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube."
+        },
+        {
+          "title": "Claude Code — что он реально умеет и кому заменяет половину рутины",
+          "url": "https://tgland.ru/article/claude-code-chto-on-realno-umeet-i-komu-zamenyaet-polovinu-rutiny-w1u",
+          "snippet": "В этой статье я расскажу, как устроены AI Coding Agents (Claude Code, OpenAI Codex, Opencode и др), как правильно ими пользоваться и как потратить $20 так, чтобы не уволили в 2026."
+        },
+        {
+          "title": "Routines в Claude Code: автоматизация кода Anthropic",
+          "url": "https://chernovdev.ru/posts/2026-05-16-anthropic-predstavila-routines-dlya-avtomatizatsii-v-claude-code/",
+          "snippet": "Claude Code в 2026 — не просто AI, а агент разработки: CLI, IDE, Git, CI/CD, MCP, subagents и automation. Разбираем, где он реально силён."
+        },
+        {
+          "title": "Запуск рутины через API - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/ru/api/claude-code/routines-fire",
+          "snippet": "16 мая 2026 г. Anthropic выпустила новую функцию — Routines для Claude Code. Она позволяет разработчикам настраивать автоматизированные рабочие процессы кодирования."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "настройка claude code routines 2026",
+      "purpose": "вторичный запрос: настройка claude code routines",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+          "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Настройка Claude Code в 2026: settings.json, права доступа, хуки и свои ...",
+          "url": "https://blog.fillikam.com/guides/nastroyka-claude-code-2026/",
+          "snippet": "Routines в Claude Code 2026: 3 типа триггеров (cron/webhook/GitHub), 5 готовых рутин под копирование, лимиты по тарифам, пошаговая настройка."
+        },
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": "Свежая установка Claude Code и рабочее окружение - две разные вещи. Разбираю по шагам, что положить в CLAUDE.md, как раздать права в settings.json, повесить хуки на автоформат и завести свои команды."
+        },
+        {
+          "title": "Claude Code Routines: запускай ИИ по расписанию без сервера",
+          "url": "https://www.galson.pro/articles/claude-code-routines-avtomatizaciya-zadach",
+          "snippet": "Put Claude Code on autopilot. Define routines that run on a schedule, trigger on API calls, or react to GitHub events from cloud infrastructure. Routines are in research preview. Behavior, limits, and the API surface may change."
+        },
+        {
+          "title": "Руководство по Claude Code CLI: полный гид 2026 | Настройка и лучшие ...",
+          "url": "https://claude5.ai/ru/news/claude-code-tutorial-2026-complete-guide",
+          "snippet": "14 апреля Anthropic выпустил Routines — автоматизация Claude Code без локального сервера. Три типа триггеров: schedule, API, GitHub. Разбираю как работает и как использовать контент-мейкеру."
+        },
+        {
+          "title": "Introducing routines in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+          "snippet": "Освойте Claude Code CLI с этим полным руководством 2026 года. Установка, настройка, расширенные функции, горячие клавиши и советы по продуктивности для разработчиков."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "/schedule claude code 2026",
+      "purpose": "вторичный запрос: /schedule claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Scheduled Tasks & Routines: The Complete Guide (2026)",
+          "url": "https://popularaitools.ai/blog/claude-code-scheduled-tasks-routines-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Loops Guide: /goal, /loop, /schedule (2026) - explainx.ai",
+          "url": "https://www.explainx.ai/blog/claude-code-loops-official-guide-turn-goal-schedule-2026",
+          "snippet": "The Claude Code Power User Kit includes CLAUDE.md templates and hook configurations that work well as a starting point for scheduled task prompts. And our 43+ slash commands guide covers the full command vocabulary available within scheduled sessions."
+        },
+        {
+          "title": "Run prompts on a schedule - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/scheduled-tasks",
+          "snippet": "Claude Code Loops Official Guide: Turn-Based, /goal, /loop, and /schedule (July 2026) Anthropic's Claude Code team published the official \"Getting started with loops\" guide on July 7, 2026 — turn-based agentic loops, /goal stop conditions, /loop and /schedule intervals, proactive routines, skills for verification, and token usage."
+        },
+        {
+          "title": "Claude Code Scheduled Tasks: Complete Setup Guide (2026)",
+          "url": "https://claudefa.st/blog/guide/development/scheduled-tasks",
+          "snippet": "Use /loop and the cron scheduling tools to run prompts repeatedly, poll for status, or set one-time reminders within a Claude Code session."
+        },
+        {
+          "title": "Claude Code Commands: Complete Slash Command Reference (2026)",
+          "url": "https://www.explainx.ai/blog/claude-code-commands-complete-reference-guide-2026",
+          "snippet": "Claude Code's scheduled tasks run with explicit permission boundaries and per-task approval controls. OpenClaw requires self-hosting, port forwarding, and manual configuration."
+        },
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": "Anthropic shipped scheduled deployments and vault environment variables for Claude Managed Agents in public beta at Code with Claude Tokyo (June 2026), confirmed again by @ClaudeDevs on June 11."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "claude code github trigger 2026",
+      "purpose": "вторичный запрос: claude code github trigger",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Routines: Schedule, API Triggers, and GitHub Automation (2026)",
+          "url": "https://thepromptshelf.dev/blog/claude-code-routines-scheduled-tasks-guide-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": "Complete guide to Claude Code Routines — cloud-scheduled automation that runs when your laptop is closed. Covers schedule triggers, API endpoints, GitHub event triggers, branch permissions, and connector configuration."
+        },
+        {
+          "title": "Claude Code Routines (2026): Schedule, Webhook, and GitHub-Triggered ...",
+          "url": "https://www.claudedirectory.org/blog/claude-code-routines-guide",
+          "snippet": "You can attach any combination of schedule, API, and GitHub triggers to the same routine, and add or remove them at any time from the Select a trigger section of the routine's edit form."
+        },
+        {
+          "title": "Claude Code GitHub Actions - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/github-actions",
+          "snippet": "A practical guide to Claude Code routines: scheduled cloud sessions, API triggers, and GitHub event automation. What they replace, where they break, and how to ship one well."
+        },
+        {
+          "title": "Claude Code GitHub Workflow 2026: PR Reviews, Commits, and CI ...",
+          "url": "https://baeseokjae.github.io/posts/claude-code-github-workflow-2026/",
+          "snippet": "Claude Code installs the GitHub App, adds your authentication secret, and prepares the workflow pull request for you. Manual setup: install the app, add the secret, and copy the workflow file into your repository yourself."
+        },
+        {
+          "title": "Claude Code GitHub Actions: Complete Setup and Automation Guide (2026)",
+          "url": "https://thepromptshelf.dev/blog/claude-code-github-actions-complete-guide-2026/",
+          "snippet": "Claude Code GitHub workflow integrates Anthropic's claude-code-action@v1 directly into GitHub Actions, enabling automated PR reviews, CI failure auto-fixes, and structured code analysis — all triggered by @claude mentions or YAML automation rules with under $5/month in API costs for most teams."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "secondary_5",
+      "query": "claude code api trigger 2026",
+      "purpose": "вторичный запрос: claude code api trigger",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Routines Launches: Cloud-Based Automated Coding Triggered ...",
+          "url": "https://claudeapi.com/en/blog/dev-guides/claude-code-routines-cloud-automation-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Routines: Schedule, API Triggers, and GitHub Automation (2026)",
+          "url": "https://thepromptshelf.dev/blog/claude-code-routines-scheduled-tasks-guide-2026/",
+          "snippet": "Claude Code Routines Launches: Cloud-Based Automated Coding Triggered by Schedules, APIs, and GitHub Webhooks Anthropic has introduced Routines for Claude Code, enabling coding tasks to run automatically in the cloud through schedules, HTTP API calls, or GitHub events, without an always-on local machine or self-managed cron. This article explains how Routines work, how to configure the three ..."
+        },
+        {
+          "title": "Automate work with routines - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/routines",
+          "snippet": "Complete guide to Claude Code Routines — cloud-scheduled automation that runs when your laptop is closed. Covers schedule triggers, API endpoints, GitHub event triggers, branch permissions, and connector configuration."
+        },
+        {
+          "title": "Claude Code Routines (2026): Schedule, Webhook, and GitHub-Triggered ...",
+          "url": "https://www.claudedirectory.org/blog/claude-code-routines-guide",
+          "snippet": "You can attach any combination of schedule, API, and GitHub triggers to the same routine, and add or remove them at any time from the Select a trigger section of the routine's edit form."
+        },
+        {
+          "title": "Trigger a routine through the API - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/api/claude-code/routines-fire",
+          "snippet": "A practical guide to Claude Code routines: scheduled cloud sessions, API triggers, and GitHub event automation. What they replace, where they break, and how to ship one well."
+        },
+        {
+          "title": "Introducing routines in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+          "snippet": "See Add an API trigger in the Claude Code documentation for the full setup walkthrough. Every request must include the anthropic-beta: experimental-cc-routine-2026-04-01 header. Requests without it return 400 invalid_request_error."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Автоматизация работы с помощью рутин - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/routines",
+          "snippet": ""
+        },
+        {
+          "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+          "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+          "snippet": "На этой странице рассматривается создание рутины, настройка каждого типа триггера, управление запусками и применение ограничений использования."
+        },
+        {
+          "title": "Полное руководство Claude Code Routines — триггеры Schedule, API ...",
+          "url": "https://qcode.cc/ru/claude-code-routines-guide",
+          "snippet": "Routines в Claude Code 2026: 3 типа триггеров (cron/webhook/GitHub), 5 готовых рутин под копирование, лимиты по тарифам, пошаговая настройка."
+        },
+        {
+          "title": "Claude Code Routines: запускай ИИ по расписанию без сервера",
+          "url": "https://www.galson.pro/articles/claude-code-routines-avtomatizaciya-zadach",
+          "snippet": "Claude Code Routines (2026-04-14 preview): облачная автоматизация через Schedule / API / GitHub-триггеры. Pro 5, Max 15, Team/Ent 25 routines в день."
+        },
+        {
+          "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+          "url": "https://thecode.media/claude-code-gajd/",
+          "snippet": "14 апреля Anthropic выпустил Routines — автоматизация Claude Code без локального сервера. Три типа триггеров: schedule, API, GitHub. Разбираю как работает и как использовать контент-мейкеру."
+        },
+        {
+          "title": "Запуск рутины через API - Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/ru/api/claude-code/routines-fire",
+          "snippet": "В этом гайде пройдём весь путь: что это такое, как поставить на любую систему, какие есть команды, как настроить под свой проект и сколько это стоит. А в конце — реальные сценарии работы и то, что иногда называют вайбкодингом: вы описываете задачу словами, а код пишет агент."
+        }
+      ],
+      "searched_at": "2026-08-16"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://code.claude.com/docs/en/routines",
+      "title": "Automate work with routines - Claude Code Docs",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://claude.com/blog/introducing-routines-in-claude-code",
+      "title": "Introducing routines in Claude Code | Claude by Anthropic",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/routines-v-claude-code",
+      "title": "Routines в Claude Code: настройка, триггеры и 5 готовых рутин в 2026",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://popularaitools.ai/blog/claude-code-scheduled-tasks-routines-2026",
+      "title": "Claude Code Scheduled Tasks & Routines: The Complete Guide (2026)",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://makerkit.dev/blog/tutorials/claude-code-routines-guide",
+      "title": "Claude Code Routines: The Complete Guide to Scheduled Cloud Agents (2026)",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://nimbalyst.com/blog/claude-code-routines-practical-guide/",
+      "title": "Claude Routines: A Practical Guide to Claude Code Routines (2026 ...",
+      "from_query": "claude code routines 2026"
+    },
+    {
+      "url": "https://thepromptshelf.dev/blog/claude-code-routines-scheduled-tasks-guide-2026/",
+      "title": "Claude Code Routines: Schedule, API Triggers, and GitHub Automation (2026)",
+      "from_query": "claude code routines август 2026"
+    },
+    {
+      "url": "https://www.claudedirectory.org/blog/claude-code-routines-guide",
+      "title": "Claude Code Routines (2026): Schedule, Webhook, and GitHub-Triggered ...",
+      "from_query": "claude code routines август 2026"
+    },
+    {
+      "url": "https://www.gate.com/ru/news/detail/what-is-claude-code-the-most-complete-guide-for-2026-cli-installation-20448542",
+      "title": "Что такое Claude Code? Самое полное руководство на 2026 год: установка ...",
+      "from_query": "claude code routines новости 2026"
+    },
+    {
+      "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+      "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+      "from_query": "claude code routines новости 2026"
+    },
+    {
+      "url": "https://chernovdev.ru/posts/2026-05-16-anthropic-predstavila-routines-dlya-avtomatizatsii-v-claude-code/",
+      "title": "Routines в Claude Code: автоматизация кода Anthropic",
+      "from_query": "claude code routines новости 2026"
+    },
+    {
+      "url": "https://www.galson.pro/articles/claude-code-routines-avtomatizaciya-zadach",
+      "title": "Claude Code Routines: запускай ИИ по расписанию без сервера",
+      "from_query": "claude code routines новости 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/routines",
+      "title": "Автоматизация работы с помощью рутин - Claude Code Docs",
+      "from_query": "claude code рутины 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qU935uBg3GU",
+      "title": "Claude Code 2026 — Убийца рутины - YouTube",
+      "from_query": "claude code рутины 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987382/",
+      "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+      "from_query": "claude code рутины 2026"
+    },
+    {
+      "url": "https://tgland.ru/article/claude-code-chto-on-realno-umeet-i-komu-zamenyaet-polovinu-rutiny-w1u",
+      "title": "Claude Code — что он реально умеет и кому заменяет половину рутины",
+      "from_query": "claude code рутины 2026"
+    },
+    {
+      "url": "https://platform.claude.com/docs/ru/api/claude-code/routines-fire",
+      "title": "Запуск рутины через API - Claude Platform Docs",
+      "from_query": "claude code рутины 2026"
+    },
+    {
+      "url": "https://blog.fillikam.com/guides/nastroyka-claude-code-2026/",
+      "title": "Настройка Claude Code в 2026: settings.json, права доступа, хуки и свои ...",
+      "from_query": "настройка claude code routines 2026"
+    },
+    {
+      "url": "https://claude5.ai/ru/news/claude-code-tutorial-2026-complete-guide",
+      "title": "Руководство по Claude Code CLI: полный гид 2026 | Настройка и лучшие ...",
+      "from_query": "настройка claude code routines 2026"
+    },
+    {
+      "url": "https://www.explainx.ai/blog/claude-code-loops-official-guide-turn-goal-schedule-2026",
+      "title": "Claude Code Loops Guide: /goal, /loop, /schedule (2026) - explainx.ai",
+      "from_query": "/schedule claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/scheduled-tasks",
+      "title": "Run prompts on a schedule - Claude Code Docs",
+      "from_query": "/schedule claude code 2026"
+    },
+    {
+      "url": "https://claudefa.st/blog/guide/development/scheduled-tasks",
+      "title": "Claude Code Scheduled Tasks: Complete Setup Guide (2026)",
+      "from_query": "/schedule claude code 2026"
+    },
+    {
+      "url": "https://www.explainx.ai/blog/claude-code-commands-complete-reference-guide-2026",
+      "title": "Claude Code Commands: Complete Slash Command Reference (2026)",
+      "from_query": "/schedule claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/github-actions",
+      "title": "Claude Code GitHub Actions - Claude Code Docs",
+      "from_query": "claude code github trigger 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/claude-code-github-workflow-2026/",
+      "title": "Claude Code GitHub Workflow 2026: PR Reviews, Commits, and CI ...",
+      "from_query": "claude code github trigger 2026"
+    },
+    {
+      "url": "https://thepromptshelf.dev/blog/claude-code-github-actions-complete-guide-2026/",
+      "title": "Claude Code GitHub Actions: Complete Setup and Automation Guide (2026)",
+      "from_query": "claude code github trigger 2026"
+    },
+    {
+      "url": "https://claudeapi.com/en/blog/dev-guides/claude-code-routines-cloud-automation-2026/",
+      "title": "Claude Code Routines Launches: Cloud-Based Automated Coding Triggered ...",
+      "from_query": "claude code api trigger 2026"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/api/claude-code/routines-fire",
+      "title": "Trigger a routine through the API - Claude Platform Docs",
+      "from_query": "claude code api trigger 2026"
+    },
+    {
+      "url": "https://qcode.cc/ru/claude-code-routines-guide",
+      "title": "Полное руководство Claude Code Routines — триггеры Schedule, API ...",
+      "from_query": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам 2026"
+    },
+    {
+      "url": "https://thecode.media/claude-code-gajd/",
+      "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+      "from_query": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам 2026"
+    }
+  ]
+}

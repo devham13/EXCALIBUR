@@ -5,6 +5,10 @@
 <p>Функция в research preview с 14 апреля 2026 года. Доступна на Pro, Max, Team и Enterprise при включенном Claude Code on the web. Routines расходуют лимит подписки как обычные сессии. Если вы только ставите Claude Code, начните с <a href="/ustanovka-claude-code/">инструкции по установке Claude Code</a>; для локальных событий CLI смотрите <a href="/claude-code-hooks-nastrojka-2026/">гайд по hooks</a>.</p>
 
 <h2 id="routines-vs-alternatives">1. Сравните Routines с hooks, /loop и Desktop Local</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица сравнения Routines, hooks, /loop и Desktop Local: где работает и когда выбирать" loading="lazy">
+</figure>
+
 
 <p>Routine - автономная облачная сессия на серверах Anthropic. Hooks срабатывают локально при событиях CLI (сохранение файла, команда). Команда /loop и scheduled-tasks крутятся в вашей открытой сессии на ПК. Desktop Local task будит агента на вашей машине. GitHub Actions с claude-code-action - отдельный CI-слой, не Routine.</p>
 
@@ -43,6 +47,10 @@
 <p><b>Делайте:</b> Routine для задач, которые должны идти без вашего ПК. <b>Не делайте:</b> путать /schedule (создает cloud Routine) с /loop (локальный цикл) - в SERP их часто смешивают.</p>
 
 <h2 id="prepare">2. Подготовьте аккаунт, GitHub и лимиты</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема подготовки: аккаунт, GitHub, CLAUDE.md, лимиты запусков и Claude GitHub App" loading="lazy">
+</figure>
+
 
 <p>Перед созданием проверьте план и доступ. Owner Team/Enterprise может отключить Routines в claude.ai/admin-settings/claude-code. Routines привязаны к личному claude.ai аккаунту и не шарятся с командой.</p>
 
@@ -57,6 +65,10 @@
 <p><b>Делайте:</b> self-contained промпт - рутина не видит ваш прошлый чат. <b>Не делайте:</b> рассчитывать на локальные MCP из claude mcp add - в routines нужны connectors на claude.ai (Slack, Linear и др.).</p>
 
 <h2 id="first-routine">3. Создайте первую рутину в web UI или через /schedule</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист создания первой Claude Code Routine через web UI или /schedule" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Workflow первой рутины:</b>

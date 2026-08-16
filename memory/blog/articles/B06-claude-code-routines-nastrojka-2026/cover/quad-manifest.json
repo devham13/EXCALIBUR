@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude проверяет PR ночью — а Routine у вас ещё не настроена?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Claude Code Routines — облачный сотрудник с будильником, Schedule и GitHub-триггеры",
+      "scene_hint": "reference-лицо в тёмно-синем худи разработчика и наушниках, дружелюбная улыбка, указывает на fake скрин claude.ai/code/routines с кнопкой New routine и триггером Schedule nightly; рядом fake GitHub PR «3 open PRs — review pending», fake alert мониторинга «CPU spike 03:14», розовый стикер «Pro: 5 runs/day», torn paper + scotch tape, meme sleeping cat + shocked face cutout, розовый highlight на слове «Routine»",
+      "meme_caption_ru": "ПК выключен — PR проверен?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Routines с hooks, /loop и Desktop Local",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Сравнительная таблица 4 инструментов: Routine (Cloud) / Hooks / /loop / Desktop Local — колонки «Где работает» и «Когда выбирать»; без лица героя, лёгкий sticky note «не путать /schedule с /loop»",
+      "alt": "Таблица сравнения Routines, hooks, /loop и Desktop Local: где работает и когда выбирать"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подготовьте аккаунт, GitHub и лимиты",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 шагов подготовки: Pro/Max план → GitHub OAuth → CLAUDE.md в repo → cap Pro 5 / Max 15 / Team 25 → Claude GitHub App; стрелки, иконки GitHub и claude.ai; без лица героя",
+      "alt": "Схема подготовки: аккаунт, GitHub, CLAUDE.md, лимиты запусков и Claude GitHub App"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Создайте первую рутину в web UI или через /schedule",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист первой рутины: claude.ai/code/routines → New routine → промпт + repo + environment → trigger Schedule → Create → Run now → проверка transcript; галочки, розовый маркер на «Run now»; без лица героя",
+      "alt": "Чеклист создания первой Claude Code Routine через web UI или /schedule"
+    }
+  }
+}

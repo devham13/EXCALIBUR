@@ -1,0 +1,202 @@
+<p>Нужно, чтобы Claude сам проверял pull request ночью или реагировал на алерт из мониторинга, пока вы спите? Claude Code Routines - это сохраненный промпт с репозиторием, который Anthropic запускает в облаке по расписанию, по API или при событии в GitHub. За 30-45 минут вы создадите первую рутину в claude.ai/code/routines, настроите триггер и проверите результат в веб-интерфейсе без постоянного ноутбука.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Routine - "облачный сотрудник с будильником": промпт + repo + триггер (Schedule, API или GitHub). Создание - claude.ai/code/routines или команда /schedule в CLI. Лимиты: Pro 5, Max 15, Team/Enterprise 25 запусков в день; one-off в cap не входят. API-триггер требует bearer-токен sk-ant-oat01- и header anthropic-beta. GitHub-триггер - только после установки Claude GitHub App, не через /web-setup.</blockquote>
+
+<p>Функция в research preview с 14 апреля 2026 года. Доступна на Pro, Max, Team и Enterprise при включенном Claude Code on the web. Routines расходуют лимит подписки как обычные сессии. Если вы только ставите Claude Code, начните с <a href="/ustanovka-claude-code/">инструкции по установке Claude Code</a>; для локальных событий CLI смотрите <a href="/claude-code-hooks-nastrojka-2026/">гайд по hooks</a>.</p>
+
+<h2 id="routines-vs-alternatives">1. Сравните Routines с hooks, /loop и Desktop Local</h2>
+
+<p>Routine - автономная облачная сессия на серверах Anthropic. Hooks срабатывают локально при событиях CLI (сохранение файла, команда). Команда /loop и scheduled-tasks крутятся в вашей открытой сессии на ПК. Desktop Local task будит агента на вашей машине. GitHub Actions с claude-code-action - отдельный CI-слой, не Routine.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Инструмент</th>
+      <th>Где работает</th>
+      <th>Когда выбирать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Routine (Cloud)</b></td>
+      <td>Облако Anthropic</td>
+      <td>Ночной review PR, triage алертов, weekly audit без ноутбука</td>
+    </tr>
+    <tr>
+      <td><b>Hooks</b></td>
+      <td>Локальный CLI</td>
+      <td>Автоформат, lint при save, pre-commit проверки</td>
+    </tr>
+    <tr>
+      <td><b>/loop, scheduled-tasks</b></td>
+      <td>Открытая CLI-сессия</td>
+      <td>Быстрый цикл в текущем проекте, пока ПК включен</td>
+    </tr>
+    <tr>
+      <td><b>Desktop Local task</b></td>
+      <td>Ваш компьютер</td>
+      <td>Задачи с локальными файлами вне облака</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> Routine для задач, которые должны идти без вашего ПК. <b>Не делайте:</b> путать /schedule (создает cloud Routine) с /loop (локальный цикл) - в SERP их часто смешивают.</p>
+
+<h2 id="prepare">2. Подготовьте аккаунт, GitHub и лимиты</h2>
+
+<p>Перед созданием проверьте план и доступ. Owner Team/Enterprise может отключить Routines в claude.ai/admin-settings/claude-code. Routines привязаны к личному claude.ai аккаунту и не шарятся с командой.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Убедитесь, что тариф Pro, Max, Team или Enterprise и Claude Code on the web активен.</li>
+  <li><b>Шаг 2:</b> Подключите GitHub к claude.ai через OAuth или /web-setup для доступа к репозиторию.</li>
+  <li><b>Шаг 3:</b> Добавьте CLAUDE.md в корень repo с правилами стиля, веток и запретами.</li>
+  <li><b>Шаг 4:</b> Запомните дневной cap: Pro - 5, Max - 15, Team/Enterprise - 25 routine-запусков; one-off scheduled runs в лимит не входят.</li>
+  <li><b>Шаг 5:</b> Для GitHub-триггера заранее установите <a href="https://github.com/apps/claude" target="_blank">Claude GitHub App</a> - /web-setup дает clone, но не ставит App и webhooks.</li>
+</ol>
+
+<p><b>Делайте:</b> self-contained промпт - рутина не видит ваш прошлый чат. <b>Не делайте:</b> рассчитывать на локальные MCP из claude mcp add - в routines нужны connectors на claude.ai (Slack, Linear и др.).</p>
+
+<h2 id="first-routine">3. Создайте первую рутину в web UI или через /schedule</h2>
+
+<blockquote>
+  <b>Workflow первой рутины:</b>
+  <br>
+  Подготовка аккаунта → claude.ai/code/routines → New routine → промпт + repo + environment → trigger Schedule → Create → Run now → проверка transcript
+</blockquote>
+
+<p>Откройте <a href="https://claude.ai/code/routines" target="_blank">claude.ai/code/routines</a> и нажмите New routine. Задайте имя, промпт (что сделать с кодом), выберите репозиторий и environment: Default (Trusted network) или Custom с allowlist доменов. Добавьте trigger Schedule - preset nightly или weekly. Нажмите Create, затем Run now.</p>
+
+<p>Альтернатива из CLI: в сессии Claude Code выполните, например, <code>/schedule daily Review open PRs and summarize blockers</code>. Команда /schedule создает только scheduled routines; алиас - /routines. Управление: /schedule list, /schedule update, /schedule run. Routine должна появиться в том же web UI.</p>
+
+<p><b>Делайте:</b> после Create сразу Run now и откройте session transcript. <b>Не делайте:</b> доверять только зеленому статусу run - он означает отсутствие infra-ошибки, а не успех задачи.</p>
+
+<h2 id="schedule-trigger">4. Настройте Schedule: cron, presets и one-off</h2>
+
+<p>Schedule - "будильник" для рутины. Presets: hourly, nightly, weekdays 9:00, weekly. Свой cron возможен, но минимальный интервал - 1 час; более частые выражения отклоняются. One-off (разовый запуск по времени) настраивайте в web UI, если CLI не дает нужный вариант.</p>
+
+<p><b>Делайте:</b> nightly digest PR для команды вместо hourly, чтобы не сжечь cap. <b>Не делайте:</b> ставить cron чаще часа - система вернет ошибку.</p>
+
+<h2 id="api-trigger">5. Подключите API-триггер и протестируйте curl</h2>
+
+<p>API trigger - "дверь с ключом": внешняя система (мониторинг, Make, n8n) шлет POST и будит рутину. В Edit routine → Add trigger → API → Generate token. Токен с префиксом sk-ant-oat01- показывается один раз - сохраните URL и secret сразу. Повторно получить нельзя, только Regenerate.</p>
+
+<p>Endpoint: POST на https://api.anthropic.com/v1/claude_code/routines/{routine_id}/fire. ID в URL начинается с trig_, не routine_. Поле text в JSON опционально, до 65536 символов - передайте stack trace или контекст алерта. Каждый POST создает новую сессию; idempotency key нет.</p>
+
+<pre><code>curl -X POST "https://api.anthropic.com/v1/claude_code/routines/trig_XXXXX/fire" \
+  -H "Authorization: Bearer sk-ant-oat01-ВАШ_ТОКЕН" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Разбери stack trace и предложи draft fix PR"}'</code></pre>
+
+<p>Без header anthropic-beta: experimental-cc-routine-2026-04-01 ответ будет 400. Не путайте bearer sk-ant-oat01- с Platform API key (x-api-key) - это разные ключи. Успешный ответ 200 содержит claude_code_session_id и claude_code_session_url.</p>
+
+<p><b>Делайте:</b> храните token в секретах CI или vault, не в Git. <b>Не делайте:</b> дергать /fire в цикле без rate limit - возможен 429.</p>
+
+<h2 id="github-trigger">6. Настройте GitHub-триггер и фильтры PR</h2>
+
+<p>GitHub trigger срабатывает на события Pull request и Release. Фильтры: Author, Title, Base branch, Labels, Is draft и другие. Из CLI GitHub trigger доступен с v2.1.225+ при установленном Claude GitHub App.</p>
+
+<p>Типовая ошибка: настроили /web-setup, но trigger молчит. Причина - App не установлен, webhooks не включены. Решение: github.com/apps/claude → Install на нужный org/repo → в UI routine выберите event pull_request.opened и фильтры, например base=main и draft=false.</p>
+
+<p>События GitHub сверх hourly cap отбрасываются, не ставятся в очередь. Claude пушит изменения в ветки с префиксом claude/. <b>Делайте:</b> human review перед merge PR от рутины. <b>Не делайте:</b> auto-merge без проверки - research preview, лимиты могут меняться.</p>
+
+<h2 id="production-checklist">7. Пройдите production-чек-лист перед "боем"</h2>
+
+<p>Перед продакшеном пройдите список. Отметьте каждый пункт:</p>
+
+<ol>
+  <li>Промпт self-contained: стек, ветка, формат вывода, куда писать результат.</li>
+  <li>Connectors только нужные - лишние MCP увеличивают шум и риск.</li>
+  <li>Custom network и allowlist, если рутине нужны ваши домены API.</li>
+  <li>Setup script для кеша зависимостей, если рутина долго ставит пакеты.</li>
+  <li>Учтен daily cap 5/15/25; тяжелые задачи - weekly, не hourly.</li>
+  <li>Run now + ручной просмотр transcript после каждого изменения промпта.</li>
+  <li>Для API - секрет в vault, beta-header в каждом запросе.</li>
+  <li>Для GitHub - App установлен, фильтры PR сужены, draft PR исключены.</li>
+  <li>Уведомления команде: Slack connector или digest вместо 20 мелких runs.</li>
+  <li>Fallback: кто смотрит claude_code_session_url, если run "зеленый", но задача провалена.</li>
+</ol>
+
+<p><b>Делайте:</b> начинать с одного триггера, добавлять API или GitHub после стабильного Schedule. <b>Не делайте:</b> включать все connectors "на будущее".</p>
+
+<h2 id="ready-routines">8. Скопируйте 5 готовых рутин под бизнес-задачи</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Рутина</th>
+      <th>Триггер</th>
+      <th>Суть промпта</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Nightly PR digest</b></td>
+      <td>Schedule weekdays 9:00</td>
+      <td>Суммировать PR за сутки, отправить в Slack connector</td>
+    </tr>
+    <tr>
+      <td><b>Weekly dependency audit</b></td>
+      <td>Schedule weekly</td>
+      <td>npm audit / diff lockfile, draft PR с фиксами</td>
+    </tr>
+    <tr>
+      <td><b>Docs drift</b></td>
+      <td>Schedule weekly</td>
+      <td>Сравнить merged PR с docs repo, PR на обновление</td>
+    </tr>
+    <tr>
+      <td><b>Alert triage</b></td>
+      <td>API + text из мониторинга</td>
+      <td>Разбор stack trace, draft fix PR</td>
+    </tr>
+    <tr>
+      <td><b>PR opened review</b></td>
+      <td>GitHub pull_request.opened, base=main, draft=false</td>
+      <td>Чек-лист security/style, inline comments</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Адаптируйте формулировки под свой стек; канонические примеры - в <a href="https://code.claude.com/docs/en/routines#example-use-cases" target="_blank">официальной документации</a>. Для оркестрации API-триггера с CRM и мессенджерами логично связать Routine с Make: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com и вайбкодинг</a> показывает, как собрать webhook → обработка → уведомление без кода.</p>
+
+<h2 id="what-next">9. Что сделать после первой рутины</h2>
+
+<ol>
+  <li>Зафиксируйте промпт и cap в таблице учета запусков на неделю.</li>
+  <li>Добавьте второй триггер (API или GitHub) только после трех успешных Schedule runs.</li>
+  <li>Подключите Slack или Linear connector для digest вместо ручной проверки UI.</li>
+  <li>Настройте Make-сценарий на POST /fire для алертов из мониторинга.</li>
+  <li>Раз в месяц пересмотрите промпты и лимиты - preview-функция может обновиться.</li>
+</ol>
+
+<p>Если нужна связка Routine + CRM + телефония под ключ, разберите процессы на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">обучении по Make и вайбкодингу</a> или закажите аудит у интегратора.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Елена Ковалева (Главный эксперт по SEO/GEO).<br>
+  <b>Достоверность данных:</b> лимиты Pro 5 / Max 15 / Team 25, cron от 1 часа, beta-header и endpoint /fire сверены с документацией Anthropic на 16.08.2026; семантика запросов - по SERP fallback (Wordstat MCP недоступен в прогоне).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как настроить Claude Code Routines с нуля?</h3>
+<p>Откройте claude.ai/code/routines → New routine → имя, self-contained промпт, repo, environment, trigger Schedule → Create. Для schedule-only альтернатива - /schedule в CLI. После Create нажмите Run now и откройте transcript.</p>
+
+<h3>Чем routines отличаются от hooks?</h3>
+<p>Hooks реагируют на локальные события CLI на вашем ПК. Routines - автономные облачные сессии с расписанием, API или GitHub. Hooks для lint при save; routines для ночного review без ноутбука.</p>
+
+<h3>Сколько запусков routines в день на Pro?</h3>
+<p>До 5 на Pro, 15 на Max, 25 на Team и Enterprise. One-off scheduled runs в дневной cap не входят. Каждый run расходует subscription usage как обычная сессия.</p>
+
+<h3>Какой минимальный интервал cron для routines?</h3>
+<p>1 час. Более частые cron-выражения система отклонит. Для частых событий используйте API trigger с внешним throttling, а не sub-hourly Schedule.</p>
+
+<h3>Почему GitHub trigger не срабатывает?</h3>
+<p>Чаще всего не установлен Claude GitHub App. Команда /web-setup дает доступ к clone, но не включает webhooks. Установите App на org/repo, пересохраните routine с нужным событием и фильтрами PR.</p>
+
+<h3>Где взять API token для trigger повторно?</h3>
+<p>Нигде - token показывается один раз при Generate. Сохраните в vault сразу. Если потеряли, в UI routine нажмите Regenerate и обновите secret во всех интеграциях.</p>
+
+<h3>Можно ли запускать routines без включенного ноутбука?</h3>
+<p>Да. Routines выполняются в облаке Anthropic. Нужны только активная подписка, доступ к repo и настроенный триггер. Локальный ПК для Schedule и GitHub events не требуется.</p>

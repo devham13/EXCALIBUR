@@ -1,0 +1,40 @@
+{
+  "topic_id": "B06",
+  "slug": "claude-code-routines-nastrojka-2026",
+  "h1": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам",
+  "title": "Claude Code Routines: настройка расписания, API и GitHub-триггеров",
+  "description": "Пошаговая настройка Claude Code Routines: первая облачная рутина, триггеры Schedule, API curl и GitHub App, production-чек-лист и 5 готовых сценариев для бизнеса.",
+  "keywords": [
+    "claude code routines",
+    "claude code рутины",
+    "настройка claude code routines",
+    "/schedule claude code",
+    "claude code github trigger",
+    "claude code api trigger"
+  ],
+  "primary_query": "claude code routines",
+  "secondary_queries": [
+    "claude code рутины",
+    "настройка claude code routines",
+    "/schedule claude code",
+    "claude code github trigger",
+    "claude code api trigger"
+  ],
+  "char_count": 9016,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить claude code routines пошагово",
+    "claude code routines api trigger curl пример",
+    "настройка github trigger для claude code routines"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code Routines: настройка расписания, API и GitHub-триггеров",
+    "title_ctr": "🚀 Claude Code Routines за 45 минут: Schedule, API и GitHub без ноутбука!",
+    "title_aeo": "Как настроить Claude Code Routines с триггерами Schedule, API и GitHub?",
+    "description_seo": "Пошаговая настройка Claude Code Routines: первая облачная рутина, триггеры Schedule, API curl и GitHub App, production-чек-лист и 5 готовых сценариев.",
+    "description_ctr": "⚡ Создайте первую cloud Routine: /schedule, bearer-токен, curl /fire, Claude GitHub App и чек-лист 10 пунктов. Гайд для автоматизации без постоянного ПК.",
+    "description_aeo": "Claude Code Routines - облачные автономные сессии с триггерами Schedule (cron от 1 ч), API POST /fire и GitHub PR. Лимиты Pro 5 / Max 15 / Team 25 в день."
+  },
+  "cover_family": "brand_collage"
+}

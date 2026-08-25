@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-cursor-subscriptions-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ужно было снова писать агенту в чат. С 19 августа 2026 Cursor Subscriptions (фича cloud agents, не тариф",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "– cloud agent проснулся и продолжил задачу. За 30–45 минут вы подключите GitHub и Slack, выставите spend lim",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180 дней",
+      "kind": "metric_or_duration",
+      "context": "ursor Pro. Agent \"спит\" на том же PR или треде до 180 дней и просыпается на комментарий, CI или reply. Autom",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "180",
+      "kind": "large_number",
+      "context": "ursor Pro. Agent \"спит\" на том же PR или треде до 180 дней и просыпается на комментарий, CI или reply. A",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

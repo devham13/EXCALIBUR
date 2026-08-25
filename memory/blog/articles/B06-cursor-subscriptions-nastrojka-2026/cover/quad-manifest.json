@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "CI упал на PR — а вы в Slack? Subscriptions проснёт агента",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Cursor Subscriptions — cloud agent просыпается на PR и Slack без ручного babysitting",
+      "scene_hint": "reference-лицо в тёмном худи с GitHub+Slack бейджами, указывает на fake скрин GitHub PR с красным CI badge и Slack-тред «@Cursor agent fix CI»; рядом fake Cursor Dashboard spend limit $50/mo, стикер «≠ Cursor Pro»; torn paper + scotch tape + pink sticky «wake-on-reply»; meme facepalm + shocked cat cutout; розовый highlight на «CI упал»",
+      "meme_caption_ru": "CI упал — ты в Slack?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Subscriptions и Automations: что выбрать",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица Subscriptions vs Automations: one-shot run vs stateful sleep/wake, UI cursor.com/automations vs /subscribe в agent; критерии «Где настраивается», «Модель», «Срок жизни 180 дней»; розовый стикер «жиза» на строке babysitting PR",
+      "alt": "Сравнительная таблица: Cursor Subscriptions против Automations"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подключите GitHub, Slack и spend limit в Dashboard",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 шагов: Paid plan → dashboard/integrations (GitHub+Slack Connect) → dashboard/spending (monthly limit) → cloud environment (repo+secrets) → первый agent run; стрелки, иконки GitHub Octocat и Slack hash, жёлтый стикер «Selected repos»",
+      "alt": "Схема настройки: GitHub, Slack и spend limit в Cursor Dashboard"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте автоподписку на PR: CI и bot-комментарии",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист PR subscription: запустить cloud agent → дождаться PR → auto-subscription в Run History → симулировать failing CI → @cursor autofix off → max 180 days; галочки, красная ручка, скотч на углу clipboard",
+      "alt": "Чеклист автоподписки cloud agent на PR и CI"
+    }
+  }
+}

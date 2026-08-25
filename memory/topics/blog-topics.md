@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Subscriptions для Cloud Agents
+
+- **priority:** P0
+- **slug:** cursor-subscriptions-nastrojka-2026
+- **h1:** Как настроить Cursor Subscriptions: мониторинг PR и Slack-тредов cloud-агентами
+- **primary_query:** cursor subscriptions
+- **secondary_queries:** cursor cloud agents pr, cursor subscriptions slack, cursor /goal команда, cursor babysit pr
+- **search_intent:** workflow
+- **article_mode:** B
+- **h2_outline:**
+  1. Subscriptions vs Automations: когда что использовать после релиза 19 августа 2026
+  2. Подключение GitHub, Slack и spend limit перед первым cloud agent
+  3. Автоподписка на PR: как агент чинит CI и отвечает на bot-комментарии
+  4. Мониторинг Slack-треда: команда @cursor check back и wake-on-reply
+  5. Команды /goal, /in-cloud и /babysit для длинных задач без ручного чата
+  6. Чек-лист безопасности: secrets в Dashboard, repo scope, Test run и Run History
+- **faq_hints:** чем subscriptions отличается от automations в cursor; как попросить cursor следить за pull request; можно ли cursor мониторить slack тред
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** экран GitHub PR с зелёным CI, рядом Slack-тред с @cursor, стикеры «Subscription» и «/goal», стрелки wake-on-event, неоновый diy-коллаж
+
+---
+

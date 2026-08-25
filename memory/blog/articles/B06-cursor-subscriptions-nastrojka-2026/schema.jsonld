@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/cursor-subscriptions-nastrojka-2026/#article",
+      "headline": "Как настроить Cursor Subscriptions: мониторинг PR и Slack-тредов cloud-агентами",
+      "description": "Пошаговая настройка Cursor Subscriptions (фича cloud agents): GitHub, Slack, spend limit, subscription на PR, wake-on-reply в Slack, /goal и /autopilot. Не путать с тарифом Pro.",
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/cursor-subscriptions-nastrojka-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/cursor-subscriptions-nastrojka-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/cursor-subscriptions-nastrojka-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor subscriptions, cursor cloud agents pr, cursor subscriptions slack, cursor /goal команда, cursor babysit pr",
+      "wordCount": 9375,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/cursor-subscriptions-nastrojka-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Subscriptions отличается от Automations в Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automations – правило в UI на cursor.com/automations: каждый trigger запускает новый cloud agent run. Subscription держит running agent на конкретном PR или Slack-треде до завершения задачи. Для \"довести этот PR\" берите Subscription; для cron-digest каждого PR – Automations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как попросить Cursor следить за pull request?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Запустите cloud agent с промптом вроде \"implement X, open PR, keep it green until merge\" или добавьте skill /subscribe с вашей целью. Agent автоматически подписывается на PR, которые сам создал. Проверьте wake в Run History на dashboard/cloud-agents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Может ли Cursor мониторить Slack-тред?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, при подключённой Slack integration и running cloud agent. Напишите в треде, например: @cursor check back in an hour and keep going until that feedback is in. Agent проснётся по таймеру или при новом reply в thread."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Teams для auto-fix CI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "По документации Cursor auto-fix CI failures официально для Teams; на других paid планах явно попросите agent починить CI в комментарии к PR или промпте. Autofix работает только с GitHub Actions, не с другими CI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работают ли Subscriptions в локальном Agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Subscriptions доступны только для cloud agents в облаке Cursor. Локальный Agent в IDE не держит subscription на PR или Slack – нужен cloud run через Dashboard или @Cursor в Slack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько живёт subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Максимум 180 дней. Agent отписывается раньше, когда решает, что wait завершён (критерий done из вашего промпта). Для задач длиннее периодически пересматривайте /goal и Run History."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "/babysit или /autopilot для PR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На desktop используйте /autopilot; /babysit – search alias после переименования. Альтернатива – skill ce-babysit-pr из Marketplace: watch PR until merge-ready (review, CI, движение base branch)."
+          }
+        }
+      ]
+    }
+  ]
+}

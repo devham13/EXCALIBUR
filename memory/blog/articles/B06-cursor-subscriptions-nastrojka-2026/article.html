@@ -1,0 +1,174 @@
+<p>Вы открыли PR, ушли в Slack, а CI упал и ревьюер оставил правки. Раньше нужно было снова писать агенту в чат. С 19 августа 2026 Cursor Subscriptions (фича cloud agents, не тариф Pro) ставит "будильник" на pull request и Slack-тред: событие случилось – cloud agent проснулся и продолжил задачу. За 30–45 минут вы подключите GitHub и Slack, выставите spend limit, запустите первый agent с subscription на PR и проверите wake-on-reply в треде.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cursor Subscriptions – это мониторинг событий для cloud agents (PR, Slack, таймеры), а не оплата Cursor Pro. Agent "спит" на том же PR или треде до 180 дней и просыпается на комментарий, CI или reply. Automations на cursor.com/automations каждый раз запускают новый run; Subscription держит одну длинную задачу. Настройка: Dashboard integrations → spend limit → cloud environment → промпт с подпиской или skill /subscribe.</blockquote>
+
+<p>Cloud agent работает в облаке Cursor на изолированной VM (отдельная копия проекта). Subscriptions – только для cloud agents, не для локального Agent в IDE. Запрос "cursor subscriptions" в поиске часто ведёт на тариф Pro – здесь про мониторинг событий из <a href="https://cursor.com/changelog/08-19-26" target="_blank">changelog 19.08.2026</a>. Team MCP – в <a href="/podklyuchenie-mcp-cursor/">гайде по MCP</a>.</p>
+
+<h2 id="subscriptions-vs-automations">1. Сравните Subscriptions и Automations: что выбрать</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Cursor Subscriptions против Automations" loading="lazy">
+</figure>
+
+
+<p>Automations – постоянные правила в UI на <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">cursor.com/automations</a>: каждый trigger (cron, webhook, новый PR) создаёт новый cloud agent run. Subscription оформляет уже работающий agent: он ждёт события на конкретном PR или в конкретном Slack-треде и продолжает ту же задачу.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Automations</th>
+      <th>Subscriptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где настраивается</b></td>
+      <td>UI правил на cursor.com/automations</td>
+      <td>В running cloud agent: промпт или /subscribe</td>
+    </tr>
+    <tr>
+      <td><b>Модель работы</b></td>
+      <td>One-shot: событие → новый run</td>
+      <td>Stateful: agent спит и просыпается на том же PR/thread</td>
+    </tr>
+    <tr>
+      <td><b>Когда брать</b></td>
+      <td>Cron-digest, triage каждого нового PR</td>
+      <td>"Доведи этот PR до merge", "жди ответ в этом Slack-треде"</td>
+    </tr>
+    <tr>
+      <td><b>Срок жизни</b></td>
+      <td>Каждый run отдельно</td>
+      <td>До 180 дней или пока agent решит, что wait окончен</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Automations – для массовых триггеров по расписанию. Subscriptions – когда нужен один PR или один тред без ручного babysitting в чате.
+</blockquote>
+
+<p><b>Делайте:</b> Automations для ежедневного triage, Subscription для задачи "довести до merge". <b>Не делайте:</b> путать с оплатой Cursor Pro – это разные сущности.</p>
+
+<h2 id="dashboard-setup">2. Подключите GitHub, Slack и spend limit в Dashboard</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема настройки: GitHub, Slack и spend limit в Cursor Dashboard" loading="lazy">
+</figure>
+
+
+<p>Cloud agents доступны на всех paid планах Cursor. Перед первым run Cursor попросит spend limit – лимит расходов на облачные запуски (как prepaid на телефоне: без него agent не стартует).</p>
+
+<blockquote>
+  <b>Workflow настройки:</b>
+  <br>
+  Проверка плана → <a href="https://cursor.com/docs/integrations/github" target="_blank">dashboard/integrations</a> (GitHub + Slack) → <a href="https://cursor.com/docs/cloud-agent" target="_blank">dashboard/spending</a> (лимит) → cloud environment (repo + secrets) → первый agent run
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Откройте <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">Cloud Agents dashboard</a> и убедитесь, что раздел Environments доступен на вашем плане.</li>
+  <li><b>Шаг 2:</b> На <a href="https://cursor.com/docs/integrations/github" target="_blank">dashboard/integrations</a> нажмите Connect у GitHub – выберите All repos или Selected repos (только нужные репозитории).</li>
+  <li><b>Шаг 3:</b> Connect Slack → установите app → привяжите repo provider → включите usage-based pricing → подтвердите privacy.</li>
+  <li><b>Шаг 4:</b> На <a href="https://cursor.com/docs/cloud-agent" target="_blank">dashboard/spending</a> включите on-demand и задайте monthly spend limit до первого cloud run.</li>
+  <li><b>Шаг 5:</b> Создайте cloud environment: укажите repo, добавьте secrets только через Dashboard (не в промпт), выполните Test run / Build.</li>
+</ol>
+
+<p><b>Делайте:</b> Selected repos на проде – меньше поверхность атаки. <b>Не делайте:</b> писать API-ключи и пароли в текст промпта – только secrets в Dashboard.</p>
+
+<h2 id="pr-subscription">3. Настройте автоподписку на PR: CI и bot-комментарии</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист автоподписки cloud agent на PR и CI" loading="lazy">
+</figure>
+
+
+<p>Cloud agent, который сам открыл PR, автоматически подписывается на него: чинит CI на GitHub Actions и отвечает на bot-комментарии. Подписку можно задать промптом ("open a PR and keep it green until merge") или skill <b>/subscribe</b>. GitHub events: комментарии и reviews, lifecycle PR, CI на branch.</p>
+
+<p>Auto-fix CI – только GitHub Actions; официально для Teams, иначе "@cursor fix CI" в комментарии. Вкл/выкл: <b>@cursor autofix on/off</b>. Лимит: до 10 autofix follow-ups на PR; не срабатывает после human commit или того же failing check на base.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Запустите cloud agent через web/agents или <b>@Cursor agent [prompt]</b> в Slack с задачей и merge-критерием.</li>
+  <li><b>Шаг 2:</b> Дождитесь, пока agent создаст PR – проверьте auto-subscription в Run History.</li>
+  <li><b>Шаг 3:</b> Симулируйте failing check или дождитесь реального CI – agent должен re-wake (bursts coalesce: несколько событий подряд → один wake).</li>
+  <li><b>Шаг 4:</b> На тестовом PR проверьте <b>@cursor autofix off</b>, если autofix мешает отладке.</li>
+  <li><b>Шаг 5:</b> Убедитесь, что subscription активна не дольше 180 дней – agent отпишется, когда wait завершён.</li>
+</ol>
+
+<p><b>Делайте:</b> формулируйте DoD в промпте ("green CI until merge"). <b>Не делайте:</b> ждать autofix на GitLab CI – поддерживается только GitHub Actions.</p>
+
+<h2 id="slack-thread">4. Настройте мониторинг Slack-треда: wake-on-reply</h2>
+
+<p>Slack integration даёт agent доступ к replies в thread, channel messages и новым public channels. Пример из changelog: <b>@cursor check back in an hour and keep going until that feedback is in</b> – agent подписывается на тред и возвращается по таймеру или при новом reply.</p>
+
+<p>В Slack: <b>@Cursor help</b> и <b>@Cursor agent [prompt]</b>. Routing rules в Dashboard задают repo и environment.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> В треде, где уже работает agent, напишите критерий "done" и интервал check-back.</li>
+  <li><b>Шаг 2:</b> Ответьте в треде от имени коллеги – agent должен проснуться и продолжить (steering: follow-up ждёт следующий tool call, не прерывает текущее действие).</li>
+  <li><b>Шаг 3:</b> Проверьте Run History на <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">cursor.com/dashboard/cloud-agents</a> – видны wake и re-read source.</li>
+</ol>
+
+<p><b>Делайте:</b> один тред – одна подписка с ясным критерием завершения. <b>Не делайте:</b> дублировать ту же задачу в Automations – получите параллельные runs вместо одного stateful agent.</p>
+
+<h2 id="goal-autopilot">5. Закрепите длинные задачи: /goal, /in-cloud и /autopilot</h2>
+
+<p><b>/goal</b> – long-lived objective ("fix flaky tests, CI green"). Subagents через <b>/in-cloud</b> на изолированных VM. PR до merge-ready: <b>/autopilot</b> (alias <b>/babysit</b>) или skill ce-babysit-pr. Таймеры: <b>/loop</b> или cron. Custom Mode: skill через / + Alt+Enter. Связка /goal + subscription снимает ручной re-prompt.</p>
+
+<p><b>Делайте:</b> /goal для задач с чётким DoD на дни. <b>Не делайте:</b> смешивать /autopilot и отдельную Automation на тот же PR – agent может дублировать работу.</p>
+
+<h2 id="security-checklist">6. Пройдите чек-лист безопасности перед production repo</h2>
+
+<ul>
+  <li>Paid план Cursor и spend limit задан до первого run</li>
+  <li>GitHub: Selected repos, не All, если не нужен полный доступ</li>
+  <li>Slack: usage-based pricing осознанно включён; privacy подтверждена</li>
+  <li>Secrets только в Dashboard environment, не в промпте и не в Git</li>
+  <li>Test run / Build cloud environment пройден до production задачи</li>
+  <li>Run History проверен после первого subscription wake</li>
+  <li>На тестовом PR проверен @cursor autofix off при отладке</li>
+  <li>Linear integration (если используете) – только нужные проекты</li>
+  <li>Routing rules Slack – agent не уходит в чужой repo</li>
+  <li>Team MCP для внешних tools – по <a href="/podklyuchenie-mcp-cursor/">инструкции MCP</a>, keys в env</li>
+  <li>Subscription max 180 days – пересмотрите long-running /goal раз в квартал</li>
+  <li>Human-in-the-loop: merge PR подтверждает человек, не agent</li>
+</ul>
+
+<p><b>Делайте:</b> старт на sandbox-repo, потом перенос workflow. <b>Не делайте:</b> давать agent write-доступ ко всем org repos без review правил.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Подключите GitHub + Slack + spend limit по шагам из раздела 2.</li>
+  <li>Запустите первый PR subscription и проверьте wake-on-CI.</li>
+  <li>Добавьте Slack thread subscription с check-back промптом.</li>
+  <li>Закрепите /goal или /autopilot для merge-ready PR без ручного чата.</li>
+  <li>Для связки cloud agents с Make и n8n – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс по Make.com и вайбкодингу</a> (159+ уроков).</li>
+</ol>
+
+<p>Вопросы по Cursor и автоматизации – в Telegram <a href="https://t.me/maya_pro" target="_blank">@maya_pro</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, cloud agents и Make.com).<br>
+  <b>Достоверность данных:</b> факты по Subscriptions, 180 дней и autofix – <a href="https://cursor.com/docs/cloud-agent/capabilities" target="_blank">docs Cursor</a>, 25.08.2026.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем Subscriptions отличается от Automations в Cursor?</h3>
+<p>Automations – правило в UI на <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">cursor.com/automations</a>: каждый trigger запускает новый cloud agent run. Subscription держит running agent на конкретном PR или Slack-треде до завершения задачи. Для "довести этот PR" берите Subscription; для cron-digest каждого PR – Automations.</p>
+
+<h3>Как попросить Cursor следить за pull request?</h3>
+<p>Запустите cloud agent с промптом вроде "implement X, open PR, keep it green until merge" или добавьте skill /subscribe с вашей целью. Agent автоматически подписывается на PR, которые сам создал. Проверьте wake в Run History на <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">dashboard/cloud-agents</a>.</p>
+
+<h3>Может ли Cursor мониторить Slack-тред?</h3>
+<p>Да, при подключённой Slack integration и running cloud agent. Напишите в треде, например: @cursor check back in an hour and keep going until that feedback is in. Agent проснётся по таймеру или при новом reply в thread.</p>
+
+<h3>Нужен ли Teams для auto-fix CI?</h3>
+<p>По документации Cursor auto-fix CI failures официально для Teams; на других paid планах явно попросите agent починить CI в комментарии к PR или промпте. Autofix работает только с GitHub Actions, не с другими CI.</p>
+
+<h3>Работают ли Subscriptions в локальном Agent?</h3>
+<p>Нет. Subscriptions доступны только для cloud agents в облаке Cursor. Локальный Agent в IDE не держит subscription на PR или Slack – нужен cloud run через Dashboard или @Cursor в Slack.</p>
+
+<h3>Сколько живёт subscription?</h3>
+<p>Максимум 180 дней. Agent отписывается раньше, когда решает, что wait завершён (критерий done из вашего промпта). Для задач длиннее периодически пересматривайте /goal и Run History.</p>
+
+<h3>/babysit или /autopilot для PR?</h3>
+<p>На desktop используйте /autopilot; /babysit – search alias после переименования. Альтернатива – skill ce-babysit-pr из Marketplace: watch PR until merge-ready (review, CI, движение base branch).</p>

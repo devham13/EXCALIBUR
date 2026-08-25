@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-08-25",
+    "today_ru": "25.08.2026",
+    "year": 2026,
+    "month": 8,
+    "month_name_ru": "август",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-05-27",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-08-25 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "cursor-subscriptions-nastrojka-2026",
+    "h1": "Как настроить Cursor Subscriptions: мониторинг PR и Slack-тредов cloud-агентами",
+    "primary_query": "cursor subscriptions",
+    "secondary_queries": [
+      "cursor cloud agents pr",
+      "cursor subscriptions slack",
+      "cursor /goal команда",
+      "cursor babysit pr"
+    ],
+    "search_intent": "workflow",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "workflow",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "cursor subscriptions 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "cursor subscriptions август 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "cursor subscriptions новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "cursor cloud agents pr 2026",
+      "purpose": "вторичный запрос: cursor cloud agents pr"
+    },
+    {
+      "id": "secondary_2",
+      "query": "cursor subscriptions slack 2026",
+      "purpose": "вторичный запрос: cursor subscriptions slack"
+    },
+    {
+      "id": "secondary_3",
+      "query": "cursor /goal команда 2026",
+      "purpose": "вторичный запрос: cursor /goal команда"
+    },
+    {
+      "id": "secondary_4",
+      "query": "cursor babysit pr 2026",
+      "purpose": "вторичный запрос: cursor babysit pr"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Cursor Subscriptions: мониторинг PR и Slack-тредов cloud-агентами 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-cursor-subscriptions-nastrojka-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

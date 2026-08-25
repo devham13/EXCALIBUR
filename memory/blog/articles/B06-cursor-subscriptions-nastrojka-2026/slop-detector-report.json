@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "com/automations В running cloud agent: промпт или /subscribe Модель работы One-shot: событие → новый run Stateful: agent спит и просыпается на том же PR/thread Когда брать Cron-digest, triage каждого нового PR \"Доведи этот PR до merge\", \"жди ответ в этом Slack-треде\" Срок жизни Каждый run отдельно До 180 дней или пока agent решит, что wait окончен Итоговый вердикт: Automations – для массовых триггеров по расписанию",
+      "word_count": 64
+    },
+    {
+      "sentence": "Workflow настройки: Проверка плана → dashboard/integrations (GitHub + Slack) → dashboard/spending (лимит) → cloud environment (repo + secrets) → первый agent run Шаг 1: Откройте Cloud Agents dashboard и убедитесь, что раздел Environments доступен на вашем плане",
+      "word_count": 32
+    },
+    {
+      "sentence": "Настройте автоподписку на PR: CI и bot-комментарии Cloud agent, который сам открыл PR, автоматически подписывается на него: чинит CI на GitHub Actions и отвечает на bot-комментарии",
+      "word_count": 26
+    },
+    {
+      "sentence": "Пример из changelog: @cursor check back in an hour and keep going until that feedback is in – agent подписывается на тред и возвращается по таймеру или при новом reply",
+      "word_count": 29
+    },
+    {
+      "sentence": "Пройдите чек-лист безопасности перед production repo Paid план Cursor и spend limit задан до первого run GitHub: Selected repos, не All, если не нужен полный доступ Slack: usage-based pricing осознанно включён; privacy подтверждена Secrets только в Dashboard environment, не в промпте и не в Git Test run / Build cloud environment пройден до production задачи Run History проверен после первого subscription wake На тестовом PR проверен @cursor autofix off при отладке Linear integration (если используете) – только нужные проекты Routing rules Slack – agent не уходит в чужой repo Team MCP для внешних tools – по инструкции MCP , keys в env Subscription max 180 days – пересмотрите long-running /goal раз в квартал Human-in-the-loop: merge PR подтверждает человек, не agent Делайте: старт на sandbox-repo, потом перенос workflow",
+      "word_count": 120
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 12.2,
+    "avg_syllables_per_word": 1.2
+  }
+}

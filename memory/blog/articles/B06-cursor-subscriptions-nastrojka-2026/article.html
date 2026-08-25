@@ -6,7 +6,7 @@
 
 <h2 id="subscriptions-vs-automations">1. Сравните Subscriptions и Automations: что выбрать</h2>
 
-<p>Automations – постоянные правила в UI на <a href="https://cursor.com/automations" target="_blank">cursor.com/automations</a>: каждый trigger (cron, webhook, новый PR) создаёт новый cloud agent run. Subscription оформляет уже работающий agent: он ждёт события на конкретном PR или в конкретном Slack-треде и продолжает ту же задачу.</p>
+<p>Automations – постоянные правила в UI на <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">cursor.com/automations</a>: каждый trigger (cron, webhook, новый PR) создаёт новый cloud agent run. Subscription оформляет уже работающий agent: он ждёт события на конкретном PR или в конкретном Slack-треде и продолжает ту же задачу.</p>
 
 <table>
   <thead>
@@ -53,14 +53,14 @@
 <blockquote>
   <b>Workflow настройки:</b>
   <br>
-  Проверка плана → <a href="https://cursor.com/dashboard/integrations" target="_blank">dashboard/integrations</a> (GitHub + Slack) → <a href="https://cursor.com/dashboard/spending" target="_blank">dashboard/spending</a> (лимит) → cloud environment (repo + secrets) → первый agent run
+  Проверка плана → <a href="https://cursor.com/docs/integrations/github" target="_blank">dashboard/integrations</a> (GitHub + Slack) → <a href="https://cursor.com/docs/cloud-agent" target="_blank">dashboard/spending</a> (лимит) → cloud environment (repo + secrets) → первый agent run
 </blockquote>
 
 <ol>
-  <li><b>Шаг 1:</b> Откройте <a href="https://cursor.com/dashboard/cloud-agents" target="_blank">Cloud Agents dashboard</a> и убедитесь, что раздел Environments доступен на вашем плане.</li>
-  <li><b>Шаг 2:</b> На <a href="https://cursor.com/dashboard/integrations" target="_blank">dashboard/integrations</a> нажмите Connect у GitHub – выберите All repos или Selected repos (только нужные репозитории).</li>
+  <li><b>Шаг 1:</b> Откройте <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">Cloud Agents dashboard</a> и убедитесь, что раздел Environments доступен на вашем плане.</li>
+  <li><b>Шаг 2:</b> На <a href="https://cursor.com/docs/integrations/github" target="_blank">dashboard/integrations</a> нажмите Connect у GitHub – выберите All repos или Selected repos (только нужные репозитории).</li>
   <li><b>Шаг 3:</b> Connect Slack → установите app → привяжите repo provider → включите usage-based pricing → подтвердите privacy.</li>
-  <li><b>Шаг 4:</b> На <a href="https://cursor.com/dashboard/spending" target="_blank">dashboard/spending</a> включите on-demand и задайте monthly spend limit до первого cloud run.</li>
+  <li><b>Шаг 4:</b> На <a href="https://cursor.com/docs/cloud-agent" target="_blank">dashboard/spending</a> включите on-demand и задайте monthly spend limit до первого cloud run.</li>
   <li><b>Шаг 5:</b> Создайте cloud environment: укажите repo, добавьте secrets только через Dashboard (не в промпт), выполните Test run / Build.</li>
 </ol>
 
@@ -91,7 +91,7 @@
 <ol>
   <li><b>Шаг 1:</b> В треде, где уже работает agent, напишите критерий "done" и интервал check-back.</li>
   <li><b>Шаг 2:</b> Ответьте в треде от имени коллеги – agent должен проснуться и продолжить (steering: follow-up ждёт следующий tool call, не прерывает текущее действие).</li>
-  <li><b>Шаг 3:</b> Проверьте Run History на cursor.com/dashboard/cloud-agents – видны wake и re-read source.</li>
+  <li><b>Шаг 3:</b> Проверьте Run History на <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">cursor.com/dashboard/cloud-agents</a> – видны wake и re-read source.</li>
 </ol>
 
 <p><b>Делайте:</b> один тред – одна подписка с ясным критерием завершения. <b>Не делайте:</b> дублировать ту же задачу в Automations – получите параллельные runs вместо одного stateful agent.</p>
@@ -141,10 +141,10 @@
 <h2 id="faq">Частые вопросы</h2>
 
 <h3>Чем Subscriptions отличается от Automations в Cursor?</h3>
-<p>Automations – правило в UI на cursor.com/automations: каждый trigger запускает новый cloud agent run. Subscription держит running agent на конкретном PR или Slack-треде до завершения задачи. Для "довести этот PR" берите Subscription; для cron-digest каждого PR – Automations.</p>
+<p>Automations – правило в UI на <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">cursor.com/automations</a>: каждый trigger запускает новый cloud agent run. Subscription держит running agent на конкретном PR или Slack-треде до завершения задачи. Для "довести этот PR" берите Subscription; для cron-digest каждого PR – Automations.</p>
 
 <h3>Как попросить Cursor следить за pull request?</h3>
-<p>Запустите cloud agent с промптом вроде "implement X, open PR, keep it green until merge" или добавьте skill /subscribe с вашей целью. Agent автоматически подписывается на PR, которые сам создал. Проверьте wake в Run History на dashboard/cloud-agents.</p>
+<p>Запустите cloud agent с промптом вроде "implement X, open PR, keep it green until merge" или добавьте skill /subscribe с вашей целью. Agent автоматически подписывается на PR, которые сам создал. Проверьте wake в Run History на <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">dashboard/cloud-agents</a>.</p>
 
 <h3>Может ли Cursor мониторить Slack-тред?</h3>
 <p>Да, при подключённой Slack integration и running cloud agent. Напишите в треде, например: @cursor check back in an hour and keep going until that feedback is in. Agent проснётся по таймеру или при новом reply в thread.</p>

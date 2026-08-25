@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-25 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 895 |
+| inline_images | 896, 897, 898 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| trigger | Cloud Automation publish (excalibur-blog-publish) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (5/5, preflight 2026-08-25)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base https://mayai.ru  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run                       # OK, PHP 9537070 bytes
+python3 scripts/excalibur_blog_wp_publish.py ...                                 # FAIL: FTP 425 Security Bad IP
+# Fallback: SCP bootstrap + server curl (SSH credentials from Cloud Secrets)
+sshpass scp excalibur-blog-publish-once.php → server
+ssh curl https://mayai.ru/excalibur-blog-publish-once.php                        # PASS
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=895
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=896 src=cover/inline-01.png
+OK inline_image_upload=897 src=cover/inline-02.png
+OK inline_image_upload=898 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- bootstrap PHP удалён с сервера

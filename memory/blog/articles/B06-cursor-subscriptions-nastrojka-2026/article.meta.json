@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "cursor-subscriptions-nastrojka-2026",
+  "h1": "Как настроить Cursor Subscriptions: мониторинг PR и Slack-тредов cloud-агентами",
+  "title": "Cursor Subscriptions: настройка мониторинга PR и Slack cloud-агентами",
+  "description": "Пошаговая настройка Cursor Subscriptions (фича cloud agents): GitHub, Slack, spend limit, subscription на PR, wake-on-reply в Slack, /goal и /autopilot. Не путать с тарифом Pro.",
+  "keywords": [
+    "cursor subscriptions",
+    "cursor cloud agents pr",
+    "cursor subscriptions slack",
+    "cursor /goal команда",
+    "cursor babysit pr"
+  ],
+  "primary_query": "cursor subscriptions",
+  "secondary_queries": [
+    "cursor cloud agents pr",
+    "cursor subscriptions slack",
+    "cursor /goal команда",
+    "cursor babysit pr"
+  ],
+  "char_count": 9375,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor subscriptions для cloud agents",
+    "мониторинг pull request cursor cloud agent",
+    "cursor subscriptions slack wake-on-reply пошагово"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Subscriptions: настройка мониторинга PR и Slack cloud-агентами",
+    "title_ctr": "🚀 Cursor Subscriptions за 45 минут: PR и Slack без ручного babysitting!",
+    "title_aeo": "Как настроить Cursor Subscriptions для мониторинга PR и Slack-тредов?",
+    "description_seo": "Пошаговая настройка Cursor Subscriptions (фича cloud agents): GitHub, Slack, spend limit, subscription на PR, wake-on-reply, /goal и /autopilot. Не путать с тарифом Pro.",
+    "description_ctr": "⚡ PR упал CI, а вы в Slack? Настройте Cursor Subscriptions: cloud agent сам проснётся на событие. GitHub + Slack + чек-лист за 45 минут.",
+    "description_aeo": "Cursor Subscriptions – event-мониторинг для cloud agents (PR, Slack, таймеры), не тариф Pro. Настройка через Dashboard: integrations, spend limit, промпт /subscribe, /goal, /autopilot."
+  },
+  "cover_family": "brand_collage"
+}

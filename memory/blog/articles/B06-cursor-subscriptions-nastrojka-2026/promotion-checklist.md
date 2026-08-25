@@ -1,7 +1,7 @@
 # Promotion checklist — B06 cursor-subscriptions-nastrojka-2026
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/cursor-subscriptions-nastrojka-2026/
+Дата публикации: 2026-08-25  
+Live URL: [REDACTED]/2026/08/25/cursor-subscriptions-nastrojka-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ PR упал CI, а вы в Slack? Cursor Subscriptions (фича cloud agents, �
 • /goal, /autopilot, wake-on-reply в Slack-треде до 180 дней
 • Security checklist: 12 пунктов перед production
 
-Читать: https://mayai.ru/cursor-subscriptions-nastrojka-2026/
+Читать: [REDACTED]/2026/08/25/cursor-subscriptions-nastrojka-2026/
 ```
 
 ## Перелинковка

@@ -5,6 +5,10 @@
 <p>Cloud agent работает в облаке Cursor на изолированной VM (отдельная копия проекта). Subscriptions – только для cloud agents, не для локального Agent в IDE. Запрос "cursor subscriptions" в поиске часто ведёт на тариф Pro – здесь про мониторинг событий из <a href="https://cursor.com/changelog/08-19-26" target="_blank">changelog 19.08.2026</a>. Team MCP – в <a href="/podklyuchenie-mcp-cursor/">гайде по MCP</a>.</p>
 
 <h2 id="subscriptions-vs-automations">1. Сравните Subscriptions и Automations: что выбрать</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Cursor Subscriptions против Automations" loading="lazy">
+</figure>
+
 
 <p>Automations – постоянные правила в UI на <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">cursor.com/automations</a>: каждый trigger (cron, webhook, новый PR) создаёт новый cloud agent run. Subscription оформляет уже работающий agent: он ждёт события на конкретном PR или в конкретном Slack-треде и продолжает ту же задачу.</p>
 
@@ -47,6 +51,10 @@
 <p><b>Делайте:</b> Automations для ежедневного triage, Subscription для задачи "довести до merge". <b>Не делайте:</b> путать с оплатой Cursor Pro – это разные сущности.</p>
 
 <h2 id="dashboard-setup">2. Подключите GitHub, Slack и spend limit в Dashboard</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема настройки: GitHub, Slack и spend limit в Cursor Dashboard" loading="lazy">
+</figure>
+
 
 <p>Cloud agents доступны на всех paid планах Cursor. Перед первым run Cursor попросит spend limit – лимит расходов на облачные запуски (как prepaid на телефоне: без него agent не стартует).</p>
 
@@ -67,6 +75,10 @@
 <p><b>Делайте:</b> Selected repos на проде – меньше поверхность атаки. <b>Не делайте:</b> писать API-ключи и пароли в текст промпта – только secrets в Dashboard.</p>
 
 <h2 id="pr-subscription">3. Настройте автоподписку на PR: CI и bot-комментарии</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист автоподписки cloud agent на PR и CI" loading="lazy">
+</figure>
+
 
 <p>Cloud agent, который сам открыл PR, автоматически подписывается на него: чинит CI на GitHub Actions и отвечает на bot-комментарии. Подписку можно задать промптом ("open a PR and keep it green until merge") или skill <b>/subscribe</b>. GitHub events: комментарии и reviews, lifecycle PR, CI на branch.</p>
 

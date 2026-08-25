@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-cursor-subscriptions-nastrojka-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1019,
+      573
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 573,
+        "end": 581
+      },
+      "v_gutter_px": {
+        "start": 1019,
+        "end": 1029
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 573
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: Cursor Subscriptions — cloud agent просыпается на PR и Slack без ручного babysitting",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 573
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 0,
+          "right": 2048,
+          "bottom": 573
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица: Cursor Subscriptions против Automations",
+        "h2_anchor": "1. Сравните Subscriptions и Automations: что выбрать"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема настройки: GitHub, Slack и spend limit в Cursor Dashboard",
+        "h2_anchor": "2. Подключите GitHub, Slack и spend limit в Dashboard"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1029,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1029,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист автоподписки cloud agent на PR и CI",
+        "h2_anchor": "3. Настройте автоподписку на PR: CI и bot-комментарии"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Сравните Subscriptions и Automations: что выбрать",
+    "injected inline_2 after H2 — 2. Подключите GitHub, Slack и spend limit в Dashboard",
+    "injected inline_3 after H2 — 3. Настройте автоподписку на PR: CI и bot-комментарии"
+  ]
+}

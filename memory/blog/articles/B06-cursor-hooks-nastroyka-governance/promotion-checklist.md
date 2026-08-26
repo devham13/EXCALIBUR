@@ -1,7 +1,7 @@
 # Promotion checklist — B06 cursor-hooks-nastroyka-governance
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/blog/cursor-hooks-nastroyka-governance/
+Дата публикации: 2026-08-26  
+Live URL: https://mayai.ru/2026/08/26/cursor-hooks-nastroyka-governance/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Cloud Agent без hooks может выполнить rm -rf и force-push — 
 • Cloud-матрица: beforeMCPExecution не работает в VM — MCP через allowlist
 • Чеклист из 12 пунктов + FAQ (7 вопросов)
 
-Читать: https://mayai.ru/blog/cursor-hooks-nastroyka-governance/
+Читать: https://mayai.ru/2026/08/26/cursor-hooks-nastroyka-governance/
 ```
 
 ## Перелинковка

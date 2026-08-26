@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Cloud Agent без hooks — rm -rf в main за один промпт?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Cursor Hooks governance — Cloud Agent без hooks и блокировка rm -rf",
+      "scene_hint": "reference-лицо в тёмно-синем DevOps-худи с щитом, указывает на fake terminal «rm -rf /» с красным DENY и Cursor Hooks Output «BLOCKED by beforeShellExecution», рядом fake hooks.json snippet с failClosed:true, audit.log строка, Telegram «агент снёс prod?», meme shocked face + facepalm cutout, розовый highlight на «deny», torn paper + pink sticky «жиза для DevOps»",
+      "meme_caption_ru": "rm -rf без hooks?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Hooks, Rules и MCP allowlist",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица 4 строки: Cursor Rules (prompt), Hooks (deny/log), MCP allowlist, permissions.json — колонки «Инструмент / Что делает / Cloud Agent / Когда брать», галочки где Cloud=Да, красный крест у permissions.json, pink sticky «Rules не останавливают shell», без лица героя",
+      "alt": "Сравнительная таблица Hooks vs Rules vs MCP allowlist для Cloud Agents"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Выберите project hooks для Cloud Agents",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема приоритетов: Enterprise → Team → Project → User (стрелки вниз), .cursor/hooks.json в корне repo с git-иконкой, Cloud Agent VM читает только Project hooks, ~/.cursor/ перечёркнут красным, tape corner + sticky «коммить в git»",
+      "alt": "Workflow: project hooks .cursor/hooks.json для Cloud Agents vs user hooks"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Создайте hooks.json – пошагово",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист 7 шагов: mkdir .cursor/hooks → hooks.json → block-dangerous.sh → chmod +x → Hooks Output OK → test deny rm -rf → audit + commit, чекбоксы, pink marker на failClosed:true, mini hooks.json code snippet",
+      "alt": "Чеклист пошаговой настройки hooks.json и block-dangerous.sh"
+    }
+  }
+}

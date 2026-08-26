@@ -23,13 +23,14 @@
       "skipped": false
     },
     {
-      "url": "/geo-optimizaciya-sajta-2026/",
+      "url": "${PUBLIC_SITE_URL}/geo-optimizaciya-sajta-2026/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
-      "skipped": false
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/geo-optimizaciya-sajta-2026/"
     },
     {
       "url": "https://kv-ai.ru/obuchenie-po-make",
@@ -41,13 +42,14 @@
       "skipped": false
     },
     {
-      "url": "/",
+      "url": "${PUBLIC_SITE_URL}/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
-      "skipped": false
+      "skipped": false,
+      "checked_url": "${PUBLIC_SITE_URL}/"
     },
     {
       "url": "https://kv-ai.ru/artur-horosheff",

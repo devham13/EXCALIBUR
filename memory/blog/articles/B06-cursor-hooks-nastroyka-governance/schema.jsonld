@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#article",
+      "headline": "Как настроить Cursor Hooks: пошаговая инструкция для governance cloud-агентов",
+      "description": "Пошаговая настройка .cursor/hooks.json: beforeShellExecution с deny и failClosed, audit-log, cloud-матрица (beforeMCPExecution не в cloud). Чеклист troubleshooting для DevOps и тимлидов.",
+      "datePublished": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/cursor-hooks-nastroyka-governance-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "как настроить cursor hooks, cursor hooks.json, beforeShellExecution cursor, beforeMCPExecution cursor, cursor hooks governance",
+      "wordCount": 8513,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое Cursor Hooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JSON .cursor/hooks.json и shell-скрипты на событиях agent loop (shell, файлы, subagents). Старт: каталог .cursor/hooks/, version 1, один beforeShellExecution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем hooks отличаются от Rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rules – инструкции модели в prompt. Hooks – код: deny блокирует команду, afterShellExecution пишет audit. Для rm -rf нужен hook."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как заблокировать shell-команды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "beforeShellExecution, matcher с regex, stdout {\"permission\":\"deny\"} или exit 2, failClosed: true. Тест: попросите Agent опасную команду из matcher."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли hooks для Cloud Agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да – закоммитьте project hooks. User hooks из ~/.cursor/ в cloud VM недоступны; без git-policy cloud run без guardrails."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли beforeMCPExecution в Cloud Agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет (официальная cloud-матрица). Cloud: MCP allowlist + postToolUse. beforeMCPExecution – только локальный Desktop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hook не срабатывает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте Customize → Hooks, Output → Hooks, chmod +x, trusted workspace, валидный JSON. Restart Cursor после правки hooks.json."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hooks vs permissions.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "hooks – policy-скрипты в .cursor/hooks.json (git). permissions.json – IDE auto-run на ПК. Team governance – hooks в repo."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#howto",
+      "name": "Как настроить Cursor Hooks: пошаговая инструкция для governance cloud-агентов",
+      "description": "Пошаговая настройка .cursor/hooks.json: beforeShellExecution с deny и failClosed, audit-log, cloud-матрица (beforeMCPExecution не в cloud). Чеклист troubleshooting для DevOps и тимлидов.",
+      "inLanguage": "ru",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Cursor (актуальная версия с поддержкой Hooks)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Git-репозиторий с trusted workspace"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Создайте каталог hooks",
+          "text": "Создайте каталог .cursor/hooks/ в корне репозитория (не ./hooks/ без .cursor/).",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#minimal-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте hooks.json",
+          "text": "Добавьте .cursor/hooks.json с \"version\": 1 и блоком beforeShellExecution.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#minimal-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Настройте поля hook",
+          "text": "Укажите command, matcher (regex команды), timeout: 30, failClosed: true.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#minimal-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Напишите block-dangerous.sh",
+          "text": "Создайте скрипт block-dangerous.sh с deny через stdout JSON или exit 2. Выполните chmod +x.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#block-script"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте загрузку hooks",
+          "text": "Откройте Customize → Hooks и Output → Hooks – убедитесь, что hooks загружены без ошибок path или JSON.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#minimal-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Протестируйте deny",
+          "text": "Попросите Agent выполнить опасную команду из matcher (например rm -rf) – команда должна быть заблокирована.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#minimal-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Добавьте audit и закоммитьте",
+          "text": "Настройте afterShellExecution для audit-log, закоммитьте hooks.json и скрипты в git, протестируйте Cloud Agent run.",
+          "url": "https://mayai.ru/blog/cursor-hooks-nastroyka-governance/#audit-trail"
+        }
+      ]
+    }
+  ]
+}

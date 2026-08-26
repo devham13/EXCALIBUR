@@ -11,7 +11,6 @@ import os
 import sys
 import urllib.request
 from pathlib import Path
-from typing import Callable
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative

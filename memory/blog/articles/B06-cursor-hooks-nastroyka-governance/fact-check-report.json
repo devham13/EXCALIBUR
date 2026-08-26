@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B06-cursor-hooks-nastroyka-governance/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "cursor.com/docs/hooks и cloud-agent docs на 26.08.2026. Wordstat по \"как настроить cursor hooks\" не полу",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "те failClosed при сбоях и пишете audit-log. За 30–45 минут соберёте repo-first governance, который подхватят",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

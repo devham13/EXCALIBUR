@@ -32,7 +32,7 @@
     "title_aeo": "Как настроить Cursor Hooks для governance cloud-агентов?",
     "description_seo": "Пошаговая настройка .cursor/hooks.json: beforeShellExecution с deny и failClosed, audit-log, cloud-матрица. beforeMCPExecution не работает в Cloud Agent.",
     "description_ctr": "⚡ За вечер: hooks.json, block-dangerous.sh, failClosed, audit и чеклист из 12 пунктов. Governance для Cloud Agents без сюрпризов rm -rf.",
-    "description_aeo": "Cursor Hooks настраиваются через .cursor/hooks.json в git: beforeShellExecution блокирует shell через deny, failClosed защищает при сбое. Cloud Agents не поддерживают beforeMCPExecution."
+    "description_aeo": "Cursor Hooks: .cursor/hooks.json в git, beforeShellExecution с deny, failClosed при сбое. beforeMCPExecution в Cloud Agent не работает."
   },
   "cover_family": "brand_collage"
 }

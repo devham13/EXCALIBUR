@@ -1,0 +1,226 @@
+<p>Cloud Agent в Cursor может выполнить shell-команды и править репозиторий без вашего участия. Без guardrails один промпт превращается в риск: force-push в main, rm -rf, npm publish. Cursor Hooks – это скрипты-"таможня" перед действиями агента: вы кладёте hooks.json в git, блокируете опасные команды через deny, включаете failClosed при сбоях и пишете audit-log. За 30–45 минут соберёте repo-first governance, который подхватят локальный Agent и Cloud Agent в VM.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Hooks – .cursor/hooks.json плюс shell-скрипты на событиях agent loop. Блок shell: beforeShellExecution + permission deny + failClosed: true. Cloud Agents читают только project hooks; beforeMCPExecution в cloud не работает – MCP через allowlist и postToolUse audit (<a href="/podklyuchenie-mcp-cursor/">гайд MCP</a>). permission allow и ask ненадёжны – governance только через deny.</blockquote>
+
+<p>Hooks – исполняемый код: Cursor шлёт JSON в stdin, скрипт отвечает JSON или exit 2. Policy as code в git – правила у команды и Cloud Agents. Hooks дополняют MCP allowlist жёстким deny на shell и audit trail.</p>
+
+<h2 id="hooks-vs-rules">1. Сравните Hooks, Rules и MCP allowlist</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Инструмент</th>
+      <th>Что делает</th>
+      <th>Cloud Agent</th>
+      <th>Когда брать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Cursor Rules</b></td>
+      <td>Инструкции в prompt</td>
+      <td>Да</td>
+      <td>Стиль, контекст проекта</td>
+    </tr>
+    <tr>
+      <td><b>Hooks</b></td>
+      <td>Скрипт deny/log</td>
+      <td>Да (project)</td>
+      <td>Блок shell, audit, subagent guard</td>
+    </tr>
+    <tr>
+      <td><b>MCP allowlist</b></td>
+      <td>Разрешённые MCP-tools</td>
+      <td>Да</td>
+      <td>Ограничить GitHub, CMS и др.</td>
+    </tr>
+    <tr>
+      <td><b>permissions.json</b></td>
+      <td>IDE auto-run</td>
+      <td>Нет</td>
+      <td>Личный Desktop, не team policy</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Rules (.cursor/rules) говорят модели "не трогай prod", но не останавливают команду. Hooks останавливают. permissions.json в ~/.cursor/ – списки auto-run на вашем ПК, отдельный слой от hook scripts.</p>
+
+<p><b>Делайте:</b> Rules + hooks + MCP allowlist в связке. <b>Не делайте:</b> заменять beforeShellExecution Rule-текстом "не удаляй файлы".</p>
+
+<h2 id="config-location">2. Выберите project hooks для Cloud Agents</h2>
+
+<p>Проектный конфиг: <b>.cursor/hooks.json</b> в корне репозитория. Пользовательский: ~/.cursor/hooks.json – только локальный Desktop. Приоритет источников (сверху вниз): Enterprise → Team → Project → User. Пути к скриптам в project hooks – от корня repo, например .cursor/hooks/block-dangerous.sh, не ./hooks/script.sh без префикса .cursor/.</p>
+
+<p>Cloud Agent не видит ~/.cursor/ – user hooks бесполезны. Project hooks требуют trusted workspace.</p>
+
+<p><b>Делайте:</b> коммитьте hooks в git. <b>Не делайте:</b> governance только в home-каталоге.</p>
+
+<h2 id="minimal-setup">3. Создайте hooks.json – пошагово</h2>
+
+<blockquote>
+  <b>Workflow:</b> mkdir .cursor/hooks → hooks.json → block-dangerous.sh → chmod +x → Hooks output → audit → commit → Cloud run
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Каталог .cursor/hooks/ в корне (не ./hooks/ без .cursor/).</li>
+  <li><b>Шаг 2:</b> hooks.json с "version": 1 и beforeShellExecution.</li>
+  <li><b>Шаг 3:</b> Поля command, matcher (regex команды), timeout: 30, failClosed: true.</li>
+  <li><b>Шаг 4:</b> block-dangerous.sh и chmod +x.</li>
+  <li><b>Шаг 5:</b> Customize → Hooks + Output → Hooks без ошибок.</li>
+  <li><b>Шаг 6:</b> Тест deny: попросите Agent rm -rf – блок.</li>
+  <li><b>Шаг 7:</b> afterShellExecution audit, commit, Cloud Agent run.</li>
+</ol>
+
+<pre><code>{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [{
+      "command": ".cursor/hooks/block-dangerous.sh",
+      "matcher": "rm\\s+-rf|git\\s+push\\s+--force|npm\\s+publish",
+      "timeout": 30,
+      "failClosed": true
+    }],
+    "afterShellExecution": [{
+      "command": ".cursor/hooks/audit-shell.sh"
+    }]
+  }
+}</code></pre>
+
+<p>Сбой hook по умолчанию – fail-open. failClosed: true блокирует при crash или timeout – рекомендация docs для security hooks.</p>
+
+<p><b>Делайте:</b> failClosed: true на каждом beforeShellExecution в prod-repo. <b>Не делайте:</b> оставлять fail-open там, где пропуск rm -rf недопустим.</p>
+
+<h2 id="block-script">4. Напишите block-dangerous.sh – только deny</h2>
+
+<p>Permission decision (allow/deny/ask) возвращают только beforeShellExecution и beforeMCPExecution – последний только в Desktop. Для governance надёжен deny и exit code 2. Значение allow не снимает ручное подтверждение MCP в IDE; ask по отчётам community часто игнорируется.</p>
+
+<pre><code>#!/usr/bin/env bash
+input=$(cat)
+echo '{"permission":"deny","user_message":"Команда заблокирована hooks."}'
+exit 2</code></pre>
+
+<p>Matcher – regex по полной команде: git\\s+push\\s+--force, curl\\s+.*\\|\\s*bash. <b>Делайте:</b> понятный user_message. <b>Не делайте:</b> auto-approve через allow – надёжен только deny.</p>
+
+<h2 id="audit-trail">5. Настройте audit через afterShellExecution</h2>
+
+<p>Hook получает command, output, duration (ms). audit-shell.sh:</p>
+
+<pre><code>#!/usr/bin/env bash
+input=$(cat)
+echo "$input" >> .cursor/hooks/audit.log</code></pre>
+
+<p>Hook afterShellExecution получает command, output и duration (ms). Добавьте audit.log в .gitignore. В cloud beforeMCPExecution недоступен – audit MCP через postToolUse matcher MCP:, блок – allowlist (<a href="/podklyuchenie-mcp-cursor/">гайд MCP</a>).</p>
+
+<p><b>Делайте:</b> audit без секретов в git. <b>Не делайте:</b> логировать токены из output.</p>
+
+<h2 id="mcp-local-cloud">6. Разделите MCP-guard: Desktop vs Cloud</h2>
+
+<p>beforeMCPExecution в Cloud Agent <b>не поддерживается</b>. Локально:</p>
+
+<pre><code>"beforeMCPExecution": [{
+  "command": ".cursor/hooks/block-mcp.sh",
+  "matcher": "production-db",
+  "failClosed": true
+}]</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>Задача</th>
+      <th>Desktop</th>
+      <th>Cloud Agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Блок shell</b></td>
+      <td>beforeShellExecution + deny</td>
+      <td>то же + failClosed</td>
+    </tr>
+    <tr>
+      <td><b>Блок MCP</b></td>
+      <td>beforeMCPExecution + deny</td>
+      <td>MCP allowlist, минимум серверов</td>
+    </tr>
+    <tr>
+      <td><b>Audit MCP</b></td>
+      <td>afterMCPExecution</td>
+      <td>postToolUse MCP:</td>
+    </tr>
+    <tr>
+      <td><b>Subagents</b></td>
+      <td>subagentStart</td>
+      <td>subagentStart</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>В cloud не работают beforeMCPExecution, afterMCPExecution, sessionStart. beforeShellExecution и subagentStart работают. Hooks стартуют после writable environment, не в read-only фазе.</p>
+
+<p><b>Делайте:</b> cloud MCP через allowlist + postToolUse. <b>Не делайте:</b> копировать beforeMCPExecution в cloud runbook.</p>
+
+<h2 id="cloud-governance">7. Примените governance к Cloud Agents</h2>
+
+<p>Cloud Agent подхватывает project hooks из repo. Subagents:</p>
+
+<pre><code>"subagentStart": [{
+  "command": ".cursor/hooks/log-subagent.sh",
+  "matcher": "generalPurpose|shell"
+}]</code></pre>
+
+<p>Enterprise – team hooks в dashboard Cursor. Цепочка для автоматизатора: hooks в repo, MCP allowlist, Make по расписанию – <a href="https://kv-ai.ru/obuchenie-po-make">курс Make.com и вайбкодинг</a>.</p>
+
+<p><b>Делайте:</b> тест Cloud run после merge. <b>Не делайте:</b> ждать sessionStart в cloud.</p>
+
+<h2 id="troubleshooting">8. Чеклист troubleshooting перед merge</h2>
+
+<ol>
+  <li>Валидный JSON в hooks.json.</li>
+  <li>Путь .cursor/hooks/script.sh от корня repo.</li>
+  <li>chmod +x на скриптах.</li>
+  <li>Trusted workspace.</li>
+  <li>matcher – regex, экранируйте \\ в JSON.</li>
+  <li>failClosed: true на блокирующих hooks.</li>
+  <li>deny через stdout JSON или exit 2, не ask.</li>
+  <li>Output → Hooks – нет ошибок path/timeout.</li>
+  <li>Cloud: hooks не в read-only фазе.</li>
+  <li>beforeMCPExecution – только Desktop.</li>
+  <li>audit.log в .gitignore.</li>
+  <li>Тест deny на реальной опасной команде.</li>
+</ol>
+
+<p>Cursor следит за hooks.json и перезагружает при save; при проблемах – restart Cursor. Отладка: Customize → Hooks (статус loaded) и Output channel Hooks (ошибки JSON, path, timeout).</p>
+
+<p><b>Делайте:</b> отлаживать по одному hook за итерацию. <b>Не делайте:</b> включать десять matcher одновременно – не найдёте сломанный regex.</p>
+
+<h2 id="what-next">9. Что дальше</h2>
+
+<p>Расширьте matcher под ваш стек: docker push, terraform destroy, curl pipe в bash. Настройте MCP allowlist по <a href="/podklyuchenie-mcp-cursor/">инструкции MCP в Cursor</a>. Добавьте subagentStart, если используете Task subagents. No-code автоматизация после guardrails – <a href="https://kv-ai.ru/obuchenie-po-make">обучение Make.com</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Артур Хорошев (CEO Maya AI).<br>
+  <b>Достоверность:</b> факты сверены с cursor.com/docs/hooks и cloud-agent docs на 26.08.2026. Wordstat по "как настроить cursor hooks" не получен (MCP недоступен) – уточняйте вручную.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Что такое Cursor Hooks?</h3>
+<p>JSON .cursor/hooks.json и shell-скрипты на событиях agent loop (shell, файлы, subagents). Старт: каталог .cursor/hooks/, version 1, один beforeShellExecution.</p>
+
+<h3>Чем hooks отличаются от Rules?</h3>
+<p>Rules – инструкции модели в prompt. Hooks – код: deny блокирует команду, afterShellExecution пишет audit. Для rm -rf нужен hook.</p>
+
+<h3>Как заблокировать shell-команды?</h3>
+<p>beforeShellExecution, matcher с regex, stdout {"permission":"deny"} или exit 2, failClosed: true. Тест: попросите Agent опасную команду из matcher.</p>
+
+<h3>Нужны ли hooks для Cloud Agents?</h3>
+<p>Да – закоммитьте project hooks. User hooks из ~/.cursor/ в cloud VM недоступны; без git-policy cloud run без guardrails.</p>
+
+<h3>Работает ли beforeMCPExecution в Cloud Agent?</h3>
+<p>Нет (официальная cloud-матрица). Cloud: MCP allowlist + postToolUse. beforeMCPExecution – только локальный Desktop.</p>
+
+<h3>Hook не срабатывает?</h3>
+<p>Проверьте Customize → Hooks, Output → Hooks, chmod +x, trusted workspace, валидный JSON. Restart Cursor после правки hooks.json.</p>
+
+<h3>Hooks vs permissions.json?</h3>
+<p>hooks – policy-скрипты в .cursor/hooks.json (git). permissions.json – IDE auto-run на ПК. Team governance – hooks в repo.</p>

@@ -7,9 +7,11 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
+from typing import Callable
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -21,17 +23,46 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    if not env:
+        raise FileNotFoundError("site.env.local not found under memory/")
+    for key in (
+        "PUBLIC_SITE_URL",
+        "EXCALIBUR_PUBLIC_SITE_URL",
+        "FTP_HOST",
+        "FTP_PORT",
+        "FTP_USER",
+        "FTP_PASS",
+        "FTP_PASSWORD",
+        "FTP_ROOT",
+        "FTP_PATH",
+        "SFTP_HOST",
+        "SFTP_PORT",
+        "SFTP_USER",
+        "SFTP_PASSWORD",
+        "SSH_HOST",
+        "SSH_PORT",
+        "SSH_USER",
+        "SSH_PASSWORD",
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    ):
+        val = os.environ.get(key, "").strip()
+        if val:
+            env[key] = val
+    if not env.get("PUBLIC_SITE_URL") and env.get("EXCALIBUR_PUBLIC_SITE_URL"):
+        env["PUBLIC_SITE_URL"] = env["EXCALIBUR_PUBLIC_SITE_URL"]
+    if not env.get("FTP_PASS") and env.get("FTP_PASSWORD"):
+        env["FTP_PASS"] = env["FTP_PASSWORD"]
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -275,6 +306,94 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
+def _trigger_bootstrap(public_base: str, remote: str) -> str:
+    url = public_base.rstrip("/") + "/" + remote
+    out = ""
+    try:
+        print(f"Triggering HTTP publish on {url}...")
+        with urllib.request.urlopen(
+            urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
+            timeout=15,
+        ) as response:
+            out = response.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
+        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
+        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
+
+        fallback_file = project_root() / "memory" / "webfetch-response.txt"
+        fallback_file.unlink(missing_ok=True)
+
+        import time
+
+        for _ in range(120):
+            if fallback_file.is_file():
+                out = fallback_file.read_text(encoding="utf-8")
+                fallback_file.unlink()
+                print("Cloud response detected successfully!")
+                break
+            time.sleep(1)
+
+        if not out:
+            raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+    return out
+
+
+def _sftp_transport(env: dict[str, str]):
+    try:
+        import paramiko
+    except ImportError:
+        import subprocess
+
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "paramiko", "-q"])
+        import paramiko
+
+    host = env.get("SFTP_HOST") or env.get("SSH_HOST", "")
+    user = env.get("SFTP_USER") or env.get("SSH_USER", "")
+    password = env.get("SFTP_PASSWORD") or env.get("SSH_PASSWORD", "")
+    port = int(env.get("SFTP_PORT") or env.get("SSH_PORT") or "22")
+    if not host or not user or not password:
+        raise RuntimeError("SFTP/SSH credentials missing (SFTP_HOST/SFTP_USER/SFTP_PASSWORD)")
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    return transport
+
+
+def _remote_root(env: dict[str, str]) -> str:
+    root = (env.get("SFTP_ROOT") or env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if root in (".", ""):
+        root = "/"
+    if not root.startswith("/"):
+        root = "/" + root
+    return root.rstrip("/")
+
+
+def publish_via_sftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    transport = _sftp_transport(env)
+    try:
+        sftp = transport.open_sftp_client()
+        remote_root = _remote_root(env)
+        if remote_root not in ("/", ""):
+            sftp.chdir(remote_root)
+        with sftp.open(remote, "w") as handle:
+            handle.write(php.encode("utf-8"))
+        sftp.close()
+        print(f"Bootstrap uploaded via SFTP to {remote_root or '/'}")
+        out = _trigger_bootstrap(public_base, remote)
+        sftp = transport.open_sftp_client()
+        if remote_root not in ("/", ""):
+            sftp.chdir(remote_root)
+        try:
+            sftp.remove(remote)
+        except OSError:
+            pass
+        sftp.close()
+        return out
+    finally:
+        transport.close()
+
+
 def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
     remote = "excalibur-blog-publish-once.php"
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
@@ -291,38 +410,19 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
-
-    url = public_base.rstrip("/") + "/" + remote
-    out = ""
     try:
-        print(f"Triggering HTTP publish on {url}...")
-        with urllib.request.urlopen(
-            urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=15,
-        ) as response:
-            out = response.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
-        print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
-        print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        
-        fallback_file = project_root() / "memory" / "webfetch-response.txt"
-        fallback_file.unlink(missing_ok=True)
-        
-        import time
-        for i in range(120):
-            if fallback_file.is_file():
-                out = fallback_file.read_text(encoding="utf-8")
-                fallback_file.unlink()
-                print("Cloud response detected successfully!")
-                break
-            time.sleep(1)
-        
-        if not out:
-            raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+        ftp.quit()
+        transport = "ftp"
+    except ftplib.error_temp as exc:
+        msg = str(exc).lower()
+        if "bad ip" in msg or "425" in msg:
+            print(f"FTP blocked ({exc}); falling back to SFTP...")
+            return publish_via_sftp(env, php, public_base)
+        raise
+
+    out = _trigger_bootstrap(public_base, remote)
 
     ftp = ftp_connect()
     try:
@@ -331,6 +431,18 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         pass
     ftp.quit()
     return out
+
+
+def publish_article(env: dict[str, str], php: str, public_base: str) -> str:
+    if env.get("SFTP_HOST") or env.get("SSH_HOST"):
+        try:
+            return publish_via_sftp(env, php, public_base)
+        except Exception as exc:
+            if env.get("FTP_HOST"):
+                print(f"SFTP publish failed ({exc}); trying FTP...")
+            else:
+                raise
+    return publish_via_ftp(env, php, public_base)
 
 
 def main() -> int:
@@ -357,7 +469,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ftp(env, php, public)
+    out = publish_article(env, php, public)
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

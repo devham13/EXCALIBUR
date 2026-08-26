@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Hooks для governance cloud-агентов
+
+- **priority:** P0
+- **slug:** cursor-hooks-nastroyka-governance
+- **h1:** Как настроить Cursor Hooks: пошаговая инструкция для governance cloud-агентов
+- **primary_query:** как настроить cursor hooks
+- **secondary_queries:** cursor hooks.json, beforeShellExecution cursor, beforeMCPExecution cursor, cursor hooks governance
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Что такое Cursor Hooks и чем они отличаются от Claude Code hooks и Cursor Rules
+  2. Где лежит конфиг: `.cursor/hooks.json` в проекте и структура hook-событий
+  3. Пошаговая настройка guardrails: `beforeShellExecution` и `beforeMCPExecution`
+  4. Примеры скриптов-хуков: блокировка опасных команд, allowlist MCP и логирование
+  5. Governance для Cloud Agents и subagents: steering, изоляция VM и audit trail
+  6. Troubleshooting: хук не срабатывает, ошибки JSON, отладка через Output и логи
+- **faq_hints:** что такое cursor hooks; чем cursor hooks отличаются от cursor rules; как заблокировать shell-команды в cursor; нужны ли hooks для cloud agents
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** IDE Cursor, на экране открыт `.cursor/hooks.json` на неоновом стикере, щит-guardrail блокирует shell/MCP-иконки, diy-коллаж с облаком Cloud Agent
+
+---
+

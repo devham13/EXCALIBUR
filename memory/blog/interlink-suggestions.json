@@ -1,6 +1,14 @@
 {
   "site_base": "https://mayai.ru",
   "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B01-primer-seo-stati",
+      "target": "B04-geo-optimizaciya-sajta-2026",
+      "keyword": "geo оптимизация",
+      "context": "текста FAQ в HTML и JSON-LD ломает доверие к разметке. Это geo оптимизация статьи без отдельного \"AI-текста\".</p>  <p><b>Делайте:</b>",
+      "link_replacement": "<a href=\"/blog/geo-optimizaciya-sajta-2026/\">geo оптимизация</a>"
+    }
+  ]
 }

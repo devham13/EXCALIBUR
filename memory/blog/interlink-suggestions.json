@@ -1,6 +1,14 @@
 {
   "site_base": "https://mayai.ru",
   "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B01-primer-seo-stati",
+      "target": "B04-geo-optimizaciya-sajta-2026",
+      "keyword": "geo оптимизация",
+      "context": "seo текст для блога\" вплетайте в блок про формат longread; \"geo оптимизация статьи\" - в GEO-слой, не подменяйте ими H1. Не делайте: коп",
+      "link_replacement": "<a href=\"/blog/geo-optimizaciya-sajta-2026/\">geo оптимизация</a>"
+    }
+  ]
 }

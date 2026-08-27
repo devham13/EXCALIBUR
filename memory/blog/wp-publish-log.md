@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-27 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 958 |
+| inline_images | 959, 960, 961 |
+| permalink | [REDACTED]/2026/06/19/primer-seo-stati/ |
+| transport | SFTP bootstrap (FTP 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (8/8, site-base EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py ...  # FTP 425 Security: Bad IP connecting
+# SFTP bootstrap via SSH (paramiko) + HTTP trigger — PASS
+python3 scripts/excalibur_blog_interlinker.py --apply  # 0 new opportunities
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=958
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=959 src=cover/inline-01.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-01-64.png
+OK inline_image_upload=960 src=cover/inline-02.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-02-64.png
+OK inline_image_upload=961 src=cover/inline-03.png url=[REDACTED]/wp-content/uploads/2026/06/primer-seo-stati-inline-03-64.png
+permalink=[REDACTED]/2026/06/19/primer-seo-stati/
+```

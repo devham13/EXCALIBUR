@@ -18,6 +18,22 @@
         "https://t.me/maya_pro",
         "https://t.me/horosheff"
       ]
+    },
+    {
+      "id": "elena-kovaleva",
+      "name_ru": "Елена Ковалева",
+      "name_en": "Elena Kovaleva",
+      "job_title_ru": "Главный эксперт по поисковой оптимизации и GEO/AEO-стратегиям",
+      "job_title_en": "Lead SEO & GEO/AEO Strategy Expert",
+      "bio_short_ru": "Эксперт по SEO, GEO-оптимизации и AEO-стратегиям для блогов и медиа.",
+      "bio_long_ru": "Елена Ковaleva — главный эксперт по поисковой оптимизации и GEO/AEO-стратегиям. Специализируется на longread, structured content, FAQ/schema и оптимизации под нейропоиск.",
+      "expertise_tags": ["seo", "geo", "aeo", "content_strategy", "schema_org", "longread"],
+      "avatar_url": "https://kv-ai.ru/assets/team/elena-kovaleva.jpg",
+      "sameAs": [
+        "https://habr.com/ru/users/elena_kovaleva_seo/",
+        "https://github.com/elena-kov-seo",
+        "https://www.linkedin.com/in/elena-kovaleva-dummy-seo"
+      ]
     }
   ]
 }

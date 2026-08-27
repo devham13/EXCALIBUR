@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "9 шагов SEO — а трафик всё равно ноль?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
+      "alt": "Ведущий блога указывает на analytics «0 прочтений» — мем-коллаж про SEO-текст без трафика",
+      "scene_hint": "reference-лицо в тёмно-синем пиджаке поверх футболки «SEO 2026», дружелубная улыбка, жестом указывает на fake analytics «0 прочтений» и Wordstat «15 000 ключей»; вокруг — Telegram «где трафик?», отзыв ★☆☆☆☆ на рваной бумаге, facepalm meme + shocked cat cutout, розовый highlight на «0 прочтений», скотч и розовый стикер «жиза»",
       "meme_caption_ru": "15k ключей — 0 прочтений?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Объедините SEO и GEO в одной статье",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: критерии (индексация, сниппет, AI-цитирование), цели человек vs нейропоиск — «Объедините SEO и GEO в одной статье»",
+      "alt": "Сравнительная таблица SEO vs GEO: Объедините SEO и GEO в одной статье"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "h2_anchor": "Соберите семантику и спроектируйте структуру longread",
       "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "scene_hint": "Workflow 4 шага: интент → Вордстат → аудит ТОП-5 → каркас H1–H3 — «Соберите семантику и спроектируйте структуру longread»",
+      "alt": "Схема workflow longread: Соберите семантику и спроектируйте структуру longread"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "h2_anchor": "Упакуйте GEO-чанки и schema для нейропоиска",
       "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "scene_hint": "FAQ accordion + BlogPosting/FAQPage JSON-LD schema UI, чанки 150–190 слов — «Упакуйте GEO-чанки и schema для нейропоиска»",
+      "alt": "FAQ + JSON-LD schema UI: Упакуйте GEO-чанки и schema для нейропоиска"
     }
   }
 }

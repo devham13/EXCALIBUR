@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastroyka-cursor-automations-2026/#article",
+      "headline": "Как настроить Cursor Automations и Cloud Agents: пошаговая инструкция по event-driven автоматизации",
+      "description": "Пошаговая настройка Cursor Automations: trigger, repo scope, cron UTC→MSK, Dashboard Secrets, Test run и Run History. Для маркетологов и автоматизаторов.",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/nastroyka-cursor-automations-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/nastroyka-cursor-automations-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastroyka-cursor-automations-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor automations, cursor cloud agents настройка, cloud agents cursor github, cursor automations cron, автоматизация cursor по расписанию",
+      "wordCount": 8666,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastroyka-cursor-automations-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как настроить cursor automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте cursor.com/automations/new → выберите trigger → напишите instructions → включите нужные tools → задайте repo scope → Save, Activate и Test run. Результат смотрите в Run History."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем cloud agents отличаются от automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cloud Agent вы запускаете вручную. Automation – тот же cloud agent, но старт по trigger (cron, GitHub, Slack, webhook). Runs и billing одинаковые по API pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли GitHub для брифа по расписанию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Для cron и Slack без правок кода выберите No repository. GitHub обязателен только для source control triggers (PR opened, push)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как работает /goal в Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Long-lived objective в новом чате cloud agent: агент держит цель до завершения (например, CI green). Pair с Custom Mode или /loop; subscriptions мониторят PR и Slack между runs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему automation сработала не в 9:00 по Москве?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cron в Automations считается в UTC. Для 9:00 MSK летом используйте 0 6 * * * или preset и сверьте timestamp первого run в Run History."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где хранить API-ключи для Automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dashboard → Cloud Agents → Secrets. Тип Runtime Secret скрывает значение в transcript. Не храните ключи в environment.json, промпте или git."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда webhook URL пустой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "URL и API key появляются только после Save и Activate Automation. Сохраните черновик, скопируйте endpoint, затем подключайте внешнюю систему."
+          }
+        }
+      ]
+    }
+  ]
+}

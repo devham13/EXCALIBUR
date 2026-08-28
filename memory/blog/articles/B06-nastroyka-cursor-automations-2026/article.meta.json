@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-automations-2026",
+  "h1": "Как настроить Cursor Automations и Cloud Agents: пошаговая инструкция по event-driven автоматизации",
+  "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+  "description": "Пошаговая настройка Cursor Automations: trigger, repo scope, cron UTC→MSK, Dashboard Secrets, Test run и Run History. Для маркетологов и автоматизаторов.",
+  "keywords": [
+    "cursor automations",
+    "cursor cloud agents настройка",
+    "cloud agents cursor github",
+    "cursor automations cron",
+    "автоматизация cursor по расписанию"
+  ],
+  "primary_query": "cursor automations",
+  "secondary_queries": [
+    "cursor cloud agents настройка",
+    "cloud agents cursor github",
+    "cursor automations cron",
+    "автоматизация cursor по расписанию"
+  ],
+  "char_count": 8666,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor automations пошагово",
+    "cursor cloud agents настройка cron и github",
+    "автоматизация cursor по расписанию без кода"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Automations: пошаговая настройка Cloud Agents и cron",
+    "title_ctr": "🚀 Cursor Automations за 45 минут: cron, GitHub PR и Test run без кода!",
+    "title_aeo": "Как настроить Cursor Automations и Cloud Agents по расписанию?",
+    "description_seo": "Пошаговая настройка Cursor Automations: trigger, repo scope, cron UTC→MSK, Secrets, Test run. Для маркетологов и автоматизаторов без dev-бэкграунда.",
+    "description_ctr": "⚡ Запустите первую Cursor Automation: cron-бриф, PR-review, troubleshooting UTC и secrets. Пошаговый гайд с чеклистом на 11 пунктов.",
+    "description_aeo": "Cursor Automations запускают Cloud Agents по cron, GitHub PR или webhook. Настройка: trigger → instructions → tools → repo scope → Test run в Run History."
+  },
+  "cover_family": "brand_collage"
+}

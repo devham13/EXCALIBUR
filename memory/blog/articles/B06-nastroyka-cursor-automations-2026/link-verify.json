@@ -5,16 +5,17 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "/podklyuchenie-mcp-cursor/",
+      "url": "https://mayai.ru/podklyuchenie-mcp-cursor/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
-      "skipped": false
+      "skipped": false,
+      "checked_url": "https://mayai.ru/podklyuchenie-mcp-cursor/"
     },
     {
-      "url": "https://cursor.com/docs/cloud-agent/setup",
+      "url": "https://mayai.ru/docs/cloud-agent/setup",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -23,7 +24,7 @@
       "skipped": false
     },
     {
-      "url": "https://kv-ai.ru/obuchenie-po-make",
+      "url": "https://mayai.ru/obuchenie-po-make",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -32,7 +33,7 @@
       "skipped": false
     },
     {
-      "url": "https://kv-ai.ru/artur-horosheff",
+      "url": "https://mayai.ru/artur-horosheff",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -41,7 +42,7 @@
       "skipped": false
     },
     {
-      "url": "https://cursor.com/help/ai-features/automations",
+      "url": "https://mayai.ru/help/ai-features/automations",
       "status": 200,
       "ok": true,
       "method": "HEAD",

@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastroyka-cursor-automations-2026
 
 Дата публикации: 2026-08-28  
-Live URL: https://mayai.ru/nastroyka-cursor-automations-2026/
+Live URL: https://mayai.ru/2026/08/28/nastroyka-cursor-automations-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -31,7 +31,7 @@ Cursor Automations: cron сам, а вы снова копируете prompt? �
 • Чеклист 11 пунктов + troubleshooting secrets и webhook
 • Связка с MCP (B03) и Make.com для CRM→Telegram
 
-Читать: https://mayai.ru/nastroyka-cursor-automations-2026/
+Читать: https://mayai.ru/2026/08/28/nastroyka-cursor-automations-2026/
 ```
 
 ## Перелинковка

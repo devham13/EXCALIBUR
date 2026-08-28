@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-28 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 974 |
+| inline_images | 975, 976, 977 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | sftp (FTP STOR blocked: 425 Bad IP) |
+| trigger | excalibur-blog-publish (Cloud Agent pipeline) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (7/7, preflight 2026-08-28)
+- schema.jsonld: present (BlogPosting, FAQPage, HowTo)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (PHP bytes ~10.9 MB)
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=974
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=975 src=cover/inline-01.png
+OK inline_image_upload=976 src=cover/inline-02.png
+OK inline_image_upload=977 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+transport=sftp
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (B01→B04 already applied at indexer)
+- `excalibur_blog_wp_publish.py`: SFTP bootstrap when SFTP_* env set or FTP 425

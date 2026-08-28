@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Cloud Agents и Automations
+
+- **priority:** P0
+- **slug:** nastroyka-cursor-automations-2026
+- **h1:** Как настроить Cursor Automations и Cloud Agents: пошаговая инструкция по event-driven автоматизации
+- **primary_query:** cursor automations
+- **secondary_queries:** cursor cloud agents настройка, cloud agents cursor github, cursor automations cron, автоматизация cursor по расписанию
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Cloud Agents vs Automations: что выбрать для задачи без ручного чата
+  2. Подготовка среды: paid plan, GitHub, Dashboard Secrets и `.cursor/environment.json`
+  3. Пошаговое создание Automation: trigger (cron, PR, Slack, webhook) и scope репозитория
+  4. Event subscriptions и `/goal`: как агент держит долгую цель до CI green
+  5. Subagents на изолированных VM и mid-run steering без прерывания
+  6. Test run, Run History и troubleshooting: UTC/cron, Max Mode billing, 403 secrets
+- **faq_hints:** как настроить cursor automations; чем cloud agents отличаются от background agents; как работает /goal в cursor; почему automation сработала не в 9:00 по Москве
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** облачная VM с логотипом Cursor, вокруг «подписки» на GitHub PR и Slack-тред, стикеры /goal и cron UTC→MSK, изолированные subagent-окна, неоновый diy-коллаж
+
+---
+

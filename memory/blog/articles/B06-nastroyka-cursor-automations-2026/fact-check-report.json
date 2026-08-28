@@ -1,0 +1,24 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-cursor-automations-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 2,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "al и event subscriptions для долгих задач С 19.08.2026 Subscriptions: агенты мониторят PR, Slack и cron,",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "е чат и повторяете одни и те же инструкции. За 30–45 минут вы подключите GitHub, добавите секреты в dashboar",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

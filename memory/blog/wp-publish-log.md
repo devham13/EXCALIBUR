@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-28 — B06 nastroyka-cursor-automations-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastroyka-cursor-automations-2026 |
+| verdict | **PASS** |
+| post_id | 981 |
+| featured_image_id | 982 |
+| inline_images | 983, 984, 985 |
+| permalink | https://mayai.ru/2026/08/28/nastroyka-cursor-automations-2026/ |
+| transport | sftp_bootstrap (FTP 425 Bad IP from Cloud) |
+| trigger | `/excalibur-blog-run topic_id: B06 publish: yes` |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (5/5)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=981 slug=nastroyka-cursor-automations-2026
+OK featured_image=982
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=983 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/08/nastroyka-cursor-automations-2026-inline-01.png
+OK inline_image_upload=984 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/08/nastroyka-cursor-automations-2026-inline-02.png
+OK inline_image_upload=985 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/08/nastroyka-cursor-automations-2026-inline-03.png
+permalink=https://mayai.ru/2026/08/28/nastroyka-cursor-automations-2026/
+```
+
+### Post-publish
+
+- interlinker --apply: pending (0 opportunities at indexer step)

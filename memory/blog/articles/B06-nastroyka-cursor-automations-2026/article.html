@@ -1,6 +1,6 @@
 <p>Cursor Automations запускают Cloud Agents в фоне: по расписанию, при открытии PR или webhook. Без настройки вы каждый раз вручную открываете чат и повторяете одни и те же инструкции. За 30–45 минут вы подключите GitHub, добавите секреты в dashboard, создадите первую Automation с правильным trigger и repo scope, прогоните Test run и прочитаете Run History. Ниже – пошаговая инструкция для маркетологов и автоматизаторов без глубокого dev-бэкграунда.</p>
 
-<blockquote><b>TL;DR / Быстрый инсайт:</b> Cloud Agent – тот же облачный агент Cursor, но вы запускаете его вручную из IDE или web. Automation – тот же агент, который "просыпается" сам по событию или cron. Пять шагов в dashboard: trigger → instructions → tools → repo scope → save. Для утреннего брифа без кода выберите No repository; для PR-review – Single repository. Cron считается в UTC: 9:00 по Москве (лето) = <code>0 6 * * *</code>. Секреты – только в Dashboard Secrets, не в git и не в промпте.</blockquote>
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cloud Agent – тот же облачный агент Cursor, но вы запускаете его вручную из IDE или web. Automation – тот же агент, который "просыпается" сам по событию или cron. Пять шагов в dashboard: trigger → instructions → tools → repo scope → save. Для утреннего брифа без кода выберите No repository; для PR-review – Single repository. Cron считается в UTC: 9:00 по Москве (лето) = <b>0 6 * * *</b>. Секреты – только в Dashboard Secrets, не в git и не в промпте.</blockquote>
 
 <p>Trigger – "будильник или дверной звонок"; repo scope – "нужен ли агенту доступ к коду". MCP-tools подключайте после первого Test run – см. <a href="/podklyuchenie-mcp-cursor/">гайд MCP</a>.</p>
 
@@ -47,10 +47,10 @@
 <p>Перед созданием Automation проверьте три опоры: paid-план, подключённый GitHub (если нужен PR-сценарий) и секреты в dashboard.</p>
 
 <ol>
-  <li><b>Шаг 1:</b> Убедитесь, что тариф Pro или выше; откройте <a href="https://cursor.com/dashboard/cloud-agents" target="_blank">Cloud Agents dashboard</a> и задайте spend limit.</li>
+  <li><b>Шаг 1:</b> Убедитесь, что тариф Pro или выше; откройте <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">Cloud Agents setup</a> (dashboard: cursor.com/dashboard/cloud-agents) и задайте spend limit.</li>
   <li><b>Шаг 2:</b> Подключите GitHub, GitLab или Bitbucket в настройках Cursor – для PR-review без SCM trigger не заработает.</li>
   <li><b>Шаг 3:</b> Dashboard → Cloud Agents → вкладка Secrets. Добавьте Runtime Secret для токенов (значение скрыто в transcript и commits).</li>
-  <li><b>Шаг 4:</b> Не кладите API-ключи в <code>.cursor/environment.json</code> – в этом файле поля secrets нет; порядок среды: файл в репо → personal saved → team saved.</li>
+  <li><b>Шаг 4:</b> Не кладите API-ключи в <b>.cursor/environment.json</b> – в этом файле поля secrets нет; порядок среды: файл в репо → personal saved → team saved.</li>
 </ol>
 
 <table>
@@ -84,7 +84,7 @@
 
 <h2 id="create-automation">3. Создайте первую Automation пошагово</h2>
 
-<p>Откройте <a href="https://cursor.com/automations/new" target="_blank">cursor.com/automations/new</a> или Agents Window → Automations → New. Для обучения берите blank, не шаблон Marketplace – так видите все поля.</p>
+<p>Откройте cursor.com/automations/new или Agents Window → Automations → New. Для обучения берите blank, не шаблон Marketplace – так видите все поля.</p>
 
 <blockquote>
   <b>Workflow создания:</b>
@@ -101,7 +101,7 @@
   <li><b>Шаг 6:</b> Для webhook: URL и API key появляются только после Save – скопируйте их до продакшена.</li>
 </ol>
 
-<p><b>Сценарий A:</b> Scheduled, No repository – бриф в Run History. <b>Сценарий B:</b> GitHub PR + Single repo, Comment on PR, без auto-merge. Альтернатива – skill <code>/automate</code>; для обучения blank надёжнее.</p>
+<p><b>Сценарий A:</b> Scheduled, No repository – бриф в Run History. <b>Сценарий B:</b> GitHub PR + Single repo, Comment on PR, без auto-merge. Альтернатива – skill <b>/automate</b>; для обучения blank надёжнее.</p>
 
 <h2 id="triggers-cron">4. Настройте trigger и переведите cron UTC в MSK</h2>
 
@@ -146,13 +146,13 @@
 
 <p>Cron в Automations считается в UTC. UI может показывать local time – отсюда типичная ошибка "ждал 9:00, сработало в 11:00". Для 9:00 MSK летом (UTC+3):</p>
 
-<pre><code>0 6 * * *</code></pre>
+<blockquote><b>0 6 * * *</b></blockquote>
 
 <p><b>Делайте:</b> после первого scheduled run сверьте timestamp в Run History с ожиданием. <b>Не делайте:</b> включать все tools "на всякий случай" – лишние MCP увеличивают стоимость run и шум в transcript.</p>
 
 <h2 id="goal-subscriptions">5. Задайте /goal и event subscriptions для долгих задач</h2>
 
-<p>С 19.08.2026 Subscriptions: агенты мониторят PR, Slack и cron, auto-subscribe к своим PR и доводят CI до green. <code>/goal</code> – long-lived objective ("fix flaky tests, CI green") в новом чате cloud agent. Subagents – на отдельных VM; mid-run steering не обрывает агента mid-action.</p>
+<p>С 19.08.2026 Subscriptions: агенты мониторят PR, Slack и cron, auto-subscribe к своим PR и доводят CI до green. <b>/goal</b> – long-lived objective ("fix flaky tests, CI green") в новом чате cloud agent. Subagents – на отдельных VM; mid-run steering не обрывает агента mid-action.</p>
 
 <p><b>Делайте:</b> /goal для задач на часы и дни (CI green, серия PR). <b>Не делайте:</b> дублировать ту же цель в Automation и /goal без разделения – один канал на сценарий.</p>
 
@@ -193,7 +193,7 @@
   <li>Создайте scheduled бриф (сценарий A) и добейтесь стабильного Run History три дня подряд.</li>
   <li>Добавьте вторую Automation для PR-review (сценарий B) в test-репозитории.</li>
   <li>Подключите webhook из CRM или формы – один POST на endpoint Automation.</li>
-  <li>Для долгой CI-задачи попробуйте <code>/goal</code> в cloud agent.</li>
+  <li>Для долгой CI-задачи попробуйте <b>/goal</b> в cloud agent.</li>
   <li>Масштабируйте связку с Make – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">обучение по Make.com</a> с AI-сценариями.</li>
 </ol>
 
@@ -217,7 +217,7 @@
 <p>Long-lived objective в новом чате cloud agent: агент держит цель до завершения (например, CI green). Pair с Custom Mode или /loop; subscriptions мониторят PR и Slack между runs.</p>
 
 <h3>Почему automation сработала не в 9:00 по Москве?</h3>
-<p>Cron в Automations считается в UTC. Для 9:00 MSK летом используйте <code>0 6 * * *</code> или preset и сверьте timestamp первого run в Run History.</p>
+<p>Cron в Automations считается в UTC. Для 9:00 MSK летом используйте <b>0 6 * * *</b> или preset и сверьте timestamp первого run в Run History.</p>
 
 <h3>Где хранить API-ключи для Automation?</h3>
 <p>Dashboard → Cloud Agents → Secrets. Тип Runtime Secret скрывает значение в transcript. Не храните ключи в environment.json, промпте или git.</p>

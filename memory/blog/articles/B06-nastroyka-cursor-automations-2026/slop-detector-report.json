@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Когда брать Разовая задача, эксперимент, mid-run правки Регулярный бриф, PR-review, реакция на события 24/7 Repo scope Выбираете при старте run Задаётся при создании Automation Результат Transcript в Agents Window Run History + артефакты (комментарий PR, markdown) Делайте: для повторяющихся сценариев сразу Automation",
+      "word_count": 40
+    },
+    {
+      "sentence": "Repo scope Когда выбирать Ограничение No repository Slack, cron-бриф, webhook, Linear Не правит код и не открывает PR Single repository Review и правки в одном репо Одна ветка, один проект Multi-repo environment Задача на нескольких репозиториях Настройка через cloud environment Делайте: минимум секретов с понятными именами (GITHUB_TOKEN, SLACK_WEBHOOK)",
+      "word_count": 46
+    },
+    {
+      "sentence": "Типичная задача Scheduled (cron) Нет (по умолчанию) Утренний бриф, дайджест GitHub PR opened/pushed Да Code review, lint-комментарии Slack message Нет Ответ в public-канале (без фильтра – только top-level) Webhook HTTP POST Зависит от prompt CRM, формы, внешние системы Linear / PagerDuty Часто No repository Тикеты и инциденты Cron в Automations считается в UTC",
+      "word_count": 52
+    },
+    {
+      "sentence": "Пройдите чеклист перед продакшеном Paid-план Pro+; spend limit задан в dashboard GitHub подключён, если нужен SCM trigger Секреты в Dashboard Secrets, не в git Repo scope осознанно: No / Single / Multi Instructions с форматом выхода и запретами Tools – минимум под задачу Cron пересчитан UTC → MSK Test run успешен, артефакт на месте Run History: timestamp и billing ожидаемы Webhook URL скопирован после Save MCP только доверенные (см",
+      "word_count": 65
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.6,
+    "avg_syllables_per_word": 1.3
+  }
+}

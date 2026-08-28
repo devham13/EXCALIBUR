@@ -13,30 +13,30 @@
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
+      "alt": "Ведущий блога указывает на дашборд: 15k ключей и 0 прочтений — мем-коллаж про SEO-текст",
+      "scene_hint": "reference-лицо в тёмно-синем пиджаке и светлой рубашке (SEO-редактор), дружелюбная улыбка, жестом указывает на fake analytics «0 прочтений» и Wordstat «15 000 ключей»; вокруг рваная бумага, скотч, розовый стикер «медиана ТОП > миф 8000», Telegram «где трафик?», отзыв ★☆☆☆☆, meme facepalm + shocked cat, розовый highlight на «0 прочтений»",
       "meme_caption_ru": "15k ключей — 0 прочтений?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
-      "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "h2_anchor": "Зафиксируйте интент и соберите семантику",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Wordstat UI: primary query «как писать seo статьи», LSI-фразы, sticky note «отсечь купить/цена» — «Зафиксируйте интент и соберите семантику»",
+      "alt": "Скриншот Wordstat: Зафиксируйте интент и соберите семантику"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Разберите ТОП-10 и выберите объём по медиане",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица SEO vs GEO (цель, структура, техника) + sticky «медиана ТОП, не 8000 знаков» — «Разберите ТОП-10 и выберите объём по медиане»",
+      "alt": "Сравнительная таблица SEO vs GEO: Разберите ТОП-10 и выберите объём по медиане"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Соберите каркас H1-H3 до первого абзаца",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "9 шагов workflow: интент → Wordstat → outline → lead → GEO-чанки → мета → FAQ → schema → мониторинг — «Соберите каркас H1-H3 до первого абзаца»",
+      "alt": "Схема workflow longread: Соберите каркас H1-H3 до первого абзаца"
     }
   }
 }

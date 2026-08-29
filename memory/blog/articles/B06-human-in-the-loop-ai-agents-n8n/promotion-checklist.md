@@ -1,7 +1,7 @@
 # Promotion checklist — B06 human-in-the-loop-ai-agents-n8n
 
 Дата публикации: 2026-08-29  
-Live URL: https://mayai.ru/human-in-the-loop-ai-agents-n8n/ (заполнить после publish)
+Live URL: /2026/08/29/human-in-the-loop-ai-agents-n8n/ (production host — см. EXCALIBUR_PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -33,7 +33,7 @@ HITL — пауза перед опасным tool call: Approve выполня�
 • Cursor Cloud Agents: branch protection + PR review вместо per-action approve
 • Чек-лист 27 пунктов перед prod + EU AI Act Art. 14
 
-Читать: https://mayai.ru/human-in-the-loop-ai-agents-n8n/
+Читать: /2026/08/29/human-in-the-loop-ai-agents-n8n/
 ```
 
 ## Перелинковка

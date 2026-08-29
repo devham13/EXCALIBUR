@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "parameters CRM write/delete update deal, delete Обязательно n8n / Router Delete data DB delete, file Deny by default n8n gate Read-only search, get Не нужен logging Deploy merge PR Reviewers + CI Cursor/GitHub Делайте: owner risk-map и пересмотр раз в квартал",
+      "word_count": 39
+    },
+    {
+      "sentence": "Критерий n8n Make Gate Connector AI Agent → tool Create review request Тариф CE + Cloud Enterprise для execute Workaround Wait + webhook Split + approve links Enterprise: Create review request перед опасным модулем",
+      "word_count": 29
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.0,
+    "avg_syllables_per_word": 1.0
+  }
+}

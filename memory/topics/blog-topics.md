@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Human-in-the-Loop для AI-агентов
+
+- **priority:** P0
+- **slug:** human-in-the-loop-ai-agents-n8n
+- **h1:** Чек-лист Human-in-the-Loop для AI-агентов: как настроить контроль человека в n8n, Make и Cursor
+- **primary_query:** human in the loop n8n
+- **secondary_queries:** human in the loop ai agents, контроль ии агентов человеком, human review n8n tool calls, human in the loop make
+- **search_intent:** checklist
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем HITL в 2026: EU AI Act, риски автономных действий и когда агенту нельзя работать без человека
+  2. Карта рисков: какие действия агента требуют одобрения (платежи, CRM, письма, удаление данных)
+  3. Настройка Human Review для tool calls в n8n: Slack/Telegram, $tool-контекст и approve/deny
+  4. Human-in-the-Loop в Make AI Agents: Create a review request, Reasoning Panel и лимиты итераций
+  5. Контроль Cloud Agents в Cursor: Automations, webhook-триггеры и ручное подтверждение через PR/Slack
+  6. Чек-лист HITL: 25+ пунктов — политики автономии, audit trail, тестовые прогоны и graduation to autonomy
+- **faq_hints:** что такое human in the loop для ai агентов; как включить human review в n8n; чем hitl в n8n отличается от make; нужен ли human in the loop по eu ai act
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /nastroyka-cursor-automations-2026/
+- **cover_scene_hint:** AI-агент на паузе перед кнопкой «Approve», рядом человек с телефоном (Slack/Telegram), на экране — Reasoning Panel и параметры tool call, стикеры «EU AI Act», «HITL», «n8n / Make / Cursor», diy-коллаж с неоновой подсветкой
+
+---
+

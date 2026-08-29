@@ -214,3 +214,23 @@ python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/
 1. Добавить egress IP Cloud Agent в FTP allowlist хостинга (Beget / панель).
 2. Либо запустить publish с self-hosted worker (`CLOUD-AUTOMATION.md`) или локальной машины с whitelisted IP.
 3. После успеха — обновить строку B01 в `shared/published-articles.md` (сейчас `draft_ready` preview URL).
+
+---
+
+## 2026-08-29 (retry SFTP) — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| permalink | /primer-seo-stati/ |
+| transport | sftp_bootstrap (port 22, FTP 425 bypass) |
+| featured_image | 989 |
+| inline_images | 990, 991, 992 |
+| schema_meta | ok |
+
+### Notes
+
+FTP STOR blocked (425 Bad IP). SFTP upload + HTTP bootstrap succeeded. Ledger updated in `shared/published-articles.md`.

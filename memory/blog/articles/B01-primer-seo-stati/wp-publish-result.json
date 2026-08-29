@@ -1,0 +1,17 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "ftplib.error_temp: 425 Security: Bad IP connecting.\nFTP STOR excalibur-blog-publish-once.php failed before HTTP trigger. Cloud Agent egress IP not whitelisted on hosting FTP.",
+  "verdict": "fail",
+  "transport": "ftp_bootstrap",
+  "blockers": [
+    "FTP upload blocked: 425 Security: Bad IP connecting (Cloud Agent IP not in host allowlist)",
+    "HTTP bootstrap never reached — PHP payload (~10 MB) not uploaded"
+  ]
+}

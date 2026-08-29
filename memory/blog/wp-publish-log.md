@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-29 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| transport | ftp_bootstrap |
+
+### Preconditions
+
+- article-qa.md: PASS (97/100)
+- link-verify.json: pass (5/5, re-run publish preflight 2026-08-29)
+- schema.jsonld: present
+- cover/cover.png + alt + 3 inline: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (Cloud Secrets + site.env.local)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK (PHP ~10 MB)
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP IP allowlist:** `ftplib.error_temp: 425 Security: Bad IP connecting` on STOR — Cloud Agent egress IP не в whitelist хостинга. LOGIN/PWD OK, upload запрещён.
+2. **HTTP bootstrap не достигнут:** PHP payload не загружен → WebFetch fallback не активирован.
+3. **WP_CLI_BIN** в env указывает на несуществующий бинарник на VM.
+
+### Next steps (оператор)
+
+1. Добавить egress IP Cloud Agent в FTP allowlist хостинга (Beget / панель).
+2. Либо запустить publish с self-hosted worker (`CLOUD-AUTOMATION.md`) или локальной машины с whitelisted IP.
+3. После успеха — обновить строку B01 в `shared/published-articles.md` (сейчас `draft_ready` preview URL).

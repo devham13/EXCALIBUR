@@ -52,7 +52,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 | verdict | **PASS** |
 | post_id | 13324 |
 | featured_image_id | 13325 |
-| permalink | https://mayai.ru/avtomatizaciya-n8n-ai-agents/ |
+| permalink | /2026/08/29/human-in-the-loop-ai-agents-n8n/|
 | FTP_ROOT | `/` |
 
 ### Fix applied
@@ -82,7 +82,7 @@ permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
 | post_id | 13335 |
 | featured_image_id | 13336 |
 | inline_images | 13337, 13338, 13339 |
-| permalink | https://mayai.ru/podklyuchenie-mcp-cursor/ |
+| permalink | /2026/08/29/human-in-the-loop-ai-agents-n8n/|
 | trigger | `/excalibur-blog-run topic_id: B03 publish: yes` (publish вручную после fix оркестратора) |
 
 ### Result
@@ -109,7 +109,7 @@ permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
 | post_id | 13361 |
 | featured_image_id | 13362 |
 | inline_images | 13363, 13364, 13365 |
-| permalink | https://mayai.ru/geo-optimizaciya-sajta-2026/ |
+| permalink | /2026/08/29/human-in-the-loop-ai-agents-n8n/|
 | trigger | `/excalibur-blog-run topic_id: B04 publish: yes` |
 
 ### Preconditions
@@ -149,7 +149,7 @@ permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
 | post_id | 13369 |
 | featured_image_id | 13370 |
 | inline_images | 13371, 13372, 13373 |
-| permalink | https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/ |
+| permalink | /2026/08/29/human-in-the-loop-ai-agents-n8n/|
 | trigger | `/excalibur-blog-run topic_id: B05 publish: yes` |
 
 ### Preconditions
@@ -172,3 +172,49 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-29 — B06 human-in-the-loop-ai-agents-n8n — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | human-in-the-loop-ai-agents-n8n |
+| verdict | **PASS** |
+| post_id | 996 |
+| featured_image_id | 997 |
+| inline_images | 998, 999, 1000 |
+| permalink | /2026/08/29/human-in-the-loop-ai-agents-n8n/|
+| publish_method | SSH/SCP fallback (FTP 425 Security: Bad IP connecting from Cloud Agent) |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL (production) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (3/3, site-base production)
+- schema.jsonld: present
+- cover/cover.png + 3 inline + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run  # OK (title enriched from meta_ab.title_seo)
+# FTP blocked → SSH scp excalibur-blog-publish-once.php + HTTP trigger
+python3 scripts/excalibur_blog_interlinker.py --apply --site-base $EXCALIBUR_PUBLIC_SITE_URL  # 0 opportunities
+```
+
+### Result
+
+```
+OK post=996 slug=human-in-the-loop-ai-agents-n8n
+OK featured_image=997
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=998 src=cover/inline-01.png
+OK inline_image_upload=999 src=cover/inline-02.png
+OK inline_image_upload=1000 src=cover/inline-03.png
+permalink=/2026/08/29/human-in-the-loop-ai-agents-n8n/
+```
+

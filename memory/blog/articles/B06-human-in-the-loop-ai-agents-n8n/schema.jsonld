@@ -1,0 +1,251 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#article",
+      "headline": "Чек-лист Human-in-the-Loop для AI-агентов: как настроить контроль человека в n8n, Make и Cursor",
+      "description": "Чек-лист HITL для AI-агентов: карта рисков, human review в n8n 2.6+, Make Enterprise vs webhook, контроль Cloud Agents в Cursor. 27 пунктов перед prod.",
+      "datePublished": "2026-08-29",
+      "dateModified": "2026-08-29",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/human-in-the-loop-ai-agents-n8n-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "human in the loop n8n, human in the loop ai agents, контроль ии агентов человеком, human review n8n tool calls, human in the loop make",
+      "wordCount": 9364,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое human in the loop для AI-агентов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Checkpoint: агент предлагает action → Approve/Deny → tool выполняется или отменяется. Поставьте gate на connector в n8n до prod."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как включить human review в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI Agent → \"+\" на tool → Add human review step → Slack/Telegram → $tool.name, $tool.parameters → system prompt про Deny."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем HITL в n8n отличается от Make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n: native gate на CE/Cloud. Make: native только Enterprise; иначе webhook split. См. таблицу в секции 4."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли HITL по EU AI Act?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-risk (Annex III): ст. 14 требует oversight. Остальное - best practice; при legal effects - GDPR Art. 22. Документируйте per agent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работают ли Cloud Agents Cursor без approve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. HITL = branch protection, PR review, CI, Automations quality bar. Run Modes - только local agent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что писать в system prompt про gated tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Список gated tools, поведение при Deny, запрет повторного подтверждения того, что уже за gate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда снимать HITL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "После N sandbox runs, низкого error rate, чистого audit. Payments/delete - только с compliance sign-off."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#howto",
+      "name": "Чек-лист Human-in-the-Loop для AI-агентов: как настроить контроль человека в n8n, Make и Cursor",
+      "description": "Чек-лист HITL для AI-агентов: карта рисков, human review в n8n 2.6+, Make Enterprise vs webhook, контроль Cloud Agents в Cursor. 27 пунктов перед prod.",
+      "inLanguage": "ru",
+      "totalTime": "PT2H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n 2.6+ (CE или Cloud)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Make.com (Enterprise для native HITL или webhook workaround)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Cursor Cloud Agents и Automations"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Инвентаризация агентов",
+          "text": "Составьте список workflows (n8n, Make, Cursor) и всех tool calls с side effects.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#why-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Карта рисков",
+          "text": "Классифицируйте actions (finance, outbound, CRM write, delete, read-only, deploy) и отметьте обязательный HITL.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#risk-map"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "n8n: human review step",
+          "text": "Откройте AI Agent workflow, на connector к risky tool нажмите \"+\" → Add human review step.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#n8n-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "n8n: канал и шаблон",
+          "text": "Выберите Slack или Telegram; в message template используйте $tool.name и $tool.parameters.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#n8n-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "n8n: system prompt и tool description",
+          "text": "Перечислите gated tools, сценарий Deny, описание в tool description (anti over-hedge).",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#n8n-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "n8n: sandbox Approve/Deny",
+          "text": "Протестируйте Approve и Deny; проверьте, что агент корректно обрабатывает rejection.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#n8n-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Make: выбор пути HITL",
+          "text": "Если Enterprise — Create review request; иначе split scenario + webhook approve/reject links.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#make-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Make: Router и Reasoning Panel",
+          "text": "Настройте Router на approved/rejected path; ограничьте итерации Reasoning Panel.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#make-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Cursor: branch protection и CI",
+          "text": "Включите branch protection, required reviewers, CI checks на PR от cursor bot.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#cursor-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 10,
+          "name": "Cursor: Automations quality bar",
+          "text": "Webhook/Slack trigger; в prompt — quality bar «open PR only if…»; Send to Slack для эскалации.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#cursor-hitl"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 11,
+          "name": "Audit trail",
+          "text": "Логируйте execution id, tool params, reviewer, decision, timestamp (n8n execution log + external store).",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#checklist-25"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 12,
+          "name": "EU AI Act checklist",
+          "text": "Задокументируйте in-the-loop vs on-the-loop per agent; опишите kill switch procedure.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#checklist-25"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 13,
+          "name": "Graduation policy",
+          "text": "Зафиксируйте критерии снятия gate (N runs, error rate, compliance sign-off).",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#checklist-25"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 14,
+          "name": "Финальный прогон чек-листа",
+          "text": "Пройдите 27 пунктов из секции 6 — все PASS перед prod.",
+          "url": "https://mayai.ru/human-in-the-loop-ai-agents-n8n/#checklist-25"
+        }
+      ]
+    }
+  ]
+}

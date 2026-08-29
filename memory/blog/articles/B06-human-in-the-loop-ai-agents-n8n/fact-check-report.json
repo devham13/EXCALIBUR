@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-human-in-the-loop-ai-agents-n8n/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "в срываются из-за скрытых затрат (открытые обзоры 2026). EU AI Act для high-risk систем требует human ov",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2027",
+      "kind": "date_or_year",
+      "context": "ice; дедлайн compliance для high-risk - 2 декабря 2027. 1. Поймите, зачем HITL агентам в 2026 HITL - стр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 мин",
+      "kind": "metric_or_duration",
+      "context": "switch documented: owner отключает automation за 5 мин. Cursor Automations (webhook, Slack, GitHub, Line",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 мин",
+      "kind": "metric_or_duration",
+      "context": "на человека. Escalation если reviewer молчит (SLA 30 мин). Graduation: N runs, error rate, compliance sign",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

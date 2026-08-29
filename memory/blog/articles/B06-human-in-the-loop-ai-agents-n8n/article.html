@@ -1,0 +1,241 @@
+<p>ИИ-агент уже умеет списать деньги, удалить контакт в CRM или отправить письмо клиенту - и вы узнаете об этом постфактум. Human-in-the-loop (HITL, "человек в контуре") - пауза перед опасным действием: агент предлагает tool call, вы жмёте Approve или Deny, и только потом система что-то меняет. Ниже - карта рисков и настройка human review в n8n, Make и Cursor. После чтения вы включите контроль на платежах, письмах и деплое и пройдёте чек-лист из 25+ пунктов перед продакшеном.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> HITL - контрольная точка между решением агента и реальным API-вызовом. В n8n 2.6+ native human review на connector к tool: Approve выполняет, Deny отменяет. Make: native HITL только Enterprise; иначе webhook split. Cloud Agents Cursor не спрашивают approve на шаг - контроль через branch protection и PR review. Запросы "n8n ai" (720/мес) и "n8n агенты" (699) из семантики B02 подтверждают спрос на контроль агентов.</blockquote>
+
+<p>Tool - "рука" нейросети: HTTP в CRM, email, charge в Stripe. API (Application Programming Interface) - "розетка" связи n8n или Make с внешним сервисом. Без HITL агент ошибается молча: автономные ИИ завершают менее 2,5% сложных задач без человека, до 40% пилотов срываются из-за скрытых затрат (открытые обзоры 2026).</p>
+
+<p>EU AI Act для high-risk систем требует human oversight (ст. 14): человек понимает limits модели, замечает сбои, может остановить процесс. Ниже - ориентир для чек-листа, не legal advice; дедлайн compliance для high-risk - 2 декабря 2027.</p>
+
+<h2 id="why-hitl">1. Поймите, зачем HITL агентам в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица HITL vs human-on-the-loop для AI-агентов" loading="lazy">
+</figure>
+
+
+<p>HITL - страховка при необратимом side effect: деньги списаны, письмо ушло, контакт удалён. Human-on-the-loop - наблюдение логов без approve на каждый шаг; подходит для read-only (search KB, get record). Разница простая: in-the-loop - вы жмёте кнопку до действия; on-the-loop - вы смотрите дашборд и вмешиваетесь при аномалии.</p>
+
+<p>Типичная ошибка - включить HITL "на всё" и через неделю снять, потому что Slack завален. Начните с трёх классов из risk-map: финансы, mass email, CRM delete.</p>
+
+<p><b>Делайте:</b> gate на write/delete и исходящие comms. <b>Не делайте:</b> approve на каждый get/search - команда отключит контроль.</p>
+
+<h2 id="risk-map">2. Составьте карту рисков для tool calls</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow карты рисков tool calls: финансы, email, CRM delete" loading="lazy">
+</figure>
+
+
+<p>Выпишите workflows (n8n, Make, Cursor) и каждый tool с побочным эффектом. Классифицируйте по таблице:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Класс</th>
+      <th>Примеры</th>
+      <th>HITL</th>
+      <th>Платформа</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Финансы</b></td>
+      <td>charge, refund</td>
+      <td>Обязательно</td>
+      <td>n8n / Make webhook</td>
+    </tr>
+    <tr>
+      <td><b>Comms</b></td>
+      <td>email, Slack, SMS</td>
+      <td>+ preview текста</td>
+      <td>$tool.parameters</td>
+    </tr>
+    <tr>
+      <td><b>CRM write/delete</b></td>
+      <td>update deal, delete</td>
+      <td>Обязательно</td>
+      <td>n8n / Router</td>
+    </tr>
+    <tr>
+      <td><b>Delete data</b></td>
+      <td>DB delete, file</td>
+      <td>Deny by default</td>
+      <td>n8n gate</td>
+    </tr>
+    <tr>
+      <td><b>Read-only</b></td>
+      <td>search, get</td>
+      <td>Не нужен</td>
+      <td>logging</td>
+    </tr>
+    <tr>
+      <td><b>Deploy</b></td>
+      <td>merge PR</td>
+      <td>Reviewers + CI</td>
+      <td>Cursor/GitHub</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> owner risk-map и пересмотр раз в квартал. <b>Не делайте:</b> gate только в sub-workflow - parent AI Agent в n8n может resolve tool до конца sub; gate на main connector (2.6+).</p>
+
+<h2 id="n8n-hitl">3. Настройте Human Review для tool calls в n8n</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист настройки Human Review для tool calls в n8n 2.6+" loading="lazy">
+</figure>
+
+
+<blockquote>
+  <b>Схема:</b> AI Agent → [Human Review] → Tool → Approve/Deny branch
+</blockquote>
+
+<p>n8n 2.6.0 (26.01.2026): native HITL на CE без execution cap. Каналы: Chat, Slack, Telegram, Teams, Gmail и др. (9 штук).</p>
+
+<ol>
+  <li><b>Откройте AI Agent workflow,</b> connector к risky tool.</li>
+  <li><b>"+" на connector</b> → Add human review step.</li>
+  <li><b>Канал Slack/Telegram</b> для мобильного approve.</li>
+  <li><b>Шаблон:</b> $tool.name и $tool.parameters (включая $fromAI()).</li>
+  <li><b>System prompt:</b> gated tools, сценарий Deny, без дублирующих вопросов пользователю.</li>
+  <li><b>Tool description:</b> упомяните review - иначе модель over-hedges.</li>
+  <li><b>Sandbox:</b> тест Approve и Deny; агент корректно обрабатывает rejection.</li>
+</ol>
+
+<p>Для review текста ответа (не tool): Chat node "Send a message and wait for response" - workflow стоит, пока человек не ответит. Wait node + Slack/Telegram - запасной путь на старых версиях n8n.</p>
+
+<p>Webhook (входящий URL-триггер) можно повесить на approve из внешней CRM, если reviewer работает только там. Главное - signed resume token или одноразовая ссылка, чтобы посторонний не нажал Approve.</p>
+
+<p><b>Делайте:</b> лог execution id, tool params, reviewer, decision, timestamp в n8n execution log или внешнюю таблицу. <b>Не делайте:</b> delete-tools без Deny by default; не прячьте gate в sub-workflow, если AI Agent вызывает его как tool.</p>
+
+<h2 id="make-hitl">4. Выберите путь HITL в Make AI Agents</h2>
+
+<p>Native app "Human in the loop" (Create/Cancel/Watch/List) <b>execute только Enterprise</b>. На Core/Pro - webhook workaround.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n</th>
+      <th>Make</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Gate</b></td>
+      <td>Connector AI Agent → tool</td>
+      <td>Create review request</td>
+    </tr>
+    <tr>
+      <td><b>Тариф</b></td>
+      <td>CE + Cloud</td>
+      <td>Enterprise для execute</td>
+    </tr>
+    <tr>
+      <td><b>Workaround</b></td>
+      <td>Wait + webhook</td>
+      <td>Split + approve links</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li><b>Enterprise:</b> Create review request перед опасным модулем.</li>
+  <li><b>Иначе:</b> split scenario, webhook ?approve=1 / ?reject=1.</li>
+  <li><b>Router</b> на approved/rejected; лимит итераций Reasoning Panel.</li>
+  <li><b>Preview</b> текста email/Slack в review payload.</li>
+  <li><b>Тест reject</b> - CRM/email не вызываются.</li>
+</ol>
+
+<p>Make AI Agents GA (11.02.2026) даёт Reasoning Panel - смотрите, как модель выбирала tools, перед тем как разрешить следующий шаг. На Enterprise Create review request вставьте между агентом и модулем Stripe, Gmail или CRM.</p>
+
+<p>Базовая сборка агентов - в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">гайде n8n и Make AI Agents</a>. <b>Делайте:</b> одноразовые approve links с TTL. <b>Не делайте:</b> native Make HITL без проверки Enterprise на billing.</p>
+
+<h2 id="cursor-hitl">5. Настройте контроль Cloud Agents в Cursor</h2>
+
+<p>Run Modes (Auto-review) - только local agents (Cursor 3.6+). Cloud Agents <b>без per-action approve</b>: clone repo, push branch, PR. HITL = branch protection + reviewers + CI.</p>
+
+<ol>
+  <li><b>Branch protection</b> на main, required reviewers, status checks.</li>
+  <li><b>Automations:</b> webhook/Slack trigger; tools Comment on PR, Request reviewers.</li>
+  <li><b>Prompt quality bar:</b> "PR only if tests pass, no secrets".</li>
+  <li><b>Send to Slack</b> при diff в payments/auth.</li>
+  <li><b>Kill switch</b> documented: owner отключает automation за 5 мин.</li>
+</ol>
+
+<p>Cursor Automations (webhook, Slack, GitHub, Linear triggers) умеют Comment on PR, Request reviewers, Send to Slack - это ваш HITL-слой для облачных агентов. Auto-review в Run Modes (рекомендован с Cursor 3.6, 29.05.2026) - для локальной разработки, когда агент на вашей машине спрашивает перед shell-командой.</p>
+
+<p>Webhook и quality bar - в <a href="/nastroyka-cursor-automations-2026/" target="_blank">настройке Cursor Automations 2026</a>. Security baseline: branch protection + CI на каждый PR от cursor bot, как рекомендуют security-гайды по Cloud Agents. <b>Не путайте</b> Run Modes локального агента с Cloud Agent без per-action approve.</p>
+
+<h2 id="checklist-25">6. Пройдите чек-лист HITL: 25+ пунктов перед prod</h2>
+
+<ol>
+  <li>Инвентаризация AI workflows завершена.</li>
+  <li>Каждый side-effect tool в risk-map.</li>
+  <li>Финансы за gate на всех платформах.</li>
+  <li>Email/SMS/Slack - HITL + preview.</li>
+  <li>CRM write/delete только после Approve.</li>
+  <li>Delete - Deny by default в policy.</li>
+  <li>Read-only - logging без gate.</li>
+  <li>n8n: review на main connector, не sub-only.</li>
+  <li>n8n: $tool.name и $tool.parameters в Slack/Telegram.</li>
+  <li>n8n: system prompt про gated tools и Deny.</li>
+  <li>n8n: tool description упоминает review.</li>
+  <li>n8n: sandbox Approve/Deny пройден.</li>
+  <li>Make: Enterprise проверен для native HITL.</li>
+  <li>Make: webhook с одноразовыми approve links.</li>
+  <li>Make: Router без утечки в prod modules.</li>
+  <li>Make: лимит итераций Reasoning Panel.</li>
+  <li>Cursor: branch protection + reviewers.</li>
+  <li>Cursor: CI блокирует merge без green.</li>
+  <li>Cursor: Automations quality bar задокументирован.</li>
+  <li>Cursor: kill switch procedure записана.</li>
+  <li>Audit: execution id, params, reviewer, timestamp.</li>
+  <li>EU AI Act: in-the-loop vs on-the-loop per agent.</li>
+  <li>GDPR Art. 22 при legal effects на человека.</li>
+  <li>Escalation если reviewer молчит (SLA 30 мин).</li>
+  <li>Graduation: N runs, error rate, compliance sign-off.</li>
+  <li>Prod smoke: Approve и Deny на реальном кейсе.</li>
+  <li>Runbook rollback при "агент сделал без approve".</li>
+</ol>
+
+<p>Graduation to autonomy - снимать gate только когда N прогонов на sandbox без инцидентов, error rate ниже порога, audit trail чистый и compliance дал sign-off. Payments, refund и delete - отдельная политика: gate не снимаем "потому что надоело кликать".</p>
+
+<p>Зафиксируйте kill switch: кто останавливает workflow, revokes API key и пишет post-mortem за 24 часа. Для EU AI Act выпишите per agent: in-the-loop (approve каждого tool) или on-the-loop (мониторинг + override).</p>
+
+<p>Практика цепочек с HITL на живых кейсах - в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинг</a> (159+ уроков, no-code + Cursor).</p>
+
+<h2>7. Что делать дальше</h2>
+
+<ol>
+  <li>Risk-map для одного пилотного агента сегодня.</li>
+  <li>Human review на самом опасном tool.</li>
+  <li>Approve/Deny в sandbox, скрин лога.</li>
+  <li>27 пунктов чек-листа - все PASS.</li>
+  <li>Graduation criteria в Confluence/Notion.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Артур Хорошев (CEO Maya AI, автор курса по Make.com и вайбкодингу).<br>
+  <b>Достоверность данных:</b> n8n 2.6, Make Enterprise HITL, EU AI Act Art. 14, Cursor Automations - docs на 29.08.2026; "n8n ai" (720), "n8n агенты" (699) - Вордstat B02, июнь 2026.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Что такое human in the loop для AI-агентов?</h3>
+<p>Checkpoint: агент предлагает action → Approve/Deny → tool выполняется или отменяется. Поставьте gate на connector в n8n до prod.</p>
+
+<h3>Как включить human review в n8n?</h3>
+<p>AI Agent → "+" на tool → Add human review step → Slack/Telegram → $tool.name, $tool.parameters → system prompt про Deny.</p>
+
+<h3>Чем HITL в n8n отличается от Make?</h3>
+<p>n8n: native gate на CE/Cloud. Make: native только Enterprise; иначе webhook split. См. таблицу в секции 4.</p>
+
+<h3>Нужен ли HITL по EU AI Act?</h3>
+<p>High-risk (Annex III): ст. 14 требует oversight. Остальное - best practice; при legal effects - GDPR Art. 22. Документируйте per agent.</p>
+
+<h3>Работают ли Cloud Agents Cursor без approve?</h3>
+<p>Да. HITL = branch protection, PR review, CI, Automations quality bar. Run Modes - только local agent.</p>
+
+<h3>Что писать в system prompt про gated tools?</h3>
+<p>Список gated tools, поведение при Deny, запрет повторного подтверждения того, что уже за gate.</p>
+
+<h3>Когда снимать HITL?</h3>
+<p>После N sandbox runs, низкого error rate, чистого audit. Payments/delete - только с compliance sign-off.</p>

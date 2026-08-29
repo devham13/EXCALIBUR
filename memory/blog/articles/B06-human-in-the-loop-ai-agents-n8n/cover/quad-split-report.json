@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-human-in-the-loop-ai-agents-n8n/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1018,
+      574
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 574,
+        "end": 581
+      },
+      "v_gutter_px": {
+        "start": 1018,
+        "end": 1030
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: human in the loop n8n — контроль AI-агента перед опасным tool call",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 574
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица HITL vs human-on-the-loop для AI-агентов",
+        "h2_anchor": "1. Поймите, зачем HITL агентам в 2026"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1018,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 581,
+          "right": 1018,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Workflow карты рисков tool calls: финансы, email, CRM delete",
+        "h2_anchor": "2. Составьте карту рисков для tool calls"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1030,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 581,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист настройки Human Review для tool calls в n8n 2.6+",
+        "h2_anchor": "3. Настройте Human Review для tool calls в n8n"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Поймите, зачем HITL агентам в 2026",
+    "injected inline_2 after H2 — 2. Составьте карту рисков для tool calls",
+    "injected inline_3 after H2 — 3. Настройте Human Review для tool calls в n8n"
+  ]
+}

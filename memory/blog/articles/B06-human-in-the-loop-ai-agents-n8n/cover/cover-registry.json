@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "human-in-the-loop-ai-agents-n8n",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: human in the loop n8n — контроль AI-агента перед опасным tool call",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-08-29T10:15:32+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: human in the loop n8n — контроль AI-агента перед опасным tool call",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица HITL vs human-on-the-loop для AI-агентов",
+      "h2_anchor": "1. Поймите, зачем HITL агентам в 2026",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Workflow карты рисков tool calls: финансы, email, CRM delete",
+      "h2_anchor": "2. Составьте карту рисков для tool calls",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист настройки Human Review для tool calls в n8n 2.6+",
+      "h2_anchor": "3. Настройте Human Review для tool calls в n8n",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

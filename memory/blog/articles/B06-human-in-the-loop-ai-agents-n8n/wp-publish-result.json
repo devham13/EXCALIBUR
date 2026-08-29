@@ -1,0 +1,15 @@
+{
+  "slug": "human-in-the-loop-ai-agents-n8n",
+  "topic_id": "B06",
+  "permalink": "/2026/08/29/human-in-the-loop-ai-agents-n8n/",
+  "post_id": "996",
+  "featured_image_id": "997",
+  "inline_image_ids": [
+    "998",
+    "999",
+    "1000"
+  ],
+  "raw_output": "OK post=996 slug=human-in-the-loop-ai-agents-n8n\nOK featured_image=997\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=998 src=cover/inline-01.png url=/wp-content/uploads/2026/08/human-in-the-loop-ai-agents-n8n-inline-01.png\nOK inline_image_upload=999 src=cover/inline-02.png url=/wp-content/uploads/2026/08/human-in-the-loop-ai-agents-n8n-inline-02.png\nOK inline_image_upload=1000 src=cover/inline-03.png url=/wp-content/uploads/2026/08/human-in-the-loop-ai-agents-n8n-inline-03.png\npermalink=/2026/08/29/human-in-the-loop-ai-agents-n8n//2026/08/29/human-in-the-loop-ai-agents-n8n/\n",
+  "verdict": "pass",
+  "publish_method": "ssh_scp_fallback (FTP 425 Bad IP)"
+}

@@ -7,6 +7,10 @@
 <p>EU AI Act для high-risk систем требует human oversight (ст. 14): человек понимает limits модели, замечает сбои, может остановить процесс. Ниже - ориентир для чек-листа, не legal advice; дедлайн compliance для high-risk - 2 декабря 2027.</p>
 
 <h2 id="why-hitl">1. Поймите, зачем HITL агентам в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица HITL vs human-on-the-loop для AI-агентов" loading="lazy">
+</figure>
+
 
 <p>HITL - страховка при необратимом side effect: деньги списаны, письмо ушло, контакт удалён. Human-on-the-loop - наблюдение логов без approve на каждый шаг; подходит для read-only (search KB, get record). Разница простая: in-the-loop - вы жмёте кнопку до действия; on-the-loop - вы смотрите дашборд и вмешиваетесь при аномалии.</p>
 
@@ -15,6 +19,10 @@
 <p><b>Делайте:</b> gate на write/delete и исходящие comms. <b>Не делайте:</b> approve на каждый get/search - команда отключит контроль.</p>
 
 <h2 id="risk-map">2. Составьте карту рисков для tool calls</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow карты рисков tool calls: финансы, email, CRM delete" loading="lazy">
+</figure>
+
 
 <p>Выпишите workflows (n8n, Make, Cursor) и каждый tool с побочным эффектом. Классифицируйте по таблице:</p>
 
@@ -70,6 +78,10 @@
 <p><b>Делайте:</b> owner risk-map и пересмотр раз в квартал. <b>Не делайте:</b> gate только в sub-workflow - parent AI Agent в n8n может resolve tool до конца sub; gate на main connector (2.6+).</p>
 
 <h2 id="n8n-hitl">3. Настройте Human Review для tool calls в n8n</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист настройки Human Review для tool calls в n8n 2.6+" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема:</b> AI Agent → [Human Review] → Tool → Approve/Deny branch

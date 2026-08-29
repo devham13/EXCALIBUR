@@ -1,0 +1,28 @@
+{
+  "topic_id": "B06",
+  "slug": "human-in-the-loop-ai-agents-n8n",
+  "primary_query": "human in the loop n8n",
+  "secondary_queries": [
+    "human in the loop ai agents",
+    "контроль ии агентов человеком",
+    "human review n8n tool calls",
+    "human in the loop make"
+  ],
+  "char_count": 9364,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "human in the loop n8n настройка approve deny",
+    "чек-лист контроля ии агентов human review",
+    "human review tool calls n8n make cursor"
+  ],
+  "meta_ab": {
+    "title_seo": "Human in the loop n8n: чек-лист контроля AI-агентов в 2026",
+    "title_ctr": "🚀 Human in the loop n8n: как не дать ИИ-агенту списать деньги без вашего OK?",
+    "title_aeo": "Как настроить human in the loop для AI-агентов в n8n, Make и Cursor?",
+    "description_seo": "Чек-лист HITL для AI-агентов: карта рисков, human review в n8n 2.6+, Make Enterprise vs webhook, контроль Cloud Agents в Cursor. 27 пунктов перед prod.",
+    "description_ctr": "⚡ ИИ-агент нажал «Отправить» без вас? Пошаговый human in the loop n8n + Make + Cursor: Approve/Deny, EU AI Act, 27 пунктов чек-листа.",
+    "description_aeo": "Human in the loop n8n — пауза перед опасным tool call: Approve выполняет действие, Deny отменяет. Настройка в n8n, Make и Cursor с чек-листом 25+ пунктов."
+  },
+  "cover_family": "brand_collage"
+}

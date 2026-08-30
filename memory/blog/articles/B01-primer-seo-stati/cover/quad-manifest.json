@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "Вы пишете SEO-текст — а в выдаче побеждает чек-лист конкурента",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на fake Wordstat: SEO-текст vs чек-лист конкурента в выдаче",
+      "scene_hint": "reference-лицо в тёмно-синем пиджаке и светлой рубашке (не белая футболка с reference), дружелубная улыбка, жест указывает на fake Wordstat «как писать seo статьи» и analytics «0% дочитываний», рядом torn-paper скрин конкурента с таблицей SEO vs GEO, розовый sticky «где трафик?», отзыв ★☆☆☆☆ на скотче, meme shocked cat + facepalm Drake cutout, розовый маркер highlight на «чек-лист»",
+      "meme_caption_ru": "SEO-текст vs чек-лист?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Сравните SEO и GEO: один материал, два канала",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "UI-мокап таблицы SEO vs GEO: цель, формат ответа, структура, техника — заголовок «Сравните SEO и GEO», розовый стикер-стрелка к строке GEO, лёгкий scotch tape",
+      "alt": "Таблица сравнения SEO и GEO: один материал, два канала дистрибуции"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Зафиксируйте интент и соберите семантику",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Wordstat UI + Яндекс Вебмастер: primary query «как писать seo статьи», список LSI-фраз, шаги 1-4 outline на sticky notes, без лица героя",
+      "alt": "Скриншот Wordstat и шаги сбора семантики для SEO-статьи"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Составьте структуру longread и напишите lead",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 6 шагов: интент → семантика → outline H2 → lead 350-500 знаков → island test → мета — стрелки, иконки документов, маркер highlight на «lead»",
+      "alt": "Схема workflow longread: от структуры до lead 350-500 знаков"
     }
   }
 }

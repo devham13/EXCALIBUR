@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-30 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1020 |
+| inline_images | 1021, 1022, 1023 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| bootstrap | SFTP port 22 (FTP 425 Bad IP on port 21) |
+| trigger | excalibur-blog-publish subagent, topic_id B01 |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (7/7, site-base EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt notes
+
+1. **Dry-run:** slug `primer-seo-stati`, PHP payload 9 824 830 bytes — OK
+2. **FTP port 21:** `425 Security: Bad IP connecting` — blocked from Cloud Agent egress
+3. **SFTP port 22:** upload `excalibur-blog-publish-once.php` to WP root, HTTP trigger — OK (~60 s)
+4. **Post-publish interlinker --apply:** 0 new opportunities
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1020
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1021 src=cover/inline-01.png
+OK inline_image_upload=1022 src=cover/inline-02.png
+OK inline_image_upload=1023 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+

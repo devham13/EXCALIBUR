@@ -1,0 +1,10 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://mayai.ru/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 1012,
+  "inline_image_ids": [1013, 1014, 1015],
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=1012\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1013 src=cover/inline-01.png\nOK inline_image_upload=1014 src=cover/inline-02.png\nOK inline_image_upload=1015 src=cover/inline-03.png\npermalink=https://mayai.ru/2026/06/19/primer-seo-stati/",
+  "verdict": "pass"
+}

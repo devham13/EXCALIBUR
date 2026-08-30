@@ -172,3 +172,58 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-30 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1012 |
+| inline_images | 1013, 1014, 1015 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| trigger | Cloud Agent publish (⑥) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (9/9, preflight 2026-08-30)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FTP 425 intermittent
+# Manual retry: FTP STOR ~9.6MB PHP (attempt 15) + HTTP trigger OK
+```
+
+### Notes
+
+- FTP STOR «425 Security: Bad IP connecting» — intermittent на Cloud Agent; потребовался retry loop для upload ~9.6 MB bootstrap.
+- HTTP trigger сработал без WebFetch fallback (timeout 120s).
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1012
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1013 src=cover/inline-01.png
+OK inline_image_upload=1014 src=cover/inline-02.png
+OK inline_image_upload=1015 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- bootstrap `excalibur-blog-publish-once.php` удалён с FTP

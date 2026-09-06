@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "8 500 знаков SEO — и ноль дочитываний?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Эксперт блога указывает на график «0 дочитываний» в мем-коллаже про SEO-текст",
+      "scene_hint": "reference-лицо в тёмно-синем пиджаке поверх светлой рубашки (не копировать футболку с reference), дружелубная улыбка, жестом указывает на fake analytics «0% дочитываний» и Wordstat «15 000 ключей». Вокруг: Telegram «где трафик?», отзыв ★☆☆☆☆ на розовом стикере, facepalm meme + shocked cat cutout, розовый маркер на «0 дочитываний», рваная бумага и скотч, DIY zine 16:9",
+      "meme_caption_ru": "15k ключей — 0 дочитываний?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Поймите, зачем SEO и GEO живут в одной статье",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Чистый UI-мокап таблицы SEO vs GEO: критерии (цель, формат, структура, техника) — без лица героя, лёгкий стикер «один longread»",
+      "alt": "Таблица сравнения SEO и GEO: цели, форматы и техника в одной статье"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "h2_anchor": "Соберите семантику и постройте каркас longread",
       "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "scene_hint": "Workflow из 8 шагов: интент → Вордстат → outline H2 → lead → текст → GEO-чанки → мета/FAQ → чек-лист. Стрелки, иконки, без героя",
+      "alt": "Схема workflow longread: от семантики Вордстат до чек-листа публикации"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Добавьте GEO-слой в тот же текст",
+      "visual_type": "infographic_card",
+      "scene_hint": "Инфографика GEO-чанков: H2-блок 40–80 слов, answer-блок, иконки AI/Нейро — без лица героя, мини-стикер «island test»",
+      "alt": "Инфографика GEO-слоя: атомарные чанки H2 для нейропоиска"
     }
   }
 }

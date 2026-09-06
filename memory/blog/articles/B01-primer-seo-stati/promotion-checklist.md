@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
-Live URL: https://... (заполнить после publish)
+Дата публикации: 2026-09-06  
+Live URL: https://mayai.ru/blog/primer-seo-stati/ (заполнить permalink после publish)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -44,4 +44,4 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-09-06): interlinker --apply — 0 автоматических вставок (5 статей в `memory/blog/articles`; anchor_variants B01 не встречаются в B02–B05; B01 уже содержит outbound на `/geo-optimizaciya-sajta-2026/` и `/`). llms.txt и llms-full.txt обновлены: 5 статей в `memory/blog/llms.txt` (site-base https://mayai.ru). После publish — перезапустить interlinker для inbound из B04/B02.

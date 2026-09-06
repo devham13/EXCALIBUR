@@ -172,3 +172,51 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-06 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| transport | FTP port 21 (SFTP fallback not reached — login failed) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (7/7, preflight 2026-09-06)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- memory/site.env.local: generated from Cloud FTP_* + EXCALIBUR_PUBLIC_SITE_URL + REMOTE_SITE_ROOT
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati       # FAIL
+```
+
+### Blockers
+
+1. **FTP auth:** `530 Login incorrect` on `FTP_HOST:21` for injected `FTP_USER` (also tried account derived from `REMOTE_SITE_ROOT`: devhamnq, devhamnq_blog).
+2. **SFTP auth:** `Authentication failed` on port 22 with SFTP_* / SSH_* / FTP_* credentials (SFTP secrets not in `CLOUD_AGENT_INJECTED_SECRET_NAMES`).
+3. **Script:** `excalibur_blog_wp_publish.py` patched with Cloud env merge + SFTP bootstrap on FTP 425; login must succeed before bootstrap.
+
+### Next steps (оператор)
+
+1. Обновить Cloud Secrets: `FTP_USER` / `FTP_PASSWORD` для аккаунта Beget (`REMOTE_SITE_ROOT` → devhamnq).
+2. Либо добавить `SFTP_*` / `SSH_*` в injected secrets для bootstrap на порту 22.
+3. Перезапустить `Task(excalibur-blog-publish)` после fix credentials.
+
+### Artifacts
+
+- `memory/blog/articles/B01-primer-seo-stati/wp-publish-result.json` → verdict fail
+- `shared/published-articles.md` → publish_failed

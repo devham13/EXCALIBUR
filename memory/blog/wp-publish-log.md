@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-06 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| transport | sftp (attempted) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (5/5, preflight 2026-09-06)
+- schema.jsonld: present
+- cover/cover.png + alt: present (3 inline)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (PHP ~10.95 MB)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP 530 Login incorrect** — `FTP_USER` из Cloud Secrets не совпадает с аккаунтом `devhamnq` в `REMOTE_SITE_ROOT`.
+2. **SFTP/SSH Authentication failed** — `SFTP_USER`/`SSH_USER` + `SFTP_PASSWORD`/`SSH_PASSWORD` не проходят auth на порту 22.
+3. Скрипт обновлён до SFTP-first bootstrap (из git e0a7eea); paramiko установлен; HTTP-триггер не достигнут из-за ошибки upload.
+
+### Next steps (оператор)
+
+1. Обновить Cloud Secrets: `FTP_USER=devhamnq` (или актуальный Beget-логин) + пароль FTP/SFTP для этого аккаунта.
+2. Проверить `REMOTE_SITE_ROOT` → корень WP с `wp-load.php`.
+3. Перезапустить `Task(excalibur-blog-publish)` для B01.

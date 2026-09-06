@@ -275,25 +275,86 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
+def _wp_root(env: dict[str, str]) -> str:
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
     if not ftp_root.startswith("/"):
         ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+    return ftp_root.rstrip("/")
+
+
+def _use_sftp(env: dict[str, str]) -> bool:
+    return bool((env.get("SFTP_HOST") or env.get("SFTP_USER") or env.get("SFTP_PASS")).strip())
+
+
+def _sftp_upload(env: dict[str, str], remote_path: str, data: bytes) -> None:
+    import paramiko
+
+    host = env.get("SFTP_HOST") or env["FTP_HOST"]
+    user = env.get("SFTP_USER") or env["FTP_USER"]
+    password = env.get("SFTP_PASS") or env.get("FTP_PASS") or ""
+    port = int(env.get("SFTP_PORT") or "22")
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    try:
+        sftp = paramiko.SFTPClient.from_transport(transport)
+        with sftp.open(remote_path, "w") as handle:
+            handle.write(data.decode("utf-8"))
+        sftp.close()
+    finally:
+        transport.close()
+
+
+def _sftp_delete(env: dict[str, str], remote_path: str) -> None:
+    import paramiko
+
+    host = env.get("SFTP_HOST") or env["FTP_HOST"]
+    user = env.get("SFTP_USER") or env["FTP_USER"]
+    password = env.get("SFTP_PASS") or env.get("FTP_PASS") or ""
+    port = int(env.get("SFTP_PORT") or "22")
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    try:
+        sftp = paramiko.SFTPClient.from_transport(transport)
+        try:
+            sftp.remove(remote_path)
+        except OSError:
+            pass
+        sftp.close()
+    finally:
+        transport.close()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    wp_root = _wp_root(env)
+    remote_abs = f"{wp_root}/{remote}"
+    transport_used = "ftp"
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
         ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
         ftp.login(env["FTP_USER"], env["FTP_PASS"])
         ftp.set_pasv(True)
-        ftp.cwd(ftp_root)
+        ftp.cwd(wp_root if wp_root.startswith("/") else f"/{wp_root}")
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    php_bytes = php.encode("utf-8")
+    if _use_sftp(env):
+        print(f"Uploading bootstrap via SFTP to {remote_abs}...")
+        _sftp_upload(env, remote_abs, php_bytes)
+        transport_used = "sftp"
+    else:
+        try:
+            ftp = ftp_connect()
+            ftp.storbinary(f"STOR {remote}", io.BytesIO(php_bytes))
+            ftp.quit()
+        except ftplib.error_temp as exc:
+            if "425" in str(exc) and (env.get("SFTP_PASS") or env.get("FTP_PASS")):
+                print(f"FTP STOR blocked ({exc}); retrying via SFTP...")
+                _sftp_upload(env, remote_abs, php_bytes)
+                transport_used = "sftp"
+            else:
+                raise
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +385,16 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    if transport_used == "sftp":
+        _sftp_delete(env, remote_abs)
+    else:
+        ftp = ftp_connect()
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+    print(f"transport={transport_used}")
     return out
 
 

@@ -1,0 +1,121 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/sravnenie-n8n-i-make-2026/#article",
+      "headline": "Сравнение n8n и Make.com: что выбрать для автоматизации бизнеса в 2026 году",
+      "description": "Сравнение n8n и Make.com с формулой TCO (runs × steps), таблицей критериев, сценариями выбора, гибридом и чеклистом из 12 вопросов. Тарифы и credits на 09.2026.",
+      "datePublished": "2026-09-07",
+      "dateModified": "2026-09-07",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/sravnenie-n8n-i-make-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/sravnenie-n8n-i-make-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/sravnenie-n8n-i-make-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n или make, make vs n8n 2026, n8n или make com что выбрать, сравнение make и n8n, n8n self hosted или make",
+      "wordCount": 8605,
+      "articleSection": "Make / n8n",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/sravnenie-n8n-i-make-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем n8n отличается от Make в одном предложении?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n считает деньги за полный прогон сценария (execution) и умеет self-host; Make считает credits за шаги в облаке и быстрее стартует без сервера. Выберите по формуле runs × steps и требованиям к данным."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что лучше - n8n или Make для малого бизнеса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До ~5 шагов на run и без self-host - Make Free или Core. Если нужен контроль данных или сценарии длиннее 6 шагов - n8n Cloud trial или Community Edition на VPS за $5-15/мес."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "n8n или Make для AI-агентов и RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG, LangChain, vector stores и MCP - зона n8n. Make подойдёт для простых GPT-модулей в CRM-воронке; закладывайте дополнительные credits на AI Toolkit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли совмещать n8n и Make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: Make ловит триггеры из SaaS, n8n обрабатывает тяжёлый AI и файлы через webhook. Документируйте границу, чтобы не платить дважды за одну логику."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Make перешёл на credits - что изменилось?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "С 27.08.2025 billing unit - credits (1:1 к operations). AI-модули списывают динамически. Пересчитайте сметы по runs × steps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли программист для n8n self-hosted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужен Docker на VPS и HTTPS. Иначе берите n8n Cloud или Make - pilot займёт часы, а не недели."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "sravnenie-n8n-i-make-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: n8n или Make — сравнение credits vs executions и формула TCO для автоматизации в 2026",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-07T14:13:11+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: n8n или Make — сравнение credits vs executions и формула TCO для автоматизации в 2026",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Инфографика TCO: 6 шагов расчёта runs × steps для n8n и Make",
+      "h2_anchor": "Посчитайте объём и пересчитайте TCO за 15 минут",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнительная таблица n8n и Make по шести критериям: billing, self-host, AI, цена",
+      "h2_anchor": "Сравните n8n и Make по шести критериям",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Схема workflow: быстрый старт Make без сервера — 4 шага от регистрации до уведомления",
+      "h2_anchor": "Выберите Make, если нужен быстрый старт без сервера",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

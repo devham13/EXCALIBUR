@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-07 — B06 sravnenie-n8n-i-make-2026 — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | sravnenie-n8n-i-make-2026 |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (3/3, preflight 2026-09-07)
+- schema.jsonld: present
+- cover/cover.png + alt: present (3 inline)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- memory/site.env.local: created from Cloud Secrets (FTP_PASS←FTP_PASSWORD, FTP_ROOT=/)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-sravnenie-n8n-i-make-2026 --dry-run  # OK (PHP 10462346 bytes)
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-sravnenie-n8n-i-make-2026  # FAIL
+```
+
+### Blockers
+
+1. **FTP 530 Login incorrect** — `ftplib` connect to `$FTP_HOST:21` with Cloud Secrets `FTP_USER`/`FTP_PASSWORD`.
+2. **SFTP/SSH Authentication failed** — paramiko test on `$SFTP_HOST:22` and `$SSH_HOST:22` with respective Cloud Secrets.
+3. **WebFetch fallback not reached** — bootstrap PHP never uploaded (FTP auth fails before HTTP trigger).
+
+### Next steps (оператор)
+
+1. Обновить Cloud Secrets `FTP_*` / `SFTP_*` / `SSH_*` для аккаунта Beget (`REMOTE_SITE_ROOT`).
+2. Убедиться `FTP_ROOT=/` (FTP chroot, wp-load.php в корне после login).
+3. Повторить publish: `python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-sravnenie-n8n-i-make-2026`
+4. При HTTP timeout bootstrap — WebFetch fallback на `excalibur-blog-publish-once.php`.

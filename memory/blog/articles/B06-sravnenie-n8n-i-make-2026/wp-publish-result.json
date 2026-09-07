@@ -1,0 +1,8 @@
+{
+  "slug": "sravnenie-n8n-i-make-2026",
+  "topic_id": "B06",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_perm: 530 Login incorrect.\nSFTP/SSH paramiko test: Authentication failed.",
+  "verdict": "fail"
+}

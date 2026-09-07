@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Разница не в \"лучше/хуже\", а в том, как платформа считает деньги: Make списывает credits за каждый шаг сценария, n8n Cloud - за один execution (полный прогон workflow)",
+      "word_count": 26
+    },
+    {
+      "sentence": "TL;DR / Быстрый инсайт: Make выгоден для быстрого старта и типовых SaaS-связок на малых объёмах; n8n - когда нужны self-host, RAG, MCP и длинные пайплайны без доплаты за каждый шаг",
+      "word_count": 28
+    },
+    {
+      "sentence": "2026) CE бесплатно + VPS ~$5-15; Cloud Starter 20 €/мес, 2 500 executions Free 1 000 credits; Core $9/мес, 10 000 credits Интеграции 400+ native nodes + 600+ community 1 500+ native apps AI / RAG / MCP AI Agent node, LangChain, vector stores, MCP Server Trigger AI Provider / AI Toolkit; credits за tokens + ops Команда Нужен DevOps для self-host; Cloud проще Регистрация за минуты, визуальный отладчик Итоговый вердикт по таблице: Make побеждает в скорости прототипа и числе готовых SaaS-коннекторов",
+      "word_count": 64
+    },
+    {
+      "sentence": "Настройте гибрид: Make для SaaS, n8n для тяжёлых пайплайнов Схема гибрида 2026: Триггер в Make (форма, CRM, рекламный кабинет) → HTTP/Webhook в n8n → AI/RAG/обработка файлов → ответ webhook обратно в Make → уведомление менеджеру Маркетинг на Make, тяжёлые пайплайны и чувствительные данные - в self-hosted n8n",
+      "word_count": 41
+    }
+  ],
+  "readability": {
+    "score": 96.8,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.9,
+    "avg_syllables_per_word": 1.6
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_perm: 530 Login incorrect.\nFTP connect failed before bootstrap upload; WebFetch fallback not reached.",
+  "verdict": "fail"
+}

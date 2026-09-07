@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-07 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| site_base | production (Cloud Secrets `PUBLIC_SITE_URL`) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (5/5, preflight re-run 2026-09-07)
+- schema.jsonld: present
+- cover/cover.png + alt: present (quad_canvas_1x_mcp, 3 inline)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- memory/site.env.local: created from Cloud Secrets (not in git)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL  # PASS
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK (PHP 10033890 bytes)
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP auth:** `530 Login incorrect` — `FTP_USER` + `FTP_PASSWORD` from Cloud Secrets rejected on port 21.
+2. **SFTP auth:** `Authentication failed` — `SFTP_USER` + `SFTP_PASSWORD` on port 22 (paramiko test).
+3. **WebFetch fallback:** not reached — bootstrap `excalibur-blog-publish-once.php` never uploaded (FTP login failed first).
+
+### Next steps (оператор)
+
+1. Обновить Cloud Secrets: `FTP_USER`, `FTP_PASSWORD`, `SFTP_USER`, `SFTP_PASSWORD` для аккаунта Beget (см. `REMOTE_SITE_ROOT`).
+2. Убедиться `FTP_ROOT=/` (FTP chroot, где `wp-load.php`).
+3. Повторить publish: `python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati`.
+4. При HTTP timeout после успешного FTP — WebFetch URL из `=== FALLBACK_TRIGGER_URL ===`.

@@ -2,33 +2,25 @@
   "verdict": "pass",
   "total_slop_hits": 0,
   "slop_hits": [],
-  "total_over_long_sentences": 5,
+  "total_over_long_sentences": 3,
   "over_long_sentences": [
     {
-      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование в AI-ответах (Нейро, AI Overviews) Формат ответа Сниппет Title + Description Короткий фрагмент из H2 или FAQ Структура H1–H3, списки, внутренние ссылки Атомарные чанки, front-loading тезиса в абзаце Техника Мета, alt, Wordstat, перелинковка Schema JSON-LD, llms",
-      "word_count": 45
+      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование фрагмента в AI-ответе Формат Title + Description в сниппете Короткий пассаж из H2 или FAQ Структура H1–H3, списки, перелинковка Snippet-First: тезис в первых 1–3 предложениях блока Техника Wordstat, мета, alt, Вебмастер FAQ в HTML, BlogPosting + FAQPage в JSON-LD Делайте: пишите для человека, затем проверяйте каждый H2 – понятен ли блок без контекста",
+      "word_count": 58
     },
     {
-      "sentence": "Схема единого workflow: Запрос и интент → семантика (Wordstat) → outline H2/H3 → lead-абзац → текст с чанками → мета → FAQ → schema JSON-LD → чеклист перед публикацией Что такое GEO в SEO простыми словами GEO дополняет SEO: вы упаковываете уже полезный текст так, чтобы AI мог вырезать определение, шаг или ответ на вопрос",
-      "word_count": 46
+      "sentence": "Схема workflow: Спрос и интент → семантика (Wordstat) → разбор топ-5 SERP → outline H2/H3 → lead и тело → GEO-чанки и FAQ → мета и alt → schema JSON-LD → чек-лист → публикация Соберите семантику и каркас статьи Семантику собирают в Wordstat и Вебмастер : primary, 10–15 вопросных long-tail, LSI",
+      "word_count": 39
     },
     {
-      "sentence": "E-E-A-T без фейковых кейсов Experience, Expertise, Authoritativeness, Trustworthiness — не отдельный раздел «мы лучшие», а следы в тексте: автор или редакция, дата актуализации, ссылки на первоисточники, честные ограничения («универсальной нормы объёма нет»)",
-      "word_count": 31
-    },
-    {
-      "sentence": "Primary query закрыт в lead и H2; secondary вписаны без переспама Title ~65 знаков, отличается от H1; Description с обещанием и ключом Один H1 на странице (в теме WP), в body только H2/H3 Каждый H2: тезис в первом предложении, блок понятен без контекста Абзацы 3–5 строк; списки и таблица, где уместно FAQ 5–7 пар; ответы короткие и фактурные Schema BlogPosting + FAQPage; даты datePublished / dateModified актуальны Внутренние ссылки 2–3: главная, релевантные landing Внешние ссылки на первоисточники (Вордстат, официальные гайды) Нет выдуманной статистики и запрещённых штампов из редакционного контракта Читабельность: прогоните текст вслух — где спотыкается, сократите llms",
-      "word_count": 86
-    },
-    {
-      "sentence": "txt: AI-краулеры не закрыты случайно Обложка 16:9, alt по сцене, без текста на картинке CTA не больше трёх упоминаний офера на статью Финальный island test: вырежьте один H2 — смысл сохраняется",
-      "word_count": 28
+      "sentence": "Primary query закрыт в lead и H2; secondary вписаны без переспама Title ~65 знаков, отличается от H1; Description с обещанием и ключом Один H1 на странице (в теме WP), в body только H2/H3 Каждый H2: тезис в первом предложении, блок понятен без контекста Абзацы 3–7 строк; списки и таблица, где уместно FAQ 5–7 пар; ответы короткие и фактурные Schema BlogPosting + FAQPage; даты datePublished / dateModified актуальны Внутренние ссылки 2–3; внешние – на первоисточники Нет выдуманной статистики и запрещённых штампов из редакционного контракта Core Web Vitals в норме (LCP, INP, CLS) Отправка в Вебмастер / Search Console Island test по каждому H2 CTA не больше трёх на статью Черновик от ИИ проверен человеком Делайте: финальный прогон linter и проверку ссылок перед publish",
+      "word_count": 108
     }
   ],
   "readability": {
-    "score": 74.0,
-    "level": "Easy (Standard modern readable web content)",
-    "avg_sentence_len": 11.5,
-    "avg_syllables_per_word": 2.0
+    "score": 80.3,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.9,
+    "avg_syllables_per_word": 1.9
   }
 }

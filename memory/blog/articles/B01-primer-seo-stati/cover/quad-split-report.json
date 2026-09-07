@@ -3,15 +3,26 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B01-primer-seo-stati\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
     "source_size_px": [
       2048,
       1152
     ],
     "panel_size_px": [
-      1024,
-      576
+      1018,
+      579
     ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 579,
+        "end": 595
+      },
+      "v_gutter_px": {
+        "start": 1018,
+        "end": 1037
+      }
+    },
     "output_size_px": [
       1200,
       675
@@ -22,42 +33,60 @@
         "quadrant": "top_left",
         "box_px": {
           "left": 0,
-          "top": 0,
-          "right": 1024,
+          "top": 3,
+          "right": 1018,
           "bottom": 576
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1018,
+          "bottom": 579
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+        "alt": "Ведущий блога указывает на analytics «0 прочтений» — мем-коллаж про SEO-текст без GEO",
         "h2_anchor": null
       },
       "inline_1": {
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1024,
+          "left": 1037,
+          "top": 5,
+          "right": 2048,
+          "bottom": 574
+        },
+        "raw_box_px": {
+          "left": 1037,
           "top": 0,
           "right": 2048,
-          "bottom": 576
+          "bottom": 579
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-        "h2_anchor": "Зачем SEO и GEO в одной статье"
+        "alt": "Сравнительная таблица SEO vs GEO: цели, структура и техника в одной статье",
+        "h2_anchor": "Объедините SEO и GEO в одной статье"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
+          "left": 14,
+          "top": 595,
+          "right": 1004,
+          "bottom": 1152
+        },
+        "raw_box_px": {
           "left": 0,
-          "top": 576,
-          "right": 1024,
+          "top": 595,
+          "right": 1018,
           "bottom": 1152
         },
         "size_px": [
@@ -65,15 +94,21 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-        "h2_anchor": "Структура longread: от семантики до читабельности"
+        "alt": "Схема workflow из 8 шагов: от семантики Вордстата до longread и FAQ",
+        "h2_anchor": "Соберите семантику и постройте структуру longread"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1024,
-          "top": 576,
+          "left": 1047,
+          "top": 595,
+          "right": 2037,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1037,
+          "top": 595,
           "right": 2048,
           "bottom": 1152
         },
@@ -82,14 +117,14 @@
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-        "h2_anchor": "FAQ и schema: зачем и как"
+        "alt": "UI-мокап FAQ и schema JSON-LD: BlogPosting + FAQPage для блога",
+        "h2_anchor": "Настройте schema JSON-LD и блок вопросов"
       }
     }
   },
   "html_inject": [
-    "skip inline_1: already injected",
-    "skip inline_2: already injected",
-    "skip inline_3: already injected"
+    "injected inline_1 after H2 — Объедините SEO и GEO в одной статье",
+    "injected inline_2 after H2 — Соберите семантику и постройте структуру longread",
+    "injected inline_3 after H2 — Настройте schema JSON-LD и блок вопросов"
   ]
 }

@@ -172,3 +172,46 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-07 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (14/14, preflight 2026-09-07)
+- schema.jsonld: present
+- cover/cover.png + inline-01..03 + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug=primer-seo-stati, PHP bytes=8395942)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati       # FAIL
+```
+
+### Blockers
+
+1. **Credentials:** FTP login `530 Login incorrect` (FTP_HOST:21, FTP_USER).
+2. **SFTP/SSH:** `Authentication failed` (SFTP_HOST:22, SFTP_USER=devhamnq).
+3. **All combos tested:** FTP_*, SFTP_*, SSH_*, cross-mapped host/user — все FAIL.
+4. **Bootstrap не достигнут:** HTTP-триггер / WebFetch fallback не запускался (файл на сервер не загружен).
+
+### Fix (оператор)
+
+1. Обновить Cloud Secrets: `FTP_USER`/`FTP_PASSWORD` и/или `SFTP_USER`/`SFTP_PASSWORD` для аккаунта Beget (`REMOTE_SITE_ROOT`).
+2. Проверить `FTP_ROOT=/` (wp-load.php в корне после login) в `memory/site.env.local`.
+3. Перезапустить `Task(excalibur-blog-publish)` для B01.
+4. Альтернатива: self-hosted worker с рабочим FTP/SFTP (см. CLOUD-AUTOMATION.md).

@@ -1,0 +1,8 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_perm: 530 Login incorrect. (FTP p21, all credential combos tested: FTP_*, SFTP_*, SSH_* — auth failed)",
+  "verdict": "fail"
+}

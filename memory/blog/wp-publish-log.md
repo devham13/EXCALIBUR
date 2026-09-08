@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-08 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| FTP_ROOT | `/` (from REMOTE_SITE_ROOT env) |
+
+### Preconditions
+
+- article-qa.md: PASS (97/100)
+- link-verify.json: pass (6/6, preflight re-run 2026-09-08)
+- schema.jsonld: present
+- cover/cover.png + alt: present (3 inline figures)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- site.env.local: created from Cloud Secrets (FTP_PASS←FTP_PASSWORD)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL  # PASS 6/6
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP 6492106 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati       # FAIL
+```
+
+### Blockers
+
+1. **FTP auth:** `530 Login incorrect` on FTP port 21 (FTP_USER + FTP_PASSWORD from Cloud Secrets). SFTP-as-FTP and SSH-as-FTP variants also failed.
+2. **Bootstrap not uploaded** — HTTP trigger / WebFetch fallback not reached.
+
+### Next steps (для оператора)
+
+1. Обновить Cloud Secrets: `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD` (аккаунт Beget с `wp-load.php` в `FTP_ROOT=/`).
+2. Проверить `REMOTE_SITE_ROOT=/` и повторить publish.
+3. Альтернатива: self-hosted worker с валидным FTP или WP Application Password + REST publish.

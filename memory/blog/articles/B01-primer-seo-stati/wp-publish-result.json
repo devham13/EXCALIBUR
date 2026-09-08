@@ -1,0 +1,14 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "post_id": null,
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_perm: 530 Login incorrect.\nFTP_HOST=[REDACTED] FTP_USER=dev*** (11 chars) FTP_ROOT=/home/d/devhamnq/... (from REMOTE_SITE_ROOT)\nSFTP/SSH: AuthenticationException (paramiko)\nBootstrap upload not reached; WebFetch fallback not applicable.",
+  "verdict": "fail",
+  "blockers": [
+    "FTP 530 Login incorrect — Cloud Secrets FTP_USER/FTP_PASSWORD stale or wrong account",
+    "SFTP/SSH auth failed — same password rejected on port 22",
+    "Fix: update FTP_* / SFTP_* in Cloud Secrets for Beget account devhamnq; FTP_ROOT from REMOTE_SITE_ROOT"
+  ]
+}

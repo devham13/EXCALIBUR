@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-08 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| site | production (PUBLIC_SITE_URL from Cloud Secrets) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight 2026-09-08)
+- schema.jsonld: present
+- cover/cover.png + alt + 3 inline: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug=primer-seo-stati, PHP bytes=10060770)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP 530 Login incorrect** — port 21. Passive and active mode both fail.
+2. **SFTP/SSH auth failed** — paramiko `AuthenticationException` on port 22 (SFTP_USER/SSH_USER same prefix).
+3. Bootstrap `excalibur-blog-publish-once.php` not uploaded → WebFetch fallback not reached.
+4. `memory/site.env.local` created from Cloud Secrets env (FTP_PASS mapped from FTP_PASSWORD; FTP_ROOT from REMOTE_SITE_ROOT).
+
+### Next steps (оператор)
+
+1. Обновить Cloud Secrets: `FTP_USER`, `FTP_PASSWORD` (или `FTP_PASS`), `FTP_ROOT` = корень WP после login (см. `REMOTE_SITE_ROOT`).
+2. Проверить SFTP/SSH пароль в панели Beget для аккаунта devhamnq.
+3. Повторить publish: `python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati`

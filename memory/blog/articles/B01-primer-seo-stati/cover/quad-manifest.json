@@ -13,30 +13,30 @@
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
+      "alt": "Ведущий блога указывает на график «0 прочтений» — мем-коллаж про SEO-текст для людей",
+      "scene_hint": "reference-лицо в тёмно-синем пиджаке поверх светлой рубашки (не копировать футболку с reference), дружелубная улыбка, жест указывает на analytics «0 прочтений»; вокруг fake Wordstat «15 000 ключей», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений», рваная бумага и скотч",
       "meme_caption_ru": "15k ключей — 0 прочтений?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Объедините SEO и GEO в одном workflow",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: цель, формат, структура, техника — критерии из статьи, стикер «один workflow»",
+      "alt": "Сравнительная таблица SEO vs GEO: Объедините SEO и GEO в одном workflow"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Определите интент и соберите семантику",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Wordstat UI с запросом «как писать seo статьи», кластеры ключей, стрелка к SERP-анализу — «Определите интент и соберите семантику»",
+      "alt": "Скриншот Wordstat и кластеры семантики: Определите интент и соберите семантику"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Составьте каркас longread и напишите черновик",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "6 шагов longread: outline → lead → черновик → читабельность → E-E-A-T → объём 8500–9500 знаков — «Составьте каркас longread и напишите черновик»",
+      "alt": "Схема workflow longread: Составьте каркас longread и напишите черновик"
     }
   }
 }

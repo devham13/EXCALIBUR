@@ -1,0 +1,9 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "ftplib.error_perm: 530 Login incorrect.",
+  "verdict": "fail",
+  "blocker": "FTP 530 Login incorrect — Cloud Secrets FTP_USER/FTP_PASSWORD rejected by FTP_HOST; bootstrap not uploaded; WebFetch fallback N/A"
+}

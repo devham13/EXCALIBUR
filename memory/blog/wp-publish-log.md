@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-09 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| site-base | PUBLIC_SITE_URL (production) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (7/7, preflight 2026-09-09)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL  # pass 7/7
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP 6944614 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP 530 Login incorrect** — `FTP_HOST` + `FTP_USER` + `FTP_PASSWORD` из Cloud Secrets отклонены сервером (pasv True/False).
+2. **SFTP AuthenticationException** — `SFTP_HOST:22` + `SFTP_USER` + `SFTP_PASSWORD` также отклонены (paramiko).
+3. **WebFetch fallback N/A** — bootstrap `excalibur-blog-publish-once.php` не загружен на сервер (FTP login до upload).
+
+### Next steps (для оператора)
+
+1. Обновить Cloud Secrets: `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD` (или `FTP_PASS`), `FTP_ROOT` / `REMOTE_SITE_ROOT` для production (Beget).
+2. Проверить вручную: FTP login → `pwd` → наличие `wp-load.php`.
+3. После fix credentials — перезапустить `excalibur-blog-publish` (dry-run → publish).

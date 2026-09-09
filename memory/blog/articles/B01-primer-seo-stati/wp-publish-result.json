@@ -1,0 +1,14 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1239080,
+    "detected_format": "png"
+  },
+  "raw_output": "ftplib.error_perm: 530 Login incorrect. (FTP bootstrap never uploaded; WebFetch fallback N/A)",
+  "verdict": "fail"
+}

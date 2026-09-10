@@ -1,3 +1,11 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "url": null,
+  "fallback": "cursor/GenerateImage",
+  "reference_image": "memory/cover/assets/blog-hero-reference.png",
+  "local_canvas": "cover/canvas-quad.png",
+  "canvas_size_px": [
+    1280,
+    720
+  ],
+  "note": "user-mcp-kv/gpt-image-2 MCP server not available in Cloud Agent; generated via cursor GenerateImage with reference_image_paths (i2i fallback)"
 }

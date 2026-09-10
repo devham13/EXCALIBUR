@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
 Дата публикации: 2026-09-10  
-Live URL: https://mayai.ru/blog/primer-seo-stati/ (заполнить после publish)
+Live URL: /2026/06/19/primer-seo-stati/ (production)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

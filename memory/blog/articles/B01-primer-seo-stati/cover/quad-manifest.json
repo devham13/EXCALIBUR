@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "8 шагов SEO+GEO — или снова «набить ключи» и ждать?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на fake Wordstat: 15k ключей и 0 прочтений — мем-коллаж про SEO-текст",
+      "scene_hint": "reference-лицо в тёмно-синем худи SEO-редактора поверх рубашки, дружелуная улыбка, указывает на fake Яндекс Wordstat «15 000 ключей» и analytics «0 прочтений до конца», Telegram-чат «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений», рваная бумага и скотч",
+      "meme_caption_ru": "15k ключей — 0 дочитываний?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
-      "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "h2_anchor": "Определите интент и формат по ТОП-5 SERP",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин выдачи Яндекс/Google по запросу «как писать seo статьи»: ТОП-5 URL, типы сниппетов (гайд, чеклист, FAQ), розовый стикер «интент how_to»",
+      "alt": "Скриншот SERP ТОП-5: определение интента и формата статьи"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Соберите семантику в Яндекс Вордстат",
+      "visual_type": "infographic_card",
+      "scene_hint": "Карточка: 15–25 LSI-фраз из Вордстат, 3–5 кластеров (структура, мета, GEO, качество), без выдуманных показов, мини-скотч в углу",
+      "alt": "Инфографика кластеров LSI-фраз из Яндекс Вордстат"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Составьте структуру longread: H1, lead, H2 и блок вопросов",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица Title / Description / Lead / H2-блок с ролями и ориентирами (60 символов, 40–70 слов, атомарный чанк), как в статье",
+      "alt": "Таблица элементов longread: Title, Lead, H2 и их роли"
     }
   }
 }

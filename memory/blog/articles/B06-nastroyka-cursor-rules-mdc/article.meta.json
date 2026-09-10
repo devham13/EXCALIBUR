@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-rules-mdc",
+  "h1": "Как настроить Cursor Rules (.mdc): пошаговая инструкция для Agent mode в 2026",
+  "title": "Cursor Rules: пошаговая настройка .mdc для Agent mode",
+  "description": "Пошаговая настройка cursor rules: .cursor/rules/*.mdc, frontmatter alwaysApply и globs, миграция с .cursorrules, проверка Active Rules и troubleshooting для Agent mode.",
+  "keywords": [
+    "cursor rules",
+    "cursor rules mdc",
+    "настройка cursor rules",
+    ".cursor/rules инструкция",
+    "миграция с cursorrules на mdc"
+  ],
+  "primary_query": "cursor rules",
+  "secondary_queries": [
+    "cursor rules mdc",
+    "настройка cursor rules",
+    ".cursor/rules инструкция",
+    "миграция с cursorrules на mdc"
+  ],
+  "char_count": 9393,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor rules mdc для agent mode",
+    "пошаговая инструкция .cursor/rules alwaysApply globs",
+    "миграция с cursorrules на mdc за 5 минут"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Rules: пошаговая настройка .mdc для Agent mode",
+    "title_ctr": "💻 Cursor Rules за вечер: настройте .mdc и проверьте Active Rules!",
+    "title_aeo": "Как настроить Cursor Rules (.mdc) для Agent mode в 2026?",
+    "description_seo": "Пошаговая настройка cursor rules: .cursor/rules/*.mdc, frontmatter alwaysApply и globs, миграция с .cursorrules, проверка Active Rules и troubleshooting.",
+    "description_ctr": "⚡ Соберите .cursor/rules за 20–40 минут: 7 шагов, таблица режимов, миграция .cursorrules и чеклист silent YAML. Гайд для Agent mode без лишней воды.",
+    "description_aeo": "Cursor Rules – инструкции для Agent в .cursor/rules/*.mdc с YAML frontmatter (alwaysApply, globs, description). Tab rules не читает; миграция с .cursorrules за 5 минут."
+  },
+  "cover_family": "brand_collage"
+}

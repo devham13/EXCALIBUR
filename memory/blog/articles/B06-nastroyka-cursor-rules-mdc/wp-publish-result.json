@@ -1,0 +1,7 @@
+{
+  "slug": "nastroyka-cursor-rules-mdc",
+  "topic_id": "B06",
+  "permalink": "",
+  "raw_output": "FTP: ftplib.error_perm 530 Login incorrect (pasv True/False, FTPS tested, Beget username variants)\nSFTP: paramiko AuthenticationException Authentication failed\nSSH: paramiko AuthenticationException Authentication failed\nWebFetch fallback: N/A — bootstrap PHP never uploaded to server",
+  "verdict": "fail"
+}

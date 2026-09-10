@@ -1,0 +1,241 @@
+<p>Agent в Cursor снова переписал файл "как ему кажется", хотя вы уже десять раз просили не трогать стили? Без cursor rules инструкции живут только в вашей голове и в длинных сообщениях чата. За 20–40 минут вы соберёте папку .cursor/rules с файлами .mdc, настроите режимы alwaysApply и globs, проверите Active Rules в Agent и закоммитите правила для команды.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cursor Rules – постоянные инструкции для Agent (чат-режим с автономными действиями), как стикеры на мониторе ассистента. Храните их в .cursor/rules/*.mdc с YAML frontmatter: alwaysApply, globs или description. Tab и Cmd+K rules не читают. Один короткий alwaysApply-файл плюс scoped-правила по папкам – рабочий минимум на вечер.</blockquote>
+
+<p>Cursor Rules – это текстовые правила, которые редактор подмешивает в контекст Agent при каждом запросе. Agent mode – режим, где нейросеть сама правит файлы, запускает команды и ходит по проекту; Tab – только подсказки при наборе кода, rules туда не попадают. По данным Яндекс Вордстат (июнь 2026), запрос "cursor rules" даёт около 248 показов в месяц в РФ – люди уже в Cursor и ищут, как зафиксировать поведение агента.</p>
+
+<p>После настройки rules логичный следующий шаг – <a href="/podklyuchenie-mcp-cursor/">подключить MCP-серверы</a>: rules говорят "как думать", MCP даёт доступ к браузеру, GitHub и CMS.</p>
+
+<h2 id="why-rules">1. Поймите, зачем Cursor Rules в Agent mode в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица типов Cursor Rules: Project, User, Team, AGENTS.md" loading="lazy">
+</figure>
+
+
+<p>Без rules каждый новый чат начинается с нуля: агент не знает ваш стек, язык ответов и запреты. Файл .cursorrules в корне репозитория – устаревший формат (legacy): Cursor ещё может его читать, но для Agent mode в 2026 опирайтесь на .mdc в .cursor/rules.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип правил</th>
+      <th>Где лежит</th>
+      <th>Когда использовать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Project Rules (.mdc)</b></td>
+      <td>.cursor/rules/</td>
+      <td>Командный репозиторий, version control в git</td>
+    </tr>
+    <tr>
+      <td><b>User Rules</b></td>
+      <td>Customize → Rules</td>
+      <td>Личные привычки на всех проектах</td>
+    </tr>
+    <tr>
+      <td><b>Team Rules</b></td>
+      <td>Dashboard (Team/Enterprise)</td>
+      <td>Корпоративные стандарты</td>
+    </tr>
+    <tr>
+      <td><b>AGENTS.md</b></td>
+      <td>Корень или подпапки</td>
+      <td>Простой always-on markdown без globs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>При конфликте побеждает более ранний уровень: Team Rules → Project Rules → User Rules. <b>Делайте:</b> короткие project rules в git, чтобы команда видела одно и то же. <b>Не делайте:</b> копировать 400 строк в один alwaysApply – перегрузите контекст и получите "глухого" агента.</p>
+
+<h2 id="create-mdc">2. Создайте каталог .cursor/rules/ и первый .mdc</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: 7 шагов создания .cursor/rules и первого .mdc" loading="lazy">
+</figure>
+
+
+<blockquote>
+  <b>Workflow настройки:</b>
+  <br>
+  Backup .cursorrules → mkdir .cursor/rules → 00-general.mdc (alwaysApply) → scoped .mdc с globs → проверка YAML → Settings → Rules → тест в Agent → git commit
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Откройте проект в Cursor и убедитесь, что работает Agent mode (не только Tab).</li>
+  <li><b>Шаг 2:</b> Если есть .cursorrules – переименуйте в .cursorrules.backup, чтобы не дублировать инструкции.</li>
+  <li><b>Шаг 3:</b> Создайте папку .cursor/rules/ (терминал: mkdir -p .cursor/rules или Command Palette → "New Cursor Rule").</li>
+  <li><b>Шаг 4:</b> Добавьте 00-general.mdc с alwaysApply: true и 5–15 пунктами (язык, стек, "спроси перед удалением").</li>
+  <li><b>Шаг 5:</b> Добавьте второй файл, например frontend.mdc, с globs под ваши файлы.</li>
+  <li><b>Шаг 6:</b> Откройте Cursor Settings → Rules и сверьте тип каждого правила (Always / Auto Attached).</li>
+  <li><b>Шаг 7:</b> В новом Agent-чате спросите "какие правила активны?" и сравните Active Rules с вашими файлами.</li>
+</ol>
+
+<p>Пример always-on правила (расширение строго .mdc, не .md – обычный .md в этой папке Cursor игнорирует):</p>
+
+<blockquote>
+  <b>Пример always-on правила (.mdc):</b><br>
+  ---<br>
+  alwaysApply: true<br>
+  ---<br>
+  - Отвечай на русском, код и команды – на английском.<br>
+  - Перед удалением файлов и массовым рефакторингом – спроси подтверждение.<br>
+  - После правок запускай lint/test, если они есть в package.json.<br>
+  - Не коммить секреты и API-ключи.
+</blockquote>
+
+<p>Пример scoped-правила под React/TS (несколько glob-паттернов – через запятую):</p>
+
+<blockquote>
+  <b>Пример scoped-правила (React/TS):</b><br>
+  ---<br>
+  description: "React и TypeScript в src/"<br>
+  globs: "src/**/*.tsx,src/**/*.ts"<br>
+  alwaysApply: false<br>
+  ---<br>
+  - Функциональные компоненты, hooks вместо классов.<br>
+  - Имена компонентов – PascalCase, файлы – kebab-case.
+</blockquote>
+
+<p><b>Делайте:</b> держите каждый .mdc короче 500 строк по рекомендации Cursor. <b>Не делайте:</b> забывать закрывающий --- в YAML – правило часто "молчит" без ошибки в UI.</p>
+
+<h2 id="activation-modes">3. Выберите режим активации через frontmatter</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист режимов активации Cursor Rules через YAML frontmatter" loading="lazy">
+</figure>
+
+
+<p>Frontmatter – блок YAML между двумя строками --- в начале .mdc; он говорит Cursor, когда подмешивать текст правила.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Режим в UI</th>
+      <th>Настройка в YAML</th>
+      <th>Когда срабатывает</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Always Apply</b></td>
+      <td>alwaysApply: true</td>
+      <td>Всегда в контексте Agent; globs и description игнорируются</td>
+    </tr>
+    <tr>
+      <td><b>Apply to Specific Files</b></td>
+      <td>alwaysApply: false + globs</td>
+      <td>Когда в контексте есть файлы по маске (**/*.tsx)</td>
+    </tr>
+    <tr>
+      <td><b>Apply Intelligently</b></td>
+      <td>alwaysApply: false + description</td>
+      <td>Agent сам решает по описанию правила</td>
+    </tr>
+    <tr>
+      <td><b>Apply Manually</b></td>
+      <td>alwaysApply: false без globs и description</td>
+      <td>Только если вызвать @имя-правила в чате</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> alwaysApply только для 3–15 глобальных пунктов. Стек, тесты, API – в отдельные .mdc с globs. <b>Не делайте:</b> ставить alwaysApply: true на всё подряд – съедает окно контекста.</p>
+
+<h2 id="modular">4. Соберите модульную архитектуру правил</h2>
+
+<p>Модульность – как отдельные папки в шкафу: general, frontend, api, tests, content. Для контент-репозитория вместо src/**/*.tsx возьмите memory/**/*.md или articles/**/*.html.</p>
+
+<ul>
+  <li><b>00-general.mdc</b> – язык, тон, безопасность, git-гигиена</li>
+  <li><b>frontend.mdc</b> – globs под UI-файлы</li>
+  <li><b>api.mdc</b> – description "RPC и REST при правке backend"</li>
+  <li><b>tests.mdc</b> – globs **/*.test.ts, **/*.spec.ts</li>
+  <li><b>deploy-manual.mdc</b> – без globs: вызываете @deploy-manual перед релизом</li>
+</ul>
+
+<p>Создать правило можно через /create-rule в Agent или Customize → Rules → Add Rule – Cursor сам предложит frontmatter. В правилах можно ссылаться на файлы через @filename.ts. Шаблоны сообщества – на <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> (40 747 stars на GitHub на 10.09.2026); адаптируйте под свой репо, не копируйте слепо.</p>
+
+<p><b>Делайте:</b> один concern – один файл. <b>Не делайте:</b> дублировать те же пункты в AGENTS.md и в .mdc с противоречиями – агент запутается.</p>
+
+<h2 id="migration">5. Перенесите .cursorrules за 5 минут</h2>
+
+<ol>
+  <li><b>Шаг 1:</b> Сохраните копию .cursorrules (.backup).</li>
+  <li><b>Шаг 2:</b> Разрежьте монолит на 2–3 темы: общее, стек, тесты/деплой.</li>
+  <li><b>Шаг 3:</b> Каждый кусок – отдельный .mdc с нужным frontmatter.</li>
+  <li><b>Шаг 4:</b> Прогоните тестовый prompt в Agent без копипаста старых инструкций в чат.</li>
+  <li><b>Шаг 5:</b> Удалите .cursorrules только после успешной проверки Active Rules.</li>
+</ol>
+
+<p><b>Делайте:</b> git add .cursor/rules/ и commit с понятным сообщением. <b>Не делайте:</b> держать legacy-файл и новые .mdc одновременно – дубли и конфликты непредсказуемы.</p>
+
+<h2 id="troubleshooting">6. Исправьте типичные сбои</h2>
+
+<p>Если cursor rules "не работают" в Agent mode, пройдите чеклист:</p>
+
+<ul>
+  <li>Файл лежит в .cursor/rules/, а не в корне проекта</li>
+  <li>Расширение .mdc, не .md</li>
+  <li>YAML начинается и заканчивается ---</li>
+  <li>Glob с **: src/**/*.tsx, не только *.tsx</li>
+  <li>Нет двух alwaysApply с одинаковыми противоречивыми пунктами</li>
+  <li>Новый Agent-чат после правок (старый мог закешировать контекст)</li>
+  <li>Settings → Rules показывает правило нужного типа</li>
+  <li>User Rules не дублируют project rules с конфликтом</li>
+</ul>
+
+<p>Rules не влияют на Tab и Inline Edit (Cmd+K) – только на Agent Chat. Если нужен доступ к внешним сервисам, rules дополняйте <a href="/podklyuchenie-mcp-cursor/">настройкой MCP</a>, а не раздуванием alwaysApply.</p>
+
+<p><b>Делайте:</b> явно назовите модель в Agent, если правила "плавают" на Auto (совет сообщества). <b>Не делайте:</b> ждать, что rules заменят MCP для браузера или CMS.</p>
+
+<h2 id="checklist">7. Пройдите финальный чеклист</h2>
+
+<ul>
+  <li>Каталог .cursor/rules/ в корне репозитория</li>
+  <li>Минимум два .mdc: general + scoped</li>
+  <li>alwaysApply только у короткого general</li>
+  <li>Globs проверены на реальном файле проекта</li>
+  <li>Active Rules в Agent совпадают с ожиданием</li>
+  <li>Тестовый prompt под glob без ручной вставки rules</li>
+  <li>.cursorrules удалён или в backup</li>
+  <li>Нет дубля AGENTS.md с другими формулировками</li>
+  <li>Каждый .mdc короче 500 строк</li>
+  <li>git commit .cursor/rules/ для команды</li>
+  <li>Следующий шаг – MCP под ваш стек</li>
+</ul>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Закрепите 00-general.mdc и один scoped-файл под главную папку проекта.</li>
+  <li>Подключите MCP для задач вне репозитория – см. <a href="/podklyuchenie-mcp-cursor/">гайд по MCP в Cursor</a>.</li>
+  <li>Добавьте manual-rule (@deploy) для опасных операций.</li>
+  <li>Для фоновых сценариев (CRM, Telegram, публикации) – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com и вайбкодинга</a> (159+ уроков): rules и MCP в IDE, Make – оркестрация 24/7.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, MCP и автоматизации).<br>
+  <b>Достоверность данных:</b> поведение Project Rules, frontmatter и режимы активации сверены с <a href="https://cursor.com/docs/rules" target="_blank">документацией Cursor</a> на 10.09.2026; показатели Вордстат ("cursor rules" – 248, "как настроить cursor" – 186) – по данным Яндекс Вордстат, июнь 2026.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Как настроить cursor rules с нуля?</h3>
+<p>Создайте .cursor/rules/, добавьте .mdc с YAML frontmatter (--- в начале и конце), задайте alwaysApply или globs, откройте Settings → Rules и в новом Agent-чате проверьте Active Rules. Закоммитьте папку в git.</p>
+
+<h3>Чем .mdc отличается от .cursorrules?</h3>
+<p>.mdc – файл в .cursor/rules/ с frontmatter и выбором режима (always, globs, manual). .cursorrules – один legacy-файл в корне без модульности. Для Agent mode в 2026 используйте .mdc.</p>
+
+<h3>Почему cursor rules не работают в Agent mode?</h3>
+<p>Проверьте: папка .cursor/rules/, расширение .mdc, закрывающий ---, glob с **, нет ли дубля .cursorrules, новый чат Agent. Rules не действуют в Tab – только в Agent Chat.</p>
+
+<h3>Always Apply или globs – что выбрать?</h3>
+<p>Always Apply – для 3–15 глобальных правил. Всё, что привязано к папкам или стеку – отдельные .mdc с globs или description. Так экономите контекст.</p>
+
+<h3>Rules или AGENTS.md – что использовать?</h3>
+<p>AGENTS.md – простой markdown always-on без globs. .mdc – когда нужны маски файлов и четыре режима активации. Не дублируйте противоречия в обоих местах.</p>
+
+<h3>Влияют ли rules на Tab и Cmd+K?</h3>
+<p>Нет. По официальной документации Cursor rules работают в Agent (Chat). Tab и Inline Edit их не подхватывают.</p>
+
+<h3>Как мигрировать с .cursorrules на .mdc?</h3>
+<p>Backup старого файла, разбейте текст на 2–3 .mdc, назначьте frontmatter, протестируйте Active Rules в Agent, затем удалите .cursorrules и сделайте git commit.</p>

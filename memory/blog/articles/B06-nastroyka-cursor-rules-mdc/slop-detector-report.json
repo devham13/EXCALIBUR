@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "mdc с globs → проверка YAML → Settings → Rules → тест в Agent → git commit Шаг 1: Откройте проект в Cursor и убедитесь, что работает Agent mode (не только Tab)",
+      "word_count": 26
+    },
+    {
+      "sentence": "Режим в UI Настройка в YAML Когда срабатывает Always Apply alwaysApply: true Всегда в контексте Agent; globs и description игнорируются Apply to Specific Files alwaysApply: false + globs Когда в контексте есть файлы по маске (**/*",
+      "word_count": 34
+    },
+    {
+      "sentence": "tsx) Apply Intelligently alwaysApply: false + description Agent сам решает по описанию правила Apply Manually alwaysApply: false без globs и description Только если вызвать @имя-правила в чате Делайте: alwaysApply только для 3–15 глобальных пунктов",
+      "word_count": 32
+    },
+    {
+      "sentence": "tsx Нет двух alwaysApply с одинаковыми противоречивыми пунктами Новый Agent-чат после правок (старый мог закешировать контекст) Settings → Rules показывает правило нужного типа User Rules не дублируют project rules с конфликтом Rules не влияют на Tab и Inline Edit (Cmd+K) – только на Agent Chat",
+      "word_count": 44
+    },
+    {
+      "sentence": "mdc: general + scoped alwaysApply только у короткого general Globs проверены на реальном файле проекта Active Rules в Agent совпадают с ожиданием Тестовый prompt под glob без ручной вставки rules",
+      "word_count": 29
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.4,
+    "avg_syllables_per_word": 1.4
+  }
+}

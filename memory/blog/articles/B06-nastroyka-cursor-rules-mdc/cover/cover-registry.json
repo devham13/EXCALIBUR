@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-rules-mdc",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Ведущий блога: мем-коллаж — Agent переписал файл без cursor rules",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-10T04:10:35+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Ведущий блога: мем-коллаж — Agent переписал файл без cursor rules",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица типов Cursor Rules: Project, User, Team, AGENTS.md",
+      "h2_anchor": "1. Поймите, зачем Cursor Rules в Agent mode в 2026",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow: 7 шагов создания .cursor/rules и первого .mdc",
+      "h2_anchor": "2. Создайте каталог .cursor/rules/ и первый .mdc",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист режимов активации Cursor Rules через YAML frontmatter",
+      "h2_anchor": "3. Выберите режим активации через frontmatter",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

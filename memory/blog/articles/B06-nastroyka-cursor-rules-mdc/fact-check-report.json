@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-cursor-rules-mdc/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "туда не попадают. По данным Яндекс Вордстат (июнь 2026), запрос \"cursor rules\" даёт около 248 показов в",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 минут",
+      "kind": "metric_or_duration",
+      "context": "в вашей голове и в длинных сообщениях чата. За 20–40 минут вы соберёте папку .cursor/rules с файлами .mdc, н",
+      "verified": true,
+      "reason": "Numerical value '40' matched in fact-bank context"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "– агент запутается. 5. Перенесите .cursorrules за 5 минут Шаг 1: Сохраните копию .cursorrules (.backup). Ша",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "248",
+      "kind": "large_number",
+      "context": "тат (июнь 2026), запрос \"cursor rules\" даёт около 248 показов в месяц в РФ – люди уже в Cursor и ищут, к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "400",
+      "kind": "large_number",
+      "context": "манда видела одно и то же. Не делайте: копировать 400 строк в один alwaysApply – перегрузите контекст и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "– kebab-case. Делайте: держите каждый .mdc короче 500 строк по рекомендации Cursor. Не делайте: забывать",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "40 747",
+      "kind": "large_number",
+      "context": ".ts. Шаблоны сообщества – на awesome-cursorrules (40 747 stars на GitHub на 10.09.2026); адаптируйте под св",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

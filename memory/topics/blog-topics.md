@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Настройка Cursor Rules (.mdc)
+
+- **priority:** P0
+- **slug:** nastroyka-cursor-rules-mdc
+- **h1:** Как настроить Cursor Rules (.mdc): пошаговая инструкция для Agent mode в 2026
+- **primary_query:** cursor rules
+- **secondary_queries:** cursor rules mdc, настройка cursor rules, .cursor/rules инструкция, миграция с cursorrules на mdc
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Зачем Cursor Rules в 2026: Agent mode, контекст и почему .cursorrules больше не работает
+  2. Структура .cursor/rules/: создание .mdc-файлов с YAML frontmatter (alwaysApply, globs, description)
+  3. Четыре режима активации правил: always, globs, agent-requested, manual (@-mention)
+  4. Модульная архитектура: разбиение правил по стеку, папкам и задачам (Next.js, API, тесты)
+  5. Миграция с .cursorrules: пошаговый чек-лист переноса в general.mdc за 5 минут
+  6. Troubleshooting: правила не подхватываются, перегруз контекста, конфликт с AGENTS.md
+- **faq_hints:** как настроить cursor rules; чем .mdc отличается от .cursorrules; почему cursor rules не работают в agent mode
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** IDE Cursor на экране, вокруг — «папки-правила» .mdc с YAML-стикерами (alwaysApply, globs), стрелки к Agent mode, diy-коллаж с неоновыми блоками frontmatter
+
+---
+

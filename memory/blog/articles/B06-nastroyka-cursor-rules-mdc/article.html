@@ -7,6 +7,10 @@
 <p>После настройки rules логичный следующий шаг – <a href="/podklyuchenie-mcp-cursor/">подключить MCP-серверы</a>: rules говорят "как думать", MCP даёт доступ к браузеру, GitHub и CMS.</p>
 
 <h2 id="why-rules">1. Поймите, зачем Cursor Rules в Agent mode в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица типов Cursor Rules: Project, User, Team, AGENTS.md" loading="lazy">
+</figure>
+
 
 <p>Без rules каждый новый чат начинается с нуля: агент не знает ваш стек, язык ответов и запреты. Файл .cursorrules в корне репозитория – устаревший формат (legacy): Cursor ещё может его читать, но для Agent mode в 2026 опирайтесь на .mdc в .cursor/rules.</p>
 
@@ -45,6 +49,10 @@
 <p>При конфликте побеждает более ранний уровень: Team Rules → Project Rules → User Rules. <b>Делайте:</b> короткие project rules в git, чтобы команда видела одно и то же. <b>Не делайте:</b> копировать 400 строк в один alwaysApply – перегрузите контекст и получите "глухого" агента.</p>
 
 <h2 id="create-mdc">2. Создайте каталог .cursor/rules/ и первый .mdc</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: 7 шагов создания .cursor/rules и первого .mdc" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Workflow настройки:</b>
@@ -64,29 +72,37 @@
 
 <p>Пример always-on правила (расширение строго .mdc, не .md – обычный .md в этой папке Cursor игнорирует):</p>
 
-<pre><code>---
-alwaysApply: true
----
-- Отвечай на русском, код и команды – на английском.
-- Перед удалением файлов и массовым рефакторингом – спроси подтверждение.
-- После правок запускай lint/test, если они есть в package.json.
-- Не коммить секреты и API-ключи.
-</code></pre>
+<blockquote>
+  <b>Пример always-on правила (.mdc):</b><br>
+  ---<br>
+  alwaysApply: true<br>
+  ---<br>
+  - Отвечай на русском, код и команды – на английском.<br>
+  - Перед удалением файлов и массовым рефакторингом – спроси подтверждение.<br>
+  - После правок запускай lint/test, если они есть в package.json.<br>
+  - Не коммить секреты и API-ключи.
+</blockquote>
 
 <p>Пример scoped-правила под React/TS (несколько glob-паттернов – через запятую):</p>
 
-<pre><code>---
-description: "React и TypeScript в src/"
-globs: "src/**/*.tsx,src/**/*.ts"
-alwaysApply: false
----
-- Функциональные компоненты, hooks вместо классов.
-- Имена компонентов – PascalCase, файлы – kebab-case.
-</code></pre>
+<blockquote>
+  <b>Пример scoped-правила (React/TS):</b><br>
+  ---<br>
+  description: "React и TypeScript в src/"<br>
+  globs: "src/**/*.tsx,src/**/*.ts"<br>
+  alwaysApply: false<br>
+  ---<br>
+  - Функциональные компоненты, hooks вместо классов.<br>
+  - Имена компонентов – PascalCase, файлы – kebab-case.
+</blockquote>
 
 <p><b>Делайте:</b> держите каждый .mdc короче 500 строк по рекомендации Cursor. <b>Не делайте:</b> забывать закрывающий --- в YAML – правило часто "молчит" без ошибки в UI.</p>
 
 <h2 id="activation-modes">3. Выберите режим активации через frontmatter</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист режимов активации Cursor Rules через YAML frontmatter" loading="lazy">
+</figure>
+
 
 <p>Frontmatter – блок YAML между двумя строками --- в начале .mdc; он говорит Cursor, когда подмешивать текст правила.</p>
 

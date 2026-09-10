@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Agent снова переписал файл — а rules вы так и не настроили?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Ведущий блога: мем-коллаж — Agent переписал файл без cursor rules",
+      "scene_hint": "reference-лицо в тёмно-синем худи разработчика с ноутбуком, указывает на fake Cursor Agent чат «переписал styles.css без спроса», рядом fake .mdc editor с YAML frontmatter alwaysApply:true, стикер «Active Rules: 0», Wordstat «cursor rules 248/мес», meme facepalm + shocked cat cutout, розовый highlight на «rules»",
+      "meme_caption_ru": "Rules = 0, Agent = хаос"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Поймите, зачем Cursor Rules в Agent mode в 2026",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица Project Rules (.mdc) vs User Rules vs Team Rules vs AGENTS.md — тип, где лежит, когда использовать — «1. Поймите, зачем Cursor Rules в Agent mode в 2026»",
+      "alt": "Сравнительная таблица типов Cursor Rules: Project, User, Team, AGENTS.md"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Создайте каталог .cursor/rules/ и первый .mdc",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "7 шагов workflow: backup .cursorrules → mkdir .cursor/rules → 00-general.mdc → scoped .mdc → YAML check → Settings → Agent test → git commit — «2. Создайте каталог .cursor/rules/ и первый .mdc»",
+      "alt": "Схема workflow: 7 шагов создания .cursor/rules и первого .mdc"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Выберите режим активации через frontmatter",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист режимов frontmatter: Always Apply (alwaysApply:true), Specific Files (globs), Apply Intelligently (description), Manual (@rule) — с галочками и примерами YAML — «3. Выберите режим активации через frontmatter»",
+      "alt": "Чеклист режимов активации Cursor Rules через YAML frontmatter"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-nastroyka-cursor-rules-mdc/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      639,
+      359
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 359,
+        "end": 362
+      },
+      "v_gutter_px": {
+        "start": 639,
+        "end": 641
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Ведущий блога: мем-коллаж — Agent переписал файл без cursor rules",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица типов Cursor Rules: Project, User, Team, AGENTS.md",
+        "h2_anchor": "1. Поймите, зачем Cursor Rules в Agent mode в 2026"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 362,
+          "right": 639,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 362,
+          "right": 639,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow: 7 шагов создания .cursor/rules и первого .mdc",
+        "h2_anchor": "2. Создайте каталог .cursor/rules/ и первый .mdc"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 641,
+          "top": 362,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 362,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист режимов активации Cursor Rules через YAML frontmatter",
+        "h2_anchor": "3. Выберите режим активации через frontmatter"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Поймите, зачем Cursor Rules в Agent mode в 2026",
+    "injected inline_2 after H2 — 2. Создайте каталог .cursor/rules/ и первый .mdc",
+    "injected inline_3 after H2 — 3. Выберите режим активации через frontmatter"
+  ]
+}

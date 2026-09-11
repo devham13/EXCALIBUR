@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Automations и Cloud Agents
+
+- **priority:** P0
+- **slug:** nastroyka-cursor-automations
+- **h1:** Как настроить Cursor Automations: пошаговая инструкция по Cloud Agents для бизнеса
+- **primary_query:** cursor automations
+- **secondary_queries:** cursor cloud agents, настройка cursor automations, cursor automations cron, cursor automations webhook
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Cloud Agent vs Automation vs чат: когда что включать в 2026 году
+  2. Подготовка: paid plan, spend limit, Secrets и подключение GitHub
+  3. Создание первой Automation: trigger, prompt, tools и scope репозитория
+  4. Расписание и cron: CRON_TZ, preset vs custom, Test run и Run History
+  5. Webhook-триггер: endpoint, API key, POST из Make/n8n/CRM
+  6. MCP, Memories и multi-repo environment для сложных сценариев
+  7. Чек-лист безопасного запуска: Max Mode billing, no-repo для брифов, типичные ошибки
+- **faq_hints:** чем cursor automations отличается от cloud agent; нужен ли репозиторий для automations; как настроить cron по московскому времени; сколько стоит cursor automations
+- **internal_links:** /podklyuchenie-mcp-cursor/, /avtonomnyj-kontent-zavod-nejroseti/
+- **cover_scene_hint:** облачная VM с будильником-cron, вокруг стикеры Trigger/Prompt/Webhook/MCP, стрелки к Slack и Make, неоновый diy-коллаж «агент работает ночью»
+
+---
+

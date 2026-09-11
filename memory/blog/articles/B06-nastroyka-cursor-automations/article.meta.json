@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-automations",
+  "h1": "Как настроить Cursor Automations: пошаговая инструкция по Cloud Agents для бизнеса",
+  "title": "Cursor Automations: пошаговая настройка Cloud Agents для бизнеса",
+  "description": "Настройка cursor automations: Pro+, cron, webhook из Make/n8n, MCP, spend limit и Run History. Единый RU how-to для брифов и CRM без Senior-разработчика.",
+  "keywords": [
+    "cursor automations",
+    "cursor cloud agents",
+    "настройка cursor automations",
+    "cursor automations cron",
+    "cursor automations webhook"
+  ],
+  "primary_query": "cursor automations",
+  "secondary_queries": [
+    "cursor cloud agents",
+    "настройка cursor automations",
+    "cursor automations cron",
+    "cursor automations webhook"
+  ],
+  "char_count": 9025,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor automations пошагово для бизнеса",
+    "cursor cloud agents cron и webhook из make",
+    "настройка cursor automations без github для брифов"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Automations: пошаговая настройка Cloud Agents для бизнеса",
+    "title_ctr": "🚀 Cursor Automations за 45 минут: cron, webhook и Run History без кода!",
+    "title_aeo": "Как настроить Cursor Automations и Cloud Agents для бизнеса?",
+    "description_seo": "Настройка cursor automations: Pro+, cron, webhook из Make/n8n, MCP, spend limit и Run History. Единый RU how-to для брифов и CRM без Senior-разработчика.",
+    "description_ctr": "⚡ Запустите первую Automation сегодня: trigger, prompt, no-repo бриф, POST из Make и чек-лист billing. Гайд для маркетолога и автоматизатора.",
+    "description_aeo": "Cursor Automations – фоновые Cloud Agents по cron или webhook. Создайте через cursor.com/automations, задайте spend limit, проверьте Run History и подключите Make/n8n."
+  },
+  "cover_family": "brand_collage"
+}

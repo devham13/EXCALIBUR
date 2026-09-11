@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — RAG для корпоративной базы знаний
+
+- **priority:** P0
+- **slug:** rag-baza-znaniy-kompanii-2026
+- **h1:** Как настроить RAG для базы знаний компании: пошаговое руководство в 2026
+- **primary_query:** rag база знаний
+- **secondary_queries:** rag система, как настроить rag, корпоративная база знаний ии, hybrid search reranking
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Аудит документов: дубликаты, версии, ACL и выбор источников (Confluence, Notion, Google Drive)
+  2. Chunking и embeddings: размер чанков, overlap и модели для русскоязычных текстов
+  3. Hybrid search + reranking: vector + BM25, top-k и cross-encoder без «шумного» контекста
+  4. Промпт RAG: цитирование источников, temperature 0 и честный ответ «нет в базе»
+  5. Eval и мониторинг: RAGAS, 20–50 контрольных вопросов, переиндексация и SLA обновления
+  6. Сравнение стека: Dify, Qdrant/pgvector и low-code vs self-hosted для production
+- **faq_hints:** сколько чанков нужно для rag; чем hybrid search лучше vector-only; как обновлять базу знаний без потери качества
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /geo-optimizaciya-sajta-2026/
+- **cover_scene_hint:** стопка PDF/DOCX превращается в светящиеся векторные «кубики», стрелки к чат-боту с цитатами-источниками, стикеры BM25+embeddings+rerank, неоновый diy-коллаж
+
+---
+

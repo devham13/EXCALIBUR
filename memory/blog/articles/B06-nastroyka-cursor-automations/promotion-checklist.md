@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastroyka-cursor-automations
 
 Дата публикации: 2026-09-11  
-Live URL: https://mayai.ru/nastroyka-cursor-automations/
+Live URL: /2026/09/11/nastroyka-cursor-automations/ (prefix: EXCALIBUR_PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -32,7 +32,7 @@ Cursor Automations: Cloud Agent по будильнику — или снова 
 • Webhook URL и API key появляются только после Save & Activate
 • CRON_TZ=Europe/Moscow для cron по Москве — сверяйте время в Run History
 
-Читать: https://mayai.ru/nastroyka-cursor-automations/
+Читать: /2026/09/11/nastroyka-cursor-automations/
 ```
 
 ## Перелинковка

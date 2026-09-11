@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Схема RAG-pipeline: Документы → парсинг/OCR → chunking + метаданные → embed → vector DB (+ BM25) Запрос → ACL-фильтр → hybrid search → RRF → rerank top-20→5 → промпт + LLM → ответ + citations Re-index (cron/webhook) ← owner базы + eval golden dataset каждый спринт 1",
+      "word_count": 31
+    },
+    {
+      "sentence": "Чеклист перед prod: Один сценарий и owner базы зафиксированы 50–200 актуальных документов, дубликаты удалены ACL в query, не только в промпте Chunk size проверен на golden dataset Embedding-модель зафиксирована, hash файлов в метаданных Hybrid + rerank включены, top-3–5 в промпт System prompt с \"нет в базе\" и citations Temperature 0, логи fallback Golden dataset 20+ вопросов, baseline RAGAS записан Re-index по webhook/cron настроен Канал (Telegram/виджет) с 👍/👎 и эскалацией Юридические темы – только human-in-the-loop Делайте: сравнивать eval до/после каждого релиза индекса",
+      "word_count": 78
+    },
+    {
+      "sentence": "PostgreSQL SaaS или self-host UI Hybrid + rerank Вручную / LangChain Native sparse+dense+RRF SQL BM25 + vector Pipeline в интерфейсе ACL Фильтры в приложении Payload filters Row-level + WHERE Роли workspace 152-ФЗ / on-prem Self-host Self-host Yandex Managed PG Self-host edition Когда выбрать Пилот до ~1k docs Prod, hybrid native Уже есть PostgreSQL MVP без Python за дни Итоговый вердикт: PoC за выходные – Chroma + LangChain; prod – Qdrant или pgvector + n8n cron для re-index",
+      "word_count": 67
+    },
+    {
+      "sentence": "Re-index по webhook или cron при изменении файла; храните hash и версию индекса; после каждого re-index прогоняйте golden dataset – если faithfulness упал, откатите chunk или top-k",
+      "word_count": 26
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.0,
+    "avg_syllables_per_word": 1.6
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B06-rag-baza-znaniy-kompanii-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 7,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "знаний\" – около 419 показов/мес в Вордстате (июнь 2026, вторичные данные). RAG для базы знаний – конвейе",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2024",
+      "kind": "date_or_year",
+      "context": "т в середине длинного контекста (Liu et al., TACL 2024). 4. Напишите промпт RAG с цитатами и честным \"не",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "– полный workflow за 2–4 недели пилота: аудит 50–200 документов, chunking, hybrid search с rerank, пром",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "419",
+      "kind": "large_number",
+      "context": "eval, не модель. Запрос \"rag база знаний\" – около 419 показов/мес в Вордстате (июнь 2026, вторичные данн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "512",
+      "kind": "large_number",
+      "context": "е по заголовкам, не посередине абзаца. Старт: 256–512 или 500–700 токенов, overlap 10–20%. Сканы PDF – т",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "700",
+      "kind": "large_number",
+      "context": "кам, не посередине абзаца. Старт: 256–512 или 500–700 токенов, overlap 10–20%. Сканы PDF – только через",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "20–30 реальных вопросов сотрудников на пилоте, 50–100 на prod. Для каждого – эталонный ответ и ссылка на",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "– не вся компания. Лучше узкий FAQ поддержки, чем 10 000 страниц без owner. Чем hybrid search лучше vector-",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -26,7 +26,7 @@
 
 <p>Режьте по заголовкам, не посередине абзаца. Старт: 256–512 или 500–700 токенов, overlap 10–20%. Сканы PDF – только через OCR.</p>
 
-<p>Embedding-модель зафиксируйте до индексации – смена = полный re-index. PoC: BGE-M3 или text-embedding-3-small; для 152-ФЗ – YandexGPT/GigaChat + on-prem. Re-index через cron в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">n8n/Make</a>; храните hash файла.</p>
+<p>Embedding-модель зафиксируйте до индексации – смена = полный re-index. PoC: BGE-M3 или text-embedding-3-small; для 152-ФЗ – YandexGPT/GigaChat + on-prem. Re-index через cron в <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">n8n/Make</a>; храните hash файла.</p>
 
 <p><b>Делайте:</b> логируйте, какой chunk попал в ответ. <b>Не делайте:</b> менять chunk_size каждый день без eval – не поймёте, что улучшилось.</p>
 
@@ -40,9 +40,11 @@
 
 <p>System prompt – главный руль. Шаблон:</p>
 
-<pre><code>Отвечай только по контексту ниже. Если данных нет – скажи "В базе нет информации" и предложи эскалацию.
-Цитируй источник: [file_name, section].
-Не выдумывай цифры, сроки и юридические формулировки.</code></pre>
+<blockquote>
+  Отвечай только по контексту ниже. Если данных нет – скажи "В базе нет информации" и предложи эскалацию.<br>
+  Цитируй источник: [file_name, section].<br>
+  Не выдумывай цифры, сроки и юридические формулировки.
+</blockquote>
 
 <p>Temperature 0 – минимум фантазии. Логируйте fallback "не нашёл". Юридические и HR темы – только эскалация к человеку.</p>
 
@@ -140,7 +142,7 @@
   <li><b>Шаг 8: Канал.</b> Telegram/виджет/Slack; 👍/👎; эскалация на юридические темы; мониторинг latency.</li>
 </ol>
 
-<p>Публичную базу на сайте – по гайду <a href="/geo-optimizaciya-sajta-2026/" target="_blank">GEO-оптимизация 2026</a>. Re-index в Make – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе kv-ai.ru</a>.</p>
+<p>Публичную базу на сайте – по гайду <a href="https://mayai.ru/geo-optimizaciya-sajta-2026/" target="_blank">GEO-оптимизация 2026</a>. Re-index в Make – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе kv-ai.ru</a>.</p>
 
 <h2 id="next-steps">8. Что делать дальше</h2>
 

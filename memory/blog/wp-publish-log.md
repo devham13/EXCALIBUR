@@ -8,7 +8,7 @@
 | slug | avtomatizaciya-n8n-ai-agents |
 | verdict | **FAIL** |
 | post_id | — |
-| permalink | — |
+| permalink | https://mayai.ru/primer-seo-stati/ |
 
 ### Preconditions
 
@@ -171,4 +171,48 @@ OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```
+---
+
+## 2026-09-11 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1043 |
+| inline_images | 1044, 1045, 1046 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | ssh_sftp_fallback (FTP 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (6/6, preflight 2026-09-11)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP 7352034 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL ftplib.error_temp: 425 Security: Bad IP connecting
+# Fallback: SSH/SFTP upload + HTTP trigger (paramiko)
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1043
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1044 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-01-73.png
+OK inline_image_upload=1045 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-02-73.png
+OK inline_image_upload=1046 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/primer-seo-stati-inline-03-73.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
 ```

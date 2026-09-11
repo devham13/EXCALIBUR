@@ -1,0 +1,16 @@
+{
+  "slug": "nastroyka-cursor-automations",
+  "topic_id": "B06",
+  "permalink": "/2026/09/11/nastroyka-cursor-automations/",
+  "post_id": 1050,
+  "featured_image_id": 1051,
+  "inline_image_ids": [
+    1052,
+    1053,
+    1054
+  ],
+  "raw_output": "OK post=1050 slug=nastroyka-cursor-automations\nOK featured_image=1051\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1052 src=cover/inline-01.png\nOK inline_image_upload=1053 src=cover/inline-02.png\nOK inline_image_upload=1054 src=cover/inline-03.png\npermalink=/2026/09/11/nastroyka-cursor-automations/",
+  "verdict": "pass",
+  "publish_method": "sftp_http_fallback (FTP 425 Bad IP)",
+  "permalink_full_note": "see EXCALIBUR_PUBLIC_SITE_URL + path; full URL in runtime handoff only"
+}

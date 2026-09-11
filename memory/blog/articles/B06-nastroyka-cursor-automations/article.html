@@ -1,0 +1,225 @@
+<p>Cursor Automations запускают Cloud Agent без вашего участия: по расписанию, webhook из CRM или событию в Slack. Ручной чат каждый раз одно и то же не масштабируется. За 30–45 минут вы создадите первую Automation с cron или webhook, проверите Run History и поймёте, когда нужен репозиторий, а когда достаточно prompt и MCP. Ниже – единая настройка cursor automations для бизнеса без Senior-разработчика.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cursor Automations – фоновые Cloud Agents по триггеру (cron, webhook, Slack, PR). Создание: trigger → prompt → tools → repo scope → Save. Для брифов без кода выберите Scheduled + No repository. Webhook URL и API key появляются только после Save. Billing: included usage, затем on-demand; задайте spend limit. Cron по Москве: community-формула CRON_TZ=Europe/Moscow – сверяйте время в Run History.</blockquote>
+
+<p>Automations вышли 5 марта 2026. Cloud Agent в чате – разовый подрядчик; Automation – смена по будильнику cron или звонку webhook. Projects – координатор с общей памятью; Automations – trigger → action. Связка с MCP и контент-заводом: <a href="/podklyuchenie-mcp-cursor/">B03</a>, <a href="/avtonomnyj-kontent-zavod-nejroseti/">B05</a>.</p>
+
+<h2 id="compare-modes">1. Сравните Cloud Agent, Automation, чат и Projects</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: Cloud Agent, Automation, чат и Projects" loading="lazy">
+</figure>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Режим</th>
+      <th>Когда запускается</th>
+      <th>Нужен repo</th>
+      <th>Для кого</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Чат / Agent в IDE</b></td>
+      <td>Вы написали prompt</td>
+      <td>Опционально</td>
+      <td>Разовая задача, правки кода</td>
+    </tr>
+    <tr>
+      <td><b>Cloud Agent (ручной)</b></td>
+      <td>Вы отправили задачу в Agents</td>
+      <td>Часто да</td>
+      <td>PR, review, исследование</td>
+    </tr>
+    <tr>
+      <td><b>Automation</b></td>
+      <td>Cron, webhook, Slack, PR и др.</td>
+      <td>Зависит от trigger</td>
+      <td>Брифы, triage, security scan</td>
+    </tr>
+    <tr>
+      <td><b>Cursor Projects</b></td>
+      <td>Подписки на PR/Slack + schedule</td>
+      <td>Да</td>
+      <td>Долгий проект с памятью</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> Automation для повторяющихся задач с чётким выходом (markdown-бриф, комментарий в PR). <b>Не делайте:</b> дублировать одну задачу в чате каждое утро – это дороже по времени и хуже по billing.</p>
+
+<h2 id="prepare-account">2. Подготовьте аккаунт: Pro+, on-demand и spend limit</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема подготовки аккаунта: Pro+, on-demand и spend limit" loading="lazy">
+</figure>
+
+
+<p>Automations требуют Pro и выше (Start для Индии не подходит). Pro – от $20/мес; каждый run – по API pricing модели с полным контекстным окном.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Проверьте план в Settings → Billing: Pro, Pro Plus или Ultra.</li>
+  <li><b>Шаг 2:</b> Включите on-demand billing – без него фоновые runs могут не стартовать после исчерпания included usage (подтверждение на форуме Cursor).</li>
+  <li><b>Шаг 3:</b> Задайте spend limit с запасом ~$2 headroom – hard limit может блокировать старт run.</li>
+  <li><b>Шаг 4:</b> Для repo-backed сценариев подключите GitHub, GitLab или Bitbucket Cloud.</li>
+  <li><b>Шаг 5:</b> Токены Slack, Linear, CRM – в Dashboard Secrets, не в prompt и не в скриншотах.</li>
+</ol>
+
+<p><b>Делайте:</b> мониторить Usage после первых test runs. <b>Не делайте:</b> запускать десяток automations с computer use и MCP до понимания стоимости одного run.</p>
+
+<h2 id="create-first">3. Создайте первую Automation: trigger, prompt, tools, scope</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист создания первой Automation: trigger, prompt, tools, scope" loading="lazy">
+</figure>
+
+
+<blockquote>
+  <b>Workflow настройки:</b>
+  <br>
+  Подготовка аккаунта → cursor.com/automations/new (или /automate в Agent) → trigger → prompt → tools → repo scope → Save &amp; Activate → Run History → масштабирование (MCP, webhook)
+</blockquote>
+
+<p>Создание: <a href="https://cursor.com/automate" target="_blank">cursor.com/automations</a>, Agents Window → New Automation или skill <b>/automate</b>. Несколько triggers на одну Automation – срабатывает любой.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trigger</th>
+      <th>Repo по умолчанию</th>
+      <th>Типичный кейс</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Scheduled (cron)</b></td>
+      <td>No repository</td>
+      <td>Утренний бриф, дайджест</td>
+    </tr>
+    <tr>
+      <td><b>Webhook POST</b></td>
+      <td>No repository</td>
+      <td>Заявка с сайта, Make/n8n</td>
+    </tr>
+    <tr>
+      <td><b>Slack message</b></td>
+      <td>No repository</td>
+      <td>Триаж по ключевому слову</td>
+    </tr>
+    <tr>
+      <td><b>PR opened / push</b></td>
+      <td>Single repo обязателен</td>
+      <td>Review, security scan</td>
+    </tr>
+    <tr>
+      <td><b>Linear / PagerDuty</b></td>
+      <td>Часто no-repo</td>
+      <td>Инциденты, тикеты</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li><b>Шаг 1:</b> Выберите Scheduled preset "Daily" для первого теста или Webhook для интеграции с CRM.</li>
+  <li><b>Шаг 2:</b> Repo scope: <b>No repository</b> для брифа без правок кода; Single/Multi – для PR и push.</li>
+  <li><b>Шаг 3:</b> Prompt: формат выхода (markdown), длина, критерий готовности, явные запреты (no PR, no clone при no-repo).</li>
+  <li><b>Шаг 4:</b> Tools – минимум: Send to Slack только если нужен; MCP – если агент должен читать внешние данные; computer use включайте осознанно.</li>
+  <li><b>Шаг 5:</b> Save &amp; Activate → откройте Run History и дождитесь статуса FINISHED.</li>
+</ol>
+
+<p>Пример prompt для утреннего брифа без repo:</p>
+
+<blockquote>
+  <b>Пример prompt (утренний бриф):</b><br>
+  Собери бриф на русском, до 400 слов:<br>
+  1) 3 главных задачи команды на сегодня (из памяти MEMORIES.md)<br>
+  2) Открытые блокеры<br>
+  3) Одна рекомендация по приоритету<br>
+  Формат: markdown с заголовками. Не создавай PR и не клонируй репозиторий.
+</blockquote>
+
+<p><b>Делайте:</b> один полный walkthrough на cron no-repo, затем webhook. <b>Не делайте:</b> включать PR creation для no-repo брифа – tool не нужен и увеличивает риск лишних действий.</p>
+
+<h2 id="cron-setup">4. Настройте cron: preset, CRON_TZ и Run History</h2>
+
+<p>Scheduled: preset или custom cron. Запуск может сдвинуться, но не раньше указанного времени. Москва – community-префикс CRON_TZ (сверяйте Run History):</p>
+
+<blockquote><b>Пример cron (Москва):</b> CRON_TZ=Europe/Moscow 0 9 * * 1-5</blockquote>
+
+<p>09:00 пн–пт по Москве. <b>Делайте:</b> test на ближайшем preset. <b>Не делайте:</b> cron каждые 5 минут с MCP – included usage уйдёт быстро.</p>
+
+<h2 id="webhook-setup">5. Подключите webhook: URL, API key и POST из Make/n8n</h2>
+
+<p>Webhook – private HTTP endpoint. URL и API key Cursor показывает <b>только после Save</b> automation. Внешний оркестратор (Make, n8n, CRM) шлёт POST с телом JSON и заголовком Authorization.</p>
+
+<blockquote>
+  <b>Пример webhook POST:</b><br>
+  POST https://your-automation-endpoint.cursor.com/...<br>
+  Authorization: Bearer YOUR_API_KEY<br>
+  Content-Type: application/json<br>
+  {"lead_name": "Иван", "source": "site_form", "message": "Нужен демо-звонок"}
+</blockquote>
+
+<p>Make/n8n: HTTP POST + Bearer + JSON из CRM. Prompt опишите обработку полей. Webhook + MCP – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>. <b>Делайте:</b> test POST до CRM. <b>Не делайте:</b> светить API key – при утечке re-save или Team Owned с новым ключом.</p>
+
+<h2 id="mcp-memories">6. Добавьте MCP, Memories и multi-repo для сложных сценариев</h2>
+
+<p>MCP – "розетки" для Browser, Linear, CMS (<a href="/podklyuchenie-mcp-cursor/">подключение</a>). Memories пишет в MEMORIES.md – фильтруйте untrusted поля webhook. Multi-repo – для нескольких репозиториев; Team Owned переносит billing в team pool и требует новый webhook key. <b>Делайте:</b> MCP для брифов с памятью. <b>Не делайте:</b> computer use на no-repo webhook без ограничений в prompt.</p>
+
+<h2 id="security-checklist">7. Пройдите чек-лист безопасного запуска</h2>
+
+<ul>
+  <li>Spend limit и on-demand включены до первого cron</li>
+  <li>Secrets в Dashboard, не в prompt</li>
+  <li>Webhook API key не в публичных репозиториях</li>
+  <li>No repository для задач без правок кода</li>
+  <li>Repo обязателен для PR/push triggers – иначе run упадёт</li>
+  <li>PR из fork не поддерживаются (кроме PR merged) – учитывайте open source</li>
+  <li>Slack triggers – только public channels</li>
+  <li>Memories: фильтруйте untrusted поля webhook в prompt</li>
+  <li>Run History: статус FINISHED и осмысленный output</li>
+  <li>Billing dashboard после недели pilot – скорректируйте частоту cron</li>
+  <li>Team Owned – перегенерировать webhook key после promote</li>
+  <li>Доступ к cursor.com зависит от региона и типа аккаунта – сверьте официальные docs</li>
+</ul>
+
+<p>Ошибки: нет on-demand; webhook 401; cron не по Москве – CRON_TZ + History; fork PR не поддерживаются.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Запустите cron no-repo бриф и зафиксируйте стоимость одного run.</li>
+  <li>Добавьте webhook из Make или n8n для одной CRM-формы.</li>
+  <li>Подключите MCP по <a href="/podklyuchenie-mcp-cursor/">гайду B03</a> для доступа к Linear или CMS.</li>
+  <li>Для PR review – Single repo + trigger PR opened + Comment on PR.</li>
+  <li>Масштабируйте на <a href="/avtonomnyj-kontent-zavod-nejroseti/">контент-завод</a> или <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">обучение Make + Cursor</a>.</li>
+</ol>
+
+<p>Вопросы по Automations и Make – Telegram <a href="https://t.me/maya_pro" target="_blank">@maya_pro</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com, Cursor Automations и MCP).<br>
+  <b>Достоверность данных:</b> триггеры, billing и webhook-поведение сверены с <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">официальной документацией Cursor</a> (11.09.2026). Точные объёмы запросов "cursor automations" в Wordstat на дату прогона не получены (MCP недоступен) – семантика подтверждена SERP-анализом.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем Cursor Automations отличается от Cloud Agent в чате?</h3>
+<p>Automation стартует по trigger без вашего prompt: cron, webhook, Slack, PR. Cloud Agent в чате – разовая задача, которую вы формулируете вручную. Для повторяющихся бизнес-процессов создайте Automation; для эксперимента – чат или ручной Cloud Agent.</p>
+
+<h3>Нужен ли репозиторий для Automation?</h3>
+<p>Нет для cron, Slack, webhook и Linear/PagerDuty без правок кода – выберите No repository. Да для push, PR opened, CI completed и других source control triggers: подключите GitHub, GitLab или Bitbucket и укажите Single или Multi repo.</p>
+
+<h3>Как настроить cron по московскому времени?</h3>
+<p>В custom cron добавьте community-префикс CRON_TZ=Europe/Moscow и expression, например 0 9 * * 1-5 для 09:00 пн–пт. Save automation, дождитесь run и сверьте timestamp в Run History; при расхождении скорректируйте expression.</p>
+
+<h3>Сколько стоит cursor automations?</h3>
+<p>Тариф Pro от $20/мес даёт доступ к Cloud Agents; каждый run тарифицируется по API pricing модели. Included usage расходуется первым, затем on-demand. Задайте spend limit в Billing и смотрите Usage после pilot – power users часто выходят на $200+/мес суммарно.</p>
+
+<h3>Где взять webhook URL и API key?</h3>
+<p>Только после Save &amp; Activate automation – Cursor покажет private endpoint и key. POST с Authorization: Bearer YOUR_API_KEY и JSON-телом. Key не публикуйте; при утечке пересоздайте через re-save или Team Owned promote.</p>
+
+<h3>Можно ли обойтись без GitHub?</h3>
+<p>Да для no-repo workflows: брифы, webhook из CRM, Slack triage с MCP. Для изменений кода, PR и security scan на push – подключите GitHub, GitLab или Bitbucket в настройках аккаунта.</p>
+
+<h3>Automations или Cursor Projects – что выбрать?</h3>
+<p>Automations – trigger → action для повторяющихся задач (бриф, webhook, review PR). Projects – long-running координатор с shared context и подписками на PR/Slack. Начните с Automations; Projects – когда нужен единый контекст на недели работы над фичей.</p>

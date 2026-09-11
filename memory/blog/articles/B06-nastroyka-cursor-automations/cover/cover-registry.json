@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-automations",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: Cursor Automations — cron, webhook и Run History без кода",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-11T10:14:47+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: Cursor Automations — cron, webhook и Run History без кода",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица: Cloud Agent, Automation, чат и Projects",
+      "h2_anchor": "1. Сравните Cloud Agent, Automation, чат и Projects",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема подготовки аккаунта: Pro+, on-demand и spend limit",
+      "h2_anchor": "2. Подготовьте аккаунт: Pro+, on-demand и spend limit",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист создания первой Automation: trigger, prompt, tools, scope",
+      "h2_anchor": "3. Создайте первую Automation: trigger, prompt, tools, scope",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

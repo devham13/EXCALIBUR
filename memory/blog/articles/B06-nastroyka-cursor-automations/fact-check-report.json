@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-cursor-automations/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "те время в Run History. Automations вышли 5 марта 2026. Cloud Agent в чате – разовый подрядчик; Automati",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "каждый раз одно и то же не масштабируется. За 30–45 минут вы создадите первую Automation с cron или webhook",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "test на ближайшем preset. Не делайте: cron каждые 5 минут с MCP – included usage уйдёт быстро. 5. Подключит",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "400",
+      "kind": "large_number",
+      "context": "rompt (утренний бриф): Собери бриф на русском, до 400 слов: 1) 3 главных задачи команды на сегодня (из п",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 09",
+      "kind": "large_number",
+      "context": "ер cron (Москва): CRON_TZ=Europe/Moscow 0 9 * * 1-5 09:00 пн–пт по Москве. Делайте: test на ближайшем pr",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

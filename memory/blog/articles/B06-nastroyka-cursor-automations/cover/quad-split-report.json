@@ -1,0 +1,124 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-nastroyka-cursor-automations/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      640,
+      360
+    ],
+    "split_meta": {
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 640,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 640,
+          "bottom": 360
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: Cursor Automations — cron, webhook и Run History без кода",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 640,
+          "top": 0,
+          "right": 1280,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 0,
+          "right": 1280,
+          "bottom": 360
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица: Cloud Agent, Automation, чат и Projects",
+        "h2_anchor": "1. Сравните Cloud Agent, Automation, чат и Projects"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 360,
+          "right": 640,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 360,
+          "right": 640,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема подготовки аккаунта: Pro+, on-demand и spend limit",
+        "h2_anchor": "2. Подготовьте аккаунт: Pro+, on-demand и spend limit"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист создания первой Automation: trigger, prompt, tools, scope",
+        "h2_anchor": "3. Создайте первую Automation: trigger, prompt, tools, scope"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Сравните Cloud Agent, Automation, чат и Projects",
+    "injected inline_2 after H2 — 2. Подготовьте аккаунт: Pro+, on-demand и spend limit",
+    "injected inline_3 after H2 — 3. Создайте первую Automation: trigger, prompt, tools, scope"
+  ]
+}

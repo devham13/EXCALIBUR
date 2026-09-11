@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastroyka-cursor-automations/#article",
+      "headline": "Как настроить Cursor Automations: пошаговая инструкция по Cloud Agents для бизнеса",
+      "description": "Настройка cursor automations: Pro+, cron, webhook из Make/n8n, MCP, spend limit и Run History. Единый RU how-to для брифов и CRM без Senior-разработчика.",
+      "datePublished": "2026-09-11",
+      "dateModified": "2026-09-11",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/nastroyka-cursor-automations/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/nastroyka-cursor-automations/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastroyka-cursor-automations-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor automations, cursor cloud agents, настройка cursor automations, cursor automations cron, cursor automations webhook",
+      "wordCount": 9099,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastroyka-cursor-automations/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Cursor Automations отличается от Cloud Agent в чате?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automation стартует по trigger без вашего prompt: cron, webhook, Slack, PR. Cloud Agent в чате – разовая задача, которую вы формулируете вручную. Для повторяющихся бизнес-процессов создайте Automation; для эксперимента – чат или ручной Cloud Agent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли репозиторий для Automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет для cron, Slack, webhook и Linear/PagerDuty без правок кода – выберите No repository. Да для push, PR opened, CI completed и других source control triggers: подключите GitHub, GitLab или Bitbucket и укажите Single или Multi repo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как настроить cron по московскому времени?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В custom cron добавьте community-префикс CRON_TZ=Europe/Moscow и expression, например 0 9 * * 1-5 для 09:00 пн–пт. Save automation, дождитесь run и сверьте timestamp в Run History; при расхождении скорректируйте expression."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит cursor automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Тариф Pro от $20/мес даёт доступ к Cloud Agents; каждый run тарифицируется по API pricing модели. Included usage расходуется первым, затем on-demand. Задайте spend limit в Billing и смотрите Usage после pilot – power users часто выходят на $200+/мес суммарно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где взять webhook URL и API key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только после Save & Activate automation – Cursor покажет private endpoint и key. POST с Authorization: Bearer YOUR_API_KEY и JSON-телом. Key не публикуйте; при утечке пересоздайте через re-save или Team Owned promote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли обойтись без GitHub?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да для no-repo workflows: брифы, webhook из CRM, Slack triage с MCP. Для изменений кода, PR и security scan на push – подключите GitHub, GitLab или Bitbucket в настройках аккаунта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Automations или Cursor Projects – что выбрать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automations – trigger → action для повторяющихся задач (бриф, webhook, review PR). Projects – long-running координатор с shared context и подписками на PR/Slack. Начните с Automations; Projects – когда нужен единый контекст на недели работы над фичей."
+          }
+        }
+      ]
+    }
+  ]
+}

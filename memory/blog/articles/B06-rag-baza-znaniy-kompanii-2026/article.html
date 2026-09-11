@@ -1,0 +1,183 @@
+<p>Сотрудники ищут ответ в Confluence, а ChatGPT выдумывает регламент? RAG для базы знаний решает это: система сначала находит куски ваших PDF и wiki, потом формулирует ответ с цитатой. Ниже – полный workflow за 2–4 недели пилота: аудит 50–200 документов, chunking, hybrid search с rerank, промпт без галлюцинаций, eval на 20–30 вопросах и канал с эскалацией к человеку. После гайда вы соберёте рабочий прототип rag системы на корпоративных файлах без команды из пяти разработчиков.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> RAG (Retrieval-Augmented Generation) – это "ответ по вашим документам": поиск релевантных фрагментов + генерация текста языковой моделью. Пилот: один сценарий (поддержка, HR или продукт), 50–200 актуальных файлов, hybrid BM25 + vector, rerank top-20 до top-3–5, temperature 0 и golden dataset из 20–30 вопросов. По данным Novacom, около 70% качества RAG определяет retrieval, не модель. Запрос "rag база знаний" – около 419 показов/мес в Вордстате (июнь 2026, вторичные данные).</blockquote>
+
+<p>RAG для базы знаний – конвейер: документы режутся на чанки, превращаются в embeddings (числовые "отпечатки" смысла) и лежат в vector store. По запросу система достаёт 3–5 фрагментов и просит LLM (языковую модель) собрать ответ. Без retrieval модель фантазирует; с плохим chunking – находит не то. Для пилота держите один отдел, не "вся компания сразу".</p>
+
+<blockquote>
+  <b>Схема RAG-pipeline:</b>
+  <br>
+  Документы → парсинг/OCR → chunking + метаданные → embed → vector DB (+ BM25)
+  <br>
+  Запрос → ACL-фильтр → hybrid search → RRF → rerank top-20→5 → промпт + LLM → ответ + citations
+  <br>
+  Re-index (cron/webhook) ← owner базы + eval golden dataset каждый спринт
+</blockquote>
+
+<h2 id="audit-docs">1. Проведите аудит документов и разметьте права доступа</h2>
+
+<p>Начните с одного сценария: FAQ поддержки, онбординг HR или продуктовая wiki. Соберите 50–200 актуальных файлов из Confluence, Notion или Google Drive – не архив за пять лет. Назначьте owner базы: человек, который решает, что индексировать и когда перезапускать.</p>
+
+<p>ACL (список "кто что видит") проверяйте до поиска и до LLM, не только в промпте. Метаданные: file_name, section, updated_at, acl. Удалите дубликаты – иначе бот цитирует старый регламент.</p>
+
+<p><b>Делайте:</b> whitelist источников на пилот. <b>Не делайте:</b> индексировать сканы PDF без OCR – Managed-сервисы часто их не читают.</p>
+
+<h2 id="chunking-embeddings">2. Настройте chunking, embeddings и ingestion</h2>
+
+<p>Режьте по заголовкам, не посередине абзаца. Старт: 256–512 или 500–700 токенов, overlap 10–20%. Сканы PDF – только через OCR.</p>
+
+<p>Embedding-модель зафиксируйте до индексации – смена = полный re-index. PoC: BGE-M3 или text-embedding-3-small; для 152-ФЗ – YandexGPT/GigaChat + on-prem. Re-index через cron в <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">n8n/Make</a>; храните hash файла.</p>
+
+<p><b>Делайте:</b> логируйте, какой chunk попал в ответ. <b>Не делайте:</b> менять chunk_size каждый день без eval – не поймёте, что улучшилось.</p>
+
+<h2 id="hybrid-rerank">3. Включите hybrid search и reranking</h2>
+
+<p>Vector-only промахивается по артикулам и номерам договоров. Hybrid: BM25 (поиск по словам) + vector (по смыслу) → RRF (слияние списков по рангам, k≈60) → rerank top-20 до top-3–5. Reranking даёт +10–25% к retrieval (Novacom). ACL-фильтр в query обязателен.</p>
+
+<p><b>Делайте:</b> порог similarity для отсечения шума. <b>Не делайте:</b> скармливать LLM 20 чанков – эффект Lost in the Middle: точность падает, если ключевой факт в середине длинного контекста (Liu et al., TACL 2024).</p>
+
+<h2 id="prompt-rag">4. Напишите промпт RAG с цитатами и честным "нет в базе"</h2>
+
+<p>System prompt – главный руль. Шаблон:</p>
+
+<pre><code>Отвечай только по контексту ниже. Если данных нет – скажи "В базе нет информации" и предложи эскалацию.
+Цитируй источник: [file_name, section].
+Не выдумывай цифры, сроки и юридические формулировки.</code></pre>
+
+<p>Temperature 0 – минимум фантазии. Логируйте fallback "не нашёл". Юридические и HR темы – только эскалация к человеку.</p>
+
+<p><b>Делайте:</b> показывать пользователю ссылку на исходный документ. <b>Не делайте:</b> просить модель "ответить красиво", если контекст пуст.</p>
+
+<h2 id="eval-monitoring">5. Организуйте eval, re-index и мониторинг</h2>
+
+<p>Golden dataset: 20–30 реальных вопросов сотрудников на пилоте, 50–100 на prod. Для каждого – эталонный ответ и ссылка на источник. Метрики RAGAS: faithfulness (ответ не противоречит контексту) и context precision (найденное – по делу). Re-index: webhook при сохранении в Confluence или cron раз в ночь. Чеклист перед prod:</p>
+
+<ol>
+  <li>Один сценарий и owner базы зафиксированы</li>
+  <li>50–200 актуальных документов, дубликаты удалены</li>
+  <li>ACL в query, не только в промпте</li>
+  <li>Chunk size проверен на golden dataset</li>
+  <li>Embedding-модель зафиксирована, hash файлов в метаданных</li>
+  <li>Hybrid + rerank включены, top-3–5 в промпт</li>
+  <li>System prompt с "нет в базе" и citations</li>
+  <li>Temperature 0, логи fallback</li>
+  <li>Golden dataset 20+ вопросов, baseline RAGAS записан</li>
+  <li>Re-index по webhook/cron настроен</li>
+  <li>Канал (Telegram/виджет) с 👍/👎 и эскалацией</li>
+  <li>Юридические темы – только human-in-the-loop</li>
+</ol>
+
+<p><b>Делайте:</b> сравнивать eval до/после каждого релиза индекса. <b>Не делайте:</b> выкатывать на весь штат без недели внутреннего beta.</p>
+
+<h2 id="stack-compare">6. Сравните стек: Chroma, Qdrant, pgvector, Dify</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>ChromaDB (PoC)</th>
+      <th>Qdrant</th>
+      <th>pgvector</th>
+      <th>Dify</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Старт</b></td>
+      <td>pip, zero config</td>
+      <td>Docker / cloud</td>
+      <td>Ext. PostgreSQL</td>
+      <td>SaaS или self-host UI</td>
+    </tr>
+    <tr>
+      <td><b>Hybrid + rerank</b></td>
+      <td>Вручную / LangChain</td>
+      <td>Native sparse+dense+RRF</td>
+      <td>SQL BM25 + vector</td>
+      <td>Pipeline в интерфейсе</td>
+    </tr>
+    <tr>
+      <td><b>ACL</b></td>
+      <td>Фильтры в приложении</td>
+      <td>Payload filters</td>
+      <td>Row-level + WHERE</td>
+      <td>Роли workspace</td>
+    </tr>
+    <tr>
+      <td><b>152-ФЗ / on-prem</b></td>
+      <td>Self-host</td>
+      <td>Self-host</td>
+      <td>Yandex Managed PG</td>
+      <td>Self-host edition</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбрать</b></td>
+      <td>Пилот до ~1k docs</td>
+      <td>Prod, hybrid native</td>
+      <td>Уже есть PostgreSQL</td>
+      <td>MVP без Python за дни</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> PoC за выходные – Chroma + LangChain; prod – Qdrant или pgvector + n8n cron для re-index. Dify – если команда без DevOps и нужен UI. Managed RAG облака ускоряют старт, но проверьте лимиты (PDF без OCR, max 25 МБ на файл у Cloud.ru) и vendor-lock.
+</blockquote>
+
+<p><b>Делайте:</b> выбирайте стек под eval, не под хайп. <b>Не делайте:</b> переносить PoC на prod без смены vector DB и ACL-слоя.</p>
+
+
+<h2 id="pilot-steps">7. Пройдите восемь шагов пилота за 2–4 недели</h2>
+
+<ol>
+  <li><b>Шаг 1: Сценарий.</b> Выберите FAQ поддержки, HR или продукт; соберите 50–200 файлов; назначьте owner; разметьте ACL.</li>
+  <li><b>Шаг 2: Корпус.</b> Парсинг, dedup, chunking 256–512 или 500–700 tok, overlap 10–20%, метаданные file_name, section, updated_at, acl.</li>
+  <li><b>Шаг 3: Стек PoC.</b> Chroma или Qdrant + embedding; зафиксируйте модель; для 152-ФЗ – on-prem и российская LLM.</li>
+  <li><b>Шаг 4: Ingestion.</b> Embed в vector store; cron/webhook re-index; hash и версия индекса.</li>
+  <li><b>Шаг 5: Retrieval.</b> Hybrid vector + BM25 → RRF k≈60 → rerank top-20 → top-3–5; ACL в query.</li>
+  <li><b>Шаг 6: Промпт.</b> "Только контекст", citations, temperature 0, лог "нет в базе".</li>
+  <li><b>Шаг 7: Eval.</b> Golden dataset 20–30 вопросов; RAGAS faithfulness и context precision после каждого изменения.</li>
+  <li><b>Шаг 8: Канал.</b> Telegram/виджет/Slack; 👍/👎; эскалация на юридические темы; мониторинг latency.</li>
+</ol>
+
+<p>Публичную базу на сайте – по гайду <a href="/geo-optimizaciya-sajta-2026/" target="_blank">GEO-оптимизация 2026</a>. Re-index в Make – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе kv-ai.ru</a>.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Зафиксируйте baseline eval до любых правок chunking.</li>
+  <li>Подключите один канал (Telegram или виджет) только для пилотной группы.</li>
+  <li>Раз в спринт прогоняйте golden dataset и сравнивайте с прошлым sprint.</li>
+  <li>После стабильного faithfulness масштабируйте источники – не наоборот.</li>
+  <li>Если нужен UI без кода – протестируйте Dify параллельно с Chroma PoC.</li>
+</ol>
+
+<p>Документ обновили – re-index, не fine-tuning. Вопросы по ingestion – в <a href="https://t.me/maya_pro" target="_blank">Telegram "Ковчег"</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com и RAG-автоматизации).<br>
+  <b>Достоверность данных:</b> статистика chunking, hybrid search и RAGAS – по материалам <a href="https://cloud.ru/blog/rag-rukovodstvo-2026" target="_blank">Cloud.ru</a>, <a href="https://novacom.ru/blog/rag-system-implementation-guide" target="_blank">Novacom</a> и <a href="https://mayai.ru/rag-baza-znanij-kompanii/" target="_blank">May AI</a> (2026); частоты Вордстата – вторичные данные, июнь 2026.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Сколько документов нужно для первого RAG?</h3>
+<p>50–200 актуальных файлов на один сценарий – не вся компания. Лучше узкий FAQ поддержки, чем 10 000 страниц без owner.</p>
+
+<h3>Чем hybrid search лучше vector-only?</h3>
+<p>BM25 ловит артикулы и номера договоров; vector – синонимы и перефраз. RRF объединяет оба списка без сравнения "несопоставимых" score. На корпоративных формулировках прирост порядка 5–10% к точности (May AI, июнь 2026).</p>
+
+<h3>Как обновлять базу без потери качества?</h3>
+<p>Re-index по webhook или cron при изменении файла; храните hash и версию индекса; после каждого re-index прогоняйте golden dataset – если faithfulness упал, откатите chunk или top-k.</p>
+
+<h3>Какой размер чанка для русского регламента?</h3>
+<p>Старт 256–512 или 500–700 токенов с overlap 10–20%. Проверьте на своих 20–30 вопросах – универсальной цифры нет.</p>
+
+<h3>Нужен ли reranker?</h3>
+<p>Да, если baseline промахивается по точным формулировкам. Схема top-20 → rerank → top-3–5 в LLM; прирост качества retrieval 10–25% по Novacom.</p>
+
+<h3>Как не допустить утечки закрытых документов?</h3>
+<p>ACL-фильтр в query vector DB до генерации – права проверяются до поиска и до передачи текста в LLM, не только в system prompt.</p>
+
+<h3>RAG или fine-tuning?</h3>
+<p>RAG – для меняющихся регламентов и FAQ: обновили PDF – re-index. Fine-tuning – для стиля ответа или формата, когда факты стабильны.</p>

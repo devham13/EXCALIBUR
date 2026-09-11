@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Confluence полон, а ChatGPT выдумывает регламент — RAG или галлюцинации?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: RAG база знаний — Confluence есть, ChatGPT галлюцинирует, hybrid search решает",
+      "scene_hint": "reference-лицо в тёмно-синей рубашке AI-инженера, указывает на fake ChatGPT «выдуманный регламент», рядом Confluence wiki и vector DB dashboard, Wordstat «rag база знаний 419», sticky «70% = retrieval», meme shocked face + facepalm cat, розовый highlight на «галлюцинации», torn paper + scotch tape",
+      "meme_caption_ru": "Wiki есть — ответа нет?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Проведите аудит документов и разметьте права доступа",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица ACL: роли Support/HR/Product × документы Confluence/Notion, чекбоксы доступа, whitelist 50–200 docs, owner базы — «1. Проведите аудит документов и разметьте права доступа»",
+      "alt": "Таблица ACL и аудит документов: роли, права доступа, whitelist источников"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте chunking, embeddings и ingestion",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "6 шагов RAG ingestion: PDF/wiki → OCR → chunk 512tok overlap 15% → BGE-M3 embed → Qdrant → cron re-index — «2. Настройте chunking, embeddings и ingestion»",
+      "alt": "Схема workflow: chunking, embeddings и ingestion для RAG базы знаний"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Включите hybrid search и reranking",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист hybrid: BM25+vector → RRF k=60 → rerank top-20→5, ACL filter в query, sticky «+10–25% retrieval» — «3. Включите hybrid search и reranking»",
+      "alt": "Чеклист hybrid search и reranking: BM25, vector, RRF, top-3–5 в промпт"
+    }
+  }
+}

@@ -15,6 +15,10 @@
 </blockquote>
 
 <h2 id="audit-docs">1. Проведите аудит документов и разметьте права доступа</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица ACL и аудит документов: роли, права доступа, whitelist источников" loading="lazy">
+</figure>
+
 
 <p>Начните с одного сценария: FAQ поддержки, онбординг HR или продуктовая wiki. Соберите 50–200 актуальных файлов из Confluence, Notion или Google Drive – не архив за пять лет. Назначьте owner базы: человек, который решает, что индексировать и когда перезапускать.</p>
 
@@ -23,6 +27,10 @@
 <p><b>Делайте:</b> whitelist источников на пилот. <b>Не делайте:</b> индексировать сканы PDF без OCR – Managed-сервисы часто их не читают.</p>
 
 <h2 id="chunking-embeddings">2. Настройте chunking, embeddings и ingestion</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: chunking, embeddings и ingestion для RAG базы знаний" loading="lazy">
+</figure>
+
 
 <p>Режьте по заголовкам, не посередине абзаца. Старт: 256–512 или 500–700 токенов, overlap 10–20%. Сканы PDF – только через OCR.</p>
 
@@ -31,6 +39,10 @@
 <p><b>Делайте:</b> логируйте, какой chunk попал в ответ. <b>Не делайте:</b> менять chunk_size каждый день без eval – не поймёте, что улучшилось.</p>
 
 <h2 id="hybrid-rerank">3. Включите hybrid search и reranking</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист hybrid search и reranking: BM25, vector, RRF, top-3–5 в промпт" loading="lazy">
+</figure>
+
 
 <p>Vector-only промахивается по артикулам и номерам договоров. Hybrid: BM25 (поиск по словам) + vector (по смыслу) → RRF (слияние списков по рангам, k≈60) → rerank top-20 до top-3–5. Reranking даёт +10–25% к retrieval (Novacom). ACL-фильтр в query обязателен.</p>
 

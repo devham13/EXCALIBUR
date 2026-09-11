@@ -1,0 +1,124 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-rag-baza-znaniy-kompanii-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1024,
+      576
+    ],
+    "split_meta": {
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 576
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1024,
+          "bottom": 576
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: RAG база знаний — Confluence есть, ChatGPT галлюцинирует, hybrid search решает",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1024,
+          "top": 0,
+          "right": 2048,
+          "bottom": 576
+        },
+        "raw_box_px": {
+          "left": 1024,
+          "top": 0,
+          "right": 2048,
+          "bottom": 576
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица ACL и аудит документов: роли, права доступа, whitelist источников",
+        "h2_anchor": "1. Проведите аудит документов и разметьте права доступа"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 576,
+          "right": 1024,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 576,
+          "right": 1024,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема workflow: chunking, embeddings и ingestion для RAG базы знаний",
+        "h2_anchor": "2. Настройте chunking, embeddings и ingestion"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1024,
+          "top": 576,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1024,
+          "top": 576,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист hybrid search и reranking: BM25, vector, RRF, top-3–5 в промпт",
+        "h2_anchor": "3. Включите hybrid search и reranking"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Проведите аудит документов и разметьте права доступа",
+    "injected inline_2 after H2 — 2. Настройте chunking, embeddings и ingestion",
+    "injected inline_3 after H2 — 3. Включите hybrid search и reranking"
+  ]
+}

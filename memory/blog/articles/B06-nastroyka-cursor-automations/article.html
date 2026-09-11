@@ -116,11 +116,14 @@
 
 <p>Пример prompt для утреннего брифа без repo:</p>
 
-<pre><code>Собери бриф на русском, до 400 слов:
-1) 3 главных задачи команды на сегодня (из памяти MEMORIES.md)
-2) Открытые блокеры
-3) Одна рекомендация по приоритету
-Формат: markdown с заголовками. Не создавай PR и не клонируй репозиторий.</code></pre>
+<blockquote>
+  <b>Пример prompt (утренний бриф):</b><br>
+  Собери бриф на русском, до 400 слов:<br>
+  1) 3 главных задачи команды на сегодня (из памяти MEMORIES.md)<br>
+  2) Открытые блокеры<br>
+  3) Одна рекомендация по приоритету<br>
+  Формат: markdown с заголовками. Не создавай PR и не клонируй репозиторий.
+</blockquote>
 
 <p><b>Делайте:</b> один полный walkthrough на cron no-repo, затем webhook. <b>Не делайте:</b> включать PR creation для no-repo брифа – tool не нужен и увеличивает риск лишних действий.</p>
 
@@ -128,7 +131,7 @@
 
 <p>Scheduled: preset или custom cron. Запуск может сдвинуться, но не раньше указанного времени. Москва – community-префикс CRON_TZ (сверяйте Run History):</p>
 
-<pre><code>CRON_TZ=Europe/Moscow 0 9 * * 1-5</code></pre>
+<blockquote><b>Пример cron (Москва):</b> CRON_TZ=Europe/Moscow 0 9 * * 1-5</blockquote>
 
 <p>09:00 пн–пт по Москве. <b>Делайте:</b> test на ближайшем preset. <b>Не делайте:</b> cron каждые 5 минут с MCP – included usage уйдёт быстро.</p>
 
@@ -136,11 +139,13 @@
 
 <p>Webhook – private HTTP endpoint. URL и API key Cursor показывает <b>только после Save</b> automation. Внешний оркестратор (Make, n8n, CRM) шлёт POST с телом JSON и заголовком Authorization.</p>
 
-<pre><code>POST https://your-automation-endpoint.cursor.com/...
-Authorization: Bearer YOUR_API_KEY
-Content-Type: application/json
-
-{"lead_name": "Иван", "source": "site_form", "message": "Нужен демо-звонок"}</code></pre>
+<blockquote>
+  <b>Пример webhook POST:</b><br>
+  POST https://your-automation-endpoint.cursor.com/...<br>
+  Authorization: Bearer YOUR_API_KEY<br>
+  Content-Type: application/json<br>
+  {"lead_name": "Иван", "source": "site_form", "message": "Нужен демо-звонок"}
+</blockquote>
 
 <p>Make/n8n: HTTP POST + Bearer + JSON из CRM. Prompt опишите обработку полей. Webhook + MCP – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>. <b>Делайте:</b> test POST до CRM. <b>Не делайте:</b> светить API key – при утечке re-save или Team Owned с новым ключом.</p>
 

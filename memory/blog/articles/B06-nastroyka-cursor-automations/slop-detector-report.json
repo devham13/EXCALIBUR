@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Сравните Cloud Agent, Automation, чат и Projects Режим Когда запускается Нужен repo Для кого Чат / Agent в IDE Вы написали prompt Опционально Разовая задача, правки кода Cloud Agent (ручной) Вы отправили задачу в Agents Часто да PR, review, исследование Automation Cron, webhook, Slack, PR и др",
+      "word_count": 46
+    },
+    {
+      "sentence": "Зависит от trigger Брифы, triage, security scan Cursor Projects Подписки на PR/Slack + schedule Да Долгий проект с памятью Делайте: Automation для повторяющихся задач с чётким выходом (markdown-бриф, комментарий в PR)",
+      "word_count": 31
+    },
+    {
+      "sentence": "Trigger Repo по умолчанию Типичный кейс Scheduled (cron) No repository Утренний бриф, дайджест Webhook POST No repository Заявка с сайта, Make/n8n Slack message No repository Триаж по ключевому слову PR opened / push Single repo обязателен Review, security scan Linear / PagerDuty Часто no-repo Инциденты, тикеты Шаг 1: Выберите Scheduled preset \"Daily\" для первого теста или Webhook для интеграции с CRM",
+      "word_count": 58
+    },
+    {
+      "sentence": "Пройдите чек-лист безопасного запуска Spend limit и on-demand включены до первого cron Secrets в Dashboard, не в prompt Webhook API key не в публичных репозиториях No repository для задач без правок кода Repo обязателен для PR/push triggers – иначе run упадёт PR из fork не поддерживаются (кроме PR merged) – учитывайте open source Slack triggers – только public channels Memories: фильтруйте untrusted поля webhook в prompt Run History: статус FINISHED и осмысленный output Billing dashboard после недели pilot – скорректируйте частоту cron Team Owned – перегенерировать webhook key после promote Доступ к cursor",
+      "word_count": 89
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.6,
+    "avg_syllables_per_word": 1.2
+  }
+}

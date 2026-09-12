@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Claude Code Routines
+
+- **priority:** P0
+- **slug:** claude-code-routines-nastrojka-2026
+- **h1:** Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам
+- **primary_query:** claude code routines
+- **secondary_queries:** claude code рутины, настройка claude code routines, /schedule claude code, claude code github trigger, claude code api trigger
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Что такое Routines и чем они отличаются от hooks, skills и локального /loop
+  2. Подготовка: подписка, репозиторий, CLAUDE.md и лимиты Pro/Max/Team
+  3. Создание первой рутины через claude.ai/code/routines и команду /schedule
+  4. Три типа триггеров: Schedule (cron), API (POST + bearer) и GitHub (PR/release)
+  5. Чек-лист production: allowed domains, дневной cap, мониторинг и типовые failure modes
+  6. 5 готовых рутин для бизнеса: nightly PR review, dependency audit, changelog, triage, deploy-check
+- **faq_hints:** как настроить claude code routines; чем routines отличаются от hooks; сколько запусков routines в день на Pro; минимальный интервал cron для routines
+- **internal_links:** /ustanovka-claude-code/, /claude-code-hooks-nastrojka-2026/
+- **cover_scene_hint:** облако над ноутбуком (рутина работает offline), три стикера-триггера Schedule/API/GitHub, cron-часы и иконка PR, неоновый diy-коллаж
+
+---
+

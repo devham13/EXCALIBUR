@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "Инструмент Где работает Когда выбирать Routine (Cloud) Облако Anthropic Ночной review PR, triage алертов, weekly audit без ноутбука Hooks Локальный CLI Автоформат, lint при save, pre-commit проверки /loop, scheduled-tasks Открытая CLI-сессия Быстрый цикл в текущем проекте, пока ПК включен Desktop Local task Ваш компьютер Задачи с локальными файлами вне облака Делайте: Routine для задач, которые должны идти без вашего ПК",
+      "word_count": 60
+    },
+    {
+      "sentence": "com/v1/claude_code/routines/trig_XXXXX/fire\" \\ &nbsp;&nbsp;-H \"Authorization: Bearer sk-ant-oat01-ВАШ_ТОКЕН\" \\ &nbsp;&nbsp;-H \"anthropic-version: 2023-06-01\" \\ &nbsp;&nbsp;-H \"anthropic-beta: experimental-cc-routine-2026-04-01\" \\ &nbsp;&nbsp;-H \"Content-Type: application/json\" \\ &nbsp;&nbsp;-d '{\"text\": \"Разбери stack trace и предложи draft fix PR\"}' Без header anthropic-beta: experimental-cc-routine-2026-04-01 ответ будет 400",
+      "word_count": 49
+    },
+    {
+      "sentence": "Скопируйте 5 готовых рутин под бизнес-задачи Рутина Триггер Суть промпта Nightly PR digest Schedule weekdays 9:00 Суммировать PR за сутки, отправить в Slack connector Weekly dependency audit Schedule weekly npm audit / diff lockfile, draft PR с фиксами Docs drift Schedule weekly Сравнить merged PR с docs repo, PR на обновление Alert triage API + text из мониторинга Разбор stack trace, draft fix PR PR opened review GitHub pull_request",
+      "word_count": 64
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.9,
+    "avg_syllables_per_word": 1.3
+  }
+}

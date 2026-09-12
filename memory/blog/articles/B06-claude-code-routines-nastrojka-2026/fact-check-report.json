@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-claude-code-routines-nastrojka-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026 года",
+      "kind": "date_or_year",
+      "context": "web-setup. Функция в research preview с 14 апреля 2026 года. Доступна на Pro, Max, Team и Enterprise при вклю",
+      "verified": true,
+      "reason": "Numerical value '2026' matched in fact-bank context"
+    },
+    {
+      "fact": "2023",
+      "kind": "date_or_year",
+      "context": "1-ВАШ_ТОКЕН\" \\ &nbsp;&nbsp;-H \"anthropic-version: 2023-06-01\" \\ &nbsp;&nbsp;-H \"anthropic-beta: experime",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "&nbsp;-H \"anthropic-beta: experimental-cc-routine-2026-04-01\" \\ &nbsp;&nbsp;-H \"Content-Type: applicatio",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "асписанию, по API или при событии в GitHub. За 30-45 минут вы создадите первую рутину в claude.ai/code/routi",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "65536",
+      "kind": "large_number",
+      "context": "g_, не routine_. Поле text в JSON опционально, до 65536 символов - передайте stack trace или контекст алер",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "ey (x-api-key) - это разные ключи. Успешный ответ 200 содержит claude_code_session_id и claude_code_sess",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

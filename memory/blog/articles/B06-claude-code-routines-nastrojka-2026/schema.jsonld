@@ -1,0 +1,244 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/08/claude-code-routines-nastrojka-2026.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Как настроить Claude Code Routines: расписание, API и GitHub-триггеры"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#webpage",
+      "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/",
+      "name": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#primaryimage"
+      },
+      "description": "Пошаговая настройка Claude Code Routines: первая облачная рутина, триггеры Schedule, API curl и GitHub App, production-чек-лист и 5 готовых сценариев для бизнеса."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#webpage"
+      },
+      "headline": "Как настроить Claude Code Routines: пошаговое руководство по расписанию, API и GitHub-триггерам",
+      "description": "Пошаговая настройка Claude Code Routines: первая облачная рутина, триггеры Schedule, API curl и GitHub App, production-чек-лист и 5 готовых сценариев для бизнеса.",
+      "datePublished": "2026-08-16T10:07:00+03:00",
+      "dateModified": "2026-08-16T10:07:00+03:00",
+      "mainEntityOfPage": "https://mayai.ru/claude-code-routines-nastrojka-2026/",
+      "inLanguage": "ru",
+      "image": {
+        "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      },
+      "keywords": "claude code routines, claude code рутины, настройка claude code routines, /schedule claude code, claude code github trigger, claude code api trigger"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как настроить Claude Code Routines с нуля?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте claude.ai/code/routines → New routine → имя, self-contained промпт, repo, environment, trigger Schedule → Create. Для schedule-only альтернатива - /schedule в CLI. После Create нажмите Run now и откройте transcript."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем routines отличаются от hooks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hooks реагируют на локальные события CLI на вашем ПК. Routines - автономные облачные сессии с расписанием, API или GitHub. Hooks для lint при save; routines для ночного review без ноутбука."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько запусков routines в день на Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До 5 на Pro, 15 на Max, 25 на Team и Enterprise. One-off scheduled runs в дневной cap не входят. Каждый run расходует subscription usage как обычная сессия."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой минимальный интервал cron для routines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1 час. Более частые cron-выражения система отклонит. Для частых событий используйте API trigger с внешним throttling, а не sub-hourly Schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему GitHub trigger не срабатывает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаще всего не установлен Claude GitHub App. Команда /web-setup дает доступ к clone, но не включает webhooks. Установите App на org/repo, пересохраните routine с нужным событием и фильтрами PR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где взять API token для trigger повторно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нигде - token показывается один раз при Generate. Сохраните в vault сразу. Если потеряли, в UI routine нажмите Regenerate и обновите secret во всех интеграциях."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли запускать routines без включенного ноутбука?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Routines выполняются в облаке Anthropic. Нужны только активная подписка, доступ к repo и настроенный триггер. Локальный ПК для Schedule и GitHub events не требуется."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#howto",
+      "isPartOf": {
+        "@id": "https://mayai.ru/claude-code-routines-nastrojka-2026/#webpage"
+      },
+      "name": "Как настроить Claude Code Routines: пошаговое руководство",
+      "description": "Создание первой облачной рутины Claude Code с триггерами Schedule, API и GitHub.",
+      "totalTime": "PT45M",
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Подписка Pro, Max, Team или Enterprise с Claude Code on the web"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "GitHub-аккаунт, подключённый к claude.ai"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "CLAUDE.md в корне репозитория"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Bearer-токен sk-ant-oat01- для API trigger (при необходимости)"
+        }
+      ],
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code on the web (claude.ai/code/routines)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code CLI (/schedule)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "curl для теста API trigger"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Claude GitHub App"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 1: Проверьте доступ и лимиты",
+          "text": "Убедитесь, что тариф Pro, Max, Team или Enterprise и Claude Code on the web активен. Owner Team/Enterprise не отключил Routines в admin-settings. Запомните дневной cap: Pro - 5, Max - 15, Team/Enterprise - 25 запусков.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#prepare"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 2: Подключите GitHub",
+          "text": "Подключите GitHub к claude.ai через OAuth или /web-setup для доступа к репозиторию. Для GitHub trigger позже установите Claude GitHub App отдельно - /web-setup не ставит App и webhooks.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#prepare"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 3: Создайте первую рутину в web UI",
+          "text": "Откройте claude.ai/code/routines → New routine → имя, self-contained промпт, repo, environment (Default или Custom), trigger Schedule → Create.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#first-routine"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 4: Или создайте через /schedule в CLI",
+          "text": "В сессии Claude Code выполните, например, /schedule daily Review open PRs and summarize blockers. Routine должна появиться в том же web UI. Управление: /schedule list, /schedule update, /schedule run.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#first-routine"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 5: Настройте Schedule",
+          "text": "Выберите preset (hourly, nightly, weekdays 9:00, weekly) или свой cron с минимальным интервалом 1 час. One-off настраивайте в web UI при необходимости.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#schedule-trigger"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 6: Подключите API trigger",
+          "text": "Edit routine → Add trigger → API → Generate token. Сохраните URL и sk-ant-oat01- токен. Протестируйте POST /fire с header anthropic-beta: experimental-cc-routine-2026-04-01.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#api-trigger"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 7: Настройте GitHub trigger",
+          "text": "Установите Claude GitHub App на org/repo. В UI routine выберите event pull_request.opened и фильтры (base=main, draft=false). События сверх hourly cap отбрасываются.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#github-trigger"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 8: Run now и проверьте transcript",
+          "text": "После Create нажмите Run now и откройте session transcript. Зелёный статус означает отсутствие infra-ошибки, а не успех задачи.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#first-routine"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Шаг 9: Пройдите production-чек-лист",
+          "text": "Self-contained промпт, нужные connectors, Custom network при необходимости, учёт daily cap, секрет API в vault, human review для PR от рутины, fallback на claude_code_session_url.",
+          "url": "https://mayai.ru/claude-code-routines-nastrojka-2026/#production-checklist"
+        }
+      ]
+    }
+  ]
+}

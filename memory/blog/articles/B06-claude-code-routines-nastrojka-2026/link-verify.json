@@ -1,0 +1,64 @@
+{
+  "source": "memory/blog/articles/B06-claude-code-routines-nastrojka-2026/article.html",
+  "total_links": 6,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "/ustanovka-claude-code/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "/ustanovka-claude-code/"
+    },
+    {
+      "url": "/claude-code-hooks-nastrojka-2026/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "/claude-code-hooks-nastrojka-2026/"
+    },
+    {
+      "url": "https://github.com/apps/claude",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://code.claude.com/docs/en/routines",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://code.claude.com/docs/en/routines#example-use-cases",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://kv-ai.ru/obuchenie-po-make",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

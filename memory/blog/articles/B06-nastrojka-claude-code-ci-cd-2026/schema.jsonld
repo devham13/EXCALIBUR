@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#article",
+      "headline": "Как настроить Claude Code в CI/CD: пошаговая инструкция для GitHub Actions и headless-режима",
+      "description": "Пошаговая настройка Claude Code в CI/CD: выбор Action vs claude -p --bare, секреты, workflow GitHub Actions и GitLab CI, guardrails и чеклист безопасности перед продакшеном.",
+      "datePublished": "2026-09-12",
+      "dateModified": "2026-09-12",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastrojka-claude-code-ci-cd-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code ci cd, claude code github actions, claude code headless, claude code gitlab ci, настройка claude code",
+      "wordCount": 8761,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как запустить Claude Code в GitHub Actions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Локально выполните /install-github-app или добавьте GitHub App вручную. Сохраните ANTHROPIC_API_KEY в secrets. В workflow укажите anthropics/claude-code-action@v1, prompt для automation или ждите @claude в interactive mode. Задайте claude_args с --max-turns и --allowedTools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое headless режим Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это claude -p \"задача\" без интерактивного чата. Агент один раз выполняет loop и завершается с exit code 0 или ошибкой – CI читает код как результат теста. Для пайплайнов добавляйте --bare и --output-format json."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем --bare отличается от обычного -p?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "--bare пропускает hooks, skills, plugins, MCP и CLAUDE.md. Run быстрее и одинаковее. Нужен ANTHROPIC_API_KEY в env; OAuth login в bare не работает. Для scripted CI это рекомендованный режим."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Безопасно ли Claude Code в CI/CD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да при least-privilege: --allowedTools, --permission-mode dontAsk, caps --max-turns и --max-budget-usd, job timeout, write-access check Action, без pull_request_target на untrusted diff. Human review перед merge обязателен."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "OAuth или API key в CI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для headless --bare – API key или OIDC/WIF в enterprise. OAuth token (CLAUDE_CODE_OAUTH_TOKEN) подходит для Action при подписке Pro/Max/Team, но привязан к одному аккаунту. Org-wide CI обычно на API key или cloud provider без long-lived secrets в repo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GitLab поддерживается?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, через job в .gitlab-ci.yml по beta-доке: install script, masked ANTHROPIC_API_KEY, --allowedTools с mcp__gitlab при необходимости. Укажите rules под MR и не смешивайте с untrusted fork без изоляции secrets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как контролировать стоимость run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Задайте --max-turns, --max-budget-usd, timeout job и concurrency. Используйте --output-format json, читайте total_cost_usd, алертируйте при превышении порога. Начинайте с узкого prompt и минимального набора tools."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#howto",
+      "name": "Как настроить Claude Code в CI/CD: пошаговая инструкция для GitHub Actions и headless-режима",
+      "description": "Пошаговая настройка Claude Code в CI/CD: выбор Action vs claude -p --bare, секреты, workflow GitHub Actions и GitLab CI, guardrails и чеклист безопасности перед продакшеном.",
+      "inLanguage": "ru",
+      "totalTime": "PT2H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code CLI (claude -p / --bare)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "GitHub Actions (anthropics/claude-code-action@v1)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "ANTHROPIC_API_KEY или CLAUDE_CODE_OAUTH_TOKEN"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выберите путь интеграции",
+          "text": "Сравните claude -p в job и anthropics/claude-code-action@v1. Для GitHub-only PR automation берите Action; для GitLab, Jenkins или JSON-pipeline – headless claude --bare -p.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#choose-path"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Настройте секреты и аутентификацию",
+          "text": "Создайте ANTHROPIC_API_KEY в консоли Anthropic. Добавьте masked secret в GitHub Secrets или GitLab CI/CD Variables. Для OAuth Action сохраните CLAUDE_CODE_OAUTH_TOKEN через claude setup-token. Добавьте CLAUDE.md с правилами review.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#secrets-auth"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Соберите GitHub Actions workflow",
+          "text": "Выполните /install-github-app или настройте GitHub App вручную. Добавьте workflow с anthropics/claude-code-action@v1, prompt для automation, минимальными permissions и claude_args с --max-turns и --allowedTools.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#github-actions"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Запустите headless job в generic CI",
+          "text": "Установите CLI через install script, экспортируйте ANTHROPIC_API_KEY, запустите claude --bare -p с --permission-mode dontAsk, --allowedTools и --output-format json. Проверьте exit code и парсите total_cost_usd.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#headless-generic"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Настройте GitLab CI job (beta)",
+          "text": "Добавьте job в .gitlab-ci.yml на node:24-alpine3.21 с install script, masked ANTHROPIC_API_KEY и rules только на trusted MR. При необходимости включите mcp__gitlab в --allowedTools.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#gitlab-ci"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Ограничьте риски и бюджет",
+          "text": "Задайте --max-turns, --max-budget-usd, job timeout и concurrency. Используйте --permission-mode dontAsk с явным --allowedTools. Не запускайте agent на untrusted PR через pull_request_target.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#hardening"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Проверьте run и пройдите чеклист prod",
+          "text": "Прогоните тестовый workflow на internal branch, сверьте exit code и логи, проверьте JSON cost, убедитесь в отсутствии bot comment loop. Задокументируйте триггеры, secrets и лимиты в README репозитория.",
+          "url": "https://mayai.ru/blog/nastrojka-claude-code-ci-cd-2026/#debug-prod"
+        }
+      ]
+    }
+  ]
+}

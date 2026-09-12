@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-claude-code-ci-cd-2026",
+  "h1": "Как настроить Claude Code в CI/CD: пошаговая инструкция для GitHub Actions и headless-режима",
+  "title": "Claude Code CI/CD: настройка GitHub Actions и headless-режима",
+  "description": "Пошаговая настройка Claude Code в CI/CD: выбор Action vs claude -p --bare, секреты, workflow GitHub Actions и GitLab CI, guardrails и чеклист безопасности перед продакшеном.",
+  "keywords": [
+    "claude code ci cd",
+    "claude code github actions",
+    "claude code headless",
+    "claude code gitlab ci",
+    "настройка claude code"
+  ],
+  "primary_query": "claude code ci cd",
+  "secondary_queries": [
+    "claude code github actions",
+    "claude code headless",
+    "claude code gitlab ci",
+    "настройка claude code"
+  ],
+  "char_count": 8761,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить claude code в ci cd github actions",
+    "claude code headless --bare в пайплайне пошагово",
+    "настройка claude code gitlab ci с guardrails"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code CI/CD: настройка GitHub Actions и headless-режима",
+    "title_ctr": "🚀 Claude Code в CI/CD: GitHub Actions vs headless - что выбрать и как не слить бюджет?",
+    "title_aeo": "Как настроить Claude Code в CI/CD для GitHub Actions и headless-режима?",
+    "description_seo": "Пошаговая настройка Claude Code в CI/CD: Action vs claude -p --bare, секреты, workflow GitHub/GitLab, --max-turns и чеклист безопасности.",
+    "description_ctr": "⚡ Запустите Claude Code в пайплайне за вечер: Action, headless, секреты, YAML и 10 guardrails. Гайд для DevOps без сюрпризов в prod.",
+    "description_aeo": "Claude Code CI/CD настраивается через anthropics/claude-code-action@v1 или claude --bare -p с ANTHROPIC_API_KEY, --allowedTools и --max-turns в GitHub Actions и GitLab CI."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,197 @@
+<p>Claude Code в CI/CD обещает авто-ревью и правки в merge request, но без схемы интеграции job падает на секретах, лишних tools или бесконечном agent loop. Headless Claude Code – это запуск `claude -p` без чата: один прогон, exit code для пайплайна. Ниже – выбор между GitHub Action и bare CLI, настройка секретов, минимальные workflow для GitHub Actions и GitLab CI, guardrails и чеклист перед продакшеном. После гайда вы соберёте тестовый job и ограничите риски.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Для GitHub-only автоматизации берите `anthropics/claude-code-action@v1` и `/install-github-app`. Для Jenkins, GitLab или кастомного JSON – `claude --bare -p` с `ANTHROPIC_API_KEY`. В CI всегда ставьте `--permission-mode dontAsk`, `--allowedTools`, `--max-turns` и job timeout. GitLab-интеграция на сентябрь 2026 – beta. Не запускайте agent на untrusted PR через `pull_request_target`.</blockquote>
+
+<p>CI/CD – конвейер тестов и деплоя при каждом push. Claude Code – CLI-агент, который читает repo и вызывает tools (Bash, Edit). В пайплайне – headless, без чата. MCP расширяет агента в IDE; в CI для стабильности берут `--bare`. Локально – <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; фон – <a href="/avtomatizaciya-n8n-ai-agents/">n8n с ИИ-агентами</a>.</p>
+
+<h2 id="choose-path">1. Выберите путь: headless `claude -p` или GitHub Action</h2>
+
+<p>Два входа в claude code ci cd: GitHub Action или headless CLI в shell-step.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>`claude -p` в job</th>
+      <th>`anthropics/claude-code-action@v1`</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Setup</b></td>
+      <td>install script + secret в env</td>
+      <td>`/install-github-app` или ручная GitHub App</td>
+    </tr>
+    <tr>
+      <td><b>Триггер</b></td>
+      <td>любой CI (GitHub, GitLab, Jenkins)</td>
+      <td>GitHub events + `@claude` или `prompt` в workflow</td>
+    </tr>
+    <tr>
+      <td><b>Контекст PR</b></td>
+      <td>checkout + gh CLI вручную</td>
+      <td>comments, commits, PR – встроено</td>
+    </tr>
+    <tr>
+      <td><b>Воспроизводимость</b></td>
+      <td>`--bare` + явные flags</td>
+      <td>`claude_args` passthrough</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбирать</b></td>
+      <td>multi-CI, JSON-отчёты, свой orchestrator</td>
+      <td>PR/issue automation только на GitHub</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Workflow выбора:</b>
+  <br>
+  Нужен только GitHub и ревью в PR → Action. Нужен GitLab, Jenkins или свой JSON-pipeline → headless `--bare -p`.
+</blockquote>
+
+<p><b>Делайте:</b> зафиксируйте один путь на репозиторий, не смешивайте Action и bare CLI в одном job без причины. <b>Не делайте:</b> ставить Action там, где CI – GitLab или on-prem Jenkins – Action не заменит headless.</p>
+
+<h2 id="secrets-auth">2. Настройте секреты и аутентификацию</h2>
+
+<p>API key – пароль для Anthropic API. OAuth – подписка Pro/Max/Team. В `--bare` нужен `ANTHROPIC_API_KEY`, не OAuth login.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Создайте API key в консоли Anthropic или получите org-ключ у админа.</li>
+  <li><b>Шаг 2:</b> GitHub: Settings → Secrets → `ANTHROPIC_API_KEY`. GitLab: Settings → CI/CD → Variables, включите <b>Mask variable</b>.</li>
+  <li><b>Шаг 3:</b> Для OAuth-сценария Action: локально `claude setup-token`, сохраните `CLAUDE_CODE_OAUTH_TOKEN` в secrets (привязан к одной подписке).</li>
+  <li><b>Шаг 4:</b> Enterprise: рассмотрите OIDC/WIF (Bedrock, Vertex) – короткоживущие токены вместо long-lived key в repo.</li>
+  <li><b>Шаг 5:</b> Добавьте `CLAUDE.md` в корень репозитория – правила review и стиль правок для стабильного поведения в CI.</li>
+</ol>
+
+<p><b>Делайте:</b> masked secrets и отдельный service account key на репозиторий. <b>Не делайте:</b> коммитить ключи в YAML или логировать env в echo.</p>
+
+<h2 id="github-actions">3. Соберите GitHub Actions workflow</h2>
+
+<p>Quick path: `/install-github-app` (admin repo, `gh auth login`). Без `prompt` job ждёт `@claude`; с `prompt` – automation по триггеру.</p>
+
+<pre><code>name: Claude review
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review this PR. List blockers only.
+          claude_args: '--max-turns 8 --allowedTools Read,Grep'</code></pre>
+
+<p>Triggering user – write access; bots отклоняются. <b>Делайте:</b> минимальные permissions. <b>Не делайте:</b> `pull_request_target` + agent на fork diff.</p>
+
+<h2 id="headless-generic">4. Запустите headless job в любом CI</h2>
+
+<p>Универсальный шаг для claude code headless: install script, PATH, bare mode, JSON для cost tracking.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> `curl -fsSL https://claude.ai/install.sh | bash` и export `PATH="$HOME/.local/bin:$PATH"`.</li>
+  <li><b>Шаг 2:</b> Экспортируйте `ANTHROPIC_API_KEY` из masked variable.</li>
+  <li><b>Шаг 3:</b> Запустите `claude --bare -p "Your task" --permission-mode dontAsk --allowedTools "Read" --output-format json`.</li>
+  <li><b>Шаг 4:</b> Проверьте exit code: 0 – успех, non-zero – fail job.</li>
+  <li><b>Шаг 5:</b> Парсите JSON: поле `total_cost_usd` – оценка spend на клиенте; stdin через pipe ограничен 10 MB.</li>
+</ol>
+
+<p>`--bare` без hooks/MCP/CLAUDE.md – одинаковый run. <b>Делайте:</b> `--allowedTools "Read"`, расширяйте после тестов. <b>Не делайте:</b> широкий tool-list с `dontAsk` сразу.</p>
+
+<h2 id="gitlab-ci">5. Настройте GitLab CI job (beta)</h2>
+
+<p>GitLab CI – <b>beta</b> (12.09.2026). Образ `node:24-alpine3.21`, masked `ANTHROPIC_API_KEY`, для MR – `CI_JOB_TOKEN` или PAT.</p>
+
+<pre><code>claude_review:
+  image: node:24-alpine3.21
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  script:
+    - curl -fsSL https://claude.ai/install.sh | bash
+    - export PATH="$HOME/.local/bin:$PATH"
+    - claude -p "Summarize MR risks" --permission-mode acceptEdits
+        --allowedTools "Bash Read Edit Write mcp__gitlab"
+        --max-turns 10</code></pre>
+
+<p><b>Делайте:</b> `rules` только на trusted branches и web/MR triggers. <b>Не делайте:</b> обещать команде GA-стабильность beta-фич без pin версии CLI.</p>
+
+<h2 id="hardening">6. Ограничьте риски: turns, budget, timeout</h2>
+
+<p>Без cap agent loop съедает лимиты API. Guardrails:</p>
+
+<ul>
+  <li>`--max-turns N` – stop turns; ошибка при превышении</li>
+  <li>`--max-budget-usd X` – cap spend (v2.1.217+)</li>
+  <li>Job timeout и `concurrency` – один run на PR</li>
+  <li>`--permission-mode dontAsk` + явный `--allowedTools`</li>
+  <li>Human review перед merge; rollback plan</li>
+  <li>Permission denied в логах – сузить tools</li>
+  <li>Отдельный key на repo; OIDC вместо long-lived keys</li>
+  <li>Не unlimited turns на публичном fork</li>
+  <li>Bot loop prevention в Action</li>
+  <li>Masked secrets; не echo env в логах</li>
+</ul>
+
+<p><b>Делайте:</b> `--output-format json` и алерт при `total_cost_usd` выше порога. <b>Не делайте:</b> unlimited turns на публичном форке.</p>
+
+<h2 id="debug-prod">7. Проверьте run и пройдите чеклист prod</h2>
+
+<p>Сбои: 401 (secret), permission denied (tools), timeout (turns/prompt), non-zero exit при blockers – норма, если policy так задана.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Тестовый workflow на internal branch без fork.</li>
+  <li><b>Шаг 2:</b> Сверьте exit code и артеfacts/logs job.</li>
+  <li><b>Шаг 3:</b> Проверьте JSON cost и сравните с `--max-budget-usd`.</li>
+  <li><b>Шаг 4:</b> Убедитесь, что bot не отвечает сам себе в comment loop.</li>
+  <li><b>Шаг 5:</b> Задокументируйте в README repo: триггеры, secrets, лимиты.</li>
+</ol>
+
+<p>Оркестрация рядом с CI – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a>.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Выберите Action или headless по таблице в начале гайда.</li>
+  <li>Добавьте secret и минимальный workflow; прогоните на test PR.</li>
+  <li>Включите `--bare`, `--max-turns`, timeout; расширяйте `--allowedTools` по необходимости.</li>
+  <li>Сверьте локальный MCP-стек с <a href="/podklyuchenie-mcp-cursor/">гайдом MCP в Cursor</a> – что в IDE, что в CI.</li>
+  <li>Для цепочек webhook → agent → CRM – <a href="/avtomatizaciya-n8n-ai-agents/">n8n и ИИ-агенты</a>.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com, Cursor и CI-автоматизации).<br>
+  <b>Достоверность данных:</b> флаги CLI, permissions Action и статус GitLab beta сверены с документацией Anthropic (code.claude.com) на 12.09.2026; LSI-кластеры claude code ci cd, github actions, headless – по SERP-анализу без подстановки цифр Вордstat.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Как запустить Claude Code в GitHub Actions?</h3>
+<p>Локально выполните `/install-github-app` или добавьте GitHub App вручную. Сохраните `ANTHROPIC_API_KEY` в secrets. В workflow укажите `anthropics/claude-code-action@v1`, `prompt` для automation или ждите `@claude` в interactive mode. Задайте `claude_args` с `--max-turns` и `--allowedTools`.</p>
+
+<h3>Что такое headless режим Claude Code?</h3>
+<p>Это `claude -p "задача"` без интерактивного чата. Агент один раз выполняет loop и завершается с exit code 0 или ошибкой – CI читает код как результат теста. Для пайплайнов добавляйте `--bare` и `--output-format json`.</p>
+
+<h3>Чем `--bare` отличается от обычного `-p`?</h3>
+<p>`--bare` пропускает hooks, skills, plugins, MCP и CLAUDE.md. Run быстрее и одинаковее. Нужен `ANTHROPIC_API_KEY` в env; OAuth login в bare не работает. Для scripted CI это рекомендованный режим.</p>
+
+<h3>Безопасно ли Claude Code в CI/CD?</h3>
+<p>Да при least-privilege: `--allowedTools`, `--permission-mode dontAsk`, caps `--max-turns` и `--max-budget-usd`, job timeout, write-access check Action, без `pull_request_target` на untrusted diff. Human review перед merge обязателен.</p>
+
+<h3>OAuth или API key в CI?</h3>
+<p>Для headless `--bare` – API key или OIDC/WIF в enterprise. OAuth token (`CLAUDE_CODE_OAUTH_TOKEN`) подходит для Action при подписке Pro/Max/Team, но привязан к одному аккаунту. Org-wide CI обычно на API key или cloud provider без long-lived secrets в repo.</p>
+
+<h3>GitLab поддерживается?</h3>
+<p>Да, через job в `.gitlab-ci.yml` по beta-доке: install script, masked `ANTHROPIC_API_KEY`, `--allowedTools` с `mcp__gitlab` при необходимости. Укажите `rules` под MR и не смешивайте с untrusted fork без изоляции secrets.</p>
+
+<h3>Как контролировать стоимость run?</h3>
+<p>Задайте `--max-turns`, `--max-budget-usd`, timeout job и concurrency. Используйте `--output-format json`, читайте `total_cost_usd`, алертируйте при превышении порога. Начинайте с узкого prompt и минимального набора tools.</p>

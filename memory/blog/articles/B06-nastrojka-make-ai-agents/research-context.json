@@ -1,0 +1,80 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-12",
+    "today_ru": "12.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-14",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-12 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-make-ai-agents",
+    "h1": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами",
+    "primary_query": "make ai agents настройка",
+    "secondary_queries": [
+      "make ai agents как создать",
+      "make.com ai agents инструкция",
+      "агент make сценарии инструменты"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "make ai agents настройка 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "make ai agents настройка сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "make ai agents настройка новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "make ai agents как создать 2026",
+      "purpose": "вторичный запрос: make ai agents как создать"
+    },
+    {
+      "id": "secondary_2",
+      "query": "make.com ai agents инструкция 2026",
+      "purpose": "вторичный запрос: make.com ai agents инструкция"
+    },
+    {
+      "id": "secondary_3",
+      "query": "агент make сценарии инструменты 2026",
+      "purpose": "вторичный запрос: агент make сценарии инструменты"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastrojka-make-ai-agents",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

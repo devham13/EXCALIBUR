@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-make-ai-agents",
+  "h1": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами",
+  "primary_query": "make ai agents настройка",
+  "secondary_queries": [
+    "make ai agents как создать",
+    "make.com ai agents инструкция",
+    "агент make сценарии инструменты"
+  ],
+  "keywords": [
+    "make ai agents настройка",
+    "Make AI Agent New",
+    "Run an agent",
+    "Call a scenario",
+    "MCP make",
+    "Make's AI Provider",
+    "instructions system prompt",
+    "knowledge RAG make"
+  ],
+  "char_count": 9410,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "настройка make ai agents пошагово",
+    "как создать агента в make.com с инструментами",
+    "make ai agents instructions и tools"
+  ],
+  "meta_ab": {
+    "title_seo": "Make AI agents настройка: пошаговый гайд по Run an agent",
+    "title_ctr": "🚀 Make AI Agents: как собрать агента с tools за один вечер без кода?",
+    "title_aeo": "Как настроить Make AI Agents: провайдер, tools и тест в Chat?",
+    "description_seo": "Пошаговая настройка Make AI Agent (New): триггер, Instructions, модули, Call a scenario, MCP и Knowledge. Тест в Chat/Reasoning и чеклист credits перед production.",
+    "description_ctr": "⚡ Заявки копятся, а сценарий не понимает срочность? Соберите Make AI Agent с 2-3 tools, RAG и guardrails – гайд с чеклистом prod и таблицей credits.",
+    "description_aeo": "Make AI agents настройка – это сценарий с модулем Run an agent, Instructions, tools (модули, scenario, MCP) и тестом в Reasoning перед включением в production."
+  },
+  "cover_family": "brand_collage"
+}

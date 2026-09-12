@@ -7,6 +7,10 @@
 <p>Если вы выбираете между платформами, сравните Make с n8n в материале <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/">автоматизация n8n с ИИ-агентами</a>: там свой сервер и глубокий контроль; Make быстрее стартует из облака с 3000+ apps.</p>
 
 <h2 id="agent-vs-scenario">1. Определите, когда нужен агент, а не линейный сценарий</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица: когда линейный сценарий, а когда Make AI Agent" loading="lazy">
+</figure>
+
 
 <p>Линейный сценарий – фиксированная цепочка: A всегда ведёт в B. Агент подходит, когда вход разный, а решение зависит от контекста: triage заявок, квалификация лидов, черновик ответа с проверкой регламента.</p>
 
@@ -40,6 +44,10 @@
 <p><b>Делайте:</b> один сквозной кейс (triage из Webhook или Slack). <b>Не делайте:</b> отдавать агенту чувствительные финансы, юридические решения и данные без human-in-the-loop – так рекомендует документация Make.</p>
 
 <h2 id="create-scenario">2. Создайте сценарий, триггер и модуль Run an agent</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема: триггер → Run an agent → tools → output в Make" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема workflow:</b>
@@ -58,6 +66,10 @@
 <p><b>Делайте:</b> filter до агента, чтобы не тратить credits на мусор. <b>Не делайте:</b> путать старый Make AI Agents и новый модуль на canvas от февраля 2026.</p>
 
 <h2 id="instructions-limits">3. Настройте Instructions, Input и лимиты выполнения</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Карточка: Instructions, Input и лимиты Make AI Agent" loading="lazy">
+</figure>
+
 
 <p>Instructions – это system prompt: роль, цель, шаги, формат ответа и запреты. Пример для triage: "Ты диспетчер заявок. Классифицируй срочность, выбери tool create_lead или send_faq. Не обещай сроки и цены. Ответ – JSON с полями priority, summary, action."</p>
 

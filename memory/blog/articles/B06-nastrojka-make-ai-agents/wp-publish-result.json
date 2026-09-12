@@ -1,0 +1,14 @@
+{
+  "slug": "nastrojka-make-ai-agents",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/09/12/nastrojka-make-ai-agents/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-make-ai-agents/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 953408,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=1065 slug=nastrojka-make-ai-agents\nOK featured_image=1066\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1067 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-make-ai-agents-inline-01.png\nOK inline_image_upload=1068 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-make-ai-agents-inline-02.png\nOK inline_image_upload=1069 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-make-ai-agents-inline-03.png\npermalink=https://www.meta-journal.ru/2026/09/12/nastrojka-make-ai-agents/\n",
+  "verdict": "pass"
+}

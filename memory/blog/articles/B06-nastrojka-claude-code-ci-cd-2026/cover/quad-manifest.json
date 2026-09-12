@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code в CI съел бюджет за 5 минут — guardrails или agent loop?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Claude Code в CI/CD — DevOps с красным GitHub Actions и предупреждением о бюджете",
+      "scene_hint": "reference-лицо в тёмной DevOps-худи с логотипом CI, указывает на fake GitHub Actions run «failed ×127», рядом fake terminal claude --bare -p с бесконечным spinner, fake alert «Budget exceeded $50», стикер «ANTHROPIC_API_KEY leaked?», torn paper + scotch tape, meme cat watching loading spinner, розовый highlight на «agent loop», shocked facepalm meme cutout",
+      "meme_caption_ru": "Job failed ×127?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Выберите путь: headless `claude -p` или GitHub Action",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица «claude -p в job vs anthropics/claude-code-action@v1»: Setup, Триггер, Контекст PR, Воспроизводимость, Когда выбирать — Cyrillic UI, розовый стикер «жиза», scotch tape corner — «1. Выберите путь: headless claude -p или GitHub Action»",
+      "alt": "Сравнительная таблица: headless claude -p vs GitHub Action для Claude Code CI/CD"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте секреты и аутентификацию",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 5 шагов: API key в консоли → GitHub Secrets / GitLab Variables (Mask) → OAuth token → OIDC/WIF → CLAUDE.md в repo; стрелки, иконки замка и ключа, marker arrows на torn paper — «2. Настройте секреты и аутентификацию»",
+      "alt": "Схема настройки секретов ANTHROPIC_API_KEY и OAuth для Claude Code в CI"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите GitHub Actions workflow",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на clipboard: install-github-app ✓, pull_request trigger ✓, claude_args --max-turns ✓, --allowedTools ✓, job timeout ✓; YAML snippet corner, red pen marks — «3. Соберите GitHub Actions workflow»",
+      "alt": "Чеклист сборки GitHub Actions workflow для Claude Code"
+    }
+  }
+}

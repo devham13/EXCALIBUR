@@ -5,6 +5,10 @@
 <p>CI/CD – конвейер тестов и деплоя при каждом push. Claude Code – CLI-агент, который читает repo и вызывает tools (Bash, Edit). В пайплайне – headless, без чата. MCP расширяет агента в IDE; в CI для стабильности берут `--bare`. Локально – <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; фон – <a href="/avtomatizaciya-n8n-ai-agents/">n8n с ИИ-агентами</a>.</p>
 
 <h2 id="choose-path">1. Выберите путь: headless `claude -p` или GitHub Action</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица: headless claude -p vs GitHub Action для Claude Code CI/CD" loading="lazy">
+</figure>
+
 
 <p>Два входа в claude code ci cd: GitHub Action или headless CLI в shell-step.</p>
 
@@ -54,6 +58,10 @@
 <p><b>Делайте:</b> зафиксируйте один путь на репозиторий, не смешивайте Action и bare CLI в одном job без причины. <b>Не делайте:</b> ставить Action там, где CI – GitLab или on-prem Jenkins – Action не заменит headless.</p>
 
 <h2 id="secrets-auth">2. Настройте секреты и аутентификацию</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема настройки секретов ANTHROPIC_API_KEY и OAuth для Claude Code в CI" loading="lazy">
+</figure>
+
 
 <p>API key – пароль для Anthropic API. OAuth – подписка Pro/Max/Team. В `--bare` нужен `ANTHROPIC_API_KEY`, не OAuth login.</p>
 
@@ -68,6 +76,10 @@
 <p><b>Делайте:</b> masked secrets и отдельный service account key на репозиторий. <b>Не делайте:</b> коммитить ключи в YAML или логировать env в echo.</p>
 
 <h2 id="github-actions">3. Соберите GitHub Actions workflow</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист сборки GitHub Actions workflow для Claude Code" loading="lazy">
+</figure>
+
 
 <p>Quick path: `/install-github-app` (admin repo, `gh auth login`). Без `prompt` job ждёт `@claude`; с `prompt` – automation по триггеру.</p>
 

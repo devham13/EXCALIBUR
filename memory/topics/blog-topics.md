@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Claude Code в CI/CD
+
+- **priority:** P0
+- **slug:** nastrojka-claude-code-ci-cd-2026
+- **h1:** Как настроить Claude Code в CI/CD: пошаговая инструкция для GitHub Actions и headless-режима
+- **primary_query:** claude code ci cd
+- **secondary_queries:** claude code github actions, claude code headless, claude code gitlab ci, настройка claude code
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Headless vs интерактив: когда запускать `claude -p` в пайплайне, а когда — GitHub App
+  2. Установка и секреты: `ANTHROPIC_API_KEY`, OAuth-токен, `--bare` для воспроизводимых CI-ранов
+  3. GitHub Actions: `anthropics/claude-code-action@v1`, триггеры PR/issue и `--allowedTools`
+  4. GitLab CI/CD: job в `.gitlab-ci.yml`, MCP GitLab и ограничение `--max-turns`
+  5. Безопасность и отладка: `--permission-mode`, JSON-вывод, timeout и чек-лист перед продакшеном
+- **faq_hints:** как запустить claude code в github actions; что такое headless режим claude code; чем --bare отличается от обычного -p; безопасно ли claude code в ci cd
+- **internal_links:** /podklyuchenie-mcp-cursor/, /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** экран CI/CD-пайплайна (GitHub Actions/GitLab), робот-агент с терминалом `claude -p`, стикеры `--bare`, `--allowedTools`, зелёные/красные статусы job, diy-коллаж с неоновыми стрелками merge request
+
+---
+

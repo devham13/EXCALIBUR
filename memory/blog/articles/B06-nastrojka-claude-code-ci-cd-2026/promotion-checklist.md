@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastrojka-claude-code-ci-cd-2026
 
 Дата публикации: 2026-09-12  
-Live URL: https://mayai.ru/nastrojka-claude-code-ci-cd-2026/
+Live URL: https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Claude Code в CI/CD обещает авто-ревью, но без схемы 
 • Guardrails: --permission-mode dontAsk, --allowedTools, --max-turns, job timeout
 • GitLab beta на сентябрь 2026; не запускайте agent на untrusted PR через pull_request_target
 
-Читать: https://mayai.ru/nastrojka-claude-code-ci-cd-2026/
+Читать: https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,17 @@
+{
+  "slug": "nastrojka-claude-code-ci-cd-2026",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-nastrojka-claude-code-ci-cd-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "OK post=1082 slug=nastrojka-claude-code-ci-cd-2026\nOK featured_image=1083\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1084 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-claude-code-ci-cd-2026-inline-01.png\nOK inline_image_upload=1085 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-claude-code-ci-cd-2026-inline-02.png\nOK inline_image_upload=1086 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/09/nastrojka-claude-code-ci-cd-2026-inline-03.png\npermalink=https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/",
+  "verdict": "pass",
+  "post_id": 1082,
+  "featured_image_id": 1083,
+  "inline_image_ids": [1084, 1085, 1086],
+  "transport": "SFTP fallback (FTP 425 Bad IP)",
+  "public_base": "EXCALIBUR_PUBLIC_SITE_URL"
+}

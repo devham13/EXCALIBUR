@@ -172,3 +172,54 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-12 — B06 nastrojka-claude-code-ci-cd-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-claude-code-ci-cd-2026 |
+| verdict | **PASS** |
+| post_id | 1082 |
+| featured_image_id | 1083 |
+| inline_images | 1084, 1085, 1086 |
+| permalink | https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/ |
+| transport | SFTP fallback (FTP 425 Bad IP connecting) |
+| public_base | EXCALIBUR_PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (4/4, site-base: mayai.ru)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base https://mayai.ru  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-claude-code-ci-cd-2026 --dry-run  # OK, PHP 7285218 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-claude-code-ci-cd-2026 --public-base https://mayai.ru  # SFTP OK; HTTP 404 on mayai.ru bootstrap
+# Bootstrap executed via EXCALIBUR_PUBLIC_SITE_URL (correct document root for FTP_ROOT)
+```
+
+### Result
+
+```
+OK post=1082 slug=nastrojka-claude-code-ci-cd-2026
+OK featured_image=1083
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1084 src=cover/inline-01.png
+OK inline_image_upload=1085 src=cover/inline-02.png
+OK inline_image_upload=1086 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/09/12/nastrojka-claude-code-ci-cd-2026/
+```
+
+### Notes
+
+- Cloud Agent FTP blocked (425 Bad IP); added paramiko SFTP fallback in `excalibur_blog_wp_publish.py`.
+- `mayai.ru` bootstrap 404 — WP document root matches `EXCALIBUR_PUBLIC_SITE_URL` / `REMOTE_SITE_ROOT`, not mayai.ru apex.

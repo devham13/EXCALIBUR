@@ -71,26 +71,29 @@
 
 <p>Quick path: `/install-github-app` (admin repo, `gh auth login`). Без `prompt` job ждёт `@claude`; с `prompt` – automation по триггеру.</p>
 
-<pre><code>name: Claude review
-on:
-  pull_request:
-    types: [opened, synchronize]
-jobs:
-  claude:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: anthropics/claude-code-action@v1
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
-            Review this PR. List blockers only.
-          claude_args: '--max-turns 8 --allowedTools Read,Grep'</code></pre>
+<blockquote>
+  <b>Пример GitHub Actions workflow:</b><br>
+  name: Claude review<br>
+  on:<br>
+  &nbsp;&nbsp;pull_request:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;types: [opened, synchronize]<br>
+  jobs:<br>
+  &nbsp;&nbsp;claude:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;permissions:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents: write<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull-requests: write<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;issues: write<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id-token: write<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;steps:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v4<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: anthropics/claude-code-action@v1<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt: |<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review this PR. List blockers only.<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;claude_args: '--max-turns 8 --allowedTools Read,Grep'
+</blockquote>
 
 <p>Triggering user – write access; bots отклоняются. <b>Делайте:</b> минимальные permissions. <b>Не делайте:</b> `pull_request_target` + agent на fork diff.</p>
 
@@ -112,16 +115,17 @@ jobs:
 
 <p>GitLab CI – <b>beta</b> (12.09.2026). Образ `node:24-alpine3.21`, masked `ANTHROPIC_API_KEY`, для MR – `CI_JOB_TOKEN` или PAT.</p>
 
-<pre><code>claude_review:
-  image: node:24-alpine3.21
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-  script:
-    - curl -fsSL https://claude.ai/install.sh | bash
-    - export PATH="$HOME/.local/bin:$PATH"
-    - claude -p "Summarize MR risks" --permission-mode acceptEdits
-        --allowedTools "Bash Read Edit Write mcp__gitlab"
-        --max-turns 10</code></pre>
+<blockquote>
+  <b>Пример GitLab CI job:</b><br>
+  claude_review:<br>
+  &nbsp;&nbsp;image: node:24-alpine3.21<br>
+  &nbsp;&nbsp;rules:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;- if: $CI_PIPELINE_SOURCE == "merge_request_event"<br>
+  &nbsp;&nbsp;script:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;- curl -fsSL https://claude.ai/install.sh | bash<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;- export PATH="$HOME/.local/bin:$PATH"<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;- claude -p "Summarize MR risks" --permission-mode acceptEdits --allowedTools "Bash Read Edit Write mcp__gitlab" --max-turns 10
+</blockquote>
 
 <p><b>Делайте:</b> `rules` только на trusted branches и web/MR triggers. <b>Не делайте:</b> обещать команде GA-стабильность beta-фич без pin версии CLI.</p>
 

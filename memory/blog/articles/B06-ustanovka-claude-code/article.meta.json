@@ -1,0 +1,39 @@
+{
+  "topic_id": "B06",
+  "slug": "ustanovka-claude-code",
+  "h1": "Как установить и настроить Claude Code: пошаговая инструкция для автоматизации разработки",
+  "title": "Claude Code: установка CLI, MCP и hooks за 30 минут",
+  "description": "Пошаговая установка Claude Code: native install на Windows/macOS/Linux, CLAUDE.md, MCP через .mcp.json, hooks и headless claude -p для CI. Troubleshooting PATH и npm.",
+  "keywords": [
+    "claude code",
+    "claude code установка",
+    "claude code mcp",
+    "claude code hooks",
+    "claude code cli"
+  ],
+  "primary_query": "claude code",
+  "secondary_queries": [
+    "claude code установка",
+    "claude code mcp",
+    "claude code hooks",
+    "как пользоваться claude code",
+    "claude code cli"
+  ],
+  "char_count": 8728,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как установить claude code cli на windows и mac",
+    "настройка claude code mcp hooks и headless для ci",
+    "claude code vs cursor что выбрать для автоматизации"
+  ],
+  "meta_ab": {
+    "title_seo": "Claude Code: установка CLI, MCP и hooks за 30 минут",
+    "title_ctr": "💻 Claude Code за вечер: install, MCP, hooks и claude -p без боли!",
+    "title_aeo": "Как установить и настроить Claude Code для автоматизации разработки?",
+    "description_seo": "Пошаговая установка Claude Code: native install, CLAUDE.md, MCP через .mcp.json, hooks и headless claude -p. Troubleshooting PATH, npm и лимитов Pro.",
+    "description_ctr": "⚡ Установите Claude Code за 30 минут: таблица install, auth, MCP, hooks, claude -p и чеклист из 11 ошибок. Гайд для terminal/CI без лишней теории.",
+    "description_aeo": "Claude Code устанавливается через install.sh или install.ps1, настраивается через CLAUDE.md, .mcp.json и hooks; headless - команда claude -p для скриптов и CI."
+  },
+  "cover_family": "brand_collage"
+}

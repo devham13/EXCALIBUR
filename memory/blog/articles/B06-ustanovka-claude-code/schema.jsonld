@@ -1,0 +1,202 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/ustanovka-claude-code/#article",
+      "headline": "Как установить и настроить Claude Code: пошаговая инструкция для автоматизации разработки",
+      "description": "Пошаговая установка Claude Code: native install на Windows/macOS/Linux, CLAUDE.md, MCP через .mcp.json, hooks и headless claude -p для CI. Troubleshooting PATH и npm.",
+      "datePublished": "2026-08-13",
+      "dateModified": "2026-08-13",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/ustanovka-claude-code/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/ustanovka-claude-code/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/ustanovka-claude-code-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "claude code, claude code установка, claude code mcp, claude code hooks, claude code cli",
+      "wordCount": 8728,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/ustanovka-claude-code/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как установить Claude Code на Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте PowerShell от пользователя и выполните irm https://claude.ai/install.ps1 | iex. Альтернатива: WSL 2 + curl -fsSL https://claude.ai/install.sh | bash. Перезапустите терминал, проверьте %USERPROFILE%\\.local\\bin в PATH и claude doctor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Node.js для Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для native install - нет. Для npm-пути да: Node.js 22+ (пакет @anthropic-ai/claude-code с v2.1.198). Обновление: npm install -g @anthropic-ai/claude-code@latest, не npm update -g."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Claude Code отличается от Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cursor - IDE-first с Agent в редакторе. Claude Code - terminal/CI-first: headless claude -p, hooks, git-воркфлоу на сервере. MCP общий по идее; конфиги разные (.mcp.json vs .cursor/mcp.json)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как подключить MCP к Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Выполните claude mcp add --scope project ... или создайте .mcp.json в корне репозитория. В сеансе одобрите tools и проверьте /mcp. Не кладите MCP config в папку .claude/."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Бесплатно ли Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Бесплатный план Claude.ai Claude Code не включает. Нужен Claude Pro ($20/мес), Max (от $100/мес), Team/Enterprise или оплата через Console/API credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если claude: command not found?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Добавьте в PATH каталог ~/.local/bin (macOS/Linux) или %USERPROFILE%\\.local\\bin (Windows). Перезапустите терминал. Запустите claude doctor - он подскажет, что не так с установкой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли запускать Claude Code без интерактива?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: claude -p \"ваша задача\". Для CI добавьте --output-format json и при необходимости --permission-mode plan или --max-budget-usd для контроля расхода."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/ustanovka-claude-code/#howto",
+      "name": "Как установить и настроить Claude Code: пошаговая инструкция для автоматизации разработки",
+      "description": "Пошаговая установка Claude Code: native install на Windows/macOS/Linux, CLAUDE.md, MCP через .mcp.json, hooks и headless claude -p для CI. Troubleshooting PATH и npm.",
+      "inLanguage": "ru",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code CLI (native installer или npm)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Терминал (macOS, Linux, Windows PowerShell или WSL 2)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Node.js 22+ (только для npm-пути установки)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Выберите способ установки",
+          "text": "Выберите native install (install.sh или install.ps1), если Node.js 22+ ещё нет. Альтернативы: Homebrew, WinGet или npm install -g @anthropic-ai/claude-code.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#install-cli"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Установите CLI и проверьте PATH",
+          "text": "Выполните команду для своей ОС, перезапустите терминал, проверьте claude --version. При command not found добавьте ~/.local/bin или %USERPROFILE%\\.local\\bin в PATH и запустите claude doctor.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#install-cli"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Авторизуйтесь в аккаунте",
+          "text": "Запустите claude - откроется браузер для входа. Смена аккаунта в сеансе: /login. Уберите конфликтующий ANTHROPIC_API_KEY, если используете подписку Pro.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#auth-project"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Инициализируйте CLAUDE.md",
+          "text": "Перейдите в репозиторий, выполните /init или создайте CLAUDE.md с командами build/test и conventions. Настройте permissions в .claude/settings.json.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#auth-project"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Подключите MCP-сервер",
+          "text": "Выполните claude mcp add --scope project или создайте .mcp.json в корне repo. В сеансе одобрите tools и проверьте /mcp.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#mcp-connect"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Настройте hooks",
+          "text": "Добавьте ключ hooks в .claude/settings.json или ~/.claude/settings.json для событий PreToolUse и SessionStart. Список hooks: /hooks.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#hooks-headless"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Проверьте headless-режим",
+          "text": "Запустите claude -p \"ваша задача\" локально. Для CI добавьте --output-format json, при необходимости --permission-mode plan или --max-budget-usd.",
+          "url": "https://mayai.ru/blog/ustanovka-claude-code/#hooks-headless"
+        }
+      ]
+    }
+  ]
+}

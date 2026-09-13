@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-13",
+    "today_ru": "13.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "воскресенье",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-15",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-13 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastroyka-cursor-cloud-agents-2026",
+    "h1": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds",
+    "primary_query": "настройка cursor cloud agents",
+    "secondary_queries": [
+      "cursor cloud agents github",
+      "cursor environment.json настройка",
+      "cursor background agents настройка",
+      "cloud agents cursor secrets"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "настройка cursor cloud agents 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "настройка cursor cloud agents сентябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "настройка cursor cloud agents новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "cursor cloud agents github 2026",
+      "purpose": "вторичный запрос: cursor cloud agents github"
+    },
+    {
+      "id": "secondary_2",
+      "query": "cursor environment.json настройка 2026",
+      "purpose": "вторичный запрос: cursor environment.json настройка"
+    },
+    {
+      "id": "secondary_3",
+      "query": "cursor background agents настройка 2026",
+      "purpose": "вторичный запрос: cursor background agents настройка"
+    },
+    {
+      "id": "secondary_4",
+      "query": "cloud agents cursor secrets 2026",
+      "purpose": "вторичный запрос: cloud agents cursor secrets"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastroyka-cursor-cloud-agents-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

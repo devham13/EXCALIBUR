@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/sravnenie-n8n-make-zapier-2026/#article",
+      "headline": "Сравнение n8n, Make и Zapier для ИИ-автоматизации: что выбрать в 2026 году",
+      "description": "Сравнение n8n, Make и Zapier с пересчётом tasks, credits и executions на ваш сценарий. Таблица 15 параметров, матрица 6 кейсов и чеклист перед оплатой.",
+      "datePublished": "2026-09-13",
+      "dateModified": "2026-09-13",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/sravnenie-n8n-make-zapier-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/sravnenie-n8n-make-zapier-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/sravnenie-n8n-make-zapier-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "сравнение n8n make zapier, n8n или make что лучше, make vs zapier 2026, автоматизация make vs n8n, n8n make zapier для бизнеса",
+      "wordCount": 9450,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/sravnenie-n8n-make-zapier-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "n8n или Make что лучше для малого бизнеса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make, если нет DevOps и сценариев меньше 3 000 multi-step runs. n8n CE – если есть VPS и нужен контроль данных или агент с RAG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли заменить Zapier на n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: мигрируйте по одному workflow через HTTP/webhooks и community nodes. Начните с некритичной связки, не переносите всё за выходные."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли AI в Make.com?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: Make AI Agents, AI Toolkit и AI Provider на всех планах. Credits для AI динамические – протестируйте расход на Free до апгрейда."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что дешевле на 5 000 прогонов 8-шагового workflow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "n8n ≈ 5 000 executions; Make ≈ 40 000 credits; Zapier ≈ 40 000 tasks. Пересчитайте свой сценарий по формуле из раздела 1, не копируйте чужие цифры."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли self-host для ИИ-агентов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет: n8n Cloud Pro и Make AI Agents работают в облаке. Self-host даёт контроль данных и снимает execution cap на CE."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zapier vs Make в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zapier: tasks, 9 000+ apps, проще старт. Make: credits, canvas с ветками, обычно дешевле на multi-step объёме. Выбор – по пересчёту из таблицы в разделе 1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие скрытые costs кроме подписки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LLM API на всех платформах; Make AI Provider tokens; Zapier AI multipliers до 5x на Premium tier. Заложите $50–150/мес на API отдельно от no-code тарифа."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Сравнение платформ автоматизации
+
+- **priority:** P0
+- **slug:** sravnenie-n8n-make-zapier-2026
+- **h1:** Сравнение n8n, Make и Zapier для ИИ-автоматизации: что выбрать в 2026 году
+- **primary_query:** сравнение n8n make zapier
+- **secondary_queries:** n8n или make что лучше, make vs zapier 2026, автоматизация make vs n8n, n8n make zapier для бизнеса
+- **search_intent:** comparison
+- **article_mode:** B
+- **h2_outline:**
+  1. Критерии выбора платформы автоматизации с ИИ в 2026 году
+  2. n8n: self-hosted, AI Agent node, стоимость и типовые сценарии
+  3. Make.com: облако, AI-модули, лимиты операций и интеграции
+  4. Zapier: простота, AI Actions, ценообразование и ограничения
+  5. Сводная таблица сравнения: 15 параметров (цена, ИИ, self-hosted, CRM, масштаб)
+  6. Матрица выбора: какая платформа для какого бизнеса и когда мигрировать
+- **faq_hints:** n8n или make что лучше для малого бизнеса; можно ли заменить zapier на n8n; есть ли ai в make com
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** три столпа с логотипами n8n, Make и Zapier, между ними весы с AI-чипом, таблица-сравнение на неоновых стикерах, diy-коллаж B2B-tech
+
+---
+

@@ -1,0 +1,317 @@
+<p>Вы выбираете платформу для ИИ-автоматизации, а в тарифах три разные единицы: tasks, credits, executions. Один и тот же сценарий из пяти шагов и двух тысяч прогонов в месяц в Zapier съест около 10 000 tasks, в Make – 10 000 credits, а в n8n – всего 2 000 executions. Ниже – сравнение n8n, Make и Zapier с пересчётом на ваш кейс, таблицей 15 параметров и матрицей из шести сценариев. После чтения вы зафиксируете платформу, тариф и дату пересмотра через 90 дней.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> ИИ-автоматизация на no-code – это цепочка "если произошло событие → вызвать нейросеть → записать результат в CRM или почту". n8n считает один полный прогон сценария (execution), Make – каждый модуль (credit), Zapier – каждый успешный шаг (task). Для агентов с RAG и self-host чаще выигрывает n8n; для визуальных веток без DevOps – Make; для максимума SaaS-связок – Zapier. LLM API ($50–150/мес) платится отдельно на всех трёх.</blockquote>
+
+<p>No-code платформа – конструктор, где вы соединяете сервисы стрелками без программирования. API (Application Programming Interface) – "розетка" для связи с ChatGPT, CRM или почтой. RAG (Retrieval-Augmented Generation) – когда бот ищет ответ в ваших документах, а не выдумывает. MCP (Model Context Protocol) – стандарт, как нейросеть вызывает внешние инструменты как кнопки на пульте.</p>
+
+<p>Запросы "сравнение n8n make zapier", "n8n или make что лучше" и "make vs zapier 2026" ведут к одной задаче: не читать маркетинг, а пересчитать свой объём. Начните с цифр, потом смотрите интерфейс.</p>
+
+<h2 id="calc-volume">1. Пересчитайте объём ИИ-сценариев в tasks, credits и executions</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Инфографика: пересчёт объёма ИИ-сценария в executions, credits и tasks" loading="lazy">
+</figure>
+
+
+<p>Три платформы считают по-разному. Это главная ловушка при сравнении n8n make zapier.</p>
+
+<blockquote>
+  <b>Эталонный workflow:</b>
+  <br>
+  Триггер (новая заявка) → классификация LLM → запись в CRM → письмо менеджеру → лог в таблицу = 5 шагов, 2 000 прогонов/мес
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Платформа</th>
+      <th>Единица billing</th>
+      <th>Расход на эталон</th>
+      <th>Entry paid (2026)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>n8n</b></td>
+      <td>Execution = весь run</td>
+      <td>≈ 2 000 executions</td>
+      <td>20 €/мес, 2 500 exec (Starter)</td>
+    </tr>
+    <tr>
+      <td><b>Make</b></td>
+      <td>Credit ≈ 1 модуль</td>
+      <td>≈ 10 000 credits</td>
+      <td>Paid от Core, базово 10 000 credits/мес</td>
+    </tr>
+    <tr>
+      <td><b>Zapier</b></td>
+      <td>Task = 1 успешный step</td>
+      <td>≈ 10 000 tasks</td>
+      <td>$19.99/мес, 750 tasks (Pro annual)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Добавьте строку TCO: LLM API (OpenAI, Anthropic) – от ~$50 до ~$150/мес на типовой ИИ-кейс, независимо от платформы. <b>Делайте:</b> выпишите 1–2 сценария и число прогонов до регистрации. <b>Не делайте:</b> сравнивать только цену подписки без пересчёта шагов.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Зафиксируйте 1–2 ИИ-сценария (лиды, support-бот, контент-pipeline) и прогоны/мес.</li>
+  <li><b>Шаг 2:</b> Посчитайте шаги: trigger + actions + AI nodes.</li>
+  <li><b>Шаг 3:</b> Переведите объём в tasks, credits, executions – одна таблица "один кейс – три счёта".</li>
+  <li><b>Шаг 4:</b> Добавьте LLM API отдельной строкой TCO.</li>
+  <li><b>Шаг 5:</b> Сравните с лимитом free tier: n8n CE self-host (∞ runs), Make 1 000 credits, Zapier 100 tasks.</li>
+  <li><b>Шаг 6:</b> Запишите платформу, тариф и дату пересмотра через 90 дней.</li>
+</ol>
+
+<h2 id="review-n8n">2. Оцените n8n для агентов, self-host и больших объёмов</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Сравнительная таблица UI: n8n для агентов, self-host и больших объёмов" loading="lazy">
+</figure>
+
+
+<p>n8n – canvas с нодами. Community Edition (CE) на своём сервере (self-hosted) – бесплатная лицензия, unlimited workflows. Cloud Starter – 20 €/мес при годовой оплате, 2 500 executions; Pro – 50 €/мес, 10 000 executions. Один workflow run с AI Agent = 1 execution, даже если внутри десять шагов.</p>
+
+<p>Сильные стороны: native AI Agent node, LangChain, vector stores для RAG, MCP Client/Server, JS/Python nodes. Данные в Cloud – EU (Frankfurt); на CE – где развернёте VPS. Подробнее про сборку агента – в гайде <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n с ИИ-агентами</a>.</p>
+
+<p><b>Делайте:</b> n8n CE или Cloud Pro, если нужны агенты с 10+ tools, compliance или 10k+ runs. <b>Не делайте:</b> поднимать Docker ради двух простых связок CRM-почта.</p>
+
+<h2 id="review-make">3. Оцените Make.com для no-code ИИ-команды без DevOps</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Workflow-схема Make.com: no-code ИИ-сценарий без DevOps" loading="lazy">
+</figure>
+
+
+<p>Make – облачный scenario builder с ветвлениями на canvas. Free: 1 000 credits/мес, 2 active scenarios. Paid планы дают базово 10 000 credits/мес; с 27.08.2025 billing unit – credits (1 operation = 1 credit для обычных apps). 3 000+ apps, 350+ AI apps, Make AI Agents и MCP Server на всех планах.</p>
+
+<p>AI через Make AI Provider списывает credits по tokens + operations; со своим API-ключом – operations плюс оплата провайдеру. Визуальные ветки и отладка быстрее, чем у линейных Zaps.</p>
+
+<p><b>Делайте:</b> Make Pro + custom LLM key, если команда без DevOps и нужны CRM/SMM сценарии. <b>Не делайте:</b> игнорировать динамический расход credits на AI-модулях – тестируйте на Free.</p>
+
+<h2 id="review-zapier">4. Оцените Zapier для быстрых связок и максимума SaaS</h2>
+
+<p>Zapier – линейные Zaps, минимальный порог входа. Free: 100 tasks/мес, two-step Zaps. Pro: $19.99/мес (annual), 750 tasks; Team: $69/мес, 2 000 tasks, до 25 users. 9 000+ apps. Filters, Paths, Formatter не считаются в task limit; каждый успешный action step = 1 task.</p>
+
+<p>AI by Zapier: multipliers 1x / 3x / 5x tasks по tier модели. Zapier MCP – 2 tasks за успешный tool call. Pay-per-task позволяет до 3× plan allowance.</p>
+
+<p><b>Делайте:</b> Zapier Team, если нужен максимум интеграций и zero ops. <b>Не делайте:</b> строить multi-step ИИ-агента – нет полноценного agent framework как в n8n.</p>
+
+<h2 id="table-15">5. Заполните сводную таблицу 15 параметров</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Параметр</th>
+      <th>n8n</th>
+      <th>Make</th>
+      <th>Zapier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><b>Billing unit</b></td>
+      <td>Execution (весь run)</td>
+      <td>Credit (1 модуль ≈ 1)</td>
+      <td>Task (1 step = 1)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>Free tier</b></td>
+      <td>CE self-host ∞; Cloud trial</td>
+      <td>1 000 credits, 2 scenarios</td>
+      <td>100 tasks, 2-step Zaps</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>Entry paid</b></td>
+      <td>20 €/мес, 2 500 exec</td>
+      <td>Core от ~$9–16/mo annual</td>
+      <td>$19.99/mo, 750 tasks</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>Self-host</b></td>
+      <td>Да (CE + Business)</td>
+      <td>Нет</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>Data residency</b></td>
+      <td>Где хостите / EU cloud</td>
+      <td>Cloud Make (EU)</td>
+      <td>US/EU cloud</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><b>Integrations</b></td>
+      <td>Nodes + community + HTTP</td>
+      <td>3 000+ apps</td>
+      <td>9 000+ apps</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>Visual builder</b></td>
+      <td>Node canvas</td>
+      <td>Scenario canvas, ветки</td>
+      <td>Linear Zaps</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><b>Custom code</b></td>
+      <td>JS/Python nodes</td>
+      <td>Make Code (dynamic credits)</td>
+      <td>Code step (limited)</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><b>AI agents depth</b></td>
+      <td>AI Agent, LangChain, RAG</td>
+      <td>Make AI Agents, AI Toolkit</td>
+      <td>AI by Zapier, Agents add-on</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><b>MCP</b></td>
+      <td>MCP Client/Server nodes</td>
+      <td>Make MCP Server</td>
+      <td>Zapier MCP (2 tasks/call)</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><b>Multi-step cost at scale</b></td>
+      <td>Низкий (executions)</td>
+      <td>Средний (credits)</td>
+      <td>Высокий (tasks)</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><b>AI billing predictability</b></td>
+      <td>Exec + LLM API</td>
+      <td>Dynamic AI credits</td>
+      <td>1x/3x/5x multipliers</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><b>Team / SSO</b></td>
+      <td>Business+ / Enterprise</td>
+      <td>Teams / Enterprise</td>
+      <td>Team 25 seats</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><b>Learning curve</b></td>
+      <td>Круче</td>
+      <td>Средняя</td>
+      <td>Самая низкая</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><b>Best for AI automation 2026</b></td>
+      <td>Агенты, RAG, self-host</td>
+      <td>No-code AI, CRM/SMM</td>
+      <td>2–5 step связки, max apps</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Multi-step ИИ на объёме – n8n. No-code команда без сервера – Make. Максимум SaaS и простота – Zapier. Часто рабочая пара: n8n для агентов + Make для маркетинговых веток.
+</blockquote>
+
+<h2 id="matrix-6">6. Пройдите матрицу 6 сценариев и зафиксируйте решение</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сценарий</th>
+      <th>Рекомендация</th>
+      <th>Не брать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2–3 простые связки CRM ↔ почта, &lt;500 runs</td>
+      <td><b>Make</b> Free/Core или Zapier</td>
+      <td>n8n self-host (overkill)</td>
+    </tr>
+    <tr>
+      <td>ИИ-агент с RAG, 10+ tools, compliance</td>
+      <td><b>n8n</b> self-host или Cloud Pro</td>
+      <td>Zapier (нет agent framework)</td>
+    </tr>
+    <tr>
+      <td>No-code команда, ветки, AI без DevOps</td>
+      <td><b>Make</b> Pro + custom LLM key</td>
+      <td>n8n без техподдержки</td>
+    </tr>
+    <tr>
+      <td>10k+ multi-step runs/мес, tight budget</td>
+      <td><b>n8n</b> self-host или Cloud</td>
+      <td>Zapier (task wall)</td>
+    </tr>
+    <tr>
+      <td>Максимум SaaS, zero ops, US/EU OK</td>
+      <td><b>Zapier</b> Team</td>
+      <td>n8n (ops burden)</td>
+    </tr>
+    <tr>
+      <td>MCP: AI-клиент дергает автоматизации</td>
+      <td><b>n8n MCP</b> или <b>Make MCP</b></td>
+      <td>– (Zapier MCP если уже на Zapier)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Миграция:</b> Make/Zapier → n8n, когда TCO tasks/credits превышает executions и нужен self-host. n8n → Make, когда нет ресурса на Docker и патчи.</p>
+
+<h2 id="checklist">7. Пройдите чеклист из 12 пунктов перед оплатой</h2>
+
+<ul>
+  <li>Data residency: где хранятся логи и credentials?</li>
+  <li>SSO/SAML нужен на старте или через 6 мес?</li>
+  <li>AI billing: fixed executions или dynamic credits/tokens?</li>
+  <li>Concurrency: сколько параллельных runs нужно?</li>
+  <li>Webhook limits и rate limits на триггерах?</li>
+  <li>Есть ли нужная CRM/мессенджер в каталоге?</li>
+  <li>Custom code: JS/Python или только визуал?</li>
+  <li>Миграция credentials: экспорт/импорт без простоя?</li>
+  <li>Human-in-the-loop для критичных действий?</li>
+  <li>Мониторинг ошибок и алерты?</li>
+  <li>Free tier MVP за 1–2 часа – проходит ли сценарий?</li>
+  <li>Дата пересмотра тарифа через 90 дней в календаре?</li>
+</ul>
+
+<p><b>Делайте:</b> пилот на free tier одного сценария до оплаты. <b>Не делайте:</b> годовую подписку без теста AI-модулей на реальном объёме.</p>
+
+<h2 id="next-steps">8. Что дальше: пилот и обучение команды</h2>
+
+<p>Зарегистрируйте free tier выбранной платформы и соберите MVP одного сценария. Если команда на Make – <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс по Make.com и вайбкодингу</a> ускорит сборку AI Agents без программирования. Для n8n-агентов начните с <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">пошагового гайда по n8n</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Артур Хорошев (CEO Maya AI, автор курса по автоматизации на Make.com и вайбкодингу).<br>
+  <b>Достоверность данных:</b> тарифы n8n, Make и Zapier сверены с официальными pricing-страницами на 13.09.2026; ключевые фразы – по LSI из SERP (Wordstat MCP недоступен).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>n8n или Make что лучше для малого бизнеса?</h3>
+<p>Make, если нет DevOps и сценариев меньше 3 000 multi-step runs. n8n CE – если есть VPS и нужен контроль данных или агент с RAG.</p>
+
+<h3>Можно ли заменить Zapier на n8n?</h3>
+<p>Да: мигрируйте по одному workflow через HTTP/webhooks и community nodes. Начните с некритичной связки, не переносите всё за выходные.</p>
+
+<h3>Есть ли AI в Make.com?</h3>
+<p>Да: Make AI Agents, AI Toolkit и AI Provider на всех планах. Credits для AI динамические – протестируйте расход на Free до апгрейда.</p>
+
+<h3>Что дешевле на 5 000 прогонов 8-шагового workflow?</h3>
+<p>n8n ≈ 5 000 executions; Make ≈ 40 000 credits; Zapier ≈ 40 000 tasks. Пересчитайте свой сценарий по формуле из раздела 1, не копируйте чужие цифры.</p>
+
+<h3>Нужен ли self-host для ИИ-агентов?</h3>
+<p>Нет: n8n Cloud Pro и Make AI Agents работают в облаке. Self-host даёт контроль данных и снимает execution cap на CE.</p>
+
+<h3>Zapier vs Make в 2026?</h3>
+<p>Zapier: tasks, 9 000+ apps, проще старт. Make: credits, canvas с ветками, обычно дешевле на multi-step объёме. Выбор – по пересчёту из таблицы в разделе 1.</p>
+
+<h3>Какие скрытые costs кроме подписки?</h3>
+<p>LLM API на всех платформах; Make AI Provider tokens; Zapier AI multipliers до 5x на Premium tier. Заложите $50–150/мес на API отдельно от no-code тарифа.</p>

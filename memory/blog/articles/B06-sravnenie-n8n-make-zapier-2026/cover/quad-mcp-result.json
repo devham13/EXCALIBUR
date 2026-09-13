@@ -1,0 +1,5 @@
+{
+  "url": "local://GenerateImage/B06-canvas-quad.png",
+  "mode": "GenerateImage_fallback",
+  "note": "user-mcp-kv gpt-image-2 unavailable; cursor/GenerateImage + Pillow resize 2048x1152"
+}

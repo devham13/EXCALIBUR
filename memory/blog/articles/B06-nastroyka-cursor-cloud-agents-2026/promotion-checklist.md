@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastroyka-cursor-cloud-agents-2026
 
 Дата публикации: 2026-09-13  
-Live URL: https://mayai.ru/nastroyka-cursor-cloud-agents-2026/
+Live URL: https://www.meta-journal.ru/2026/09/13/nastroyka-cursor-cloud-agents-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -33,7 +33,7 @@ Cursor Cloud Agents клонируют repo, ставят зависимости
 • Troubleshooting: failed Build не меняет active snapshot; для terminals — поле "start": "true".
 
 Пошаговая инструкция с чеклистом и FAQ:
-Читать: https://mayai.ru/nastroyka-cursor-cloud-agents-2026/
+Читать: https://www.meta-journal.ru/2026/09/13/nastroyka-cursor-cloud-agents-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,221 @@
+<p>Cloud agent в Cursor клонирует repo, ставит зависимости, прогоняет тесты и открывает PR, пока ноутбук свободен. Настройка cursor cloud agents чаще всего ломается на GitHub без read-write, красном Build и secrets не в dashboard. Ниже – цикл за 30–60 минут: environment → Build → agent run → PR. Вы повторите схему на своём repo и почините failed Build по логам Builds tab.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Cloud Agents (ранее Background Agents) – ИИ-разработчик в Ubuntu VM в облаке Cursor. Нужен paid plan, GitHub read-write, spend limit. Окружение – agent-driven setup или .cursor/environment.json: install на Build, dev-серверы в start/terminals. Secrets только в dashboard. После Build Success – agent из Desktop (Cloud) или cursor.com/agents → PR.</blockquote>
+
+<p>Cloud Agents – VM (виртуальная машина, отдельный "компьютер" в облаке) с Ubuntu и dev-стеком: агент клонирует repo, работает в ветке, пушит и отдаёт PR. Раньше их называли Background Agents – в docs 2026 актуально имя Cloud Agents. Локальный Agent – instant feedback на ПК; cloud – параллельные run, артефакты и preview портов без нагрузки на ноутбук. Cursor Automations (cursor.com/automations) – другой продукт: cron, GitHub event, Slack; cloud agent – разовая сессия под fix+test+PR по вашему prompt.</p>
+
+<h2 id="cloud-vs-local">1. Сравните Cloud Agents и локальный Agent</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Cloud Agent</th>
+      <th>Локальный Agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где работает</b></td>
+      <td>Ubuntu VM в облаке</td>
+      <td>Ваш ПК</td>
+    </tr>
+    <tr>
+      <td><b>Лучше для</b></td>
+      <td>Fix + test + PR, параллельные run</td>
+      <td>Быстрые правки</td>
+    </tr>
+    <tr>
+      <td><b>Окружение</b></td>
+      <td>Build + environment.json</td>
+      <td>Локальный Node/Docker</td>
+    </tr>
+    <tr>
+      <td><b>Оплата</b></td>
+      <td>Paid plan + API usage + spend limit</td>
+      <td>Подписка Cursor на ПК</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> cloud для refactor, миграций, CI. <b>Не делайте:</b> гонять каждый typo в облако – дороже и медленнее локального Agent.</p>
+
+<h2 id="prerequisites">2. Подключите GitHub, paid plan и spend limit</h2>
+
+<p>Cloud Agents на всех paid планах Cursor; Hobby не подходит. Админ подключает GitHub/GitLab/Bitbucket/Azure DevOps с read-write. При первом run Cursor просит spend limit – потолок API billing модели.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Проверьте active paid plan.</li>
+  <li><b>Шаг 2:</b> <a href="https://cursor.com/dashboard/cloud-agents" target="_blank">Cloud Agents dashboard</a> → Integrations → GitHub к repo.</li>
+  <li><b>Шаг 3:</b> Задайте spend limit в billing.</li>
+  <li><b>Шаг 4:</b> Для команды – Privacy Mode и team follow-ups (риск чужих secrets).</li>
+  <li><b>Шаг 5:</b> В AGENTS.md добавьте "Cursor Cloud specific instructions" (install, порты, тесты).</li>
+</ol>
+
+<p><b>Делайте:</b> SCM до environment. <b>Не делайте:</b> write в monorepo без понимания primary repo для PR.</p>
+
+<h2 id="setup-build">3. Создайте environment и пройдите первый Build</h2>
+
+<blockquote>
+  <b>Workflow:</b> GitHub → New environment → agent-driven setup → Secrets → Build Success → commit environment.json → agent run → PR
+</blockquote>
+
+<p>Agent-driven setup (рекомендуется): Cursor настраивает dev environment за минуты (официальные docs – менее 10). Dashboard → New environment → Run setup agent → укажите secrets, если install тянет private npm или Docker registry → дождитесь verification и Success на Builds tab → закоммитьте .cursor/environment.json в repo, чтобы команда видела ту же конфигурацию.</p>
+
+<p>Ручной путь для Docker-heavy repo: создайте .cursor/Dockerfile (не COPY весь project – Cursor сам checkout commit), пропишите build.dockerfile и build.context относительно папки .cursor; команда install выполняется из корня проекта. Push → Builds tab → Trigger build. Legacy environment без Builds: вкладка Builds → Enable Builds или снова Run setup agent.</p>
+
+<p>С 17.08.2026 Builds по умолчанию. Snapshot – только disk state; failed Build не меняет active. Recurring – каждый час; boot с Build до 3x быстрее. Отдельной платы за Builds нет.</p>
+
+<p>Приоритет окружения: 1) environment.json в repo, 2) personal, 3) team. <b>Делайте:</b> config-as-code в Git. <b>Не делайте:</b> только personal snapshot без коммита.</p>
+
+<h2 id="environment-json">4. Настройте environment.json: install, start, terminals</h2>
+
+<p>environment.json – конфиг агента. Schema: 10 полей на <a href="https://www.cursor.com/schemas/environment.schema.json" target="_blank">cursor.com/schemas/environment.schema.json</a>; typo startup → rejected.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Поле</th>
+      <th>Когда</th>
+      <th>Пример</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>install</b></td>
+      <td>Build (idempotent)</td>
+      <td>pnpm install</td>
+    </tr>
+    <tr>
+      <td><b>start</b></td>
+      <td>Старт agent (detached)</td>
+      <td>service docker start или "true"</td>
+    </tr>
+    <tr>
+      <td><b>terminals</b></td>
+      <td>Старт agent (tmux)</td>
+      <td>pnpm dev + description</td>
+    </tr>
+    <tr>
+      <td><b>ports</b></td>
+      <td>Preview для agent</td>
+      <td>3000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Без start terminals могут не стартовать – добавьте "start": "true" (forum Cursor, ответ staff):</p>
+
+<pre><code>{"name":"my-app","build":{"dockerfile":"Dockerfile","context":".."},"install":"pnpm install","start":"true","terminals":[{"name":"dev","command":"pnpm dev","description":"port 3000"}],"ports":[{"name":"web","port":3000}]}</code></pre>
+
+<p><b>Делайте:</b> deps в install, сервисы в start/terminals. <b>Не делайте:</b> secrets в JSON – поля нет в schema. Snapshot ID блокирует Dockerfile rebuild – удалите для пересборки.</p>
+
+<h2 id="secrets-mcp">5. Добавьте Secrets и MCP в dashboard</h2>
+
+<p>Secrets – только вкладка Secrets в dashboard, не environment.json (в schema 10 полей и нет credentials). Environment и team secrets доступны во время Build – например, token private registry в install. User secrets inject при старте agent run. Running agent не подхватит secret, добавленный mid-session – запустите новый run.</p>
+
+<p>MCP ("розетки" для browser, GitHub, CMS) для cloud – dropdown dashboard и Team MCP. Локальный mcp.json cloud не читает. Подробнее: <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, <a href="/nastroyka-cursor-rules-mdc/">cursor rules и AGENTS.md</a>.</p>
+
+<p><b>Делайте:</b> новый agent после secret. <b>Не делайте:</b> ждать от running session.</p>
+
+<h2 id="first-run">6. Запустите cloud agent и получите PR</h2>
+
+<ol>
+  <li><b>Шаг 1:</b> Build Success (failed не ломает active).</li>
+  <li><b>Шаг 2:</b> Desktop → Cloud или <a href="https://cursor.com/agents" target="_blank">cursor.com/agents</a>.</li>
+  <li><b>Шаг 3:</b> Environment + prompt: fix, test, PR.</li>
+  <li><b>Шаг 4:</b> Artifacts, terminal logs, ссылка PR.</li>
+  <li><b>Шаг 5:</b> Review PR human-in-the-loop.</li>
+</ol>
+
+<p>PR из cloud можно связать с Make (webhook, CRM) – на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com</a> разбираем цепочку agent → автоматизация.</p>
+
+<h2 id="troubleshooting">7. Исправьте failed Build, secrets и terminals</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Симптом</th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Build failed</b></td>
+      <td>Builds tab logs → fix install → Trigger build</td>
+    </tr>
+    <tr>
+      <td><b>Нет secret</b></td>
+      <td>Secrets tab → новый agent run</td>
+    </tr>
+    <tr>
+      <td><b>Terminals мертвы</b></td>
+      <td>"start": "true" или start-команда → tmux logs</td>
+    </tr>
+    <tr>
+      <td><b>Dockerfile игнорируется</b></td>
+      <td>Удалите snapshot ID из JSON – он выше Dockerfile</td>
+    </tr>
+    <tr>
+      <td><b>Legacy без Builds</b></td>
+      <td>Enable Builds или setup agent → Confirm Success</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> читайте Build logs до правки install или Dockerfile. <b>Не делайте:</b> паниковать из-за одного failed Build – fleet работает на последнем успешном snapshot.</p>
+
+<h2 id="checklist">8. Пройдите чеклист перед production agent</h2>
+
+<ul>
+  <li>Paid plan и spend limit</li>
+  <li>GitHub read-write</li>
+  <li>environment.json или dashboard environment</li>
+  <li>install idempotent на Build</li>
+  <li>start/terminals/ports разделены</li>
+  <li>"start": "true" при terminals</li>
+  <li>Secrets в dashboard</li>
+  <li>Новый run после secrets</li>
+  <li>Build Success перед run</li>
+  <li>AGENTS.md Cloud section</li>
+  <li>MCP в dashboard для cloud</li>
+  <li>Snapshot ID убран при rebuild Dockerfile</li>
+</ul>
+
+<h2 id="next-steps">9. Что делать дальше</h2>
+
+<ol>
+  <li>Закоммитьте .cursor/environment.json и Dockerfile в основную ветку.</li>
+  <li>После каждого изменения install нажимайте Trigger build или полагайтесь на hourly recurring.</li>
+  <li>Подключите MCP в dashboard под browser, GitHub или CMS вашего стека.</li>
+  <li>Свяжите PR из cloud с Make-сценарием деплоя или уведомлений в Telegram.</li>
+  <li>Уточните AGENTS.md и cursor rules – <a href="/nastroyka-cursor-rules-mdc/">гайд по rules</a>; обсуждение – <a href="https://t.me/maya_pro" target="_blank">Telegram Ковчег</a>.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, Cursor и Make.com).<br>
+  <b>Достоверность данных:</b> Builds, environment.json, Secrets – docs Cursor на 13.09.2026; "start": "true" – forum.cursor.com (staff).
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем Cloud Agents отличаются от локального Agent в Cursor?</h3>
+<p>Cloud – Ubuntu VM, Build, PR без вашего ПК. Локальный – быстрые правки на месте. Cloud – длинные задачи и параллельные run.</p>
+
+<h3>Чем Cloud Agents отличаются от Cursor Automations?</h3>
+<p>Cloud agent – сессия с PR по prompt. Automations – cron/GitHub/Slack на cursor.com/automations. Fix+test+PR – cloud; регулярный мониторинг – Automations.</p>
+
+<h3>Что писать в .cursor/environment.json?</h3>
+<p>База: build (dockerfile/context) или snapshot; install – команды на этапе Build; start, terminals, ports – при старте agent. Полная schema – cursor.com/schemas/environment.schema.json (10 полей, unknown keys rejected). API keys в JSON не пишут – только Secrets tab dashboard.</p>
+
+<h3>Нужен ли платный план для cloud agents?</h3>
+<p>Да. Cloud Agents доступны на Pro, Pro Plus, Ultra; Hobby не подходит. Тарификация – API pricing выбранной модели; при первом запуске задайте spend limit в dashboard, иначе run может не стартовать.</p>
+
+<h3>Почему Build красный (failed)?</h3>
+<p>Откройте Builds tab и logs ошибки install или Dockerfile. Failed Build не заменяет active – agents продолжают с последнего Success. Исправьте конфиг, нажмите Trigger build и дождитесь зелёного статуса перед новым production run.</p>
+
+<h3>Почему agent не видит secrets?</h3>
+<p>Добавьте secret во вкладке Secrets с правильным scope (team, environment или user). Запустите новый agent run – running session не подхватывает credentials, добавленные позже. Для install-time registry используйте environment/build secrets, не user-only.</p>
+
+<h3>Почему не стартуют terminals из environment.json?</h3>
+<p>Добавьте поле "start": "true" или реальную detached start-команду (например, sudo service docker start). Terminals работают в общей tmux-сессии; если порт не слушается, откройте logs agent run и проверьте command и ports.</p>

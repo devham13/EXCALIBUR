@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Build красный — Cloud Agent мёртв. Или env.json пустой?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: настройка Cursor Cloud Agents — failed Build vs успешный PR из облака",
+      "scene_hint": "reference-лицо в тёмно-синем худи dev-разработчика с Cursor-логотипом, указывает на fake Cursor Builds tab с красным FAILED badge и лог install error; рядом sticky note с .cursor/environment.json фрагментом install/start/terminals; fake GitHub «0 open PR»; Telegram «где PR?»; meme facepalm + shocked cat; розовый highlight на «Build failed»; torn paper + scotch tape",
+      "meme_caption_ru": "Build failed — где PR?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Cloud Agents и локальный Agent",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица Cloud Agent vs Локальный Agent: Ubuntu VM / ваш ПК, Fix+test+PR / быстрые правки, Build+environment.json / локальный Node — «1. Сравните Cloud Agents и локальный Agent»",
+      "alt": "Сравнительная таблица Cloud Agent vs локальный Agent"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Подключите GitHub, paid plan и spend limit",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow-схема 5 шагов: Paid plan → GitHub read-write → spend limit → AGENTS.md → New environment — стрелки, иконки GitHub/Cursor — «2. Подключите GitHub, paid plan и spend limit»",
+      "alt": "Схема workflow: GitHub, paid plan и spend limit для Cloud Agents"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Создайте environment и пройдите первый Build",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на доске: New environment ✓, agent-driven setup ✓, Secrets в dashboard ✓, Build Success ✓, commit environment.json ✓ — «3. Создайте environment и пройдите первый Build»",
+      "alt": "Чеклист: environment, Build Success и commit environment.json"
+    }
+  }
+}

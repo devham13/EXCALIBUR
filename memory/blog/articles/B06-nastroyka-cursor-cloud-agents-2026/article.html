@@ -5,6 +5,10 @@
 <p>Cloud Agents – VM (виртуальная машина, отдельный "компьютер" в облаке) с Ubuntu и dev-стеком: агент клонирует repo, работает в ветке, пушит и отдаёт PR. Раньше их называли Background Agents – в docs 2026 актуально имя Cloud Agents. Локальный Agent – instant feedback на ПК; cloud – параллельные run, артефакты и preview портов без нагрузки на ноутбук. Cursor Automations (cursor.com/automations) – другой продукт: cron, GitHub event, Slack; cloud agent – разовая сессия под fix+test+PR по вашему prompt.</p>
 
 <h2 id="cloud-vs-local">1. Сравните Cloud Agents и локальный Agent</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица Cloud Agent vs локальный Agent" loading="lazy">
+</figure>
+
 
 <table>
   <thead>
@@ -41,6 +45,10 @@
 <p><b>Делайте:</b> cloud для refactor, миграций, CI. <b>Не делайте:</b> гонять каждый typo в облако – дороже и медленнее локального Agent.</p>
 
 <h2 id="prerequisites">2. Подключите GitHub, paid plan и spend limit</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема workflow: GitHub, paid plan и spend limit для Cloud Agents" loading="lazy">
+</figure>
+
 
 <p>Cloud Agents на всех paid планах Cursor; Hobby не подходит. Админ подключает GitHub/GitLab/Bitbucket/Azure DevOps с read-write. При первом run Cursor просит spend limit – потолок API billing модели.</p>
 
@@ -55,6 +63,10 @@
 <p><b>Делайте:</b> SCM до environment. <b>Не делайте:</b> write в monorepo без понимания primary repo для PR.</p>
 
 <h2 id="setup-build">3. Создайте environment и пройдите первый Build</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист: environment, Build Success и commit environment.json" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Workflow:</b> GitHub → New environment → agent-driven setup → Secrets → Build Success → commit environment.json → agent run → PR

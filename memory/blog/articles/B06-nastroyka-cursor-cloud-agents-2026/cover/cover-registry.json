@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-cloud-agents-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: настройка Cursor Cloud Agents — failed Build vs успешный PR из облака",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-13T04:24:13+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: настройка Cursor Cloud Agents — failed Build vs успешный PR из облака",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица Cloud Agent vs локальный Agent",
+      "h2_anchor": "1. Сравните Cloud Agents и локальный Agent",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow: GitHub, paid plan и spend limit для Cloud Agents",
+      "h2_anchor": "2. Подключите GitHub, paid plan и spend limit",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист: environment, Build Success и commit environment.json",
+      "h2_anchor": "3. Создайте environment и пройдите первый Build",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

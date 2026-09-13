@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-cursor-cloud-agents-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "PR. Раньше их называли Background Agents – в docs 2026 актуально имя Cloud Agents. Локальный Agent – inst",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "60 минут",
+      "kind": "metric_or_duration",
+      "context": "Build и secrets не в dashboard. Ниже – цикл за 30–60 минут: environment → Build → agent run → PR. Вы повтори",
+      "verified": true,
+      "reason": "Numerical value '60' matched in fact-bank context"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "x) pnpm dev + description ports Preview для agent 3000 Без start terminals могут не стартовать – добавьте",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

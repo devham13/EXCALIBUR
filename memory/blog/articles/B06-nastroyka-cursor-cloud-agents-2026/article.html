@@ -46,7 +46,7 @@
 
 <ol>
   <li><b>Шаг 1:</b> Проверьте active paid plan.</li>
-  <li><b>Шаг 2:</b> <a href="https://cursor.com/dashboard/cloud-agents" target="_blank">Cloud Agents dashboard</a> → Integrations → GitHub к repo.</li>
+  <li><b>Шаг 2:</b> <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">Cloud Agents dashboard</a> → Integrations → GitHub к repo.</li>
   <li><b>Шаг 3:</b> Задайте spend limit в billing.</li>
   <li><b>Шаг 4:</b> Для команды – Privacy Mode и team follow-ups (риск чужих secrets).</li>
   <li><b>Шаг 5:</b> В AGENTS.md добавьте "Cursor Cloud specific instructions" (install, порты, тесты).</li>
@@ -106,7 +106,7 @@
 
 <p>Без start terminals могут не стартовать – добавьте "start": "true" (forum Cursor, ответ staff):</p>
 
-<pre><code>{"name":"my-app","build":{"dockerfile":"Dockerfile","context":".."},"install":"pnpm install","start":"true","terminals":[{"name":"dev","command":"pnpm dev","description":"port 3000"}],"ports":[{"name":"web","port":3000}]}</code></pre>
+<blockquote>{"name":"my-app","build":{"dockerfile":"Dockerfile","context":".."},"install":"pnpm install","start":"true","terminals":[{"name":"dev","command":"pnpm dev","description":"port 3000"}],"ports":[{"name":"web","port":3000}]}</blockquote>
 
 <p><b>Делайте:</b> deps в install, сервисы в start/terminals. <b>Не делайте:</b> secrets в JSON – поля нет в schema. Snapshot ID блокирует Dockerfile rebuild – удалите для пересборки.</p>
 
@@ -114,7 +114,7 @@
 
 <p>Secrets – только вкладка Secrets в dashboard, не environment.json (в schema 10 полей и нет credentials). Environment и team secrets доступны во время Build – например, token private registry в install. User secrets inject при старте agent run. Running agent не подхватит secret, добавленный mid-session – запустите новый run.</p>
 
-<p>MCP ("розетки" для browser, GitHub, CMS) для cloud – dropdown dashboard и Team MCP. Локальный mcp.json cloud не читает. Подробнее: <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, <a href="/nastroyka-cursor-rules-mdc/">cursor rules и AGENTS.md</a>.</p>
+<p>MCP ("розетки" для browser, GitHub, CMS) для cloud – dropdown dashboard и Team MCP. Локальный mcp.json cloud не читает. Подробнее: <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, <a href="https://cursor.com/docs/context/rules">cursor rules и AGENTS.md</a>.</p>
 
 <p><b>Делайте:</b> новый agent после secret. <b>Не делайте:</b> ждать от running session.</p>
 
@@ -122,7 +122,7 @@
 
 <ol>
   <li><b>Шаг 1:</b> Build Success (failed не ломает active).</li>
-  <li><b>Шаг 2:</b> Desktop → Cloud или <a href="https://cursor.com/agents" target="_blank">cursor.com/agents</a>.</li>
+  <li><b>Шаг 2:</b> Desktop → Cloud или <a href="https://cursor.com/docs/cloud-agent" target="_blank">cursor.com/agents</a>.</li>
   <li><b>Шаг 3:</b> Environment + prompt: fix, test, PR.</li>
   <li><b>Шаг 4:</b> Artifacts, terminal logs, ссылка PR.</li>
   <li><b>Шаг 5:</b> Review PR human-in-the-loop.</li>
@@ -189,7 +189,7 @@
   <li>После каждого изменения install нажимайте Trigger build или полагайтесь на hourly recurring.</li>
   <li>Подключите MCP в dashboard под browser, GitHub или CMS вашего стека.</li>
   <li>Свяжите PR из cloud с Make-сценарием деплоя или уведомлений в Telegram.</li>
-  <li>Уточните AGENTS.md и cursor rules – <a href="/nastroyka-cursor-rules-mdc/">гайд по rules</a>; обсуждение – <a href="https://t.me/maya_pro" target="_blank">Telegram Ковчег</a>.</li>
+  <li>Уточните AGENTS.md и cursor rules – <a href="https://cursor.com/docs/context/rules">гайд по rules</a>; обсуждение – <a href="https://t.me/maya_pro" target="_blank">Telegram Ковчег</a>.</li>
 </ol>
 
 <blockquote>

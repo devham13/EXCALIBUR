@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "sravnenie-n8n-make-zapier-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: сравнение n8n, Make и Zapier — tasks, credits, executions на одном сценарии",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-13T10:19:49+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: сравнение n8n, Make и Zapier — tasks, credits, executions на одном сценарии",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Инфографика: пересчёт объёма ИИ-сценария в executions, credits и tasks",
+      "h2_anchor": "1. Пересчитайте объём ИИ-сценариев в tasks, credits и executions",
+      "visual_type": "infographic_card",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Сравнительная таблица UI: n8n для агентов, self-host и больших объёмов",
+      "h2_anchor": "2. Оцените n8n для агентов, self-host и больших объёмов",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Workflow-схема Make.com: no-code ИИ-сценарий без DevOps",
+      "h2_anchor": "3. Оцените Make.com для no-code ИИ-команды без DevOps",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-rules-mdc",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: настройка Cursor Rules — .mdc за 30 минут вместо копипаста prompt",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-08-15T14:09:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: настройка Cursor Rules — .mdc за 30 минут вместо копипаста prompt",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица: Cursor Rules .mdc против legacy .cursorrules",
+      "h2_anchor": "1. Сравните Cursor Rules и legacy .cursorrules",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow: создание папки .cursor/rules/ и первого .mdc-файла",
+      "h2_anchor": "2. Создайте папку .cursor/rules/ и первый .mdc",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист режимов Cursor Rules: alwaysApply, globs, description и @-mention",
+      "h2_anchor": "3. Выберите режим: alwaysApply, globs, description, @-mention",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

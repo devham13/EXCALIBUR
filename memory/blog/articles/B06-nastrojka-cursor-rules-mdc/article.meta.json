@@ -1,0 +1,40 @@
+{
+  "topic_id": "B06",
+  "slug": "nastrojka-cursor-rules-mdc",
+  "h1": "Как настроить Cursor Rules: пошаговая инструкция по .mdc-правилам для агента",
+  "title": "Cursor Rules: пошаговая настройка .mdc-правил для Agent",
+  "description": "Пошаговая настройка Cursor Rules: папка .cursor/rules/, alwaysApply и globs, проверка Active Rules, миграция с .cursorrules и чеклист перед git commit.",
+  "keywords": [
+    "cursor rules",
+    "как настроить cursor rules",
+    "cursor rules настройка",
+    ".cursor/rules mdc",
+    "cursor rules примеры"
+  ],
+  "primary_query": "cursor rules",
+  "secondary_queries": [
+    "cursor rules настройка",
+    ".cursor/rules mdc",
+    "как настроить cursor rules",
+    "cursor rules примеры",
+    "alwaysApply cursor rules",
+    "cursor rules globs"
+  ],
+  "char_count": 8795,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor rules mdc пошагово",
+    "настройка project rules в cursor для автоматизатора",
+    "cursor rules alwaysApply и globs на русском"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor Rules: пошаговая настройка .mdc-правил для Agent",
+    "title_ctr": "💻 Cursor Rules за 30 минут: настройте .mdc и перестаньте повторять одни prompt!",
+    "title_aeo": "Как настроить Cursor Rules и .mdc-файлы для Agent в проекте?",
+    "description_seo": "Пошаговая настройка Cursor Rules: .cursor/rules/, alwaysApply и globs, Active Rules, миграция с .cursorrules, troubleshooting и чеклист git.",
+    "description_ctr": "⚡ Создайте .mdc за вечер: overview + globs, таблица режимов, 15 пунктов чеклиста. Гайд по cursor rules для маркетологов без Senior-кода.",
+    "description_aeo": "Cursor Rules настраиваются через .cursor/rules/*.mdc с YAML frontmatter: alwaysApply для общих правил, globs для файлов, проверка в Active Rules нового Agent-чата."
+  },
+  "cover_family": "brand_collage"
+}

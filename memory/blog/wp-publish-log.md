@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-08-15 — B06 nastrojka-cursor-rules-mdc — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-cursor-rules-mdc |
+| verdict | **PASS** |
+| post_id | 856 |
+| featured_image_id | 857 |
+| inline_images | 858, 859, 860 |
+| permalink | https://neurinix.com/2026/08/15/nastrojka-cursor-rules-mdc/ |
+| trigger | excalibur-blog-publish (Cloud Agent B06) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight publish)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-rules-mdc --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-nastrojka-cursor-rules-mdc  # PASS
+```
+
+### Result
+
+```
+OK post=856 slug=nastrojka-cursor-rules-mdc
+OK featured_image=857
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=858 src=cover/inline-01.png url=https://neurinix.com/wp-content/uploads/2026/08/nastrojka-cursor-rules-mdc-inline-01.png
+OK inline_image_upload=859 src=cover/inline-02.png url=https://neurinix.com/wp-content/uploads/2026/08/nastrojka-cursor-rules-mdc-inline-02.png
+OK inline_image_upload=860 src=cover/inline-03.png url=https://neurinix.com/wp-content/uploads/2026/08/nastrojka-cursor-rules-mdc-inline-03.png
+permalink=https://neurinix.com/2026/08/15/nastrojka-cursor-rules-mdc/
+```
+

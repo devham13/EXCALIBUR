@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "Сравните Hooks, Rules и MCP allowlist Инструмент Что делает Cloud Agent Когда брать Cursor Rules Инструкции в prompt Да Стиль, контекст проекта Hooks Скрипт deny/log Да (project) Блок shell, audit, subagent guard MCP allowlist Разрешённые MCP-tools Да Ограничить GitHub, CMS и др",
+      "word_count": 43
+    },
+    {
+      "sentence": "sh\", \"matcher\": \"production-db\", \"failClosed\": true }] Задача Desktop Cloud Agent Блок shell beforeShellExecution + deny то же + failClosed Блок MCP beforeMCPExecution + deny MCP allowlist, минимум серверов Audit MCP afterMCPExecution postToolUse MCP: Subagents subagentStart subagentStart В cloud не работают beforeMCPExecution, afterMCPExecution, sessionStart",
+      "word_count": 39
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 5.9,
+    "avg_syllables_per_word": 0.9
+  }
+}

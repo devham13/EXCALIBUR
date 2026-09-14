@@ -172,3 +172,55 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-26 — B06 cursor-hooks-nastroyka-governance — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | cursor-hooks-nastroyka-governance |
+| verdict | **PASS** |
+| post_id | 912 |
+| featured_image_id | 913 |
+| inline_images | 914, 915, 916 |
+| permalink | https://mayai.ru/2026/08/26/cursor-hooks-nastroyka-governance/ |
+| transport | SFTP (FTP `425 Security: Bad IP connecting` from Cloud Agent) |
+| trigger | `/excalibur-blog-run topic_id: B06 publish: yes` |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (preflight re-run 2026-08-26)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- site base: EXCALIBUR_PUBLIC_SITE_URL
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-cursor-hooks-nastroyka-governance --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-cursor-hooks-nastroyka-governance --public-base $EXCALIBUR_PUBLIC_SITE_URL  # PASS via SFTP
+python3 scripts/excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles --site-base $EXCALIBUR_PUBLIC_SITE_URL  # 0 opportunities
+```
+
+### Result
+
+```
+OK post=912 slug=cursor-hooks-nastroyka-governance
+OK featured_image=913
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=914 src=cover/inline-01.png
+OK inline_image_upload=915 src=cover/inline-02.png
+OK inline_image_upload=916 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/08/26/cursor-hooks-nastroyka-governance/
+```
+
+### Script fix
+
+- `excalibur_blog_wp_publish.py` — SFTP transport when `SFTP_HOST`/`SSH_HOST` set; FTP→SFTP fallback on Bad IP (Cloud Agents).
+

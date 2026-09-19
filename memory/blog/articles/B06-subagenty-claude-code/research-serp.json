@@ -1,0 +1,407 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "subagenty-claude-code",
+    "h1": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+    "primary_query": "subagents claude code",
+    "secondary_queries": [
+      "claude code субагенты",
+      "как создать subagent claude code",
+      "claude code agents настройка",
+      "параллельные агенты claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "subagents claude code 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Subagents в 2026: инструкция и 5 готовых примеров",
+          "url": "https://smyslokod.ru/guides/subagents-dlya-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Create custom subagents - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/sub-agents",
+          "snippet": "Что такое subagent в Claude Code и почему это не «ещё один Skill»? Главное Subagent - это специализированный ИИ-помощник со своим контекстом, своим системным промптом, своим набором инструментов."
+        },
+        {
+          "title": "Лучшие субагенты Claude Code 2026: - Septim Labs",
+          "url": "https://septimlabs.com/ru/blog/best-claude-code-subagents-2026",
+          "snippet": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management."
+        },
+        {
+          "title": "Claude Code Subagents Tutorial: 8 Working Examples (2026)",
+          "url": "https://precisionaiacademy.com/insights/claude-code-subagents-tutorial-2026",
+          "snippet": "Подборка лучших субагентов Claude Code в 2026 году. Реальные примеры с YAML-конфигами, паттерны системных промптов и условия срабатывания каждого из них. Обновлено в апреле 2026."
+        },
+        {
+          "title": "Subagents в Claude Code: 7 готовых ролей и сравнение в 2026",
+          "url": "https://checkroi.ru/blog/subagenty-claude-code/",
+          "snippet": "This tutorial walks through what subagents are in 2026, the three patterns that cover most real use cases, and eight working code examples you can drop into your own workflow today."
+        },
+        {
+          "title": "How and when to use subagents in Claude Code | Claude by Anthropic",
+          "url": "https://claude.com/blog/subagents-in-claude-code",
+          "snippet": "Что такое субагенты в Claude Code, как создать своего за 5 минут, 7 production-ready ролей и сравнение со Skills, Slash-commands и Agent Teams в 2026 году."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "subagents claude code июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Subagents в 2026: инструкция и 5 готовых примеров",
+          "url": "https://smyslokod.ru/guides/subagents-dlya-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents в Claude Code: 7 готовых ролей и сравнение в 2026",
+          "url": "https://checkroi.ru/blog/subagenty-claude-code/",
+          "snippet": "Что такое subagent в Claude Code и почему это не «ещё один Skill»? Главное Subagent - это специализированный ИИ-помощник со своим контекстом, своим системным промптом, своим набором инструментов."
+        },
+        {
+          "title": "Лучшие субагенты Claude Code 2026: - Septim Labs",
+          "url": "https://septimlabs.com/ru/blog/best-claude-code-subagents-2026",
+          "snippet": "Что такое субагенты в Claude Code, как создать своего за 5 минут, 7 production-ready ролей и сравнение со Skills, Slash-commands и Agent Teams в 2026 году."
+        },
+        {
+          "title": "Create custom subagents - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/sub-agents",
+          "snippet": "Подборка лучших субагентов Claude Code в 2026 году. Реальные примеры с YAML-конфигами, паттерны системных промптов и условия срабатывания каждого из них. Обновлено в апреле 2026."
+        },
+        {
+          "title": "Claude Code 2.1.198 Runs Subagents in the Background by Default",
+          "url": "https://startdebugging.net/2026/07/claude-code-2-1-198-subagents-run-in-the-background-by-default/",
+          "snippet": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management."
+        },
+        {
+          "title": "Week 24 · June 8-12, 2026 - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/whats-new/2026-w24",
+          "snippet": "By Marius Bughiu · 3 min read · 2026-07-06 Advertisement Claude Code v2.1.198 shipped on July 1, 2026, and it changes the default execution model for subagents."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "subagents claude code новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code Subagents в 2026: инструкция и 5 готовых примеров",
+          "url": "https://smyslokod.ru/guides/subagents-dlya-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Subagents в Claude Code: 7 готовых ролей и сравнение в 2026",
+          "url": "https://checkroi.ru/blog/subagenty-claude-code/",
+          "snippet": "Что такое subagent в Claude Code и почему это не «ещё один Skill»? Главное Subagent - это специализированный ИИ-помощник со своим контекстом, своим системным промптом, своим набором инструментов."
+        },
+        {
+          "title": "Skills, Subagents, MCP, Plugins в Claude Code: что выбрать в 2026",
+          "url": "https://smyslokod.ru/guides/skills-subagents-mcp-plugins-claude-code",
+          "snippet": "Что такое субагенты в Claude Code, как создать своего за 5 минут, 7 production-ready ролей и сравнение со Skills, Slash-commands и Agent Teams в 2026 году."
+        },
+        {
+          "title": "Лучшие субагенты Claude Code 2026: - Septim Labs",
+          "url": "https://septimlabs.com/ru/blog/best-claude-code-subagents-2026",
+          "snippet": "Skills, subagents, MCP и plugins - четыре слоя расширений Claude Code. Объясняю когда какой брать с готовой матрицей решений и примерами из проекта."
+        },
+        {
+          "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+          "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+          "snippet": "Подборка лучших субагентов Claude Code в 2026 году. Реальные примеры с YAML-конфигами, паттерны системных промптов и условия срабатывания каждого из них. Обновлено в апреле 2026."
+        },
+        {
+          "title": "Субагенты Claude Code: оркестрация, worktrees и кастомные агенты ...",
+          "url": "https://mayai.ru/claude-code-subagents-gayd-orkestrator-worktrees-2026/",
+          "snippet": "И вот сейчас хочу подробно рассказать про три вещи, которые реально изменили мой подход к работе с этим инструментом: Skills (навыки), Sub-agents (субагенты) и Hooks (хуки). Это не абстрактная теория — я покажу конкретные конфиги, реальные сценарии и грабли, на которые уже наступил."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code субагенты 2026",
+      "purpose": "вторичный запрос: claude code субагенты",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code агент 2026: субагенты, оркестрация и параллельные задачи",
+          "url": "https://vibecoderz.ru/blog/claude-code-agent-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Вложенные субагенты в Claude Code 2026: 5 уровней глубины",
+          "url": "https://smyslokod.ru/guides/vlozhennye-subagenty-claude-code",
+          "snippet": "В этой статье разберем, как работают субагенты, чем они отличаются от Agent Teams, какие реальные паттерны работают, и почему без контроля за токенами можно слить $47 000 за три дня."
+        },
+        {
+          "title": "Субагенты Claude Code: оркестрация, worktrees и кастомные агенты ...",
+          "url": "https://mayai.ru/claude-code-subagents-gayd-orkestrator-worktrees-2026/",
+          "snippet": "9 июня Boris Cherny в v2.1.172 разрешил субагентам Claude Code порождать своих субагентов до 5 уровней. Инструкция, как делегировать большую задачу."
+        },
+        {
+          "title": "Subagents в Claude Code: 7 готовых ролей и сравнение в 2026",
+          "url": "https://checkroi.ru/blog/subagenty-claude-code/",
+          "snippet": "Коротко: субагент в Claude Code — это отдельная AI-роль в файле .claude/agents/, которая работает в своём контексте и возвращает главной сессии только краткий итог."
+        },
+        {
+          "title": "Лучшие субагенты Claude Code 2026: - Septim Labs",
+          "url": "https://septimlabs.com/ru/blog/best-claude-code-subagents-2026",
+          "snippet": "Что такое субагенты в Claude Code, как создать своего за 5 минут, 7 production-ready ролей и сравнение со Skills, Slash-commands и Agent Teams в 2026 году."
+        },
+        {
+          "title": "Claude Code агенты: гайд по субагентам и делегированию 2026",
+          "url": "https://claudeskills.ru/blog/claude-code-agenty",
+          "snippet": "Подборка лучших субагентов Claude Code в 2026 году. Реальные примеры с YAML-конфигами, паттерны системных промптов и условия срабатывания каждого из них. Обновлено в апреле 2026."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "как создать subagent claude code 2026",
+      "purpose": "вторичный запрос: как создать subagent claude code",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude code agents настройка 2026",
+      "purpose": "вторичный запрос: claude code agents настройка",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Claudexia blog: Claude Code в 2026: настройка через Claudexia и оплата ...",
+          "url": "https://gist.github.com/SeMax1337/27366f23922f567c36f31ff8160d393c",
+          "snippet": "В этой статье я расскажу, как устроены AI Coding Agents (Claude Code, OpenAI Codex, Opencode и др), как правильно ими пользоваться и как потратить $20 так, чтобы не уволили в 2026."
+        },
+        {
+          "title": "Как настроить Claude Code, чтобы он не сломал проект: гайд 2026",
+          "url": "https://smyslokod.ru/guides/kak-zashchitit-claude-code-ot-polomok",
+          "snippet": "Если вы пишете код в 2026 году, вы почти наверняка пробовали Claude Code — официальный CLI от Anthropic, который превращает Claude в настоящего пэйр-программера: он живёт у вас в терминале, читает репо ..."
+        },
+        {
+          "title": "The Ultimate Claude Code Resource List 2026: Agents, Skills, Plugins & More",
+          "url": "https://www.scriptbyai.com/claude-code-resource-list/",
+          "snippet": "7 готовых хуков, 5 настроек permissions и 12-пунктный чек-лист, чтобы оставлять Claude Code работать ночью без потери .env и базы. С верифицированными цитатами Anthropic."
+        },
+        {
+          "title": "Claude Code Config 2026: The Ultimate Setup Guide | Level Up Coding",
+          "url": "https://levelup.gitconnected.com/claude-code-config-2026-ultimate-setup-guide-e29c673d075e",
+          "snippet": "Claude Code Resource List is a curated directory of tools, agents, skills, plugins, SDKs, guides, interfaces, observability utilities, and alternative coding agents built around Anthropic's Claude Code ecosystem."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "параллельные агенты claude code 2026",
+      "purpose": "вторичный запрос: параллельные агенты claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code агент 2026: субагенты, оркестрация и параллельные задачи",
+          "url": "https://vibecoderz.ru/blog/claude-code-agent-2026",
+          "snippet": ""
+        },
+        {
+          "title": "Несколько Claude Code параллельно в 2026: worktree + Dynamic Workflows",
+          "url": "https://smyslokod.ru/guides/multi-agent-claude-code-parallel",
+          "snippet": "Agent Teams — экспериментальная фича Claude Code (с февраля 2026), где несколько агентов работают параллельно с peer-to-peer коммуникацией через общий список задач."
+        },
+        {
+          "title": "Субагенты Claude Code: оркестрация, worktrees и кастомные агенты ...",
+          "url": "https://mayai.ru/claude-code-subagents-gayd-orkestrator-worktrees-2026/",
+          "snippet": "В Claude Code четыре способа разнести работу на несколько агентов: subagents в одной сессии, skills с инструкциями, agent teams с лидером и отдельными окнами, Dynamic Workflows как JavaScript-скрипт от runtime."
+        },
+        {
+          "title": "Запуск агентов параллельно - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/agents",
+          "snippet": "Гайд по субагентам в Claude Code: папка `.claude/agents/`, параллельные роли, worktrees и изоляция правок. Настройте reviewer и security-auditor без перегрузки"
+        },
+        {
+          "title": "Superpowers для Claude Code: Полное Руководство 2026",
+          "url": "https://pasqualepillitteri.it/ru/news/897/superpowers-claude-code-polnoe-rukovodstvo-2026",
+          "snippet": "Сравните способы, которыми Claude Code может выполнять несколько задач одновременно: подагенты, представление агентов, команды агентов и динамические рабочие процессы."
+        },
+        {
+          "title": "Разбор Dynamic Workflows в Claude Code и риски | CourseHunter",
+          "url": "https://coursehunter.net/news/razbor-claude-code-dynamic-workflows-parallelnye-agenty-otlichiya-ot-agent-teams-i-kak-ne-slit-byudzhet",
+          "snippet": "Откройте Superpowers — официальный плагин для Claude Code, реализующий TDD, параллельные суб-агенты и профессиональный workflow. Полное руководство 2026."
+        }
+      ],
+      "searched_at": "2026-07-08"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями 2026",
+      "purpose": "SERP по H1",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-07-08"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://smyslokod.ru/guides/subagents-dlya-claude-code",
+      "title": "Claude Code Subagents в 2026: инструкция и 5 готовых примеров",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "title": "Create custom subagents - Claude Code Docs",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://septimlabs.com/ru/blog/best-claude-code-subagents-2026",
+      "title": "Лучшие субагенты Claude Code 2026: - Septim Labs",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://precisionaiacademy.com/insights/claude-code-subagents-tutorial-2026",
+      "title": "Claude Code Subagents Tutorial: 8 Working Examples (2026)",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://checkroi.ru/blog/subagenty-claude-code/",
+      "title": "Subagents в Claude Code: 7 готовых ролей и сравнение в 2026",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://claude.com/blog/subagents-in-claude-code",
+      "title": "How and when to use subagents in Claude Code | Claude by Anthropic",
+      "from_query": "subagents claude code 2026"
+    },
+    {
+      "url": "https://startdebugging.net/2026/07/claude-code-2-1-198-subagents-run-in-the-background-by-default/",
+      "title": "Claude Code 2.1.198 Runs Subagents in the Background by Default",
+      "from_query": "subagents claude code июль 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/whats-new/2026-w24",
+      "title": "Week 24 · June 8-12, 2026 - Claude Code Docs",
+      "from_query": "subagents claude code июль 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/skills-subagents-mcp-plugins-claude-code",
+      "title": "Skills, Subagents, MCP, Plugins в Claude Code: что выбрать в 2026",
+      "from_query": "subagents claude code новости 2026"
+    },
+    {
+      "url": "https://itnots.ru/aiiskustvennyj-intellekt/claude-code-v-2026-skills-sub-agents-i-hooks-polnyj-gajd-s-primerami-ot-praktika/",
+      "title": "Claude Code в 2026: Skills, Sub-agents и Hooks — полный гайд с ...",
+      "from_query": "subagents claude code новости 2026"
+    },
+    {
+      "url": "https://mayai.ru/claude-code-subagents-gayd-orkestrator-worktrees-2026/",
+      "title": "Субагенты Claude Code: оркестрация, worktrees и кастомные агенты ...",
+      "from_query": "subagents claude code новости 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/claude-code-agent-2026",
+      "title": "Claude Code агент 2026: субагенты, оркестрация и параллельные задачи",
+      "from_query": "claude code субагенты 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/vlozhennye-subagenty-claude-code",
+      "title": "Вложенные субагенты в Claude Code 2026: 5 уровней глубины",
+      "from_query": "claude code субагенты 2026"
+    },
+    {
+      "url": "https://claudeskills.ru/blog/claude-code-agenty",
+      "title": "Claude Code агенты: гайд по субагентам и делегированию 2026",
+      "from_query": "claude code субагенты 2026"
+    },
+    {
+      "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+      "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987382/",
+      "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://gist.github.com/SeMax1337/27366f23922f567c36f31ff8160d393c",
+      "title": "Claudexia blog: Claude Code в 2026: настройка через Claudexia и оплата ...",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/kak-zashchitit-claude-code-ot-polomok",
+      "title": "Как настроить Claude Code, чтобы он не сломал проект: гайд 2026",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://www.scriptbyai.com/claude-code-resource-list/",
+      "title": "The Ultimate Claude Code Resource List 2026: Agents, Skills, Plugins & More",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://levelup.gitconnected.com/claude-code-config-2026-ultimate-setup-guide-e29c673d075e",
+      "title": "Claude Code Config 2026: The Ultimate Setup Guide | Level Up Coding",
+      "from_query": "claude code agents настройка 2026"
+    },
+    {
+      "url": "https://smyslokod.ru/guides/multi-agent-claude-code-parallel",
+      "title": "Несколько Claude Code параллельно в 2026: worktree + Dynamic Workflows",
+      "from_query": "параллельные агенты claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/agents",
+      "title": "Запуск агентов параллельно - Claude Code Docs",
+      "from_query": "параллельные агенты claude code 2026"
+    },
+    {
+      "url": "https://pasqualepillitteri.it/ru/news/897/superpowers-claude-code-polnoe-rukovodstvo-2026",
+      "title": "Superpowers для Claude Code: Полное Руководство 2026",
+      "from_query": "параллельные агенты claude code 2026"
+    },
+    {
+      "url": "https://coursehunter.net/news/razbor-claude-code-dynamic-workflows-parallelnye-agenty-otlichiya-ot-agent-teams-i-kak-ne-slit-byudzhet",
+      "title": "Разбор Dynamic Workflows в Claude Code и риски | CourseHunter",
+      "from_query": "параллельные агенты claude code 2026"
+    }
+  ]
+}

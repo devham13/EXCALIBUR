@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "subagenty-claude-code",
+    "h1": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями",
+    "primary_query": "subagents claude code",
+    "secondary_queries": [
+      "claude code субагенты",
+      "как создать subagent claude code",
+      "claude code agents настройка",
+      "параллельные агенты claude code"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "subagents claude code 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "subagents claude code июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "subagents claude code новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "claude code субагенты 2026",
+      "purpose": "вторичный запрос: claude code субагенты"
+    },
+    {
+      "id": "secondary_2",
+      "query": "как создать subagent claude code 2026",
+      "purpose": "вторичный запрос: как создать subagent claude code"
+    },
+    {
+      "id": "secondary_3",
+      "query": "claude code agents настройка 2026",
+      "purpose": "вторичный запрос: claude code agents настройка"
+    },
+    {
+      "id": "secondary_4",
+      "query": "параллельные агенты claude code 2026",
+      "purpose": "вторичный запрос: параллельные агенты claude code"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-subagenty-claude-code",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

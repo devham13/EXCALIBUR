@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Subagents в Claude Code
+
+- **priority:** P0
+- **slug:** subagenty-claude-code
+- **h1:** Как настроить subagents в Claude Code: пошаговая инструкция с готовыми ролями
+- **primary_query:** subagents claude code
+- **secondary_queries:** claude code субагенты, как создать subagent claude code, claude code agents настройка, параллельные агенты claude code
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Subagents vs skills vs основной агент: когда делегировать задачу
+  2. Создание первого subagent через `/agents` и файл `.claude/agents/`
+  3. YAML-frontmatter: description, tools, model, permissionMode и memory
+  4. Пять готовых ролей: code-reviewer, explore, plan, test-writer, security-audit
+  5. Параллельный запуск subagents и Agent Teams (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)
+  6. Чек-лист безопасности и делегирования перед продакшеном
+- **faq_hints:** чем subagent отличается от skill в claude code; как вызвать subagent явно через @; какие tools ограничить для read-only роли
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** терминал Claude Code, вокруг экрана «карточки-субагенты» с ролями reviewer/planner/tester, стрелки делегирования задач, неоновый diy-коллаж
+
+---
+

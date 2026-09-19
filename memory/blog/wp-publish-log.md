@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-07-08 — B06 subagenty-claude-code — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | subagenty-claude-code |
+| verdict | **PASS** |
+| post_id | 495 |
+| featured_image_id | 496 |
+| inline_images | 497, 498, 499 |
+| permalink | https://mayai.ru/2026/07/08/subagenty-claude-code/ |
+| trigger | Task(excalibur-blog-publish) topic_id B06 |
+| publish_method | SSH/SCP fallback (FTP STOR: 425 Security Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (3/3)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=495 slug=subagenty-claude-code
+OK featured_image=496
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=497 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/07/subagenty-claude-code-inline-01.png
+OK inline_image_upload=498 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/07/subagenty-claude-code-inline-02.png
+OK inline_image_upload=499 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/07/subagenty-claude-code-inline-03.png
+permalink=https://mayai.ru/2026/07/08/subagenty-claude-code/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+

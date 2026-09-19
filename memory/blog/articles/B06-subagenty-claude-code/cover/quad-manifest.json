@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Wizard /agents удалён — а ваш гайд ещё советует его?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: subagents Claude Code — 7 ролей без wizard /agents, ведущий указывает на .claude/agents/",
+      "scene_hint": "reference-лицо, дружелюбная улыбка, тёмно-серая худи с наклейкой Claude Code, указывает на fake terminal «/agents: command not found», рваная бумага с путём .claude/agents/ и розовым маркером на «agents», fake Telegram «где wizard?», стикер ★☆☆☆☆ «устаревший гайд», meme facepalm + shocked cat cutout, розовый highlight на «удалён»",
+      "meme_caption_ru": "7 ролей — один чат?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните subagent, Skill и Agent Teams: когда делегировать",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица 3 колонки Subagent vs Skill vs Agent Teams: Контекст, Где лежит, Когда выбирать — без лица героя, лёгкий pink sticky «не дублируй Skill и subagent»",
+      "alt": "Сравнительная таблица Subagent vs Skill vs Agent Teams: когда делегировать"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Создайте первый subagent в .claude/agents/ (без wizard /agents)",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "7 шагов workflow: claude --version → mkdir .claude/agents → code-reviewer.md → перезапуск → /doctor → тест auto-routing → commit — стрелки, без wizard /agents, scotch tape на заметке «2.1.198+»",
+      "alt": "Схема workflow: 7 шагов создания первого subagent в .claude/agents/"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте YAML-frontmatter: description, tools, model",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист YAML frontmatter: name ✓, description ✓, tools allowlist ✓, model ✓, background Ctrl+B — розовые стикеры «Use proactively», «read-only без Bash»",
+      "alt": "Чеклист YAML-frontmatter subagent: description, tools, model"
+    }
+  }
+}

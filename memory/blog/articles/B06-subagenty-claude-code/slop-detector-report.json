@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "md architecture-planner Read, Grep, Glob sonnet Design before code Шаблон security-reviewer (остальные – та же структура, другие name/description/tools): --- name: security-reviewer description: Audit auth, payments, PII",
+      "word_count": 26
+    },
+    {
+      "sentence": "claude/agents/ выбран осознанно Уникальный name в scope; /doctor без duplicates Перезапуск после первого создания каталога agents description с поведенческим триггером и \"Use proactively\" где нужно Read-only без Write, Edit, Bash test-writer с явным allowlist, не наследование всех tools Запрет nested Agent tool при необходимости Permission prompts background subagents в main session (2",
+      "word_count": 52
+    },
+    {
+      "sentence": "186+) Subagents в git; секреты не в frontmatter Тест явного и автоматического вызова Параллель проверен через /tasks Agent Teams не включены без причины При сбое: перезапуск, /doctor, \"Use the X agent\" Делайте: deny опасные tools через allowlist",
+      "word_count": 36
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 6.4,
+    "avg_syllables_per_word": 1.0
+  }
+}

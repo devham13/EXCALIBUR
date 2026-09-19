@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B06-subagenty-claude-code/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 1,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ents\", который удалили в версии 2.1.198 от 1 июля 2026. Если нужны code review, тесты и security-проверк",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "25 минут",
+      "kind": "metric_or_duration",
+      "context": "ется с папки .claude/agents/ в репозитории. За 15–25 минут вы создадите первую роль, проверите автоделегиров",
+      "verified": true,
+      "reason": "Numerical value '25' matched in fact-bank context"
+    },
+    {
+      "fact": "198",
+      "kind": "large_number",
+      "context": "ют wizard \"/agents\", который удалили в версии 2.1.198 от 1 июля 2026. Если нужны code review, тесты и se",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

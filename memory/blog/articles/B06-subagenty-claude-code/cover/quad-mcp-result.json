@@ -1,0 +1,6 @@
+{
+  "url": null,
+  "source": "generate-image-fallback",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud Agent; canvas from GenerateImage i2i + resize 2048x1152",
+  "local_canvas": "cover/canvas-quad.png"
+}

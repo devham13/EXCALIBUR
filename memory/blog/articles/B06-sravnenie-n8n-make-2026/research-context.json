@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-08",
+    "today_ru": "08.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-08 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "sravnenie-n8n-make-2026",
+    "h1": "Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году",
+    "primary_query": "n8n vs make",
+    "secondary_queries": [
+      "сравнение n8n и make",
+      "make или n8n",
+      "что выбрать n8n или make",
+      "автоматизация бизнеса n8n"
+    ],
+    "search_intent": "comparison",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "comparison",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "n8n vs make 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "n8n vs make июль 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "n8n vs make новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "сравнение n8n и make 2026",
+      "purpose": "вторичный запрос: сравнение n8n и make"
+    },
+    {
+      "id": "secondary_2",
+      "query": "make или n8n 2026",
+      "purpose": "вторичный запрос: make или n8n"
+    },
+    {
+      "id": "secondary_3",
+      "query": "что выбрать n8n или make 2026",
+      "purpose": "вторичный запрос: что выбрать n8n или make"
+    },
+    {
+      "id": "secondary_4",
+      "query": "автоматизация бизнеса n8n 2026",
+      "purpose": "вторичный запрос: автоматизация бизнеса n8n"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Сравнение n8n и Make.com: как выбрать платформу автоматизации для бизнеса в 2026 году 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-sravnenie-n8n-make-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

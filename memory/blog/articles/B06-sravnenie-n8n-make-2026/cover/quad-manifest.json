@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "10 000 credits vs 1 000 executions — вы платите за каждый модуль?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка n8n vs Make: герой указывает на сравнение credits и executions на коллаже с pricing-скринами",
+      "scene_hint": "reference-лицо, тёмно-синий пиджак поверх коралловой футболки с логотипами n8n и Make, дружелюбная улыбка, указывает на split-screen fake UI: слева Make dashboard «10 000 credits съедено», справа n8n «1 000 executions», розовый маркер на слове «credits», рваная бумага со сносками pricing, скотч, стикер «DevOps?», shocked cat meme, facepalm sticker — DIY zine 16:9",
+      "meme_caption_ru": "Счёт ×10 модулей?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Оцените критерии выбора в 2026: объём, команда, 152-ФЗ и ИИ-агенты",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-мокап таблицы критериев выбора: объём сценариев, команда/DevOps, 152-ФЗ compliance, AI-агенты — колонки «ваш кейс» vs «n8n» vs «Make», розовый стикер «оцените сначала», без героя",
+      "alt": "Таблица критериев выбора n8n vs Make: объём, команда, 152-ФЗ и ИИ-агенты"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Сравните n8n и Make.com по таблице: цена, интеграции, self-hosted, AI",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема decision workflow 9 шагов: инвентаризация → credits vs executions → команда → compliance → таблица → матрица 6 кейсов → TCO → тариф → чеклист 15 → пилот; стрелки →, мини-иконки n8n и Make, без героя",
+      "alt": "Схема workflow выбора платформы: от инвентаризации до пилота n8n vs Make"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Выберите Make.com, если нужен быстрый старт без DevOps",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист «Когда Make»: быстрый SaaS-старт, no-code, Grid/Reasoning Panel, Free 1000 credits — галочки и крестики, розовая лента скотча, без героя",
+      "alt": "Чеклист: когда выбирать Make.com — быстрый старт без DevOps"
+    }
+  }
+}

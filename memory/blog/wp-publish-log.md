@@ -172,3 +172,52 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-08 — B06 sravnenie-n8n-make-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | sravnenie-n8n-make-2026 |
+| verdict | **PASS** |
+| post_id | 503 |
+| featured_image_id | 504 |
+| inline_images | 505, 506, 507 |
+| permalink | https://mayai.ru/2026/07/08/sravnenie-n8n-make-2026/ |
+| trigger | excalibur-blog-publish (Cloud Automation, topic_id B06) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: fail (1/6) — `https://www.make.com/en/pricing` HTTP 403 от Cloudflare в Cloud-среде; href восстановлен перед publish (GEO QA fix cycle 1); URL валиден в браузере/WebFetch
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- PUBLIC_SITE_URL: EXCALIBUR_PUBLIC_SITE_URL (Cloud Secrets)
+
+### Preflight
+
+```bash
+# href make.com восстановлен в article.html
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # fail: make.com 403
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run --public-base $EXCALIBUR_PUBLIC_SITE_URL  # OK
+```
+
+### Result
+
+```
+OK post=503 slug=sravnenie-n8n-make-2026
+OK featured_image=504
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=505 src=cover/inline-01.png
+OK inline_image_upload=506 src=cover/inline-02.png
+OK inline_image_upload=507 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/07/08/sravnenie-n8n-make-2026/
+```
+
+### Post-publish
+
+- interlinker --apply: уже выполнен на шаге Indexer (B02 → B06)

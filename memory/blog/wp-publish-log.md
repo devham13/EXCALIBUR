@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-07-06 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 449 |
+| inline_images | 450, 451, 452 |
+| permalink | https://neurinix.com/2026/06/19/primer-seo-stati/ | <!-- pragma: allowlist secret -->
+| method | sftp_bootstrap (FTP STOR blocked: BeGet `425 Security: Bad IP connecting`; SFTP upload + HTTP trigger) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (6/6)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base "$PUBLIC_SITE_URL"
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+# FTP publish failed (425 Bad IP) → SFTP bootstrap fallback
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=449
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=450 src=cover/inline-01.png
+OK inline_image_upload=451 src=cover/inline-02.png
+OK inline_image_upload=452 src=cover/inline-03.png
+permalink=$PUBLIC_SITE_URL/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- promotion-checklist.md: Live URL set

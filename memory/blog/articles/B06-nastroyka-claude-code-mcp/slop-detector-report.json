@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Сравните Claude Code и Cursor: когда CLI, когда IDE Критерий Claude Code Cursor Где работает Терминал, скрипты, CI/headless Редактор кода с чатом и Agent MCP-конфиг claude mcp add,",
+      "word_count": 29
+    },
+    {
+      "sentence": "ClaudeCode Шаг 4: Проверьте claude --version; при сбоях - claude doctor Шаг 5: Если command not found на Windows - перезапустите терминал и проверьте PATH Native install обновляется в фоне; Homebrew/WinGet - вручную",
+      "word_count": 29
+    },
+    {
+      "sentence": "Stdio-сервер filesystem (замените путь на свою папку): Команда claude mcp add (stdio): claude mcp add --transport stdio myfs -- npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir Project-scope",
+      "word_count": 27
+    },
+    {
+      "sentence": "Сервер Зачем Когда добавить Filesystem Черновики статей, правки markdown Первым, на шаге 5 GitHub MCP PR и issues контент-репо После filesystem, с PAT в --env HTTP webhook Триггер Make/n8n после правки Когда pipeline стабилен Делайте: один полный пример (filesystem), остальное - вторым шагом",
+      "word_count": 41
+    },
+    {
+      "sentence": "json - /hooks OK - тестовый prompt с MCP tool Чеклист перед headless/CI (10+ пунктов): claude --version без ошибок claude doctor без критических предупреждений Вход под нужным планом (не free) CLAUDE",
+      "word_count": 29
+    },
+    {
+      "sentence": "json одобрен в интерактивной сессии Hook виден в /hooks Тестовый prompt изменил файл и hook сработал Секреты не в Git Для CI зафиксирован non-interactive режим (-p из quickstart docs) Тест: \"Прочитай README в",
+      "word_count": 33
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.8,
+    "avg_syllables_per_word": 1.3
+  }
+}

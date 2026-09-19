@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+## 2026-07-07 — B06 nastroyka-claude-code-mcp — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastroyka-claude-code-mcp |
+| verdict | **PASS** |
+| post_id | 464 |
+| featured_image_id | 465 |
+| inline_images | 466, 467, 468 |
+| permalink | /2026/07/07/nastroyka-claude-code-mcp/ |
+| transport | ssh_sftp (FTP blocked: 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (6/6, preflight 2026-07-07)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run  # OK, PHP 9783386 bytes
+# FTP fail: 425 Security Bad IP → SSH/SFTP fallback + HTTP trigger
+python3 scripts/excalibur_blog_interlinker.py --apply --site-base $EXCALIBUR_PUBLIC_SITE_URL  # 0 opportunities
+```
+
+### Result
+
+```
+OK post=464 slug=nastroyka-claude-code-mcp
+OK featured_image=465
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=466 src=cover/inline-01.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-01.png
+OK inline_image_upload=467 src=cover/inline-02.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-02.png
+OK inline_image_upload=468 src=cover/inline-03.png url=[PUBLIC_SITE_URL]/wp-content/uploads/2026/07/nastroyka-claude-code-mcp-inline-03.png
+permalink=/2026/07/07/nastroyka-claude-code-mcp/
+```

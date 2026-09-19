@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-nastroyka-claude-code-mcp/cover/canvas-quad.png",
+    "source_size_px": [
+      2048,
+      1152
+    ],
+    "panel_size_px": [
+      1019,
+      624
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 624,
+        "end": 632
+      },
+      "v_gutter_px": {
+        "start": 1019,
+        "end": 1030
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 25,
+          "right": 1019,
+          "bottom": 598
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 1019,
+          "bottom": 624
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: Claude Code за 45 минут — install, MCP и hooks без копипаста в чат",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 1030,
+          "top": 25,
+          "right": 2048,
+          "bottom": 598
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 0,
+          "right": 2048,
+          "bottom": 624
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнительная таблица Claude Code и Cursor: CLI, MCP-конфиг, сценарии использования",
+        "h2_anchor": "1. Сравните Claude Code и Cursor: когда CLI, когда IDE"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 47,
+          "top": 632,
+          "right": 971,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 632,
+          "right": 1019,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист установки Claude Code: native install, проверка версии и системы",
+        "h2_anchor": "2. Установите Claude Code native install и проверьте систему"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 1077,
+          "top": 632,
+          "right": 2001,
+          "bottom": 1152
+        },
+        "raw_box_px": {
+          "left": 1030,
+          "top": 632,
+          "right": 2048,
+          "bottom": 1152
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: вход Pro/Max, проверка биллинга и подготовка к MCP",
+        "h2_anchor": "3. Войдите под Pro/Max и проверьте биллинг до MCP"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Сравните Claude Code и Cursor: когда CLI, когда IDE",
+    "injected inline_2 after H2 — 2. Установите Claude Code native install и проверьте систему",
+    "injected inline_3 after H2 — 3. Войдите под Pro/Max и проверьте биллинг до MCP"
+  ]
+}

@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Настройка Claude Code для автоматизации
+
+- **priority:** P0
+- **slug:** nastroyka-claude-code-mcp
+- **h1:** Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks
+- **primary_query:** claude code
+- **secondary_queries:** claude code mcp, как установить claude code, claude code windows, claude code hooks
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Claude Code vs Cursor: когда CLI-агент, а когда IDE с MCP
+  2. Установка native install и первый запуск (macOS, Linux, WSL, Windows)
+  3. Аутентификация: API key, Pro/Max и ограничения региона в 2026 году
+  4. CLAUDE.md и .claude/: project memory, rules и skills для бизнес-задач
+  5. Подключение MCP-серверов (Wordstat, filesystem, n8n/Make) через mcp.json
+  6. Hooks и permissions: auto-approve, безопасность shell-команд
+  7. Чек-лист первого рабочего pipeline: от install до headless-задачи в CI
+- **faq_hints:** как установить claude code; чем claude code отличается от cursor; как подключить mcp к claude code; работает ли claude code в россии
+- **internal_links:** /podklyuchenie-mcp-cursor/, /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** терминал с логотипом Claude Code, вокруг «кубики-инструменты» MCP (Wordstat, n8n, GitHub), стикеры CLAUDE.md и hooks, эксперт показывает на схему install→MCP→automation, неоновый diy-коллаж
+
+---
+

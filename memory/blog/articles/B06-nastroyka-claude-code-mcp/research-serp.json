@@ -1,0 +1,559 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-07-07",
+    "today_ru": "07.07.2026",
+    "year": 2026,
+    "month": 7,
+    "month_name_ru": "июль",
+    "weekday_ru": "вторник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-04-08",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-07-07 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastroyka-claude-code-mcp",
+    "h1": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks",
+    "primary_query": "claude code",
+    "secondary_queries": [
+      "claude code mcp",
+      "как установить claude code",
+      "claude code windows",
+      "claude code hooks"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "claude code 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+          "url": "https://code.claude.com/",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": "You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan premium seat, or a Claude Console account. Download Claude Code and sign in with your respective Claude or Console credentials."
+        },
+        {
+          "title": "Releases · anthropics/claude-code - GitHub",
+          "url": "https://github.com/anthropics/claude-code/releases",
+          "snippet": "В этой статье я расскажу, как устроены AI Coding Agents (Claude Code, OpenAI Codex, Opencode и др), как правильно ими пользоваться и как потратить $20 так, чтобы не уволили в 2026."
+        },
+        {
+          "title": "Как использовать Claude в России в 2026 ... - DTF",
+          "url": "https://dtf.ru/howto/4796716-kak-zaregistrirovatsya-i-ispolzovat-claude-v-rossii",
+          "snippet": "Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31."
+        },
+        {
+          "title": "Как установить Claude и Claude Code в России в 2026 году: полная ...",
+          "url": "https://dtf.ru/howto/4796778-ustanovka-claude-i-claude-code-v-rossii",
+          "snippet": "Здесь собрано всё: как зарегистрироваться из России, как использовать Claude бесплатно и по максимуму, как пользоваться Claude Code для разработки. Без воды — только рабочие инструкции на 2026 год."
+        },
+        {
+          "title": "Code w/ Claude SF 2026: Building on the AI exponential | Claude by ...",
+          "url": "https://claude.com/blog/code-w-claude-sf-2026-sf",
+          "snippet": "Статья закрывает сразу несколько вопросов: как установить Claude на компьютер или телефон, как установить Claude Code на Windows, Mac и Linux, как подключить его к VS Code — и всё это с учётом российских реалий. Никакой воды, только конкретные шаги."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "claude code июль 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+          "url": "https://habr.com/ru/articles/987382/",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code | Anthropic's agentic coding system",
+          "url": "https://www.anthropic.com/product/claude-code",
+          "snippet": "В этой статье я расскажу, как устроены AI Coding Agents (Claude Code, OpenAI Codex, Opencode и др), как правильно ими пользоваться и как потратить $20 так, чтобы не уволили в 2026."
+        },
+        {
+          "title": "ИИ-дайджест июль 2026: H200, Claude Code, взлом сетей и arXiv",
+          "url": "https://axdigital.ru/novosti/ii-dajdzhest-iyul-2026-chipy-agenty-i-pervye-100percent-vzlomy-korporativnyh-setej-1778832521755/",
+          "snippet": "Claude Code is an agentic coding system that reads your codebase, makes changes across files, runs tests, and delivers committed code. For builders without an engineering background, it's an entry point to software development that didn't exist until recently."
+        },
+        {
+          "title": "Claude Code в России: подписка, оплата, как пользоваться",
+          "url": "https://ya.zerocoder.ru/claude-code-v-rossii/",
+          "snippet": "Июль 2026-го выдаёт сразу пять событий, которые меняют стратегические расчёты. Каждое — отдельный звонок для бизнеса, работающего с ИИ-инфраструктурой."
+        },
+        {
+          "title": "Releases · anthropics/claude-code - GitHub",
+          "url": "https://github.com/anthropics/claude-code/releases",
+          "snippet": "Обновлено: июль 2026. Материал подготовлен командой Зерокодера — мы ведём на Claude Code реальные проекты (аналитика, деплой, автоматизация рекламы) с осени 2025 года."
+        },
+        {
+          "title": "Anthropic Claude Code Source Code Leak: Full Analysis (2026)",
+          "url": "https://tech-insider.org/anthropic-claude-code-source-code-leak-npm-2026/",
+          "snippet": "Introducing Claude Sonnet 5: now the default model in Claude Code, with a native 1M-token context window and promotional pricing of $2/$10 per Mtok through August 31."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "claude code новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Claude Code и Великая паника производительности 2026 года",
+          "url": "https://habr.com/ru/news/1004352/",
+          "snippet": ""
+        },
+        {
+          "title": "Newsroom \\ Anthropic",
+          "url": "https://www.anthropic.com/news",
+          "snippet": "Раз в неделю Claude Code публикует отчет для каждого инженера о том, как он застревал в непродуктивных циклах взаимодействия с агентом, и дает советы, как этого избежать."
+        },
+        {
+          "title": "Claude Code и Великая паника производительности 2026 года раскрыты",
+          "url": "https://skyread.ru/news/2026/02/27/10531-claude-code-i-velikaya-panika-proizvoditelnosti-2026-goda-raskryty/",
+          "snippet": "Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources."
+        },
+        {
+          "title": "Claude Code и Великая паника производительности 2026 года",
+          "url": "https://imag.one/news/claude-code-i-velikaya-panika/14365607",
+          "snippet": "Появилась новая тенденция в программировании — использование ИИ-агентов, таких как Claude Code и Codex, для полного выполнения задач с минимальным участием человека."
+        },
+        {
+          "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+          "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+          "snippet": "Сайт imag.one - агрегатор новостей из открытых источников. Источник указан в начале и в конце анонса. Вы можете пожаловаться на новость, если находите её недостоверной."
+        },
+        {
+          "title": "Claude Code Новости Май 2026: От Твита /radio до Plugin Marketplace ...",
+          "url": "https://pasqualepillitteri.it/ru/news/2228/claude-code-novosti-may-2026-radio-plugin-marketplace",
+          "snippet": "Гайд по Claude Code, автоматическое обновление документации, 220 проверенных источников, репозиторий на GitHub, уникальные навыки и плагины"
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "claude code mcp 2026",
+      "purpose": "вторичный запрос: claude code mcp",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "MCP Authentication in Claude Code 2026 Guide - truefoundry.com",
+          "url": "https://www.truefoundry.com/blog/mcp-authentication-in-claude-code",
+          "snippet": ""
+        },
+        {
+          "title": "Best MCP Servers for Claude Code: 16 Tested Daily (2026)",
+          "url": "https://buildtolaunch.substack.com/p/best-mcp-servers-claude-code",
+          "snippet": "Learn how to securely configure MCP authentication in Claude Code. This 2026 guide covers API keys, Bearer tokens, AWS credentials, IAM role assumption, OAuth flows, CLI setup, and security best practices for production environments."
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "16 MCP servers tested in Claude Code daily use: Perplexity, Supabase, Gumroad, Stripe, AI Memory. One-line install, real workflow use cases, free starter pack."
+        },
+        {
+          "title": "Week 26 · June 22-26, 2026 - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/whats-new/2026-w26",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        },
+        {
+          "title": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+          "url": "https://claude.com/product/claude-code",
+          "snippet": "Authenticate MCP servers from your shell with claude mcp login, get a response to shell mode command output with the ! prefix, and resume a conversation from before /clear with /rewind."
+        },
+        {
+          "title": "Claude Skills + MCP Servers: 2026 Practitioner Guide",
+          "url": "https://codersera.com/blog/claude-skills-mcp-servers-practitioner-guide-2026/",
+          "snippet": "You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan premium seat, or a Claude Console account. Download Claude Code and sign in with your respective Claude or Console credentials."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "как установить claude code 2026",
+      "purpose": "вторичный запрос: как установить claude code",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как установить Claude и Claude Code в России в 2026 году: полная ...",
+          "url": "https://dtf.ru/howto/4796778-ustanovka-claude-i-claude-code-v-rossii",
+          "snippet": ""
+        },
+        {
+          "title": "Как установить Claude и Claude Code в России: полный гайд для всех ...",
+          "url": "https://vc.ru/services/2748088-ustanovka-claude-i-claude-code-v-rossii",
+          "snippet": "Статья закрывает сразу несколько вопросов: как установить Claude на компьютер или телефон, как установить Claude Code на Windows, Mac и Linux, как подключить его к VS Code — и всё это с учётом российских реалий. Никакой воды, только конкретные шаги."
+        },
+        {
+          "title": "Расширенная настройка - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/setup",
+          "snippet": "Хотите разобраться, как установить Claude или как установить Claude Code на свой компьютер — и чтобы всё это реально работало из России? Хорошая новость: с установкой всё проще, чем кажется."
+        },
+        {
+          "title": "Как установить Claude Code: полное руководство для всех платформ (2026 ...",
+          "url": "https://blog.laozhang.ai/ru/posts/claude-code-install",
+          "snippet": "Системные требования, установка для конкретной платформы, управление версиями и удаление Claude Code. На этой странице рассматриваются системные требования, детали установки для конкретной платформы, обновления и удаление. Для пошагового руководства по вашему первому сеансу см. краткое руководство."
+        },
+        {
+          "title": "Установка Claude Code на Windows — пошаговый гайд 2026",
+          "url": "https://claudeskills.ru/blog/claude-code-windows",
+          "snippet": "Claude Code устанавливается одной командой на macOS, Windows и Linux с помощью нативного установщика — Node.js не требуется. Для работы нужна подписка Claude Pro ($20/мес) или выше."
+        },
+        {
+          "title": "Как установить Claude Code в 2026: Windows, Mac, Linux пошагово",
+          "url": "https://blog.edgelab.space/guides/kak-ustanovit-claude-code/",
+          "snippet": "Я поставил Claude Code на Windows минут за пять. Одна команда в PowerShell, авторизация в браузере — и можно работать. Но прежде чем я дошёл до этой команды, пришлось разобраться, какой Git нужен, почему нативный установщик лучше npm и что делать, если PATH не подхватился."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "claude code windows 2026",
+      "purpose": "вторичный запрос: claude code windows",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Advanced setup - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/setup",
+          "snippet": ""
+        },
+        {
+          "title": "Installing Claude Code on Windows in 2026: The Native Installer ...",
+          "url": "https://tygartmedia.com/claude-code-windows-install-2026/",
+          "snippet": "System requirements, platform-specific installation, version management, and uninstallation for Claude Code."
+        },
+        {
+          "title": "Claude Code Installation Guide for Windows: Git, PATH, Environment ...",
+          "url": "https://dev.to/xujfcn/claude-code-installation-guide-for-windows-git-path-environment-variables-powershell-wsl-and-1lag",
+          "snippet": "PowerShell, one command, no Node.js. Here is the current Windows install path for Claude Code, the five errors you will hit, and the exact fixes for each — verified against the May 2026 native installer."
+        },
+        {
+          "title": "Download Claude | Claude by Anthropic",
+          "url": "https://claude.com/download",
+          "snippet": "A very detailed Windows guide to installing Claude Code for beginners. Covers PowerShell, winget, Git for Windows, Node.js, PATH, environment variables, command prompt vs PowerShell vs WSL, and common post-install problems."
+        },
+        {
+          "title": "Как установить Claude и Claude Code в России в 2026 году: полная ...",
+          "url": "https://dtf.ru/howto/4796778-ustanovka-claude-i-claude-code-v-rossii",
+          "snippet": "Claude Code runs directly in the desktop app. You can preview running servers, review local code changes, and monitor pull request status without leaving the app."
+        },
+        {
+          "title": "Releases · anthropics/claude-code - GitHub",
+          "url": "https://github.com/anthropics/claude-code/releases",
+          "snippet": "Статья закрывает сразу несколько вопросов: как установить Claude на компьютер или телефон, как установить Claude Code на Windows, Mac и Linux, как подключить его к VS Code — и всё это с учётом российских реалий."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "claude code hooks 2026",
+      "purpose": "вторичный запрос: claude code hooks",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Hooks reference - Claude Code Docs",
+          "url": "https://code.claude.com/docs/en/hooks",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+          "url": "https://aiorg.dev/blog/claude-code-hooks",
+          "snippet": "In addition to command, HTTP, and MCP tool hooks, Claude Code supports prompt-based hooks (type: \"prompt\") that use an LLM to evaluate whether to allow or block an action, and agent hooks (type: \"agent\") that spawn an agentic verifier with tool access."
+        },
+        {
+          "title": "Steering Claude Code: skills, hooks, subagents and more | Claude by ...",
+          "url": "https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+          "snippet": "Learn Claude Code hooks from zero to production. 20+ copy-paste configurations for auto-formatting, security, notifications, and advanced prompt hooks. The complete 2026 reference."
+        },
+        {
+          "title": "Claude Hooks Reference 2026 | Claude Code Skill - mcpmarket.com",
+          "url": "https://mcpmarket.com/tools/skills/claude-hooks-reference-2026",
+          "snippet": "Claude is built to work the way you work, and in Claude Code you can customize it. There are seven methods for instructing Claude's behavior: CLAUDE.md files, rules, skills, subagents, hooks, output styles, and appending the system prompt. Each method controls: When an instruction loads into context; Whether it persists through long sessions (compaction behavior); and How much authority it ..."
+        },
+        {
+          "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+          "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+          "snippet": "Master the Claude Code hooks system. Learn how to use events, matchers, and exit codes to automate and secure your AI coding workflow with the latest 2026 reference."
+        },
+        {
+          "title": "Claude Code Hooks (2026): Setup Guide with Working Examples",
+          "url": "https://kjetilfuras.com/claude-code-hooks/",
+          "snippet": "Как я настроил Claude Code в 2026: MCP-серверы, hooks, skills, CLAUDE.md, субагенты, стоимость и реальные сценарии ежедневной работы."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Подключите Claude Code к инструментам через MCP",
+          "url": "https://code.claude.com/docs/ru/mcp",
+          "snippet": ""
+        },
+        {
+          "title": "Claude Code: практический гайд по настройке, автоматизации и работе с ...",
+          "url": "https://habr.com/ru/articles/987094/",
+          "snippet": "Узнайте, как подключить Claude Code к вашим инструментам с помощью Model Context Protocol."
+        },
+        {
+          "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+          "url": "https://thecode.media/claude-code-gajd/",
+          "snippet": "Вот мой полный сетап после 10 месяцев ежедневного использования: навыки, хуки, сабагенты, MCP, плагины — и то, что действительно работает."
+        },
+        {
+          "title": "Автоматизация действий с помощью hooks - Claude Code Docs",
+          "url": "https://code.claude.com/docs/ru/hooks-guide",
+          "snippet": "В этом гайде пройдём весь путь: что это такое, как поставить на любую систему, какие есть команды, как настроить под свой проект и сколько это стоит. А в конце — реальные сценарии работы и то, что иногда называют вайбкодингом: вы описываете задачу словами, а код пишет агент."
+        },
+        {
+          "title": "Claude Code: ПОЛНОЦЕННЫЙ ГАЙД ПО НАСТРОЙКЕ И РАБОТЕ ДЛЯ НОВИЧКОВ ...",
+          "url": "https://vc.ru/ai/2863142-claude-code-polnyj-gajd-po-nastrojke-i-ispolzovaniyu",
+          "snippet": "Это пошаговое руководство создаёт hook для уведомлений на рабочем столе, чтобы вы получали оповещение всякий раз, когда Claude ждёт вашего ввода вместо того, чтобы смотреть на терминал."
+        },
+        {
+          "title": "Claude Code: как пользоваться в 2026 | Полный гайд",
+          "url": "https://shtruzel.ru/articles/claude-code-kak-polzovatsya-v-2026-godu-polnyy-gayd-ot-ustanovki-do-prodvinutykh-funktsiy",
+          "snippet": "Гайд по Claude Code, команды и skills, автоматизация с помощью хуков, интеграция с Zed и VS Code, советы по настройке и использованию."
+        }
+      ],
+      "searched_at": "2026-07-07"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://code.claude.com/",
+      "title": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987382/",
+      "title": "Claude Code в 2026: гайд для тех, кто еще пишет код руками",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "title": "Releases · anthropics/claude-code - GitHub",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://dtf.ru/howto/4796716-kak-zaregistrirovatsya-i-ispolzovat-claude-v-rossii",
+      "title": "Как использовать Claude в России в 2026 ... - DTF",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://dtf.ru/howto/4796778-ustanovka-claude-i-claude-code-v-rossii",
+      "title": "Как установить Claude и Claude Code в России в 2026 году: полная ...",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://claude.com/blog/code-w-claude-sf-2026-sf",
+      "title": "Code w/ Claude SF 2026: Building on the AI exponential | Claude by ...",
+      "from_query": "claude code 2026"
+    },
+    {
+      "url": "https://www.anthropic.com/product/claude-code",
+      "title": "Claude Code | Anthropic's agentic coding system",
+      "from_query": "claude code июль 2026"
+    },
+    {
+      "url": "https://axdigital.ru/novosti/ii-dajdzhest-iyul-2026-chipy-agenty-i-pervye-100percent-vzlomy-korporativnyh-setej-1778832521755/",
+      "title": "ИИ-дайджест июль 2026: H200, Claude Code, взлом сетей и arXiv",
+      "from_query": "claude code июль 2026"
+    },
+    {
+      "url": "https://ya.zerocoder.ru/claude-code-v-rossii/",
+      "title": "Claude Code в России: подписка, оплата, как пользоваться",
+      "from_query": "claude code июль 2026"
+    },
+    {
+      "url": "https://tech-insider.org/anthropic-claude-code-source-code-leak-npm-2026/",
+      "title": "Anthropic Claude Code Source Code Leak: Full Analysis (2026)",
+      "from_query": "claude code июль 2026"
+    },
+    {
+      "url": "https://habr.com/ru/news/1004352/",
+      "title": "Claude Code и Великая паника производительности 2026 года",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "title": "Newsroom \\ Anthropic",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://skyread.ru/news/2026/02/27/10531-claude-code-i-velikaya-panika-proizvoditelnosti-2026-goda-raskryty/",
+      "title": "Claude Code и Великая паника производительности 2026 года раскрыты",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://imag.one/news/claude-code-i-velikaya-panika/14365607",
+      "title": "Claude Code и Великая паника производительности 2026 года",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://vc.ru/claudedry/2983306-polnyj-gajd-po-claude-code",
+      "title": "Самый подробный гайд по Claude Code в 2026 году: 220+ источников и ...",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://pasqualepillitteri.it/ru/news/2228/claude-code-novosti-may-2026-radio-plugin-marketplace",
+      "title": "Claude Code Новости Май 2026: От Твита /radio до Plugin Marketplace ...",
+      "from_query": "claude code новости 2026"
+    },
+    {
+      "url": "https://www.truefoundry.com/blog/mcp-authentication-in-claude-code",
+      "title": "MCP Authentication in Claude Code 2026 Guide - truefoundry.com",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://buildtolaunch.substack.com/p/best-mcp-servers-claude-code",
+      "title": "Best MCP Servers for Claude Code: 16 Tested Daily (2026)",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://okhlopkov.com/claude-code-nastrojka-mcp-hooks-skills-2026/",
+      "title": "Claude Code: настройка MCP, Hooks и Skills в 2026 — мой рабочий сетап",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/whats-new/2026-w26",
+      "title": "Week 26 · June 22-26, 2026 - Claude Code Docs",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://claude.com/product/claude-code",
+      "title": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://codersera.com/blog/claude-skills-mcp-servers-practitioner-guide-2026/",
+      "title": "Claude Skills + MCP Servers: 2026 Practitioner Guide",
+      "from_query": "claude code mcp 2026"
+    },
+    {
+      "url": "https://vc.ru/services/2748088-ustanovka-claude-i-claude-code-v-rossii",
+      "title": "Как установить Claude и Claude Code в России: полный гайд для всех ...",
+      "from_query": "как установить claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/setup",
+      "title": "Расширенная настройка - Claude Code Docs",
+      "from_query": "как установить claude code 2026"
+    },
+    {
+      "url": "https://blog.laozhang.ai/ru/posts/claude-code-install",
+      "title": "Как установить Claude Code: полное руководство для всех платформ (2026 ...",
+      "from_query": "как установить claude code 2026"
+    },
+    {
+      "url": "https://claudeskills.ru/blog/claude-code-windows",
+      "title": "Установка Claude Code на Windows — пошаговый гайд 2026",
+      "from_query": "как установить claude code 2026"
+    },
+    {
+      "url": "https://blog.edgelab.space/guides/kak-ustanovit-claude-code/",
+      "title": "Как установить Claude Code в 2026: Windows, Mac, Linux пошагово",
+      "from_query": "как установить claude code 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/setup",
+      "title": "Advanced setup - Claude Code Docs",
+      "from_query": "claude code windows 2026"
+    },
+    {
+      "url": "https://tygartmedia.com/claude-code-windows-install-2026/",
+      "title": "Installing Claude Code on Windows in 2026: The Native Installer ...",
+      "from_query": "claude code windows 2026"
+    },
+    {
+      "url": "https://dev.to/xujfcn/claude-code-installation-guide-for-windows-git-path-environment-variables-powershell-wsl-and-1lag",
+      "title": "Claude Code Installation Guide for Windows: Git, PATH, Environment ...",
+      "from_query": "claude code windows 2026"
+    },
+    {
+      "url": "https://claude.com/download",
+      "title": "Download Claude | Claude by Anthropic",
+      "from_query": "claude code windows 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/hooks",
+      "title": "Hooks reference - Claude Code Docs",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "https://aiorg.dev/blog/claude-code-hooks",
+      "title": "Claude Code Hooks: Complete Guide with 20+ Ready-to-Use Examples (2026)",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+      "title": "Steering Claude Code: skills, hooks, subagents and more | Claude by ...",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "https://mcpmarket.com/tools/skills/claude-hooks-reference-2026",
+      "title": "Claude Hooks Reference 2026 | Claude Code Skill - mcpmarket.com",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "https://kjetilfuras.com/claude-code-hooks/",
+      "title": "Claude Code Hooks (2026): Setup Guide with Working Examples",
+      "from_query": "claude code hooks 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/mcp",
+      "title": "Подключите Claude Code к инструментам через MCP",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    },
+    {
+      "url": "https://habr.com/ru/articles/987094/",
+      "title": "Claude Code: практический гайд по настройке, автоматизации и работе с ...",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    },
+    {
+      "url": "https://thecode.media/claude-code-gajd/",
+      "title": "Claude Code — полный гайд: установка, команды и реальные сценарии",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    },
+    {
+      "url": "https://code.claude.com/docs/ru/hooks-guide",
+      "title": "Автоматизация действий с помощью hooks - Claude Code Docs",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    },
+    {
+      "url": "https://vc.ru/ai/2863142-claude-code-polnyj-gajd-po-nastrojke-i-ispolzovaniyu",
+      "title": "Claude Code: ПОЛНОЦЕННЫЙ ГАЙД ПО НАСТРОЙКЕ И РАБОТЕ ДЛЯ НОВИЧКОВ ...",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    },
+    {
+      "url": "https://shtruzel.ru/articles/claude-code-kak-polzovatsya-v-2026-godu-polnyy-gayd-ot-ustanovki-do-prodvinutykh-funktsiy",
+      "title": "Claude Code: как пользоваться в 2026 | Полный гайд",
+      "from_query": "Как настроить Claude Code: пошаговая инструкция для автоматизации с MCP и hooks 2026"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Claude Code за 45 минут — или снова копируете в чат?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: Claude Code за 45 минут — install, MCP и hooks без копипаста в чат",
+      "scene_hint": "reference-лицо в тёмном худи с нашивкой «CLI», указывает на fake терминал с красной ошибкой «/mcp: no servers connected», рядом скрин .mcp.json и claude mcp add, fake биллинг Pro/Max «подписка активна», розовый highlight на «MCP», стикер «45 мин», meme facepalm + shocked cat cutout, scotch tape + pink sticky «жиза»",
+      "meme_caption_ru": "MCP не подключён?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Claude Code и Cursor: когда CLI, когда IDE",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица Claude Code vs Cursor: терминал/CI vs IDE, claude mcp add vs .cursor/mcp.json, hooks vs Agent — без лица героя, pink sticky «CLI или IDE?»",
+      "alt": "Сравнительная таблица Claude Code и Cursor: CLI, MCP-конфиг, сценарии использования"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Установите Claude Code native install и проверьте систему",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист native install: PowerShell curl / bash install, claude --version, Node 18+, Windows/macOS — галочки, без героя, tape corner",
+      "alt": "Чеклист установки Claude Code: native install, проверка версии и системы"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Войдите под Pro/Max и проверьте биллинг до MCP",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 4 шага: OAuth Pro/Max → billing OK → CLAUDE.md → готов к MCP; стрелки, без героя, mini sticky «до MCP»",
+      "alt": "Схема: вход Pro/Max, проверка биллинга и подготовка к MCP"
+    }
+  }
+}

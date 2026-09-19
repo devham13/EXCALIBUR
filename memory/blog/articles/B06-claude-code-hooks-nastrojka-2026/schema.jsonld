@@ -1,0 +1,129 @@
+{
+  "@context": "[PRODUCTION_SITE]
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "[PRODUCTION_SITE]/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "[PRODUCTION_SITE]/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "[PRODUCTION_SITE]/#logo",
+        "url": "[PRODUCTION_SITE]/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "[PRODUCTION_SITE]/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "[PRODUCTION_SITE]/artur-horosheff",
+      "worksFor": {
+        "@id": "[PRODUCTION_SITE]/#organization"
+      },
+      "sameAs": [
+        "[PRODUCTION_SITE]/artur-horosheff",
+        "[PRODUCTION_SITE]/obo-mne/",
+        "[PRODUCTION_SITE]/maya_pro",
+        "[PRODUCTION_SITE]/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "[PRODUCTION_SITE]/2026/07/08/claude-code-hooks-nastrojka-2026/#article",
+      "headline": "Как настроить hooks в Claude Code: пошаговая инструкция для детерминированной автоматизации",
+      "description": "Пошаговая настройка claude code hooks: PostToolUse prettier, PreToolUse protect .env и bash guard, exit 2, команда /hooks и production-чеклист для команды.",
+      "datePublished": "2026-07-08",
+      "dateModified": "2026-07-08",
+      "inLanguage": "ru",
+      "url": "[PRODUCTION_SITE]/2026/07/08/claude-code-hooks-nastrojka-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "[PRODUCTION_SITE]/2026/07/08/claude-code-hooks-nastrojka-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "[PRODUCTION_SITE]/wp-content/uploads/2026/07/claude-code-hooks-nastrojka-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "[PRODUCTION_SITE]/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "[PRODUCTION_SITE]/#organization"
+      },
+      "keywords": "claude code hooks, настройка hooks claude code, PreToolUse hook claude code, hooks settings.json claude code",
+      "wordCount": 9097,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "[PRODUCTION_SITE]/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "[PRODUCTION_SITE]/2026/07/08/claude-code-hooks-nastrojka-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое hooks в Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Это обработчики в settings.json (command, http, mcp_tool, prompt или agent), которые запускаются на lifecycle events – от SessionStart до PostToolUse. Они выполняются детерминированно, вне основного контекста чата. Добавьте блок \"hooks\", положите скрипты в .claude/hooks/ и проверьте список командой /hooks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как добавить hook в settings.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте .claude/settings.json, добавьте ключ \"hooks\" с массивом по имени event (PreToolUse, PostToolUse и др.), внутри – matcher и объект type plus command. Сохраните JSON, перезапустите сессию Claude Code и откройте /hooks – должны отображаться event, matcher и source Project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PreToolUse vs PostToolUse – в чём разница?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PreToolUse срабатывает до tool и может заблокировать вызов через exit 2 или JSON deny. PostToolUse – после успешного tool: форматирование, аудит, уведомления; уже выполненное действие не отменит. Для секретов и bash используйте PreToolUse; для prettier – PostToolUse с matcher Edit|Write."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему hook не блокирует, хотя скрипт падает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Скорее всего exit code 1, а не 2: для большинства events exit 1 non-blocking и tool выполнится. Для policy enforcement используйте только exit 2 или JSON permissionDecision deny на exit 0. Проверьте код выхода: echo test JSON | ./script.sh."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем hooks отличаются от skills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skills – инструкции и workflow в контексте модели; hooks – код и команды снаружи, с гарантированным запуском на событии. Skills задают \"как думать\"; hooks – \"что всегда сделать или запретить\". Не заменяйте bash guard текстом skill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем hooks отличаются от MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MCP подключает внешние tools и данные (браузер, GitHub, CMS) к агенту. Hooks перехватывают lifecycle внутри Claude Code без отдельного сервера. Связка: MCP для интеграций, hooks для format и security gates; см. гайд по подключению MCP в Cursor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где хранить settings.json для команды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Командные hooks – .claude/settings.json в репозитории (commit в Git). Личные overrides – .claude/settings.local.json или ~/.claude/settings.json. Enterprise может включить allowManagedHooksOnly – тогда user/project hooks блокируются политикой организации."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "claude-code-hooks-nastrojka-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: hooks Claude Code — PreToolUse блокирует .env через exit 2, а CLAUDE.md только просит «не трогай»",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-07-08T04:16:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: hooks Claude Code — PreToolUse блокирует .env через exit 2, а CLAUDE.md только просит «не трогай»",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица hooks vs CLAUDE.md vs MCP: гарантии и когда что выбирать",
+      "h2_anchor": "1. Сравните hooks с CLAUDE.md, skills и MCP",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема выбора scope hooks: project, local или global settings.json",
+      "h2_anchor": "2. Выберите scope: project, local или global",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист production pack hooks: 7 шагов от .claude/hooks до /hooks verify",
+      "h2_anchor": "3. Настройте production pack hooks пошагово",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

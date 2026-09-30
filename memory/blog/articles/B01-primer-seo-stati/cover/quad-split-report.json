@@ -3,15 +3,20 @@
   "status": "PASS",
   "manifest": "cover/quad-manifest.json",
   "split": {
-    "source_canvas": "memory\\blog\\articles\\B01-primer-seo-stati\\cover\\canvas-quad.png",
+    "source_canvas": "memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
     "source_size_px": [
-      2048,
-      1152
+      1280,
+      720
     ],
     "panel_size_px": [
-      1024,
-      576
+      640,
+      360
     ],
+    "split_meta": {
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
+    },
     "output_size_px": [
       1200,
       675
@@ -23,73 +28,97 @@
         "box_px": {
           "left": 0,
           "top": 0,
-          "right": 1024,
-          "bottom": 576
+          "right": 640,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 640,
+          "bottom": 360
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+        "alt": "Эксперт блога указывает на коллаж: SEO-статья на 47-й позиции без дочитываний",
         "h2_anchor": null
       },
       "inline_1": {
         "file": "cover/inline-01.png",
         "quadrant": "top_right",
         "box_px": {
-          "left": 1024,
+          "left": 640,
           "top": 0,
-          "right": 2048,
-          "bottom": 576
+          "right": 1280,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 0,
+          "right": 1280,
+          "bottom": 360
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-        "h2_anchor": "Зачем SEO и GEO в одной статье"
+        "alt": "Сравнительная таблица SEO и GEO в одном материале",
+        "h2_anchor": "Объедините SEO и GEO в одном материале"
       },
       "inline_2": {
         "file": "cover/inline-02.png",
         "quadrant": "bottom_left",
         "box_px": {
           "left": 0,
-          "top": 576,
-          "right": 1024,
-          "bottom": 1152
+          "top": 360,
+          "right": 640,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 360,
+          "right": 640,
+          "bottom": 720
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-        "h2_anchor": "Структура longread: от семантики до читабельности"
+        "alt": "Скриншот Wordstat и разбор ТОП-10 конкурентов",
+        "h2_anchor": "Соберите семантику и разберите ТОП-10"
       },
       "inline_3": {
         "file": "cover/inline-03.png",
         "quadrant": "bottom_right",
         "box_px": {
-          "left": 1024,
-          "top": 576,
-          "right": 2048,
-          "bottom": 1152
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
         },
         "size_px": [
           1200,
           675
         ],
         "aspect_ratio": "16:9",
-        "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-        "h2_anchor": "FAQ и schema: зачем и как"
+        "alt": "Workflow-схема каркаса longread от H1 до lead",
+        "h2_anchor": "Составьте каркас longread: H1, H3 и lead"
       }
     }
   },
   "html_inject": [
-    "skip inline_1: already injected",
-    "skip inline_2: already injected",
-    "skip inline_3: already injected"
+    "injected inline_1 after H2 — Объедините SEO и GEO в одном материале",
+    "injected inline_2 after H2 — Соберите семантику и разберите ТОП-10",
+    "injected inline_3 after H2 — Составьте каркас longread: H1, H3 и lead"
   ]
 }

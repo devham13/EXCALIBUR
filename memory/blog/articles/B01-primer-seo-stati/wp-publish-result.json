@@ -1,0 +1,8 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "FTP BLOCKER: ftplib.error_temp 425 Security: Bad IP connecting. (PASV data channel from Cloud Agent egress blocked by host FTP allowlist.)",
+  "verdict": "fail"
+}

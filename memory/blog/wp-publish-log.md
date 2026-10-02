@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-02 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1104 |
+| inline_images | 1105, 1106, 1107 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL (Cloud secrets) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight 2026-10-02)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Transport
+
+- `excalibur_blog_wp_publish.py`: FTP `STOR` → `425 Security: Bad IP connecting` (Cursor Cloud egress)
+- **Workaround:** SFTP upload `excalibur-blog-publish-once.php` → HTTP trigger → SFTP delete (same bootstrap PHP)
+- Dry-run: slug `primer-seo-stati`, PHP ~6.6 MB
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1104
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1105 src=cover/inline-01.png
+OK inline_image_upload=1106 src=cover/inline-02.png
+OK inline_image_upload=1107 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

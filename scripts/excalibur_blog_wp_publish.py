@@ -7,6 +7,7 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -32,6 +33,23 @@ def load_env(root: Path) -> dict[str, str]:
                     env[k.strip()] = v.strip()
             return env
     raise FileNotFoundError("site.env.local not found under memory/")
+
+
+def merge_cloud_env(env: dict[str, str]) -> dict[str, str]:
+    """Overlay Cloud Secrets / process env without overwriting file values."""
+    merged = dict(env)
+    for key, value in os.environ.items():
+        if not value or key in merged:
+            continue
+        if key.startswith(("FTP_", "SFTP_", "REMOTE_", "PUBLIC_", "EXCALIBUR_", "WP_")):
+            merged[key] = value
+    if not merged.get("FTP_PASS"):
+        merged["FTP_PASS"] = os.environ.get("FTP_PASSWORD") or os.environ.get("FTP_PASS") or ""
+    if not merged.get("PUBLIC_SITE_URL"):
+        merged["PUBLIC_SITE_URL"] = (
+            os.environ.get("EXCALIBUR_PUBLIC_SITE_URL") or os.environ.get("PUBLIC_SITE_URL") or ""
+        )
+    return merged
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -275,13 +293,96 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
+def _ftp_root(env: dict[str, str]) -> str:
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
     if not ftp_root.startswith("/"):
         ftp_root = "/" + ftp_root
     if not ftp_root.endswith("/"):
         ftp_root += "/"
+    return ftp_root
+
+
+def _bootstrap_upload(env: dict[str, str], remote: str, payload: bytes) -> str:
+    """Upload bootstrap PHP via FTP; on 425 Bad IP fall back to SFTP."""
+    ftp_root = _ftp_root(env)
+
+    def ftp_connect() -> ftplib.FTP:
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        return ftp
+
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(payload))
+        ftp.quit()
+        return "ftp"
+    except (ftplib.error_temp, ftplib.error_perm, OSError) as exc:
+        msg = str(exc).lower()
+        if "425" not in msg and "bad ip" not in msg and "security" not in msg:
+            raise
+        print(f"FTP upload blocked ({exc}); trying SFTP fallback...", file=sys.stderr)
+
+    import paramiko
+
+    host = env.get("SFTP_HOST") or env["FTP_HOST"]
+    port = int(env.get("SFTP_PORT") or "22")
+    user = env.get("SFTP_USER") or env["FTP_USER"]
+    password = (
+        env.get("SFTP_PASSWORD")
+        or env.get("SFTP_PASS")
+        or env.get("FTP_PASS")
+        or ""
+    )
+    remote_root = (env.get("REMOTE_SITE_ROOT") or ftp_root).rstrip("/")
+    remote_path = f"{remote_root}/{remote}"
+
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(host, port=port, username=user, password=password, timeout=120)
+    sftp = client.open_sftp()
+    try:
+        with sftp.file(remote_path, "wb") as remote_file:
+            remote_file.write(payload)
+    finally:
+        sftp.close()
+        client.close()
+    print(f"SFTP upload OK: {remote_path}", file=sys.stderr)
+    return "sftp"
+
+
+def _bootstrap_delete(env: dict[str, str], remote: str, transport: str) -> None:
+    if transport == "sftp":
+        import paramiko
+
+        host = env.get("SFTP_HOST") or env["FTP_HOST"]
+        port = int(env.get("SFTP_PORT") or "22")
+        user = env.get("SFTP_USER") or env["FTP_USER"]
+        password = (
+            env.get("SFTP_PASSWORD")
+            or env.get("SFTP_PASS")
+            or env.get("FTP_PASS")
+            or ""
+        )
+        ftp_root = _ftp_root(env)
+        remote_root = (env.get("REMOTE_SITE_ROOT") or ftp_root).rstrip("/")
+        remote_path = f"{remote_root}/{remote}"
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(host, port=port, username=user, password=password, timeout=120)
+        sftp = client.open_sftp()
+        try:
+            sftp.remove(remote_path)
+        except OSError:
+            pass
+        finally:
+            sftp.close()
+            client.close()
+        return
+
+    ftp_root = _ftp_root(env)
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
@@ -292,8 +393,16 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         return ftp
 
     ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+    try:
+        ftp.delete(remote)
+    except ftplib.error_perm:
+        pass
     ftp.quit()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    transport = _bootstrap_upload(env, remote, php.encode("utf-8"))
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +433,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    _bootstrap_delete(env, remote, transport)
     return out
 
 
@@ -349,7 +453,7 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
+    env = merge_cloud_env(load_env(root))
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

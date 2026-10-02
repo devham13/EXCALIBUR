@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-02 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1110 |
+| inline_images | 1111, 1112, 1113 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP fallback (FTP 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (5/5) после fix internal href B04
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base $EXCALIBUR_PUBLIC_SITE_URL
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1110
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1111 src=cover/inline-01.png
+OK inline_image_upload=1112 src=cover/inline-02.png
+OK inline_image_upload=1113 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
 Дата публикации: 2026-10-03  
-Live URL: https://mayai.ru/blog/primer-seo-stati/ (после publish)
+Live URL: https://mayai.ru/primer-seo-stati/ (после publish; WP publish 2026-10-03 — **FAIL**, FTP 425 Bad IP)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastroyka-n8n-agents-2026
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/nastroyka-n8n-agents-2026/ (заполнить после publish)
+Дата публикации: 2026-10-03  
+Live URL: https://www.meta-journal.ru/2026/10/03/nastroyka-n8n-agents-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

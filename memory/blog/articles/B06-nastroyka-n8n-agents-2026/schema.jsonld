@@ -1,0 +1,190 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastroyka-n8n-agents-2026/#article",
+      "headline": "Как настроить n8n Agents в 2026: standalone-агент, Slack, расписание и workflows как tools",
+      "description": "Пошаговая настройка n8n Agents: Agents tab, Preview, Publish, Slack, cron, workflow-tools и Message an Agent. Отличие от AI Agent node и чеклист Preview 2026.",
+      "datePublished": "2026-10-03",
+      "dateModified": "2026-10-03",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/nastroyka-n8n-agents-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/nastroyka-n8n-agents-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastroyka-n8n-agents-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n агенты, n8n ai, n8n agents настройка, создание ии агента n8n, n8n cloud agents",
+      "wordCount": 9339,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastroyka-n8n-agents-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как создать ии агента в n8n в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте Agents → Create Agent → задайте Model и Instructions → добавьте tools → Preview в Chat UI → Publish. Для canvas-сценария без publish используйте AI Agent node в отдельном workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем n8n Agents отличается от AI Agent node?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Agents - один раз в Agent Builder, publish, Slack/schedule и несколько workflows как tools. Node работает только внутри одного workflow run без project-level sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли вызывать n8n Agents из Slack?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, после Publish подключите Slack channel в Agent Builder и протестируйте thread. Draft без publish в Slack не уедет в production channel config."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит один turn агента в n8n Cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Один turn = one execution из лимита плана (как полный workflow run). Assistant при сборке агента расходует отдельные AI credits. Смотрите pricing и docs Agent executions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли publish для cron-расписания?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Schedules привязаны к published версии; draft меняйте через Preview, затем republish и проверьте last/next run."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему на self-hosted нет вкладки Agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте n8n 2.32.3+, модуль agents в N8N_ENABLED_MODULES, docs Enable agents и что instance не на Enterprise без поддержки Agents. Обновитесь до рекомендованной 2.34.x при phased rollout."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/nastroyka-n8n-agents-2026/#howto",
+      "name": "Как настроить n8n Agents в 2026: standalone-агент, Slack, расписание и workflows как tools",
+      "description": "Пошаговая настройка n8n Agents: Agents tab, Preview, Publish, Slack, cron, workflow-tools и Message an Agent. Отличие от AI Agent node и чеклист Preview 2026.",
+      "inLanguage": "ru",
+      "totalTime": "PT3H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud (stable) или self-hosted n8n 2.32.3+ с модулем agents"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Slack workspace (опционально, для channel после Publish)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте доступ к Agents tab",
+          "text": "Cloud на latest stable или self-host 2.32.3+ с модулем agents в N8N_ENABLED_MODULES, instance-ai и корректным WEBHOOK_URL для каналов. Если вкладки Agents нет - обновите версию или дождитесь phased rollout (community рекомендует 2.34.x).",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#create-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Create Agent и настройте model",
+          "text": "Agents → имя, icon, черновик draft. Выберите Model: AI Gateway на Cloud или свой API key. Сборка через n8n Assistant тратит AI credits как обычный чат Assistant.",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#create-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Instructions и tools",
+          "text": "Опишите роль, tone, когда звать tools и эскалацию человеку. Добавьте минимум два tool: один read-only и один узкий write через workflow-tool с credentials на workflow.",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#create-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Preview в Chat UI",
+          "text": "3-5 реплик, откройте Sessions и проверьте tool calls. На чувствительный tool включите Approve / Reject перед запуском.",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#create-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Publish и откат версии",
+          "text": "Зафиксируйте published snapshot: Channels и Schedules смотрят только на published. При регрессе вернитесь к предыдущей published или republish после правок draft.",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#publish"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Slack, cron и Message an Agent",
+          "text": "После Publish добавьте Slack channel, настройте schedule (daily, weekly или custom cron) и при необходимости узел Message an Agent в workflow для вызова опубликованного агента. Одно сообщение = one execution.",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#channels-schedule"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Workflows как tools и чеклист безопасности",
+          "text": "Подключите workflows того же project как tools с узкими write-операциями. Пройдите preview-ограничения 2026: approvals на рискованные tools, мониторинг Sessions и regular mode (не queue mode).",
+          "url": "https://mayai.ru/nastroyka-n8n-agents-2026/#workflows-tools"
+        }
+      ]
+    }
+  ]
+}

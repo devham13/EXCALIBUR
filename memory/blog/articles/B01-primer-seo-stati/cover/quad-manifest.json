@@ -13,30 +13,30 @@
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
+      "alt": "Ведущий блога: мем-коллаж про SEO-текст, который люди дочитают до конца",
+      "scene_hint": "reference-лицо, дружелюбная улыбка, casual худи SEO-редактора; указывает на fake Яндекс.Метрику «0 дочитываний»; fake Wordstat «15 000 ключей»; Telegram «где трафик?»; стикер ★☆☆☆☆; facepalm + shocked cat; розовый маркер на «0 дочитываний»",
       "meme_caption_ru": "15k ключей — 0 прочтений?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Сравните SEO и GEO в одной статье",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: island test, цели, каналы (поиск vs AI-ответы), читаемые кириллические заголовки",
+      "alt": "Сравнительная таблица SEO и GEO для одной статьи"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Соберите семантику и интент без переспама",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Wordstat / кластер ключей: primary + LSI, intent badges (информационный/коммерческий), без переспама",
+      "alt": "UI-мокап Wordstat: семантика и интент без переспама"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Спроектируйте структуру longread для людей",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow longread: lead → H2-блоки → таблица → чеклист → FAQ; стрелки, 6–7 шагов кириллицей",
+      "alt": "Схема структуры longread для людей: от lead до FAQ"
     }
   }
 }

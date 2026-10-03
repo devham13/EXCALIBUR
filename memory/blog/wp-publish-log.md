@@ -172,3 +172,38 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+## 2026-10-02 — B01 primer-seo-stati (Cloud Agent)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL (blocked)** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (5/5, после fix internal → `/2026/06/21/geo-optimizaciya-sajta-2026/`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (Cloud Secret + `memory/site.env.local` assembled at runtime)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP ~6.7MB
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP data channel:** `ftplib.error_temp: 425 Security: Bad IP connecting.` — PASV upload `excalibur-blog-publish-once.php` отклонён allowlist/FTP security хостинга для egress IP Cloud Agent. Control login OK, `NLIST`/`STOR` — fail.
+
+### Next steps (оператор)
+
+1. Whitelist egress IP Cloud Agent / self-hosted worker в FTP security панели **или** publish с машины с уже разрешённым IP (`excalibur-blog-run` локально).
+2. Повторить publish после FTP OK; HTTP fallback не понадобился (до STOR не дошли).

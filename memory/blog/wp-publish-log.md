@@ -172,3 +172,40 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-03 — B06 nastroyka-n8n-agents-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastroyka-n8n-agents-2026 |
+| verdict | **PASS** |
+| post_id | 1117 |
+| featured_image_id | 1118 |
+| inline_images | 1119, 1120, 1121 |
+| permalink | https://www.meta-journal.ru/2026/10/03/nastroyka-n8n-agents-2026/ |
+| public_base | EXCALIBUR_PUBLIC_SITE_URL |
+| trigger | cron B06 publish |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, preflight)
+- schema.jsonld: present
+- cover/cover.png + 3 inline PNG: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=1117 slug=nastroyka-n8n-agents-2026
+OK featured_image=1118
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1119 src=cover/inline-01.png
+OK inline_image_upload=1120 src=cover/inline-02.png
+OK inline_image_upload=1121 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/10/03/nastroyka-n8n-agents-2026/
+```

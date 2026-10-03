@@ -1,6 +1,21 @@
 {
   "site_base": "https://mayai.ru",
-  "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "total_articles": 6,
+  "opportunities_found": 2,
+  "suggestions": [
+    {
+      "source": "B02-avtomatizaciya-n8n-ai-agents",
+      "target": "B06-nastroyka-n8n-agents-2026",
+      "keyword": "n8n агенты",
+      "context": "к \"розеткам\".</p>  <p>Запросы \"n8n ai\" (720 показов/мес) и \"n8n агенты\" (699) растут вместе с интересом к автоматизации бизнеса бе",
+      "link_replacement": "<a href=\"/blog/nastroyka-n8n-agents-2026/\">n8n агенты</a>"
+    },
+    {
+      "source": "B02-avtomatizaciya-n8n-ai-agents",
+      "target": "B06-nastroyka-n8n-agents-2026",
+      "keyword": "n8n ai",
+      "context": "ается к внешним сервисам как к \"розеткам\".</p>  <p>Запросы \"n8n ai\" (720 показов/мес) и \"n8n агенты\" (699) растут вместе с инт",
+      "link_replacement": "<a href=\"/blog/nastroyka-n8n-agents-2026/\">n8n ai</a>"
+    }
+  ]
 }

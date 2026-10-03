@@ -1,0 +1,198 @@
+<p>Вы ищете "n8n агенты", открываете гайд про AI Agent node и тратите вечер не на тот продукт. С сентября 2026 n8n Agents живут во вкладке Agents: настраиваете модель, tools и workflows, публикуете и зовёте из Slack, cron или другого workflow. Ниже - настройка n8n agents: Preview, Publish, каналы, workflow-tools и Message an Agent. Вы запустите опубликованного standalone-агента и проверите его в канале без переписывания всей automation.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> n8n Agent (2026) - это "сотрудник в проекте": текстовые instructions, модель, tools (интеграции, MCP или ваши workflows), память и сессии. Один turn в чате = one execution из общей квоты; вызовы workflow-tools внутри turn не считаются отдельно. Slack, Telegram, Linear и расписание работают только после Publish. Для вызова из canvas есть Message an Agent. Статус продукта - Preview: тестируйте до продакшена и включайте approval на опасные tools.</blockquote>
+
+<p>Если вам нужен агент только внутри одного сценария на холсте, смотрите отдельный гайд про <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">AI Agent node в workflow</a>. Там другой паттерн: Chat Trigger, нода AI Agent, sub-tools. n8n Agents не заменяет node - старые workflow продолжают работать.</p>
+
+<p>Официальный запуск описан в <a href="https://blog.n8n.io/introducing-n8n-agents/" target="_blank">анонсе от 25.09.2026</a>. Cloud: Agents на stable-планах; self-hosted Community - с n8n 2.32.3+ и модулем agents (Enterprise self-hosted на 03.10.2026 без Agents tab - сверяйте <a href="https://docs.n8n.io/build/build-and-manage-agents/" target="_blank">доку</a>). Queue mode для agents не поддерживается - держите regular mode, иначе каналы вроде Telegram могут падать.</p>
+
+<h2 id="agents-vs-node">Сравните n8n Agents и AI Agent node и выберите вариант</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица n8n Agents и AI Agent node: каналы, publish, execution" loading="lazy">
+</figure>
+
+
+<p>AI Agent node - дирижёр внутри одного workflow: запустился run, отработал, завершился. Standalone Agent живёт в проекте: свои sessions, memory, версии draft/published, каналы Slack и cron без нового canvas под каждый вход.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n Agents (Agents tab)</th>
+      <th>AI Agent node в workflow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где живёт</b></td>
+      <td>Agent Builder, project-level</td>
+      <td>Один workflow на canvas</td>
+    </tr>
+    <tr>
+      <td><b>Каналы</b></td>
+      <td>Slack, Telegram, Linear (+ Discord в анонсе)</td>
+      <td>Chat Trigger, Telegram node и т.д. вручную</td>
+    </tr>
+    <tr>
+      <td><b>Расписание</b></td>
+      <td>Hourly, daily, weekly, custom cron на published</td>
+      <td>Отдельный Schedule Trigger + workflow</td>
+    </tr>
+    <tr>
+      <td><b>Workflows как tools</b></td>
+      <td>Добавляете workflows того же project</td>
+      <td>Call n8n Workflow tool на node</td>
+    </tr>
+    <tr>
+      <td><b>Биллинг turn</b></td>
+      <td>1 message пользователя = 1 execution</td>
+      <td>1 run workflow = 1 execution</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote><b>Итоговый вердикт:</b> Берите <b>n8n Agents</b>, если один и тот же ассистент нужен в Slack, по расписанию и из нескольких automation. Оставайтесь на <b>AI Agent node</b>, если задача локальная: один бот в одном workflow без publish-цикла.</blockquote>
+
+<p><b>Делайте:</b> в lead-абзаце для команды явно назовите, какой продукт настраиваете. <b>Не делайте:</b> копировать tutorial про node, когда в UI уже есть вкладка Agents.</p>
+
+<h2 id="create-agent">Создайте первого агента: Agents tab, model, instructions и tools</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow-диаграмма создания n8n Agent: model, instructions, tools, Preview" loading="lazy">
+</figure>
+
+
+<p>MCP (Model Context Protocol) - "общий язык", как модель подключается к внешним сервисам как к розеткам; в Agent Builder tools могут быть built-in ноды, workflows, custom JSON schema или MCP servers.</p>
+
+<ol>
+  <li><b>Шаг 1: Проверьте доступ.</b> Cloud на latest stable или self-host 2.32.3+ с модулем agents в N8N_ENABLED_MODULES, instance-ai и корректным WEBHOOK_URL для каналов. Если вкладки Agents нет - обновите версию или дождитесь phased rollout (community рекомендует 2.34.x).</li>
+  <li><b>Шаг 2: Create Agent.</b> Agents → имя, icon, черновик draft.</li>
+  <li><b>Шаг 3: Model.</b> AI Gateway на Cloud (Starter от 20 €/mo при annual, 1 600 Assistant credits/mo по <a href="https://n8n.io/pricing/" target="_blank">pricing</a>) или свой API key. Сборка через n8n Assistant тратит AI credits как обычный чат Assistant.</li>
+  <li><b>Шаг 4: Instructions.</b> Роль, tone, когда звать tools, запрет выдумывать факты, эскалация человеку. Это главный "устав" агента.</li>
+  <li><b>Шаг 5: Tools - минимум два.</b> Один read-only (поиск, GET) и один узкий write через отдельный workflow-tool с credentials только на workflow, не на агенте.</li>
+  <li><b>Шаг 6: Preview в Chat UI.</b> 3-5 реплик, откройте Sessions и проверьте tool calls. На чувствительный tool включите Approve / Reject перед запуском.</li>
+  <li><b>Шаг 7: Knowledge (опционально).</b> csv, pdf, markdown, txt; на self-hosted knowledge base тоже в Preview и может требовать Daytona sandbox.</li>
+</ol>
+
+<p><b>Делайте:</b> короткий system prompt на 10-15 строк. <b>Не делайте:</b> вешать десять tools "на будущее" - модель путается так же, как у Tools Agent node с Max Iterations.</p>
+
+<h2 id="publish">Опубликуйте агента и разведите draft и published</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист Publish n8n Agent: draft, published, откат и каналы" loading="lazy">
+</figure>
+
+
+<p>Channels и Schedules смотрят на <b>published</b> snapshot. Draft правите в Preview без смены production, пока не нажмёте Publish снова.</p>
+
+<ol>
+  <li><b>Шаг 8: Publish.</b> Зафиксируйте версию, убедитесь, что production не меняется от правок draft до следующего publish.</li>
+  <li><b>Шаг 9: Откат.</b> При регрессе вернитесь к предыдущей published или откатите instructions/tools и republish; проверьте всех callers (см. ниже).</li>
+</ol>
+
+<p>Self-hosted: не обещайте enterprise governance "уже здесь" - в launch post governance для Enterprise "on the way", сверяйте docs перед продом.</p>
+
+<p><b>Делайте:</b> после каждого publish прогоните один smoke-test в Preview и один в канале. <b>Не делайте:</b> подключать боевой Slack-inbox в день первого publish.</p>
+
+<h2 id="channels-schedule">Подключите Slack, cron и вызов из workflow</h2>
+
+<blockquote>
+  <b>Схема после Publish:</b>
+  <br>
+  Agents tab: Create Agent → draft (model + instructions + tools) → Preview → Publish → Channel Slack + Schedule cron → Tool Workflow "Add CRM note only" → Existing workflow → Message an Agent → reply в следующие nodes
+</blockquote>
+
+<p><b>Slack.</b> В Agent Builder добавьте channel Slack, авторизуйте workspace по доке, протестируйте thread. В docs также Telegram и Linear; Discord упомянут в анонсе - сверяйте актуальный список в UI.</p>
+
+<p><b>Schedule.</b> Daily, weekly, monthly или custom cron с чёткой задачей ("утренний triage inbox"). Работает только на published; смотрите last/next run в интерфейсе.</p>
+
+<p><b>Message an Agent.</b> В любом workflow добавьте узел Message an Agent, выберите опубликованного агента, передайте контекст (ticket id, текст лида). Одно сообщение = one execution. Ответ заберите в следующих nodes.</p>
+
+<p><b>Делайте:</b> cron формулируйте objective одним предложением, иначе модель "размазывает" утренний run. <b>Не делайте:</b> держать agents в queue mode - docs явно предупреждают о сбоях каналов.</p>
+
+<h2 id="workflows-tools">Настройте workflows как tools и границы доступа</h2>
+
+<p>Workflow-tool - безопасный паттерн для CRM: агент не держит ключи от amoCRM/Bitrix24, а вызывает workflow "добавить note с полями X,Y", где credentials и валидация. Sub-agents - отдельные опубликованные агенты как tools для декомпозиции.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип tool</th>
+      <th>Когда использовать</th>
+      <th>Риск</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Built-in integration</b></td>
+      <td>Чтение календаря, поиск письма</td>
+      <td>Средний - scope credential</td>
+    </tr>
+    <tr>
+      <td><b>Workflow в project</b></td>
+      <td>Узкая write-операция с audit</td>
+      <td>Низкий при approval</td>
+    </tr>
+    <tr>
+      <td><b>MCP server</b></td>
+      <td>Единый доступ к пачке SaaS</td>
+      <td>Высокий без allowlist</td>
+    </tr>
+    <tr>
+      <td><b>Custom JSON schema</b></td>
+      <td>Webhook во внутренний API</td>
+      <td>Зависит от API auth</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Episodic memory требует OpenAI credential - заложите это в self-host env заранее.</p>
+
+<p><b>Делайте:</b> один workflow = одна бизнес-операция. <b>Не делайте:</b> давать агенту прямой destructive API без human-in-the-loop.</p>
+
+<h2 id="security-checklist">Пройдите чеклист безопасности и preview-ограничений 2026</h2>
+
+<ul>
+  <li>Preview status: поведение может меняться - фиксируйте версию n8n перед прод-кампанией.</li>
+  <li>Approvals на tools, которые пишут в CRM, шлют письма или платят.</li>
+  <li>Квота: turn агента и run workflow делят execution pool на Cloud; мониторьте dashboard после запуска Slack.</li>
+  <li>Sessions log: еженедельно выборочно смотрите tool calls на галлюцинации аргументов.</li>
+  <li>После republish агента - regression test всех workflow с Message an Agent.</li>
+  <li>Self-host: WEBHOOK_URL, agents module, regular mode, не Enterprise без Agents tab.</li>
+</ul>
+
+<p><b>Делайте:</b> начните с read-only tools и одного write-workflow под approval. <b>Не делайте:</b> отдавать production CRM в первый день Preview.</p>
+
+<h2>Что дальше</h2>
+
+<ol>
+  <li>Добавьте второй channel (Telegram или Linear) на тот же published agent.</li>
+  <li>Вынесите повторяющийся cron в отдельного sub-agent с узкой instructions.</li>
+  <li>Свяжите Message an Agent с webhook заявки с сайта.</li>
+  <li>Зафиксируйте runbook: кто approves tool calls и где смотреть Sessions.</li>
+</ol>
+
+<p>Если параллельно строите no-code automation на Make, загляните в <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com и вайбкодинга</a> - там те же паттерны human-in-the-loop, но другой интерфейс.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> Артур Хорошев, CEO Maya AI, автор курса по Make.com и вайбкодингу (<a href="https://kv-ai.ru/artur-horosheff" target="_blank">профиль</a>).<br>
+  <b>Достоверность данных:</b> версии n8n, pricing, биллинг turn=execution и статус Preview сверены с официальными blog.n8n.io, docs.n8n.io и n8n.io/pricing на 03.10.2026. Показы Wordstat в текст не включались (MCP Wordstat недоступен в прогоне).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как создать ии агента в n8n в 2026?</h3>
+<p>Откройте Agents → Create Agent → задайте Model и Instructions → добавьте tools → Preview в Chat UI → Publish. Для canvas-сценария без publish используйте AI Agent node в отдельном workflow.</p>
+
+<h3>Чем n8n Agents отличается от AI Agent node?</h3>
+<p>Agents - один раз в Agent Builder, publish, Slack/schedule и несколько workflows как tools. Node работает только внутри одного workflow run без project-level sessions.</p>
+
+<h3>Можно ли вызывать n8n Agents из Slack?</h3>
+<p>Да, после Publish подключите Slack channel в Agent Builder и протестируйте thread. Draft без publish в Slack не уедет в production channel config.</p>
+
+<h3>Сколько стоит один turn агента в n8n Cloud?</h3>
+<p>Один turn = one execution из лимита плана (как полный workflow run). Assistant при сборке агента расходует отдельные AI credits. Смотрите <a href="https://n8n.io/pricing/" target="_blank">pricing</a> и docs Agent executions.</p>
+
+<h3>Нужен ли publish для cron-расписания?</h3>
+<p>Да. Schedules привязаны к published версии; draft меняйте через Preview, затем republish и проверьте last/next run.</p>
+
+<h3>Почему на self-hosted нет вкладки Agents?</h3>
+<p>Проверьте n8n 2.32.3+, модуль agents в N8N_ENABLED_MODULES, docs Enable agents и что instance не на Enterprise без поддержки Agents. Обновитесь до рекомендованной 2.34.x при phased rollout.</p>

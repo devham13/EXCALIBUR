@@ -1,0 +1,29 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-n8n-agents-2026",
+  "h1": "Как настроить n8n Agents в 2026: standalone-агент, Slack, расписание и workflows как tools",
+  "primary_query": "n8n агенты",
+  "secondary_queries": [
+    "n8n ai",
+    "n8n agents настройка",
+    "создание ии агента n8n",
+    "n8n cloud agents"
+  ],
+  "char_count": 9339,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить n8n agents standalone в 2026",
+    "n8n agents slack и cron после publish",
+    "message an agent и workflows as tools в n8n"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n агенты: настройка standalone Agents, Slack и cron в 2026",
+    "title_ctr": "🚀 n8n Agents 2026: настроите Slack, cron и workflows-tools за один вечер!",
+    "title_aeo": "Как настроить n8n Agents: Slack, расписание и workflows как tools?",
+    "description_seo": "Пошаговая настройка n8n Agents: Agents tab, Preview, Publish, Slack, cron, workflow-tools и Message an Agent. Отличие от AI Agent node и чеклист Preview 2026.",
+    "description_ctr": "⚡ Путаете AI Agent node и n8n Agents? Гайд: publish, каналы, cron, безопасные workflow-tools и вызов из automation. Факты с docs n8n на 03.10.2026.",
+    "description_aeo": "n8n Agents - standalone-агент во вкладке Agents: model, instructions, tools, Publish, Slack, cron и узел Message an Agent. Один turn = one execution на Cloud."
+  },
+  "cover_family": "brand_collage"
+}

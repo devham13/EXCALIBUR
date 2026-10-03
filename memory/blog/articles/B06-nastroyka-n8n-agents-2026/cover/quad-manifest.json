@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "AI Agent node или n8n Agents — вечер на не тот продукт?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: настройка n8n Agents 2026 — standalone-агент, Slack и Publish vs AI Agent node",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; тёмная худи + оранжевый акцент n8n, наушники; указывает на коллаж: fake UI вкладки Agents (Preview/Publish) рядом с canvas AI Agent node с красным крестом; fake Slack «бот молчит», cron «draft only»; розовый стикер «Preview ≠ каналы»; meme facepalm + confused cat; розовый маркер на «Agents tab»",
+      "meme_caption_ru": "Это не та нода!"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Сравните n8n Agents и AI Agent node и выберите вариант",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица без людей: n8n Agents vs AI Agent node — строки «Где живёт», «Каналы», «Расписание», «Workflows как tools», «Биллинг turn»; лёгкий стикер «выберите вариант»",
+      "alt": "Сравнительная таблица n8n Agents и AI Agent node: каналы, publish, execution"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Создайте первого агента: Agents tab, model, instructions и tools",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема 7 шагов без героя: Доступ → Create Agent → Model → Instructions → Tools (read+write) → Preview Chat → Knowledge; стрелки, иконки MCP/tools; скотч на углу",
+      "alt": "Workflow-диаграмма создания n8n Agent: model, instructions, tools, Preview"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Опубликуйте агента и разведите draft и published",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на доске: Publish snapshot, draft не трогает prod, откат версии, проверка callers; галочки draft vs published; розовая стрелка «Slack только после Publish»",
+      "alt": "Чеклист Publish n8n Agent: draft, published, откат и каналы"
+    }
+  }
+}

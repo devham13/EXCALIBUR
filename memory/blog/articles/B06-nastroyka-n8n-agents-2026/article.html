@@ -7,6 +7,10 @@
 <p>Официальный запуск описан в <a href="https://blog.n8n.io/introducing-n8n-agents/" target="_blank">анонсе от 25.09.2026</a>. Cloud: Agents на stable-планах; self-hosted Community - с n8n 2.32.3+ и модулем agents (Enterprise self-hosted на 03.10.2026 без Agents tab - сверяйте <a href="https://docs.n8n.io/build/build-and-manage-agents/" target="_blank">доку</a>). Queue mode для agents не поддерживается - держите regular mode, иначе каналы вроде Telegram могут падать.</p>
 
 <h2 id="agents-vs-node">Сравните n8n Agents и AI Agent node и выберите вариант</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица n8n Agents и AI Agent node: каналы, publish, execution" loading="lazy">
+</figure>
+
 
 <p>AI Agent node - дирижёр внутри одного workflow: запустился run, отработал, завершился. Standalone Agent живёт в проекте: свои sessions, memory, версии draft/published, каналы Slack и cron без нового canvas под каждый вход.</p>
 
@@ -52,6 +56,10 @@
 <p><b>Делайте:</b> в lead-абзаце для команды явно назовите, какой продукт настраиваете. <b>Не делайте:</b> копировать tutorial про node, когда в UI уже есть вкладка Agents.</p>
 
 <h2 id="create-agent">Создайте первого агента: Agents tab, model, instructions и tools</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow-диаграмма создания n8n Agent: model, instructions, tools, Preview" loading="lazy">
+</figure>
+
 
 <p>MCP (Model Context Protocol) - "общий язык", как модель подключается к внешним сервисам как к розеткам; в Agent Builder tools могут быть built-in ноды, workflows, custom JSON schema или MCP servers.</p>
 
@@ -68,6 +76,10 @@
 <p><b>Делайте:</b> короткий system prompt на 10-15 строк. <b>Не делайте:</b> вешать десять tools "на будущее" - модель путается так же, как у Tools Agent node с Max Iterations.</p>
 
 <h2 id="publish">Опубликуйте агента и разведите draft и published</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист Publish n8n Agent: draft, published, откат и каналы" loading="lazy">
+</figure>
+
 
 <p>Channels и Schedules смотрят на <b>published</b> snapshot. Draft правите в Preview без смены production, пока не нажмёте Publish снова.</p>
 

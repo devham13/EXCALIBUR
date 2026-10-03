@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-n8n-agents-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: настройка n8n Agents 2026 — standalone-агент, Slack и Publish vs AI Agent node",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-03T14:11:18+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: настройка n8n Agents 2026 — standalone-агент, Slack и Publish vs AI Agent node",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица n8n Agents и AI Agent node: каналы, publish, execution",
+      "h2_anchor": "Сравните n8n Agents и AI Agent node и выберите вариант",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Workflow-диаграмма создания n8n Agent: model, instructions, tools, Preview",
+      "h2_anchor": "Создайте первого агента: Agents tab, model, instructions и tools",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист Publish n8n Agent: draft, published, откат и каналы",
+      "h2_anchor": "Опубликуйте агента и разведите draft и published",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

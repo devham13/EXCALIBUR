@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — n8n Agents (standalone)
+
+- **priority:** P0
+- **slug:** nastroyka-n8n-agents-2026
+- **h1:** Как настроить n8n Agents в 2026: standalone-агент, Slack, расписание и workflows как tools
+- **primary_query:** n8n агенты
+- **secondary_queries:** n8n ai, n8n agents настройка, создание ии агента n8n, n8n cloud agents
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Чем n8n Agents отличаются от ноды AI Agent в workflow и когда выбирать каждый вариант
+  2. Создание первого агента: Agents tab, модель, instructions, tools и тест в Chat UI
+  3. Подключение каналов: Slack, cron-расписание и вызов агента из workflow (Message an Agent)
+  4. Workflows как tools и sub-agents: границы доступа, квота executions и preview-ограничения 2026
+  5. Чек-лист безопасности: approval на рискованные tools, лимит итераций, мониторинг логов
+- **faq_hints:** как создать ии агента в n8n; чем n8n agents отличается от ai agent node; можно ли вызывать n8n agents из slack; сколько стоит один turn агента в n8n cloud
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** вкладка Agents в интерфейсе n8n на ноутбуке, рядом иконки Slack и календаря-cron, стрелки от агента к мини-workflow-карточкам «tools», стикер «Preview 2026», неоновый diy-коллаж на тёмном фоне
+
+---
+

@@ -2,7 +2,7 @@
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> n8n Agent (2026) - это "сотрудник в проекте": текстовые instructions, модель, tools (интеграции, MCP или ваши workflows), память и сессии. Один turn в чате = one execution из общей квоты; вызовы workflow-tools внутри turn не считаются отдельно. Slack, Telegram, Linear и расписание работают только после Publish. Для вызова из canvas есть Message an Agent. Статус продукта - Preview: тестируйте до продакшена и включайте approval на опасные tools.</blockquote>
 
-<p>Если вам нужен агент только внутри одного сценария на холсте, смотрите отдельный гайд про <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">AI Agent node в workflow</a>. Там другой паттерн: Chat Trigger, нода AI Agent, sub-tools. n8n Agents не заменяет node - старые workflow продолжают работать.</p>
+<p>Если вам нужен агент только внутри одного сценария на холсте, смотрите отдельный гайд про <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">AI Agent node в workflow</a>. Там другой паттерн: Chat Trigger, нода AI Agent, sub-tools. n8n Agents не заменяет node - старые workflow продолжают работать.</p>
 
 <p>Официальный запуск описан в <a href="https://blog.n8n.io/introducing-n8n-agents/" target="_blank">анонсе от 25.09.2026</a>. Cloud: Agents на stable-планах; self-hosted Community - с n8n 2.32.3+ и модулем agents (Enterprise self-hosted на 03.10.2026 без Agents tab - сверяйте <a href="https://docs.n8n.io/build/build-and-manage-agents/" target="_blank">доку</a>). Queue mode для agents не поддерживается - держите regular mode, иначе каналы вроде Telegram могут падать.</p>
 

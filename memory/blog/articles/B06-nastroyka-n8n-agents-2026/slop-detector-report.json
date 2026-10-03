@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Критерий n8n Agents (Agents tab) AI Agent node в workflow Где живёт Agent Builder, project-level Один workflow на canvas Каналы Slack, Telegram, Linear (+ Discord в анонсе) Chat Trigger, Telegram node и т",
+      "word_count": 31
+    },
+    {
+      "sentence": "вручную Расписание Hourly, daily, weekly, custom cron на published Отдельный Schedule Trigger + workflow Workflows как tools Добавляете workflows того же project Call n8n Workflow tool на node Биллинг turn 1 message пользователя = 1 execution 1 run workflow = 1 execution Итоговый вердикт: Берите n8n Agents , если один и тот же ассистент нужен в Slack, по расписанию и из нескольких automation",
+      "word_count": 53
+    },
+    {
+      "sentence": "Создайте первого агента: Agents tab, model, instructions и tools MCP (Model Context Protocol) - \"общий язык\", как модель подключается к внешним сервисам как к розеткам; в Agent Builder tools могут быть built-in ноды, workflows, custom JSON schema или MCP servers",
+      "word_count": 39
+    },
+    {
+      "sentence": "Подключите Slack, cron и вызов из workflow Схема после Publish: Agents tab: Create Agent → draft (model + instructions + tools) → Preview → Publish → Channel Slack + Schedule cron → Tool Workflow \"Add CRM note only\" → Existing workflow → Message an Agent → reply в следующие nodes Slack",
+      "word_count": 40
+    },
+    {
+      "sentence": "Настройте workflows как tools и границы доступа Workflow-tool - безопасный паттерн для CRM: агент не держит ключи от amoCRM/Bitrix24, а вызывает workflow \"добавить note с полями X,Y\", где credentials и валидация",
+      "word_count": 31
+    },
+    {
+      "sentence": "Тип tool Когда использовать Риск Built-in integration Чтение календаря, поиск письма Средний - scope credential Workflow в project Узкая write-операция с audit Низкий при approval MCP server Единый доступ к пачке SaaS Высокий без allowlist Custom JSON schema Webhook во внутренний API Зависит от API auth Episodic memory требует OpenAI credential - заложите это в self-host env заранее",
+      "word_count": 56
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.2,
+    "avg_syllables_per_word": 1.3
+  }
+}

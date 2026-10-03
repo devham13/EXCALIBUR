@@ -172,3 +172,42 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-03 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (9/9, `--site-base https://mayai.ru`; исправлен href `/geo-optimizaciya-sajta-2026/` после indexer)
+- schema.jsonld: present
+- cover/cover.png + 3 inline PNG + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base https://mayai.ru  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP ~10.9 MB
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base $EXCALIBUR_PUBLIC_SITE_URL  # FAIL
+```
+
+### Blockers
+
+1. **FTP STOR:** `425 Security: Bad IP connecting` — login OK, upload (STOR) заблокирован с IP Cloud Agent. HTTP bootstrap / WebFetch fallback не достигнут.
+2. **Preflight note:** `EXCALIBUR_PUBLIC_SITE_URL` (GEO front, host `neur*.com`) не отдаёт slug-посты mayai.ru; link-verify для internal links — canonical `https://mayai.ru`.
+
+### Next steps (оператор)
+
+1. Whitelist IP Cloud Agent / self-hosted worker в панели FTP (Beget) **или** publish с локальной/разрешённой сети.
+2. Повторить: `excalibur_blog_wp_publish.py --public-base https://mayai.ru` (WP document root).
+3. Альтернатива: WP Application Password + REST / MCP WordPress blob publish.

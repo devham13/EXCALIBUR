@@ -1,0 +1,8 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {},
+  "raw_output": "FTP upload failed before HTTP trigger: ftplib.error_temp 425 Security: Bad IP connecting.",
+  "verdict": "fail"
+}

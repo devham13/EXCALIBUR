@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
-Live URL: https://... (заполнить после publish)
+Дата публикации: 2026-10-04  
+Live URL: https://mayai.ru/blog/primer-seo-stati/ (подтвердить после publish)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -23,13 +23,13 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 ## Snippet для Telegram (черновик)
 
 ```
-SEO-статья в 2026 — это не набор ключей, а единый workflow SEO + GEO: от семантики до FAQ и schema.
+Пишешь SEO для робота — а люди уходят на 3-й абзац? В 2026 один longread = SEO + GEO в одном workflow.
 
-• Один longread вместо двух проектов: интент, H2-чанки, BlogPosting + FAQPage
-• Lead 350–500 знаков, атомарные блоки для нейропоиска
-• Чеклист из 15 пунктов перед публикацией
+• Lead 350–500 знаков, answer-first в каждом H2, FAQ + BlogPosting/FAQPage
+• Чеклист 17 пунктов перед публикацией; объём — по SERP, не по «норме символов»
+• Эталон формата — эта статья на mayai.ru
 
-Читать: [URL]
+Читать: https://mayai.ru/blog/primer-seo-stati/
 ```
 
 ## Перелинковка
@@ -40,8 +40,8 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 ## Метрики (7 дней)
 
 - [ ] Metrika / GA4 — goal `blog_read` или из conversion map
-- [ ] Позиция primary query (ручная проверка / Wordstat)
+- [ ] Позиция primary query «как писать seo статьи» (ручная проверка / Wordstat)
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-10-04): `excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles` — загружено 5 статей, 0 автоматических вставок (нет пересечения ключей source→target без self-link). Отчёт: `memory/blog/interlink-suggestions.json`. После publish — при необходимости ручные контекстные ссылки из hub-статей (B04 GEO, B03 MCP). Обновлены `memory/blog/llms.txt`, `memory/blog/llms-full.txt`.

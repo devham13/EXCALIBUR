@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-04 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1135 |
+| inline_images | 1136, 1137, 1138 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| trigger | Cloud publish agent (SSH SCP + HTTP bootstrap; FTP STOR blocked 425 Bad IP on egress 3.134.210.176) |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (7/7, preflight 2026-10-04)
+- schema.jsonld: present (URLs synced to EXCALIBUR_PUBLIC_SITE_URL before 2nd trigger)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1135
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1136 src=cover/inline-01.png
+OK inline_image_upload=1137 src=cover/inline-02.png
+OK inline_image_upload=1138 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- `schema.jsonld`: 16× `mayai.ru` → production host
+- Bootstrap `excalibur-blog-publish-once.php` removed via SSH after run

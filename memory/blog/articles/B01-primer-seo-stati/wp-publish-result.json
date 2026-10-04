@@ -1,0 +1,12 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": false
+  },
+  "raw_output": "FTP STOR blocked: 425 Security: Bad IP connecting (passive and active mode). Login OK; data channel from Cloud Agent egress IP not allowed by host.",
+  "verdict": "fail"
+}

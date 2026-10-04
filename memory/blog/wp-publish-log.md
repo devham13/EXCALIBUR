@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-04 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (after fix interlink href → mayai.ru B04)
+- schema.jsonld: present
+- cover/cover.png + 3 inline PNG + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (Cloud Secrets)
+- `memory/site.env.local`: создан из env на worker (не в git)
+
+### Preflight
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK, PHP ~7.6MB
+```
+
+### Publish attempt
+
+```bash
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base $EXCALIBUR_PUBLIC_SITE_URL
+```
+
+### Blockers
+
+1. **FTP data channel:** `ftplib.error_temp: 425 Security: Bad IP connecting` на `STOR` (passive и active). **Login** успешен; загрузка bootstrap `excalibur-blog-publish-once.php` невозможна с egress IP Cursor Cloud Agent.
+2. HTTP WebFetch fallback **не применим** — скрипт не дошёл до HTTP-триггера.
+
+### Prep fixes (local artifacts)
+
+- `article.meta.json`: добавлены `title` / `description` для WP post_title
+- `article.html`: interlink `/blog/geo-...` → `https://mayai.ru/geo-optimizaciya-sajta-2026/`
+
+### Next steps (оператор)
+
+1. Publish с **self-hosted worker** (`CLOUD-AUTOMATION.md`) или IP whitelist FTP для Cloud egress
+2. Либо WP Application Password + REST publish (расширение скрипта)
+3. После успеха: обновить `schema.jsonld` URL/image на production permalink + featured media URL

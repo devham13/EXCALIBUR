@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
 Дата публикации: 2026-10-04  
-Live URL: https://... (заполнить после publish)
+Live URL: _(publish FAIL 2026-10-04 — FTP 425 Bad IP; повтор с self-hosted worker)_
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

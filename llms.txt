@@ -1,0 +1,10 @@
+# Maya AI — блог «Ковчег»
+> Практический блог по автоматизации бизнеса на Make.com, вайбкодингу и ИИ-агентам.
+
+## Blog Articles
+
+- [Как настроить geo оптимизацию сайта для попадания в ответы нейросетей?](https://example.com/blog/geo-optimizaciya-sajta-2026/): Geo оптимизация сайта – настройка robots.txt, answer-first блоков, FAQPage Schema и мониторинга промптов, чтобы нейросети цитировали ваш бренд как источник.
+- [Как настроить ИИ-агентов в n8n для автоматизации бизнеса?](https://example.com/blog/avtomatizaciya-n8n-ai-agents/): Автоматизация n8n с ИИ-агентами: Chat Trigger, AI Agent node, System Message, tools и Simple Memory. Когда выбрать Make.com вместо self-host n8n.
+- [Как писать SEO-статьи, которые читают люди и цитирует нейропоиск?](https://example.com/blog/primer-seo-stati/): Как писать SEO-статьи в 2026: один интент на URL, lead 40-70 слов, H2-острова смысла, FAQ и schema BlogPosting+FAQPage поверх классического SEO.
+- [Как создать автономный контент-завод на нейросетях без навыков программирования?](https://example.com/blog/avtonomnyj-kontent-zavod-nejroseti/): ИИ-контент-завод — это система автономных ИИ-агентов (исследователь, копирайтер, критик) на no-code движках (n8n/Make) для генерации, проверки и автодистрибуции контента.
+- [Как подключить MCP-серверы в Cursor для автоматизации?](https://example.com/blog/podklyuchenie-mcp-cursor/): Cursor MCP – подключение серверов через Tools & MCP или mcp.json (stdio/url), проверка статуса, allowlist и исправление красного индикатора через MCP Logs.

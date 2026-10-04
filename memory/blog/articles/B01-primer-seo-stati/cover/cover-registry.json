@@ -3,43 +3,47 @@
   "slug": "primer-seo-stati",
   "cover_family": "brand_collage",
   "style_preset": "digital_meme_collage_ru",
-  "pipeline": "quad_canvas_2x2",
+  "pipeline": "quad_canvas_1x_mcp",
   "file": "cover/cover.png",
-  "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+  "alt": "Ведущий блога указывает на analytics «0 прочтений» среди fake Wordstat и мем-коллажа про SEO-текст",
   "aspect_ratio": "16:9",
   "canvas_source": "cover/canvas-quad.png",
-  "generated_at": "2026-06-10T06:06:53+03:00",
+  "generated_at": "2026-10-04T10:13:25+00:00",
   "assets": [
     {
       "role": "cover",
       "slot": "cover",
       "file": "cover/cover.png",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
+      "alt": "Ведущий блога указывает на analytics «0 прочтений» среди fake Wordstat и мем-коллажа про SEO-текст",
       "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_1",
       "file": "cover/inline-01.png",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "alt": "Таблица SEO, читабельность и GEO в одном материале",
+      "h2_anchor": "Объедините SEO и GEO в одном материале",
+      "visual_type": "comparison_table_ui",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_2",
       "file": "cover/inline-02.png",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "alt": "Скриншот подбора семантики под один интент",
+      "h2_anchor": "Соберите семантику под один интент",
+      "visual_type": "tool_screenshot",
       "aspect_ratio": "16:9"
     },
     {
       "role": "inline",
       "slot": "inline_3",
       "file": "cover/inline-03.png",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "alt": "Инфографика анализа TOP-10 перед структурой статьи",
+      "h2_anchor": "Проанализируйте TOP-10 перед структурой",
+      "visual_type": "infographic_card",
       "aspect_ratio": "16:9"
     }
   ]

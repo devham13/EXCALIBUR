@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
-Live URL: https://... (заполнить после publish)
+Дата публикации: 2026-10-04  
+Live URL: _(publish FAIL 2026-10-04 — FTP 425 Bad IP; повтор с self-hosted worker)_
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -44,4 +44,4 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-10-04): применена 1 внутренняя ссылка B01 → B04 (`geo оптимизация` → `/blog/geo-optimizaciya-sajta-2026/`). Отчёт: `memory/blog/interlink-suggestions.json`. `llms.txt` / `llms-full.txt` обновлены (5 статей).

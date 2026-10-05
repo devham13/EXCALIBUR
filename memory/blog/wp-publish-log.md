@@ -172,3 +172,50 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+---
+
+## 2026-10-05 — B06 ustanovka-n8n-docker-vps — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | ustanovka-n8n-docker-vps |
+| verdict | **PASS** |
+| post_id | 1146 |
+| featured_image_id | 1147 |
+| inline_images | 1148, 1149, 1150 |
+| permalink | /2026/10/05/ustanovka-n8n-docker-vps/ |
+| transport | SFTP (SSH_WP_ROOT) + HTTP bootstrap |
+| site_base | ${PUBLIC_SITE_URL} |
+
+### Preconditions
+
+- article-qa.md: PASS (91/100)
+- link-verify.json: pass (preflight: internal B02 → plain text на production 404)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base ${PUBLIC_SITE_URL}
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-ustanovka-n8n-docker-vps --dry-run
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-ustanovka-n8n-docker-vps
+```
+
+### Result
+
+```
+OK post=1146 slug=ustanovka-n8n-docker-vps
+OK featured_image=1147
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1148..1150
+permalink=/2026/10/05/ustanovka-n8n-docker-vps/
+```
+
+### Notes
+
+- FTP STOR из Cloud: `425 Bad IP` на крупных файлах; publish через SFTP bootstrap + chunked FTP fallback в скрипте.
+

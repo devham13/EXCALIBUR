@@ -1,7 +1,7 @@
 # Promotion checklist — B06 ustanovka-n8n-docker-vps
 
 Дата публикации: 2026-10-05  
-Live URL: https://mayai.ru/ustanovka-n8n-docker-vps/ (заполнить после publish)
+Live URL: /2026/10/05/ustanovka-n8n-docker-vps/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Self-hosted n8n на VPS: Docker Compose + PostgreSQL, HTTPS и webhook без l
 • Reverse proxy, N8N_WEBHOOK_URL и чеклист из 12 пунктов перед продом
 • Бэкап pg_dump и обновление без потери credentials
 
-Читать: https://mayai.ru/ustanovka-n8n-docker-vps/
+Читать: /2026/10/05/ustanovka-n8n-docker-vps/
 ```
 
 ## Перелинковка

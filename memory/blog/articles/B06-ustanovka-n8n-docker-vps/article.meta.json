@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "ustanovka-n8n-docker-vps",
+  "h1": "Как установить n8n в Docker: пошаговая инструкция с PostgreSQL, доменом и HTTPS",
+  "title": "n8n docker: установка на VPS с PostgreSQL, HTTPS и webhook",
+  "description": "Пошаговая установка n8n в Docker Compose на VPS: PostgreSQL, N8N_ENCRYPTION_KEY, reverse proxy, N8N_WEBHOOK_URL, бэкап и обновление. Чеклист перед продом для self-hosted n8n.",
+  "keywords": [
+    "n8n docker",
+    "n8n docker compose",
+    "n8n установка",
+    "n8n self hosted"
+  ],
+  "primary_query": "n8n docker",
+  "secondary_queries": [
+    "n8n установка",
+    "n8n docker compose",
+    "n8n self hosted"
+  ],
+  "char_count": 8634,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "установка n8n в docker compose на vps",
+    "n8n self hosted postgres https webhook",
+    "как поднять n8n docker с postgresql и доменом"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n docker: установка на VPS с PostgreSQL и HTTPS",
+    "title_ctr": "🚀 n8n docker на VPS: PostgreSQL, HTTPS и webhook без localhost за один вечер?",
+    "title_aeo": "Как установить n8n в Docker Compose на сервере с PostgreSQL?",
+    "description_seo": "Пошаговый n8n docker compose: секреты в .env, Postgres, 127.0.0.1:5678, reverse proxy, N8N_WEBHOOK_URL, бэкап и обновление без потери credentials.",
+    "description_ctr": "⚡ Self-hosted n8n без боли: готовые фрагменты compose, чеклист из 12 пунктов и ответы, почему webhook ломается. Гайд для VPS на русском.",
+    "description_aeo": "Установка n8n docker на VPS: Docker Compose v2, PostgreSQL, N8N_ENCRYPTION_KEY, HTTPS через Caddy/nginx/Traefik и проверка webhook перед продом."
+  },
+  "cover_family": "brand_collage"
+}

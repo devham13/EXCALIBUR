@@ -55,7 +55,7 @@
 При восстановлении MCP / токена — повторить вызов для:
 
 - `как писать seo статьи` (primary)
-- `seo текст для блога`, `geo оптimизация статьи` (secondary)
+- `seo текст для блога`, `geo оптимизация статьи` (secondary)
 
 OAuth (если 401): https://oauth.yandex.ru/authorize?response_type=token&client_id=c654b948515a4a07a4c89648a0831d40
 
@@ -90,7 +90,7 @@ OAuth (если 401): https://oauth.yandex.ru/authorize?response_type=token&clie
 | Google **не** задаёт предпочтительный word count для статей | [Google Search Central — helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально на 10.2026 | да |
 | Качество **main content** оценивают по Effort, Originality, Talent/skill, Accuracy | [Google Search Central — helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально на 10.2026 | да |
 | Контент, после которого пользователь **снова ищет** в Google, — сигнал низкой полезности (people-first vs search-first) | [Google Search Central — helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально на 10.2026 | да |
-| SEO допустим, когда помогает **обнаружить** people-first контент, а не подменяет его | [Google Search Central — helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально on 10.2026 | да |
+| SEO допустим, когда помогает **обнаружить** people-first контент, а не подменяет его | [Google Search Central — helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | актуально на 10.2026 | да |
 | Главная задача SEO-статьи — полный ответ на запрос; возврат в поиск — сигнал низкого качества | [MaryProject — SEO-статьи](https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/) | 2026 | да |
 | Title — ориентир ~65 знаков с ключом и триггером (чек-лист, инструкция) | [Pikapuka — гайд SEO-статьи](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | 09.05.2026 | да |
 | H1 не дублирует Title — разные роли (страница vs сниппет) | [Pikapuka — гайд SEO-статьи](https://pikapuka.com/blog/kak-napisat-seo-tekst-samomu-polnyy-gayd-ot-semantiki-do-e-e-a-t) | 09.05.2026 | да |
@@ -146,7 +146,7 @@ OAuth (если 401): https://oauth.yandex.ru/authorize?response_type=token&clie
 4. **Чем Title отличается от H1?** — Title для сниппета (~65 знаков), H1 на странице.
 5. **Какие schema нужны блогу?** — BlogPosting (или Article) + FAQPage.
 6. **Как проверить статью перед публикацией?** — чек-лист из action_outline шаг 8.
-7. **Можно ли писать SEO-статью только под роботов?** — нет (people-first; Google/Yandex акcent на пользу).
+7. **Можно ли писать SEO-статью только под роботов?** — нет (people-first; Google/Yandex акцент на пользу).
 
 ---
 

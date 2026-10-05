@@ -1,0 +1,12 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "https://www.meta-journal.ru/2026/06/19/primer-seo-stati/",
+  "post_id": "238",
+  "featured_image_id": "1141",
+  "inline_image_ids": ["1142", "1143", "1144"],
+  "transport": "sftp_upload_ssh_php_cli",
+  "ftp_note": "FTP STOR blocked (425 Bad IP); HTTP bootstrap 404 from edge",
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=1141\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1142 src=cover/inline-01.png\nOK inline_image_upload=1143 src=cover/inline-02.png\nOK inline_image_upload=1144 src=cover/inline-03.png\npermalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/",
+  "verdict": "pass"
+}

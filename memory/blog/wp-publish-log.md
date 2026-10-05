@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-05 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1141 |
+| inline_images | 1142, 1143, 1144 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| status | publish |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight `--site-base` production; href `/geo-…` без `/blog/`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Transport
+
+1. `excalibur_blog_wp_publish.py` — FTP `STOR` → **425 Security: Bad IP connecting** (Cloud egress).
+2. HTTP trigger `https://mayai.ru/excalibur-blog-publish-once.php` → **404** (edge/WAF; bootstrap on SFTP root).
+3. **Fallback:** SFTP upload bootstrap + `php excalibur-blog-publish-once.php` over SSH (WP-CLI host).
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1141
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1142 src=cover/inline-01.png
+OK inline_image_upload=1143 src=cover/inline-02.png
+OK inline_image_upload=1144 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

@@ -13,6 +13,10 @@
 </blockquote>
 
 <h2 id="prepare-vps">Подготовьте VPS, Docker Compose v2 и секреты</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица сравнения n8n Cloud и self-hosted на VPS: Docker Compose и секреты" loading="lazy">
+</figure>
+
 
 <p>VPS на Ubuntu 24.04 или Debian 12, Docker Engine + Compose v2 (<b>docker compose version</b>). A-запись поддомена на IP сервера - иначе не получите TLS.</p>
 
@@ -25,6 +29,10 @@
 <p>Pin <b>N8N_VERSION</b> (не <b>latest</b>), пароль Postgres, <b>TZ=Europe/Moscow</b>. <b>Делайте:</b> каталог вне git. <b>Не делайте:</b> коммит <b>.env</b> и bind 5678 на <b>0.0.0.0</b>.</p>
 
 <h2 id="minimal-compose">Создайте каталог проекта, .env и docker-compose.yml</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow: каталог проекта, .env и docker-compose.yml для n8n и PostgreSQL" loading="lazy">
+</figure>
+
 
 <p>На VPS:</p>
 
@@ -94,6 +102,10 @@
 <p>Том <b>n8n_data</b> нужен даже с Postgres (ключи, assets). SQLite - только для соло-теста. <b>Не делайте:</b> MySQL backend в n8n 2.x.</p>
 
 <h2 id="first-run">Запустите стек и проверьте n8n на localhost:5678</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист проверки n8n после docker compose up на localhost:5678" loading="lazy">
+</figure>
+
 
 <ol>
   <li><b>Шаг 1:</b> из каталога проекта выполните <b>docker compose up -d</b>.</li>

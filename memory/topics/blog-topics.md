@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Установка n8n в Docker на VPS
+
+- **priority:** P0
+- **slug:** ustanovka-n8n-docker-vps
+- **h1:** Как установить n8n в Docker: пошаговая инструкция с PostgreSQL, доменом и HTTPS
+- **primary_query:** n8n docker
+- **secondary_queries:** n8n установка, n8n docker compose, n8n self hosted
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Что подготовить до установки: VPS, Docker Compose v2, домен и N8N_ENCRYPTION_KEY
+  2. Минимальный docker-compose.yml: n8n + том данных и первый запуск на localhost:5678
+  3. Production-стек: PostgreSQL, reverse proxy (Traefik/Caddy/nginx), WEBHOOK_URL и N8N_PROXY_HOPS
+  4. Self-Hosted AI Starter Kit: Ollama + Qdrant рядом с n8n для локальных LLM и RAG
+  5. Обновление, бэкап /home/node/.n8n и типовые ошибки (webhook HTTP, credentials decrypt)
+  6. Чек-лист перед выходом в прод: HTTPS, timezone Europe/Moscow, мониторинг и лимиты
+- **faq_hints:** как установить n8n на сервер docker; нужен ли postgresql для n8n; почему не работают webhook n8n без https
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** VPS-сервер с docker-контейнерами n8n/Postgres/Ollama, стрелки webhook и HTTPS-сертификат на стикере, diy-коллаж в неоновых тонах
+
+---
+

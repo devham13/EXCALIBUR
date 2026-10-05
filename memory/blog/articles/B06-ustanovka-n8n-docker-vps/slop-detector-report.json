@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "yml с PostgreSQL 18 (или 17 по шаблонам n8n-hosting ), healthcheck и локальным bind: services: postgres: image: postgres:18 restart: unless-stopped environment: POSTGRES_USER: ${POSTGRES_USER} POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} POSTGRES_DB: ${POSTGRES_DB} volumes: - postgres_data:/var/lib/postgresql/data healthcheck: test: [\"CMD-SHELL\", \"pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}\"] interval: 10s timeout: 5s retries: 5 n8n: image: docker",
+      "word_count": 33
+    },
+    {
+      "sentence": "Критерий Caddy nginx Traefik TLS \"из коробки\" Авто Let's Encrypt в 5-10 строк Certbot или ручной cert Labels + ACME resolver Кому проще Минимум конфига на одном VPS Если уже знаете nginx Docker-native несколько сервисов Риск для webhook Неверные env n8n Забытые forwarded headers Ошибка в labels middleware Добавьте в сервис n8n (значения под ваш домен): N8N_HOST=auto",
+      "word_count": 55
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.3,
+    "avg_syllables_per_word": 1.2
+  }
+}

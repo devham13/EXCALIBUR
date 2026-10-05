@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-ustanovka-n8n-docker-vps/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "к обновления сверены с документацией n8n на 05.10.2026; показы Вордстат не указаны (MCP недоступен). Час",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "де лежит backup и кто имеет доступ к .env . Через 7 дней пересмотрите нагрузку CPU/RAM и при необходимости",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5678",
+      "kind": "large_number",
+      "context": "аданный N8N_ENCRYPTION_KEY , bind порта 127.0.0.1:5678 и reverse proxy с HTTPS. За proxy задайте N8N_WEBH",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5432",
+      "kind": "large_number",
+      "context": "DB_POSTGRESDB_HOST: postgres DB_POSTGRESDB_PORT: 5432 DB_POSTGRESDB_DATABASE: ${POSTGRES_DB} DB_POSTGRES",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "443",
+      "kind": "large_number",
+      "context": "_HOST=auto.example.ru N8N_PROTOCOL=https N8N_PORT=443 N8N_WEBHOOK_URL=https://auto.example.ru/ N8N_PROXY",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

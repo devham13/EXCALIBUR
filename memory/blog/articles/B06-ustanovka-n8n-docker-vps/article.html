@@ -1,105 +1,113 @@
-<p>Запрос "n8n docker" упирается в разрозненные гайды: где PostgreSQL, где HTTPS, почему webhook ведёт на localhost. Self-hosted n8n (свой сервер вместо n8n Cloud) на VPS через Docker Compose держит пароли интеграций у вас, но без <code>N8N_ENCRYPTION_KEY</code> и <code>N8N_WEBHOOK_URL</code> сценарии с Telegram и CRM встают. Ниже вы пройдёте один связный трек: compose, домен, бэкап и чеклист перед продом.</p>
+<p>Запрос "n8n docker" упирается в разрозненные гайды: где PostgreSQL, где HTTPS, почему webhook ведёт на localhost. Self-hosted n8n (свой сервер вместо n8n Cloud) на VPS через Docker Compose держит пароли интеграций у вас, но без <b>N8N_ENCRYPTION_KEY</b> и <b>N8N_WEBHOOK_URL</b> сценарии с Telegram и CRM встают. Ниже вы пройдёте один связный трек: compose, домен, бэкап и чеклист перед продом.</p>
 
-<blockquote><b>TL;DR / Быстрый инсайт:</b> Для прода n8n в Docker нужны PostgreSQL (не SQLite), volume <code>/home/node/.n8n</code>, заранее заданный <code>N8N_ENCRYPTION_KEY</code>, bind порта <code>127.0.0.1:5678</code> и reverse proxy с HTTPS. За proxy задайте <code>N8N_WEBHOOK_URL</code>, <code>N8N_PROXY_HOPS=1</code> и forwarded-заголовки. Обновление: backup, <code>docker compose pull</code>, <code>down</code>, <code>up -d</code>, проверка <code>/healthz</code>. MySQL для backend n8n 2.x не используйте.</blockquote>
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Для прода n8n в Docker нужны PostgreSQL (не SQLite), volume <b>/home/node/.n8n</b>, заранее заданный <b>N8N_ENCRYPTION_KEY</b>, bind порта <b>127.0.0.1:5678</b> и reverse proxy с HTTPS. За proxy задайте <b>N8N_WEBHOOK_URL</b>, <b>N8N_PROXY_HOPS=1</b> и forwarded-заголовки. Обновление: backup, <b>docker compose pull</b>, <b>down</b>, <b>up -d</b>, проверка <b>/healthz</b>. MySQL для backend n8n 2.x не используйте.</blockquote>
 
 <p>Docker - "коробка" с n8n без ручной установки в систему; Compose описывает n8n, Postgres и тома в одном файле. Webhook - URL, на который CRM или форма шлёт событие. UI по умолчанию на порту 5678; в прод его прячут за HTTPS-proxy на localhost.</p>
 
-<p>Доки n8n советуют Docker для self-host; для команды берите PostgreSQL (<code>DB_TYPE=postgresdb</code>). Cloud trial или Make быстрее для проверки идеи - VPS оправдан, когда данные должны остаться у вас.</p>
+<p>Доки n8n советуют Docker для self-host; для команды берите PostgreSQL (<b>DB_TYPE=postgresdb</b>). Cloud trial или Make быстрее для проверки идеи - VPS оправдан, когда данные должны остаться у вас.</p>
 
 <blockquote>
   <b>Схема деплоя:</b>
   <br>
-  VPS (Ubuntu/Debian) → Docker Engine + Compose v2 → <code>.env</code> с секретами → <code>docker compose up -d</code> → проверка на 127.0.0.1:5678 → reverse proxy (HTTPS) → тест webhook → cron-бэкап Postgres + volume n8n
+  VPS (Ubuntu/Debian) → Docker Engine + Compose v2 → <b>.env</b> с секретами → <b>docker compose up -d</b> → проверка на 127.0.0.1:5678 → reverse proxy (HTTPS) → тест webhook → cron-бэкап Postgres + volume n8n
 </blockquote>
 
 <h2 id="prepare-vps">Подготовьте VPS, Docker Compose v2 и секреты</h2>
 
-<p>VPS на Ubuntu 24.04 или Debian 12, Docker Engine + Compose v2 (<code>docker compose version</code>). A-запись поддомена на IP сервера - иначе не получите TLS.</p>
+<p>VPS на Ubuntu 24.04 или Debian 12, Docker Engine + Compose v2 (<b>docker compose version</b>). A-запись поддомена на IP сервера - иначе не получите TLS.</p>
 
-<p>Сохраните в менеджере паролей <code>N8N_ENCRYPTION_KEY</code> (без него не расшифруете credentials в n8n):</p>
+<p>Сохраните в менеджере паролей <b>N8N_ENCRYPTION_KEY</b> (без него не расшифруете credentials в n8n):</p>
 
-<pre><code>openssl rand -base64 32</code></pre>
+<blockquote>
+  <b>openssl rand -base64 32</b>
+</blockquote>
 
-<p>Pin <code>N8N_VERSION</code> (не <code>latest</code>), пароль Postgres, <code>TZ=Europe/Moscow</code>. <b>Делайте:</b> каталог вне git. <b>Не делайте:</b> коммит <code>.env</code> и bind 5678 на <code>0.0.0.0</code>.</p>
+<p>Pin <b>N8N_VERSION</b> (не <b>latest</b>), пароль Postgres, <b>TZ=Europe/Moscow</b>. <b>Делайте:</b> каталог вне git. <b>Не делайте:</b> коммит <b>.env</b> и bind 5678 на <b>0.0.0.0</b>.</p>
 
 <h2 id="minimal-compose">Создайте каталог проекта, .env и docker-compose.yml</h2>
 
 <p>На VPS:</p>
 
-<pre><code>sudo mkdir -p /opt/n8n &amp;&amp; cd /opt/n8n
-nano .env
-nano docker-compose.yml</code></pre>
+<blockquote>
+  <b>sudo mkdir -p /opt/n8n &amp;&amp; cd /opt/n8n</b><br>
+  nano .env<br>
+  nano docker-compose.yml
+</blockquote>
 
-<p>Пример <code>.env</code> (значения замените своими):</p>
+<p>Пример <b>.env</b> (значения замените своими):</p>
 
-<pre><code>POSTGRES_USER=n8n
-POSTGRES_PASSWORD=CHANGE_ME_STRONG
-POSTGRES_DB=n8n
-N8N_ENCRYPTION_KEY=PASTE_OPENSSL_OUTPUT
-N8N_VERSION=1.XX.X
-TZ=Europe/Moscow
-GENERIC_TIMEZONE=Europe/Moscow</code></pre>
+<blockquote>
+  <b>POSTGRES_USER=n8n</b><br>
+  POSTGRES_PASSWORD=CHANGE_ME_STRONG<br>
+  POSTGRES_DB=n8n<br>
+  N8N_ENCRYPTION_KEY=PASTE_OPENSSL_OUTPUT<br>
+  N8N_VERSION=1.XX.X<br>
+  TZ=Europe/Moscow<br>
+  GENERIC_TIMEZONE=Europe/Moscow
+</blockquote>
 
-<p>Production <code>docker-compose.yml</code> с PostgreSQL 18 (или 17 по шаблонам <a href="https://github.com/n8n-io/n8n-hosting" target="_blank">n8n-hosting</a>), healthcheck и локальным bind:</p>
+<p>Production <b>docker-compose.yml</b> с PostgreSQL 18 (или 17 по шаблонам <a href="https://github.com/n8n-io/n8n-hosting" target="_blank">n8n-hosting</a>), healthcheck и локальным bind:</p>
 
-<pre><code>services:
-  postgres:
-    image: postgres:18
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+<blockquote>
+  <b>services:</b><br>
+    postgres:<br>
+      image: postgres:18<br>
+      restart: unless-stopped<br>
+      environment:<br>
+        POSTGRES_USER: ${POSTGRES_USER}<br>
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}<br>
+        POSTGRES_DB: ${POSTGRES_DB}<br>
+      volumes:<br>
+        - postgres_data:/var/lib/postgresql/data<br>
+      healthcheck:<br>
+        test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]<br>
+        interval: 10s<br>
+        timeout: 5s<br>
+        retries: 5<br>
+  <br>
+    n8n:<br>
+      image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}<br>
+      restart: unless-stopped<br>
+      depends_on:<br>
+        postgres:<br>
+          condition: service_healthy<br>
+      ports:<br>
+        - "127.0.0.1:5678:5678"<br>
+      environment:<br>
+        DB_TYPE: postgresdb<br>
+        DB_POSTGRESDB_HOST: postgres<br>
+        DB_POSTGRESDB_PORT: 5432<br>
+        DB_POSTGRESDB_DATABASE: ${POSTGRES_DB}<br>
+        DB_POSTGRESDB_USER: ${POSTGRES_USER}<br>
+        DB_POSTGRESDB_PASSWORD: ${POSTGRES_PASSWORD}<br>
+        N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}<br>
+        GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}<br>
+        TZ: ${TZ}<br>
+      volumes:<br>
+        - n8n_data:/home/node/.n8n<br>
+  <br>
+  volumes:<br>
+    postgres_data:<br>
+    n8n_data:
+</blockquote>
 
-  n8n:
-    image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}
-    restart: unless-stopped
-    depends_on:
-      postgres:
-        condition: service_healthy
-    ports:
-      - "127.0.0.1:5678:5678"
-    environment:
-      DB_TYPE: postgresdb
-      DB_POSTGRESDB_HOST: postgres
-      DB_POSTGRESDB_PORT: 5432
-      DB_POSTGRESDB_DATABASE: ${POSTGRES_DB}
-      DB_POSTGRESDB_USER: ${POSTGRES_USER}
-      DB_POSTGRESDB_PASSWORD: ${POSTGRES_PASSWORD}
-      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
-      GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}
-      TZ: ${TZ}
-    volumes:
-      - n8n_data:/home/node/.n8n
-
-volumes:
-  postgres_data:
-  n8n_data:</code></pre>
-
-<p>Том <code>n8n_data</code> нужен даже с Postgres (ключи, assets). SQLite - только для соло-теста. <b>Не делайте:</b> MySQL backend в n8n 2.x.</p>
+<p>Том <b>n8n_data</b> нужен даже с Postgres (ключи, assets). SQLite - только для соло-теста. <b>Не делайте:</b> MySQL backend в n8n 2.x.</p>
 
 <h2 id="first-run">Запустите стек и проверьте n8n на localhost:5678</h2>
 
 <ol>
-  <li><b>Шаг 1:</b> из каталога проекта выполните <code>docker compose up -d</code>.</li>
-  <li><b>Шаг 2:</b> проверьте статус: <code>docker compose ps</code> - postgres healthy, n8n running.</li>
-  <li><b>Шаг 3:</b> на VPS откройте <code>http://127.0.0.1:5678</code> (SSH-туннель с ноутбука, если нет GUI на сервере).</li>
+  <li><b>Шаг 1:</b> из каталога проекта выполните <b>docker compose up -d</b>.</li>
+  <li><b>Шаг 2:</b> проверьте статус: <b>docker compose ps</b> - postgres healthy, n8n running.</li>
+  <li><b>Шаг 3:</b> на VPS откройте <b>http://127.0.0.1:5678</b> (SSH-туннель с ноутбука, если нет GUI на сервере).</li>
   <li><b>Шаг 4:</b> создайте owner-аккаунт и один тестовый workflow.</li>
-  <li><b>Шаг 5:</b> убедитесь, что данные переживают <code>docker compose restart n8n</code>.</li>
+  <li><b>Шаг 5:</b> убедитесь, что данные переживают <b>docker compose restart n8n</b>.</li>
 </ol>
 
 <p>Ориентир: 2 vCPU и 4 GB RAM для n8n + Postgres. <b>Не делайте:</b> открывать 5678 в firewall наружу.</p>
 
 <h2 id="https-proxy">Настройте домен, HTTPS и переменные webhook за reverse proxy</h2>
 
-<p>HTTPS делает reverse proxy: Caddy, nginx или Traefik. Проксируйте на <code>127.0.0.1:5678</code>, передайте <code>X-Forwarded-Proto</code>, <code>Host</code>, <code>For</code>.</p>
+<p>HTTPS делает reverse proxy: Caddy, nginx или Traefik. Проксируйте на <b>127.0.0.1:5678</b>, передайте <b>X-Forwarded-Proto</b>, <b>Host</b>, <b>For</b>.</p>
 
 <table>
   <thead>
@@ -134,64 +142,68 @@ volumes:
 
 <p>Добавьте в сервис n8n (значения под ваш домен):</p>
 
-<pre><code>N8N_HOST=auto.example.ru
-N8N_PROTOCOL=https
-N8N_PORT=443
-N8N_WEBHOOK_URL=https://auto.example.ru/
-N8N_PROXY_HOPS=1
-N8N_SECURE_COOKIE=true</code></pre>
+<blockquote>
+  <b>N8N_HOST=auto.example.ru</b><br>
+  N8N_PROTOCOL=https<br>
+  N8N_PORT=443<br>
+  N8N_WEBHOOK_URL=https://auto.example.ru/<br>
+  N8N_PROXY_HOPS=1<br>
+  N8N_SECURE_COOKIE=true
+</blockquote>
 
-<p>Только <code>N8N_WEBHOOK_URL</code> (не <code>WEBHOOK_URL</code>), затем <code>docker compose up -d</code>. <b>Делайте:</b> тест webhook с https-URL. <b>Не делайте:</b> http снаружи без <code>N8N_PROXY_HOPS</code>.</p>
+<p>Только <b>N8N_WEBHOOK_URL</b> (не <b>WEBHOOK_URL</b>), затем <b>docker compose up -d</b>. <b>Делайте:</b> тест webhook с https-URL. <b>Не делайте:</b> http снаружи без <b>N8N_PROXY_HOPS</b>.</p>
 
 <h2 id="ai-starter-kit">Подключите Self-Hosted AI Starter Kit (только если нужны локальные LLM)</h2>
 
-<p>Репозиторий <a href="https://github.com/n8n-io/self-hosted-ai-starter-kit" target="_blank">self-hosted-ai-starter-kit</a> добавляет Ollama и Qdrant для локальных LLM и RAG. Запуск: <code>docker compose --profile cpu up</code>. Держите отдельно от основного prod-стека и бэкапите так же, как Postgres выше.</p>
+<p>Репозиторий <a href="https://github.com/n8n-io/self-hosted-ai-starter-kit" target="_blank">self-hosted-ai-starter-kit</a> добавляет Ollama и Qdrant для локальных LLM и RAG. Запуск: <b>docker compose --profile cpu up</b>. Держите отдельно от основного prod-стека и бэкапите так же, как Postgres выше.</p>
 
 <h2 id="backup-update">Настройте бэкап и безопасно обновите n8n в compose</h2>
 
-<p>Бэкап - два слоя: том <code>/home/node/.n8n</code> (ключ шифрования, бинарные данные) и дамп PostgreSQL. Раз в месяц проверяйте восстановление на тестовом VPS, иначе backup превращается в ритуал. Пример cron (пути и пароли свои):</p>
+<p>Бэкап - два слоя: том <b>/home/node/.n8n</b> (ключ шифрования, бинарные данные) и дамп PostgreSQL. Раз в месяц проверяйте восстановление на тестовом VPS, иначе backup превращается в ритуал. Пример cron (пути и пароли свои):</p>
 
-<pre><code>docker compose exec -T postgres pg_dump -U n8n n8n &gt; /backup/n8n-$(date +%F).sql
-docker run --rm -v n8n_n8n_data:/data -v /backup:/backup alpine \
-  tar czf /backup/n8n-volume-$(date +%F).tar.gz -C /data .</code></pre>
+<blockquote>
+  <b>docker compose exec -T postgres pg_dump -U n8n n8n > /backup/n8n-$(date +%F).sql</b><br>
+  docker run --rm -v n8n_n8n_data:/data -v /backup:/backup alpine \<br>
+    tar czf /backup/n8n-volume-$(date +%F).tar.gz -C /data .
+</blockquote>
 
-<p>Файл <code>.env</code> с <code>N8N_ENCRYPTION_KEY</code> храните offline-копией. Обновление по докам n8n:</p>
+<p>Файл <b>.env</b> с <b>N8N_ENCRYPTION_KEY</b> храните offline-копией. Обновление по докам n8n:</p>
 
 <ol>
   <li><b>Шаг 1:</b> свежий backup SQL + volume.</li>
-  <li><b>Шаг 2:</b> обновите pin <code>N8N_VERSION</code> в <code>.env</code>.</li>
-  <li><b>Шаг 3:</b> <code>docker compose pull</code>.</li>
-  <li><b>Шаг 4:</b> <code>docker compose down</code> затем <code>docker compose up -d</code>.</li>
-  <li><b>Шаг 5:</b> проверьте <code>https://auto.example.ru/healthz</code> и login.</li>
+  <li><b>Шаг 2:</b> обновите pin <b>N8N_VERSION</b> в <b>.env</b>.</li>
+  <li><b>Шаг 3:</b> <b>docker compose pull</b>.</li>
+  <li><b>Шаг 4:</b> <b>docker compose down</b> затем <b>docker compose up -d</b>.</li>
+  <li><b>Шаг 5:</b> проверьте <b>https://auto.example.ru/healthz</b> и login.</li>
 </ol>
 
-<p>Ошибка decrypt - сменили <code>N8N_ENCRYPTION_KEY</code>; webhook на localhost - env HTTPS; postgres unhealthy - пароль или диск. <b>Не делайте:</b> <code>down -v</code> на проде.</p>
+<p>Ошибка decrypt - сменили <b>N8N_ENCRYPTION_KEY</b>; webhook на localhost - env HTTPS; postgres unhealthy - пароль или диск. <b>Не делайте:</b> <b>down -v</b> на проде.</p>
 
 <h2 id="prod-checklist">Пройдите чеклист перед выходом n8n в прод</h2>
 
 <ul>
   <li>PostgreSQL вместо SQLite для боевых workflow.</li>
-  <li><code>N8N_ENCRYPTION_KEY</code> задан вручную и сохранён offline.</li>
+  <li><b>N8N_ENCRYPTION_KEY</b> задан вручную и сохранён offline.</li>
   <li>Порт 5678 слушает только 127.0.0.1.</li>
   <li>HTTPS на домене, редирект с http.</li>
-  <li><code>N8N_WEBHOOK_URL</code>, <code>N8N_HOST</code>, <code>N8N_PROTOCOL=https</code>, <code>N8N_PROXY_HOPS=1</code>.</li>
+  <li><b>N8N_WEBHOOK_URL</b>, <b>N8N_HOST</b>, <b>N8N_PROTOCOL=https</b>, <b>N8N_PROXY_HOPS=1</b>.</li>
   <li>Тестовый webhook с внешнего сервиса проходит.</li>
-  <li><code>TZ</code> и <code>GENERIC_TIMEZONE=Europe/Moscow</code> для cron.</li>
-  <li>Pin версии образов n8n и postgres, не <code>latest</code>.</li>
-  <li>Ежедневный <code>pg_dump</code> + архив volume, проверка восстановления раз в месяц.</li>
+  <li><b>TZ</b> и <b>GENERIC_TIMEZONE=Europe/Moscow</b> для cron.</li>
+  <li>Pin версии образов n8n и postgres, не <b>latest</b>.</li>
+  <li>Ежедневный <b>pg_dump</b> + архив volume, проверка восстановления раз в месяц.</li>
   <li>Firewall: открыты 22 (SSH), 80/443; 5678 закрыт снаружи.</li>
-  <li>Мониторинг диска и <code>docker compose ps</code> (uptime Kuma или аналог).</li>
+  <li>Мониторинг диска и <b>docker compose ps</b> (uptime Kuma или аналог).</li>
   <li>Owner-аккаунт с сильным паролем, 2FA если доступно в вашей версии.</li>
 </ul>
 
-<p>Дальше - <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">ИИ-агенты в n8n</a>. Облачные сценарии без Docker - на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make</a>.</p>
+<p>Дальше - ИИ-агенты в n8n. Облачные сценарии без Docker - на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make</a>.</p>
 
 <h2 id="next-steps">Что делать дальше</h2>
 
 <ol>
   <li>Импортируйте один рабочий workflow из шаблонов n8n и привяжите реальный webhook CRM.</li>
   <li>Настройте алерт, если контейнер n8n перезапускается чаще раза в сутки.</li>
-  <li>Задокументируйте в команде, где лежит backup и кто имеет доступ к <code>.env</code>.</li>
+  <li>Задокументируйте в команде, где лежит backup и кто имеет доступ к <b>.env</b>.</li>
   <li>Через 7 дней пересмотрите нагрузку CPU/RAM и при необходимости увеличьте VPS.</li>
 </ol>
 
@@ -204,16 +216,16 @@ docker run --rm -v n8n_n8n_data:/data -v /backup:/backup alpine \
 <h2>Частые вопросы</h2>
 
 <h3>Можно ли оставить n8n только на SQLite в Docker?</h3>
-<p>Да для локального теста одного пользователя. Для прода и нескольких аккаунтов сразу поднимайте PostgreSQL через <code>DB_TYPE=postgresdb</code> и том <code>n8n_data</code>, как в compose выше.</p>
+<p>Да для локального теста одного пользователя. Для прода и нескольких аккаунтов сразу поднимайте PostgreSQL через <b>DB_TYPE=postgresdb</b> и том <b>n8n_data</b>, как в compose выше.</p>
 
 <h3>Что будет, если не задать N8N_ENCRYPTION_KEY?</h3>
-<p>Ключ может сгенерироваться внутри volume при первом старте. При пересоздании контейнера без того же volume или с другим ключом сохранённые credentials не расшифруются. Сгенерируйте ключ через openssl, пропишите в <code>.env</code> и храните копию offline.</p>
+<p>Ключ может сгенерироваться внутри volume при первом старте. При пересоздании контейнера без того же volume или с другим ключом сохранённые credentials не расшифруются. Сгенерируйте ключ через openssl, пропишите в <b>.env</b> и храните копию offline.</p>
 
 <h3>Почему webhook в n8n показывает http://localhost?</h3>
-<p>Не настроены публичный URL и proxy: добавьте <code>N8N_WEBHOOK_URL=https://ваш-домен/</code>, <code>N8N_HOST</code>, <code>N8N_PROTOCOL=https</code>, <code>N8N_PROXY_HOPS=1</code> и проверьте forwarded-заголовки на reverse proxy.</p>
+<p>Не настроены публичный URL и proxy: добавьте <b>N8N_WEBHOOK_URL=https://ваш-домен/</b>, <b>N8N_HOST</b>, <b>N8N_PROTOCOL=https</b>, <b>N8N_PROXY_HOPS=1</b> и проверьте forwarded-заголовки на reverse proxy.</p>
 
 <h3>Как обновить n8n в docker compose без потери данных?</h3>
-<p>Сделайте backup Postgres и volume, обновите pin <code>N8N_VERSION</code>, выполните <code>docker compose pull</code>, <code>down</code>, <code>up -d</code>, откройте UI и <code>/healthz</code>. Не используйте <code>down -v</code>.</p>
+<p>Сделайте backup Postgres и volume, обновите pin <b>N8N_VERSION</b>, выполните <b>docker compose pull</b>, <b>down</b>, <b>up -d</b>, откройте UI и <b>/healthz</b>. Не используйте <b>down -v</b>.</p>
 
 <h3>Нужен ли Redis для self-hosted n8n?</h3>
 <p>Только для queue mode с отдельным worker (шаблон withPostgresAndWorker в n8n-hosting). Базовый single-instance на Postgres + n8n Redis не требует.</p>

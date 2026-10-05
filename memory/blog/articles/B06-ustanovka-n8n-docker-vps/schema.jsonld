@@ -1,0 +1,195 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#article",
+      "headline": "Как установить n8n в Docker: пошаговая инструкция с PostgreSQL, доменом и HTTPS",
+      "description": "Пошаговая установка n8n в Docker Compose на VPS: PostgreSQL, N8N_ENCRYPTION_KEY, reverse proxy, N8N_WEBHOOK_URL, бэкап и обновление. Чеклист перед продом для self-hosted n8n.",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/ustanovka-n8n-docker-vps-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n docker, n8n docker compose, n8n установка, n8n self hosted",
+      "wordCount": 8634,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Можно ли оставить n8n только на SQLite в Docker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да для локального теста одного пользователя. Для прода и нескольких аккаунтов сразу поднимайте PostgreSQL через DB_TYPE=postgresdb и том n8n_data, как в compose выше."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет, если не задать N8N_ENCRYPTION_KEY?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ключ может сгенерироваться внутри volume при первом старте. При пересоздании контейнера без того же volume или с другим ключом сохранённые credentials не расшифруются. Сгенерируйте ключ через openssl, пропишите в .env и храните копию offline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему webhook в n8n показывает http://localhost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не настроены публичный URL и proxy: добавьте N8N_WEBHOOK_URL=https://ваш-домен/, N8N_HOST, N8N_PROTOCOL=https, N8N_PROXY_HOPS=1 и проверьте forwarded-заголовки на reverse proxy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как обновить n8n в docker compose без потери данных?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте backup Postgres и volume, обновите pin N8N_VERSION, выполните docker compose pull, down, up -d, откройте UI и /healthz. Не используйте down -v."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Redis для self-hosted n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только для queue mode с отдельным worker (шаблон withPostgresAndWorker в n8n-hosting). Базовый single-instance на Postgres + n8n Redis не требует."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой минимальный VPS для n8n docker compose с PostgreSQL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Рабочий ориентир для пары контейнеров - 2 vCPU и 4 GB RAM; AI Starter Kit с Ollama планируйте отдельно с большим запасом памяти."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли взять MySQL из старого гайда под n8n 2.x?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Backend MySQL/MariaDB снят с поддержки в линейке 2.x - используйте PostgreSQL или SQLite только для теста."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#howto",
+      "name": "Как установить n8n в Docker: пошаговая инструкция с PostgreSQL, доменом и HTTPS",
+      "description": "Пошаговая установка n8n в Docker Compose на VPS: PostgreSQL, N8N_ENCRYPTION_KEY, reverse proxy, N8N_WEBHOOK_URL, бэкап и обновление. Чеклист перед продом для self-hosted n8n.",
+      "inLanguage": "ru",
+      "totalTime": "PT3H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VPS с Docker Engine и Docker Compose v2"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "PostgreSQL (образ postgres:17 или postgres:18)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Reverse proxy: Caddy, nginx или Traefik"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Подготовьте VPS, Docker Compose v2 и секреты",
+          "text": "VPS на Ubuntu 24.04 или Debian 12, Docker Engine + Compose v2 (docker compose version). A-запись поддомена на IP сервера. Сгенерируйте N8N_ENCRYPTION_KEY (openssl rand -base64 32), pin N8N_VERSION, пароль Postgres, TZ=Europe/Moscow. Каталог проекта вне git, не коммитьте .env и не bind 5678 на 0.0.0.0.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#prepare-vps"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте каталог проекта, .env и docker-compose.yml",
+          "text": "Создайте /opt/n8n, заполните .env (POSTGRES_*, N8N_ENCRYPTION_KEY, N8N_VERSION, GENERIC_TIMEZONE, TZ) и docker-compose.yml с PostgreSQL, healthcheck, DB_TYPE=postgresdb и bind 127.0.0.1:5678:5678. Подключите том n8n_data на /home/node/.n8n.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#minimal-compose"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Запустите стек и проверьте n8n на localhost:5678",
+          "text": "Выполните docker compose up -d, проверьте docker compose ps (postgres healthy), откройте http://127.0.0.1:5678, создайте owner-аккаунт и тестовый workflow, убедитесь что данные переживают docker compose restart n8n.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#first-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Настройте домен, HTTPS и переменные webhook за reverse proxy",
+          "text": "Настройте Caddy, nginx или Traefik на 127.0.0.1:5678 с forwarded-заголовками. Добавьте N8N_HOST, N8N_PROTOCOL=https, N8N_WEBHOOK_URL, N8N_PROXY_HOPS=1, N8N_SECURE_COOKIE=true, перезапустите compose и протестируйте webhook с https-URL.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#https-proxy"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Настройте бэкап и безопасно обновите n8n в compose",
+          "text": "Настройте pg_dump Postgres и архив volume n8n_data, храните копию .env offline. Для обновления: backup, новый pin N8N_VERSION, docker compose pull, down, up -d, проверка /healthz. Не используйте down -v на проде.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#backup-update"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чеклист перед выходом n8n в прод",
+          "text": "Проверьте PostgreSQL вместо SQLite, заданный N8N_ENCRYPTION_KEY, HTTPS и webhook URL, бэкап и тест восстановления, firewall без открытого 5678, мониторинг /healthz.",
+          "url": "https://mayai.ru/blog/ustanovka-n8n-docker-vps/#prod-checklist"
+        }
+      ]
+    }
+  ]
+}

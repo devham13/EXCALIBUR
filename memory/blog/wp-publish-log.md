@@ -172,3 +172,41 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-05 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (8/8, re-run preflight 2026-10-05)
+- schema.jsonld: present
+- cover/cover.png + inline-01..03 + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug primer-seo-stati, PHP ~5.9 MB)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blocker
+
+- **FTP:** `ftplib.error_temp: 425 Security: Bad IP connecting` при `STOR excalibur-blog-publish-once.php` — IP Cloud Agent не в whitelist FTP (Beget). HTTP WebFetch fallback не достигнут (загрузка bootstrap не выполнена).
+
+### Next steps (оператор)
+
+1. Добавить IP Cloud Agent / self-hosted worker в whitelist FTP или запускать publish с self-hosted pool (`CLOUD-AUTOMATION.md`).
+2. Повторить publish после whitelist: тот же `--article-dir`, ledger обновить при PASS.

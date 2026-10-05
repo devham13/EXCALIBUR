@@ -7,9 +7,14 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
+import time
 import urllib.request
 from pathlib import Path
+
+FTP_CHUNK_BYTES = 8 * 1024
+FTP_STOR_MAX_ATTEMPTS = 20
 
 from asset_download import download_url_bytes
 from excalibur_repo_paths import repo_relative
@@ -30,8 +35,23 @@ def load_env(root: Path) -> dict[str, str]:
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            env = dict(env)
+            break
+    else:
+        raise FileNotFoundError("site.env.local not found under memory/")
+    for key, value in os.environ.items():
+        if not value:
+            continue
+        if key.startswith(("FTP_", "SSH_", "PUBLIC_", "EXCALIBUR_BLOG", "WP_")) or key in {
+            "WP_HOME",
+            "WP_SITEURL",
+        }:
+            env[key] = value.strip()
+    if os.environ.get("SSH_PASSWORD") and not env.get("SSH_PASS"):
+        env["SSH_PASS"] = os.environ["SSH_PASSWORD"].strip()
+    if os.environ.get("FTP_PASSWORD") and not env.get("FTP_PASS"):
+        env["FTP_PASS"] = os.environ["FTP_PASSWORD"].strip()
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -107,6 +127,21 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
+def encode_image_bytes_for_publish(path: Path) -> tuple[bytes, str, str]:
+    """Smaller FTP payload: JPEG for large PNG/WebP assets (WP sideload keeps filename/mime)."""
+    raw = path.read_bytes()
+    if len(raw) <= 150_000:
+        ext = path.suffix.lower().lstrip(".") or "png"
+        mime_map = {"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg", "webp": "image/webp", "gif": "image/gif"}
+        return raw, path.name, mime_map.get(ext, "application/octet-stream")
+    from PIL import Image
+
+    buf = io.BytesIO()
+    with Image.open(io.BytesIO(raw)) as image:
+        image.convert("RGB").save(buf, format="JPEG", quality=85, optimize=True)
+    return buf.getvalue(), f"{path.stem}.jpg", "image/jpeg"
+
+
 def load_article(article_dir: Path) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
@@ -116,12 +151,15 @@ def load_article(article_dir: Path) -> dict:
     content = html_path.read_text(encoding="utf-8").strip()
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
-    cover_b64 = ""
     cover_evidence: dict[str, object] = {}
     cover_reg = article_dir / "cover" / "cover-registry.json"
+    cover_mime = "image/png"
+    cover_upload_name = "cover.png"
+    cover_b64 = ""
     if cover_path.is_file():
         cover_evidence = normalize_cover_png(cover_path, cover_reg, project_root())
-        cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
+        cover_bytes, cover_upload_name, cover_mime = encode_image_bytes_for_publish(cover_path)
+        cover_b64 = base64.b64encode(cover_bytes).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
@@ -137,12 +175,13 @@ def load_article(article_dir: Path) -> dict:
         if not src.startswith(("http://", "https://", "data:")):
             local_path = article_dir / src
             if local_path.is_file():
-                img_bytes = local_path.read_bytes()
+                img_bytes, upload_name, mime = encode_image_bytes_for_publish(local_path)
                 b64_data = base64.b64encode(img_bytes).decode("ascii")
                 inline_images.append({
                     "src": src,
                     "b64": b64_data,
-                    "filename": local_path.name
+                    "filename": upload_name,
+                    "mime": mime,
                 })
 
     return {
@@ -151,6 +190,8 @@ def load_article(article_dir: Path) -> dict:
         "excerpt": meta.get("description", ""),
         "content": content,
         "cover_b64": cover_b64,
+        "cover_upload_name": cover_upload_name,
+        "cover_mime": cover_mime,
         "cover_evidence": cover_evidence,
         "cover_alt": cover_alt,
         "schema_jsonld": schema_raw,
@@ -199,12 +240,14 @@ echo 'OK post=' . $post_id . ' slug=' . $slug . PHP_EOL;
 
 if (!empty($p['cover_b64'])) {{
     $bin = base64_decode($p['cover_b64']);
-    $tmp = wp_tempnam('excalibur-cover-' . $slug . '.png');
+    $cover_name = !empty($p['cover_upload_name']) ? $p['cover_upload_name'] : ($slug . '-cover.png');
+    $cover_mime = !empty($p['cover_mime']) ? $p['cover_mime'] : 'image/png';
+    $tmp = wp_tempnam('excalibur-cover-' . $slug . '-' . $cover_name);
     file_put_contents($tmp, $bin);
     $file_array = [
-        'name' => $slug . '-cover.png',
+        'name' => $slug . '-' . $cover_name,
         'tmp_name' => $tmp,
-        'type' => 'image/png',
+        'type' => $cover_mime,
         'error' => 0,
         'size' => strlen($bin),
     ];
@@ -240,10 +283,11 @@ if (!empty($p['inline_images'])) {{
         $tmp = wp_tempnam('excalibur-inline-' . $slug . '-' . sanitize_title($filename));
         file_put_contents($tmp, $bin);
         
+        $mime = !empty($img['mime']) ? $img['mime'] : 'image/png';
         $file_array = [
             'name' => $slug . '-' . $filename,
             'tmp_name' => $tmp,
-            'type' => 'image/png',
+            'type' => $mime,
             'error' => 0,
             'size' => strlen($bin),
         ];
@@ -275,27 +319,106 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+def _ftp_connect(env: dict[str, str], ftp_root: str) -> ftplib.FTP:
+    ftp = ftplib.FTP()
+    ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+    ftp.login(env["FTP_USER"], env["FTP_PASS"])
+    ftp.set_pasv(True)
+    ftp.cwd(ftp_root)
+    return ftp
 
-    def ftp_connect() -> ftplib.FTP:
-        ftp = ftplib.FTP()
-        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
-        ftp.login(env["FTP_USER"], env["FTP_PASS"])
-        ftp.set_pasv(True)
-        ftp.cwd(ftp_root)
-        return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+def _ftp_remote_size(env: dict[str, str], ftp_root: str, remote: str) -> int | None:
+    try:
+        ftp = _ftp_connect(env, ftp_root)
+        size = ftp.size(remote)
+        ftp.quit()
+        return int(size) if size is not None else None
+    except Exception:
+        return None
 
-    url = public_base.rstrip("/") + "/" + remote
+
+def _ftp_stor_bytes(env: dict[str, str], ftp_root: str, remote: str, data: bytes) -> None:
+    last_err: Exception | None = None
+    for attempt in range(FTP_STOR_MAX_ATTEMPTS):
+        try:
+            ftp = _ftp_connect(env, ftp_root)
+            ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+            ftp.quit()
+            return
+        except (ftplib.error_temp, ftplib.error_perm, OSError) as e:
+            last_err = e
+            time.sleep(min(8.0, 0.4 * (2**attempt)))
+    raise RuntimeError(f"FTP STOR failed for {remote} after {FTP_STOR_MAX_ATTEMPTS} attempts: {last_err}")
+
+
+def _ftp_upload_php(env: dict[str, str], ftp_root: str, remote: str, php: str) -> None:
+    body = php.encode("utf-8")
+    if len(body) <= 120_000:
+        try:
+            _ftp_stor_bytes(env, ftp_root, remote, body)
+            return
+        except RuntimeError:
+            pass
+
+    base = remote.replace(".php", "")
+    part_names: list[str] = []
+    chunks = [body[i : i + FTP_CHUNK_BYTES] for i in range(0, len(body), FTP_CHUNK_BYTES)]
+    for idx, chunk in enumerate(chunks):
+        part = f"{base}.part{idx:05d}"
+        existing = _ftp_remote_size(env, ftp_root, part)
+        if existing != len(chunk):
+            print(f"FTP upload chunk {idx + 1}/{len(chunks)} ({len(chunk)} bytes)...", flush=True)
+            _ftp_stor_bytes(env, ftp_root, part, chunk)
+        else:
+            print(f"FTP chunk {idx + 1}/{len(chunks)} already on server, skip", flush=True)
+        part_names.append(part)
+
+    loader = f"""<?php
+$prefix = __DIR__ . '/{base}.part';
+$buf = '';
+for ($i = 0; $i < {len(part_names)}; $i++) {{
+    $buf .= file_get_contents($prefix . str_pad((string) $i, 5, '0', STR_PAD_LEFT));
+}}
+$run = __DIR__ . '/{base}.assembled.php';
+file_put_contents($run, $buf);
+require $run;
+for ($i = 0; $i < {len(part_names)}; $i++) {{
+    @unlink($prefix . str_pad((string) $i, 5, '0', STR_PAD_LEFT));
+}}
+@unlink($run);
+"""
+    _ftp_stor_bytes(env, ftp_root, remote, loader.encode("utf-8"))
+
+
+def _ftp_cleanup_publish_artifacts(env: dict[str, str], ftp_root: str, remote: str) -> None:
+    base = remote.replace(".php", "")
+    try:
+        ftp = _ftp_connect(env, ftp_root)
+    except Exception:
+        return
+    for name in (remote, f"{base}.assembled.php"):
+        try:
+            ftp.delete(name)
+        except ftplib.error_perm:
+            pass
+    misses = 0
+    for idx in range(5000):
+        part = f"{base}.part{idx:05d}"
+        try:
+            ftp.delete(part)
+            misses = 0
+        except ftplib.error_perm:
+            misses += 1
+            if misses >= 3:
+                break
+    try:
+        ftp.quit()
+    except Exception:
+        pass
+
+
+def _trigger_publish_url(url: str) -> str:
     out = ""
     try:
         print(f"Triggering HTTP publish on {url}...")
@@ -308,11 +431,10 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
         print("Waiting for cloud-agent to write response to memory/webfetch-response.txt...")
-        
+
         fallback_file = project_root() / "memory" / "webfetch-response.txt"
         fallback_file.unlink(missing_ok=True)
-        
-        import time
+
         for i in range(120):
             if fallback_file.is_file():
                 out = fallback_file.read_text(encoding="utf-8")
@@ -320,16 +442,98 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
                 print("Cloud response detected successfully!")
                 break
             time.sleep(1)
-        
+
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
+    return out
 
-    ftp = ftp_connect()
+
+def _sftp_upload_php(env: dict[str, str], remote: str, php: str) -> None:
+    import paramiko
+
+    wp_root = (env.get("SSH_WP_ROOT") or "").strip().rstrip("/")
+    if not wp_root:
+        raise RuntimeError("SSH_WP_ROOT required for SFTP publish")
+    host = env.get("SSH_HOST", "").strip()
+    user = env.get("SSH_USER", "").strip()
+    password = env.get("SSH_PASS", "").strip()
+    if not host or not user or not password:
+        raise RuntimeError("SSH_HOST, SSH_USER, SSH_PASS required for SFTP publish")
+    port = int(env.get("SSH_PORT", "22"))
+    remote_path = f"{wp_root}/{remote}"
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
     try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+        with sftp.file(remote_path, "w") as handle:
+            handle.write(php.encode("utf-8"))
+        sftp.chmod(remote_path, 0o644)
+    finally:
+        sftp.close()
+        transport.close()
+    print(f"SFTP uploaded bootstrap ({len(php.encode('utf-8'))} bytes)", flush=True)
+
+
+def _sftp_cleanup(env: dict[str, str], remote: str) -> None:
+    import paramiko
+
+    wp_root = (env.get("SSH_WP_ROOT") or "").strip().rstrip("/")
+    if not wp_root:
+        return
+    host = env.get("SSH_HOST", "").strip()
+    user = env.get("SSH_USER", "").strip()
+    password = env.get("SSH_PASS", "").strip()
+    if not host or not user or not password:
+        return
+    port = int(env.get("SSH_PORT", "22"))
+    remote_path = f"{wp_root}/{remote}"
+    base = remote.replace(".php", "")
+    transport = paramiko.Transport((host, port))
+    try:
+        transport.connect(username=user, password=password)
+        sftp = paramiko.SFTPClient.from_transport(transport)
+        for path in (remote_path, f"{wp_root}/{base}.assembled.php"):
+            try:
+                sftp.remove(path)
+            except OSError:
+                pass
+        for idx in range(5000):
+            part = f"{wp_root}/{base}.part{idx:05d}"
+            try:
+                sftp.remove(part)
+            except OSError:
+                if idx > 0:
+                    break
+        sftp.close()
+    finally:
+        transport.close()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    url = public_base.rstrip("/") + "/" + remote
+
+    if env.get("SSH_HOST", "").strip() and env.get("SSH_WP_ROOT", "").strip():
+        _sftp_upload_php(env, remote, php)
+    else:
+        ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+        if not ftp_root.startswith("/"):
+            ftp_root = "/" + ftp_root
+        if not ftp_root.endswith("/"):
+            ftp_root += "/"
+        _ftp_upload_php(env, ftp_root, remote, php)
+
+    out = _trigger_publish_url(url)
+
+    if env.get("SSH_HOST", "").strip() and env.get("SSH_WP_ROOT", "").strip():
+        _sftp_cleanup(env, remote)
+    else:
+        ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+        if not ftp_root.startswith("/"):
+            ftp_root = "/" + ftp_root
+        if not ftp_root.endswith("/"):
+            ftp_root += "/"
+        _ftp_cleanup_publish_artifacts(env, ftp_root, remote)
     return out
 
 

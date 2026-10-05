@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-ustanovka-n8n-docker-vps/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      639,
+      359
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 359,
+        "end": 361
+      },
+      "v_gutter_px": {
+        "start": 639,
+        "end": 641
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: self-hosted n8n в Docker — webhook, PostgreSQL и HTTPS на VPS",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица сравнения n8n Cloud и self-hosted на VPS: Docker Compose и секреты",
+        "h2_anchor": "Подготовьте VPS, Docker Compose v2 и секреты"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 361,
+          "right": 639,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 361,
+          "right": 639,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Workflow: каталог проекта, .env и docker-compose.yml для n8n и PostgreSQL",
+        "h2_anchor": "Создайте каталог проекта, .env и docker-compose.yml"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 641,
+          "top": 361,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 361,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист проверки n8n после docker compose up на localhost:5678",
+        "h2_anchor": "Запустите стек и проверьте n8n на localhost:5678"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — Подготовьте VPS, Docker Compose v2 и секреты",
+    "injected inline_2 after H2 — Создайте каталог проекта, .env и docker-compose.yml",
+    "injected inline_3 after H2 — Запустите стек и проверьте n8n на localhost:5678"
+  ]
+}

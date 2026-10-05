@@ -1,0 +1,14 @@
+{
+  "slug": "ustanovka-n8n-docker-vps",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/05/ustanovka-n8n-docker-vps/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-ustanovka-n8n-docker-vps/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1012728,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=1146 slug=ustanovka-n8n-docker-vps\nOK featured_image=1147\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1148 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/ustanovka-n8n-docker-vps-inline-01.jpg\nOK inline_image_upload=1149 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/ustanovka-n8n-docker-vps-inline-02.jpg\nOK inline_image_upload=1150 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/ustanovka-n8n-docker-vps-inline-03.jpg\npermalink=https://www.meta-journal.ru/2026/10/05/ustanovka-n8n-docker-vps/\n",
+  "verdict": "pass"
+}

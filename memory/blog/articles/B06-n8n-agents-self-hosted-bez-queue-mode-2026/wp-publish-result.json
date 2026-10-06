@@ -1,0 +1,8 @@
+{
+  "slug": "n8n-agents-self-hosted-bez-queue-mode-2026",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/06/n8n-agents-self-hosted-bez-queue-mode-2026/",
+  "raw_output": "OK post=1153 slug=n8n-agents-self-hosted-bez-queue-mode-2026\nOK featured_image=1154\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1155 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-agents-self-hosted-bez-queue-mode-2026-inline-01.png\nOK inline_image_upload=1156 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-agents-self-hosted-bez-queue-mode-2026-inline-02.png\nOK inline_image_upload=1157 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-agents-self-hosted-bez-queue-mode-2026-inline-03.png\npermalink=https://www.meta-journal.ru/2026/10/06/n8n-agents-self-hosted-bez-queue-mode-2026/\n",
+  "verdict": "pass",
+  "transport": "sftp_fallback"
+}

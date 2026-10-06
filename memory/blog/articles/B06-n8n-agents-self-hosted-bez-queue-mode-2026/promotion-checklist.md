@@ -1,7 +1,7 @@
 # Promotion checklist — B06 n8n-agents-self-hosted-bez-queue-mode-2026
 
-Дата публикации: YYYY-MM-DD  
-Live URL: https://mayai.ru/blog/n8n-agents-self-hosted-bez-queue-mode-2026/ (заполнить после publish)
+Дата публикации: 2026-10-06  
+Live URL: https://www.meta-journal.ru/2026/10/06/n8n-agents-self-hosted-bez-queue-mode-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

@@ -172,3 +172,47 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-06 — B06 n8n-agents-self-hosted-bez-queue-mode-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | n8n-agents-self-hosted-bez-queue-mode-2026 |
+| verdict | **PASS** |
+| post_id | 1153 |
+| featured_image_id | 1154 |
+| inline_images | 1155, 1156, 1157 |
+| permalink | https://www.meta-journal.ru/2026/10/06/n8n-agents-self-hosted-bez-queue-mode-2026/ |
+| transport | SFTP + HTTP (FTP `425 Security: Bad IP connecting`) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (4/4; pre-publish fix internal href for meta-journal date permalink)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-n8n-agents-self-hosted-bez-queue-mode-2026 --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...  # FTP 425 → SFTP fallback (paramiko, REMOTE_SITE_ROOT)
+```
+
+### Result
+
+```
+OK post=1153 slug=n8n-agents-self-hosted-bez-queue-mode-2026
+OK featured_image=1154
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1155 src=cover/inline-01.png
+OK inline_image_upload=1156 src=cover/inline-02.png
+OK inline_image_upload=1157 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/10/06/n8n-agents-self-hosted-bez-queue-mode-2026/
+```

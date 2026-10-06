@@ -5,14 +5,14 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/",
+      "url": "/2026/06/18/avtomatizaciya-n8n-ai-agents/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
       "kind": "internal_relative",
       "skipped": false,
-      "checked_url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/"
+      "checked_url": "/2026/06/18/avtomatizaciya-n8n-ai-agents/"
     },
     {
       "url": "https://kv-ai.ru/obuchenie-po-make",

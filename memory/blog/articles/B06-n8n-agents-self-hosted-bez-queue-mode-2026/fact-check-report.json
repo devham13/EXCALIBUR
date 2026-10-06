@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B06-n8n-agents-self-hosted-bez-queue-mode-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "трый инсайт: n8n Agents (вкладка Agents, сентябрь 2026) – отдельный продукт с publish, каналами и распис",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

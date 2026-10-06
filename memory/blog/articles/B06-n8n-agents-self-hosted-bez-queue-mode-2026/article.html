@@ -2,7 +2,7 @@
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> n8n Agents (вкладка Agents, сентябрь 2026) – отдельный продукт с publish, каналами и расписанием; это не тот же AI Agent node в workflow. Self-hosted: версия n8n ≥2.32.3, в env минимум N8N_ENABLED_MODULES=agents, режим regular (queue mode для Agents официально не поддерживается). Production-паттерн: queue-инстанс для воркфлоу + второй контейнер без EXECUTIONS_MODE=queue для Agents. Для Telegram и Slack нужен публичный N8N_WEBHOOK_URL за reverse proxy.</blockquote>
 
-<p>Self-hosted – n8n на вашем Docker/VPS; queue mode гонит тяжёлые workflow в Redis и workers, чтобы главный процесс не падал под нагрузкой. Agents в Preview: один turn диалога = one execution в дашборде. Новая установка – в <a href="/ustanovka-n8n-docker-vps/">гайде по Docker на VPS</a>; здесь – Agents к уже работающему продакшену. Показы "n8n агенты" в research B02 ~699/мес (не перепроверено Вордстатом 06.10.2026).</p>
+<p>Self-hosted – n8n на вашем Docker/VPS; queue mode гонит тяжёлые workflow в Redis и workers, чтобы главный процесс не падал под нагрузкой. Agents в Preview: один turn диалога = one execution в дашборде. Новая установка – в гайде по Docker на VPS (slug ustanovka-n8n-docker-vps); здесь – Agents к уже работающему продакшену. Показы "n8n агенты" в research B02 ~699/мес (не перепроверено Вордстатом 06.10.2026).</p>
 
 <h2 id="disambiguation">1. Разведите n8n Agents, AI Agent node и обычный workflow</h2>
 
@@ -78,14 +78,13 @@
 
 <p>Минимум env: agents в N8N_ENABLED_MODULES; instance-ai опционален для builder в UI.</p>
 
-<pre><code>environment:
-  N8N_ENABLED_MODULES: "agents"
-  N8N_WEBHOOK_URL: "https://agents.example.com/"
-  N8N_PROXY_HOPS: "1"
-  # опционально knowledge base (Preview, sandbox):
-  # N8N_AGENTS_AI_SANDBOX_ENABLED: "true"
-  # N8N_AGENTS_AI_SANDBOX_PROVIDER: "daytona"
-</code></pre>
+<blockquote>
+  <b>Пример environment в docker-compose:</b>
+  <p>N8N_ENABLED_MODULES: "agents"</p>
+  <p>N8N_WEBHOOK_URL: "https://agents.example.com/"</p>
+  <p>N8N_PROXY_HOPS: "1"</p>
+  <p><i>Опционально knowledge base (Preview, sandbox): N8N_AGENTS_AI_SANDBOX_ENABLED, N8N_AGENTS_AI_SANDBOX_PROVIDER=daytona</i></p>
+</blockquote>
 
 <p>За proxy – N8N_WEBHOOK_URL. После docker compose up -d: Settings &gt; Agents → Enable. <b>Делайте:</b> env в .env и compose синхронно. <b>Не делайте:</b> ключи LLM в Git.</p>
 
@@ -99,7 +98,7 @@
   <li><b>Шаг 9:</b> Подключите Telegram или Slack: credentials, webhook должен бить в N8N_WEBHOOK_URL инстанса B; отправьте тестовое сообщение и проверьте execution log.</li>
 </ol>
 
-<p>KB без Daytona – агент без полной KB (Preview). UI – <a href="/nastroyka-n8n-agents-2026/">настройка n8n Agents 2026</a>. <b>Делайте:</b> Message an Agent smoke. <b>Не делайте:</b> shared credentials без audit.</p>
+<p>KB без Daytona – агент без полной KB (Preview). UI и каналы подробнее – в материале «настройка n8n Agents 2026» (slug nastroyka-n8n-agents-2026). <b>Делайте:</b> Message an Agent smoke. <b>Не делайте:</b> shared credentials без audit.</p>
 
 <h2 id="troubleshooting">6. Используйте таблицу симптомов и чек-лист из 15 пунктов</h2>
 

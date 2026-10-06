@@ -1,6 +1,6 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
+Дата публикации: 2026-10-06  
 Live URL: https://... (заполнить после publish)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
@@ -35,13 +35,14 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 ## Перелинковка
 
 - [ ] Добавить ссылку на новый пост с главной blog section (если Aurora не auto)
-- [ ] Обновить 1–2 старых поста → link to new (если есть)
+- [ ] После publish — перезапустить interlinker для inbound из B02/B03/B04 на «как писать seo статьи»
+- [x] Outbound B01 → B04 (`/blog/geo-optimizaciya-sajta-2026/`, anchor «geo оптимизация») — indexer 2026-10-06
 
 ## Метрики (7 дней)
 
 - [ ] Metrika / GA4 — goal `blog_read` или из conversion map
-- [ ] Позиция primary query (ручная проверка / Wordstat)
+- [ ] Позиция primary query «как писать seo статьи» (ручная проверка / Wordstat)
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer 2026-10-06: interlinker `--apply` — 1 вставка (B01 → B04). Отчёт: `memory/blog/interlink-suggestions.json`. llms: `memory/blog/llms.txt`, `memory/blog/llms-full.txt` (5 статей).

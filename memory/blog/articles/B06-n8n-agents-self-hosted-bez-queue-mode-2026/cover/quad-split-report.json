@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-n8n-agents-self-hosted-bez-queue-mode-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      639,
+      359
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 359,
+        "end": 362
+      },
+      "v_gutter_px": {
+        "start": 639,
+        "end": 641
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 639,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: n8n Agents self-hosted — env, Docker и обход queue mode",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 0,
+          "right": 1280,
+          "bottom": 359
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема: n8n Agents vs AI Agent node vs workflow",
+        "h2_anchor": "1. Разведите n8n Agents, AI Agent node и обычный workflow"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 362,
+          "right": 639,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 362,
+          "right": 639,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист env и версии n8n перед включением Agents",
+        "h2_anchor": "2. Проверьте версию n8n, EXECUTIONS_MODE и текущие env"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 641,
+          "top": 362,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 641,
+          "top": 362,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение топологии: один инстанс regular vs два Docker при queue",
+        "h2_anchor": "3. Спланируйте топологию: regular mode или два инстанса"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Разведите n8n Agents, AI Agent node и обычный workflow",
+    "injected inline_2 after H2 — 2. Проверьте версию n8n, EXECUTIONS_MODE и текущие env",
+    "injected inline_3 after H2 — 3. Спланируйте топологию: regular mode или два инстанса"
+  ]
+}

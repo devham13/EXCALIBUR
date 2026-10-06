@@ -5,6 +5,10 @@
 <p>Self-hosted – n8n на вашем Docker/VPS; queue mode гонит тяжёлые workflow в Redis и workers, чтобы главный процесс не падал под нагрузкой. Agents в Preview: один turn диалога = one execution в дашборде. Новая установка – в гайде по Docker на VPS (slug ustanovka-n8n-docker-vps); здесь – Agents к уже работающему продакшену. Показы "n8n агенты" в research B02 ~699/мес (не перепроверено Вордстатом 06.10.2026).</p>
 
 <h2 id="disambiguation">1. Разведите n8n Agents, AI Agent node и обычный workflow</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Схема: n8n Agents vs AI Agent node vs workflow" loading="lazy">
+</figure>
+
 
 <p>Workflow – canvas с триггером. AI Agent node – агент внутри одного сценария. n8n Agents – вкладка Agents: publish, каналы, cron, вызов через Message an Agent.</p>
 
@@ -48,6 +52,10 @@
 <p><b>Делайте:</b> перед правкой docker-compose убедитесь, что вам нужен именно продукт Agents, а не только node из <a href="/avtomatizaciya-n8n-ai-agents/">гайда по AI Agent node</a>. <b>Не делайте:</b> включать agents в N8N_ENABLED_MODULES, если достаточно одного workflow-бота – лишний модуль расширяет поверхность атаки.</p>
 
 <h2 id="inventory">2. Проверьте версию n8n, EXECUTIONS_MODE и текущие env</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист env и версии n8n перед включением Agents" loading="lazy">
+</figure>
+
 
 <ol>
   <li><b>Шаг 1:</b> Версия в About: для Agents нужна <b>≥2.32.3</b>; patch ≥2.28.1 по GHSA-h44j-f5r5-ph73.</li>
@@ -59,6 +67,10 @@
 <p><b>Делайте:</b> снимите копию compose и .env в git-private или vault до рестарта. <b>Не делайте:</b> менять queue production в пятницу вечером без второго инстанса под Agents.</p>
 
 <h2 id="topology">3. Спланируйте топологию: regular mode или два инстанса</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Сравнение топологии: один инстанс regular vs два Docker при queue" loading="lazy">
+</figure>
+
 
 <p>Docs n8n: queue mode ≠ Agents. Не ломайте queue – добавьте второй инстанс.</p>
 

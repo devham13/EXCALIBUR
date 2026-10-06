@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "n8n Agents на своём сервере — а вкладка Agents пустая из‑за queue mode?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: n8n Agents self-hosted — env, Docker и обход queue mode",
+      "scene_hint": "reference-лицо в футболке DevOps, указывает на fake n8n UI «Agents tab missing», Docker Compose snippet N8N_ENABLED_MODULES=agents, красный EXECUTIONS_MODE=queue, стикер «Telegram webhook 404», meme shocked cat + facepalm, розовый маркер на queue mode",
+      "meme_caption_ru": "Queue mode — Agents нет?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Разведите n8n Agents, AI Agent node и обычный workflow",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема из 3 блоков: n8n Agents (chat UI) vs AI Agent node vs classic workflow — стрелки disambiguation, без лица героя, стикеры и скотч",
+      "alt": "Схема: n8n Agents vs AI Agent node vs workflow"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Проверьте версию n8n, EXECUTIONS_MODE и текущие env",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист на доске: версия ≥2.32.3, EXECUTIONS_MODE, N8N_ENABLED_MODULES=agents, N8N_WEBHOOK_URL — галочки и маркер, без героя",
+      "alt": "Чеклист env и версии n8n перед включением Agents"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Спланируйте топологию: regular mode или два инстанса",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица regular mode vs dual instance (queue worker + agents regular): плюсы, минусы, webhook — UI-мокап, без героя",
+      "alt": "Сравнение топологии: один инстанс regular vs два Docker при queue"
+    }
+  }
+}

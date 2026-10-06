@@ -1,0 +1,194 @@
+<p>Вы подняли n8n на своём сервере, включили queue mode для тяжёлых workflow, а вкладка Agents не появляется или Telegram-бот молчит. Запрос "n8n агенты на своем сервере" часто ведёт в гайды про узел AI Agent на canvas, а не про продукт Agents с publish и каналами. Ниже – чек-лист env, Docker и схема двух инстансов: вы проверите версию и режим, включите модуль agents в regular mode, настроите публичный webhook URL, опубликуете агента и прогоните smoke-тест Slack или Telegram.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> n8n Agents (вкладка Agents, сентябрь 2026) – отдельный продукт с publish, каналами и расписанием; это не тот же AI Agent node в workflow. Self-hosted: версия n8n ≥2.32.3, в env минимум N8N_ENABLED_MODULES=agents, режим regular (queue mode для Agents официально не поддерживается). Production-паттерн: queue-инстанс для воркфлоу + второй контейнер без EXECUTIONS_MODE=queue для Agents. Для Telegram и Slack нужен публичный N8N_WEBHOOK_URL за reverse proxy.</blockquote>
+
+<p>Self-hosted – n8n на вашем Docker/VPS; queue mode гонит тяжёлые workflow в Redis и workers, чтобы главный процесс не падал под нагрузкой. Agents в Preview: один turn диалога = one execution в дашборде. Новая установка – в <a href="/ustanovka-n8n-docker-vps/">гайде по Docker на VPS</a>; здесь – Agents к уже работающему продакшену. Показы "n8n агенты" в research B02 ~699/мес (не перепроверено Вордстатом 06.10.2026).</p>
+
+<h2 id="disambiguation">1. Разведите n8n Agents, AI Agent node и обычный workflow</h2>
+
+<p>Workflow – canvas с триггером. AI Agent node – агент внутри одного сценария. n8n Agents – вкладка Agents: publish, каналы, cron, вызов через Message an Agent.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n Agents (продукт)</th>
+      <th>AI Agent node</th>
+      <th>Обычный workflow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где живёт</b></td>
+      <td>Вкладка Agents, Settings &gt; Agents</td>
+      <td>Нода на canvas</td>
+      <td>Canvas workflows</td>
+    </tr>
+    <tr>
+      <td><b>Publish и каналы</b></td>
+      <td>Да, внешние мессенджеры</td>
+      <td>Нет, только через триггеры workflow</td>
+      <td>Webhook, cron, интеграции</td>
+    </tr>
+    <tr>
+      <td><b>Env на self-host</b></td>
+      <td>N8N_ENABLED_MODULES=agents, regular mode</td>
+      <td>Достаточно версии n8n с AI</td>
+      <td>Queue mode OK</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбирать</b></td>
+      <td>Автономный бот с approvals</td>
+      <td>Агент внутри одного процесса</td>
+      <td>Классическая автоматизация</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> перед правкой docker-compose убедитесь, что вам нужен именно продукт Agents, а не только node из <a href="/avtomatizaciya-n8n-ai-agents/">гайда по AI Agent node</a>. <b>Не делайте:</b> включать agents в N8N_ENABLED_MODULES, если достаточно одного workflow-бота – лишний модуль расширяет поверхность атаки.</p>
+
+<h2 id="inventory">2. Проверьте версию n8n, EXECUTIONS_MODE и текущие env</h2>
+
+<ol>
+  <li><b>Шаг 1:</b> Версия в About: для Agents нужна <b>≥2.32.3</b>; patch ≥2.28.1 по GHSA-h44j-f5r5-ph73.</li>
+  <li><b>Шаг 2:</b> EXECUTIONS_MODE=queue → Agents на этом процессе нельзя.</li>
+  <li><b>Шаг 3:</b> N8N_ENABLED_MODULES: без agents вкладки может не быть.</li>
+  <li><b>Шаг 4:</b> Зафиксируйте N8N_WEBHOOK_URL и N8N_PROXY_HOPS.</li>
+</ol>
+
+<p><b>Делайте:</b> снимите копию compose и .env в git-private или vault до рестарта. <b>Не делайте:</b> менять queue production в пятницу вечером без второго инстанса под Agents.</p>
+
+<h2 id="topology">3. Спланируйте топологию: regular mode или два инстанса</h2>
+
+<p>Docs n8n: queue mode ≠ Agents. Не ломайте queue – добавьте второй инстанс.</p>
+
+<blockquote>
+  <b>Схема dual instance:</b>
+  <br>
+  Инстанс A (production workflows): EXECUTIONS_MODE=queue → Redis → workers → Postgres
+  <br>
+  Инстанс B (Agents only): без EXECUTIONS_MODE=queue (regular) → N8N_ENABLED_MODULES=agents → тот же Postgres или отдельная БД → N8N_WEBHOOK_URL на отдельном поддомене
+  <br>
+  Workflow на A может вызывать опубликованного агента на B через Message an Agent node
+</blockquote>
+
+<p>На малом VPS можно временно весь n8n в regular – проще, без workers. <b>Делайте:</b> hostname agents.example.com. <b>Не делайте:</b> Agents "на queue".</p>
+
+<h2 id="env-docker">4. Настройте env и Docker Compose для модуля agents</h2>
+
+<p>Минимум env: agents в N8N_ENABLED_MODULES; instance-ai опционален для builder в UI.</p>
+
+<pre><code>environment:
+  N8N_ENABLED_MODULES: "agents"
+  N8N_WEBHOOK_URL: "https://agents.example.com/"
+  N8N_PROXY_HOPS: "1"
+  # опционально knowledge base (Preview, sandbox):
+  # N8N_AGENTS_AI_SANDBOX_ENABLED: "true"
+  # N8N_AGENTS_AI_SANDBOX_PROVIDER: "daytona"
+</code></pre>
+
+<p>За proxy – N8N_WEBHOOK_URL. После docker compose up -d: Settings &gt; Agents → Enable. <b>Делайте:</b> env в .env и compose синхронно. <b>Не делайте:</b> ключи LLM в Git.</p>
+
+<h2 id="publish-smoke">5. Создайте, опубликуйте агента и прогоните smoke-тест канала</h2>
+
+<ol>
+  <li><b>Шаг 5:</b> Agents → Create Agent: модель (OpenAI/Anthropic credentials), system instructions, tools (HTTP, workflows как tools).</li>
+  <li><b>Шаг 6:</b> Preview в UI – задайте вопрос, откройте session log, убедитесь, что tool calls ожидаемые.</li>
+  <li><b>Шаг 7:</b> Включите <b>approve</b> на опасные write-tools (удаление, платёж, массовая рассылка).</li>
+  <li><b>Шаг 8:</b> Publish agent – без publish внешние каналы не увидят версию.</li>
+  <li><b>Шаг 9:</b> Подключите Telegram или Slack: credentials, webhook должен бить в N8N_WEBHOOK_URL инстанса B; отправьте тестовое сообщение и проверьте execution log.</li>
+</ol>
+
+<p>KB без Daytona – агент без полной KB (Preview). UI – <a href="/nastroyka-n8n-agents-2026/">настройка n8n Agents 2026</a>. <b>Делайте:</b> Message an Agent smoke. <b>Не делайте:</b> shared credentials без audit.</p>
+
+<h2 id="troubleshooting">6. Используйте таблицу симптомов и чек-лист из 15 пунктов</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Симптом</th>
+      <th>Вероятная причина</th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Нет вкладки Agents</td>
+      <td>Версия &lt;2.32.3 или модуль не включён</td>
+      <td>Обновить n8n; N8N_ENABLED_MODULES=agents; Enable в Settings</td>
+    </tr>
+    <tr>
+      <td>Telegram не отвечает</td>
+      <td>Queue mode или неверный webhook URL</td>
+      <td>Инстанс regular; проверить N8N_WEBHOOK_URL и proxy hops</td>
+    </tr>
+    <tr>
+      <td>Канал 404 / SSL</td>
+      <td>Reverse proxy режет путь /webhook</td>
+      <td>Сверить docs configure-webhook-urls-with-reverse-proxy</td>
+    </tr>
+    <tr>
+      <td>Агент "галлюцинирует" tools</td>
+      <td>Слишком много tools без approve</td>
+      <td>Сократить tools; включить approvals на write</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Чек-лист перед продакшеном (15 пунктов):</b></p>
+
+<ul>
+  <li>Версия n8n ≥2.32.3 и patch ≥2.28.1 по security advisory</li>
+  <li>Agents работают на regular mode или отдельном инстансе B</li>
+  <li>Queue production не ожидает Agents на workers</li>
+  <li>N8N_ENABLED_MODULES содержит agents (и instance-ai только если нужен builder)</li>
+  <li>N8N_WEBHOOK_URL публичный HTTPS, совпадает с DNS</li>
+  <li>N8N_PROXY_HOPS согласован с числом reverse proxy</li>
+  <li>Postgres (не SQLite) для серьёзной нагрузки и queue</li>
+  <li>Бэкап БД и env перед первым Publish</li>
+  <li>LLM credentials в n8n, лимиты расхода у провайдера</li>
+  <li>Approvals на опасные tools включены</li>
+  <li>Shared credentials просмотрены; лишние отозваны</li>
+  <li>Опубликованный агент протестирован в UI Preview</li>
+  <li>Smoke Telegram/Slack с реального телефона/рабочего space</li>
+  <li>Message an Agent из тестового workflow на production A</li>
+  <li>Runbook: кто отключает agents (убрать из modules) при инциденте</li>
+</ul>
+
+<p>Workflow для команды: inventory → disambiguation → топология → env/Docker → publish → smoke → hardening. Если параллельно строите no-code без Docker, на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> разбираем похожие AI-сценарии без self-host DevOps.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Зафиксируйте в wiki два URL: queue workflows и agents regular.</li>
+  <li>Добавьте мониторинг executions: один turn агента = one execution в учёте n8n.</li>
+  <li>Свяжите Agents с CRM через workflow-tools, human-in-the-loop на сделках.</li>
+  <li>При росте нагрузки масштабируйте workers на инстансе A, не трогая B.</li>
+</ol>
+
+<p>Профиль автора и практика внедрения: <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a>. Обсуждение self-host и автоматизации – Telegram <a href="https://t.me/maya_pro" target="_blank">Ковчег</a>, если тема релевантна вашему стеку.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик n8n, Make.com и AI-агентов).<br>
+  <b>Достоверность данных:</b> версии n8n, env-переменные и ограничение queue mode сверены с docs.n8n.io на 06.10.2026; показатели Вордстат ("n8n", "n8n агенты") приведены по research B02 (июнь 2026), без повторной выгрузки MCP 06.10.2026.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Поддерживает ли n8n Agents queue mode?</h3>
+<p>Нет. В официальной документации указано, что Agents не работают в queue mode на том же инстансе; держите Agents на regular mode или поднимите второй контейнер без EXECUTIONS_MODE=queue и перенесите туда модуль agents.</p>
+
+<h3>Что писать в N8N_ENABLED_MODULES?</h3>
+<p>Минимум строка agents. Если нужен AI-assisted builder в UI – instance-ai,agents. Чтобы временно отключить продукт после инцидента – уберите agents из env и перезапустите контейнер или выключите Agents в Settings.</p>
+
+<h3>Можно ли Agents и queue workflows на одном сервере?</h3>
+<p>На одном процессе n8n в queue mode – нет. На одной машине – да: два compose-проекта (queue + regular), разные порты и N8N_WEBHOOK_URL, общая или раздельная Postgres по вашей политике.</p>
+
+<h3>Нужен ли WEBHOOK_URL или N8N_WEBHOOK_URL для Telegram?</h3>
+<p>Да, внешним каналам нужен публичный HTTPS URL. За reverse proxy задайте N8N_WEBHOOK_URL и N8N_PROXY_HOPS=1; сверьте путь webhook с примером configure-webhook-urls-with-reverse-proxy в docs n8n.</p>
+
+<h3>Чем n8n Agents отличаются от AI Agent node?</h3>
+<p>Agents – отдельный продукт с publish, sessions и каналами; node – один шаг внутри workflow. Для Slack-бота с approvals берите Agents; для агента только внутри одного сценария часто хватает node из canvas.</p>
+
+<h3>Сколько стоит run агента на self-hosted?</h3>
+<p>Community Edition не продаёт executions отдельно: платите VPS, Redis (для queue-инстанса), Postgres и токены LLM API. В учёте n8n один turn пользователя = one execution вместе с workflow runs – заложите это в мониторинг.</p>

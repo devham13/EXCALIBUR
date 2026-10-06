@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-agents-self-hosted-bez-queue-mode-2026",
+  "h1": "Как включить n8n Agents на своём сервере: чек-лист env, Docker и обход ограничения queue mode",
+  "title": "n8n агенты на своем сервере: env, Docker и обход queue mode",
+  "description": "Чек-лист включения n8n Agents на self-hosted: N8N_ENABLED_MODULES, regular mode, dual instance при queue, N8N_WEBHOOK_URL, publish и smoke Telegram/Slack.",
+  "keywords": [
+    "n8n агенты на своем сервере",
+    "n8n agents self hosted",
+    "N8N_ENABLED_MODULES agents",
+    "n8n queue mode agents",
+    "n8n agents docker compose"
+  ],
+  "primary_query": "n8n агенты на своем сервере",
+  "secondary_queries": [
+    "n8n agents self hosted",
+    "N8N_ENABLED_MODULES agents",
+    "n8n queue mode agents",
+    "n8n agents docker compose"
+  ],
+  "char_count": 8526,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как включить n8n agents на self-hosted без queue mode",
+    "N8N_ENABLED_MODULES agents docker compose чеклист",
+    "два инстанса n8n queue и agents regular mode"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n агенты на своем сервере: env, Docker и queue mode",
+    "title_ctr": "🚀 n8n Agents на своём сервере: queue mode ломает Telegram? Чек-лист env и 2 Docker!",
+    "title_aeo": "Как включить n8n Agents на self-hosted без queue mode?",
+    "description_seo": "Чек-лист n8n Agents на своём сервере: версия ≥2.32.3, N8N_ENABLED_MODULES=agents, regular mode или второй инстанс, webhook URL, publish и smoke канала.",
+    "description_ctr": "⚡ Вкладка Agents не появилась? Пошагово: env, Docker Compose, обход queue mode двумя контейнерами и тест Slack/Telegram для self-hosted n8n.",
+    "description_aeo": "n8n агенты на своем сервере включаются через N8N_ENABLED_MODULES=agents в regular mode; при EXECUTIONS_MODE=queue нужен отдельный инстанс и публичный N8N_WEBHOOK_URL."
+  },
+  "cover_family": "brand_collage"
+}

@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — n8n Agents на self-hosted без queue mode
+
+- **priority:** P0
+- **slug:** n8n-agents-self-hosted-bez-queue-mode-2026
+- **h1:** Как включить n8n Agents на своём сервере: чек-лист env, Docker и обход ограничения queue mode
+- **primary_query:** n8n агенты на своем сервере
+- **secondary_queries:** n8n agents self hosted, N8N_ENABLED_MODULES agents, n8n queue mode agents, n8n agents docker compose
+- **search_intent:** checklist
+- **article_mode:** B
+- **wordstat_note:** MCP `user-mcp-kv` / `wordstat_get_top_requests` недоступен в прогоне 2026-10-06; head «n8n» ~37 115 и «автоматизация n8n» ~539 — из fact-bank B02 (research); уточнить хвост при research через Wordstat MCP.
+- **h2_outline:**
+  1. Agents vs AI Agent node vs workflow: что включать на production после релиза сентября 2026
+  2. Минимальный self-host: версия ≥2.32.3, `N8N_ENABLED_MODULES=agents`, regular mode (не queue)
+  3. Двухинстансная схема: queue mode для воркфлоу + отдельный инстанс Agents без `EXECUTIONS_MODE=queue`
+  4. Docker Compose: env-блок, публичный `WEBHOOK_URL` для каналов, опционально Daytona для knowledge base
+  5. Публикация агента, approvals на опасные tools и smoke-тест Slack/Telegram
+  6. Чек-лист из 15 пунктов перед продакшеном и таблица «симптом → env/режим → fix»
+- **faq_hints:** поддерживает ли n8n agents queue mode; что писать в N8N_ENABLED_MODULES; можно ли agents и workflows на одном сервере в queue mode; нужен ли WEBHOOK_URL для telegram агента
+- **internal_links:** /ustanovka-n8n-docker-vps/, /nastroyka-n8n-agents-2026/, /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** два Docker-контейнера n8n на столе: один со стикером «queue workers», второй «Agents regular mode», между ними красный стикер «queue mode ≠ agents», env-лист на скотче, diy-коллаж
+
+---
+

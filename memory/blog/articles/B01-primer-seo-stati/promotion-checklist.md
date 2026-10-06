@@ -44,4 +44,4 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-10-06): 0 новых interlink injections — `excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles` (5 статей в индексе, opportunities_found: 0). Отчёт: `memory/blog/interlink-suggestions.json`. После появления новых якорных совпадений — перезапустить interlinker.

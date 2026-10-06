@@ -1,3 +1,8 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "url": "",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud Agent 2026-10-06; canvas from cursor GenerateImage i2i fallback (reference PNG), then local split",
+  "canvas_local": "cover/canvas-quad.png",
+  "mcp_attempted": "gpt-image-2",
+  "mcp_namespace": "user-mcp-kv",
+  "mcp_status": "unavailable"
 }

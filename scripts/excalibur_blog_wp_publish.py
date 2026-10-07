@@ -8,6 +8,7 @@ import ftplib
 import io
 import json
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -275,8 +276,37 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
+def _sftp_remote_path(env: dict[str, str], filename: str) -> str:
+    root = (env.get("REMOTE_SITE_ROOT") or env.get("FTP_ROOT") or "/").strip().rstrip("/")
+    return f"{root}/{filename}"
+
+
+def _upload_bootstrap_sftp(env: dict[str, str], php: str, remote: str) -> str:
+    import paramiko
+
+    host = env.get("SSH_HOST") or env["FTP_HOST"]
+    user = env.get("SSH_USER") or env["FTP_USER"]
+    password = env.get("SSH_PASSWORD") or env["FTP_PASS"]
+    port = int(env.get("SSH_PORT") or "22")
+    remote_path = _sftp_remote_path(env, remote)
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        with sftp.file(remote_path, "w") as fh:
+            fh.write(php.encode("utf-8"))
+    finally:
+        sftp.close()
+        transport.close()
+    print(f"OK sftp_upload={remote_path}", file=sys.stderr)
+    return "sftp"
+
+
+def upload_bootstrap(env: dict[str, str], php: str, remote: str, *, prefer_sftp: bool = False) -> str:
+    """Upload bootstrap PHP; returns ``ftp`` or ``sftp``."""
+    if prefer_sftp:
+        return _upload_bootstrap_sftp(env, php, remote)
+
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
     if not ftp_root.startswith("/"):
         ftp_root = "/" + ftp_root
@@ -291,19 +321,86 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+        ftp.quit()
+        return "ftp"
+    except ftplib.error_temp as e:
+        if "425" not in str(e):
+            raise
+        print(f"FTP upload failed ({e}). Using SFTP fallback to REMOTE_SITE_ROOT...", file=sys.stderr)
+    return _upload_bootstrap_sftp(env, php, remote)
+
+
+def delete_bootstrap(env: dict[str, str], remote: str, transport: str) -> None:
+    if transport == "ftp":
+        ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+        if not ftp_root.startswith("/"):
+            ftp_root = "/" + ftp_root
+        if not ftp_root.endswith("/"):
+            ftp_root += "/"
+
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+        return
+
+    import paramiko
+
+    host = env.get("SSH_HOST") or env["FTP_HOST"]
+    user = env.get("SSH_USER") or env["FTP_USER"]
+    password = env.get("SSH_PASSWORD") or env["FTP_PASS"]
+    port = int(env.get("SSH_PORT") or "22")
+    remote_path = _sftp_remote_path(env, remote)
+    transport_obj = paramiko.Transport((host, port))
+    transport_obj.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport_obj)
+    try:
+        sftp.remove(remote_path)
+    except OSError:
+        pass
+    finally:
+        sftp.close()
+        transport_obj.close()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    upload_transport = upload_bootstrap(env, php, remote)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
-    try:
+
+    def trigger_http() -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=15,
+            timeout=120,
         ) as response:
-            out = response.read().decode("utf-8", errors="replace")
+            return response.read().decode("utf-8", errors="replace")
+
+    try:
+        out = trigger_http()
+    except urllib.error.HTTPError as e:
+        if e.code == 404 and upload_transport == "ftp" and env.get("REMOTE_SITE_ROOT") and (
+            env.get("SSH_PASSWORD") or env.get("SSH_HOST")
+        ):
+            print(
+                "HTTP 404 after FTP upload — re-uploading bootstrap via SFTP to REMOTE_SITE_ROOT...",
+                file=sys.stderr,
+            )
+            upload_transport = upload_bootstrap(env, php, remote, prefer_sftp=True)
+            out = trigger_http()
+        else:
+            raise
     except Exception as e:
         print(f"Local HTTP trigger failed ({type(e).__name__}: {e}). Entering Cloud WebFetch Fallback mode...")
         print(f"=== FALLBACK_TRIGGER_URL ===\n{url}\n=============================")
@@ -324,12 +421,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    delete_bootstrap(env, remote, upload_transport)
     return out
 
 

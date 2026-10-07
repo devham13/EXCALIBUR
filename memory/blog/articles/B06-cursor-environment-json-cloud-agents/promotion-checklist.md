@@ -1,7 +1,7 @@
 # Promotion checklist — B06 cursor-environment-json-cloud-agents
 
 Дата публикации: 2026-10-07  
-Live URL: https://mayai.ru/blog/cursor-environment-json-cloud-agents/
+Live URL: https://www.meta-journal.ru/2026/10/07/cursor-environment-json-cloud-agents/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

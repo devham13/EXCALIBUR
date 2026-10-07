@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — environment.json для Cursor Cloud Agents
+
+- **priority:** P0
+- **slug:** cursor-environment-json-cloud-agents
+- **h1:** Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds
+- **primary_query:** настройка cursor cloud agent
+- **secondary_queries:** cursor environment json, cloud agent builds настройка, install start команды cursor agent, dockerfile cursor cloud agent, snapshot cursor environment
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Cloud Agent vs локальный Agent: когда нужен `.cursor/environment.json` в репозитории
+  2. Структура файла: `build`/`snapshot`, `install`, `start`, `terminals`, `ports` и приоритет над dashboard-окружением
+  3. Пошаговая настройка Dockerfile и `install`: что готовить в Build, что запускать при старте агента
+  4. Builds: триггеры, активация snapshot, проверка логов и типичные ошибки (COPY проекта, пути относительно `.cursor/`)
+  5. Секреты, egress и MCP в облачном окружении: минимальные права для Automations
+  6. Чек-лист перед первым Cloud Agent run: verify build → тестовый агент → production
+- **faq_hints:** чем install отличается от start в cursor environment; нужен ли dockerfile для cloud agent; как закрепить snapshot в environment json; почему агент не видит зависимости после build
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** репозиторий на экране с файлом `.cursor/environment.json`, рядом «слои» Build → Snapshot → Running Agent, иконки Docker и cron/Automations, стикеры install/start/terminals, неоновый diy-коллаж
+
+---
+

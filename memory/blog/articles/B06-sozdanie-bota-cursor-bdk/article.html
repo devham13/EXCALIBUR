@@ -2,7 +2,7 @@
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> BDK – open-source движок тех же ботов, что Security Review и Rollouts: проект в Git с папками bot/ и evals/. Старт: Node 22.13+, npx @cursor/bdk init, bdk dev. Качество: evals/**/*.eval.ts и bdk eval. GitHub без prod-webhook: bdk github replay → fixtures. Деплой только с запушенного ref и CURSOR_SERVICE_ACCOUNT_KEY после bdk validate. Automations – prompt+trigger в UI; BDK – когда нужны версии, тесты и свой код.</blockquote>
 
-<p>Bot Development Kit cursor – не Telegram-бот в IDE и не Grok в приложении. Это npm-пакет @cursor/bdk (линия около 0.2.18 на jsDelivr): bdk init, bdk dev, bdk eval, bdk deploy. MCP (Model Context Protocol) для tools – см. <a href="/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>.</p>
+<p>Bot Development Kit cursor – не Telegram-бот в IDE и не Grok в приложении. Это npm-пакет @cursor/bdk (линия около 0.2.18 на jsDelivr): bdk init, bdk dev, bdk eval, bdk deploy. MCP (Model Context Protocol) для tools – см. <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>.</p>
 
 <h2 id="compare-formats">1. Сравните BDK, Cursor Automations и Grok Bot: таблица выбора</h2>
 
@@ -69,22 +69,26 @@
 
 <p>Scaffold без глобальной установки:</p>
 
-<pre><code>npx @cursor/bdk init ./my-agent
-cd my-agent
-bdk dev</code></pre>
+<blockquote>
+  npx @cursor/bdk init ./my-agent<br>
+  cd my-agent<br>
+  bdk dev
+</blockquote>
 
 <p>Шаблоны init: security-reviewer, grokbot-agents, triage-linear, triage-jira (--template triage → linear). Документация: bdk docs; при bdk serve – также /docs.</p>
 
 <p>Дерево после init (упрощённо):</p>
 
-<pre><code>my-agent/
-  bot/
-    instructions.md
-    tools/
-    mcp-connections/
-    channels/
-  evals/
-    (ваши *.eval.ts здесь, не в bot/evals/)</code></pre>
+<blockquote>
+  my-agent/<br>
+  &nbsp;&nbsp;bot/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;instructions.md<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;tools/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;mcp-connections/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;channels/<br>
+  &nbsp;&nbsp;evals/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;(ваши *.eval.ts здесь, не в bot/evals/)
+</blockquote>
 
 <p><b>Делайте:</b> открыть папку в Cursor и читать bot/instructions.md первым. <b>Не делайте:</b> класть eval-файлы в bot/evals/ – CLI их игнорирует; только evals/**/*.eval.ts.</p>
 
@@ -98,7 +102,7 @@ bdk dev</code></pre>
 
 <h2 id="configure-bot">3. Настройте bot/instructions.md, tools, MCP и subagents</h2>
 
-<p>instructions.md – "должностная инструкция" агента: тон, границы, когда звать tools. Tool – функция в bot/tools/, которую модель может вызвать по имени. MCP – внешние серверы через bot/mcp-connections/ (как "розетки" к GitHub, браузеру, docs); для IDE-сервера см. наш гайд по <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, для BDK – defineConnection в mcp-connections с advertiseTools: true при отладке.</p>
+<p>instructions.md – "должностная инструкция" агента: тон, границы, когда звать tools. Tool – функция в bot/tools/, которую модель может вызвать по имени. MCP – внешние серверы через bot/mcp-connections/ (как "розетки" к GitHub, браузеру, docs); для IDE-сервера см. наш гайд по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, для BDK – defineConnection в mcp-connections с advertiseTools: true при отладке.</p>
 
 <p>Для GitHub добавьте channel bot/channels/github.ts с githubChannel(): prod использует cursorAccount и serve --cursor-events; локально – unsigned loopback и fixtures.</p>
 
@@ -110,8 +114,10 @@ bdk dev</code></pre>
 
 <p>Eval – автоматический сценарий "агент должен сделать X". Файл evals/smoke.eval.ts с defineEval, gate t.succeeded() и calledTool на нужный tool. Запуск:</p>
 
-<pre><code>bdk eval --dir . --list
-bdk eval --dir . --tag smoke</code></pre>
+<blockquote>
+  bdk eval --dir . --list<br>
+  bdk eval --dir . --tag smoke
+</blockquote>
 
 <p>Model turns в evals требуют credential Cursor: bdk login, API key или service account в env. Hillclimb: измерили → одна правка (lever) → снова bdk eval; каждое улучшение фиксируйте eval, иначе регрессия незаметна.</p>
 
@@ -121,7 +127,9 @@ bdk eval --dir . --tag smoke</code></pre>
 
 <p>Prod webhook не обязателен для первой отладки. Синтез payload:</p>
 
-<pre><code>bdk github replay owner/repo#123 --dir . --dry-run --out fixtures/github</code></pre>
+<blockquote>
+  bdk github replay owner/repo#123 --dir . --dry-run --out fixtures/github
+</blockquote>
 
 <p>Затем в режиме --dev отправьте fixture curl-ом с заголовком x-github-event. Replay по умолчанию тянет pull_request; для других событий уточните --events в CLI.</p>
 
@@ -159,7 +167,7 @@ bdk eval --dir . --tag smoke</code></pre>
 
 <ol>
   <li>Добавьте второй eval на GitHub fixture после replay.</li>
-  <li>Подключите MCP tool под ваш стек по <a href="/podklyuchenie-mcp-cursor/">гайду MCP</a>.</li>
+  <li>Подключите MCP tool под ваш стек по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">гайду MCP</a>.</li>
   <li>Включите bdk eval в GitHub Actions на каждый push.</li>
   <li>Документируйте slug и ref деплоя в README.</li>
   <li>Если агент дополняет сценарии Make – разберите связку на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (фоновые цепочки после BDK).</li>

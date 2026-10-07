@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Критерий Cursor BDK Cursor Automations Grok Bot Где живёт логика Репозиторий: TS + Markdown Prompt и trigger в dashboard Интерактив в приложении Cursor Тесты и версии evals/, Git, CI с bdk eval --json Без полноценного eval-проекта в Git Не ваш self-serve репозиторий Триггеры GitHub, Slack, webhooks, schedules GitHub, GitLab, Slack, Linear, webhooks Чат с пользователем Деплой Cursor-managed hosting или свой процесс Облако Cursor без вашего bot/ Не применимо Когда брать PR-бот, triage, кастомные tools/MCP Повторяющийся job без кода в Git Быстрый диалог, не production-агент Итоговый вердикт: Если нужен только cron + prompt на репозиторий – начните с Automations",
+      "word_count": 96
+    },
+    {
+      "sentence": "Устраните типичные сбои CLI, login и pending deploy Eval падает на API key – задайте credential для model turns (service account или bdk login) NGHTTP2_FRAME_SIZE_ERROR – вы на Bun; переключитесь на Node MCP tools не видны – advertiseTools: true и проверьте OAuth MCP по skill bdk-mcp-auth Deploy завис в pending – дождитесь running или смотрите validate/deploy логи GitHub replay пустой – проверьте gh auth и номер PR evals не находятся – путь evals/**/*",
+      "word_count": 67
+    },
+    {
+      "sentence": "ts, не bot/evals/ Локальные правки не на prod – нужен push, deploy не заливает рабочую копию Redeploy сбросил events – сохраните те же --cursor-events-repo и --allow-domain Нет Node 22",
+      "word_count": 27
+    },
+    {
+      "sentence": "13 – bdk init/dev могут вести себя непредсказуемо Путаете @cursor/july и @cursor/bdk – в user-facing тексте и npm используйте @cursor/bdk Ждёте Telegram-гайд – это другой продукт; BDK только через init/eval/deploy Делайте: bdk docs и skills на jsDelivr при расхождении с памятью",
+      "word_count": 43
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.6,
+    "avg_syllables_per_word": 1.1
+  }
+}

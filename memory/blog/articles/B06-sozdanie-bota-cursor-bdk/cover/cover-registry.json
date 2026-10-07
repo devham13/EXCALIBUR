@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "sozdanie-bota-cursor-bdk",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: разработчик у ноутбука с терминалом bdk init и deploy, рядом fake GitHub PR и dashboard Automations",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-07T14:18:52+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: разработчик у ноутбука с терминалом bdk init и deploy, рядом fake GitHub PR и dashboard Automations",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнительная таблица BDK vs Cursor Automations vs Grok Bot",
+      "h2_anchor": "1. Сравните BDK, Cursor Automations и Grok Bot: таблица выбора",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Чеклист требований и шагов bdk init для Cursor BDK",
+      "h2_anchor": "2. Проверьте требования и создайте проект через bdk init",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Workflow настройки BDK: instructions, tools, MCP и subagents",
+      "h2_anchor": "3. Настройте bot/instructions.md, tools, MCP и subagents",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

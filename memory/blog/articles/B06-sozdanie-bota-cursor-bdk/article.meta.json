@@ -1,0 +1,40 @@
+{
+  "topic_id": "B06",
+  "slug": "sozdanie-bota-cursor-bdk",
+  "h1": "Как создать и задеплоить бота на Cursor BDK: пошаговая инструкция с evals и GitHub-триггером",
+  "title": "Cursor BDK: пошаговый гайд от bdk init до deploy",
+  "description": "Как создать агента на Cursor BDK: Node 22.13+, bdk init, bdk dev, evals, GitHub replay/fixtures и bdk deploy с service account. Таблица BDK vs Automations.",
+  "keywords": [
+    "cursor bdk",
+    "bdk init cursor",
+    "bot development kit cursor",
+    "как задеплоить bdk агента",
+    "bdk evals",
+    "cursor bdk github channel"
+  ],
+  "primary_query": "cursor bdk",
+  "secondary_queries": [
+    "bdk init cursor",
+    "bot development kit cursor",
+    "как задеплоить bdk агента",
+    "bdk evals hillclimb",
+    "cursor bdk github channel"
+  ],
+  "char_count": 9228,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как создать бота на cursor bdk с нуля",
+    "пошаговый deploy bdk агента на cursor hosting",
+    "bdk evals и github channel для cursor bot development kit"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor BDK: пошаговый гайд от bdk init до deploy",
+    "title_ctr": "🚀 Cursor BDK за вечер: init, evals, GitHub и deploy без webhook!",
+    "title_aeo": "Как создать и задеплоить бота на Cursor BDK с evals?",
+    "description_seo": "Cursor BDK: Node 22.13+, bdk init, bdk dev, smoke-eval, GitHub fixtures и bdk deploy с service account. Таблица BDK vs Automations vs Grok Bot.",
+    "description_ctr": "⚡ Соберите агента в Git: bdk init → evals → github replay → push → validate → running. Русский how-to без путаницы с Telegram-ботом в IDE.",
+    "description_aeo": "Cursor BDK (Bot Development Kit) – репозиторий с bot/, evals/ и CLI bdk deploy; Automations – prompt в dashboard. Нужны тесты и GitHub channel – выбирайте BDK."
+  },
+  "cover_family": "brand_collage"
+}

@@ -1,0 +1,39 @@
+{
+  "topic_id": "B06",
+  "slug": "cursor-environment-json-cloud-agents",
+  "h1": "Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds",
+  "title": "Настройка Cursor Cloud Agent: environment.json и Builds",
+  "description": "Пошаговая настройка cursor environment json: install vs start, Dockerfile без COPY репо, триггеры Builds, secrets и test agent на feature branch.",
+  "keywords": [
+    "настройка cursor cloud agent",
+    "cursor environment json",
+    "cloud agent builds",
+    "install start cursor agent",
+    "dockerfile cursor cloud agent"
+  ],
+  "primary_query": "настройка cursor cloud agent",
+  "secondary_queries": [
+    "cursor environment json",
+    "cloud agent builds настройка",
+    "install start команды cursor agent",
+    "dockerfile cursor cloud agent",
+    "snapshot cursor environment"
+  ],
+  "char_count": 8951,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить environment json для cursor cloud agents",
+    "cloud agent builds install и start пошагово",
+    "dockerfile cursor cloud agent без copy проекта"
+  ],
+  "meta_ab": {
+    "title_seo": "Настройка Cursor Cloud Agent: environment.json и Builds",
+    "title_ctr": "🚀 Cursor Cloud Agent за час: environment.json, Builds и install vs start!",
+    "title_aeo": "Как настроить environment.json для Cursor Cloud Agents с Builds?",
+    "description_seo": "Пошаговая настройка cursor environment json: install vs start, Dockerfile без COPY репо, триггеры Builds, secrets и test agent на feature branch.",
+    "description_ctr": "⚡ Закрепите Cloud Agent в Git: environment.json, зелёный Build, start/terminals и чек-лист перед Automations. Гайд без воды.",
+    "description_aeo": "Настройка cursor cloud agent через .cursor/environment.json: install на Build, start при run, Trigger build, failed vs active и verify на feature branch."
+  },
+  "cover_family": "brand_collage"
+}

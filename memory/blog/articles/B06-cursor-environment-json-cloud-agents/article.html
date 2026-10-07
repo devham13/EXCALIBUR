@@ -1,0 +1,194 @@
+<p>Cloud Agent в Cursor работает не на вашем ноутбуке, а на отдельной Ubuntu-машине с клоном репозитория. Без файла `.cursor/environment.json` каждый запуск превращается в лотерею: то нет Node, то не поднялась база, то команда живёт только в личном wizard dashboard. Настройка cursor cloud agent через config-as-code занимает около часа. Ниже вы закрепите окружение в Git, дождётесь зелёного Build, разделите команды install и start и проверите тестовый агент на feature branch.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> `.cursor/environment.json` – это "рецепт" виртуальной машины для облачного агента в репозитории. Команда install выполняется при Build и попадает в snapshot диска; start и terminals – при каждом run агента. Приоритет конфига: файл в репо выше personal и team wizard. Build failed не ломает команду: агенты стартуют с последнего успешного active Build.</blockquote>
+
+<p>Hosted Cloud Agent работает на изолированной Ubuntu VM с clone репо, secrets и сетью. Файл cursor environment json задаёт snapshot или Dockerfile, install и команды run. Build "замораживает" диск с зависимостями; без active Build агент опирается на прошлый snapshot.</p>
+
+<h2 id="when-env-json">1. Сравните Cloud Agent и локальный Agent: когда нужен environment.json</h2>
+
+<p>Локальный Agent – для быстрых правок на ПК. Cloud Agent – для длинных задач, write-доступа к GitHub, фонового run и Automations. Окружение фиксируйте в репо, а не только в dashboard.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сценарий</th>
+      <th>Локальный Agent</th>
+      <th>Hosted Cloud Agent + environment.json</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Один раз поправить файл</b></td>
+      <td>Достаточно IDE</td>
+      <td>Избыточно</td>
+    </tr>
+    <tr>
+      <td><b>PR с тестами на CI-стеке команды</b></td>
+      <td>Зависит от вашего ПК</td>
+      <td>Репо-конфиг + Build</td>
+    </tr>
+    <tr>
+      <td><b>Automations / cron на репо</b></td>
+      <td>Не работает без вашего ПК</td>
+      <td>Обязателен стабильный Build</td>
+    </tr>
+    <tr>
+      <td><b>Self-Hosted Machines</b></td>
+      <td>Свой сервер</td>
+      <td>Файл environment.json <b>не читается</b> – только repos окружения</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> коммитьте `.cursor/environment.json`, если Cloud Agents hosted – часть workflow. <b>Не делайте:</b> полагаться только на agent-led wizard без commit – личные настройки не попадут в PR коллегам.</p>
+
+<h2 id="structure-priority">2. Разберите структуру environment.json и приоритет над dashboard</h2>
+
+<p>Порядок: (1) `.cursor/environment.json` в репо, (2) personal saved, (3) team saved. Схема: <a href="https://cursor.com/schemas/environment.schema.json" target="_blank">environment.schema.json</a>; лишние ключи reject, вместо `startup` – поле `start`. База: `snapshot`, `build.dockerfile` или `image`; snapshot важнее build. Пути dockerfile/context – от `.cursor/`, `..` = корень репо.</p>
+
+<pre><code>{
+  "snapshot": "YOUR_SNAPSHOT_ID",
+  "install": "npm ci",
+  "start": "sudo service docker start",
+  "terminals": [
+    { "name": "web", "command": "npm run dev" }
+  ],
+  "ports": [{ "name": "app", "port": 3000 }]
+}</code></pre>
+
+<p>Замените `npm ci` на свой менеджер пакетов (pnpm, pip, poetry). <b>Делайте:</b> храните минимальный JSON в Git и расширяйте по мере нужды. <b>Не делайте:</b> класть API-ключи в JSON – secrets только через dashboard.</p>
+
+<h2 id="install-build">3. Настройте Dockerfile и install: что готовить в Build</h2>
+
+<p>Build: Trigger → clone → install из корня → snapshot → active. install идемпотентен и повторяется на каждом Build; в snapshot только диск, не процессы и не shell export.</p>
+
+<blockquote>
+  <b>Workflow первого окружения:</b>
+  <br>
+  GitHub read/write → guided setup или ручной `.cursor/` → install + опционально Dockerfile → commit → Builds tab → Trigger build → Success + active → test agent
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Подключите репозиторий к Cursor Cloud Agents (GitHub с правами на clone и push).</li>
+  <li><b>Шаг 2:</b> Agent-led setup в dashboard (до 10 минут по docs) или папка `.cursor/` вручную.</li>
+  <li><b>Шаг 3:</b> Выберите базу: snapshot id из dashboard после Save или `build.dockerfile` с `context: ".."` для system deps из корня.</li>
+  <li><b>Шаг 4:</b> В Dockerfile <b>не копируйте</b> весь проект – checkout commit делает Cursor; COPY только для системных зависимостей.</li>
+  <li><b>Шаг 5:</b> Пропишите `install` под ваш lockfile (`npm ci`, `pnpm install --frozen-lockfile`, `pip install -r requirements.txt`).</li>
+  <li><b>Шаг 6:</b> Commit и push; при изменении config сработает триггер Configuration change или нажмите Manual trigger в Builds tab.</li>
+  <li><b>Шаг 7:</b> Дождитесь статуса Success и метки active Build перед production-задачами.</li>
+</ol>
+
+<p><b>Делайте:</b> короткий install. <b>Не делайте:</b> dev-сервер в install – только start/terminals.</p>
+
+<h2 id="start-terminals">4. Разделите start, terminals и ports: что запускать на каждый run</h2>
+
+<p>После boot: checkout ветки (код с branch, deps с Build), затем `start` и `terminals` на каждый run. start – коротко (Docker service); terminals – tmux с dev server; ports – подсказка агенту по портам.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Поле</th>
+      <th>Когда выполняется</th>
+      <th>Пример использования</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>install</b></td>
+      <td>Каждый Build, из корня репо</td>
+      <td>Установка npm/pip зависимостей в snapshot</td>
+    </tr>
+    <tr>
+      <td><b>start</b></td>
+      <td>Каждый run агента</td>
+      <td>Старт Docker, миграции БД одной командой</td>
+    </tr>
+    <tr>
+      <td><b>terminals</b></td>
+      <td>Каждый run агента (tmux)</td>
+      <td>`npm run dev`, queue worker</td>
+    </tr>
+    <tr>
+      <td><b>ports</b></td>
+      <td>Документация для агента</td>
+      <td>3000 для фронта, 5432 для локальной БД</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> проверяйте логи run, если агент "не видит" API на localhost – часто не поднялся terminal. <b>Не делайте:</b> дублировать тяжёлый install в start – Build уже должен был положить node_modules на диск.</p>
+
+<h2 id="builds-lifecycle">5. Проверьте Builds: триггеры, логи и failed vs active</h2>
+
+<p>Триггеры Build: Recurring, Configuration change, Manual, Agent-requested. Recurring Skipped без новых commit/config на default. Failed Build: агенты на last good active Build. User secrets только при run, не в Build; stale builds по умолчанию 24h (`0` = всегда fresh default).</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Откройте Environments → Builds tab после push environment.json.</li>
+  <li><b>Шаг 2:</b> Trigger build вручную или дождитесь configuration change.</li>
+  <li><b>Шаг 3:</b> При Failed откройте логи install/Dockerfile – исправьте и пересоберите.</li>
+  <li><b>Шаг 4:</b> Убедитесь, что active Build соответствует ожидаемому snapshot id.</li>
+  <li><b>Шаг 5:</b> Запустите test Cloud Agent с узкой задачей (lint или unit test).</li>
+</ol>
+
+<p><b>Делайте:</b> тест на feature branch. <b>Не делайте:</b> игнорировать логи failed Build.</p>
+
+<h2 id="secrets-mcp">6. Ограничьте secrets, egress и MCP в облаке</h2>
+
+<p>Secrets – в dashboard: build secrets для install, user secrets при boot. Поля `egressAllowlist`, `mcpServerAllowlist`, `disableAllMcpServers` ограничивают сеть и MCP в облаке. Локальный MCP – mcp.json; связка с Cloud – в <a href="/podklyuchenie-mcp-cursor/">гайде MCP для Cursor</a>. <b>Делайте:</b> явный allowlist. <b>Не делайте:</b> секреты в JSON.</p>
+
+<h2 id="production-checklist">7. Пройдите чек-лист перед первым production run</h2>
+
+<ul>
+  <li>GitHub подключён с нужными правами на репозиторий</li>
+  <li>`.cursor/environment.json` в репо, валиден по schema</li>
+  <li>install идемпотентен</li>
+  <li>Dockerfile без COPY всего workspace</li>
+  <li>start и terminals поднимают Docker/БД/dev server при run</li>
+  <li>Secrets только в dashboard, не в JSON</li>
+  <li>Build Success и active после merge или trigger</li>
+  <li>Логи failed Build просмотрены, если были ошибки</li>
+  <li>Test agent на feature branch выполнил lint/test</li>
+  <li>egress и MCP allowlist согласованы с безопасностью</li>
+  <li>stale builds threshold понятен команде (24h или 0)</li>
+  <li>Automations только после verify Build</li>
+</ul>
+
+<p>environment.json не deprecated; snapshot id – в dashboard после Save.</p>
+
+<h2 id="next-steps">8. Что делать дальше</h2>
+
+<ol>
+  <li>Зафиксируйте минимальный environment.json и дождитесь active Build.</li>
+  <li>Разделите install и start/terminals по таблице выше и пересоберите Build.</li>
+  <li>Запустите test agent с задачей "прогони тесты" на feature branch.</li>
+  <li>Сверьте MCP allowlist с <a href="/podklyuchenie-mcp-cursor/">инструкцией по MCP</a> и политикой команды.</li>
+  <li>Для связки облачных агентов с бизнес-автоматизацией – модуль про Cursor и Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a>.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, Make.com и AI-агентов).<br>
+  <b>Достоверность данных:</b> факты о install/start, Builds, приоритете config и Self-Hosted сверены с документацией Cursor (setup, builds, schema) на 07.10.2026; показы Wordstat в этом прогоне не использовались.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем install отличается от start в cursor environment?</h3>
+<p>install выполняется на этапе Build из корня репозитория и попадает в snapshot диска. start и terminals выполняются при каждом старте агента и поднимают процессы (Docker, dev server). Перенесите тяжёлые зависимости в install, а сервисы – в start/terminals.</p>
+
+<h3>Нужен ли Dockerfile для cloud agent?</h3>
+<p>Нет. Достаточно snapshot после agent-led wizard плюс install, или только install на базовом образе. Dockerfile нужен для системных пакетов, которых нет в snapshot; не копируйте весь проект в образ.</p>
+
+<h3>Как закрепить snapshot в environment json?</h3>
+<p>Сохраните окружение в Cloud Agents dashboard, скопируйте snapshot id, вставьте в поле `snapshot` в `.cursor/environment.json`, commit и push. Trigger build или дождитесь configuration change, проверьте active Build.</p>
+
+<h3>Почему агент не видит зависимости после build?</h3>
+<p>install упал или не идемпотентен – откройте логи failed Build. Агент на ветке с другим lockfile может потребовать обновить install. Убедитесь, что active Build успешен, а не только последний commit красный.</p>
+
+<h3>Deprecated ли environment.json?</h3>
+<p>Нет. Конфиг в репозитории имеет приоритет над personal и team wizard. Для Self-Hosted Machines файл не применяется – используйте настройки hosted Cloud Agents.</p>
+
+<h3>Где хранить user secrets и build secrets?</h3>
+<p>В dashboard Cloud Agents (Secrets / runtime). User secrets доступны при старте агента, не во время Build. Build secrets используйте для install, не коммитьте значения в Git.</p>
+
+<h3>Как протестировать cloud agent builds настройка без риска для main?</h3>
+<p>Push config на feature branch, trigger build, запустите agent from branch с узкой задачей. Hosted агент boot с active Build, затем checkout вашей ветки; исправляйте install по логам до Success.</p>

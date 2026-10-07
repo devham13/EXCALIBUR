@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "json Один раз поправить файл Достаточно IDE Избыточно PR с тестами на CI-стеке команды Зависит от вашего ПК Репо-конфиг + Build Automations / cron на репо Не работает без вашего ПК Обязателен стабильный Build Self-Hosted Machines Свой сервер Файл environment",
+      "word_count": 38
+    },
+    {
+      "sentence": "json: { \"snapshot\": \"YOUR_SNAPSHOT_ID\", \"install\": \"npm ci\", \"start\": \"sudo service docker start\", \"terminals\": [ { \"name\": \"web\", \"command\": \"npm run dev\" } ], \"ports\": [ { \"name\": \"app\", \"port\": 3000 } ] } Замените `npm ci` на свой менеджер пакетов (pnpm, pip, poetry)",
+      "word_count": 31
+    },
+    {
+      "sentence": "cursor/` → install + опционально Dockerfile → commit → Builds tab → Trigger build → Success + active → test agent Шаг 1: Подключите репозиторий к Cursor Cloud Agents (GitHub с правами на clone и push)",
+      "word_count": 27
+    },
+    {
+      "sentence": "Разделите start, terminals и ports: что запускать на каждый run После boot: checkout ветки (код с branch, deps с Build), затем `start` и `terminals` на каждый run",
+      "word_count": 27
+    },
+    {
+      "sentence": "Поле Когда выполняется Пример использования install Каждый Build, из корня репо Установка npm/pip зависимостей в snapshot start Каждый run агента Старт Docker, миграции БД одной командой terminals Каждый run агента (tmux) `npm run dev`, queue worker ports Документация для агента 3000 для фронта, 5432 для локальной БД Делайте: проверяйте логи run, если агент \"не видит\" API на localhost – часто не поднялся terminal",
+      "word_count": 61
+    },
+    {
+      "sentence": "json` в репо, валиден по schema install идемпотентен Dockerfile без COPY всего workspace start и terminals поднимают Docker/БД/dev server при run Secrets только в dashboard, не в JSON Build Success и active после merge или trigger Логи failed Build просмотрены, если были ошибки Test agent на feature branch выполнил lint/test egress и MCP allowlist согласованы с безопасностью stale builds threshold понятен команде (24h или 0) Automations только после verify Build environment",
+      "word_count": 72
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.6,
+    "avg_syllables_per_word": 1.2
+  }
+}

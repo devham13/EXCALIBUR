@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-cursor-environment-json-cloud-agents/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ментацией Cursor (setup, builds, schema) на 07.10.2026; показы Wordstat в этом прогоне не использовались",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "10 минут",
+      "kind": "metric_or_duration",
+      "context": "e и push). Шаг 2: Agent-led setup в dashboard (до 10 минут по docs) или папка `.cursor/` вручную. Шаг 3: Выб",
+      "verified": true,
+      "reason": "Numerical value '10' matched in fact-bank context"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "run dev\" } ], \"ports\": [ { \"name\": \"app\", \"port\": 3000 } ] } Замените `npm ci` на свой менеджер пакетов",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5432",
+      "kind": "large_number",
+      "context": "er ports Документация для агента 3000 для фронта, 5432 для локальной БД Делайте: проверяйте логи run, есл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

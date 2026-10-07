@@ -46,15 +46,10 @@
 
 <p>Порядок: (1) `.cursor/environment.json` в репо, (2) personal saved, (3) team saved. Схема: <a href="https://cursor.com/schemas/environment.schema.json" target="_blank">environment.schema.json</a>; лишние ключи reject, вместо `startup` – поле `start`. База: `snapshot`, `build.dockerfile` или `image`; snapshot важнее build. Пути dockerfile/context – от `.cursor/`, `..` = корень репо.</p>
 
-<pre><code>{
-  "snapshot": "YOUR_SNAPSHOT_ID",
-  "install": "npm ci",
-  "start": "sudo service docker start",
-  "terminals": [
-    { "name": "web", "command": "npm run dev" }
-  ],
-  "ports": [{ "name": "app", "port": 3000 }]
-}</code></pre>
+<blockquote>
+  <b>Пример минимального environment.json:</b><br>
+  { "snapshot": "YOUR_SNAPSHOT_ID", "install": "npm ci", "start": "sudo service docker start", "terminals": [ { "name": "web", "command": "npm run dev" } ], "ports": [ { "name": "app", "port": 3000 } ] }
+</blockquote>
 
 <p>Замените `npm ci` на свой менеджер пакетов (pnpm, pip, poetry). <b>Делайте:</b> храните минимальный JSON в Git и расширяйте по мере нужды. <b>Не делайте:</b> класть API-ключи в JSON – secrets только через dashboard.</p>
 
@@ -134,7 +129,7 @@
 
 <h2 id="secrets-mcp">6. Ограничьте secrets, egress и MCP в облаке</h2>
 
-<p>Secrets – в dashboard: build secrets для install, user secrets при boot. Поля `egressAllowlist`, `mcpServerAllowlist`, `disableAllMcpServers` ограничивают сеть и MCP в облаке. Локальный MCP – mcp.json; связка с Cloud – в <a href="/podklyuchenie-mcp-cursor/">гайде MCP для Cursor</a>. <b>Делайте:</b> явный allowlist. <b>Не делайте:</b> секреты в JSON.</p>
+<p>Secrets – в dashboard: build secrets для install, user secrets при boot. Поля `egressAllowlist`, `mcpServerAllowlist`, `disableAllMcpServers` ограничивают сеть и MCP в облаке. Локальный MCP – mcp.json; связка с Cloud – в <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">гайде MCP для Cursor</a>. <b>Делайте:</b> явный allowlist. <b>Не делайте:</b> секреты в JSON.</p>
 
 <h2 id="production-checklist">7. Пройдите чек-лист перед первым production run</h2>
 
@@ -161,7 +156,7 @@
   <li>Зафиксируйте минимальный environment.json и дождитесь active Build.</li>
   <li>Разделите install и start/terminals по таблице выше и пересоберите Build.</li>
   <li>Запустите test agent с задачей "прогони тесты" на feature branch.</li>
-  <li>Сверьте MCP allowlist с <a href="/podklyuchenie-mcp-cursor/">инструкцией по MCP</a> и политикой команды.</li>
+  <li>Сверьте MCP allowlist с <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">инструкцией по MCP</a> и политикой команды.</li>
   <li>Для связки облачных агентов с бизнес-автоматизацией – модуль про Cursor и Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a>.</li>
 </ol>
 

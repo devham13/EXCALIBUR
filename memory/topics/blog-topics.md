@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor BDK: боты как код
+
+- **priority:** P0
+- **slug:** sozdanie-bota-cursor-bdk
+- **h1:** Как создать и задеплоить бота на Cursor BDK: пошаговая инструкция с evals и GitHub-триггером
+- **primary_query:** cursor bdk
+- **secondary_queries:** bdk init cursor, bot development kit cursor, как задеплоить bdk агента, bdk evals hillclimb, cursor bdk github channel
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. BDK vs Cursor Automations vs Grok Bot: таблица выбора формата агента в 2026 году
+  2. Требования: Node 22.13+, `bdk init`, структура `bot/` и `evals/` в репозитории
+  3. Пошаговая настройка: `bot/instructions.md`, tools, MCP-подключения и subagents
+  4. Локальная проверка: `bdk dev`, `bdk run`, первые evals и regression ratchet
+  5. GitHub channel: webhook, replay/fixtures и безопасный деплой на Cursor-managed hosting
+  6. Troubleshooting: login/service account, pending deploy, MCP OAuth и типичные ошибки CLI
+- **faq_hints:** чем bdk отличается от cursor automations; нужен ли репозиторий для деплоя bdk; как писать evals для bdk агента
+- **internal_links:** /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** папка репозитория с деревом `bot/` и `evals/`, рядом терминал с командами bdk init и bdk dev, стикеры GitHub webhook и MCP, шаблон security-reviewer, неоновый diy-коллаж
+
+---
+

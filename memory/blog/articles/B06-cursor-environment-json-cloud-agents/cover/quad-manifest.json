@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Cloud Agent без environment.json = каждый run — лотерея с Node и БД",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: настройка Cursor Cloud Agent через environment.json и Builds — герой указывает на failed Build и зелёный чеклист install",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; одежда: тёмно-синий худи с логотипом облака + бейдж DevOps; указывает маркером на коллаж: fake Cursor dashboard «Build FAILED» vs «Build active ✓», фрагмент JSON .cursor/environment.json с install/start, розовый стикер «install ≠ start»; мем facepalm-cat; скотч, рваная бумага, 16:9",
+      "meme_caption_ru": "Build упал — снова npm?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните Cloud Agent и локальный Agent: когда нужен environment.json",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-мокап таблицы: сценарий | Локальный Agent | Cloud Agent + environment.json — строки PR/CI, Automations, долгий run; без лица героя; лёгкий стикер «когда нужен JSON»",
+      "alt": "Таблица сравнения локального Agent и Cloud Agent с environment.json по сценариям использования"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Разберите структуру environment.json и приоритет над dashboard",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема workflow: репо .cursor/environment.json → приоритет над wizard → snapshot/Dockerfile → install (Build) → start/terminals (run); стрелки, 6 блоков; fake JSON snippet; без героя",
+      "alt": "Диаграмма структуры environment.json: приоритет конфига, install на Build и start при run"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте Dockerfile и install: что готовить в Build",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист на доске: Dockerfile без COPY репо, install deps, Trigger build, дождаться active; галочки; fake terminal npm ci; без героя",
+      "alt": "Чеклист настройки Dockerfile и install-команды для Cursor Cloud Agent Build"
+    }
+  }
+}

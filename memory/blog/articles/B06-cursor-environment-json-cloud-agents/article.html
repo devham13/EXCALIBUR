@@ -5,6 +5,10 @@
 <p>Hosted Cloud Agent работает на изолированной Ubuntu VM с clone репо, secrets и сетью. Файл cursor environment json задаёт snapshot или Dockerfile, install и команды run. Build "замораживает" диск с зависимостями; без active Build агент опирается на прошлый snapshot.</p>
 
 <h2 id="when-env-json">1. Сравните Cloud Agent и локальный Agent: когда нужен environment.json</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица сравнения локального Agent и Cloud Agent с environment.json по сценариям использования" loading="lazy">
+</figure>
+
 
 <p>Локальный Agent – для быстрых правок на ПК. Cloud Agent – для длинных задач, write-доступа к GitHub, фонового run и Automations. Окружение фиксируйте в репо, а не только в dashboard.</p>
 
@@ -43,6 +47,10 @@
 <p><b>Делайте:</b> коммитьте `.cursor/environment.json`, если Cloud Agents hosted – часть workflow. <b>Не делайте:</b> полагаться только на agent-led wizard без commit – личные настройки не попадут в PR коллегам.</p>
 
 <h2 id="structure-priority">2. Разберите структуру environment.json и приоритет над dashboard</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Диаграмма структуры environment.json: приоритет конфига, install на Build и start при run" loading="lazy">
+</figure>
+
 
 <p>Порядок: (1) `.cursor/environment.json` в репо, (2) personal saved, (3) team saved. Схема: <a href="https://cursor.com/schemas/environment.schema.json" target="_blank">environment.schema.json</a>; лишние ключи reject, вместо `startup` – поле `start`. База: `snapshot`, `build.dockerfile` или `image`; snapshot важнее build. Пути dockerfile/context – от `.cursor/`, `..` = корень репо.</p>
 
@@ -54,6 +62,10 @@
 <p>Замените `npm ci` на свой менеджер пакетов (pnpm, pip, poetry). <b>Делайте:</b> храните минимальный JSON в Git и расширяйте по мере нужды. <b>Не делайте:</b> класть API-ключи в JSON – secrets только через dashboard.</p>
 
 <h2 id="install-build">3. Настройте Dockerfile и install: что готовить в Build</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист настройки Dockerfile и install-команды для Cursor Cloud Agent Build" loading="lazy">
+</figure>
+
 
 <p>Build: Trigger → clone → install из корня → snapshot → active. install идемпотентен и повторяется на каждом Build; в snapshot только диск, не процессы и не shell export.</p>
 

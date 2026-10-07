@@ -5,6 +5,10 @@
 <p>Bot Development Kit cursor – не Telegram-бот в IDE и не Grok в приложении. Это npm-пакет @cursor/bdk (линия около 0.2.18 на jsDelivr): bdk init, bdk dev, bdk eval, bdk deploy. MCP (Model Context Protocol) для tools – см. <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>.</p>
 
 <h2 id="compare-formats">1. Сравните BDK, Cursor Automations и Grok Bot: таблица выбора</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица BDK vs Cursor Automations vs Grok Bot" loading="lazy">
+</figure>
+
 
 <p>Три формата решают похожие задачи, но по-разному хранят логику. API (Application Programming Interface) в BDK – это ваши tools и channels в коде, а не только чат.</p>
 
@@ -58,6 +62,10 @@
 <p><b>Делайте:</b> зафиксируйте выбор в README репозитория. <b>Не делайте:</b> смешивать Automations и BDK в одной инструкции для команды – разные циклы обновления.</p>
 
 <h2 id="requirements-init">2. Проверьте требования и создайте проект через bdk init</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист требований и шагов bdk init для Cursor BDK" loading="lazy">
+</figure>
+
 
 <p>Минимум Node <b>22.13+</b> (проверка node -v), Git и аккаунт Cursor. Bun для BDK не подходит: на встроенных tools часто NGHTTP2_FRAME_SIZE_ERROR – используйте только Node.</p>
 
@@ -101,6 +109,10 @@
 </ol>
 
 <h2 id="configure-bot">3. Настройте bot/instructions.md, tools, MCP и subagents</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Workflow настройки BDK: instructions, tools, MCP и subagents" loading="lazy">
+</figure>
+
 
 <p>instructions.md – "должностная инструкция" агента: тон, границы, когда звать tools. Tool – функция в bot/tools/, которую модель может вызвать по имени. MCP – внешние серверы через bot/mcp-connections/ (как "розетки" к GitHub, браузеру, docs); для IDE-сервера см. наш гайд по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, для BDK – defineConnection в mcp-connections с advertiseTools: true при отладке.</p>
 

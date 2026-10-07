@@ -1,0 +1,15 @@
+{
+  "slug": "sozdanie-bota-cursor-bdk",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-sozdanie-bota-cursor-bdk/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1108837,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=1192 slug=sozdanie-bota-cursor-bdk\nOK featured_image=1193\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1194 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/sozdanie-bota-cursor-bdk-inline-01.png\nOK inline_image_upload=1195 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/sozdanie-bota-cursor-bdk-inline-02.png\nOK inline_image_upload=1196 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/sozdanie-bota-cursor-bdk-inline-03.png\npermalink=https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/\n",
+  "verdict": "pass",
+  "transport": "ssh_sftp"
+}

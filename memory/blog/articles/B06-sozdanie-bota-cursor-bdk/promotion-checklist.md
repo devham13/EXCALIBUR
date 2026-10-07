@@ -1,7 +1,7 @@
 # Promotion checklist — B06 sozdanie-bota-cursor-bdk
 
 Дата публикации: 2026-10-07  
-Live URL: https://mayai.ru/sozdanie-bota-cursor-bdk/
+Live URL: https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 • Node 22.13+, bdk dev, smoke-eval, GitHub fixtures → push → validate → running
 • Когда нужны hillclimb и GitHub channel — BDK, а не только Automations
 
-Читать: https://mayai.ru/sozdanie-bota-cursor-bdk/
+Читать: https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/
 ```
 
 ## Перелинковка

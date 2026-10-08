@@ -72,8 +72,8 @@ def sftp_put_php(env: dict[str, str], ftp_root: str, remote: str, php: str) -> N
         root = ftp_root.strip("/")
         if root:
             sftp.chdir(root)
-        with sftp.open(remote, "w") as handle:
-            handle.write(php)
+        with sftp.open(remote, "wb") as handle:
+            handle.write(php.encode("utf-8"))
     finally:
         sftp.close()
         transport.close()
@@ -399,7 +399,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         print(f"Triggering HTTP publish on {url}...")
         with urllib.request.urlopen(
             urllib.request.Request(url, headers={"User-Agent": "ExcaliburBlogPublish/1.0"}),
-            timeout=15,
+            timeout=300,
         ) as response:
             out = response.read().decode("utf-8", errors="replace")
     except Exception as e:

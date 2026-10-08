@@ -7,6 +7,7 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -32,6 +33,113 @@ def load_env(root: Path) -> dict[str, str]:
                     env[k.strip()] = v.strip()
             return env
     raise FileNotFoundError("site.env.local not found under memory/")
+
+
+def merge_cloud_env(env: dict[str, str]) -> dict[str, str]:
+    """Overlay Cloud Agent secrets onto file-based env (never logged)."""
+    merged = dict(env)
+    for key, value in os.environ.items():
+        if key.startswith(("FTP_", "SFTP_", "EXCALIBUR_", "PUBLIC_", "WP_")) and value.strip():
+            merged.setdefault(key, value.strip())
+    if not merged.get("FTP_PASS") and os.environ.get("FTP_PASSWORD", "").strip():
+        merged["FTP_PASS"] = os.environ["FTP_PASSWORD"].strip()
+    if not merged.get("PUBLIC_SITE_URL") and os.environ.get("EXCALIBUR_PUBLIC_SITE_URL", "").strip():
+        merged["PUBLIC_SITE_URL"] = os.environ["EXCALIBUR_PUBLIC_SITE_URL"].strip()
+    return merged
+
+
+def _sftp_credentials(env: dict[str, str]) -> tuple[str, int, str, str] | None:
+    host = (env.get("SFTP_HOST") or env.get("FTP_HOST") or "").strip()
+    user = (env.get("SFTP_USER") or env.get("FTP_USER") or "").strip()
+    password = (env.get("SFTP_PASSWORD") or env.get("SFTP_PASS") or env.get("FTP_PASS") or "").strip()
+    if not (host and user and password):
+        return None
+    port = int((env.get("SFTP_PORT") or "22").strip() or "22")
+    return host, port, user, password
+
+
+def sftp_put_php(env: dict[str, str], ftp_root: str, remote: str, php: str) -> None:
+    import paramiko
+
+    creds = _sftp_credentials(env)
+    if not creds:
+        raise RuntimeError("SFTP credentials missing")
+    host, port, user, password = creds
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        root = ftp_root.strip("/")
+        if root:
+            sftp.chdir(root)
+        with sftp.open(remote, "w") as handle:
+            handle.write(php)
+    finally:
+        sftp.close()
+        transport.close()
+
+
+def sftp_delete_remote(env: dict[str, str], ftp_root: str, remote: str) -> None:
+    import paramiko
+
+    creds = _sftp_credentials(env)
+    if not creds:
+        return
+    host, port, user, password = creds
+    transport = paramiko.Transport((host, port))
+    transport.connect(username=user, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        root = ftp_root.strip("/")
+        if root:
+            sftp.chdir(root)
+        try:
+            sftp.remove(remote)
+        except OSError:
+            pass
+    finally:
+        sftp.close()
+        transport.close()
+
+
+def upload_bootstrap_php(env: dict[str, str], ftp_root: str, remote: str, php: str) -> None:
+    def ftp_connect() -> ftplib.FTP:
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        return ftp
+
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+        ftp.quit()
+    except ftplib.error_temp as exc:
+        if _sftp_credentials(env) is None:
+            raise
+        print(f"FTP STOR failed ({exc}); retrying via SFTP...", file=sys.stderr)
+        sftp_put_php(env, ftp_root, remote, php)
+
+
+def delete_bootstrap_php(env: dict[str, str], ftp_root: str, remote: str) -> None:
+    def ftp_connect() -> ftplib.FTP:
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        return ftp
+
+    try:
+        ftp = ftp_connect()
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+    except ftplib.error_temp:
+        sftp_delete_remote(env, ftp_root, remote)
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -283,17 +391,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
     if not ftp_root.endswith("/"):
         ftp_root += "/"
 
-    def ftp_connect() -> ftplib.FTP:
-        ftp = ftplib.FTP()
-        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
-        ftp.login(env["FTP_USER"], env["FTP_PASS"])
-        ftp.set_pasv(True)
-        ftp.cwd(ftp_root)
-        return ftp
-
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    upload_bootstrap_php(env, ftp_root, remote, php)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +422,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    delete_bootstrap_php(env, ftp_root, remote)
     return out
 
 
@@ -349,7 +442,7 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
+    env = merge_cloud_env(load_env(root))
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1

@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-08 — B01 primer-seo-stati — **PASS** (script)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** (bootstrap stdout) |
+| post_id | 238 |
+| featured_image_id | 1216 |
+| inline_images | 1217, 1218, 1219 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| public_base | EXCALIBUR_PUBLIC_SITE_URL |
+| transport | FTP STOR (Cloud); patch: SFTP fallback on 425 Bad IP |
+
+### Preconditions
+
+- link-verify.json: pass (6/6, site-base EXCALIBUR_PUBLIC_SITE_URL)
+- article-qa.md: PASS (94/100)
+- dry-run: slug primer-seo-stati, PHP ~7.3 MB
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1216
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1217 src=cover/inline-01.png
+OK inline_image_upload=1218 src=cover/inline-02.png
+OK inline_image_upload=1219 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities (5 articles)
+- **Live check:** `mayai.ru/primer-seo-stati/` и permalink из WP — HTTP 404 из Cloud; media URLs в stdout указывают на `meta-journal.ru` (siteurl в WP ≠ mayai.ru). Оператору: сверить FTP/SFTP аккаунт с production mayai.ru и `WP_HOME`/`siteurl`.

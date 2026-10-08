@@ -172,3 +172,51 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-08 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1210 |
+| inline_images | 1211, 1212, 1213 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| public_path | `/2026/06/19/primer-seo-stati/` (200 on `PUBLIC_SITE_URL`) |
+| transport | SFTP + HTTP (FTP STOR blocked: 425 Bad IP from Cloud) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (re-run preflight 2026-10-08)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run
+# publish: SFTP upload excalibur-blog-publish-once.php + HTTP trigger (FTP data channel blocked)
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1210
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1211..1213
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities
+- promotion-checklist.md: Live URL updated

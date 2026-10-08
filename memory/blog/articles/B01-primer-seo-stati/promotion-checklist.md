@@ -1,7 +1,7 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
-Live URL: https://... (заполнить после publish)
+Дата публикации: 2026-10-08  
+Live URL: https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ (canonical WP; mirror on production host `/2026/06/19/primer-seo-stati/`)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

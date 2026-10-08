@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-08 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1202 |
+| inline_images | 1203, 1204, 1205 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| transport | FTP STOR 425 → SFTP fallback; HTTP bootstrap 300s |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL (Cloud Secrets) |
+
+### Preconditions
+
+- article-qa.md: PASS (91/100)
+- link-verify.json: pass (8/8, preflight 2026-10-08)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- `schema.jsonld` canonical URL: `https://mayai.ru/blog/primer-seo-stati/` — live `get_permalink` вернул meta-journal.ru. Проверить FTP/SFTP credentials и `siteurl` WP, если целевой домен mayai.ru.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1202
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1203 src=cover/inline-01.png
+OK inline_image_upload=1204 src=cover/inline-02.png
+OK inline_image_upload=1205 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (5 articles scanned)

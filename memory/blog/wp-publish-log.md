@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-09 — B01 primer-seo-stati — **FAIL** (Cloud FTP data channel)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| site | EXCALIBUR_PUBLIC_SITE_URL (production host production WP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (5/5) after publish-preflight fix (removed 404 interlink `/blog/geo-optimizaciya-sajta-2026/` — target not on production host)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug `primer-seo-stati`, PHP bytes ~10.9 MB)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base "$EXCALIBUR_PUBLIC_SITE_URL"  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base "$EXCALIBUR_PUBLIC_SITE_URL"  # FAIL
+```
+
+### Blockers
+
+1. **FTP upload:** `ftplib.error_temp: 425 Security: Bad IP connecting` on `STOR` (login succeeds; passive data connection rejected — Cloud Agent egress IP not whitelisted on host).
+2. HTTP WebFetch fallback not reached (bootstrap PHP never uploaded).
+
+### Operator next steps
+
+1. Whitelist Cursor Cloud Agent egress IP for FTP on production host **or** run `excalibur_blog_wp_publish.py` from an allowed network (local/VPN).
+2. Re-run publish with `--public-base "$EXCALIBUR_PUBLIC_SITE_URL"`.
+3. Optional: reduce bootstrap PHP size if host limits upload (current dry-run ~10.9 MB — verify inline/base64 payload).

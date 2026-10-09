@@ -1,3 +1,5 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "url": "file:///workspace/memory/blog/articles/B01-primer-seo-stati/cover/canvas-quad.png",
+  "source": "cursor/GenerateImage",
+  "note": "MCP gpt-image-2 unavailable; reference i2i via GenerateImage + Pillow resize 2048x1152"
 }

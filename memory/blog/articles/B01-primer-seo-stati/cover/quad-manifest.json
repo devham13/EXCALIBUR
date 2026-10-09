@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "Пишете SEO-статью — а в выдаче обходят страницы с тем же запросом?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на fake-аналитику: SEO-текст без GEO и структуры не удерживает читателя",
+      "scene_hint": "reference-лицо, улыбка; тёмно-синий пиджак поверх футболки с принтом «SEO 2026», жест указывает на fake Яндекс.Метрика «отказ 89%» и Wordstat «как писать seo статьи»; рядом Telegram «где трафик?», отзыв ★☆☆☆☆ на розовом стикере, cutout shocked cat + facepalm meme; розовый маркер на «89%»; рваная бумага, скотч, стрелка к табличке SEO vs GEO",
+      "meme_caption_ru": "SEO есть — прочтений нет"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Сопоставьте SEO и GEO в одном материале",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Чистый UI-мокап таблицы SEO vs GEO (цель, сниппет, структура, техника) как в статье; розовый стикер «один longread»; без лица героя; лёгкий скотч по углу",
+      "alt": "Таблица сравнения SEO и GEO: цели, формат ответа, структура и техника в одном материале"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
+      "h2_anchor": "Соберите семантику и outline longread",
       "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "scene_hint": "Схема 7 шагов: интент → Wordstat → outline H2 → lead → черновик → мета → FAQ; иконки Яндекс Вордстат; маркерные стрелки; без героя",
+      "alt": "Workflow от семантики до outline: интент, кластер запросов, SERP и план H2 для longread"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
+      "h2_anchor": "Настройте мета, разметку и schema под выдачу и AI",
       "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "scene_hint": "Mock UI: Title/Description поля + accordion FAQ + фрагмент JSON-LD BlogPosting/FAQPage; стикер «GEO»; без героя",
+      "alt": "UI мета-тегов, FAQ в HTML и JSON-LD schema для выдачи и нейропоиска"
     }
   }
 }

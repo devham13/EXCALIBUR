@@ -27,7 +27,7 @@ python scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B
 
 ### Blockers
 
-1. **Network:** HTTPS к `mayai.ru:443` недоступен из локальной среды (WinError 10060). FTP (порт 21) работает, HTTP-триггер bootstrap — нет.
+1. **Network:** HTTPS к `mayai.ru:443` недоступен из локальной среды (WinError 10060). FTP (порт 21) works, HTTP-триггер bootstrap — нет.
 2. **FTP path:** аккаунт `***_blog` видит только `/index.php` + `/cgi-bin/`, **без** `wp-load.php`. WordPress на `https://mayai.ru/blog/` — другой document root.
 3. **Bootstrap 404:** загруженный `excalibur-blog-publish-once.php` (и тестовый `excalibur-test-once.php`) отдают HTTP 404 снаружи, хотя `index.php` в том же FTP root отдаётся на главной.
 
@@ -171,4 +171,46 @@ OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```
+
+---
+
+## 2026-10-09 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1222 |
+| inline_images | 1223, 1224, 1225 |
+| public_permalink | /2026/06/19/primer-seo-stati/ on EXCALIBUR_PUBLIC_SITE_URL |
+| wp_get_permalink | `https://www.meta-journal.ru/2026/06/19/primer-seo-stati/` |
+| trigger | `EXCALIBUR_PUBLIC_SITE_URL` bootstrap + HTTP |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight 2026-10-09, site-base EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- Cloud: FTP `STOR` → `425 Security: Bad IP`; bootstrap uploaded via **SFTP** (`REMOTE_SITE_ROOT`).
+- `excalibur_blog_wp_publish.py`: SFTP fallback + env overlay + `EXCALIBUR_PUBLIC_SITE_URL` for trigger base.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1222
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1223 src=cover/inline-01.png
+OK inline_image_upload=1224 src=cover/inline-02.png
+OK inline_image_upload=1225 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
 ```

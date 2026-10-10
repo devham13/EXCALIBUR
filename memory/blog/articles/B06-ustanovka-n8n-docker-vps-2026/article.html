@@ -5,6 +5,10 @@
 <p>n8n – конструктор автоматизаций из блоков (нод); webhook – входящий вызов на URL, который запускает workflow. Docker Compose поднимает n8n, Postgres и runners одним файлом. На 10.10.2026 docs n8n рекоменуют Compose для self-host; CE бесплатна, Cloud Starter – от 20 €/мес за 2 500 executions.</p>
 
 <h2 id="vps-requirements">1. Выберите VPS, домен и сравните с n8n Cloud</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение VPS и n8n Cloud для self-hosted в РФ" loading="lazy">
+</figure>
+
 
 <p><b>Делайте:</b> берите минимум 4 GB RAM и 2 vCPU (официальный минимум под Compose и sandbox/runners). Ubuntu 24.04 LTS или Debian 12 – типовой выбор в RU-гайдах. Привяжите домен A-записью на IP VPS, откройте в firewall только 80 и 443. Порт 5678 (веб-интерфейс n8n) наружу не публикуйте – только localhost + прокси.</p>
 
@@ -45,6 +49,10 @@
 <p>Self-hosted имеет смысл, когда нужны MCP и агенты без потолка облака, долгие сценарии и хранение секретов на своём железе (см. гайд B03 по MCP в Cursor — href после публикации на kv-ai.ru). Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
 
 <h2 id="docker-prep">2. Установите Docker и подготовьте каталог /opt/n8n</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow: Docker и подготовка /opt/n8n для n8n" loading="lazy">
+</figure>
+
 
 <p>На чистом Ubuntu 24.04 установите Docker Engine и плагин Compose по официальной инструкции Docker. Проверка: команда docker compose version должна ответить версией v2, не legacy docker-compose.</p>
 
@@ -72,6 +80,10 @@
 <p><b>Делайте:</b> pin версию образа через N8N_VERSION=2.42.6 (stable на 10.10.2026). <b>Не делайте:</b> коммитить .env в git или вставлять ключи в скриншоты – только плейсхолдеры в документации.</p>
 
 <h2 id="compose-run">3. Соберите docker-compose.yml и запустите PostgreSQL, n8n и runners</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист запуска docker-compose: PostgreSQL, n8n и task runners" loading="lazy">
+</figure>
+
 
 <p>Ориентир – официальный репозиторий n8n-hosting, вариант withPostgres: Postgres 18 с PGDATA=/var/lib/postgresql/data, healthcheck pg_isready, образ docker.n8n.io/n8nio/n8n. С n8n 2.0 task runners включены по умолчанию; в external mode добавьте контейнер n8nio/runners той же версии, что и n8n.</p>
 

@@ -207,3 +207,18 @@ permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 
 - Обновить Cloud Secrets: `SSH_*` / `FTP_*` / `REMOTE_SITE_ROOT` для mayai.ru (где `wp option get siteurl` = `https://mayai.ru`).
 - Либо добавить `scripts/excalibur_blog_wp_publish_runner.php` + `wp eval-file` в runbook при FTP 425 (см. commit в ветке).
+
+---
+
+## 2026-10-10 — B06 ustanovka-n8n-docker-vps-2026 — **PASS** (director SFTP retry)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | ustanovka-n8n-docker-vps-2026 |
+| verdict | **PASS** |
+| post_id | 1269 |
+| featured | 1270 |
+| inline | 1271–1273 |
+| permalink_path | /2026/10/10/ustanovka-n8n-docker-vps-2026/ |
+| transport | FTP 425 → SFTP + HTTP trigger on EXCALIBUR_PUBLIC_SITE_URL |

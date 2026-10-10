@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Self-hosted n8n на VPS (Docker)
+
+- **priority:** P0
+- **slug:** ustanovka-n8n-docker-vps-2026
+- **h1:** Как установить n8n на VPS: Docker Compose, PostgreSQL, домен и HTTPS
+- **primary_query:** установка n8n на vps
+- **secondary_queries:** n8n docker compose postgresql, n8n self hosted россия, n8n ssl домен webhook, n8n task runners docker
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Требования к VPS для РФ: vCPU/RAM, Ubuntu 24.04, домен и зачем self-hosted перед ИИ-агентами
+  2. Установка Docker и подготовка `/opt/n8n`: `.env`, `N8N_ENCRYPTION_KEY`, пароль PostgreSQL
+  3. Запуск `docker-compose.yml`: PostgreSQL 18, n8n 2.x, external task runners и healthcheck
+  4. Reverse proxy (Nginx/Caddy), Let's Encrypt, `N8N_WEBHOOK_URL` и `N8N_PROXY_HOPS` для Telegram/вебхуков
+  5. Чек-лист продакшена: бэкап `.env` и БД, фиксация версии образа, обновление без потери данных
+- **faq_hints:** сколько памяти нужно для n8n на сервере; можно ли n8n бесплатно на своём VPS; почему вебхуки не работают без HTTPS
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** мини-VPS-коробка с логотипом Docker, экран с зелёным healthcheck n8n, стикеры PostgreSQL/SSL/домен `.ru`, российская карта «данные в РФ», diy-коллаж
+- **utility_angle:** Читатель разворачивает рабочий self-hosted n8n на российском VPS с HTTPS и PostgreSQL — готовую базу для ИИ-агентов и MCP без облачных лимитов и блокировок оплаты.
+- **notes:** Wordstat MCP (`user-mcp-kv`, `wordstat_get_top_requests`) недоступен в Cloud run 2026-10-10; спрос подтверждён SERP/WebSearch (актуальные RU-гайды n8n 2.41+/runners, окт 2026). Не пересекать с WP: n8n-mcp-server-cursor, Cursor BDK, environment.json, n8n agents (отдельные материалы).
+
+---
+

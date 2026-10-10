@@ -1,7 +1,7 @@
 # Promotion checklist — B06 n8n-mcp-server-cursor-podklyuchenie
 
 Дата публикации: 2026-10-10  
-Live URL: https://mayai.ru/blog/n8n-mcp-server-cursor-podklyuchenie/ (после publish)
+Live URL: https://www.meta-journal.ru/2026/10/10/n8n-mcp-server-cursor-podklyuchenie/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ n8n mcp server в Cursor: instance-level MCP (/mcp-server/http) или MCP Serve
 • OAuth one-click и streamable-http в ~/.cursor/mcp.json
 • Чеклист 401, proxy и «пустых» tools
 
-Читать: https://mayai.ru/blog/n8n-mcp-server-cursor-podklyuchenie/
+Читать: https://www.meta-journal.ru/2026/10/10/n8n-mcp-server-cursor-podklyuchenie/
 ```
 
 ## Перелинковка

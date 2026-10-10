@@ -1,0 +1,168 @@
+<p>Telegram и CRM шлют webhook только на публичный HTTPS, а n8n Cloud упирается в лимиты runs. Self-hosted n8n на VPS (виртуальный сервер 24/7) держит сценарии и пароли у вас, в том числе на российском хостинге. Ниже – установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy и правильные N8N_WEBHOOK_URL. Вы поднимете панель по https и базу под <a href="/avtomatizaciya-n8n-ai-agents/">ИИ-агентов в n8n</a>.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Production-стек: VPS от 4 GB RAM и 2 vCPU, Docker Compose, Postgres 18, n8n stable 2.42.6 (pin версии, не latest), sidecar n8nio/runners, reverse proxy на 443, n8n слушает только 127.0.0.1:5678. Обязательны N8N_ENCRYPTION_KEY, N8N_WEBHOOK_URL и N8N_PROXY_HOPS=1. Бэкапьте .env, том Postgres и /home/node/.n8n. Схема: DNS → Caddy:443 → n8n:5678 → Postgres + runners.</blockquote>
+
+<p>n8n – конструктор автоматизаций из блоков (нод); webhook – входящий вызов на URL, который запускает workflow. Docker Compose поднимает n8n, Postgres и runners одним файлом. На 10.10.2026 docs n8n рекоменуют Compose для self-host; CE бесплатна, Cloud Starter – от 20 €/мес за 2 500 executions.</p>
+
+<h2 id="vps-requirements">1. Выберите VPS, домен и сравните с n8n Cloud</h2>
+
+<p><b>Делайте:</b> берите минимум 4 GB RAM и 2 vCPU (официальный минимум под Compose и sandbox/runners). Ubuntu 24.04 LTS или Debian 12 – типовой выбор в RU-гайдах. Привяжите домен A-записью на IP VPS, откройте в firewall только 80 и 443. Порт 5678 (веб-интерфейс n8n) наружу не публикуйте – только localhost + прокси.</p>
+
+<p><b>Не делайте:</b> ставить n8n на 2 GB RAM "на авось" – при Code node и runners получите OOM; docs советуют увеличить RAM или NODE_OPTIONS=--max-old-space-size, но проще сразу взять запас.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Self-hosted на VPS</th>
+      <th>n8n Cloud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Данные и credentials</b></td>
+      <td>На вашем диске (удобно для РФ и своих политик)</td>
+      <td>Инфраструктура n8n.io</td>
+    </tr>
+    <tr>
+      <td><b>Стоимость лицензии</b></td>
+      <td>Community Edition – 0 €</td>
+      <td>От 20 €/мес (Starter)</td>
+    </tr>
+    <tr>
+      <td><b>DevOps</b></td>
+      <td>Docker, proxy, бэкапы – на вас</td>
+      <td>Минимум: регистрация и оплата</td>
+    </tr>
+    <tr>
+      <td><b>Webhook / HTTPS</b></td>
+      <td>Настраиваете домен и LE сами</td>
+      <td>Готово из коробки</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Self-hosted имеет смысл, когда нужны <a href="/podklyuchenie-mcp-cursor/">MCP и агенты</a> без потолка облака, долгие сценарии и хранение секретов на своём железе. Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
+
+<h2 id="docker-prep">2. Установите Docker и подготовьте каталог /opt/n8n</h2>
+
+<p>На чистом Ubuntu 24.04 установите Docker Engine и плагин Compose по официальной инструкции Docker. Проверка: команда docker compose version должна ответить версией v2, не legacy docker-compose.</p>
+
+<ol>
+  <li><b>Шаг 1: Создайте каталог.</b> sudo mkdir -p /opt/n8n && sudo chown $USER:$USER /opt/n8n && cd /opt/n8n</li>
+  <li><b>Шаг 2: Сгенерируйте секреты.</b> N8N_ENCRYPTION_KEY (32+ символа, openssl rand -hex 32), пароль Postgres, N8N_RUNNERS_AUTH_TOKEN (openssl rand -hex 32). Сохраните их в менеджере паролей – смена ключа после запуска ломает расшифровку credentials в n8n.</li>
+  <li><b>Шаг 3: Создайте файл .env</b> (права chmod 600). Пример без реальных секретов:</li>
+</ol>
+
+<pre><code>N8N_VERSION=2.42.6
+POSTGRES_USER=n8n
+POSTGRES_PASSWORD=ЗАМЕНИТЕ_СИЛЬНЫЙ_ПАРОЛЬ
+POSTGRES_DB=n8n
+N8N_ENCRYPTION_KEY=ЗАМЕНИТЕ_HEX_32
+N8N_RUNNERS_AUTH_TOKEN=ЗАМЕНИТЕ_HEX_32
+GENERIC_TIMEZONE=Europe/Moscow
+N8N_HOST=n8n.example.ru
+N8N_PROTOCOL=https
+N8N_WEBHOOK_URL=https://n8n.example.ru/
+N8N_PROXY_HOPS=1</code></pre>
+
+<p><b>Делайте:</b> pin версию образа через N8N_VERSION=2.42.6 (stable на 10.10.2026). <b>Не делайте:</b> коммитить .env в git или вставлять ключи в скриншоты – только плейсхолдеры в документации.</p>
+
+<h2 id="compose-run">3. Соберите docker-compose.yml и запустите PostgreSQL, n8n и runners</h2>
+
+<p>Ориентир – официальный репозиторий n8n-hosting, вариант withPostgres: Postgres 18 с PGDATA=/var/lib/postgresql/data, healthcheck pg_isready, образ docker.n8n.io/n8nio/n8n. С n8n 2.0 task runners включены по умолчанию; в external mode добавьте контейнер n8nio/runners той же версии, что и n8n.</p>
+
+<blockquote>
+  <b>Workflow запуска:</b>
+  <br>
+  docker compose config → docker compose up -d → docker compose ps → curl http://127.0.0.1:5678 → owner в UI → тест webhook
+</blockquote>
+
+<ol>
+  <li><b>Шаг 4: Положите docker-compose.yml</b> рядом с .env. Укажите DB_TYPE=postgresdb, DB_POSTGRESDB_HOST=postgres, том для /home/node/.n8n (ключи шифрования и assets даже при Postgres), depends_on с condition: service_healthy.</li>
+  <li><b>Шаг 5: Добавьте сервис runners.</b> N8N_RUNNERS_MODE=external на n8n, broker на 0.0.0.0:5679, у runners – N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679 и тот же N8N_RUNNERS_AUTH_TOKEN.</li>
+  <li><b>Шаг 6: Запустите стек.</b> docker compose up -d. Логи: docker compose logs -f n8n. Ошибки миграции Postgres 18 на старом volume – отдельный кейс: major upgrade требует pg_dumpall по docs, не удаляйте том вслепую.</li>
+  <li><b>Шаг 7: Проверьте локально.</b> На VPS: curl -I http://127.0.0.1:5678. Должен отвечать n8n до настройки HTTPS. Создайте первого пользователя (owner) в браузере через SSH-туннель или временно, пока нет proxy.</li>
+  <li><b>Шаг 8: Зарегистрируйте CE.</b> Settings → Usage: бесплатная регистрация по email открывает folders и debug in editor – полезно до продакшена.</li>
+</ol>
+
+<p>Скопируйте базу из <a href="https://github.com/n8n-io/n8n-hosting/blob/main/docker-compose/withPostgres/docker-compose.yml" target="_blank">n8n-hosting/withPostgres</a> и добавьте сервис runners, bind 127.0.0.1:5678 и переменные из .env. Ключевые строки для n8n:</p>
+
+<pre><code>image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}
+ports: ['127.0.0.1:5678:5678']
+environment:
+  DB_TYPE: postgresdb
+  N8N_RUNNERS_MODE: external
+  N8N_RUNNERS_AUTH_TOKEN: ${N8N_RUNNERS_AUTH_TOKEN}</code></pre>
+
+<p><b>Делайте:</b> держите версию runner = версии n8n. <b>Не делайте:</b> использовать SQLite в prod – только Postgres; SQLite в docs оставлен для локальных тестов.</p>
+
+<h2 id="proxy-https">4. Настройте Caddy, HTTPS и URL для вебхуков</h2>
+
+<p>Reverse proxy – "швейцар" перед n8n: принимает HTTPS на 443 и проксирует на 127.0.0.1:5678. Caddy сам получает сертификат Let's Encrypt, если DNS уже указывает на сервер и порт 80 доступен с интернета.</p>
+
+<p>Установите Caddy на хост (не обязательно в том же compose). Минимальный Caddyfile:</p>
+
+<pre><code>n8n.example.ru {
+  reverse_proxy 127.0.0.1:5678
+}</code></pre>
+
+<p>После reload Caddy откройте https://n8n.example.ru. В .env уже должны быть N8N_HOST, N8N_PROTOCOL=https, N8N_WEBHOOK_URL=https://n8n.example.ru/ (со слэшем в конце по docs). WEBHOOK_URL без префикса N8N_ – deprecated с 2.35.0.</p>
+
+<p>За одним прокси-слоем выставьте N8N_PROXY_HOPS=1 и убедитесь, что Caddy передаёт X-Forwarded-For и X-Forwarded-Proto – иначе n8n генерирует http-ссылки и ломает secure cookie (типичная ошибка 502 или бесконечный редирект).</p>
+
+<ol>
+  <li><b>Шаг 9: Smoke-test webhook.</b> Создайте workflow с Webhook node, скопируйте Production URL, отправьте GET/POST из браузера или curl с другого устройства – должен прийти execution.</li>
+  <li><b>Шаг 10: Подключите внешний сервис.</b> Telegram Bot API или CRM webhook – только после зелёного HTTPS. Test URL в n8n для отладки, Production – для боевого триггера.</li>
+</ol>
+
+<p><b>Делайте:</b> дождитесь распространения DNS (от минут до суток) перед выводом в prod. <b>Не делайте:</b> обещать "15 минут до prod", если домен только что создан.</p>
+
+<h2 id="prod-checklist">5. Пройдите чеклист продакшена, бэкап и обновление</h2>
+
+<p>Перед боевыми интеграциями пройдите список:</p>
+
+<ul>
+  <li>Зафиксирована версия образа n8n и runners в .env, не latest.</li>
+  <li>N8N_ENCRYPTION_KEY сохранён offsite вместе с .env.</li>
+  <li>Postgres volume и n8n_data бэкапятся по cron (pg_dump + архив тома или snapshot VPS).</li>
+  <li>Порт 5678 привязан к 127.0.0.1, снаружи только 443.</li>
+  <li>N8N_WEBHOOK_URL совпадает с публичным https-доменом.</li>
+  <li>N8N_PROXY_HOPS=1 при одном reverse proxy.</li>
+  <li>Healthcheck postgres зелёный в docker compose ps.</li>
+  <li>Runners в логах без auth errors.</li>
+  <li>Owner-аккаунт с сильным паролем, лишние тестовые workflow удалены.</li>
+  <li>Обновление: docker compose pull, docker compose down, docker compose up -d – без смены encryption key.</li>
+  <li>Major Postgres – только по официальной миграции (dump/restore).</li>
+  <li>Документирована дата и версия перед каждым pull.</li>
+</ul>
+
+<p>Minor-обновление: бэкап → docker compose pull → up -d. При OOM увеличьте RAM или упростите Code node. Дальше – <a href="/avtomatizaciya-n8n-ai-agents/">ИИ-агенты в n8n</a>, <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; no-code без DevOps – курс Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com и n8n).<br>
+  <b>Достоверность данных:</b> версии n8n 2.42.6, требования 4 GB RAM и переменные окружения сверены с docs.n8n.io и n8n-hosting на 10.10.2026; смежный спрос по запросу "n8n" – 37 115 показов/мес (Wordstat, 11.06.2026, research B02).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Сколько RAM нужно для n8n на VPS?</h3>
+<p>Официальный минимум для Docker Compose – 4 GB RAM и 2 vCPU. Если в workflow много Code node и external runners, следите за памятью в docker stats; при OOM увеличьте тариф VPS или уменьшите параллельные executions.</p>
+
+<h3>Можно ли n8n бесплатно на своём VPS?</h3>
+<p>Да: Community Edition без платы за лицензию. Вы платите только хостинг и внешние API. Регистрация CE по email в Settings unlock часть удобств редактора – это бесплатно.</p>
+
+<h3>Почему вебхуки не работают без HTTPS?</h3>
+<p>Внешние сервисы вызывают публичный URL. Задайте N8N_WEBHOOK_URL=https://ваш-домен/, поднимите reverse proxy на 443 и проверьте Production URL в Webhook node curl-ом с интернета.</p>
+
+<h3>SQLite или PostgreSQL?</h3>
+<p>Для prod – только PostgreSQL через DB_TYPE=postgresdb. SQLite подходит для быстрого локального теста, не для данных клиентов и 24/7 webhook.</p>
+
+<h3>Зачем отдельный контейнер n8nio/runners?</h3>
+<p>С n8n 2.0 Code node выполняется через task runners в изолированном окружении. В external mode runner – отдельный контейнер; версия образа runners должна совпадать с версией n8n.</p>
+
+<h3>Что обязательно бэкапить?</h3>
+<p>Файл .env с N8N_ENCRYPTION_KEY, дамп Postgres и volume /home/node/.n8n. Без ключа восстановить сохранённые credentials в n8n нельзя.</p>
+
+<h3>Как обновить n8n без потери данных?</h3>
+<p>Сделайте бэкап, выполните docker compose pull и docker compose up -d. N8N_ENCRYPTION_KEY не меняйте. При смене major версии Postgres следуйте официальной процедуре миграции, а не удалению тома.</p>

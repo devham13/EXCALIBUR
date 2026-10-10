@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "ustanovka-n8n-docker-vps-2026",
+  "h1": "Как установить n8n на VPS: Docker Compose, PostgreSQL, домен и HTTPS",
+  "title": "Установка n8n на VPS: Docker Compose, PostgreSQL и HTTPS",
+  "description": "Пошаговая установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy, Let's Encrypt и N8N_WEBHOOK_URL. Чеклист prod и бэкап для self-hosted в РФ.",
+  "keywords": [
+    "установка n8n на vps",
+    "n8n docker compose postgresql",
+    "n8n self hosted россия",
+    "n8n ssl домен webhook",
+    "n8n task runners docker"
+  ],
+  "primary_query": "установка n8n на vps",
+  "secondary_queries": [
+    "n8n docker compose postgresql",
+    "n8n self hosted россия",
+    "n8n ssl домен webhook",
+    "n8n task runners docker"
+  ],
+  "char_count": 9298,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как установить n8n на vps docker compose",
+    "n8n self hosted postgresql и https на своем сервере",
+    "настройка n8n webhook и task runners на vps"
+  ],
+  "meta_ab": {
+    "title_seo": "Установка n8n на VPS: Docker Compose, PostgreSQL и HTTPS",
+    "title_ctr": "🚀 Установка n8n на VPS за один вечер: Docker, Postgres 18 и рабочие webhook!",
+    "title_aeo": "Как установить n8n на VPS с Docker Compose и PostgreSQL?",
+    "description_seo": "Пошаговая установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy, HTTPS и N8N_WEBHOOK_URL. Чеклист prod для self-hosted.",
+    "description_ctr": "⚡ Поднимите n8n на своём VPS: pin версии 2.42.6, Postgres 18, Caddy + LE, runners и 12 пунктов prod-чеклиста. Без облачных лимитов.",
+    "description_aeo": "Установка n8n на VPS через Docker Compose: PostgreSQL 18, HTTPS, N8N_WEBHOOK_URL, external task runners и бэкап .env с encryption key."
+  },
+  "cover_family": "brand_collage"
+}

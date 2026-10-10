@@ -1,4 +1,4 @@
-<p>Telegram и CRM шлют webhook только на публичный HTTPS, а n8n Cloud упирается в лимиты runs. Self-hosted n8n на VPS (виртуальный сервер 24/7) держит сценарии и пароли у вас, в том числе на российском хостинге. Ниже – установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy и правильные N8N_WEBHOOK_URL. Вы поднимете панель по https и базу под <a href="/blog/avtomatizaciya-n8n-ai-agents/">ИИ-агентов в n8n</a>.</p>
+<p>Telegram и CRM шлют webhook только на публичный HTTPS, а n8n Cloud упирается в лимиты runs. Self-hosted n8n на VPS (виртуальный сервер 24/7) держит сценарии и пароли у вас, в том числе на российском хостинге. Ниже – установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy и правильные N8N_WEBHOOK_URL. Вы поднимете панель по https и базу под <a href="/avtomatizaciya-n8n-ai-agents/">ИИ-агентов в n8n</a>.</p>
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> Production-стек: VPS от 4 GB RAM и 2 vCPU, Docker Compose, Postgres 18, n8n stable 2.42.6 (pin версии, не latest), sidecar n8nio/runners, reverse proxy на 443, n8n слушает только 127.0.0.1:5678. Обязательны N8N_ENCRYPTION_KEY, N8N_WEBHOOK_URL и N8N_PROXY_HOPS=1. Бэкапьте .env, том Postgres и /home/node/.n8n. Схема: DNS → Caddy:443 → n8n:5678 → Postgres + runners.</blockquote>
 
@@ -46,7 +46,7 @@
   </tbody>
 </table>
 
-<p>Self-hosted имеет смысл, когда нужны MCP и агенты без потолка облака, долгие сценарии и хранение секретов на своём железе (см. <a href="/blog/podklyuchenie-mcp-cursor/">гайд по MCP в Cursor</a>). Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
+<p>Self-hosted имеет смысл, когда нужны MCP и агенты без потолка облака, долгие сценарии и хранение секретов на своём железе (см. <a href="/podklyuchenie-mcp-cursor/">гайд по MCP в Cursor</a>). Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
 
 <h2 id="docker-prep">2. Установите Docker и подготовьте каталог /opt/n8n</h2>
 <figure class="inline-quad" data-slot="inline_2">
@@ -158,7 +158,7 @@
   <li>Документирована дата и версия перед каждым pull.</li>
 </ul>
 
-<p>Minor-обновление: бэкап → docker compose pull → up -d. При OOM увеличьте RAM или упростите Code node. Дальше – <a href="/blog/avtomatizaciya-n8n-ai-agents/">гайд по ИИ-агентам в n8n</a> и <a href="/blog/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; no-code без DevOps – курс Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</p>
+<p>Minor-обновление: бэкап → docker compose pull → up -d. При OOM увеличьте RAM или упростите Code node. Дальше – <a href="/avtomatizaciya-n8n-ai-agents/">гайд по ИИ-агентам в n8n</a> и <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; no-code без DevOps – курс Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</p>
 
 <blockquote>
   <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com и n8n).<br>

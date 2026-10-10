@@ -172,3 +172,38 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-10 — B06 ustanovka-n8n-docker-vps-2026 — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | ustanovka-n8n-docker-vps-2026 |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (after internal href fix `/blog/` → root slugs, `--site-base https://mayai.ru`)
+- schema.jsonld, cover, EXCALIBUR_BLOG_ALLOW_PUBLISH=yes
+
+### Attempts (Cloud Agent)
+
+1. **FTP** `excalibur_blog_wp_publish.py`: `425 Security: Bad IP connecting` (passive + active).
+2. **SFTP** upload bootstrap to WP root + HTTP trigger `https://mayai.ru/excalibur-blog-publish-once.php`: **404** (marker `.txt` on SFTP also 404 on web — SFTP tree ≠ mayai docroot).
+3. **SSH** `REMOTE_SITE_ROOT` + same HTTP bootstrap: **404**.
+4. **WP-CLI over SSH**: `wp option get siteurl` → `https://www.meta-journal.ru` (not mayai.ru). Test publish created post **1263** — **deleted** (1263–1267) to avoid wrong-site content.
+
+### Blockers
+
+- Нет рабочего канала FTP/SFTP/SSH к **mayai.ru** из Cloud Agent (секреты ведут на meta-journal.ru).
+- Для mayai: whitelist IP Cloud Agent на FTP **или** SSH/WP-CLI на document root mayai **или** publish с локальной сети (как B02–B05).
+
+### Next steps
+
+- Обновить Cloud Secrets: `SSH_*` / `FTP_*` / `REMOTE_SITE_ROOT` для mayai.ru (где `wp option get siteurl` = `https://mayai.ru`).
+- Либо добавить `scripts/excalibur_blog_wp_publish_runner.php` + `wp eval-file` в runbook при FTP 425 (см. commit в ветке).

@@ -1,0 +1,19 @@
+{
+  "slug": "ustanovka-n8n-docker-vps-2026",
+  "topic_id": "B06",
+  "permalink": "",
+  "post_id": "",
+  "verdict": "fail",
+  "transport_attempts": [
+    "ftplib: 425 Security Bad IP (passive and active)",
+    "sftp_upload + http_trigger: bootstrap 404 (upload not in web docroot)",
+    "ssh_remote_site_root + http_trigger: 404",
+    "wp_cli_ssh: published to wrong site (siteurl=meta-journal.ru); post 1263 rolled back"
+  ],
+  "blockers": [
+    "Cloud FTP data channel blocked (425)",
+    "HTTP bootstrap excalibur-blog-publish-once.php not executable on mayai.ru from SFTP/SSH docroot",
+    "SSH/WP-CLI credentials point to www.meta-journal.ru, not mayai.ru (EXCALIBUR handoff canonical)"
+  ],
+  "raw_output": ""
+}

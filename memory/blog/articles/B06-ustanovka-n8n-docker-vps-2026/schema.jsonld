@@ -1,0 +1,233 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#article",
+      "headline": "Как установить n8n на VPS: Docker Compose, PostgreSQL, домен и HTTPS",
+      "description": "Пошаговая установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy, Let's Encrypt и N8N_WEBHOOK_URL. Чеклист prod и бэкап для self-hosted в РФ.",
+      "datePublished": "2026-10-10",
+      "dateModified": "2026-10-10",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/ustanovka-n8n-docker-vps-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "установка n8n на vps, n8n docker compose postgresql, n8n self hosted россия, n8n ssl домен webhook, n8n task runners docker",
+      "wordCount": 9559,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько RAM нужно для n8n на VPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Официальный минимум для Docker Compose – 4 GB RAM и 2 vCPU. Если в workflow много Code node и external runners, следите за памятью в docker stats; при OOM увеличьте тариф VPS или уменьшите параллельные executions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли n8n бесплатно на своём VPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да: Community Edition без платы за лицензию. Вы платите только хостинг и внешние API. Регистрация CE по email в Settings unlock часть удобств редактора – это бесплатно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему вебхуки не работают без HTTPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Внешние сервисы вызывают публичный URL. Задайте N8N_WEBHOOK_URL=https://ваш-домен/, поднимите reverse proxy на 443 и проверьте Production URL в Webhook node curl-ом с интернета."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SQLite или PostgreSQL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для prod – только PostgreSQL через DB_TYPE=postgresdb. SQLite подходит для быстрого локального теста, не для данных клиентов и 24/7 webhook."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Зачем отдельный контейнер n8nio/runners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "С n8n 2.0 Code node выполняется через task runners в изолированном окружении. В external mode runner – отдельный контейнер; версия образа runners должна совпадать с версией n8n."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что обязательно бэкапить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Файл .env с N8N_ENCRYPTION_KEY, дамп Postgres и volume /home/node/.n8n. Без ключа восстановить сохранённые credentials в n8n нельзя."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как обновить n8n без потери данных?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сделайте бэкап, выполните docker compose pull и docker compose up -d. N8N_ENCRYPTION_KEY не меняйте. При смене major версии Postgres следуйте официальной процедуре миграции, а не удалению тома."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#howto",
+      "name": "Как установить n8n на VPS: Docker Compose, PostgreSQL, домен и HTTPS",
+      "description": "Пошаговая установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy, Let's Encrypt и N8N_WEBHOOK_URL. Чеклист prod и бэкап для self-hosted в РФ.",
+      "inLanguage": "ru",
+      "totalTime": "PT3H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VPS с Docker Engine и Docker Compose v2"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Домен с A-записью на IP VPS"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Caddy или другой reverse proxy для HTTPS"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Docker Compose файл n8n с PostgreSQL 18 и n8nio/runners"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Файл .env с N8N_ENCRYPTION_KEY и секретами Postgres"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Создайте каталог",
+          "text": "sudo mkdir -p /opt/n8n && sudo chown $USER:$USER /opt/n8n && cd /opt/n8n",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#docker-prep"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Сгенерируйте секреты",
+          "text": "N8N_ENCRYPTION_KEY (32+ символа, openssl rand -hex 32), пароль Postgres, N8N_RUNNERS_AUTH_TOKEN (openssl rand -hex 32). Сохраните их в менеджере паролей – смена ключа после запуска ломает расшифровку credentials в n8n.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#docker-prep"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Создайте файл .env",
+          "text": "Пример с N8N_VERSION=2.42.6, Postgres, N8N_HOST, N8N_PROTOCOL=https, N8N_WEBHOOK_URL и N8N_PROXY_HOPS=1; права chmod 600.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#docker-prep"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Положите docker-compose.yml",
+          "text": "Укажите DB_TYPE=postgresdb, DB_POSTGRESDB_HOST=postgres, том для /home/node/.n8n, depends_on с condition: service_healthy.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#compose-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Добавьте сервис runners",
+          "text": "N8N_RUNNERS_MODE=external на n8n, broker на 0.0.0.0:5679, у runners – N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679 и тот же N8N_RUNNERS_AUTH_TOKEN.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#compose-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Запустите стек",
+          "text": "docker compose up -d. Логи: docker compose logs -f n8n.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#compose-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Проверьте локально",
+          "text": "На VPS: curl -I http://127.0.0.1:5678. Создайте первого пользователя (owner) в браузере.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#compose-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Зарегистрируйте CE",
+          "text": "Settings → Usage: бесплатная регистрация по email открывает folders и debug in editor.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#compose-run"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Smoke-test webhook",
+          "text": "Создайте workflow с Webhook node, скопируйте Production URL, отправьте GET/POST из браузера или curl с другого устройства – должен прийти execution.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#proxy-https"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 10,
+          "name": "Подключите внешний сервис",
+          "text": "Telegram Bot API или CRM webhook – только после зелёного HTTPS. Test URL в n8n для отладки, Production – для боевого триггера.",
+          "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/#proxy-https"
+        }
+      ]
+    }
+  ]
+}

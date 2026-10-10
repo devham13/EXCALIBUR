@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-mcp-server-cursor-podklyuchenie",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: n8n MCP Server как розетка — неоновые кабели к Cursor, стикеры Production URL и Bearer token",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-10T10:21:29+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: n8n MCP Server как розетка — неоновые кабели к Cursor, стикеры Production URL и Bearer token",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение Instance-level MCP и MCP Server Trigger для Cursor",
+      "h2_anchor": "Выберите режим: MCP Server Trigger или instance-level MCP",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Workflow-схема MCP Server Trigger и production URL в n8n",
+      "h2_anchor": "Соберите workflow с MCP Server Trigger и production URL",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист включения instance-level MCP и Available in MCP для Cursor",
+      "h2_anchor": "Включите instance-level MCP и отметьте workflow для Cursor",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

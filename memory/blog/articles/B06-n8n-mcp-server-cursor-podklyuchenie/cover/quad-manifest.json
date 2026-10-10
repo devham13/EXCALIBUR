@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "n8n mcp cursor: Trigger или instance-level — и снова 401?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: n8n MCP Server как розетка — неоновые кабели к Cursor, стикеры Production URL и Bearer token",
+      "scene_hint": "reference-лицо в casual/hoodie devops, указывает на n8n-ноду «MCP Server» как розетку; неоновые кабели к логотипам Cursor и Claude; fake UI «401 Unauthorized», «0 tools»; розовые стикеры Production URL / Bearer token; скотч, рваная бумага, meme facepalm; diy-коллаж на тёмном фоне (из B06 card)",
+      "meme_caption_ru": "Tools пустые? OAuth забыл?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Выберите режим: MCP Server Trigger или instance-level MCP",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица Instance-level MCP vs MCP Server Trigger: URL /mcp-server/http vs Production URL, Available in MCP vs Publish, кейсы «пульт workflow» vs «один CRM tool» — без лица героя",
+      "alt": "Сравнение Instance-level MCP и MCP Server Trigger для Cursor"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Соберите workflow с MCP Server Trigger и production URL",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема: MCP Server Trigger → Call n8n Workflow Tool → Execute Workflow Trigger → CRM/Telegram; стрелки, badges SSE/streamable-http, красный крест на Test URL — «Соберите workflow с MCP Server Trigger и production URL»",
+      "alt": "Workflow-схема MCP Server Trigger и production URL в n8n"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Включите instance-level MCP и отметьте workflow для Cursor",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист: Enable MCP access → OAuth/API key → Connect Cursor one-click → Available in MCP на workflow → description для search_workflows; розовые галочки на ленте",
+      "alt": "Чеклист включения instance-level MCP и Available in MCP для Cursor"
+    }
+  }
+}

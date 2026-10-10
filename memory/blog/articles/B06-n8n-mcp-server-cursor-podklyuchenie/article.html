@@ -5,6 +5,10 @@
 <p><b>MCP</b> (Model Context Protocol) - "розетка" для внешних действий из ИИ-редактора; <b>n8n</b> - ваши сценарии (CRM, почта, webhooks). Базовая настройка MCP в IDE - в <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">гайде по подключению MCP в Cursor</a>; агенты внутри n8n - в <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">материале про автоматизацию n8n</a>. Здесь только связка n8n mcp server и Cursor.</p>
 
 <h2 id="choose-mode">Выберите режим: MCP Server Trigger или instance-level MCP</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение Instance-level MCP и MCP Server Trigger для Cursor" loading="lazy">
+</figure>
+
 
 <p><b>Делайте:</b> зафиксируйте задачу одним предложением ("запускать любые опубликованные workflow из Cursor" vs "дать Cursor ровно три tools для CRM"). <b>Не делайте:</b> не смешивайте URL Trigger и <b>/mcp-server/http</b> в одной записи mcp.json - это разные серверы.</p>
 
@@ -47,6 +51,10 @@
 <p>Сверьте версию n8n (для MCP часто указывают минимум <b>2.18.4</b>; UI Connect a client - с <b>2.33.0</b>). Self-hosted работает, если Cursor видит домен; за proxy с <b>2.36.0</b> добавьте MCP-заголовки в allowlist.</p>
 
 <h2 id="trigger-workflow">Соберите workflow с MCP Server Trigger и production URL</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow-схема MCP Server Trigger и production URL в n8n" loading="lazy">
+</figure>
+
 
 <p><b>Делайте:</b> проектируйте Trigger как мини-сервис с явными tools. <b>Не делайте:</b> не отдавайте Cursor Test URL после отладки - для постоянной работы нужен <b>Production URL</b> после Publish.</p>
 
@@ -68,6 +76,10 @@
 <p>В queue mode направьте <b>/mcp*</b> на одну replica (docs n8n).</p>
 
 <h2 id="instance-enable">Включите instance-level MCP и отметьте workflow для Cursor</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист включения instance-level MCP и Available in MCP для Cursor" loading="lazy">
+</figure>
+
 
 <p><b>Делайте:</b> включайте MCP на уровне инстанса один раз (нужны права owner/admin). <b>Не делайте:</b> не ждите tools в Cursor, пока workflow не помечен <b>Available in MCP</b> - без этого список будет пустым.</p>
 

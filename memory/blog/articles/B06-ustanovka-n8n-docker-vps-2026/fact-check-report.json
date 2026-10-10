@@ -1,0 +1,66 @@
+{
+  "article": "memory/blog/articles/B06-ustanovka-n8n-docker-vps-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 8,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ет n8n, Postgres и runners одним файлом. На 10.10.2026 docs n8n рекоменуют Compose для self-host; CE бесп",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "суток) перед выводом в prod. Не делайте: обещать \"15 минут до prod\", если домен только что создан. 5. Пройди",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
+    },
+    {
+      "fact": "5678",
+      "kind": "large_number",
+      "context": "everse proxy на 443, n8n слушает только 127.0.0.1:5678. Обязательны N8N_ENCRYPTION_KEY, N8N_WEBHOOK_URL",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 500",
+      "kind": "large_number",
+      "context": "ost; CE бесплатна, Cloud Starter – от 20 €/мес за 2 500 executions. 1. Выберите VPS, домен и сравните с n8",
+      "verified": true,
+      "reason": "Numerical value '2500' matched in fact-bank context"
+    },
+    {
+      "fact": "5679",
+      "kind": "large_number",
+      "context": "N_RUNNERS_MODE=external на n8n, broker на 0.0.0.0:5679, у runners – N8N_RUNNERS_TASK_BROKER_URI=http://n",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "443",
+      "kind": "large_number",
+      "context": "e proxy – \"швейцар\" перед n8n: принимает HTTPS на 443 и проксирует на 127.0.0.1:5678. Caddy сам получает",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "502",
+      "kind": "large_number",
+      "context": "tp-ссылки и ломает secure cookie (типичная ошибка 502 или бесконечный редирект). Шаг 9: Smoke-test webho",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "37 115",
+      "kind": "large_number",
+      "context": "g на 10.10.2026; смежный спрос по запросу \"n8n\" – 37 115 показов/мес (Wordstat, 11.06.2026, research B02).",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

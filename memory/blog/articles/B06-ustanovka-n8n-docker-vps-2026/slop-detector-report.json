@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "Не делайте: ставить n8n на 2 GB RAM \"на авось\" – при Code node и runners получите OOM; docs советуют увеличить RAM или NODE_OPTIONS=--max-old-space-size, но проще сразу взять запас",
+      "word_count": 26
+    },
+    {
+      "sentence": "io Стоимость лицензии Community Edition – 0 € От 20 €/мес (Starter) DevOps Docker, proxy, бэкапы – на вас Минимум: регистрация и оплата Webhook / HTTPS Настраиваете домен и LE сами Готово из коробки Self-hosted имеет смысл, когда нужны MCP и агенты без потолка облака, долгие сценарии и хранение секретов на своём железе (см",
+      "word_count": 48
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 6.1,
+    "avg_syllables_per_word": 1.4
+  }
+}

@@ -1,4 +1,4 @@
-<p>Telegram и CRM шлют webhook только на публичный HTTPS, а n8n Cloud упирается в лимиты runs. Self-hosted n8n на VPS (виртуальный сервер 24/7) держит сценарии и пароли у вас, в том числе на российском хостинге. Ниже – установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy и правильные N8N_WEBHOOK_URL. Вы поднимете панель по https и базу под <a href="/avtomatizaciya-n8n-ai-agents/">ИИ-агентов в n8n</a>.</p>
+<p>Telegram и CRM шлют webhook только на публичный HTTPS, а n8n Cloud упирается в лимиты runs. Self-hosted n8n на VPS (виртуальный сервер 24/7) держит сценарии и пароли у вас, в том числе на российском хостинге. Ниже – установка n8n на VPS: Docker Compose, PostgreSQL 18, external runners, Caddy и правильные N8N_WEBHOOK_URL. Вы поднимете панель по https и базу под ИИ-агентов в n8n (гайд B02, href после публикации на kv-ai.ru).</p>
 
 <blockquote><b>TL;DR / Быстрый инсайт:</b> Production-стек: VPS от 4 GB RAM и 2 vCPU, Docker Compose, Postgres 18, n8n stable 2.42.6 (pin версии, не latest), sidecar n8nio/runners, reverse proxy на 443, n8n слушает только 127.0.0.1:5678. Обязательны N8N_ENCRYPTION_KEY, N8N_WEBHOOK_URL и N8N_PROXY_HOPS=1. Бэкапьте .env, том Postgres и /home/node/.n8n. Схема: DNS → Caddy:443 → n8n:5678 → Postgres + runners.</blockquote>
 
@@ -42,7 +42,7 @@
   </tbody>
 </table>
 
-<p>Self-hosted имеет смысл, когда нужны <a href="/podklyuchenie-mcp-cursor/">MCP и агенты</a> без потолка облака, долгие сценарии и хранение секретов на своём железе. Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
+<p>Self-hosted имеет смысл, когда нужны MCP и агенты без потолка облака, долгие сценарии и хранение секретов на своём железе (см. гайд B03 по MCP в Cursor — href после публикации на kv-ai.ru). Если цель – один эксперимент за вечер без сервера, сначала возьмите Cloud trial – установку VPS можно отложить.</p>
 
 <h2 id="docker-prep">2. Установите Docker и подготовьте каталог /opt/n8n</h2>
 
@@ -54,17 +54,20 @@
   <li><b>Шаг 3: Создайте файл .env</b> (права chmod 600). Пример без реальных секретов:</li>
 </ol>
 
-<pre><code>N8N_VERSION=2.42.6
-POSTGRES_USER=n8n
-POSTGRES_PASSWORD=ЗАМЕНИТЕ_СИЛЬНЫЙ_ПАРОЛЬ
-POSTGRES_DB=n8n
-N8N_ENCRYPTION_KEY=ЗАМЕНИТЕ_HEX_32
-N8N_RUNNERS_AUTH_TOKEN=ЗАМЕНИТЕ_HEX_32
-GENERIC_TIMEZONE=Europe/Moscow
-N8N_HOST=n8n.example.ru
-N8N_PROTOCOL=https
-N8N_WEBHOOK_URL=https://n8n.example.ru/
-N8N_PROXY_HOPS=1</code></pre>
+<blockquote>
+  <b>Пример .env (плейсхолдеры):</b><br>
+  N8N_VERSION=2.42.6<br>
+  POSTGRES_USER=n8n<br>
+  POSTGRES_PASSWORD=ЗАМЕНИТЕ_СИЛЬНЫЙ_ПАРОЛЬ<br>
+  POSTGRES_DB=n8n<br>
+  N8N_ENCRYPTION_KEY=ЗАМЕНИТЕ_HEX_32<br>
+  N8N_RUNNERS_AUTH_TOKEN=ЗАМЕНИТЕ_HEX_32<br>
+  GENERIC_TIMEZONE=Europe/Moscow<br>
+  N8N_HOST=n8n.example.ru<br>
+  N8N_PROTOCOL=https<br>
+  N8N_WEBHOOK_URL=https://n8n.example.ru/<br>
+  N8N_PROXY_HOPS=1
+</blockquote>
 
 <p><b>Делайте:</b> pin версию образа через N8N_VERSION=2.42.6 (stable на 10.10.2026). <b>Не делайте:</b> коммитить .env в git или вставлять ключи в скриншоты – только плейсхолдеры в документации.</p>
 
@@ -88,12 +91,15 @@ N8N_PROXY_HOPS=1</code></pre>
 
 <p>Скопируйте базу из <a href="https://github.com/n8n-io/n8n-hosting/blob/main/docker-compose/withPostgres/docker-compose.yml" target="_blank">n8n-hosting/withPostgres</a> и добавьте сервис runners, bind 127.0.0.1:5678 и переменные из .env. Ключевые строки для n8n:</p>
 
-<pre><code>image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}
-ports: ['127.0.0.1:5678:5678']
-environment:
-  DB_TYPE: postgresdb
-  N8N_RUNNERS_MODE: external
-  N8N_RUNNERS_AUTH_TOKEN: ${N8N_RUNNERS_AUTH_TOKEN}</code></pre>
+<blockquote>
+  <b>Фрагмент docker-compose (n8n):</b><br>
+  image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}<br>
+  ports: ['127.0.0.1:5678:5678']<br>
+  environment:<br>
+  DB_TYPE: postgresdb<br>
+  N8N_RUNNERS_MODE: external<br>
+  N8N_RUNNERS_AUTH_TOKEN: ${N8N_RUNNERS_AUTH_TOKEN}
+</blockquote>
 
 <p><b>Делайте:</b> держите версию runner = версии n8n. <b>Не делайте:</b> использовать SQLite в prod – только Postgres; SQLite в docs оставлен для локальных тестов.</p>
 
@@ -103,9 +109,12 @@ environment:
 
 <p>Установите Caddy на хост (не обязательно в том же compose). Минимальный Caddyfile:</p>
 
-<pre><code>n8n.example.ru {
-  reverse_proxy 127.0.0.1:5678
-}</code></pre>
+<blockquote>
+  <b>Минимальный Caddyfile:</b><br>
+  n8n.example.ru {<br>
+  &nbsp;&nbsp;reverse_proxy 127.0.0.1:5678<br>
+  }
+</blockquote>
 
 <p>После reload Caddy откройте https://n8n.example.ru. В .env уже должны быть N8N_HOST, N8N_PROTOCOL=https, N8N_WEBHOOK_URL=https://n8n.example.ru/ (со слэшем в конце по docs). WEBHOOK_URL без префикса N8N_ – deprecated с 2.35.0.</p>
 
@@ -137,7 +146,7 @@ environment:
   <li>Документирована дата и версия перед каждым pull.</li>
 </ul>
 
-<p>Minor-обновление: бэкап → docker compose pull → up -d. При OOM увеличьте RAM или упростите Code node. Дальше – <a href="/avtomatizaciya-n8n-ai-agents/">ИИ-агенты в n8n</a>, <a href="/podklyuchenie-mcp-cursor/">MCP в Cursor</a>; no-code без DevOps – курс Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</p>
+<p>Minor-обновление: бэкап → docker compose pull → up -d. При OOM увеличьте RAM или упростите Code node. Дальше – гайды B02 (ИИ-агенты в n8n) и B03 (MCP в Cursor), href после публикации на kv-ai.ru; no-code без DevOps – курс Make на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">kv-ai.ru</a>.</p>
 
 <blockquote>
   <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Make.com и n8n).<br>

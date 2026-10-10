@@ -7,6 +7,7 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -21,17 +22,119 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    if not env:
+        raise FileNotFoundError("site.env.local not found under memory/")
+    for key in (
+        "PUBLIC_SITE_URL",
+        "EXCALIBUR_PUBLIC_SITE_URL",
+        "WP_HOME",
+        "WP_SITE_URL",
+        "FTP_HOST",
+        "FTP_PORT",
+        "FTP_USER",
+        "FTP_PASS",
+        "FTP_PASSWORD",
+        "FTP_ROOT",
+        "FTP_PATH",
+        "SFTP_HOST",
+        "SFTP_PORT",
+        "SFTP_USER",
+        "SFTP_PASSWORD",
+        "SSH_HOST",
+        "SSH_PORT",
+        "SSH_USER",
+        "SSH_PASSWORD",
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    ):
+        val = os.environ.get(key, "").strip()
+        if val:
+            env[key] = val
+    if not env.get("FTP_PASS") and env.get("FTP_PASSWORD"):
+        env["FTP_PASS"] = env["FTP_PASSWORD"]
+    if not env.get("PUBLIC_SITE_URL"):
+        env["PUBLIC_SITE_URL"] = (
+            env.get("EXCALIBUR_PUBLIC_SITE_URL") or env.get("WP_SITE_URL") or env.get("WP_HOME") or ""
+        )
+    return env
+
+
+def _normalize_ftp_root(env: dict[str, str]) -> str:
+    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if not ftp_root.startswith("/"):
+        ftp_root = "/" + ftp_root
+    if not ftp_root.endswith("/"):
+        ftp_root += "/"
+    return ftp_root
+
+
+def _sftp_credentials(env: dict[str, str]) -> dict[str, str | int]:
+    host = env.get("SFTP_HOST") or env.get("SSH_HOST") or env.get("FTP_HOST") or ""
+    port_raw = env.get("SFTP_PORT") or env.get("SSH_PORT") or "22"
+    user = env.get("SFTP_USER") or env.get("SSH_USER") or env.get("FTP_USER") or ""
+    password = (
+        env.get("SFTP_PASSWORD")
+        or env.get("SSH_PASSWORD")
+        or env.get("FTP_PASS")
+        or env.get("FTP_PASSWORD")
+        or ""
+    )
+    return {"host": host, "port": int(port_raw), "user": user, "password": password}
+
+
+def _sftp_chdir_to_root(sftp: object, ftp_root: str) -> None:
+    root = ftp_root.strip("/")
+    if not root:
+        return
+    for part in root.split("/"):
+        if part:
+            sftp.chdir(part)  # type: ignore[attr-defined]
+
+
+def upload_bootstrap_sftp(env: dict[str, str], remote: str, php: str, ftp_root: str) -> None:
+    import paramiko
+
+    creds = _sftp_credentials(env)
+    if not creds["host"] or not creds["user"] or not creds["password"]:
+        raise RuntimeError("SFTP fallback: missing host/user/password")
+    transport = paramiko.Transport((str(creds["host"]), int(creds["port"])))
+    transport.connect(username=str(creds["user"]), password=str(creds["password"]))
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        _sftp_chdir_to_root(sftp, ftp_root)
+        with sftp.open(remote, "wb") as handle:  # type: ignore[attr-defined]
+            handle.write(php.encode("utf-8"))
+        print(f"OK sftp_upload={remote}")
+    finally:
+        sftp.close()
+        transport.close()
+
+
+def delete_bootstrap_sftp(env: dict[str, str], remote: str, ftp_root: str) -> None:
+    import paramiko
+
+    creds = _sftp_credentials(env)
+    transport = paramiko.Transport((str(creds["host"]), int(creds["port"])))
+    transport.connect(username=str(creds["user"]), password=str(creds["password"]))
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    try:
+        _sftp_chdir_to_root(sftp, ftp_root)
+        try:
+            sftp.remove(remote)  # type: ignore[attr-defined]
+        except OSError:
+            pass
+    finally:
+        sftp.close()
+        transport.close()
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -277,11 +380,8 @@ echo 'permalink=' . $permalink . PHP_EOL;
 
 def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
     remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+    ftp_root = _normalize_ftp_root(env)
+    transport_used = "ftp"
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
@@ -291,9 +391,18 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+        ftp.quit()
+    except ftplib.error_temp as exc:
+        msg = str(exc)
+        if "425" in msg or "Bad IP" in msg:
+            print(f"FTP upload blocked ({msg}). Trying SFTP+HTTP fallback...")
+            upload_bootstrap_sftp(env, remote, php, ftp_root)
+            transport_used = "sftp"
+        else:
+            raise
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +433,15 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    if transport_used == "ftp":
+        ftp = ftp_connect()
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+    else:
+        delete_bootstrap_sftp(env, remote, ftp_root)
     return out
 
 

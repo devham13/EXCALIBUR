@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Self-hosted n8n на VPS — или снова платить облаку и ловить 402?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: установка n8n на VPS — Docker, PostgreSQL, HTTPS и healthcheck",
+      "scene_hint": "мини-VPS-коробка с логотипом Docker, экран с зелёным healthcheck n8n, стикеры PostgreSQL/SSL/домен .ru, карта «данные в РФ»; reference-лицо в футболке DevOps, указывает на зелёный статус; fake Telegram «webhook 404», отзывы n8n Cloud ★☆☆☆☆; рваная бумага, скотч, розовый маркер на «VPS»",
+      "meme_caption_ru": "Webhook без HTTPS?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Выберите VPS, домен и сравните с n8n Cloud",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица VPS vs n8n Cloud: vCPU/RAM, цена, данные в РФ, лимиты executions — без лица героя; розовый стикер «4 GB RAM min»",
+      "alt": "Сравнение VPS и n8n Cloud для self-hosted в РФ"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Установите Docker и подготовьте каталог /opt/n8n",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема шагов: apt → Docker Engine → mkdir /opt/n8n → .env + N8N_ENCRYPTION_KEY → postgres password; стрелки, иконки Ubuntu 24.04; без героя",
+      "alt": "Workflow: Docker и подготовка /opt/n8n для n8n"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите docker-compose.yml и запустите PostgreSQL, n8n и runners",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист на доске: postgres:18, n8n:2.x pin, task runners, docker compose up -d, curl healthcheck — галочки; мини-скрин compose YAML; без героя",
+      "alt": "Чеклист запуска docker-compose: PostgreSQL, n8n и task runners"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "ustanovka-n8n-docker-vps-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: установка n8n на VPS — Docker, PostgreSQL, HTTPS и healthcheck",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-10T14:18:10+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: установка n8n на VPS — Docker, PostgreSQL, HTTPS и healthcheck",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение VPS и n8n Cloud для self-hosted в РФ",
+      "h2_anchor": "1. Выберите VPS, домен и сравните с n8n Cloud",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Workflow: Docker и подготовка /opt/n8n для n8n",
+      "h2_anchor": "2. Установите Docker и подготовьте каталог /opt/n8n",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист запуска docker-compose: PostgreSQL, n8n и task runners",
+      "h2_anchor": "3. Соберите docker-compose.yml и запустите PostgreSQL, n8n и runners",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

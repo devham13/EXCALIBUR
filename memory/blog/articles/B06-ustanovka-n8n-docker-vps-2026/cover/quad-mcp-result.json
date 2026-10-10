@@ -1,0 +1,5 @@
+{
+  "url": "local:GenerateImage/canvas-quad.jpg",
+  "fallback": "cursor/GenerateImage",
+  "note": "MCP gpt-image-2 unavailable in Cloud; canvas resized 1280x720→2048x1152 via Pillow"
+}

@@ -7,3 +7,4 @@
 | 2026-06-11 | B03 | podklyuchenie-mcp-cursor | https://mayai.ru/podklyuchenie-mcp-cursor/ | published |
 | 2026-06-11 | B04 | geo-optimizaciya-sajta-2026 | https://mayai.ru/geo-optimizaciya-sajta-2026/ | published |
 | 2026-06-11 | B05 | avtonomnyj-kontent-zavod-nejroseti | https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/ | published |
+| 2026-10-10 | B06 | ustanovka-n8n-docker-vps-2026 | /2026/10/10/ustanovka-n8n-docker-vps-2026/ | published |

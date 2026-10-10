@@ -1,0 +1,171 @@
+<p>Cursor видит ваш код, но не видит CRM, почту и сценарии n8n, пока вы не подключите n8n mcp server. Два официальных пути: instance-level MCP (один URL на весь инстанс) и MCP Server Trigger (узкий набор tools из одного workflow). Ниже вы выберете режим под задачу, включите доступ в n8n, пропишете n8n mcp cursor в конфиге и проверите tools в Agent без путаницы test/production URL.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Instance-level MCP в n8n дает Cursor центральную точку <code>/mcp-server/http</code>: поиск и запуск workflow с пометкой Available in MCP. MCP Server Trigger публикует отдельный production URL с фиксированными tools (например, один tool "создать лид"). В Cursor используйте <code>streamable-http</code> или one-click OAuth из n8n; Bearer-ключ показывают один раз. Не подменяйте community-пакет <code>n8n-mcp</code> встроенным MCP n8n.</blockquote>
+
+<p><b>MCP</b> (Model Context Protocol) - "розетка" для внешних действий из ИИ-редактора; <b>n8n</b> - ваши сценарии (CRM, почта, webhooks). Базовая настройка MCP в IDE - в <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">гайде по подключению MCP в Cursor</a>; агенты внутри n8n - в <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">материале про автоматизацию n8n</a>. Здесь только связка n8n mcp server и Cursor.</p>
+
+<h2 id="choose-mode">Выберите режим: MCP Server Trigger или instance-level MCP</h2>
+
+<p><b>Делайте:</b> зафиксируйте задачу одним предложением ("запускать любые опубликованные workflow из Cursor" vs "дать Cursor ровно три tools для CRM"). <b>Не делайте:</b> не смешивайте URL Trigger и <code>/mcp-server/http</code> в одной записи mcp.json - это разные серверы.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Instance-level MCP</th>
+      <th>MCP Server Trigger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Задача в Cursor</b></td>
+      <td>Искать, запускать, при необходимости собирать workflow в инстансе</td>
+      <td>Вызвать фиксированный набор tools из одного сценария</td>
+    </tr>
+    <tr>
+      <td><b>URL для Cursor</b></td>
+      <td><code>https://&lt;домен&gt;/mcp-server/http</code></td>
+      <td>Production URL из панели ноды Trigger (после Publish)</td>
+    </tr>
+    <tr>
+      <td><b>Как открыть доступ</b></td>
+      <td>Toggle <b>Available in MCP</b> на каждом workflow</td>
+      <td>Publish workflow с Trigger + tool-нодами</td>
+    </tr>
+    <tr>
+      <td><b>Типичный кейс</b></td>
+      <td>"Собери в n8n воронку лидов по моему промпту"</td>
+      <td>"Один tool: создать лид в CRM с полями из чата"</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Берите <b>instance-level</b>, если Cursor - ваш "пульт" над многими workflow. Берите <b>MCP Server Trigger</b>, если нужен один стабильный API-tool для команды или продакшена без лишних tools в списке.
+</blockquote>
+
+<p>Сверьте версию n8n (для MCP часто указывают минимум <b>2.18.4</b>; UI Connect a client - с <b>2.33.0</b>). Self-hosted работает, если Cursor видит домен; за proxy с <b>2.36.0</b> добавьте MCP-заголовки в allowlist.</p>
+
+<h2 id="trigger-workflow">Соберите workflow с MCP Server Trigger и production URL</h2>
+
+<p><b>Делайте:</b> проектируйте Trigger как мини-сервис с явными tools. <b>Не делайте:</b> не отдавайте Cursor Test URL после отладки - для постоянной работы нужен <b>Production URL</b> после Publish.</p>
+
+<blockquote>
+  <b>Схема Trigger-path:</b>
+  <br>
+  MCP Server Trigger → Call n8n Workflow Tool (sub-workflow) → Execute Workflow Trigger → бизнес-ноды (CRM, Telegram, Sheets)
+</blockquote>
+
+<ol>
+  <li><b>Создайте</b> новый workflow и добавьте ноду <b>MCP Server Trigger</b> (транспорт SSE или streamable HTTP; stdio для Trigger не поддерживается).</li>
+  <li><b>Настройте auth:</b> None только в песочнице; для прода - Bearer или Header и те же значения в <code>headers</code> Cursor.</li>
+  <li><b>Подключите tools:</b> к выходу Tools добавьте <b>Call n8n Workflow Tool</b> (в доках также Custom n8n Workflow Tool) и укажите sub-workflow с <b>Execute Workflow Trigger</b>.</li>
+  <li><b>Опишите tool</b> понятным именем и description - агент в Cursor выбирает tool по тексту.</li>
+  <li><b>Publish</b> workflow и скопируйте <b>Production URL</b> из панели Trigger (не путать с instance-level <code>/mcp-server/http</code>).</li>
+  <li><b>Добавьте</b> отдельную запись в <code>mcpServers</code> Cursor с этим URL и Bearer при необходимости.</li>
+</ol>
+
+<p>В queue mode направьте <code>/mcp*</code> на одну replica (docs n8n).</p>
+
+<h2 id="instance-enable">Включите instance-level MCP и отметьте workflow для Cursor</h2>
+
+<p><b>Делайте:</b> включайте MCP на уровне инстанса один раз (нужны права owner/admin). <b>Не делайте:</b> не ждите tools в Cursor, пока workflow не помечен <b>Available in MCP</b> - без этого список будет пустым.</p>
+
+<ol>
+  <li><b>Откройте</b> Settings → <b>Instance-level MCP</b> → <b>Enable MCP access</b>.</li>
+  <li><b>Выберите auth:</b> OAuth (рекомендуется) или API key. Токен API key показывают <b>один раз</b> - сохраните в менеджер паролей, не в git.</li>
+  <li><b>Connect a client → Cursor:</b> используйте <b>One-click setup</b> и подтвердите redirect (удобнее ручного Bearer).</li>
+  <li><b>Expose workflow:</b> в меню workflow включите <b>Available in MCP</b> или добавьте в список Workflows enabled; с n8n 2.24.0 можно bulk-enable на уровне project/folder.</li>
+  <li><b>Добавьте description</b> к workflow - tool <code>search_workflows</code> опирается на метаданные; execute по умолчанию идет в <b>production</b> (published) версию.</li>
+</ol>
+
+<p>Редактирование workflow через MCP - с n8n <b>2.13.0</b>; на платежных цепочках сначала тест на копии.</p>
+
+<h2 id="cursor-config">Настройте n8n mcp cursor: mcp.json, OAuth и лимит tools</h2>
+
+<p><b>Делайте:</b> храните конфиг либо глобально в <code>~/.cursor/mcp.json</code>, либо в проекте <code>.cursor/mcp.json</code> (как в <a href="https://cursor.com/docs/mcp" target="_blank">документации Cursor</a>). <b>Не делайте:</b> не включайте одновременно official instance MCP и community <code>n8n-mcp</code> (stdio, документация нод) без явной нужды - список tools раздувается.</p>
+
+<p>Ручной фрагмент для instance-level с API key (OAuth one-click может обойтись без headers):</p>
+
+<pre><code>{
+  "mcpServers": {
+    "n8n": {
+      "type": "streamable-http",
+      "url": "https://&lt;your-n8n-domain&gt;/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer &lt;YOUR_N8N_MCP_TOKEN&gt;"
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Local: <code>http://localhost:5678/mcp-server/http</code> при Cursor на той же машине. После правок - перезапуск Cursor. Лишние enabled tools (в форуме упоминают порог ~40 как предупреждение) отключайте в Customize.</p>
+
+<h2 id="workflow-tool">Подключите Call n8n Workflow Tool: один сценарий = один MCP-tool</h2>
+
+<p><b>Делайте:</b> выносите тяжелую логику в sub-workflow с Execute Workflow Trigger, а в Trigger-workflow оставьте тонкий tool-слой. <b>Не делайте:</b> не дублируйте десятки нод как отдельные tools без необходимости - агент путается, растет шум.</p>
+
+<p>Sub-workflow на Execute Workflow Trigger принимает поля; Call n8n Workflow Tool мапит параметры. Один tool = одно действие ("create_lead") - проще аудит в Executions.</p>
+
+<h2 id="verify-test">Проверьте подключение и прогоните тестовый запрос в Agent</h2>
+
+<p><b>Делайте:</b> проверяйте и Cursor, и Executions в n8n одним коротким запросом. <b>Не делайте:</b> не считайте зеленый статус MCP достаточным, если workflow не выполнился в n8n.</p>
+
+<blockquote>
+  <b>Workflow проверки:</b>
+  <br>
+  Cursor Agent → вызов tool / search_workflows → подтверждение в чате → новая запись в Executions n8n → сверка входных данных
+</blockquote>
+
+<ol>
+  <li><b>Откройте</b> Agent и попросите вызвать exposed workflow или tool Trigger.</li>
+  <li><b>Сверьте</b> Executions в n8n со статусом в чате.</li>
+</ol>
+
+<h2 id="troubleshooting">Устраните типичные сбои: 401, пустые tools, proxy</h2>
+
+<p><b>Делайте:</b> идите по чеклисту сверху вниз. <b>Не делайте:</b> не публикуйте Bearer в чат, скриншоты и репозиторий.</p>
+
+<ul>
+  <li><b>401 Unauthorized:</b> неверный или устаревший Bearer; MCP отключен (<code>N8N_DISABLED_MODULES=mcp</code> на self-host); auth на Trigger не совпадает с headers в Cursor.</li>
+  <li><b>Пустой список tools:</b> workflow не Available in MCP; Trigger не опубликован; tools выключены в Customize Cursor.</li>
+  <li><b>Insufficient permissions:</b> MCP access не включен admin-ом; пользователь без прав на workflow.</li>
+  <li><b>Proxy / CORS:</b> добавьте MCP-заголовки в allowlist с n8n 2.36.0.</li>
+  <li><b>Queue mode:</b> один replica на <code>/mcp*</code>.</li>
+  <li><b>Claude Desktop vs Cursor:</b> Claude часто идет через <code>mcp-remote</code> / supergateway; Cursor - native streamable-http или one-click из n8n.</li>
+  <li><b>Community n8n-mcp:</b> другой продукт (stdio, доки); для официального сценария не обязателен.</li>
+  <li><b>Test vs production:</b> для Cursor в проде - production URL Trigger; test только при отладке.</li>
+</ul>
+
+<h2 id="next-steps">Что делать дальше</h2>
+
+<p>Зафиксируйте режим в README, урежьте exposed workflow, включите алерт на failed Executions. No-code без сервера - на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (MCP + публикация).</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, MCP и автоматизации).<br>
+  <b>Достоверность данных:</b> URL <code>/mcp-server/http</code>, поведение Trigger, OAuth и заголовки proxy сверены с документацией n8n.io и Cursor на 10.10.2026; показы Wordstat по узким запросам в этом прогоне недоступны.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Чем MCP Server Trigger отличается от instance-level MCP в n8n?</h3>
+<p>Trigger отдает tools только из одного опубликованного workflow и свой webhook URL. Instance-level дает один endpoint на инстанс, центральную auth и expose через Available in MCP. Выберите Trigger для одного бизнес-tool, instance - для каталога workflow из IDE.</p>
+
+<h3>Какой URL давать Cursor: test или production?</h3>
+<p>Для постоянной работы Cursor укажите production URL Trigger после Publish. Test URL используйте только при отладке Listen for Test Event. Instance-level всегда использует <code>/mcp-server/http</code> на вашем домене n8n.</p>
+
+<h3>Можно ли подключить self-hosted n8n к Cursor MCP?</h3>
+<p>Да, если инстанс доступен из сети, где запущен Cursor: HTTPS на домене или local http по примерам n8n. Проверьте reverse proxy, заголовки MCP с версии 2.36.0 и что модуль MCP не отключен переменной окружения.</p>
+
+<h3>Почему Cursor показывает 401 при вызове n8n?</h3>
+<p>Сгенерируйте новый API key MCP, обновите Bearer в mcp.json, убедитесь что Instance-level MCP включен. Для Trigger сверьте схему auth на ноде и headers в Cursor символ в символ.</p>
+
+<h3>Почему список tools пустой?</h3>
+<p>Включите Available in MCP на workflow или опубликуйте Trigger-workflow. В Customize Cursor проверьте, что tools сервера n8n не отключены. Урежьте число enabled tools, если клиент предупреждает о лимите.</p>
+
+<h3>Нужен ли npm-пакет n8n-mcp для официального сценария?</h3>
+<p>Нет. Встроенный MCP n8n использует HTTP endpoint инстанса или Trigger URL. Community n8n-mcp - отдельный stdio-сервер для документации нод; подключайте только если осознанно нужен этот режим.</p>
+
+<h3>Как подключить n8n к cursor mcp через OAuth без ручного JSON?</h3>
+<p>В n8n откройте Instance-level MCP → Connect a client → Cursor → One-click setup, подтвердите redirect в браузере. Ручной mcp.json с Bearer оставьте для CI или когда OAuth недоступен на вашем тарифе или политике SSO.</p>

@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-11 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+| trigger | Cloud publish subagent (EXCALIBUR_PUBLIC_SITE_URL production) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (5/5) after preflight fix (removed broken internal `/blog/geo-optimizaciya-sajta-2026/` — 404 on production)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (slug primer-seo-stati, PHP ~5.5 MB)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP data channel:** `ftplib.error_temp: 425 Security: Bad IP connecting` on `STOR excalibur-blog-publish-once.php`. Control connection (login + `CWD /`) succeeds from Cloud Agent; PASV and active (`500 Illegal PORT`) both rejected by host firewall / IP allowlist.
+2. **HTTP bootstrap not reached** — bootstrap PHP never uploaded; WebFetch fallback not applicable.
+
+### Next steps (оператор)
+
+1. Allowlist egress IP Cloud Agent в панели FTP/хостинга **или** запустить `excalibur_blog_wp_publish.py` с сети, где STOR разрешён (как B02 retry 2026-06-11).
+2. После успешного publish — восстановить inbound/outbound interlink на `/geo-optimizaciya-sajta-2026/` (или актуальный slug на production), если страница B04 уже live.
+3. Обновить `shared/published-articles.md` и `promotion-checklist.md` Live URL.

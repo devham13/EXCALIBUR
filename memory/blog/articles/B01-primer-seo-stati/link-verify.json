@@ -1,18 +1,10 @@
 {
   "source": "memory/blog/articles/B01-primer-seo-stati/article.html",
-  "total_links": 4,
+  "total_links": 5,
   "failed_count": 0,
   "verdict": "pass",
+  "site_base_note": "Verified with EXCALIBUR_PUBLIC_SITE_URL at publish preflight 2026-10-11",
   "links": [
-    {
-      "url": "https://wordstat.yandex.ru/",
-      "status": 200,
-      "ok": true,
-      "method": "HEAD",
-      "error": null,
-      "kind": "external",
-      "skipped": false
-    },
     {
       "url": "https://webmaster.yandex.ru/",
       "status": 200,
@@ -23,21 +15,39 @@
       "skipped": false
     },
     {
-      "url": "https://example.com/#services",
+      "url": "/",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
+      "kind": "internal_relative",
       "skipped": false
     },
     {
-      "url": "https://example.com/",
+      "url": "https://kv-ai.ru/obuchenie-po-make",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://kv-ai.ru/artur-horosheff",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://yandex.ru/support/direct/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
       "skipped": false
     }
   ]

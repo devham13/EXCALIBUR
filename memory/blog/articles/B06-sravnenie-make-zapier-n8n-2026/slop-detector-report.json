@@ -1,0 +1,22 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 2,
+  "over_long_sentences": [
+    {
+      "sentence": "99/mo за 750 tasks (годовая оплата) Free 1 000 credits/mo, max 2 active scenarios; Core от $9/mo, 10 000 credits Starter от 20 €/mес (год); trial 14 дней без карты VPS + время DevOps Интеграции 9 000+ apps 3 500+ apps 500+ nodes + HTTP То же, что Cloud nodes Данные / residency Инфраструктура в США (ToS); self-host нет AWS EU / North America EU (Frankfurt) на hosted-планах Где развернёте (в т",
+      "word_count": 56
+    },
+    {
+      "sentence": "VPS в РФ) AI / MCP Agents, MCP (в tasks-модели) AI Agents (beta), MCP server на всех планах AI Agent node, MCP Полный контроль, local LLM при желании РФ-команда 2026 ToS: риск sanctions + US hosting; оплата RU-картой часто проблемна Рабочий SaaS; данные не в РФ EU Cloud; оплата как у EU SaaS Максимум контроля для ПДн Итоговый вердикт: Zapier выигрывает шириной каталога (9 000+ apps), Make – скоростью no-code и ветвлениями, n8n – экономикой на объёме и self-host",
+      "word_count": 71
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 9.1,
+    "avg_syllables_per_word": 1.5
+  }
+}

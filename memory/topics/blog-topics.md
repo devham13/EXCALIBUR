@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Сравнение Make, Zapier и n8n
+
+- **priority:** P0
+- **slug:** sravnenie-make-zapier-n8n-2026
+- **h1:** Сравнение Make, Zapier и n8n в 2026: как выбрать платформу автоматизации для бизнеса
+- **primary_query:** n8n vs make vs zapier
+- **secondary_queries:** сравнение make n8n zapier, make или n8n что выбрать, n8n vs make 2026, zapier альтернатива для россии
+- **search_intent:** comparison
+- **article_mode:** B
+- **h2_outline:**
+  1. Чек-лист из 4 критериев: объём операций, 152-ФЗ и хранение данных, роль ИИ в процессах, технический ресурс команды
+  2. Таблица сравнения Make vs Zapier vs n8n Cloud vs n8n self-hosted (тарификация, интеграции, AI-ноды, data residency)
+  3. Матрица «ваша ситуация → платформа»: линейные сценарии, ветвления, AI-агенты, РФ-команда без Zapier
+  4. Пошаговый план миграции с Make на n8n без простоя (экспорт сценариев, credentials, тестовый прогон)
+  5. Чек-лист compliance для РФ: где проходят ПДн, self-host vs облако EU/US
+  6. Что делать после выбора: первая автоматизация за 30 минут (ссылка на глубокий гайд по n8n)
+- **faq_hints:** что выбрать make или n8n для малого бизнеса; работает ли zapier из россии в 2026; чем n8n дешевле make на больших объёмах
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** три столба-логотипа Make/Zapier/n8n на весах, на стикерах 152-ФЗ и «10k ops», стрелка миграции с Make на n8n, таблица сравнения на блокноте, неоновый diy-коллаж
+
+---
+

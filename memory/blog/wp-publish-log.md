@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-11 — B06 sravnenie-make-zapier-n8n-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | sravnenie-make-zapier-n8n-2026 |
+| verdict | **PASS** |
+| post_id | 1276 |
+| featured_image_id | 1277 |
+| inline_images | 1278, 1279, 1280 |
+| permalink | https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/ |
+| trigger | Cloud publish subagent (SSH bootstrap fallback) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (8/8, preflight `--site-base` from `PUBLIC_SITE_URL`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py .../article.html -o .../link-verify.json --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir .../B06-sravnenie-make-zapier-n8n-2026 --dry-run  # OK, PHP ~7.7MB
+python3 scripts/excalibur_blog_wp_publish.py --article-dir .../B06-sravnenie-make-zapier-n8n-2026  # FTP fail: 425 Security Bad IP
+# Fallback: SCP bootstrap to WP root via SSH + curl HTTP trigger; bootstrap removed after run
+```
+
+### Result
+
+```
+OK post=1276 slug=sravnenie-make-zapier-n8n-2026
+OK featured_image=1277
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1278 src=cover/inline-01.png
+OK inline_image_upload=1279 src=cover/inline-02.png
+OK inline_image_upload=1280 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- ledger: `shared/published-articles.md`

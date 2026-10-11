@@ -1,0 +1,204 @@
+<p>Make, Zapier и n8n считают операции по-разному: tasks, credits, executions. Промах с платформой бьёт по бюджету и по 152-ФЗ, если в цепочках идут ПДн клиентов. Ниже сравнение n8n vs make vs zapier в 2026: четыре критерия, таблица тарифов, матрица ситуаций и миграция с Make без простоя. Вы посчитаете billing на одном сценарии и выберете Make, n8n Cloud или self-host.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Платформа автоматизации – это конструктор цепочек "если в CRM новая заявка → отправить письмо → записать в таблицу". Zapier считает успешные шаги (tasks), Make – модули (credits), n8n – целый прогон сценария (execution). Для РФ в 2026 новые проекты чаще идут в Make или n8n; Zapier – legacy при уже оплаченном западном стеке. ПДн граждан РФ типично требуют self-host n8n или юридическую оценку облака EU/US. Миграция Make→n8n: export blueprint → сборка в n8n → parallel run → смена webhook.</blockquote>
+
+<p>Запросы "make или n8n что выбрать" и "zapier альтернатива для россии" упираются в математику операций и место хранения логов. API (Application Programming Interface) – "розетка" связи с CRM и мессенджерами. Self-hosted – n8n на вашем VPS; Docker упаковывает приложение в контейнер; webhook – URL, по которому внешний сервис запускает сценарий.</p>
+
+<h2 id="four-criteria">1. Пройдите чек-лист из 4 критериев перед выбором платформы</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица четырёх критериев выбора платформы автоматизации: стоимость, compliance, сложность, масштаб" loading="lazy">
+</figure>
+
+
+<p>Не начинайте с таблицы интеграций. Сначала зафиксируйте профиль нагрузки и ограничений – иначе сравнение make n8n zapier превратится в спор фанатов.</p>
+
+<ol>
+  <li><b>Объём операций.</b> Сколько активных сценариев, сколько шагов в одном прогоне, сколько запусков в месяц. Запишите пик (акции, сезон).</li>
+  <li><b>152-ФЗ и хранение данных.</b> Есть ли ПДн граждан РФ в полях CRM, формах, логах. Нужна ли локализация на сервере в РФ.</li>
+  <li><b>Роль ИИ.</b> Нужны ли AI-агенты и MCP; у Make AI Agents и MCP server на всех тарифах, у n8n – AI Agent node в Cloud.</li>
+  <li><b>Техресурс.</b> Есть ли человек, который поднимет Docker, бэкапы и HTTPS на self-host, или команда живёт только в no-code облаке.</li>
+</ol>
+
+<p><b>Эталон billing:</b> 4 шага, 1 000 запусков/мес → Zapier ≈ 4 000 tasks (<a href="https://zapier.com/pricing" target="_blank">pricing</a>), Make ≈ 4 000 credits (Router без списания), n8n ≈ 1 000 executions (<a href="https://n8n.io/pricing" target="_blank">n8n.io/pricing</a>).</p>
+
+<p><b>Делайте:</b> пересчитайте свой главный сценарий в трёх единицах до регистрации в новом сервисе. <b>Не делайте:</b> сравнивать только стартовую цену тарифа без модели списания.</p>
+
+<h2 id="comparison-table">2. Сравните Make, Zapier, n8n Cloud и n8n self-host в одной таблице</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема сравнения Make, Zapier, n8n Cloud и n8n self-host: тарификация и размещение данных" loading="lazy">
+</figure>
+
+
+<p>Сводка по официальным pricing на 11.10.2026.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Zapier</th>
+      <th>Make (cloud)</th>
+      <th>n8n Cloud</th>
+      <th>n8n self-hosted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Единица оплаты</b></td>
+      <td>Tasks (успешные шаги)</td>
+      <td>Credits (модули; с 27.08 credits как единица)</td>
+      <td>Executions (весь workflow)</td>
+      <td>CE: лицензия $0 + ваш infra</td>
+    </tr>
+    <tr>
+      <td><b>Старт</b></td>
+      <td>Free 100 tasks/mo; Pro от $19.99/mo за 750 tasks (годовая оплата)</td>
+      <td>Free 1 000 credits/mo, max 2 active scenarios; Core от $9/mo, 10 000 credits</td>
+      <td>Starter от 20 €/mес (год); trial 14 дней без карты</td>
+      <td>VPS + время DevOps</td>
+    </tr>
+    <tr>
+      <td><b>Интеграции</b></td>
+      <td>9 000+ apps</td>
+      <td>3 500+ apps</td>
+      <td>500+ nodes + HTTP</td>
+      <td>То же, что Cloud nodes</td>
+    </tr>
+    <tr>
+      <td><b>Данные / residency</b></td>
+      <td>Инфраструктура в США (ToS); self-host нет</td>
+      <td>AWS EU / North America</td>
+      <td>EU (Frankfurt) на hosted-планах</td>
+      <td>Где развернёте (в т.ч. VPS в РФ)</td>
+    </tr>
+    <tr>
+      <td><b>AI / MCP</b></td>
+      <td>Agents, MCP (в tasks-модели)</td>
+      <td>AI Agents (beta), MCP server на всех планах</td>
+      <td>AI Agent node, MCP</td>
+      <td>Полный контроль, local LLM при желании</td>
+    </tr>
+    <tr>
+      <td><b>РФ-команда 2026</b></td>
+      <td>ToS: риск sanctions + US hosting; оплата RU-картой часто проблемна</td>
+      <td>Рабочий SaaS; данные не в РФ</td>
+      <td>EU Cloud; оплата как у EU SaaS</td>
+      <td>Максимум контроля для ПДн</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Zapier выигрывает шириной каталога (9 000+ apps), Make – скоростью no-code и ветвлениями, n8n – экономикой на объёме и self-host. <b>Делайте:</b> выберите колонку под свой профиль из шага 1. <b>Не делайте:</b> платить за Zapier новый контур в РФ без проверки ToS и оплаты.
+</blockquote>
+
+<h2 id="decision-matrix">3. Выберите платформу по матрице "ваша ситуация → решение"</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Матрица решений: ситуация бизнеса и рекомендуемая платформа автоматизации" loading="lazy">
+</figure>
+
+
+<p>Отметьте первую подходящую строку и зафиксируйте решение для команды.</p>
+
+<ul>
+  <li><b>Линейный сценарий, старт без сервера.</b> → Make Free (1 000 credits) или Core.</li>
+  <li><b>Ветвления и Router.</b> → Make (<a href="https://help.make.com/credits" target="_blank">pricing</a>).</li>
+  <li><b>AI + managed EU.</b> → n8n Cloud, trial 14 дней.</li>
+  <li><b>ПДн РФ, объём, DevOps.</b> → n8n CE на Docker (<a href="https://docs.n8n.io/hosting/installation/docker" target="_blank">docs</a>).</li>
+  <li><b>Legacy Zapier с оплатой.</b> → оставьте; дублируйте критичное в Make/n8n.</li>
+  <li><b>Новый проект в РФ.</b> → Make/n8n; проверьте <a href="https://zapier.com/legal/terms-of-service" target="_blank">Zapier ToS</a>.</li>
+</ul>
+
+<p>При выборе Make и слабом no-code: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com на kv-ai.ru</a>.</p>
+
+<p><b>Делайте:</b> сравните один AI-кейс в Make и n8n на тестовых данных. <b>Не делайте:</b> миграцию ради модного MCP без боли в billing.</p>
+
+<h2 id="migration">4. Перенесите сценарии с Make на n8n без простоя: пошаговый план</h2>
+
+<p>Blueprint Make – JSON модулей без connections (<a href="https://help.make.com/blueprints" target="_blank">blueprints</a>). В n8n нет прямого импорта: rebuild или конвертер с ручной проверкой.</p>
+
+<blockquote>
+  <b>Схема миграции:</b>
+  <br>
+  Make live → Export blueprint → Rebuild/конвертер + review → Credentials в n8n → Parallel run 3–7 дней → Смена webhook URL → Отключить Make
+</blockquote>
+
+<ol>
+  <li><b>Инвентаризация.</b> Список сценариев по критичности: revenue, support, внутренние отчёты. Начните с некритичного.</li>
+  <li><b>Export blueprint.</b> Make → Export blueprint → сохраните `.json` в защищённое хранилище.</li>
+  <li><b>Rebuild в n8n.</b> Повторите логику нодами n8n; при использовании конвертера сверьте ветки Router и фильтры построчно.</li>
+  <li><b>Credentials.</b> Переподключите OAuth и API-ключи в n8n (как после импорта blueprint в Make).</li>
+  <li><b>Parallel run.</b> 3–7 дней гоняйте оба контура; сравнивайте выходные данные в таблице или Slack-алерте на расхождение.</li>
+  <li><b>Cutover webhooks.</b> Переключите URL в CRM, формах, Telegram-ботах на n8n; держите rollback-URL Make ещё 48 часов.</li>
+  <li><b>Decommission.</b> Отключите Make-сценарий, архивируйте blueprint и зафиксируйте дату в runbook.</li>
+</ol>
+
+<p><b>Делайте:</b> parallel run и тест без боевых ПДн. <b>Не делайте:</b> cutover без rollback URL.</p>
+
+<h2 id="compliance-rf">5. Проверьте compliance для РФ: чек-лист ПДн, логов и subprocessors</h2>
+
+<p>Это не юридическая консультация. При ПДн в облаке EU/US нужна оценка с юристом; self-host в РФ даёт контроль infra, но не снимает процессы backup и доступа.</p>
+
+<ul>
+  <li>Карта потоков: откуда ПДн входят (форма, CRM, мессенджер) и какие поля уходят в сценарий.</li>
+  <li>Где хранятся execution logs n8n / history Make – срок retention и доступ сотрудников.</li>
+  <li>Subprocessors: OpenAI, Google, Telegram – перечень в договорах и политике конфиденциальности.</li>
+  <li>Шифрование HTTPS на webhook и admin UI self-host.</li>
+  <li>Encryption key n8n в prod (переменные окружения, не в git).</li>
+  <li>Разделение prod/test credentials; test без боевых ПДн.</li>
+  <li>Backup базы n8n (Postgres) и тест восстановления раз в квартал.</li>
+  <li>RBAC: кто может редактировать сценарии с доступом к CRM.</li>
+  <li>Аудит экспорта blueprint – JSON может содержать mapped values.</li>
+  <li>Договор с хостингом VPS в РФ: jurisdiction и SLA.</li>
+  <li>Если данные только в Make AWS EU / n8n Frankfurt – зафиксируйте решение юриста письменно.</li>
+  <li>План реагирования на утечку: контакт, блокировка API-ключей, ротация webhook secret.</li>
+</ul>
+
+<p><b>Делайте:</b> эскалируйте спорные кейсы юристу до cutover. <b>Не делайте:</b> считать "EU = автоматически OK для 152-ФЗ" без оценки категорий данных.</p>
+
+<h2 id="first-automation">6. Запустите первую автоматизацию за 30 минут после выбора</h2>
+
+<p>Кейс на 30 минут: лид из формы → Telegram → строка в таблице.</p>
+
+<p><b>Make:</b> Free → scenario → Webhook + CRM → тест заявки в лимите 1 000 credits. <b>n8n Cloud:</b> trial → Webhook workflow → проверьте execution log; AI – в <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">гайде по n8n-агентам</a>. <b>Self-host:</b> Docker по docs → credentials → HTTPS.</p>
+
+<p>Для веток без программиста: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com</a>.</p>
+
+<p><b>Делайте:</b> один end-to-end сценарий. <b>Не делайте:</b> десять переносов в день один.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Сохраните таблицу billing и матрицу решений в Notion/Confluence для команды.</li>
+  <li>Раз в квартал пересчитывайте credits/tasks/executions по факту из дашборда платформы.</li>
+  <li>Для n8n AI – пройдите связанный материал <a href="https://mayai.ru/avtomatizaciya-n8n-ai-agents/" target="_blank">про n8n и AI-агентов</a>.</li>
+  <li>При миграции с Make ведите журнал расхождений parallel run.</li>
+  <li>Обновите политику ПДн после смены subprocessors или региона хостинга.</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> редакция Maya AI / сообщество "Ковчег", практика Make.com и n8n.<br>
+  <b>Достоверность данных:</b> тарифы, лимиты и правила billing сверены с официальными страницами Zapier, Make и n8n на 11.10.2026; показы Wordstat в текст не включались (MCP Wordstat недоступен на дату research).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Make или n8n для малого бизнеса в РФ?</h3>
+<p>Откройте Free Make без DevOps и при умеренной нагрузке. n8n self-host – при ПДн и сервере в РФ; n8n Cloud – EU + trial 14 дней.</p>
+
+<h3>Работает ли Zapier из России в 2026?</h3>
+<p>Проверьте <a href="https://zapier.com/legal/terms-of-service" target="_blank">ToS</a>: hosting в США, формулировки про sanctions, оплату. Для новых контуров в РФ планируйте Make или n8n, а Zapier оставьте только при уже легальном доступе и оплате.</p>
+
+<h3>Почему n8n часто дешевле Make на больших объёмах?</h3>
+<p>Сравните execution против credits на эталоне 4 шага × 1 000 runs: n8n = 1 000 списаний, Make ≈ 4 000 credits. На self-host CE нет лимита runs в лицензии – платите infra отдельно.</p>
+
+<h3>Можно ли перенести сценарий Make одной кнопкой в n8n?</h3>
+<p>Нет. Сделайте Export blueprint, затем rebuild или конвертер с ручной проверкой; credentials подключите заново в n8n.</p>
+
+<h3>Где хранятся данные Make и n8n Cloud?</h3>
+<p>Make – AWS EU/NA (<a href="https://help.make.com/credits" target="_blank">pricing</a>). n8n Cloud – EU Frankfurt (<a href="https://n8n.io/pricing" target="_blank">n8n pricing</a>). Self-host – там, где вы развернули инстанс.</p>
+
+<h3>Что с 152-ФЗ при облачной автоматизации?</h3>
+<p>Составьте карту ПДн и согласуйте с юристом; self-host – инженерный шаг, не замена процессам без DPO.</p>
+
+<h3>Нужен ли Zapier в 2026?</h3>
+<p>Только если процессы уже на Zaps и есть устойчивая оплата/доступ. Иначе начните с Make или n8n и не размножайте зависимость от US-only стека.</p>

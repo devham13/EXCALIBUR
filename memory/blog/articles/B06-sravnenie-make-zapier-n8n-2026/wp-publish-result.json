@@ -1,0 +1,12 @@
+{
+  "slug": "sravnenie-make-zapier-n8n-2026",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/",
+  "cover_evidence": {},
+  "raw_output": "OK post=1276 slug=sravnenie-make-zapier-n8n-2026\nOK featured_image=1277\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1278 src=cover/inline-01.png\nOK inline_image_upload=1279 src=cover/inline-02.png\nOK inline_image_upload=1280 src=cover/inline-03.png\npermalink=https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/\n",
+  "verdict": "pass",
+  "post_id": 1276,
+  "featured_image_id": 1277,
+  "inline_image_ids": [1278, 1279, 1280],
+  "publish_method": "ssh_scp_bootstrap (FTP 425 Bad IP from Cloud; HTTP trigger OK)"
+}

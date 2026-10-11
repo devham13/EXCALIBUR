@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#article",
+      "headline": "Сравнение Make, Zapier и n8n в 2026: как выбрать платформу автоматизации для бизнеса",
+      "description": "Сравнение Make, Zapier и n8n: billing tasks/credits/executions, таблица тарифов, матрица выбора для РФ, миграция Make→n8n и чек-лист 152-ФЗ.",
+      "datePublished": "2026-10-11",
+      "dateModified": "2026-10-11",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/sravnenie-make-zapier-n8n-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n vs make vs zapier, сравнение make n8n zapier, make или n8n что выбрать, n8n vs make 2026, zapier альтернатива для россии",
+      "wordCount": 8961,
+      "articleSection": "Make / n8n / API",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Make или n8n для малого бизнеса в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте Free Make без DevOps и при умеренной нагрузке. n8n self-host – при ПДн и сервере в РФ; n8n Cloud – EU + trial 14 дней."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли Zapier из России в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте terms of service Zapier: hosting в США, формулировки про sanctions, оплату. Для новых контуров в РФ планируйте Make или n8n, а Zapier оставьте только при уже легальном доступе и оплате."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему n8n часто дешевле Make на больших объёмах?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сравните execution против credits на эталоне 4 шага × 1 000 runs: n8n = 1 000 списаний, Make ≈ 4 000 credits. На self-host CE нет лимита runs в лицензии – платите infra отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли перенести сценарий Make одной кнопкой в n8n?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Сделайте Export blueprint, затем rebuild или конвертер с ручной проверкой; credentials подключите заново в n8n."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где хранятся данные Make и n8n Cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Make – AWS EU/NA (официальный pricing). n8n Cloud – EU Frankfurt (n8n.io/pricing). Self-host – там, где вы развернули инстанс."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что с 152-ФЗ при облачной автоматизации?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Составьте карту ПДн и согласуйте с юристом; self-host – инженерный шаг, не замена процессам без DPO."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Zapier в 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только если процессы уже на Zaps и есть устойчивая оплата/доступ. Иначе начните с Make или n8n и не размножайте зависимость от US-only стека."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#howto",
+      "name": "Перенесите сценарии с Make на n8n без простоя: пошаговый план",
+      "description": "Миграция Make→n8n: export blueprint, rebuild в n8n, parallel run 3–7 дней и cutover webhook без простоя.",
+      "inLanguage": "ru",
+      "totalTime": "P7D",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Make.com (export blueprint)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud или n8n self-hosted"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Инвентаризация",
+          "text": "Список сценариев по критичности: revenue, support, внутренние отчёты. Начните с некритичного.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Export blueprint",
+          "text": "Make → Export blueprint → сохраните .json в защищённое хранилище.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Rebuild в n8n",
+          "text": "Повторите логику нодами n8n; при использовании конвертера сверьте ветки Router и фильтры построчно.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Credentials",
+          "text": "Переподключите OAuth и API-ключи в n8n (как после импорта blueprint в Make).",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Parallel run",
+          "text": "3–7 дней гоняйте оба контура; сравнивайте выходные данные в таблице или Slack-алерте на расхождение.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Cutover webhooks",
+          "text": "Переключите URL в CRM, формах, Telegram-ботах на n8n; держите rollback-URL Make ещё 48 часов.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Decommission",
+          "text": "Отключите Make-сценарий, архивируйте blueprint и зафиксируйте дату в runbook.",
+          "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/#migration"
+        }
+      ]
+    }
+  ]
+}

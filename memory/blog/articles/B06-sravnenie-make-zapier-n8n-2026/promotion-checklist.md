@@ -1,7 +1,7 @@
 # Promotion checklist — B06 sravnenie-make-zapier-n8n-2026
 
 Дата публикации: 2026-10-11  
-Live URL: https://mayai.ru/sravnenie-make-zapier-n8n-2026/
+Live URL: https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -30,7 +30,7 @@ Make, Zapier или n8n в 2026 для РФ:
 • Матрица выбора по 4 критериям + чек-лист 152-ФЗ
 • Migration playbook Make→n8n: blueprint, parallel run, 7 шагов без простоя
 
-Читать: https://mayai.ru/sravnenie-make-zapier-n8n-2026/
+Читать: https://www.meta-journal.ru/2026/10/11/sravnenie-make-zapier-n8n-2026/
 ```
 
 ## Перелинковка

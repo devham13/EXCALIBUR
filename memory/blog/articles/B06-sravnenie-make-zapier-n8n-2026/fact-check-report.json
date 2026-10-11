@@ -1,0 +1,94 @@
+{
+  "article": "memory/blog/articles/B06-sravnenie-make-zapier-n8n-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 12,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 11,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "клиентов. Ниже сравнение n8n vs make vs zapier в 2026: четыре критерия, таблица тарифов, матрица ситуац",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "14 дней",
+      "kind": "metric_or_duration",
+      "context": ", 10 000 credits Starter от 20 €/mес (год); trial 14 дней без карты VPS + время DevOps Интеграции 9 000+ ap",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "7 дней",
+      "kind": "metric_or_duration",
+      "context": "тер + review → Credentials в n8n → Parallel run 3–7 дней → Смена webhook URL → Отключить Make Инвентаризац",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "48 часов",
+      "kind": "metric_or_duration",
+      "context": "egram-ботах на n8n; держите rollback-URL Make ещё 48 часов. Decommission. Отключите Make-сценарий, архивируй",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "30 минут",
+      "kind": "metric_or_duration",
+      "context": "орий данных. 6. Запустите первую автоматизацию за 30 минут после выбора Кейс на 30 минут: лид из формы → Tel",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000",
+      "kind": "large_number",
+      "context": "только в no-code облаке. Эталон billing: 4 шага, 1 000 запусков/мес → Zapier ≈ 4 000 tasks ( pricing ), M",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 000",
+      "kind": "large_number",
+      "context": "он billing: 4 шага, 1 000 запусков/мес → Zapier ≈ 4 000 tasks ( pricing ), Make ≈ 4 000 credits (Router бе",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "100",
+      "kind": "large_number",
+      "context": "workflow) CE: лицензия $0 + ваш infra Старт Free 100 tasks/mo; Pro от $19.99/mo за 750 tasks (годовая о",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "750",
+      "kind": "large_number",
+      "context": "nfra Старт Free 100 tasks/mo; Pro от $19.99/mo за 750 tasks (годовая оплата) Free 1 000 credits/mo, max",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "redits/mo, max 2 active scenarios; Core от $9/mo, 10 000 credits Starter от 20 €/mес (год); trial 14 дней б",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "9 000",
+      "kind": "large_number",
+      "context": "l 14 дней без карты VPS + время DevOps Интеграции 9 000+ apps 3 500+ apps 500+ nodes + HTTP То же, что Cl",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3 500",
+      "kind": "large_number",
+      "context": "з карты VPS + время DevOps Интеграции 9 000+ apps 3 500+ apps 500+ nodes + HTTP То же, что Cloud nodes Да",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

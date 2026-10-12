@@ -1,0 +1,12 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true
+  },
+  "raw_output": "ftplib.error_perm: 530 Login incorrect. (FTP and SFTP auth failed in Cloud run bc-9937bb1e; bootstrap not uploaded)",
+  "verdict": "fail"
+}

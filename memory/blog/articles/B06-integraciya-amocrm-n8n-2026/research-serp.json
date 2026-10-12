@@ -1,0 +1,499 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-12",
+    "today_ru": "12.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-14",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-12 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "integraciya-amocrm-n8n-2026",
+    "h1": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста",
+    "primary_query": "интеграция amoCRM n8n",
+    "secondary_queries": [
+      "n8n amoCRM webhook",
+      "amoCRM telegram n8n",
+      "создать лид amoCRM n8n",
+      "уведомления amoCRM telegram"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "интеграция amoCRM n8n 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": ""
+        },
+        {
+          "title": "amoCRM + n8n. Интеграция через API: OAuth2, GET и POST-запросы",
+          "url": "https://rutube.ru/video/f03e66493eacaefde58b983c1b29d20a/",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        },
+        {
+          "title": "Как сделать ИИ-агента для AmoCRM: n8n, API, approval и задачи",
+          "url": "https://ezgpt.ru/articles/kak-sdelat-ii-agenta-dlya-amocrm",
+          "snippet": "В этом уроке на практическом примере разбираем интеграцию amoCRM через HTTP-запросы, OAuth2 и документацию API — от создания credentials и подключения аккаунта до получения данных и создания сделки."
+        },
+        {
+          "title": "Связка n8n и amoCRM: управление аналитикой и автоматизация процессов",
+          "url": "https://apinita.ru/blog/svyazka-n8n-i-amocrm-upravlenie-analitikoj-i-avtomatizacziya-proczessov",
+          "snippet": "Инструкция без воды: создаем AI-агента для AmoCRM через API, n8n и Google Sheets. OAuth, сделки, контакты, примечания, задачи, approval, логи и проверка результата."
+        },
+        {
+          "title": "Интеграция n8n и AmoCRM (Амо Срм) по API без программиста",
+          "url": "https://apimonster.ru/connector/bundle/n8n/amocrm/",
+          "snippet": "Как связать n8n и amoCRM для автоматизации задач и расширенной аналитики. Примеры сценариев, нюансы интеграции и рекомендации для бизнеса."
+        },
+        {
+          "title": "Интеграция amoCRM с ИИ - возможности и кейсы использования",
+          "url": "https://www.salekit.ru/amocrm_ai_integration",
+          "snippet": "2 Настроить вебхук в n8n, указав ссылку из ApiMonster. 3 Настроить подключение для AmoCRM в ApiMonster, указав логин/пароль/токен для доступа к апи. 4 Создать связку. 5 Указать в качестве источника данных n8n."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "интеграция amoCRM n8n октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": ""
+        },
+        {
+          "title": "Интеграция n8n и AmoCRM (Амо Срм) по API без программиста",
+          "url": "https://apimonster.ru/connector/bundle/n8n/amocrm/",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        },
+        {
+          "title": "Связка n8n и amoCRM: управление аналитикой и автоматизация процессов",
+          "url": "https://apinita.ru/blog/svyazka-n8n-i-amocrm-upravlenie-analitikoj-i-avtomatizacziya-proczessov",
+          "snippet": "Создание сделок в AmoCRM по API Создавайте сделки на заявки с сайта, мессенджеров, по вебхукам из других сервисов"
+        },
+        {
+          "title": "amoCRM + n8n. Интеграция через API: OAuth2, GET и POST-запросы",
+          "url": "https://rutube.ru/video/f03e66493eacaefde58b983c1b29d20a/",
+          "snippet": "Как связать n8n и amoCRM для автоматизации задач и расширенной аналитики. Примеры сценариев, нюансы интеграции и рекомендации для бизнеса."
+        },
+        {
+          "title": "Интеграция amoCRM и n8n под ключ — от 15 000 ₽ | FlowFrame",
+          "url": "https://flowframe.ru/integratsii/amocrm-n8n/",
+          "snippet": "В этом уроке на практическом примере разбираем интеграцию amoCRM через HTTP-запросы, OAuth2 и документацию API — от создания credentials и подключения аккаунта до получения данных и создания сделки."
+        },
+        {
+          "title": "Как сделать ИИ-агента для AmoCRM: n8n, API, approval и задачи",
+          "url": "https://ezgpt.ru/articles/kak-sdelat-ii-agenta-dlya-amocrm",
+          "snippet": "Связку amoCRM и n8n настраивают наши инженеры, от 15 000 ₽ за сценарий, а вы получаете доступ к самой интеграции в личном кабинете app.flowframe.ru: видно, работает ли обмен, есть журнал последних событий и ..."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "интеграция amoCRM n8n новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": ""
+        },
+        {
+          "title": "Интеграция CRM с Telegram и AmoCRM через n8n: пошаговый гайд",
+          "url": "https://vibecoderz.ru/blog/integraciya-crm-s-telegram-i-amocrm-cherez-n8n",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        },
+        {
+          "title": "Как подключить свой ИИ-агент к Kommo/amoCRM в 2026",
+          "url": "https://ventas-boost.com/ru/blog/vneshnij-ii-agent-kommo-n8n/",
+          "snippet": "В 2026 году связка amoCRM webhook → n8n → Telegram + AI-квалификация через Claude стала стандартом для отделов продаж, которые обрабатывают 50+ заявок в день. Настройка занимает 2-3 часа, дальше работает ..."
+        },
+        {
+          "title": "amoCRM + n8n. Интеграция через API: OAuth2, GET и POST-запросы",
+          "url": "https://rutube.ru/video/f03e66493eacaefde58b983c1b29d20a/",
+          "snippet": "Официальная интеграция n8n работает только с данными CRM и не отправляет сообщения в чат — ответы идут через канал amojo, который теперь регистрируют по заявке в поддержку Kommo."
+        },
+        {
+          "title": "Интеграция n8n и AmoCRM (Амо Срм) по API без программиста",
+          "url": "https://apimonster.ru/connector/bundle/n8n/amocrm/",
+          "snippet": "В этом уроке на практическом примере разбираем интеграцию amoCRM через HTTP-запросы, OAuth2 и документацию API — от создания credentials и подключения аккаунта до получения данных и создания сделки."
+        },
+        {
+          "title": "Интеграция amoCRM и n8n под ключ — от 15 000 ₽ | FlowFrame",
+          "url": "https://flowframe.ru/integratsii/amocrm-n8n/",
+          "snippet": "События в n8n Действия в AmoCRM Если вы не нашли нужное событие, но в сервисе есть нужный вебхук, то используйте универсальный коннектор «Входящий вебхук»."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "n8n amoCRM webhook 2026",
+      "purpose": "вторичный запрос: n8n amoCRM webhook",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "amoCRM webhook и polling: что выбрать для триггеров под реальной ...",
+          "url": "https://wildbots.ru/ru/blog/amocrm-webhook-i-polling-chto-vibrat-dlya-triggerov-pod-realnoi-",
+          "snippet": ""
+        },
+        {
+          "title": "2548-convert-url-encoded-webhook-data-from-amocrm-to ... - GitHub",
+          "url": "https://github.com/MahaKoala/awesome-n8n-templatesscrapernode/tree/main/templates/personal-productivity/2548-convert-url-encoded-webhook-data-from-amocrm-to-structured-array",
+          "snippet": "Статья разбирает два способа слушать события в amoCRM: webhook (push-модель, amoCRM сам шлёт запрос) и polling (pull-модель, ваш сервис периодически опрашивает API)."
+        },
+        {
+          "title": "Convert URL-encoded webhook data from amoCRM to structured array - n8n.io",
+          "url": "https://n8n.io/workflows/2548-convert-url-encoded-webhook-data-from-amocrm-to-structured-array/",
+          "snippet": "This template processes webhooks received from amoCRM in a URL-encoded format and transforms the data into a structured array that n8n can easily interpret. By default, n8n does not automatically parse URL-encoded webhook payloads into usable JSON."
+        },
+        {
+          "title": "Интеграция CRM с Telegram и AmoCRM через n8n: пошаговый гайд",
+          "url": "https://vibecoderz.ru/blog/integraciya-crm-s-telegram-i-amocrm-cherez-n8n",
+          "snippet": "This template processes webhooks received from amoCRM in a URL-encoded format and transforms the data into a structured array that n8n can easily interpret. By default, n8n does not automatically parse URL-encoded webhook payloads into usable JSON."
+        },
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": "В 2026 году связка amoCRM webhook → n8n → Telegram + AI-квалификация через Claude стала стандартом для отделов продаж, которые обрабатывают 50+ заявок в день. Настройка занимает 2-3 часа, дальше работает сама."
+        },
+        {
+          "title": "Как сделать ИИ-агента для AmoCRM: n8n, API, approval и задачи",
+          "url": "https://ezgpt.ru/articles/kak-sdelat-ii-agenta-dlya-amocrm",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "amoCRM telegram n8n 2026",
+      "purpose": "вторичный запрос: amoCRM telegram n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Интеграция CRM с Telegram и AmoCRM через n8n: пошаговый гайд",
+          "url": "https://vibecoderz.ru/blog/integraciya-crm-s-telegram-i-amocrm-cherez-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "Изменение статусов сделок в amoCRM и отправка уведомлений в Telegram с ...",
+          "url": "https://osipenkov.ru/amocrm-telegram-n8n-status/",
+          "snippet": "В 2026 году связка amoCRM webhook → n8n → Telegram + AI-квалификация через Claude стала стандартом для отделов продаж, которые обрабатывают 50+ заявок в день. Настройка занимает 2-3 часа, дальше работает сама."
+        },
+        {
+          "title": "amoCRM + Telegram: настройте интеграцию и не теряйте лиды",
+          "url": "https://crmchat.ai/ru/blog/amocrm-telegram-integration-setup-guide",
+          "snippet": "Пример рабочего процесса (workflow) в n8n, который регистрирует изменение статусов сделок и отправляет соответствующее уведомление в Telegram. Этот материал был специально подготовлен для онлайн-курса «n8n для маркетологов»."
+        },
+        {
+          "title": "Интеграция Telegram-бота с amoCRM: полный гайд 2026",
+          "url": "https://itmagic.spb.ru/blog/integratsiya-telegram-bot-amocrm.html",
+          "snippet": "Пошаговая инструкция по подключению Telegram к amoCRM — и разбор подводных камней, которые приводят к потере лидов."
+        },
+        {
+          "title": "How can I send weekly analytics from amoCRM (Russian domain) to ...",
+          "url": "https://community.n8n.io/t/how-can-i-send-weekly-analytics-from-amocrm-russian-domain-to-telegram-group-using-n8n/215705/2",
+          "snippet": "Вы уже создали Telegram-бота для приёма заявок, но вручную переносите их в CRM? Менеджеры теряют лиды, забывают позвонить клиенту, а вы не видите полной картины продаж?"
+        },
+        {
+          "title": "AmoCRM интеграция Telegram: автоматизация — PipeBot",
+          "url": "https://pipebot.ru/pages/amocrm-integratsiya-telegram-protiv-ruchnogo-truda/",
+          "snippet": "Hello everyone I'm trying to build an automation in n8n that sends a weekly analytics report from my amoCRM (Russian domain: amocrm.ru) to a Telegram group every Saturday at 18:00."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "создать лид amoCRM n8n 2026",
+      "purpose": "вторичный запрос: создать лид amoCRM n8n",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n сценарий для выгрузки лидов в amoCRM",
+          "url": "https://kalinkindev.ru/blog/n8n-scenario-leads-amocrm/",
+          "snippet": ""
+        },
+        {
+          "title": "alphcoder/n8n-lead-automation - GitHub",
+          "url": "https://github.com/alphcoder/n8n-lead-automation",
+          "snippet": "В этой статье разберу его по шагам: приём заявки с сайта, авторизация в amoCRM, создание контакта и сделки, и отдельно — как не плодить дубли, когда один и тот же человек оставляет заявку дважды."
+        },
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": "🔄 n8n Lead Automation Автоматизация захвата и обработки лидов с веб-форм через n8n → Telegram + Google Sheets + AmoCRM. 3 готовых workflow для полного цикла обработки заявок: захват → уведомление → CRM → follow-up."
+        },
+        {
+          "title": "Лидогенерация: Автоматизация с n8n и amoCRM - Больше лидов!",
+          "url": "https://websniper.ru/avtomatizacziya-lidogeneraczii-s-pomoshhyu-n8n-i-amocrm/",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        },
+        {
+          "title": "Полная автоматизация amoCRM с помощью n8n БЕСПЛАТНО",
+          "url": "https://rutube.ru/video/5a80e397e6a73e5a87676ef297dafea4/",
+          "snippet": "Данная статья посвящена рассмотрению возможностей автоматизации лидогенерации с использованием платформы n8n и системы управления взаимоотношениями с клиентами (CRM) amoCRM."
+        },
+        {
+          "title": "Автоматизация маршрутизации данных в n8n: архитектурный гайд",
+          "url": "https://lenarodigital.com/website-analytics-setup-reports-dashboards/",
+          "snippet": "В этом видео я покажу, как сделать полную автоматизацию amoCRM с помощью n8n — абсолютно бесплатно и без кода! 💡 📌 Что вы узнаете: Как подключи..."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "уведомления amoCRM telegram 2026",
+      "purpose": "вторичный запрос: уведомления amoCRM telegram",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Уведомления в Telegram - amoCRM",
+          "url": "https://www.amocrm.ru/extensions/makeroi-tg-notifies",
+          "snippet": ""
+        },
+        {
+          "title": "Уведомления в Телеграм в amoCRM обзорное видео",
+          "url": "https://rutube.ru/video/38fade999bc04c9f76781182aaa403c8/",
+          "snippet": "Настройте систему оповещений о сделках по триггерам цифровой воронки. Обеспечивайте пользователей актуальной информацией в мессенджере вне зависимости от доступа в amoCRM."
+        },
+        {
+          "title": "Интеграция amoCRM с Telegram: уведомления, боты и кнопки",
+          "url": "https://nova-amocrm.ru/articles/telegram-integration/",
+          "snippet": "Все изменения синхронизируются с amoCRM моментально. На примере работы цветочного магазина в видео показываем, как курьер получает уведомления о новых заказах и вносит данные по доставке."
+        },
+        {
+          "title": "Виджет уведомлений в Telegram для amoCRM | Ингруппа",
+          "url": "https://ingru.ru/widgets/uvedomleniya-v-telegram/",
+          "snippet": "Как настроить уведомления из amoCRM в Telegram: личные сообщения, групповые чаты, интерактивные кнопки для управления сделками прямо из мессенджера."
+        },
+        {
+          "title": "Интеграция Telegram с amoCRM — уведомления и чат в сделке",
+          "url": "https://www.converssion.ru/telegram",
+          "snippet": "Мгновенные уведомления из amoCRM в Telegram: новые заявки, задачи и события по сделкам прямо в мессенджере. Установка виджета Ингруппы за пару минут."
+        },
+        {
+          "title": "Виджет Уведомления в Telegram для amoCRM - reon.market",
+          "url": "https://reon.market/telegram-notifications",
+          "snippet": "Получайте уведомления в Telegram при важных изменениях в amoCRM, таких как новые сделки или изменения ответственного, позволяющие своевременно реагировать."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Интеграция CRM с Telegram и AmoCRM через n8n: пошаговый гайд",
+          "url": "https://vibecoderz.ru/blog/integraciya-crm-s-telegram-i-amocrm-cherez-n8n",
+          "snippet": ""
+        },
+        {
+          "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+          "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+          "snippet": "Что делать, если amoCRM меняет URL в webhook после перезапуска n8n? Это происходит при использовании n8n на локальном компьютере — тестовый URL меняется при каждом перезапуске."
+        },
+        {
+          "title": "Как интегрировать чат-бота с amoCRM через webhook | hubes",
+          "url": "https://hubes.ru/blog/kak-integrirovat-chat-bota-s-amocrm-cherez-webhook",
+          "snippet": "Как связать n8n с amoCRM: приём заявок в сделки, обновление статусов, задачи менеджерам, уведомления. Что даёт интеграция и как её настроить без ручного переноса."
+        },
+        {
+          "title": "alphcoder/n8n-lead-automation - GitHub",
+          "url": "https://github.com/alphcoder/n8n-lead-automation",
+          "snippet": "В этой инструкции — как настроить такую связку на популярных платформах (Chatfuel, ManyChat, SendPulse, Botmother) без программиста, а также пример кастомной интеграции через код."
+        },
+        {
+          "title": "Как связать Telegram с CRM: пошаговый гайд для малого бизнеса",
+          "url": "https://antigraviti.ru/blog/telegram-crm-integraciya-dlya-biznesa",
+          "snippet": "🔄 n8n Lead Automation Автоматизация захвата и обработки лидов с веб-форм через n8n → Telegram + Google Sheets + AmoCRM. 3 готовых workflow для полного цикла обработки заявок: захват → уведомление → CRM → follow-up."
+        },
+        {
+          "title": "Полная автоматизация amoCRM с помощью n8n БЕСПЛАТНО",
+          "url": "https://rutube.ru/video/5a80e397e6a73e5a87676ef297dafea4/",
+          "snippet": "Как связать Telegram с CRM без программиста: сравнение трёх способов (n8n бесплатно, pact.im, Битрикс24 Open Channels), пошаговый гайд и типичные ошибки."
+        }
+      ],
+      "searched_at": "2026-10-12"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://golubef.ru/blog/n8n-amocrm-integraciya",
+      "title": "Интеграция n8n с amoCRM: настройка и сценарии | Golubeff AI",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/f03e66493eacaefde58b983c1b29d20a/",
+      "title": "amoCRM + n8n. Интеграция через API: OAuth2, GET и POST-запросы",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://ezgpt.ru/articles/kak-sdelat-ii-agenta-dlya-amocrm",
+      "title": "Как сделать ИИ-агента для AmoCRM: n8n, API, approval и задачи",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://apinita.ru/blog/svyazka-n8n-i-amocrm-upravlenie-analitikoj-i-avtomatizacziya-proczessov",
+      "title": "Связка n8n и amoCRM: управление аналитикой и автоматизация процессов",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://apimonster.ru/connector/bundle/n8n/amocrm/",
+      "title": "Интеграция n8n и AmoCRM (Амо Срм) по API без программиста",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://www.salekit.ru/amocrm_ai_integration",
+      "title": "Интеграция amoCRM с ИИ - возможности и кейсы использования",
+      "from_query": "интеграция amoCRM n8n 2026"
+    },
+    {
+      "url": "https://flowframe.ru/integratsii/amocrm-n8n/",
+      "title": "Интеграция amoCRM и n8n под ключ — от 15 000 ₽ | FlowFrame",
+      "from_query": "интеграция amoCRM n8n октябрь 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/blog/integraciya-crm-s-telegram-i-amocrm-cherez-n8n",
+      "title": "Интеграция CRM с Telegram и AmoCRM через n8n: пошаговый гайд",
+      "from_query": "интеграция amoCRM n8n новости 2026"
+    },
+    {
+      "url": "https://ventas-boost.com/ru/blog/vneshnij-ii-agent-kommo-n8n/",
+      "title": "Как подключить свой ИИ-агент к Kommo/amoCRM в 2026",
+      "from_query": "интеграция amoCRM n8n новости 2026"
+    },
+    {
+      "url": "https://wildbots.ru/ru/blog/amocrm-webhook-i-polling-chto-vibrat-dlya-triggerov-pod-realnoi-",
+      "title": "amoCRM webhook и polling: что выбрать для триггеров под реальной ...",
+      "from_query": "n8n amoCRM webhook 2026"
+    },
+    {
+      "url": "https://github.com/MahaKoala/awesome-n8n-templatesscrapernode/tree/main/templates/personal-productivity/2548-convert-url-encoded-webhook-data-from-amocrm-to-structured-array",
+      "title": "2548-convert-url-encoded-webhook-data-from-amocrm-to ... - GitHub",
+      "from_query": "n8n amoCRM webhook 2026"
+    },
+    {
+      "url": "https://n8n.io/workflows/2548-convert-url-encoded-webhook-data-from-amocrm-to-structured-array/",
+      "title": "Convert URL-encoded webhook data from amoCRM to structured array - n8n.io",
+      "from_query": "n8n amoCRM webhook 2026"
+    },
+    {
+      "url": "https://osipenkov.ru/amocrm-telegram-n8n-status/",
+      "title": "Изменение статусов сделок в amoCRM и отправка уведомлений в Telegram с ...",
+      "from_query": "amoCRM telegram n8n 2026"
+    },
+    {
+      "url": "https://crmchat.ai/ru/blog/amocrm-telegram-integration-setup-guide",
+      "title": "amoCRM + Telegram: настройте интеграцию и не теряйте лиды",
+      "from_query": "amoCRM telegram n8n 2026"
+    },
+    {
+      "url": "https://itmagic.spb.ru/blog/integratsiya-telegram-bot-amocrm.html",
+      "title": "Интеграция Telegram-бота с amoCRM: полный гайд 2026",
+      "from_query": "amoCRM telegram n8n 2026"
+    },
+    {
+      "url": "https://community.n8n.io/t/how-can-i-send-weekly-analytics-from-amocrm-russian-domain-to-telegram-group-using-n8n/215705/2",
+      "title": "How can I send weekly analytics from amoCRM (Russian domain) to ...",
+      "from_query": "amoCRM telegram n8n 2026"
+    },
+    {
+      "url": "https://pipebot.ru/pages/amocrm-integratsiya-telegram-protiv-ruchnogo-truda/",
+      "title": "AmoCRM интеграция Telegram: автоматизация — PipeBot",
+      "from_query": "amoCRM telegram n8n 2026"
+    },
+    {
+      "url": "https://kalinkindev.ru/blog/n8n-scenario-leads-amocrm/",
+      "title": "n8n сценарий для выгрузки лидов в amoCRM",
+      "from_query": "создать лид amoCRM n8n 2026"
+    },
+    {
+      "url": "https://github.com/alphcoder/n8n-lead-automation",
+      "title": "alphcoder/n8n-lead-automation - GitHub",
+      "from_query": "создать лид amoCRM n8n 2026"
+    },
+    {
+      "url": "https://websniper.ru/avtomatizacziya-lidogeneraczii-s-pomoshhyu-n8n-i-amocrm/",
+      "title": "Лидогенерация: Автоматизация с n8n и amoCRM - Больше лидов!",
+      "from_query": "создать лид amoCRM n8n 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/5a80e397e6a73e5a87676ef297dafea4/",
+      "title": "Полная автоматизация amoCRM с помощью n8n БЕСПЛАТНО",
+      "from_query": "создать лид amoCRM n8n 2026"
+    },
+    {
+      "url": "https://lenarodigital.com/website-analytics-setup-reports-dashboards/",
+      "title": "Автоматизация маршрутизации данных в n8n: архитектурный гайд",
+      "from_query": "создать лид amoCRM n8n 2026"
+    },
+    {
+      "url": "https://www.amocrm.ru/extensions/makeroi-tg-notifies",
+      "title": "Уведомления в Telegram - amoCRM",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/38fade999bc04c9f76781182aaa403c8/",
+      "title": "Уведомления в Телеграм в amoCRM обзорное видео",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://nova-amocrm.ru/articles/telegram-integration/",
+      "title": "Интеграция amoCRM с Telegram: уведомления, боты и кнопки",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://ingru.ru/widgets/uvedomleniya-v-telegram/",
+      "title": "Виджет уведомлений в Telegram для amoCRM | Ингруппа",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://www.converssion.ru/telegram",
+      "title": "Интеграция Telegram с amoCRM — уведомления и чат в сделке",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://reon.market/telegram-notifications",
+      "title": "Виджет Уведомления в Telegram для amoCRM - reon.market",
+      "from_query": "уведомления amoCRM telegram 2026"
+    },
+    {
+      "url": "https://hubes.ru/blog/kak-integrirovat-chat-bota-s-amocrm-cherez-webhook",
+      "title": "Как интегрировать чат-бота с amoCRM через webhook | hubes",
+      "from_query": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста 2026"
+    },
+    {
+      "url": "https://antigraviti.ru/blog/telegram-crm-integraciya-dlya-biznesa",
+      "title": "Как связать Telegram с CRM: пошаговый гайд для малого бизнеса",
+      "from_query": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста 2026"
+    }
+  ]
+}

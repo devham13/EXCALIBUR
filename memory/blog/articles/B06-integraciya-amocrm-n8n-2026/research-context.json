@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-12",
+    "today_ru": "12.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "понедельник",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-14",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-12 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "integraciya-amocrm-n8n-2026",
+    "h1": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста",
+    "primary_query": "интеграция amoCRM n8n",
+    "secondary_queries": [
+      "n8n amoCRM webhook",
+      "amoCRM telegram n8n",
+      "создать лид amoCRM n8n",
+      "уведомления amoCRM telegram"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "интеграция amoCRM n8n 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "интеграция amoCRM n8n октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "интеграция amoCRM n8n новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "n8n amoCRM webhook 2026",
+      "purpose": "вторичный запрос: n8n amoCRM webhook"
+    },
+    {
+      "id": "secondary_2",
+      "query": "amoCRM telegram n8n 2026",
+      "purpose": "вторичный запрос: amoCRM telegram n8n"
+    },
+    {
+      "id": "secondary_3",
+      "query": "создать лид amoCRM n8n 2026",
+      "purpose": "вторичный запрос: создать лид amoCRM n8n"
+    },
+    {
+      "id": "secondary_4",
+      "query": "уведомления amoCRM telegram 2026",
+      "purpose": "вторичный запрос: уведомления amoCRM telegram"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-integraciya-amocrm-n8n-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

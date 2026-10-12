@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "integraciya-amocrm-n8n-2026",
+  "h1": "Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста",
+  "title": "Интеграция amoCRM n8n: webhook, Telegram и OAuth пошагово",
+  "description": "Пошаговая интеграция amoCRM и n8n: OAuth, inbound webhook и Telegram в lead, outbound статус в Telegram, антидубли и чеклист prod без программиста.",
+  "keywords": [
+    "интеграция amoCRM n8n",
+    "n8n amoCRM webhook",
+    "amoCRM telegram n8n",
+    "создать лид amoCRM n8n",
+    "уведомления amoCRM telegram"
+  ],
+  "primary_query": "интеграция amoCRM n8n",
+  "secondary_queries": [
+    "n8n amoCRM webhook",
+    "amoCRM telegram n8n",
+    "создать лид amoCRM n8n",
+    "уведомления amoCRM telegram"
+  ],
+  "char_count": 9480,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить интеграцию amocrm и n8n пошагово",
+    "webhook и telegram заявки в amocrm через n8n",
+    "oauth amocrm n8n без программиста"
+  ],
+  "meta_ab": {
+    "title_seo": "Интеграция amoCRM n8n: webhook, Telegram и OAuth пошагово",
+    "title_ctr": "🚀 Интеграция amoCRM и n8n: заявки из Telegram без программиста - работает?",
+    "title_aeo": "Как настроить интеграцию amoCRM и n8n с webhook и Telegram?",
+    "description_seo": "Пошаговая интеграция amoCRM и n8n: OAuth, inbound webhook и Telegram в lead, outbound статус в Telegram, антидубли и prod-чеклист.",
+    "description_ctr": "⚡ Свяжите amoCRM и n8n за вечер: два workflow, complex lead, уведомления в Telegram и 12 пунктов перед Activate. Без кода и без дублей.",
+    "description_aeo": "Интеграция amoCRM n8n: community node или HTTP, Production webhook URL, POST /leads/complex и исходящий webhook amoМаркет в Telegram."
+  },
+  "cover_family": "brand_collage"
+}

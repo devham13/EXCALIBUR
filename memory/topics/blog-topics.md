@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Интеграция amoCRM и n8n
+
+- **priority:** P0
+- **slug:** integraciya-amocrm-n8n-2026
+- **h1:** Как настроить интеграцию amoCRM и n8n: заявки из Telegram и webhook без программиста
+- **primary_query:** интеграция amoCRM n8n
+- **secondary_queries:** n8n amoCRM webhook, amoCRM telegram n8n, создать лид amoCRM n8n, уведомления amoCRM telegram
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Когда связка amoCRM + n8n выгоднее Make и Zapier для РФ-бизнеса в 2026 году
+  2. OAuth amoCRM и credentials в n8n: subdomain, токены и типичные ошибки 401/403
+  3. Входящая заявка: Webhook или Telegram Trigger → нормализация телефона и UTM → contact + lead
+  4. Исходящие события amoCRM: webhook «статус сделки изменён» → фильтр и уведомление в Telegram
+  5. Защита от дублей и петель: поиск контакта, idempotency и webhook guard
+  6. Чек-лист перед продакшеном: Activate, HTTPS, тестовая воронка и мониторинг сбоев
+- **faq_hints:** как подключить amoCRM к n8n; нужен ли программист для интеграции amoCRM и telegram; что делать если n8n не создаёт лид в amoCRM
+- **internal_links:** /ustanovka-n8n-docker-vps-2026/, /avtomatizaciya-n8n-ai-agents/, /sravnenie-make-zapier-n8n-2026/
+- **cover_scene_hint:** воронка CRM на экране, стрелки от иконки Telegram и webhook к блокам n8n (Webhook, HTTP Request, Telegram), стикеры «lead», «OAuth», «без дублей», неоновый diy-коллаж
+
+---
+

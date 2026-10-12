@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Заявки в Telegram есть — в amoCRM пусто. n8n за вечер или снова «нужен программист»?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: интеграция amoCRM и n8n — заявки из Telegram и webhook без программиста",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; casual no-code: тёмная футболка + оранжевый бейдж amoCRM на ланьяре; указывает на fake n8n canvas с узлами Webhook→amoCRM; рядом Telegram «+7… новая заявка» и пустая воронка amoCRM «0 лидов»; sticky «Production URL only»; meme cat «где CRM?» + facepalm Drake corner; розовый маркер на «без программиста»",
+      "meme_caption_ru": "Telegram шлёт — CRM молчит"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните, когда amoCRM + n8n выгоднее Make и Zapier в 2026",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица n8n+amoCRM vs Make vs Zapier: узел amoCRM, self-host, webhook/RPS, TCO 2026 — без лица героя, лёгкий scotch tape на углу",
+      "alt": "Сравнение n8n, Make и Zapier для интеграции с amoCRM в 2026"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте OAuth и credentials amoCRM в n8n",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема OAuth2 в n8n: amoCRM app → redirect URI → credentials node → access token refresh; стрелки, иконки lock/key; pink sticky «Client ID / Secret»",
+      "alt": "Workflow OAuth и credentials amoCRM в n8n"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Соберите входящую заявку: Webhook или Telegram → lead в amoCRM",
+      "visual_type": "checklist_board",
+      "scene_hint": "Чеклист inbound: HTTPS WEBHOOK_URL, Telegram Trigger, нормализация телефона/UTM, POST /leads/complex, Active workflow; printable board на рваной бумаге",
+      "alt": "Чеклист входящей заявки Webhook или Telegram в lead amoCRM"
+    }
+  }
+}

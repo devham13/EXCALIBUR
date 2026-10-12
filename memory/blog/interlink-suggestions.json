@@ -1,6 +1,14 @@
 {
   "site_base": "https://mayai.ru",
-  "total_articles": 5,
-  "opportunities_found": 0,
-  "suggestions": []
+  "total_articles": 6,
+  "opportunities_found": 1,
+  "suggestions": [
+    {
+      "source": "B06-integraciya-amocrm-n8n-2026",
+      "target": "B02-avtomatizaciya-n8n-ai-agents",
+      "keyword": "автоматизация n8n",
+      "context": "ocker и VPS. Следующий уровень - связать CRM с AI-агентами: автоматизация n8n с AI Agent.</p>  <p>Если после чеклиста остаются пробелы в",
+      "link_replacement": "<a href=\"/blog/avtomatizaciya-n8n-ai-agents/\">автоматизация n8n</a>"
+    }
+  ]
 }

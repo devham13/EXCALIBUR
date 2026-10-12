@@ -1,0 +1,206 @@
+<p>Заявки приходят в Telegram и с сайта, а менеджеры узнают о сделке с опозданием или вручную переносят лиды в amoCRM. Связка amoCRM и n8n закрывает разрыв без программиста: OAuth, webhook и уведомления в мессенджер собираются в визуальном редакторе. Ниже два рабочих контура - входящая заявка в воронку и исходящее "статус изменился" в Telegram - плюс защита от дублей и чеклист перед включением workflow в production.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Официального узла amoCRM в n8n нет - используйте community-пакет n8n-nodes-amocrm на self-host или HTTP Request с OAuth2. Вход: Webhook или Telegram Trigger → нормализация телефона и UTM → POST /api/v4/leads/complex. Выход: webhook из amoМаркет на Production URL n8n (workflow должен быть Active). Лимит amoCRM: до 7 запросов в секунду на интеграцию; при 429 - пауза и retry. Не регистрируйте в CRM Test URL webhook - amoCRM шлет только на production.</blockquote>
+
+<p>Интеграция amoCRM и n8n - no-code мост между CRM, сайтом и Telegram. API - "розетка" для обмена данными; webhook - когда CRM сама шлет POST на URL n8n при смене сделки. Self-host требует HTTPS и WEBHOOK_URL для Telegram. Community-узлы на n8n Cloud не ставятся без verified статуса - тогда HTTP Request.</p>
+
+<h2 id="choose-stack">1. Сравните, когда amoCRM + n8n выгоднее Make и Zapier в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение n8n, Make и Zapier для интеграции с amoCRM в 2026" loading="lazy">
+</figure>
+
+
+<p>Для РФ-бизнеса amoCRM - база воронки. n8n выигрывает при self-host, сложных webhook и контроле RPS API. Make быстрее стартует из браузера. Zapier на объеме часто дороже.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>n8n + amoCRM</th>
+      <th>Make.com</th>
+      <th>Zapier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Узел amoCRM</b></td>
+      <td>Community n8n-nodes-amocrm или HTTP</td>
+      <td>Модули через маркетплейс / HTTP</td>
+      <td>Ограниченные нативные связки</td>
+    </tr>
+    <tr>
+      <td><b>Данные на своем сервере</b></td>
+      <td>Да (self-host)</td>
+      <td>Облако Make</td>
+      <td>Облако Zapier</td>
+    </tr>
+    <tr>
+      <td><b>Сложные webhook + ветки</b></td>
+      <td>Сильная сторона</td>
+      <td>Хорошо для типовых сцен</td>
+      <td>Проще, но меньше контроля</td>
+    </tr>
+    <tr>
+      <td><b>TCO no-code (~контекст 2026)</b></td>
+      <td>CE бесплатно + VPS; API платформы отдельно</td>
+      <td>От free tier, рост по credits</td>
+      <td>Дороже на масштабе</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote><b>Итоговый вердикт:</b> Берите n8n, если нужны inbound+outbound webhook, антидубли и контроль RPS amoCRM на своем хосте. Оставайтесь на Make, если команда без DevOps и хватает готовых модулей - разбор платформ в статье <a href="/sravnenie-make-zapier-n8n-2026/">сравнение Make, Zapier и n8n</a>.</blockquote>
+
+<p><b>Делайте:</b> оцените, есть ли админ, который поднимет n8n с HTTPS. <b>Не делайте:</b> дублировать одну и ту же логику в Make и n8n без причины - сложнее отлаживать.</p>
+
+<h2 id="oauth-credentials">2. Настройте OAuth и credentials amoCRM в n8n</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow OAuth и credentials amoCRM в n8n" loading="lazy">
+</figure>
+
+
+<p>Официального amoCRM-узла в n8n нет. Пакет n8n-nodes-amocrm (0.0.17 на npm) ставится на self-host через Community Nodes. Альтернатива - long-lived token private integration.</p>
+
+<ol>
+  <li><b>Создайте внешнюю интеграцию</b> в amoCRM → amoМаркет: scopes на leads и contacts, скопируйте Integration ID, Secret и subdomain аккаунта.</li>
+  <li><b>Добавьте credential в n8n</b> для community-узла или OAuth2 для HTTP Request: вставьте ID и Secret.</li>
+  <li><b>Скопируйте Redirect URL из n8n</b> и вставьте в поле Redirect Link интеграции amoCRM посимвольно (https, слэш в конце - как в n8n).</li>
+  <li><b>Нажмите Connect my account</b> в n8n до зеленого статуса или сохраните long-lived token для HTTP-варианта.</li>
+  <li><b>Проверьте тестовый GET</b> к /api/v4/account в HTTP Request - код 200, не 401.</li>
+</ol>
+
+<p>401 - неверный token или просрочен OAuth. 403 на все API - аккаунт мог заблокировать за превышение лимита запросов. <b>Делайте:</b> один credential на все workflow amoCRM. <b>Не делайте:</b> править Redirect URL "на глаз" - типичная причина бесконечного OAuth.</p>
+
+<h2 id="inbound-lead">3. Соберите входящую заявку: Webhook или Telegram → lead в amoCRM</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист входящей заявки Webhook или Telegram в lead amoCRM" loading="lazy">
+</figure>
+
+
+<blockquote>
+  <b>Схема inbound:</b><br>
+  Источник (Webhook POST / Telegram Trigger) → Set или Code: имя, phone E.164, UTM, source → опционально GET /api/v4/contacts?query=phone → If дубль → amoCRM Create Complex или HTTP POST /leads/complex → Respond to Webhook 200
+</blockquote>
+
+<p>Production URL webhook n8n работает только при Active workflow; лимит payload - 16 MB. Telegram на self-host без HTTPS и WEBHOOK_URL не заведется.</p>
+
+<ol>
+  <li><b>Выберите триггер:</b> Webhook (форма сайта) или Telegram Trigger (сообщение боту).</li>
+  <li><b>Нормализуйте поля:</b> телефон в E.164, email, utm_source, utm_campaign, метка источника.</li>
+  <li><b>Укажите pipeline_id и status_id</b> тестовой воронки amoCRM - не прод, пока не проверите поля.</li>
+  <li><b>Отправьте POST /api/v4/leads/complex</b> - сделка, контакт и опционально компания за один запрос (до 50 сделок за запрос; на одну сделку не более 1 контакта и 1 компании).</li>
+  <li><b>Ответьте источнику 200</b> через Respond to Webhook, чтобы форма не повторяла отправку.</li>
+  <li><b>Откройте Executions</b> и зафиксируйте id сделки, merged-флаг, отсутствие 422.</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Блок</th>
+      <th>Задача</th>
+      <th>Быстрая проверка</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Inbound webhook</b></td>
+      <td>Заявка с сайта в CRM</td>
+      <td>Production URL + Active, тело complex с pipeline_id</td>
+    </tr>
+    <tr>
+      <td><b>Telegram Trigger</b></td>
+      <td>Лид из чата</td>
+      <td>HTTPS, WEBHOOK_URL, bot token от BotFather</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> сначала одну воронку "Тест n8n". <b>Не делайте:</b> писать в прод-воронку до проверки custom fields (лимит до 40 полей на сущность в complex).</p>
+
+<h2 id="outbound-status">4. Настройте исходящий webhook amoCRM → фильтр статуса → Telegram</h2>
+
+<p>Исходящие webhook amoCRM - POST x-www-form-urlencoded (entity → action). Настройка в amoМаркет или через POST /api/v4/webhooks; API-webhook - с расширенного тарифа.</p>
+
+<ol>
+  <li><b>Создайте второй workflow</b> с Webhook node, скопируйте Production URL.</li>
+  <li><b>В amoМаркет добавьте исходящий webhook</b> на смену статуса сделки (update_lead / status_lead по вашей настройке).</li>
+  <li><b>Активируйте workflow</b> - без Active amoCRM бьет в нерабочий или test endpoint.</li>
+  <li><b>Добавьте IF:</b> pipeline_id и status_id равны целевым (например "Договор отправлен").</li>
+  <li><b>Telegram Send Message:</b> token бота и chat_id менеджера или группы продаж.</li>
+</ol>
+
+<p><b>Делайте:</b> короткий текст уведомления: id сделки, имя, новый статус, ссылка на карточку в amoCRM. <b>Не делайте:</b> в этом же workflow без guard снова обновлять ту же сделку - получите петлю webhook.</p>
+
+<h2 id="dedupe-guard">5. Включите защиту от дублей и webhook-петель</h2>
+
+<p>Дубли портят отчеты; петля webhook быстро дает 429 (лимит 7 rps на интеграцию) и риск 403 на API.</p>
+
+<ul>
+  <li><b>Поиск перед созданием:</b> GET /api/v4/contacts?query=phone или email; при совпадении - только привязка или обновление, не новый complex.</li>
+  <li><b>Idempotency:</b> храните обработанные entity id + timestamp в static data workflow или во внешней таблице; повторный webhook с тем же id - Stop.</li>
+  <li><b>Webhook guard:</b> исходящий сценарий не вызывает Update Lead без условия "поле изменилось не этим workflow".</li>
+  <li><b>Rate limit:</b> node Wait между пачками; batch изменений amoCRM рекомендует не более 50 сущностей, максимум 250 в одном запросе.</li>
+  <li><b>Error Workflow:</b> при 401/429 отправьте алерт в Telegram и остановите цепочку.</li>
+</ul>
+
+<p><b>Делайте:</b> включите контроль дублей для интеграции в настройках amoCRM, если доступно для вашего сценария. <b>Не делайте:</b> гонять десятки HTTP-нод подряд без пауз - словите 429.</p>
+
+<h2 id="prod-checklist">6. Пройдите чеклист перед продакшеном</h2>
+
+<ul>
+  <li>Workflow inbound и outbound переключены в Active.</li>
+  <li>В amoCRM и формах указан только Production URL webhook n8n.</li>
+  <li>HTTPS на домене n8n; для self-host задан WEBHOOK_URL.</li>
+  <li>На публичном inbound webhook включена Header Auth или другой секрет в URL.</li>
+  <li>Тестовая воронка отработала; prod pipeline_id и status_id перенесены осознанно.</li>
+  <li>OAuth credential общий; срок token проверен.</li>
+  <li>Telegram bot добавлен в нужный chat; chat_id верный.</li>
+  <li>Executions без 401, 422, 429 на типовой заявке.</li>
+  <li>Error Trigger или Error Workflow шлет сообщение дежурному.</li>
+  <li>Нагрузочный тест не превышает 7 rps на интеграцию.</li>
+  <li>Документированы id воронки и ответственный менеджер.</li>
+  <li>Резервная копия JSON workflow экспортирована из n8n.</li>
+</ul>
+
+<p>Self-host поднимается по гайду <a href="/ustanovka-n8n-docker-vps-2026/">установка n8n на Docker и VPS</a>. Следующий уровень - связать CRM с AI-агентами: <a href="/avtomatizaciya-n8n-ai-agents/">автоматизация n8n с AI Agent</a>.</p>
+
+<p>Если после чеклиста остаются пробелы в no-code навыках команды, первые уроки по Make и вайбкодингу помогут быстрее собирать интеграции без кода: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make.com на kv-ai.ru</a>.</p>
+
+<h2>Что дальше</h2>
+
+<ol>
+  <li>Экспортируйте оба workflow в JSON и положите в общий репозиторий команды.</li>
+  <li>Раз в неделю просматривайте Executions на 429 и дубли контактов.</li>
+  <li>Добавьте второй источник лидов (форма + Telegram) в один inbound с нормализацией.</li>
+  <li>Расширьте outbound: несколько status_id → разные чаты Telegram.</li>
+</ol>
+
+<p>Нужен разбор вашей воронки под ключ - смотрите профиль автора <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> и сообщество автоматизаторов в <a href="https://t.me/maya_pro" target="_blank">Telegram "Ковчег"</a>.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> Артур Хорошев, CEO Maya AI, автор курса по Make.com и вайбкодингу.<br>
+  <b>Достоверность данных:</b> лимиты API, форматы webhook и поведение n8n Webhook node сверены с документацией amoCRM и n8n на 12.10.2026; community-пакет n8n-nodes-amocrm - с npm и GitHub автора узла.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как подключить amoCRM к n8n без программиста?</h3>
+<p>Создайте внешнюю интеграцию в amoМаркет, заведите credential в n8n, совместите Redirect URL, нажмите Connect my account. На self-host установите n8n-nodes-amocrm; на n8n Cloud используйте HTTP Request с OAuth2, если пакет не verified.</p>
+
+<h3>Нужен ли программист для Telegram и webhook?</h3>
+<p>Нет для типового сценария: нужен админ amoCRM с правами интеграций и человек, который поднимет n8n с HTTPS для Telegram и внешних webhook.</p>
+
+<h3>Почему n8n не создает лид в amoCRM?</h3>
+<p>Откройте Executions: проверьте OAuth (401), pipeline_id и status_id, тело POST /leads/complex и код 422. Часто ошибка в custom field или неверный subdomain.</p>
+
+<h3>Test URL или Production URL для amoCRM?</h3>
+<p>amoCRM и формы сайта должны слать на Production URL. Test URL работает только пока вы слушаете webhook в редакторе n8n.</p>
+
+<h3>Что делать при ошибке 429 от amoCRM?</h3>
+<p>Добавьте Wait и Retry, снизьте частоту ниже 7 rps на интеграцию, дробите пакеты до 50 сущностей и не запускайте петли webhook.</p>
+
+<h3>Как не плодить дубли контактов?</h3>
+<p>Перед complex ищите контакт по телефону или email; при совпадении обновляйте или привязывайте lead. Включите idempotency по id события webhook.</p>
+
+<h3>Работает ли community amoCRM node в n8n Cloud?</h3>
+<p>Облако n8n ставит только verified community nodes. Если n8n-nodes-amocrm недоступен - соберите сценарий на HTTP Request и OAuth2 credential или перенесите n8n на self-host.</p>

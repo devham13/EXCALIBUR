@@ -1,0 +1,45 @@
+{
+  "article": "memory/blog/articles/B06-integraciya-amocrm-n8n-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 5,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ните, когда amoCRM + n8n выгоднее Make и Zapier в 2026 Для РФ-бизнеса amoCRM - база воронки. n8n выигрыва",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "403",
+      "kind": "large_number",
+      "context": "не 401. 401 - неверный token или просрочен OAuth. 403 на все API - аккаунт мог заблокировать за превышен",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "или HTTP POST /leads/complex → Respond to Webhook 200 Production URL webhook n8n работает только при Act",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "250",
+      "kind": "large_number",
+      "context": "moCRM рекомендует не более 50 сущностей, максимум 250 в одном запросе. Error Workflow: при 401/429 отпра",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "429",
+      "kind": "large_number",
+      "context": "имум 250 в одном запросе. Error Workflow: при 401/429 отправьте алерт в Telegram и остановите цепочку. Д",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -172,3 +172,39 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-12 — B06 integraciya-amocrm-n8n-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | integraciya-amocrm-n8n-2026 |
+| verdict | **PASS** |
+| post_id | 1291 |
+| featured_image_id | 1292 |
+| inline_images | 1293, 1294, 1295 |
+| permalink (live) | integraciya-amocrm-n8n-2026 (dated permalink on production) |
+| transport | SFTP fallback (FTP 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: fail (6 links, 3×404 internal slug-only — ожидаемо)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=1291 slug=integraciya-amocrm-n8n-2026
+OK featured_image=1292
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1293 src=cover/inline-01.png
+OK inline_image_upload=1294 src=cover/inline-02.png
+OK inline_image_upload=1295 src=cover/inline-03.png
+permalink=integraciya-amocrm-n8n-2026 (dated)
+```

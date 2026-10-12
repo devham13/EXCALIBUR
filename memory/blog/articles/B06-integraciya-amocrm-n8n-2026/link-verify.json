@@ -1,9 +1,39 @@
 {
   "source": "memory/blog/articles/B06-integraciya-amocrm-n8n-2026/article.html",
-  "total_links": 3,
-  "failed_count": 0,
-  "verdict": "pass",
+  "total_links": 6,
+  "failed_count": 2,
+  "verdict": "fail",
   "links": [
+    {
+      "url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/",
+      "status": 404,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 404: Not Found",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/sravnenie-make-zapier-n8n-2026/"
+    },
+    {
+      "url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/",
+      "status": 404,
+      "ok": false,
+      "method": "HEAD",
+      "error": "HTTP Error 404: Not Found",
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/ustanovka-n8n-docker-vps-2026/"
+    },
+    {
+      "url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/"
+    },
     {
       "url": "https://kv-ai.ru/obuchenie-po-make",
       "status": 200,

@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-12 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight 2026-10-12, `--site-base` = EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present
+- cover/cover.png + alt: present (cover PARTIAL — fallback PNG, not blocker)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base "$EXCALIBUR_PUBLIC_SITE_URL"
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run --public-base "$EXCALIBUR_PUBLIC_SITE_URL"
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --public-base "$EXCALIBUR_PUBLIC_SITE_URL"
+```
+
+Dry-run OK (slug `primer-seo-stati`, PHP ~6 MB with inline assets).
+
+### Blockers
+
+1. **FTP auth:** `530 Login incorrect` on FTP login (port 21); SFTP (paramiko, port 22) → `Authentication failed`. Bootstrap `excalibur-blog-publish-once.php` not uploaded.
+2. **Operator:** rotate/sync `FTP_USER` / `FTP_PASSWORD` (and `SFTP_*` if distinct) in Cloud Secrets; confirm account matches `REMOTE_SITE_ROOT` / WP document root on production host.
+3. **Script:** cherry-picked SFTP transport fallback (`6e8460e`) onto branch — requires `pip install paramiko` in Cloud environment.
+
+### Next steps
+
+- Re-run publish after credentials fix (prefer SFTP when `SFTP_HOST` set — avoids FTP 425 from Cloud egress).
+- HTTP trigger may need Beget cookie on first hit; script uses WebFetch fallback on timeout.

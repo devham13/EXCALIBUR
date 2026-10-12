@@ -5,6 +5,10 @@
 <p>Интеграция amoCRM и n8n - no-code мост между CRM, сайтом и Telegram. API - "розетка" для обмена данными; webhook - когда CRM сама шлет POST на URL n8n при смене сделки. Self-host требует HTTPS и WEBHOOK_URL для Telegram. Community-узлы на n8n Cloud не ставятся без verified статуса - тогда HTTP Request.</p>
 
 <h2 id="choose-stack">1. Сравните, когда amoCRM + n8n выгоднее Make и Zapier в 2026</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение n8n, Make и Zapier для интеграции с amoCRM в 2026" loading="lazy">
+</figure>
+
 
 <p>Для РФ-бизнеса amoCRM - база воронки. n8n выигрывает при self-host, сложных webhook и контроле RPS API. Make быстрее стартует из браузера. Zapier на объеме часто дороже.</p>
 
@@ -50,6 +54,10 @@
 <p><b>Делайте:</b> оцените, есть ли админ, который поднимет n8n с HTTPS. <b>Не делайте:</b> дублировать одну и ту же логику в Make и n8n без причины - сложнее отлаживать.</p>
 
 <h2 id="oauth-credentials">2. Настройте OAuth и credentials amoCRM в n8n</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Workflow OAuth и credentials amoCRM в n8n" loading="lazy">
+</figure>
+
 
 <p>Официального amoCRM-узла в n8n нет. Пакет n8n-nodes-amocrm (0.0.17 на npm) ставится на self-host через Community Nodes. Альтернатива - long-lived token private integration.</p>
 
@@ -64,6 +72,10 @@
 <p>401 - неверный token или просрочен OAuth. 403 на все API - аккаунт мог заблокировать за превышение лимита запросов. <b>Делайте:</b> один credential на все workflow amoCRM. <b>Не делайте:</b> править Redirect URL "на глаз" - типичная причина бесконечного OAuth.</p>
 
 <h2 id="inbound-lead">3. Соберите входящую заявку: Webhook или Telegram → lead в amoCRM</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист входящей заявки Webhook или Telegram в lead amoCRM" loading="lazy">
+</figure>
+
 
 <blockquote>
   <b>Схема inbound:</b><br>

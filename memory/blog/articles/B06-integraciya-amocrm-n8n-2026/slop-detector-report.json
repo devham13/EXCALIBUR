@@ -1,0 +1,26 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 3,
+  "over_long_sentences": [
+    {
+      "sentence": "com Zapier Узел amoCRM Community n8n-nodes-amocrm или HTTP Модули через маркетплейс / HTTP Ограниченные нативные связки Данные на своем сервере Да (self-host) Облако Make Облако Zapier Сложные webhook + ветки Сильная сторона Хорошо для типовых сцен Проще, но меньше контроля TCO no-code (~контекст 2026) CE бесплатно + VPS; API платформы отдельно От free tier, рост по credits Дороже на масштабе Итоговый вердикт: Берите n8n, если нужны inbound+outbound webhook, антидубли и контроль RPS amoCRM на своем хосте",
+      "word_count": 72
+    },
+    {
+      "sentence": "query=phone → If дубль → amoCRM Create Complex или HTTP POST /leads/complex → Respond to Webhook 200 Production URL webhook n8n работает только при Active workflow; лимит payload - 16 MB",
+      "word_count": 26
+    },
+    {
+      "sentence": "Блок Задача Быстрая проверка Inbound webhook Заявка с сайта в CRM Production URL + Active, тело complex с pipeline_id Telegram Trigger Лид из чата HTTPS, WEBHOOK_URL, bot token от BotFather Делайте: сначала одну воронку \"Тест n8n\"",
+      "word_count": 32
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.1,
+    "avg_syllables_per_word": 1.5
+  }
+}

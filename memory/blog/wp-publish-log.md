@@ -172,3 +172,46 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-13 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (4/4), preflight refresh 2026-10-13 on EXCALIBUR_PUBLIC_SITE_URL
+- schema.jsonld: present (BlogPosting, FAQPage, HowTo)
+- cover/cover.png + 3× inline + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (Cloud env)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK slug primer-seo-stati, PHP ~6.6MB
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati  # FAIL
+```
+
+### Blockers
+
+1. **FTP auth:** `530 Login incorrect` on `FTP_HOST` (credentials from Cloud secrets → `memory/site.env.local`).
+2. **SFTP probe:** `AuthenticationException Authentication failed` (`SFTP_*` / `SSH_*` secrets).
+3. HTTP bootstrap / WebFetch fallback **not reached** (upload step failed).
+
+### Next steps (оператор)
+
+1. Rotate or fix FTP/SFTP credentials in Cloud Secrets; ensure `FTP_PASS` matches host panel (script reads `FTP_PASS`, not `FTP_PASSWORD`).
+2. Set `FTP_ROOT=/` (or path with `wp-load.php`) in secrets or `site.env.local`.
+3. Re-run `Task(excalibur-blog-publish)` for B01 after auth OK.
+
+`shared/published-articles.md` — **not** updated (still `draft_ready` for B01).

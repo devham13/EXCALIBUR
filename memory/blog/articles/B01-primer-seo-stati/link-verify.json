@@ -5,7 +5,17 @@
   "verdict": "pass",
   "links": [
     {
-      "url": "https://wordstat.yandex.ru/",
+      "url": "https://mayai.ru/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/"
+    },
+    {
+      "url": "https://b2b.yandex.ru/adv/edu/materials/seo-tekst-chto-eto-i-kak-pravilno-pisat",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -14,7 +24,7 @@
       "skipped": false
     },
     {
-      "url": "https://webmaster.yandex.ru/",
+      "url": "https://anyseo.io/blog/geo-optimizaciya",
       "status": 200,
       "ok": true,
       "method": "HEAD",
@@ -23,21 +33,12 @@
       "skipped": false
     },
     {
-      "url": "https://example.com/#services",
+      "url": "https://kv-ai.ru/obuchenie-po-make",
       "status": 200,
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "internal_absolute",
-      "skipped": false
-    },
-    {
-      "url": "https://example.com/",
-      "status": 200,
-      "ok": true,
-      "method": "HEAD",
-      "error": null,
-      "kind": "internal_absolute",
+      "kind": "external",
       "skipped": false
     }
   ]

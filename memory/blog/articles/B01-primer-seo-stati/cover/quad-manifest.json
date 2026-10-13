@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "Топ в выдаче есть — люди уходят через 10 секунд: SEO без ответа или один workflow SEO+GEO?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на fake-аналитику: топ есть, удержание ноль — SEO-текст для людей",
+      "scene_hint": "reference-лицо, дружелубная улыбка; одежда — тёмно-синяя рубашка без галстука (не белая футболка с reference); жест рукой на fake Metrica «время на странице 0:08» и Wordstat «как писать seo статьи»; вокруг рваная бумага, скотч, розовый стикер «snippet-first», отзыв ★☆☆☆☆ «вода», meme shocked cat + один Drake «ключи vs смысл», розовый маркер на «0:08»",
+      "meme_caption_ru": "Топ есть — 10 сек?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Соберите SEO и GEO в одном материале",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "UI-мокап таблицы SEO vs GEO (цель, единица успеха, ошибка 2026, делать/не делать) — без лица героя; лёгкий стикер «snippet-first», «Соберите SEO и GEO в одном материале»",
+      "alt": "Таблица сравнения SEO и GEO в одном материале"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Зафиксируйте интент и соберите семантику",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Яндекс Wordstat + блок «интент how_to» и стрелка к primary query — «Зафиксируйте интент и соберите семантику»; без героя, скотч на углу",
+      "alt": "Скрин Wordstat и фиксация интента для SEO-статьи"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Соберите outline до первого абзаца",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "6 шагов outline: H1 → H2 → тезис под H2 → таблица/список → lead → FAQ; «Соберите outline до первого абзаца»; без героя",
+      "alt": "Схема workflow: outline H2–H3 до первого абзаца"
     }
   }
 }

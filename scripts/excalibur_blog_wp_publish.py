@@ -7,6 +7,7 @@ import base64
 import ftplib
 import io
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -21,17 +22,28 @@ def project_root() -> Path:
 
 
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    # Cloud Secrets / process env override file (non-empty only)
+    for k, v in os.environ.items():
+        if v and str(v).strip():
+            env[k] = str(v).strip()
+    if not env.get("FTP_PASS") and env.get("FTP_PASSWORD"):
+        env["FTP_PASS"] = env["FTP_PASSWORD"]
+    excalibur_public = env.get("EXCALIBUR_PUBLIC_SITE_URL", "").strip()
+    if excalibur_public:
+        env["PUBLIC_SITE_URL"] = excalibur_public
+    if not env.get("FTP_HOST"):
+        raise FileNotFoundError("FTP_HOST missing (memory/site.env.local and env)")
+    return env
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -350,7 +362,11 @@ def main() -> int:
         return 0
 
     env = load_env(root)
-    if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
+    allow = (
+        os.environ.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower()
+        or env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower()
+    )
+    if allow != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
     public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or ""

@@ -3,71 +3,71 @@
   "fact_bank_source": "memory/brief/fact-bank.md",
   "verdict": "pass",
   "total_extracted_facts": 9,
-  "verified_facts_count": 1,
-  "unverified_facts_count": 8,
+  "verified_facts_count": 3,
+  "unverified_facts_count": 6,
   "facts": [
     {
       "fact": "2026",
       "kind": "date_or_year",
-      "context": "тся как нормальный материал, а не набор ключей. В 2026 году этого мало: нейропоиск (Яндекс Нейро, Google",
+      "context": "дку, нейропоиск не цитирует обрывки. SEO-статья в 2026 году - это не \"плотность слов\", а полный ответ на",
       "verified": true,
       "reason": "Exact match found in fact-bank"
     },
     {
       "fact": "2024",
       "kind": "date_or_year",
-      "context": "овка Schema JSON-LD, llms.txt, FAQ в HTML С осени 2024 Алиса AI встроена в основную выдачу Яндекса. Аудит",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
-    },
-    {
-      "fact": "2024 года",
-      "kind": "date_or_year",
-      "context": "ейросетей в России растёт: по данным исследований 2024 года значимая часть пользователей хотя бы раз пробовал",
+      "context": "LD → чеклист перед публикацией llms.txt (сентябрь 2024) подсказывает AI-краулерам приоритеты блога - ряд",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "150",
       "kind": "large_number",
-      "context": "жен быть понятен без соседних абзацев. Первые 100–150 слов страницы — ключевая зона для извлечения ответ",
-      "verified": false,
-      "reason": "No matching fact or number found in fact-bank"
+      "context": "рагменты вокруг заголовка или вопроса. Первые 100-150 слов страницы - главная зона, откуда AI часто заби",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
     },
     {
       "fact": "8 500",
       "kind": "large_number",
-      "context": "ыдаче. Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды.",
+      "context": "w-to longread в нашем блоге практический ориентир 8 500-9 500 знаков текста: хватает глубины без простыни",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "9 500",
       "kind": "large_number",
-      "context": "Для how-to longread в нашем блоге ориентир 8 500–9 500 знаков текста: достаточно глубины без воды. Семант",
+      "context": "ongread в нашем блоге практический ориентир 8 500-9 500 знаков текста: хватает глубины без простыни. H1 на",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
-      "fact": "500",
+      "fact": "170",
       "kind": "large_number",
-      "context": "ложение секции = тезис. Шаг 4: Напишите lead. 350–500 знаков: боль, суть ответа, что получит читатель —",
+      "context": "ов в десктопной выдаче. Description - порядка 140-170 символов, без дословного дубля Title. H1 может отл",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "1 500",
       "kind": "large_number",
-      "context": "и топ SERP по вашему запросу. Короткая заметка на 1 500 знаков не закроет how-to «как писать seo статьи»,",
+      "context": "нты дают чек-листы и примеры, короткая заметка на 1 500 знаков запрос не закроет. Раздувание до 15 000 без",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
     },
     {
       "fact": "15 000",
       "kind": "large_number",
-      "context": "онкуренты дают чек-листы и примеры. Раздувание до 15 000 знаков без новых фактов тоже не помогает — AI и лю",
+      "context": "на 1 500 знаков запрос не закроет. Раздувание до 15 000 без новых фактов тоже не помогает - люди и AI ищут",
       "verified": false,
       "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "500",
+      "kind": "large_number",
+      "context": "готовый тезис для AI. Шаг 4: Напишите lead на 350-500 знаков. Боль, суть ответа, результат для читателя.",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
     }
   ]
 }

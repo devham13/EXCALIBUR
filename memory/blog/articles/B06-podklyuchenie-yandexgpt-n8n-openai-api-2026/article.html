@@ -96,9 +96,15 @@
 
 <p>Вне n8n можно проверить ключ одним POST на chat/completions - так поймёте, credential или Agent виноват.</p>
 
-<pre><code>POST https://llm.api.cloud.yandex.net/v1/chat/completions
-Authorization: Api-Key &lt;ключ&gt;
-{"model":"yandexgpt-lite/latest","messages":[{"role":"user","content":"ок"}]}</code></pre>
+<blockquote>
+  <b>Пример POST (curl/HTTP):</b>
+  <br>
+  POST https://llm.api.cloud.yandex.net/v1/chat/completions
+  <br>
+  Authorization: Api-Key &lt;ключ&gt;
+  <br>
+  {"model":"yandexgpt-lite/latest","messages":[{"role":"user","content":"ок"}]}
+</blockquote>
 
 <p><b>Не делайте:</b> дописывать в Base URL /chat/completions.</p>
 

@@ -1,0 +1,52 @@
+{
+  "article": "memory/blog/articles/B06-podklyuchenie-yandexgpt-n8n-openai-api-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 6,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 4,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "йской LLM, но n8n по умолчанию ждёт OpenAI? С мая 2025 Yandex Foundation Models умеют говорить на том же",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "andex заявлены с такой совместимостью - поэтому в 2026 году не обязательно собирать сырой HTTP Request на",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "404",
+      "kind": "large_number",
+      "context": "e (запасной yc.ai.foundationModels.execute). Если 404 или пустой список моделей, попробуйте https://ai.a",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "403",
+      "kind": "large_number",
+      "context": "PI-ключ с scope yc.ai.languageModels.execute; при 403 проверьте yc.ai.foundationModels.execute. Secret к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "&gt;/yandexgpt/latest. Шаг 5: Execute и Logs: код 200 и текст. Шаг 6: 401 - ключ; 403 - роли/scope; 404",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "401",
+      "kind": "large_number",
+      "context": "Base URL B. Симптом Вероятная причина Что сделать 401 Неверный или просроченный API Key Перевыпустить кл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

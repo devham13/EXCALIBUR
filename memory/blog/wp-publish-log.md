@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-14 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1307 |
+| inline_images | 1308, 1309, 1310 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP (FTP 425 Security: Bad IP connecting from Cloud) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (7/7, production `--site-base` from `PUBLIC_SITE_URL`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base "$PUBLIC_SITE_URL"  # pass
+python3 scripts/excalibur_blog_wp_publish.py ... --dry-run  # OK, PHP ~6.9MB
+python3 scripts/excalibur_blog_wp_publish.py ...  # FAIL ftplib.error_temp 425 Bad IP
+# SFTP fallback (SSH_* + wp-load.php discover): upload bootstrap + HTTP trigger — PASS
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1307
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1308 src=cover/inline-01.png
+OK inline_image_upload=1309 src=cover/inline-02.png
+OK inline_image_upload=1310 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

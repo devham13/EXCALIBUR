@@ -107,6 +107,23 @@ def normalize_cover_png(cover_path: Path, registry_path: Path, root: Path) -> di
     return evidence
 
 
+def compress_image_for_upload(path: Path, *, max_side: int = 1280, quality: int = 82) -> tuple[bytes, str, str]:
+    """Return (bytes, mime, upload_filename) as JPEG for smaller FTP bootstrap payload."""
+    from PIL import Image
+
+    with Image.open(path) as im:
+        im = im.convert("RGB")
+        w, h = im.size
+        longest = max(w, h)
+        if longest > max_side:
+            scale = max_side / longest
+            im = im.resize((int(w * scale), int(h * scale)), Image.Resampling.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, format="JPEG", quality=quality, optimize=True)
+    stem = path.stem
+    return buf.getvalue(), "image/jpeg", f"{stem}.jpg"
+
+
 def load_article(article_dir: Path) -> dict:
     meta_path = article_dir / "article.meta.json"
     html_path = article_dir / "article.html"
@@ -117,11 +134,14 @@ def load_article(article_dir: Path) -> dict:
     cover_path = article_dir / "cover" / "cover.png"
     schema_path = article_dir / "schema.jsonld"
     cover_b64 = ""
+    cover_mime = "image/png"
+    cover_upload_name = "cover.png"
     cover_evidence: dict[str, object] = {}
     cover_reg = article_dir / "cover" / "cover-registry.json"
     if cover_path.is_file():
         cover_evidence = normalize_cover_png(cover_path, cover_reg, project_root())
-        cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
+        cover_bytes, cover_mime, cover_upload_name = compress_image_for_upload(cover_path)
+        cover_b64 = base64.b64encode(cover_bytes).decode("ascii")
     schema_raw = ""
     if schema_path.is_file():
         schema_raw = schema_path.read_text(encoding="utf-8").strip()
@@ -137,12 +157,13 @@ def load_article(article_dir: Path) -> dict:
         if not src.startswith(("http://", "https://", "data:")):
             local_path = article_dir / src
             if local_path.is_file():
-                img_bytes = local_path.read_bytes()
+                img_bytes, img_mime, upload_name = compress_image_for_upload(local_path)
                 b64_data = base64.b64encode(img_bytes).decode("ascii")
                 inline_images.append({
                     "src": src,
                     "b64": b64_data,
-                    "filename": local_path.name
+                    "filename": upload_name,
+                    "mime": img_mime,
                 })
 
     return {
@@ -151,6 +172,8 @@ def load_article(article_dir: Path) -> dict:
         "excerpt": meta.get("description", ""),
         "content": content,
         "cover_b64": cover_b64,
+        "cover_mime": cover_mime,
+        "cover_upload_name": cover_upload_name,
         "cover_evidence": cover_evidence,
         "cover_alt": cover_alt,
         "schema_jsonld": schema_raw,
@@ -225,10 +248,12 @@ if (!empty($p['cover_b64'])) {{
     $bin = base64_decode($p['cover_b64']);
     $tmp = wp_tempnam('excalibur-cover-' . $slug . '.png');
     file_put_contents($tmp, $bin);
+    $cover_mime = !empty($p['cover_mime']) ? $p['cover_mime'] : 'image/png';
+    $cover_upload = !empty($p['cover_upload_name']) ? $p['cover_upload_name'] : ($slug . '-cover.png');
     $file_array = [
-        'name' => $slug . '-cover.png',
+        'name' => $slug . '-' . basename($cover_upload),
         'tmp_name' => $tmp,
-        'type' => 'image/png',
+        'type' => $cover_mime,
         'error' => 0,
         'size' => strlen($bin),
     ];
@@ -264,10 +289,11 @@ if (!empty($p['inline_images'])) {{
         $tmp = wp_tempnam('excalibur-inline-' . $slug . '-' . sanitize_title($filename));
         file_put_contents($tmp, $bin);
         
+        $img_mime = !empty($img['mime']) ? $img['mime'] : 'image/png';
         $file_array = [
             'name' => $slug . '-' . $filename,
             'tmp_name' => $tmp,
-            'type' => 'image/png',
+            'type' => $img_mime,
             'error' => 0,
             'size' => strlen($bin),
         ];

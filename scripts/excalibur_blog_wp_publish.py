@@ -159,7 +159,8 @@ def load_article(article_dir: Path) -> dict:
     }
 
 
-FTP_PAYLOAD_CHUNK_BYTES = 900_000
+FTP_PAYLOAD_CHUNK_BYTES = 32_768
+FTP_UPLOAD_RETRIES = 8
 
 
 def encode_payload_b64(payload: dict) -> str:
@@ -304,16 +305,36 @@ def build_php(payload: dict) -> str:
 
 
 def ftp_upload_bytes(ftp: ftplib.FTP, remote: str, data: bytes) -> None:
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+    import time
+
+    last_err: Exception | None = None
+    for attempt in range(FTP_UPLOAD_RETRIES):
+        try:
+            ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+            return
+        except ftplib.error_temp as e:
+            last_err = e
+            time.sleep(min(2**attempt, 15))
+    if last_err:
+        raise last_err
 
 
-def ftp_upload_payload_parts(ftp: ftplib.FTP, b64: str) -> list[str]:
+def ftp_upload_payload_parts(ftp_connect_fn, b64: str) -> list[str]:
     part_names: list[str] = []
     chunk = FTP_PAYLOAD_CHUNK_BYTES
     for i in range(0, len(b64), chunk):
         name = f"excalibur-blog-payload.part{len(part_names)}"
-        ftp_upload_bytes(ftp, name, b64[i : i + chunk].encode("ascii"))
+        data = b64[i : i + chunk].encode("ascii")
+        ftp = ftp_connect_fn()
+        try:
+            ftp_upload_bytes(ftp, name, data)
+        finally:
+            try:
+                ftp.quit()
+            except Exception:  # noqa: BLE001
+                pass
         part_names.append(name)
+        print(f"OK ftp_part={name} bytes={len(data)}", flush=True)
     return part_names
 
 
@@ -337,10 +358,12 @@ def publish_via_ftp(env: dict[str, str], payload: dict, public_base: str) -> str
     runner = build_runner_php() + wp_publish_body_php()
     part_names: list[str] = []
 
+    part_names = ftp_upload_payload_parts(ftp_connect, b64)
     ftp = ftp_connect()
-    part_names = ftp_upload_payload_parts(ftp, b64)
-    ftp_upload_bytes(ftp, remote, runner.encode("utf-8"))
-    ftp.quit()
+    try:
+        ftp_upload_bytes(ftp, remote, runner.encode("utf-8"))
+    finally:
+        ftp.quit()
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""

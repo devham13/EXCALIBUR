@@ -1,0 +1,227 @@
+<p>Хотите оставить заявки и черновики ответов на российской LLM, но n8n по умолчанию ждёт OpenAI? С мая 2025 Yandex Foundation Models умеют говорить на том же "языке", что и OpenAI API: вы не пишете свой HTTP-клиент, а подставляете ключ Yandex Cloud и другой Base URL в привычный credential. За один сеанс вы заведёте сервисный аккаунт, подключите YandexGPT к AI Agent и прогоните тест с human approve перед Telegram или CRM.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> Подключить YandexGPT к n8n проще всего через credential "OpenAI API": API-ключ Yandex Cloud, Base URL до /v1 (обычно https://llm.api.cloud.yandex.net/v1), модель yandexgpt-lite/latest или yandexgpt/latest. Роли SA: ai.languageModels.user; scope ключа: yc.ai.languageModels.execute (запасной yc.ai.foundationModels.execute). Если 404 или пустой список моделей, попробуйте https://ai.api.cloud.yandex.net/v1 и id gpt://&lt;folder&gt;/yandexgpt/latest. Красный тест credential часто нормален: проверяйте реальным запуском AI Agent.</blockquote>
+
+<p>OpenAI-совместимый API здесь значит: n8n шлёт те же запросы chat/completions, что и к OpenAI, но адрес сервера другой. API (Application Programming Interface) - готовая "розетка": вы вставляете ключ и URL, workflow не переписываете. IAM - права в Yandex Cloud, кто может вызывать модели. Сервисный аккаунт (SA) - технический пользователь без пароля для автоматизации. С мая 2025 Foundation Models Yandex заявлены с такой совместимостью - поэтому в 2026 году не обязательно собирать сырой HTTP Request на каждый чат.</p>
+
+<p>Ниже - чеклист IAM, настройка credential, AI Agent и сравнение трёх путей. Подробнее про агентов: <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n</a>; про MCP в Cursor: <a href="/podklyuchenie-mcp-cursor/" target="_blank">отдельный гайд</a>.</p>
+
+<h2 id="checklist-start">1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n</h2>
+
+<p>Без этого блока вы потратите час на перебор Base URL. <b>Делайте:</b> отметьте каждый пункт до создания ключа. <b>Не делайте:</b> хранить secret в Telegram, Notion или в теле workflow.</p>
+
+<ol>
+  <li>Есть аккаунт Yandex Cloud с активным billing (без него модели не ответят).</li>
+  <li>Выбран каталог (folder): запишите Folder ID из консоли - он понадобится для fallback-модели gpt://...</li>
+  <li>n8n Cloud или self-host; версия 1.74+ желательна.</li>
+  <li>Для ПДн клиентов выбран self-host в РФ при необходимости.</li>
+  <li>Создан сервисный аккаунт только под n8n, не личный аккаунт разработчика.</li>
+  <li>На SA выдана роль ai.languageModels.user (минимум для вызова LLM).</li>
+  <li>При пустом списке моделей добавьте ai.models.viewer; по практике интеграторов иногда нужна ai.models.user.</li>
+  <li>Выпущен API-ключ с scope yc.ai.languageModels.execute; при 403 проверьте yc.ai.foundationModels.execute.</li>
+  <li>Secret ключа сохранён один раз в менеджере паролей; в n8n - только Credentials.</li>
+  <li>Base URL заготовлен без хвоста /chat/completions - только корень до /v1.</li>
+  <li>Выбрана модель MVP: yandexgpt-lite/latest для классификации, yandexgpt/latest для сложных ответов.</li>
+  <li>Есть тестовый prompt (2-3 строки) и доступ к Execution Logs в n8n.</li>
+</ol>
+
+<p>Цены за токены - только в биллинге YC на дату запуска.</p>
+
+<h2 id="openai-credential">2. Настройте credential OpenAI в n8n с Base URL Yandex</h2>
+
+<p>Credentials → OpenAI API → ключ SA → Base URL из таблицы.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Вариант</th>
+      <th>Base URL (только до /v1)</th>
+      <th>Когда пробовать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>A - большинство n8n-гайдов</b></td>
+      <td>https://llm.api.cloud.yandex.net/v1</td>
+      <td>Первый выбор</td>
+    </tr>
+    <tr>
+      <td><b>B - официальный AI Studio tutorial</b></td>
+      <td>https://ai.api.cloud.yandex.net/v1</td>
+      <td>404, пустые models, ошибки маршрута</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li><b>Шаг 1:</b> Создайте credential OpenAI API с Base URL варианта A.</li>
+  <li><b>Шаг 2:</b> Save; красный Test часто нормален (/models).</li>
+  <li><b>Шаг 3:</b> Manual Trigger → Chat Model или AI Agent + sub-node.</li>
+  <li><b>Шаг 4:</b> Модель yandexgpt-lite/latest или yandexgpt/latest; вариант B: gpt://&lt;folder&gt;/yandexgpt/latest.</li>
+  <li><b>Шаг 5:</b> Execute и Logs: код 200 и текст.</li>
+  <li><b>Шаг 6:</b> 401 - ключ; 403 - роли/scope; 404 - Base URL B.</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Симптом</th>
+      <th>Вероятная причина</th>
+      <th>Что сделать</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>401</b></td>
+      <td>Неверный или просроченный API Key</td>
+      <td>Перевыпустить ключ, обновить credential</td>
+    </tr>
+    <tr>
+      <td><b>403</b></td>
+      <td>Нет роли или scope</td>
+      <td>ai.languageModels.user + yc.ai.languageModels.execute</td>
+    </tr>
+    <tr>
+      <td><b>404</b></td>
+      <td>Неверный Base URL</td>
+      <td>Сменить llm.api на ai.api или наоборот</td>
+    </tr>
+    <tr>
+      <td><b>Test красный, chat работает</b></td>
+      <td>/models не поддержан</td>
+      <td>Доверять Execute, не Test</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Вне n8n можно проверить ключ одним POST на chat/completions - так поймёте, credential или Agent виноват.</p>
+
+<pre><code>POST https://llm.api.cloud.yandex.net/v1/chat/completions
+Authorization: Api-Key &lt;ключ&gt;
+{"model":"yandexgpt-lite/latest","messages":[{"role":"user","content":"ок"}]}</code></pre>
+
+<p><b>Не делайте:</b> дописывать в Base URL /chat/completions.</p>
+
+<h2 id="ai-agent-chat">3. Подключите Chat Model к AI Agent и выберите модель</h2>
+
+<p>AI Agent зовёт Chat Model sub-node с вашим Yandex credential.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> New Workflow → Webhook (тестовая заявка) или Chat Trigger для ручного чата.</li>
+  <li><b>Шаг 2:</b> Добавьте AI Agent, соедините с триггером.</li>
+  <li><b>Шаг 3:</b> В Agent откройте Chat Model → OpenAI Chat Model → credential "Yandex GPT".</li>
+  <li><b>Шаг 4:</b> Model: yandexgpt-lite/latest для черновиков и классификации; yandexgpt/latest когда важнее качество, а не скорость.</li>
+  <li><b>Шаг 5:</b> System Message: роль, формат, запрет выдумывать факты.</li>
+  <li><b>Шаг 6:</b> Тестовая заявка и проверка Logs.</li>
+</ol>
+
+<p><b>Делайте:</b> короткий system prompt. <b>Не делайте:</b> гонять в prompt полные ПДн без юридической оценки.</p>
+
+<h2 id="business-workflow">4. Соберите workflow: заявка, классификация, approve, CRM</h2>
+
+<blockquote>
+  <b>Схема business-цепочки:</b>
+  <br>
+  Webhook заявки → AI Agent (YandexGPT классифицирует и пишет черновик) → IF нужен человек → Telegram/Email approve → Bitrix24 или amoCRM → уведомление менеджеру
+</blockquote>
+
+<ol>
+  <li><b>Шаг 1:</b> Set/Code: category и draft из JSON ответа.</li>
+  <li><b>Шаг 2:</b> Approve в Telegram или Email.</li>
+  <li><b>Шаг 3:</b> После approve - CRM-нода, ключи в credentials.</li>
+  <li><b>Шаг 4:</b> Без автоотправки клиенту без человека.</li>
+  <li><b>Шаг 5:</b> Три теста: спам, срочно, неполная заявка.</li>
+</ol>
+
+<p>152-ФЗ: минимум полей в облаке, approve перед CRM, self-host n8n при жёстких требованиях к логам. Доступ к Yandex Cloud зависит от региона и типа аккаунта - актуальные правила в официальной документации провайдера.</p>
+
+<h2 id="compare-paths">5. Сравните три пути подключения и выберите свой</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>OpenAI credential + Base URL</th>
+      <th>Community n8n-nodes-yandexgpt</th>
+      <th>HTTP Request (native FM API)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Сложность</b></td>
+      <td>Низкая</td>
+      <td>Средняя (install community)</td>
+      <td>Высокая</td>
+    </tr>
+    <tr>
+      <td><b>AI Agent + Tools</b></td>
+      <td>Да, рекомендуемый путь</td>
+      <td>Да, нативная нода</td>
+      <td>Вручную, частично</td>
+    </tr>
+    <tr>
+      <td><b>Function calling</b></td>
+      <td>Через OpenAI-стек</td>
+      <td>Заявлено в пакете</td>
+      <td>Сборка своими руками</td>
+    </tr>
+    <tr>
+      <td><b>Обновления API</b></td>
+      <td>Зависит от совместимости YC</td>
+      <td>Зависит от maintainer</td>
+      <td>Полный контроль</td>
+    </tr>
+    <tr>
+      <td><b>Когда выбирать</b></td>
+      <td>Default для MVP в 2026</td>
+      <td>Нужен SA JSON и folder в UI ноды</td>
+      <td>Legacy REST llm.api.../completion</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Для "подключить yandexgpt к n8n" и AI Agent начните с OpenAI credential и llm.api Base URL. Community node - если хотите отдельную ноду RomanAverin на GitHub. HTTP Request - когда нужен нестандартный auth или старый endpoint foundationModels/v1/completion без OpenAI-пути.
+</blockquote>
+
+<p><b>Не делайте:</b> выдавать community node за единственный официальный способ.</p>
+
+<h2 id="next-steps">6. Что делать дальше</h2>
+
+<ol>
+  <li>Добавьте один tool в AI Agent (HTTP в CRM или поиск по FAQ).</li>
+  <li>Включите Simple Memory, если диалог многошаговый.</li>
+  <li>Настройте алерт в Telegram при ошибке 401/403 в production workflow.</li>
+  <li>Раз в квартал пересмотрите scopes и роли SA после обновлений Yandex Cloud.</li>
+  <li>Углубите архитектуру агента в гайде <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n AI agents</a>.</li>
+</ol>
+
+<p>Для системной практики no-code: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make и вайбкодинга</a> (credentials, approve, CRM).</p>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт Елена Ковалева (Главный эксперт по SEO/GEO).<br>
+  <b>Достоверность данных:</b> параметры IAM, Base URL и scopes сверены с документацией Yandex Cloud и материалами n8n на октябрь 2026; показы Яндекс Вордстата в текст не включались (MCP недоступен на дату research).
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Нужен ли отдельный community node для YandexGPT в n8n?</h3>
+<p>Нет: OpenAI credential + Base URL + AI Agent хватит для MVP. Node - опция для SA JSON в UI.</p>
+
+<h3>Какой scope указать у API-ключа?</h3>
+<p>yc.ai.languageModels.execute; при 403 добавьте yc.ai.foundationModels.execute и роль ai.languageModels.user.</p>
+
+<h3>Какую модель yandexgpt выбрать для агента?</h3>
+<p>lite для классификации, latest для сложных ответов; billing смотрите в консоли YC.</p>
+
+<h3>Почему тест credential красный, а workflow отвечает?</h3>
+<p>n8n бьёт в /models; проверяйте Execute с реальным prompt.</p>
+
+<h3>Можно ли отправлять персональные данные клиентов в YandexGPT?</h3>
+<p>Только после юридической оценки; минимум полей, approve, self-host при жёстких требованиях.</p>
+
+<h3>Чем отличается llm.api от ai.api?</h3>
+<p>Разные маршруты: сначала llm.api.../v1, при 404 - ai.api.../v1 и gpt://&lt;folder&gt;/yandexgpt/latest.</p>
+
+<h3>Как связать ответ YandexGPT с CRM после approve?</h3>
+<p>Нода Bitrix24/amoCRM после approve; токены только в credentials.</p>

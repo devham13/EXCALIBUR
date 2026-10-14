@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — YandexGPT в n8n (OpenAI API)
+
+- **priority:** P0
+- **slug:** podklyuchenie-yandexgpt-n8n-openai-api-2026
+- **h1:** Как подключить YandexGPT к n8n через OpenAI-совместимый API: пошаговая инструкция для РФ
+- **primary_query:** подключить yandexgpt к n8n
+- **secondary_queries:** yandex gpt n8n, yandexgpt openai api n8n, как использовать yandex gpt в n8n, сервисный аккаунт yandex cloud для n8n
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Чек-лист перед стартом: каталог Yandex Cloud, роли IAM, API-ключ и что хранить только в credentials n8n
+  2. Credential OpenAI в n8n: Base URL `llm.api.cloud.yandex.net/v1`, тест соединения и типичные ошибки 401/403
+  3. Подключение Chat Model к AI Agent: выбор `yandexgpt/latest` vs lite, Folder ID и заголовок OpenAI-Project при необходимости
+  4. Первый рабочий workflow: заявка → классификация YandexGPT → черновик ответа → approve перед отправкой в Telegram/CRM
+  5. Сравнение путей: стандартная OpenAI-нода vs community node vs HTTP Request — когда что выбрать в 2026
+- **faq_hints:** нужен ли отдельный community node для YandexGPT в n8n; какую модель yandexgpt выбрать для агента; можно ли не отправлять персональные данные клиентов в облако Yandex
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** рабочий стол с ноутбуком, на экране схема n8n (AI Agent + OpenAI Chat Model), рядом логотипы Yandex Cloud и n8n, стикер с URL api.cloud.yandex.net, diy-коллаж в неоновых тонах
+
+---
+

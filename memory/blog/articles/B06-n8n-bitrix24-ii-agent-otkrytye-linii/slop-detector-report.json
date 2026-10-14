@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Ниже - пошагово поднимете MVP: Telegram в контакт-центре, webhook на n8n, AI Agent для ответа в том же диалоге, лид без повторов и эскалация человеку с учётом лимита REST 2 запроса в секунду",
+      "word_count": 30
+    },
+    {
+      "sentence": "Критерий BitrixGPT / CoPilot Внешний агент в n8n Диалог в Telegram OL Нет автономного канала Да, через бота v2 и webhook Своя модель и промпт Ограничено экосистемой OpenAI, Anthropic и др",
+      "word_count": 28
+    },
+    {
+      "sentence": "Human-in-the-loop Оператор вручную Правила в Switch + transfer оператору Сложность старта Низкая для текста в CRM Бот, scopes, n8n workflow Делайте: n8n, если нужны свои модели, ветвления и интеграции вне маркетплейса",
+      "word_count": 28
+    },
+    {
+      "sentence": "Проверьте прод: лимиты, тесты и мониторинг Один REST-запрос в облаке может ждать до 60 секунд; при 2 rps теоретический потолок около 172 800 запросов в сутки - для малого бизнеса достаточно, если не слать пачками без пауз",
+      "word_count": 32
+    }
+  ],
+  "readability": {
+    "score": 96.6,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.7,
+    "avg_syllables_per_word": 1.7
+  }
+}

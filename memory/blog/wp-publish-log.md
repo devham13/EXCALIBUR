@@ -172,3 +172,38 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+
+---
+
+## 2026-10-14 — B06 podklyuchenie-yandexgpt-n8n-openai-api-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | podklyuchenie-yandexgpt-n8n-openai-api-2026 |
+| verdict | **PASS** |
+| post_id | 1299 |
+| featured_image_id | 1300 |
+| inline_images | 1301, 1302, 1303 |
+| permalink (WP) | https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/ |
+| transport | SFTP bootstrap (SSH), JPEG-compressed payload |
+
+### Preflight
+
+- link-verify: pass (`PUBLIC_SITE_URL`, internal links на dated paths)
+- dry-run: OK
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=1299 slug=podklyuchenie-yandexgpt-n8n-openai-api-2026
+OK featured_image=1300
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1301 src=cover/inline-01.png
+OK inline_image_upload=1302 src=cover/inline-02.png
+OK inline_image_upload=1303 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/
+```

@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "С мая 2025 Yandex Foundation Models умеют говорить на том же \"языке\", что и OpenAI API: вы не пишете свой HTTP-клиент, а подставляете ключ Yandex Cloud и другой Base URL в привычный credential",
+      "word_count": 32
+    },
+    {
+      "sentence": "api или наоборот Test красный, chat работает /models не поддержан Доверять Execute, не Test Вне n8n можно проверить ключ одним POST на chat/completions - так поймёте, credential или Agent виноват",
+      "word_count": 29
+    },
+    {
+      "sentence": "Соберите workflow: заявка, классификация, approve, CRM Схема business-цепочки: Webhook заявки → AI Agent (YandexGPT классифицирует и пишет черновик) → IF нужен человек → Telegram/Email approve → Bitrix24 или amoCRM → уведомление менеджеру Шаг 1: Set/Code: category и draft из JSON ответа",
+      "word_count": 36
+    },
+    {
+      "sentence": "Сравните три пути подключения и выберите свой Критерий OpenAI credential + Base URL Community n8n-nodes-yandexgpt HTTP Request (native FM API) Сложность Низкая Средняя (install community) Высокая AI Agent + Tools Да, рекомендуемый путь Да, нативная нода Вручную, частично Function calling Через OpenAI-стек Заявлено в пакете Сборка своими руками Обновления API Зависит от совместимости YC Зависит от maintainer Полный контроль Когда выбирать Default для MVP в 2026 Нужен SA JSON и folder в UI ноды Legacy REST llm",
+      "word_count": 74
+    },
+    {
+      "sentence": "Достоверность данных: параметры IAM, Base URL и scopes сверены с документацией Yandex Cloud и материалами n8n на октябрь 2026; показы Яндекс Вордстата в текст не включались (MCP недоступен на дату research)",
+      "word_count": 29
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 7.6,
+    "avg_syllables_per_word": 1.3
+  }
+}

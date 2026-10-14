@@ -1,0 +1,6 @@
+{
+  "url": "",
+  "fallback_tool": "cursor/GenerateImage",
+  "fallback_note": "namespace user-mcp-kv / gpt-image-2 недоступен в Cloud run; один i2i с reference_image_paths, canvas сохранён локально в cover/canvas-quad.png",
+  "local_canvas": "cover/canvas-quad.png"
+}

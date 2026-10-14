@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "podklyuchenie-yandexgpt-n8n-openai-api-2026",
+  "h1": "Как подключить YandexGPT к n8n через OpenAI-совместимый API: пошаговая инструкция для РФ",
+  "title": "Подключить YandexGPT к n8n: OpenAI credential и AI Agent",
+  "description": "Пошагово: сервисный аккаунт Yandex Cloud, API-ключ, Base URL llm.api или ai.api, YandexGPT в AI Agent n8n, troubleshooting 401/404 и workflow с approve перед CRM.",
+  "keywords": [
+    "подключить yandexgpt к n8n",
+    "yandex gpt n8n",
+    "yandexgpt openai api n8n",
+    "openai credential n8n base url",
+    "ai agent n8n yandexgpt"
+  ],
+  "primary_query": "подключить yandexgpt к n8n",
+  "secondary_queries": [
+    "yandex gpt n8n",
+    "yandexgpt openai api n8n",
+    "как использовать yandex gpt в n8n",
+    "сервисный аккаунт yandex cloud для n8n"
+  ],
+  "char_count": 8761,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как подключить yandexgpt к n8n через openai api",
+    "настройка openai credential n8n для yandex cloud",
+    "yandexgpt в ai agent n8n с approve и crm"
+  ],
+  "meta_ab": {
+    "title_seo": "Подключить YandexGPT к n8n: OpenAI credential и AI Agent пошагово",
+    "title_ctr": "🚀 YandexGPT в n8n за вечер? OpenAI API, Base URL и ловушки 401/404",
+    "title_aeo": "Как подключить YandexGPT к n8n через OpenAI-совместимый API?",
+    "description_seo": "Пошагово: SA Yandex Cloud, API-ключ, Base URL, YandexGPT в AI Agent n8n, ошибки 401/404 и approve перед CRM. Без community node на MVP.",
+    "description_ctr": "⚡ YandexGPT + n8n без кастомного HTTP: чеклист IAM, два Base URL, таблица ошибок и business-workflow с approve. Гайд для РФ 2026.",
+    "description_aeo": "Чтобы подключить YandexGPT к n8n, создайте OpenAI credential с Base URL Yandex Cloud, роль ai.languageModels.user и модель yandexgpt-lite/latest в AI Agent."
+  },
+  "cover_family": "brand_collage"
+}

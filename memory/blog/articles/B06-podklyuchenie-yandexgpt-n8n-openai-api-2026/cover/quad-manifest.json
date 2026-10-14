@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "n8n ждёт OpenAI — а у вас YandexGPT и 401 на Base URL",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: подключение YandexGPT к n8n через OpenAI credential — герой указывает на ошибку 401 и Base URL Yandex Cloud",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; одежда агента: тёмно-синий худи + оранжевый бейдж n8n-стиля, на столе ноутбук; fake UI: n8n Credentials OpenAI с красным Test failed 401, второй скрин Yandex Cloud IAM роли ai.languageModels.user; Telegram «опять 404 на модели»; розовый маркер на слове Base URL; мем facepalm + shocked cat; скотч, стикер «жиза РФ 2026»; указывает маркером на llm.api.cloud.yandex.net/v1",
+      "meme_caption_ru": "401 — не OpenAI?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "UI-таблица без героя: колонки «Пункт чек-листа IAM» vs «Частая ошибка» — billing, Folder ID, SA, scope yc.ai.languageModels.execute, Base URL без /chat/completions; розовый стикер «12 пунктов до ключа»; лёгкий tape на углу",
+      "alt": "Таблица чек-листа Yandex Cloud и n8n: IAM, billing, scope API-ключа перед подключением YandexGPT"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Настройте credential OpenAI в n8n с Base URL Yandex",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема workflow без лица: Credentials → OpenAI API → вставить API Key SA → Base URL https://llm.api.cloud.yandex.net/v1 → Test (может быть красным) → AI Agent node; стрелки; sticky «если 404 — ai.api.cloud.yandex.net»",
+      "alt": "Диаграмма настройки OpenAI credential в n8n с Base URL Yandex Cloud для YandexGPT"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Подключите Chat Model к AI Agent и выберите модель",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable board без героя: чеклист AI Agent — Chat Model подключён, модель yandexgpt-lite/latest или yandexgpt/latest, fallback gpt://folder/..., Execution Logs открыты; галочки маркером; скотч на краю",
+      "alt": "Чеклист подключения Chat Model к AI Agent n8n и выбор модели YandexGPT"
+    }
+  }
+}

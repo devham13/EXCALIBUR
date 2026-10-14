@@ -159,16 +159,39 @@ def load_article(article_dir: Path) -> dict:
     }
 
 
-def build_php(payload: dict) -> str:
-    b64 = base64.b64encode(json.dumps(payload, ensure_ascii=False).encode("utf-8")).decode("ascii")
-    return f"""<?php
+FTP_PAYLOAD_CHUNK_BYTES = 900_000
+
+
+def encode_payload_b64(payload: dict) -> str:
+    return base64.b64encode(json.dumps(payload, ensure_ascii=False).encode("utf-8")).decode("ascii")
+
+
+def build_runner_php() -> str:
+    return """<?php
 require __DIR__ . '/wp-load.php';
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/media.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 require_once ABSPATH . 'wp-admin/includes/post.php';
 
-$p = json_decode(base64_decode('{b64}'), true);
+$b64 = '';
+for ($i = 0; ; $i++) {
+    $path = __DIR__ . '/excalibur-blog-payload.part' . $i;
+    if (!file_exists($path)) {
+        break;
+    }
+    $b64 .= file_get_contents($path);
+}
+if ($b64 === '') {
+    echo 'ERR no payload parts' . PHP_EOL;
+    exit(1);
+}
+$p = json_decode(base64_decode($b64), true);
+"""
+
+
+def wp_publish_body_php() -> str:
+    return """
 $slug = $p['slug'];
 $existing = get_page_by_path($slug, OBJECT, 'post');
 if ($existing instanceof WP_Post) {{
@@ -275,7 +298,26 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+def build_php(payload: dict) -> str:
+    """Full runner for dry-run byte estimate (payload uploaded separately in chunks)."""
+    return build_runner_php() + wp_publish_body_php()
+
+
+def ftp_upload_bytes(ftp: ftplib.FTP, remote: str, data: bytes) -> None:
+    ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+
+
+def ftp_upload_payload_parts(ftp: ftplib.FTP, b64: str) -> list[str]:
+    part_names: list[str] = []
+    chunk = FTP_PAYLOAD_CHUNK_BYTES
+    for i in range(0, len(b64), chunk):
+        name = f"excalibur-blog-payload.part{len(part_names)}"
+        ftp_upload_bytes(ftp, name, b64[i : i + chunk].encode("ascii"))
+        part_names.append(name)
+    return part_names
+
+
+def publish_via_ftp(env: dict[str, str], payload: dict, public_base: str) -> str:
     remote = "excalibur-blog-publish-once.php"
     ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
     if not ftp_root.startswith("/"):
@@ -291,8 +333,13 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
+    b64 = encode_payload_b64(payload)
+    runner = build_runner_php() + wp_publish_body_php()
+    part_names: list[str] = []
+
     ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+    part_names = ftp_upload_payload_parts(ftp, b64)
+    ftp_upload_bytes(ftp, remote, runner.encode("utf-8"))
     ftp.quit()
 
     url = public_base.rstrip("/") + "/" + remote
@@ -329,6 +376,11 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.delete(remote)
     except ftplib.error_perm:
         pass
+    for name in part_names:
+        try:
+            ftp.delete(name)
+        except ftplib.error_perm:
+            pass
     ftp.quit()
     return out
 
@@ -342,11 +394,18 @@ def main() -> int:
     root = project_root()
     article_dir = args.article_dir if args.article_dir.is_absolute() else root / args.article_dir
     payload = load_article(article_dir)
-    php = build_php(payload)
 
     if args.dry_run:
+        b64 = encode_payload_b64(payload)
+        runner = build_php(payload)
         print(json.dumps({"dry_run": True, "slug": payload["slug"], "title": payload["title"]}, ensure_ascii=False, indent=2))
-        print("PHP bytes:", len(php.encode("utf-8")))
+        print("PHP runner bytes:", len(runner.encode("utf-8")))
+        print("Payload b64 bytes:", len(b64))
+        print(
+            "FTP parts:",
+            (len(b64) + FTP_PAYLOAD_CHUNK_BYTES - 1) // FTP_PAYLOAD_CHUNK_BYTES,
+            f"(chunk<={FTP_PAYLOAD_CHUNK_BYTES})",
+        )
         return 0
 
     env = load_env(root)
@@ -357,7 +416,7 @@ def main() -> int:
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ftp(env, php, public)
+    out = publish_via_ftp(env, payload, public)
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

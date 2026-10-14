@@ -1,0 +1,180 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#article",
+      "headline": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция",
+      "description": "Пошагово: бот v2, webhook n8n, AI Agent, ответ в OL, лид без дублей и эскалация оператору. Лимит REST 2 rps и чеклист приёмки.",
+      "datePublished": "2026-10-14",
+      "dateModified": "2026-10-14",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/n8n-bitrix24-ii-agent-otkrytye-linii-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "n8n битрикс24 ии агент, битрикс24 открытые линии telegram, исходящий вебхук битрикс24 n8n, n8n bitrix24 crm lead add",
+      "wordCount": 9438,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как подключить n8n к Битрикс24 через webhook для открытых линий?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зарегистрируйте бота imbot.v2.Bot.register с handler = Production URL webhook n8n, scopes imbot и imopenlines. В workflow слушайте ONIMBOTV2MESSAGEADD, фильтруйте LINES, отвечайте imopenlines.bot.session.message.send с CHAT_ID из payload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем входящий webhook отличается от исходящего для OL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Входящий REST URL нужен n8n, чтобы вызывать API Битрикс24. События чата приходят на URL handler бота, а не на CRM event.bind. Исходящий webhook на onCrmLeadAdd не заменит ONIMBOTV2*."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как ИИ-агент создаёт лид в Битрикс24?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "После сбора контакта вызовите imopenlines.crm.lead.create по CHAT_ID или crm.item.add с полями лида. Перед созданием найдите контакт по телефону и проверьте idempotency key, чтобы повтор webhook не создал дубль."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему дублируются сделки в открытых линиях?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаще всего workflow создаёт CRM-сущность на каждое сообщение или не обрабатывает повтор delivery webhook. Храните ключ message_id, обновляйте существующий лид вместо слепого add."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Когда передать диалог оператору?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "При запросе человека, негативе, юридических темах или низкой уверенности модели. Вызовите imopenlines.bot.session.operator и остановите автоответы агента в этом чате."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие scope минимально нужны?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "imbot и imopenlines для чата; crm - если пишете лиды из того же webhook-пользователя. Без imopenlines методы сессии OL вернут ACCESS_DENIED."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#howto",
+      "name": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция",
+      "description": "Пошагово: бот v2, webhook n8n, AI Agent, ответ в OL, лид без дублей и эскалация оператору. Лимит REST 2 rps и чеклист приёмки.",
+      "inLanguage": "ru",
+      "totalTime": "PT4H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "n8n Cloud или self-hosted с публичным HTTPS"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Битрикс24 с открытыми линиями и каналом Telegram"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "API-ключ OpenAI или Anthropic"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Настройте Битрикс24: открытая линия и REST",
+          "text": "Создайте открытую линию в контакт-центре, подключите Telegram, создайте входящий webhook со scopes imbot, imopenlines и crm. Зарегистрируйте бота imbot.v2.Bot.register с handler = Production URL webhook n8n и привяжите бота к линии.",
+          "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#bitrix-setup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Соберите workflow в n8n",
+          "text": "Добавьте Webhook (POST), фильтруйте ONIMBOTV2MESSAGEADD и entityType LINES, исключите сообщения оператора. Подключите AI Agent с system prompt и отправляйте ответ через imopenlines.bot.session.message.send с throttle не выше 2 rps.",
+          "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#n8n-workflow"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Настройте CRM и защиту от дублей",
+          "text": "После сбора телефона или email ищите контакт, затем вызывайте imopenlines.crm.lead.create или crm.item.add. Храните idempotency key по message_id или hash диалога, чтобы повтор webhook не создал второй лид.",
+          "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#crm-dedup"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Включите эскалацию оператору",
+          "text": "После AI Agent добавьте Switch: при запросе человека, негативе или низкой уверенности вызывайте imopenlines.bot.session.operator и прекращайте автоответы агента в этом чате.",
+          "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#human-loop"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте прод и мониторинг",
+          "text": "Прогоните тесты из Telegram: ответ агента, эскалация, один лид на телефон, фильтр сообщений оператора. Следите за QUERY_LIMIT_EXCEEDED и логами n8n Executions.",
+          "url": "https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/#prod-checklist"
+        }
+      ]
+    }
+  ]
+}

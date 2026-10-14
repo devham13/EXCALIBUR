@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-bitrix24-ii-agent-otkrytye-linii",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: n8n и ИИ-агент для открытых линий Битрикс24 — Telegram, webhook и CRM без дублей",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-14T14:15:05+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: n8n и ИИ-агент для открытых линий Битрикс24 — Telegram, webhook и CRM без дублей",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Сравнение BitrixGPT и n8n: когда нужен свой workflow и human-in-the-loop",
+      "h2_anchor": "1. Выберите, когда n8n нужен поверх BitrixGPT и CoPilot",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема настройки Битрикс24: открытая линия, Telegram и REST-webhook в n8n",
+      "h2_anchor": "2. Настройте Битрикс24: открытая линия, Telegram и REST-доступ",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист сборки workflow n8n: webhook, фильтры и AI Agent для открытых линий",
+      "h2_anchor": "3. Соберите workflow в n8n: webhook, фильтры и AI Agent",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

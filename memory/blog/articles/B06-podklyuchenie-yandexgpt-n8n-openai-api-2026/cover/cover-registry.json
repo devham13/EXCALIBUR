@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "podklyuchenie-yandexgpt-n8n-openai-api-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: подключение YandexGPT к n8n через OpenAI credential — герой указывает на ошибку 401 и Base URL Yandex Cloud",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-14T04:15:19+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: подключение YandexGPT к n8n через OpenAI credential — герой указывает на ошибку 401 и Base URL Yandex Cloud",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица чек-листа Yandex Cloud и n8n: IAM, billing, scope API-ключа перед подключением YandexGPT",
+      "h2_anchor": "1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Диаграмма настройки OpenAI credential в n8n с Base URL Yandex Cloud для YandexGPT",
+      "h2_anchor": "2. Настройте credential OpenAI в n8n с Base URL Yandex",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист подключения Chat Model к AI Agent n8n и выбор модели YandexGPT",
+      "h2_anchor": "3. Подключите Chat Model к AI Agent и выберите модель",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

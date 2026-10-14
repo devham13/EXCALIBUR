@@ -7,6 +7,10 @@
 <p>Ниже - чеклист IAM, настройка credential, AI Agent и сравнение трёх путей. Подробнее про агентов: <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n</a>; про MCP в Cursor: <a href="/podklyuchenie-mcp-cursor/" target="_blank">отдельный гайд</a>.</p>
 
 <h2 id="checklist-start">1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица чек-листа Yandex Cloud и n8n: IAM, billing, scope API-ключа перед подключением YandexGPT" loading="lazy">
+</figure>
+
 
 <p>Без этого блока вы потратите час на перебор Base URL. <b>Делайте:</b> отметьте каждый пункт до создания ключа. <b>Не делайте:</b> хранить secret в Telegram, Notion или в теле workflow.</p>
 
@@ -28,6 +32,10 @@
 <p>Цены за токены - только в биллинге YC на дату запуска.</p>
 
 <h2 id="openai-credential">2. Настройте credential OpenAI в n8n с Base URL Yandex</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Диаграмма настройки OpenAI credential в n8n с Base URL Yandex Cloud для YandexGPT" loading="lazy">
+</figure>
+
 
 <p>Credentials → OpenAI API → ключ SA → Base URL из таблицы.</p>
 
@@ -109,6 +117,10 @@
 <p><b>Не делайте:</b> дописывать в Base URL /chat/completions.</p>
 
 <h2 id="ai-agent-chat">3. Подключите Chat Model к AI Agent и выберите модель</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист подключения Chat Model к AI Agent n8n и выбор модели YandexGPT" loading="lazy">
+</figure>
+
 
 <p>AI Agent зовёт Chat Model sub-node с вашим Yandex credential.</p>
 

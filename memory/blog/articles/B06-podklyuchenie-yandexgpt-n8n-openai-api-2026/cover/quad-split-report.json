@@ -1,0 +1,124 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-podklyuchenie-yandexgpt-n8n-openai-api-2026/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      640,
+      360
+    ],
+    "split_meta": {
+      "split_mode": "mechanical_center",
+      "h_gutter_px": null,
+      "v_gutter_px": null
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 640,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 640,
+          "bottom": 360
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: подключение YandexGPT к n8n через OpenAI credential — герой указывает на ошибку 401 и Base URL Yandex Cloud",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 640,
+          "top": 0,
+          "right": 1280,
+          "bottom": 360
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 0,
+          "right": 1280,
+          "bottom": 360
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Таблица чек-листа Yandex Cloud и n8n: IAM, billing, scope API-ключа перед подключением YandexGPT",
+        "h2_anchor": "1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 360,
+          "right": 640,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 360,
+          "right": 640,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Диаграмма настройки OpenAI credential в n8n с Base URL Yandex Cloud для YandexGPT",
+        "h2_anchor": "2. Настройте credential OpenAI в n8n с Base URL Yandex"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 640,
+          "top": 360,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист подключения Chat Model к AI Agent n8n и выбор модели YandexGPT",
+        "h2_anchor": "3. Подключите Chat Model к AI Agent и выберите модель"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n",
+    "injected inline_2 after H2 — 2. Настройте credential OpenAI в n8n с Base URL Yandex",
+    "injected inline_3 after H2 — 3. Подключите Chat Model к AI Agent и выберите модель"
+  ]
+}

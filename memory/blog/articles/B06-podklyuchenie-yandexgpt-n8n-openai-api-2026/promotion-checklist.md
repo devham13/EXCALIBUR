@@ -1,7 +1,7 @@
 # Promotion checklist — B06 podklyuchenie-yandexgpt-n8n-openai-api-2026
 
 Дата публикации: 2026-10-14  
-Live URL: https://mayai.ru/blog/podklyuchenie-yandexgpt-n8n-openai-api-2026/ (проверить после publish)
+Live URL: https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ n8n ждёт OpenAI — а у вас YandexGPT? Подключите через 
 • Два Base URL: llm.api и запасной ai.api — таблица 401/404
 • AI Agent + yandexgpt-lite/latest и workflow с approve перед CRM
 
-Читать: https://mayai.ru/blog/podklyuchenie-yandexgpt-n8n-openai-api-2026/
+Читать: https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/
 ```
 
 ## Перелинковка

@@ -1,0 +1,14 @@
+{
+  "slug": "podklyuchenie-yandexgpt-n8n-openai-api-2026",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-podklyuchenie-yandexgpt-n8n-openai-api-2026/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1080130,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=1299 slug=podklyuchenie-yandexgpt-n8n-openai-api-2026\nOK featured_image=1300\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1301 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/podklyuchenie-yandexgpt-n8n-openai-api-2026-inline-01.jpg\nOK inline_image_upload=1302 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/podklyuchenie-yandexgpt-n8n-openai-api-2026-inline-02.jpg\nOK inline_image_upload=1303 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/podklyuchenie-yandexgpt-n8n-openai-api-2026-inline-03.jpg\npermalink=https://www.meta-journal.ru/2026/10/14/podklyuchenie-yandexgpt-n8n-openai-api-2026/\n",
+  "verdict": "pass"
+}

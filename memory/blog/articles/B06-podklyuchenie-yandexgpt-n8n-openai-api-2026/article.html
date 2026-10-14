@@ -4,7 +4,7 @@
 
 <p>OpenAI-совместимый API здесь значит: n8n шлёт те же запросы chat/completions, что и к OpenAI, но адрес сервера другой. API (Application Programming Interface) - готовая "розетка": вы вставляете ключ и URL, workflow не переписываете. IAM - права в Yandex Cloud, кто может вызывать модели. Сервисный аккаунт (SA) - технический пользователь без пароля для автоматизации. С мая 2025 Foundation Models Yandex заявлены с такой совместимостью - поэтому в 2026 году не обязательно собирать сырой HTTP Request на каждый чат.</p>
 
-<p>Ниже - чеклист IAM, настройка credential, AI Agent и сравнение трёх путей. Подробнее про агентов: <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n</a>; про MCP в Cursor: <a href="/podklyuchenie-mcp-cursor/" target="_blank">отдельный гайд</a>.</p>
+<p>Ниже - чеклист IAM, настройка credential, AI Agent и сравнение трёх путей. Подробнее про агентов: <a href="/2026/06/18/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n</a>; про MCP в Cursor: <a href="/2026/06/21/podklyuchenie-mcp-cursor/" target="_blank">отдельный гайд</a>.</p>
 
 <h2 id="checklist-start">1. Пройдите чек-лист перед стартом в Yandex Cloud и n8n</h2>
 <figure class="inline-quad" data-slot="inline_1">
@@ -211,7 +211,7 @@
   <li>Включите Simple Memory, если диалог многошаговый.</li>
   <li>Настройте алерт в Telegram при ошибке 401/403 в production workflow.</li>
   <li>Раз в квартал пересмотрите scopes и роли SA после обновлений Yandex Cloud.</li>
-  <li>Углубите архитектуру агента в гайде <a href="/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n AI agents</a>.</li>
+  <li>Углубите архитектуру агента в гайде <a href="/2026/06/18/avtomatizaciya-n8n-ai-agents/" target="_blank">автоматизация n8n AI agents</a>.</li>
 </ol>
 
 <p>Для системной практики no-code: <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курс Make и вайбкодинга</a> (credentials, approve, CRM).</p>

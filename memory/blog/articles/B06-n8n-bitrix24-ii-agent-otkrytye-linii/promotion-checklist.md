@@ -1,7 +1,7 @@
 # Promotion checklist — B06 n8n-bitrix24-ii-agent-otkrytye-linii
 
 Дата публикации: 2026-10-14  
-Live URL: https://mayai.ru/blog/n8n-bitrix24-ii-agent-otkrytye-linii/
+Live URL: /2026/10/14/n8n-bitrix24-ii-agent-otkrytye-linii/ (alias на EXCALIBUR_PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 

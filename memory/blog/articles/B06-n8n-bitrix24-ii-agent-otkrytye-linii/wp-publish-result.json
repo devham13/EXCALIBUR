@@ -1,0 +1,15 @@
+{
+  "slug": "n8n-bitrix24-ii-agent-otkrytye-linii",
+  "topic_id": "B06",
+  "permalink": "https://www.meta-journal.ru/2026/10/14/n8n-bitrix24-ii-agent-otkrytye-linii/",
+  "cover_evidence": {
+    "path": "memory/blog/articles/B06-n8n-bitrix24-ii-agent-otkrytye-linii/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1114303,
+    "detected_format": "png"
+  },
+  "raw_output": "OK post=1312 slug=n8n-bitrix24-ii-agent-otkrytye-linii\nOK featured_image=1313\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=1314 src=cover/inline-01.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-bitrix24-ii-agent-otkrytye-linii-inline-01.png\nOK inline_image_upload=1315 src=cover/inline-02.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-bitrix24-ii-agent-otkrytye-linii-inline-02.png\nOK inline_image_upload=1316 src=cover/inline-03.png url=https://www.meta-journal.ru/wp-content/uploads/2026/10/n8n-bitrix24-ii-agent-otkrytye-linii-inline-03.png\npermalink=https://www.meta-journal.ru/2026/10/14/n8n-bitrix24-ii-agent-otkrytye-linii/\n",
+  "verdict": "pass",
+  "note": "SFTP upload workaround (FTP PASV blocked from cloud IP)"
+}

@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-bitrix24-ii-agent-otkrytye-linii",
+  "h1": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция",
+  "title": "n8n битрикс24 ии агент: Telegram в открытых линиях пошагово",
+  "description": "Пошагово: бот v2, webhook n8n, AI Agent, ответ в OL, лид без дублей и эскалация оператору. Лимит REST 2 rps и чеклист приёмки.",
+  "keywords": [
+    "n8n битрикс24 ии агент",
+    "битрикс24 открытые линии telegram",
+    "исходящий вебхук битрикс24 n8n",
+    "n8n bitrix24 crm lead add"
+  ],
+  "primary_query": "n8n битрикс24 ии агент",
+  "secondary_queries": [
+    "битрикс24 открытые линии telegram",
+    "исходящий вебхук битрикс24 n8n",
+    "n8n bitrix24 crm lead add"
+  ],
+  "char_count": 9438,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как подключить ии агента n8n к битрикс24 в открытых линиях",
+    "n8n webhook ONIMBOTV2MESSAGEADD telegram открытая линия",
+    "imopenlines crm lead create без дублей n8n"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n битрикс24 ии агент: Telegram в открытых линиях",
+    "title_ctr": "🚀 n8n + Битрикс24: ИИ-агент в Telegram OL за один вечер?",
+    "title_aeo": "Как подключить n8n и ИИ-агента к Битрикс24 в открытых линиях?",
+    "description_seo": "Пошагово: бот v2, webhook n8n, AI Agent, ответ в OL, лид без дублей и эскалация оператору. Лимит REST 2 rps и чеклист приёмки.",
+    "description_ctr": "⚡ Клиент в Telegram, а CRM плодит дубли? Соберите MVP: ONIMBOTV2 → n8n → AI Agent → лид без повторов. Чеклист на 14.10.2026.",
+    "description_aeo": "ИИ-агент n8n для открытых линий Битрикс24: регистрация бота, фильтр LINES, imopenlines.bot.session.message.send и human-in-the-loop при 2 rps."
+  },
+  "cover_family": "brand_collage"
+}

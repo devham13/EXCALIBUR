@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — ИИ-агент n8n для Битрикс24 (открытые линии)
+
+- **priority:** P0
+- **slug:** n8n-bitrix24-ii-agent-otkrytye-linii
+- **h1:** Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция
+- **primary_query:** n8n битрикс24 ии агент
+- **secondary_queries:** битрикс24 открытые линии telegram, исходящий вебхук битрикс24 n8n, n8n bitrix24 crm lead add
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Когда нужен n8n поверх BitrixGPT: контроль данных, свои модели и human-in-the-loop
+  2. Настройка Битрикс24: входящий/исходящий REST-вебхук, права CRM и открытые линии
+  3. Сборка workflow в n8n: Telegram Trigger → AI Agent → HTTP/Bitrix24 node → ответ клиенту
+  4. Анти-дубли и надёжность: match по телефону, idempotency key, retry и алерт в Telegram
+  5. Чек-лист запуска в прод: лимиты API 2 rps, фильтр сообщений сотрудников, логирование
+- **faq_hints:** как подключить n8n к битрикс24 через вебхук; как ии агент создает лид в битрикс24; почему дублируются сделки в открытых линиях
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/, /podklyuchenie-mcp-cursor/
+- **cover_scene_hint:** экран Битрикс24 с воронкой CRM, рядом n8n-workflow и иконка Telegram, стикеры «webhook», «AI Agent», «без дублей», схема стрелок ingress→очередь→CRM, B2B diy-коллаж
+
+---
+

@@ -1,3 +1,5 @@
 {
-  "url": "https://tempfile.aiquickdraw.com/gpt-image-2-kie/1781060758314-2xpr9v6oxuy.png"
+  "url": "local:cover/canvas-quad.png",
+  "fallback": "generate-image-i2i",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud Agent; ONE GenerateImage call with reference hero PNG, resized to 2048x1152"
 }

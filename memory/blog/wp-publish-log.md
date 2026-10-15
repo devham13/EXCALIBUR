@@ -172,3 +172,53 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-28 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 966 |
+| inline_images | 967, 968, 969 |
+| permalink | https://PUBLIC_SITE_URL/2026/06/19/primer-seo-stati/ |
+| transport | sftp_bootstrap (FTP 425 Bad IP → SFTP upload) |
+
+### Preconditions
+
+- article-qa.md: PASS (95/100)
+- link-verify.json: pass (7/7)
+- schema.jsonld: present
+- cover/cover.png + alt: present (quad canvas pipeline)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run         # OK, PHP 8887690 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...                   # FAIL ftplib.error_temp 425 Bad IP
+# SFTP bootstrap (paramiko): upload excalibur-blog-publish-once.php → HTTP trigger → cleanup
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=966
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=967 src=cover/inline-01.png
+OK inline_image_upload=968 src=cover/inline-02.png
+OK inline_image_upload=969 src=cover/inline-03.png
+permalink=https://PUBLIC_SITE_URL/2026/06/19/primer-seo-stati/
+```
+
+### Notes
+
+- FTP port 21 blocked from Cloud Agent IP (425 Security: Bad IP connecting); SFTP (port 22) works.
+- Post-publish interlinker: 0 opportunities (5 articles corpus).

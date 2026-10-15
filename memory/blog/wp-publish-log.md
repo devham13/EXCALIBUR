@@ -172,3 +172,49 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-10 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1246 |
+| inline_images | 1247, 1248, 1249 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| publish_path | SFTP bootstrap (FTP data channel 425 Bad IP from Cloud) |
+
+### Preconditions
+
+- article-qa.md: PASS (91/100)
+- link-verify.json: pass (5/5, preflight `--site-base` = `PUBLIC_SITE_URL`)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base "$PUBLIC_SITE_URL"
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+# FTP STOR → 425 Security: Bad IP; bootstrap via SFTP + HTTP trigger (same once.php payload)
+python3 scripts/excalibur_blog_interlinker.py --apply --blog-dir memory/blog/articles --site-base "$PUBLIC_SITE_URL"  # 0 opportunities
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1246
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1247 src=cover/inline-01.png
+OK inline_image_upload=1248 src=cover/inline-02.png
+OK inline_image_upload=1249 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

@@ -7,6 +7,8 @@ import base64
 import ftplib
 import io
 import json
+import os
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -20,18 +22,153 @@ def project_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def merge_cloud_env(env: dict[str, str]) -> dict[str, str]:
+    """Overlay Cloud Secrets / process env onto file-based site.env.local."""
+    for key in (
+        "FTP_HOST",
+        "FTP_PORT",
+        "FTP_USER",
+        "FTP_PASS",
+        "FTP_PASSWORD",
+        "FTP_ROOT",
+        "FTP_PATH",
+        "REMOTE_SITE_ROOT",
+        "PUBLIC_SITE_URL",
+        "EXCALIBUR_PUBLIC_SITE_URL",
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+        "SFTP_HOST",
+        "SFTP_PORT",
+        "SFTP_USER",
+        "SFTP_PASSWORD",
+        "SSH_HOST",
+        "SSH_PORT",
+        "SSH_USER",
+        "SSH_PASSWORD",
+    ):
+        value = os.environ.get(key, "").strip()
+        if value:
+            env[key] = value
+    if not env.get("FTP_PASS") and env.get("FTP_PASSWORD"):
+        env["FTP_PASS"] = env["FTP_PASSWORD"]
+    if not env.get("PUBLIC_SITE_URL") and env.get("EXCALIBUR_PUBLIC_SITE_URL"):
+        env["PUBLIC_SITE_URL"] = env["EXCALIBUR_PUBLIC_SITE_URL"]
+    if not env.get("FTP_ROOT") and env.get("REMOTE_SITE_ROOT"):
+        env["FTP_ROOT"] = env["REMOTE_SITE_ROOT"]
+    return env
+
+
 def load_env(root: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
     for name in ("memory/site.env.local", "memory/site.env.local.example"):
         p = root / name
         if p.is_file():
-            env: dict[str, str] = {}
             for line in p.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
                     env[k.strip()] = v.strip()
-            return env
-    raise FileNotFoundError("site.env.local not found under memory/")
+            break
+    env = merge_cloud_env(env)
+    if not env.get("FTP_HOST") or not env.get("FTP_USER") or not env.get("FTP_PASS"):
+        raise FileNotFoundError("FTP credentials missing (memory/site.env.local or Cloud FTP_* secrets)")
+    return env
+
+
+def remote_site_root(env: dict[str, str]) -> str:
+    root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or env.get("REMOTE_SITE_ROOT") or "/").strip()
+    if not root.startswith("/"):
+        root = "/" + root
+    if not root.endswith("/"):
+        root += "/"
+    return root
+
+
+def sftp_credentials(env: dict[str, str]) -> tuple[str, int, str, str]:
+    host = (env.get("SFTP_HOST") or env.get("SSH_HOST") or env.get("FTP_HOST") or "").strip()
+    port = int(env.get("SFTP_PORT") or env.get("SSH_PORT") or 22)
+    user = (env.get("SFTP_USER") or env.get("SSH_USER") or env.get("FTP_USER") or "").strip()
+    passwd = (env.get("SFTP_PASSWORD") or env.get("SSH_PASSWORD") or env.get("FTP_PASS") or "").strip()
+    if not host or not user or not passwd:
+        raise RuntimeError("SFTP credentials missing")
+    return host, port, user, passwd
+
+
+def sftp_account_candidates(env: dict[str, str]) -> list[str]:
+    users: list[str] = []
+    for key in ("SFTP_USER", "SSH_USER", "FTP_USER"):
+        value = env.get(key, "").strip()
+        if value and value not in users:
+            users.append(value)
+    remote_root = env.get("REMOTE_SITE_ROOT", "")
+    match = re.search(r"/home/[^/]+/([^/]+)/", remote_root)
+    if match:
+        acct = match.group(1)
+        for candidate in (acct, f"{acct}_blog"):
+            if candidate not in users:
+                users.append(candidate)
+    return users
+
+
+def sftp_upload(env: dict[str, str], remote_name: str, payload: bytes, remote_dir: str) -> None:
+    import paramiko
+
+    host, port, _, passwd = sftp_credentials(env)
+    last_error: Exception | None = None
+    for user in sftp_account_candidates(env):
+        transport: paramiko.Transport | None = None
+        try:
+            transport = paramiko.Transport((host, port))
+            transport.connect(username=user, password=passwd)
+            sftp = paramiko.SFTPClient.from_transport(transport)
+            if not sftp:
+                raise RuntimeError("SFTP client unavailable")
+            target_dir = remote_dir.rstrip("/") or "/"
+            try:
+                sftp.chdir(target_dir)
+            except OSError:
+                pass
+            with sftp.file(remote_name, "w") as handle:
+                handle.write(payload)
+            print(f"OK sftp_upload user={user} dir={target_dir} file={remote_name}")
+            sftp.close()
+            transport.close()
+            return
+        except Exception as exc:
+            last_error = exc
+            if transport is not None:
+                transport.close()
+            continue
+    raise RuntimeError(f"SFTP bootstrap failed: {last_error}")
+
+
+def sftp_delete(env: dict[str, str], remote_name: str, remote_dir: str) -> None:
+    import paramiko
+
+    host, port, _, passwd = sftp_credentials(env)
+    for user in sftp_account_candidates(env):
+        transport: paramiko.Transport | None = None
+        try:
+            transport = paramiko.Transport((host, port))
+            transport.connect(username=user, password=passwd)
+            sftp = paramiko.SFTPClient.from_transport(transport)
+            if not sftp:
+                return
+            target_dir = remote_dir.rstrip("/") or "/"
+            try:
+                sftp.chdir(target_dir)
+            except OSError:
+                pass
+            try:
+                sftp.remove(remote_name)
+            except OSError:
+                pass
+            sftp.close()
+            transport.close()
+            return
+        except Exception:
+            if transport is not None:
+                transport.close()
+            continue
 
 
 def cover_url_from_registry(registry_path: Path) -> str:
@@ -275,13 +412,10 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+def upload_bootstrap(env: dict[str, str], remote: str, php: str) -> str:
+    """Upload one-shot bootstrap PHP via FTP; fall back to SFTP on 425 Bad IP."""
+    ftp_root = remote_site_root(env)
+    payload = php.encode("utf-8")
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
@@ -291,9 +425,31 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         ftp.cwd(ftp_root)
         return ftp
 
-    ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
-    ftp.quit()
+    try:
+        ftp = ftp_connect()
+        try:
+            ftp.storbinary(f"STOR {remote}", io.BytesIO(payload))
+        except ftplib.error_perm as exc:
+            if "425" in str(exc):
+                print(f"FTP STOR 425 Bad IP ({exc}); switching to SFTP bootstrap on port 22...")
+                ftp.quit()
+                sftp_upload(env, remote, payload, ftp_root)
+            else:
+                raise
+        else:
+            ftp.quit()
+    except ftplib.error_perm as exc:
+        if "425" in str(exc):
+            print(f"FTP login/path 425 ({exc}); switching to SFTP bootstrap on port 22...")
+            sftp_upload(env, remote, payload, ftp_root)
+        else:
+            raise
+    return ftp_root
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    ftp_root = upload_bootstrap(env, remote, php)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +480,25 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
     try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        try:
+            ftp.delete(remote)
+        except ftplib.error_perm:
+            pass
+        ftp.quit()
+    except ftplib.error_perm as exc:
+        if "425" in str(exc):
+            sftp_delete(env, remote, ftp_root)
+        else:
+            try:
+                sftp_delete(env, remote, ftp_root)
+            except RuntimeError:
+                pass
     return out
 
 
@@ -353,11 +522,32 @@ def main() -> int:
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or ""
+    public = (
+        args.public_base
+        or env.get("EXCALIBUR_PUBLIC_SITE_URL")
+        or env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or ""
+    )
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2
-    out = publish_via_ftp(env, php, public)
+    try:
+        out = publish_via_ftp(env, php, public)
+    except Exception as exc:
+        out = f"ERR publish: {type(exc).__name__}: {exc}"
+        print(out, file=sys.stderr)
+        result_path = article_dir / "wp-publish-result.json"
+        result = {
+            "slug": payload["slug"],
+            "topic_id": payload["topic_id"],
+            "permalink": "",
+            "cover_evidence": payload.get("cover_evidence", {}),
+            "raw_output": out,
+            "verdict": "fail",
+        }
+        result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return 1
     print(out)
 
     result_path = article_dir / "wp-publish-result.json"

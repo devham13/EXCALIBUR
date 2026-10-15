@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-29 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1004 |
+| inline_images | 1005, 1006, 1007 |
+| permalink | https://mayai.ru/2026/06/19/primer-seo-stati/ |
+| transport | sftp_bootstrap (FTP 425 Bad IP → SFTP port 22) |
+| trigger | excalibur-blog-publish automation |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (7/7)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1004
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1005 src=cover/inline-01.png
+OK inline_image_upload=1006 src=cover/inline-02.png
+OK inline_image_upload=1007 src=cover/inline-03.png
+permalink=https://mayai.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities (5 articles scanned)

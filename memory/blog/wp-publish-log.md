@@ -172,3 +172,30 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-15 — B01 primer-seo-stati — **PASS** (SFTP fallback)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| permalink | /2026/06/19/primer-seo-stati/ (HTTP 200 on production host; slug-only 404) |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (6/6)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Publish
+
+- FTP STOR → `425 Bad IP`; retry via SFTP (paramiko, port 22, same credentials) after script fix in `excalibur_blog_wp_publish.py`.
+- featured_image=1325; inline=1326–1328; schema meta ok.
+- WP `get_permalink` → alternate host dated URL; live dated path on production host (env).
+- `shared/published-articles.md` updated 2026-10-15 published.

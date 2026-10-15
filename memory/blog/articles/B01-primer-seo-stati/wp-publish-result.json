@@ -1,0 +1,16 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink_path": "/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image_id": 773,
+  "inline_image_ids": [774, 775, 776],
+  "cover_evidence": {
+    "path": "memory/blog/articles/B01-primer-seo-stati/cover/cover.png",
+    "source": "existing_file",
+    "decode_verified": true,
+    "bytes": 1607445,
+    "detected_format": "png"
+  },
+  "verdict": "pass"
+}

@@ -78,10 +78,7 @@
 
 <p>После Save – URL и API key; POST с Bearer, JSON в prompt (сверьте payload в Run History).</p>
 
-<pre><code>curl -X POST "https://YOUR_WEBHOOK_URL" \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"lead":"test@example.com","source":"landing"}'</code></pre>
+<blockquote><b>Пример POST (curl):</b> curl -X POST "https://YOUR_WEBHOOK_URL" -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" -d '{"lead":"test@example.com","source":"landing"}'</blockquote>
 
 <p>Если смените <b>Run as</b> с Me на <b>Service account</b>, docs требуют <b>regenerate webhook API key</b> и проверить MCP OAuth уже для service account. Сохраните key в password manager команды.</p>
 
@@ -123,7 +120,7 @@
   </tbody>
 </table>
 
-<p>Fork PR не триггерят (docs); тест – PR внутри своего repo. MCP – <a href="/podklyuchenie-mcp-cursor/">гайд MCP</a>; multi-repo – <a href="/cursor-environment-json-cloud-agents/">environment.json</a>. <b>Делайте:</b> stop-условия. <b>Не делайте:</b> комментарий на каждый typo.</p>
+<p>Fork PR не триггерят (docs); тест – PR внутри своего repo. MCP – <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">гайд MCP</a>; multi-repo и install – см. <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">cloud-agent setup</a> и environment.json в репозитории. <b>Делайте:</b> stop-условия. <b>Не делайте:</b> комментарий на каждый typo.</p>
 
 <h2 id="billing-checklist">6. Пройдите чеклист billing, secrets и egress</h2>
 
@@ -152,9 +149,9 @@
 <ol>
   <li>Доведите до зелёного статуса одну automation: cron, webhook или PR review.</li>
   <li>Три дня смотрите Run History: совпадает ли cron с ожидаемым UTC/MSK.</li>
-  <li>Если нужны внешние сервисы – подключите MCP по <a href="/podklyuchenie-mcp-cursor/">инструкции</a>.</li>
+  <li>Если нужны внешние сервисы – подключите MCP по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/" target="_blank">инструкции</a>.</li>
   <li>Вторую automation добавляйте только после стабильного первого run.</li>
-  <li>Для install-скриптов и multi-repo сверьтесь с <a href="/cursor-environment-json-cloud-agents/">environment.json</a>.</li>
+  <li>Для install-скриптов и multi-repo сверьтесь с <a href="https://cursor.com/docs/cloud-agent/setup" target="_blank">документацией cloud-agent setup</a> (environment.json).</li>
 </ol>
 
 <p>Webhook-цепочки в CRM и Make разбираем на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (159+ уроков). Вопросы – Telegram <a href="https://t.me/maya_pro" target="_blank">@maya_pro</a>.</p>

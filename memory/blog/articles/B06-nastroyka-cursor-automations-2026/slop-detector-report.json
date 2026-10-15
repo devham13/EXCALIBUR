@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "Scope репозитория задаёт, видит ли агент код: Режим Когда выбирать Типичный триггер Без репозитория Digest в Slack, разбор JSON с webhook без git Scheduled, Webhook Один repo + ветка Review PR, push в main, cron с чтением кода GitHub PR, Scheduled Multi-repo environment Несколько репозиториев в одном окружении агента Командные сценарии Для триггеров GitHub, GitLab и push в ветку repo обязателен по документации Cursor",
+      "word_count": 63
+    },
+    {
+      "sentence": "Workflow первой automation: Billing OK → New Automation → trigger → prompt → tools → repo scope → Save → test run → Run History Шаг 1: Paid-план с Cloud Agents; Automations нет на Start (India) – см",
+      "word_count": 28
+    },
+    {
+      "sentence": "com\",\"source\":\"landing\"}' Если смените Run as с Me на Service account , docs требуют regenerate webhook API key и проверить MCP OAuth уже для service account",
+      "word_count": 26
+    },
+    {
+      "sentence": "Сравнение стартовых вариантов для cursor automations github pr и мессенджеров: Триггер Repo Мини-шаблон prompt GitHub PR opened Обязателен \"Если diff &lt; 200 строк – краткий review; иначе только checklist",
+      "word_count": 27
+    },
+    {
+      "sentence": "Paid Cursor + Automations доступны на вашем плане On-demand billing включён, spending limit задан ~$2 запаса до hard limit (forum workaround) Run as выбран осознанно (Me vs Service account) После смены Run as – regenerate webhook key MCP OAuth пройден для service account, если нужен MCP Secrets только в настройках automation / env, не в prompt Egress и домены MCP согласованы с политикой команды Один узкий trigger на automation Cron и event не смешаны на одной записи Test run + Run History после каждого изменения GitHub PR тест – не из fork Run History: нет лишних skipped/duplicate без причины Outbound webhooks статуса агента (HMAC X-Webhook-Signature) – отдельная настройка Cloud Agent API; не путайте с inbound webhook-триггером automation",
+      "word_count": 111
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.3,
+    "avg_syllables_per_word": 1.3
+  }
+}

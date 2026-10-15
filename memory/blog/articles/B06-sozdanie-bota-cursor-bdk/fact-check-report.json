@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B06-sozdanie-bota-cursor-bdk/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "/bdk и skills (evals, deploy, hillclimb) на 07.10.2026; показы Wordstat по \"cursor bdk\" в research не со",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

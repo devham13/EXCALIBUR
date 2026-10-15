@@ -1,0 +1,220 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/sozdanie-bota-cursor-bdk/#article",
+      "headline": "Как создать и задеплоить бота на Cursor BDK: пошаговая инструкция с evals и GitHub-триггером",
+      "description": "Как создать агента на Cursor BDK: Node 22.13+, bdk init, bdk dev, evals, GitHub replay/fixtures и bdk deploy с service account. Таблица BDK vs Automations.",
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/sozdanie-bota-cursor-bdk/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/sozdanie-bota-cursor-bdk-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor bdk, bdk init cursor, bot development kit cursor, как задеплоить bdk агента, bdk evals, cursor bdk github channel",
+      "wordCount": 9377,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/sozdanie-bota-cursor-bdk/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем BDK отличается от Cursor Automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automations: prompt и trigger в dashboard, без полного TS/MD проекта в Git. BDK: версионируемый репозиторий, evals, custom tools, MCP и выбор hosting. Выберите Automations для простого job; BDK – когда нужны тесты и код channel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли отдельный репозиторий для деплоя BDK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужен Git remote с запушенным ref. bdk deploy читает коммит на сервере, а не ваши незакоммиченные файлы. Перед deploy выполните push и git branch -r --contains HEAD."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как писать evals для BDK агента?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Создайте evals/**/*.eval.ts с defineEval; проверяйте t.succeeded(), calledTool / notCalledTool. Для GitHub сгенерируйте fixtures: bdk github replay … --dry-run --out fixtures/github и прогоните eval на fixture в --dev."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли тестировать GitHub без admin webhook?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Используйте bdk github replay и каталог fixtures; локально POST на dev-сервер с x-github-event. Prod webhook и cursorAccount настраиваются отдельно при serve --cursor-events."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что нужно для bdk deploy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CURSOR_SERVICE_ACCOUNT_KEY в env, успешный bdk validate, push в remote, затем bdk deploy --dir . --ref. В CI используйте service account, не личный login разработчика."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему eval падает с ошибкой API key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ходы модели в evals требуют Cursor credential. Локально: bdk login или ключ в env. В CI: service account в секретах репозитория. Без credential eval не пройдёт model turns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Node или Bun для BDK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только Node 22.13+. Под Bun типичны сбои HTTP/2 на tools. Проверьте which node и node -v перед bdk dev и bdk eval."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/sozdanie-bota-cursor-bdk/#howto",
+      "name": "Как создать и задеплоить бота на Cursor BDK: пошаговая инструкция с evals и GitHub-триггером",
+      "description": "Как создать агента на Cursor BDK: Node 22.13+, bdk init, bdk dev, evals, GitHub replay/fixtures и bdk deploy с service account. Таблица BDK vs Automations.",
+      "inLanguage": "ru",
+      "totalTime": "PT120M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Node.js 22.13+"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Git"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Cursor IDE"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "CLI @cursor/bdk (bdk init, bdk dev, bdk eval, bdk deploy)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверить Node ≥ 22.13",
+          "text": "Выполните node -v; при необходимости обновите Node через nvm или fnm. Bun для BDK не используйте.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#requirements-init"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выбрать формат агента",
+          "text": "Сравните BDK, Cursor Automations и Grok Bot по таблице в статье. Если хватит prompt и trigger в dashboard — Automations; иначе scaffold BDK-проекта.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#compare-formats"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Создать проект через bdk init",
+          "text": "Выполните npx @cursor/bdk init ./my-agent (или --template security-reviewer), зайдите в каталог и запустите bdk dev для локального playground.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#requirements-init"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Настроить bot/instructions.md, tools и MCP",
+          "text": "Отредактируйте bot/instructions.md, добавьте tool в bot/tools/ или MCP в bot/mcp-connections/; для GitHub — channel bot/channels/github.ts с githubChannel().",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#configure-bot"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Локальный цикл bdk dev и bdk run",
+          "text": "Поднимите bdk dev, проверьте агента в playground через bdk run --message \"…\" или bdk call для детерминированного tool.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#local-dev-evals"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Добавить smoke-eval",
+          "text": "Создайте evals/smoke.eval.ts с defineEval, t.succeeded() и calledTool; запустите bdk eval --dir . --tag smoke. Для model turns задайте Cursor credential.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#local-dev-evals"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "GitHub replay и fixtures",
+          "text": "Сгенерируйте fixtures: bdk github replay owner/repo#N --dir . --dry-run --out fixtures/github; в --dev отправьте fixture POST с x-github-event.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#github-deploy"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Commit и push в remote",
+          "text": "git add, commit, push; убедитесь, что git branch -r --contains HEAD показывает remote ref — deploy не подхватывает незакоммиченные файлы.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#github-deploy"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "bdk validate и bdk deploy",
+          "text": "Задайте CURSOR_SERVICE_ACCOUNT_KEY, выполните bdk validate --dir ., затем bdk deploy --dir . --ref HEAD; дождитесь status running и сохраните slug деплоя.",
+          "url": "https://mayai.ru/sozdanie-bota-cursor-bdk/#github-deploy"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+<p>Хотите агента, который просыпается от pull request в GitHub, проходит регрессионные тесты и живёт в Git, а не в одной форме в dashboard? Cursor BDK (Bot Development Kit) – это как рецепт и ингредиенты в репозитории: Markdown-инструкции, TypeScript-tools, evals и деплой на Cursor-managed hosting. За одну сессию вы пройдёте init → bdk dev → smoke-eval → GitHub fixture → push и bdk deploy с service account и поймёте, когда хватит Cursor Automations.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> BDK – open-source движок тех же ботов, что Security Review и Rollouts: проект в Git с папками bot/ и evals/. Старт: Node 22.13+, npx @cursor/bdk init, bdk dev. Качество: evals/**/*.eval.ts и bdk eval. GitHub без prod-webhook: bdk github replay → fixtures. Деплой только с запушенного ref и CURSOR_SERVICE_ACCOUNT_KEY после bdk validate. Automations – prompt+trigger в UI; BDK – когда нужны версии, тесты и свой код.</blockquote>
+
+<p>Bot Development Kit cursor – не Telegram-бот в IDE и не Grok в приложении. Это npm-пакет @cursor/bdk (линия около 0.2.18 на jsDelivr): bdk init, bdk dev, bdk eval, bdk deploy. MCP (Model Context Protocol) для tools – см. <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">подключение MCP в Cursor</a>.</p>
+
+<h2 id="compare-formats">1. Сравните BDK, Cursor Automations и Grok Bot: таблица выбора</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнительная таблица BDK vs Cursor Automations vs Grok Bot" loading="lazy">
+</figure>
+
+
+<p>Три формата решают похожие задачи, но по-разному хранят логику. API (Application Programming Interface) в BDK – это ваши tools и channels в коде, а не только чат.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Cursor BDK</th>
+      <th>Cursor Automations</th>
+      <th>Grok Bot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Где живёт логика</b></td>
+      <td>Репозиторий: TS + Markdown</td>
+      <td>Prompt и trigger в dashboard</td>
+      <td>Интерактив в приложении Cursor</td>
+    </tr>
+    <tr>
+      <td><b>Тесты и версии</b></td>
+      <td>evals/, Git, CI с bdk eval --json</td>
+      <td>Без полноценного eval-проекта в Git</td>
+      <td>Не ваш self-serve репозиторий</td>
+    </tr>
+    <tr>
+      <td><b>Триггеры</b></td>
+      <td>GitHub, Slack, webhooks, schedules</td>
+      <td>GitHub, GitLab, Slack, Linear, webhooks</td>
+      <td>Чат с пользователем</td>
+    </tr>
+    <tr>
+      <td><b>Деплой</b></td>
+      <td>Cursor-managed hosting или свой процесс</td>
+      <td>Облако Cursor без вашего bot/</td>
+      <td>Не применимо</td>
+    </tr>
+    <tr>
+      <td><b>Когда брать</b></td>
+      <td>PR-бот, triage, кастомные tools/MCP</td>
+      <td>Повторяющийся job без кода в Git</td>
+      <td>Быстрый диалог, не production-агент</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <b>Итоговый вердикт:</b> Если нужен только cron + prompt на репозиторий – начните с <a href="https://cursor.com/docs/cloud-agent/automations" target="_blank">Automations</a>. Если нужны hillclimb, fixtures и bdk deploy – берите BDK.
+</blockquote>
+
+<p><b>Делайте:</b> зафиксируйте выбор в README репозитория. <b>Не делайте:</b> смешивать Automations и BDK в одной инструкции для команды – разные циклы обновления.</p>
+
+<h2 id="requirements-init">2. Проверьте требования и создайте проект через bdk init</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Чеклист требований и шагов bdk init для Cursor BDK" loading="lazy">
+</figure>
+
+
+<p>Минимум Node <b>22.13+</b> (проверка node -v), Git и аккаунт Cursor. Bun для BDK не подходит: на встроенных tools часто NGHTTP2_FRAME_SIZE_ERROR – используйте только Node.</p>
+
+<blockquote>
+  <b>Маршрут за сессию:</b>
+  <br>
+  node -v → bdk init → правка bot/instructions.md → bdk dev → evals/smoke.eval.ts → bdk github replay (fixtures) → git push → bdk validate → bdk deploy → status running
+</blockquote>
+
+<p>Scaffold без глобальной установки:</p>
+
+<blockquote>
+  npx @cursor/bdk init ./my-agent<br>
+  cd my-agent<br>
+  bdk dev
+</blockquote>
+
+<p>Шаблоны init: security-reviewer, grokbot-agents, triage-linear, triage-jira (--template triage → linear). Документация: bdk docs; при bdk serve – также /docs.</p>
+
+<p>Дерево после init (упрощённо):</p>
+
+<blockquote>
+  my-agent/<br>
+  &nbsp;&nbsp;bot/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;instructions.md<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;tools/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;mcp-connections/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;channels/<br>
+  &nbsp;&nbsp;evals/<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;(ваши *.eval.ts здесь, не в bot/evals/)
+</blockquote>
+
+<p><b>Делайте:</b> открыть папку в Cursor и читать bot/instructions.md первым. <b>Не делайте:</b> класть eval-файлы в bot/evals/ – CLI их игнорирует; только evals/**/*.eval.ts.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> Убедитесь, что node -v показывает 22.13 или выше; при необходимости обновите через nvm или fnm.</li>
+  <li><b>Шаг 2:</b> Выберите шаблон: пустой init или --template security-reviewer для PR-ревью.</li>
+  <li><b>Шаг 3:</b> Выполните npx @cursor/bdk init ./my-agent и зайдите в каталог проекта.</li>
+  <li><b>Шаг 4:</b> Запустите bdk dev и дождитесь локального playground.</li>
+  <li><b>Шаг 5:</b> Сохраните slug проекта и структуру bot/ в README для команды.</li>
+</ol>
+
+<h2 id="configure-bot">3. Настройте bot/instructions.md, tools, MCP и subagents</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Workflow настройки BDK: instructions, tools, MCP и subagents" loading="lazy">
+</figure>
+
+
+<p>instructions.md – "должностная инструкция" агента: тон, границы, когда звать tools. Tool – функция в bot/tools/, которую модель может вызвать по имени. MCP – внешние серверы через bot/mcp-connections/ (как "розетки" к GitHub, браузеру, docs); для IDE-сервера см. наш гайд по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">MCP в Cursor</a>, для BDK – defineConnection в mcp-connections с advertiseTools: true при отладке.</p>
+
+<p>Для GitHub добавьте channel bot/channels/github.ts с githubChannel(): prod использует cursorAccount и serve --cursor-events; локально – unsigned loopback и fixtures.</p>
+
+<p><b>Делайте:</b> один channel и 2–3 tools на первый smoke. <b>Не делайте:</b> печатать CURSOR_SERVICE_ACCOUNT_KEY или webhook secret в instructions.md – только env и секреты CI.</p>
+
+<h2 id="local-dev-evals">4. Прогоните локально bdk dev, bdk run и первые evals</h2>
+
+<p>Локальный цикл: bdk dev → playground → bdk run --message "..." или bdk call для детерминированного tool без полного диалога.</p>
+
+<p>Eval – автоматический сценарий "агент должен сделать X". Файл evals/smoke.eval.ts с defineEval, gate t.succeeded() и calledTool на нужный tool. Запуск:</p>
+
+<blockquote>
+  bdk eval --dir . --list<br>
+  bdk eval --dir . --tag smoke
+</blockquote>
+
+<p>Model turns в evals требуют credential Cursor: bdk login, API key или service account в env. Hillclimb: измерили → одна правка (lever) → снова bdk eval; каждое улучшение фиксируйте eval, иначе регрессия незаметна.</p>
+
+<p><b>Делайте:</b> в CI добавьте bdk eval --json --no-stream --junit reports/evals.xml. <b>Не делайте:</b> запускать eval под Bun – только Node 22.13+.</p>
+
+<h2 id="github-deploy">5. Подключите GitHub channel и задеплойте на Cursor-managed hosting</h2>
+
+<p>Prod webhook не обязателен для первой отладки. Синтез payload:</p>
+
+<blockquote>
+  bdk github replay owner/repo#123 --dir . --dry-run --out fixtures/github
+</blockquote>
+
+<p>Затем в режиме --dev отправьте fixture curl-ом с заголовком x-github-event. Replay по умолчанию тянет pull_request; для других событий уточните --events в CLI.</p>
+
+<p>Деплой берёт <b>только запушенный Git ref</b> – незакоммиченные файлы на hosting не попадут.</p>
+
+<ol>
+  <li><b>Шаг 1:</b> git add, commit, push; проверьте git branch -r --contains HEAD.</li>
+  <li><b>Шаг 2:</b> export CURSOR_SERVICE_ACCOUNT_KEY (значение из dashboard, не коммитьте).</li>
+  <li><b>Шаг 3:</b> bdk validate --dir . и исправьте ошибки до deploy.</li>
+  <li><b>Шаг 4:</b> bdk deploy --dir . --ref HEAD (или явный tag/sha).</li>
+  <li><b>Шаг 5:</b> Дождитесь status <b>running</b>, не pending/deploying; сохраните slug и флаги --cursor-events-repo / --allow-domain при redeploy.</li>
+</ol>
+
+<p><b>Делайте:</b> service account для CI отдельно от личного bdk login. <b>Не делайте:</b> deploy до зелёного smoke-eval.</p>
+
+<h2 id="troubleshooting">6. Устраните типичные сбои CLI, login и pending deploy</h2>
+
+<ul>
+  <li>Eval падает на API key – задайте credential для model turns (service account или bdk login)</li>
+  <li>NGHTTP2_FRAME_SIZE_ERROR – вы на Bun; переключитесь на Node</li>
+  <li>MCP tools не видны – advertiseTools: true и проверьте OAuth MCP по skill bdk-mcp-auth</li>
+  <li>Deploy завис в pending – дождитесь running или смотрите validate/deploy логи</li>
+  <li>GitHub replay пустой – проверьте gh auth и номер PR</li>
+  <li>evals не находятся – путь evals/**/*.eval.ts, не bot/evals/</li>
+  <li>Локальные правки не на prod – нужен push, deploy не заливает рабочую копию</li>
+  <li>Redeploy сбросил events – сохраните те же --cursor-events-repo и --allow-domain</li>
+  <li>Нет Node 22.13 – bdk init/dev могут вести себя непредсказуемо</li>
+  <li>Путаете @cursor/july и @cursor/bdk – в user-facing тексте и npm используйте @cursor/bdk</li>
+  <li>Ждёте Telegram-гайд – это другой продукт; BDK только через init/eval/deploy</li>
+</ul>
+
+<p><b>Делайте:</b> bdk docs и skills на jsDelivr при расхождении с памятью. <b>Не делайте:</b> выдумывать Teams/Enterprise pricing для self-serve BDK-проекта.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Добавьте второй eval на GitHub fixture после replay.</li>
+  <li>Подключите MCP tool под ваш стек по <a href="https://mayai.ru/podklyuchenie-mcp-cursor/">гайду MCP</a>.</li>
+  <li>Включите bdk eval в GitHub Actions на каждый push.</li>
+  <li>Документируйте slug и ref деплоя в README.</li>
+  <li>Если агент дополняет сценарии Make – разберите связку на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> (фоновые цепочки после BDK).</li>
+</ol>
+
+<blockquote>
+  <b>Материал проверен:</b> эксперт <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a> (CEO Maya AI, практик Cursor, MCP и автоматизации).<br>
+  <b>Достоверность данных:</b> команды CLI, структура bot/evals и сравнение BDK с Automations сверены с README @cursor/bdk и skills (evals, deploy, hillclimb) на 07.10.2026; показы Wordstat по "cursor bdk" в research не собирались – без выдуманных цифр спроса.
+</blockquote>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем BDK отличается от Cursor Automations?</h3>
+<p>Automations: prompt и trigger в dashboard, без полного TS/MD проекта в Git. BDK: версионируемый репозиторий, evals, custom tools, MCP и выбор hosting. Выберите Automations для простого job; BDK – когда нужны тесты и код channel.</p>
+
+<h3>Нужен ли отдельный репозиторий для деплоя BDK?</h3>
+<p>Нужен Git remote с запушенным ref. bdk deploy читает коммит на сервере, а не ваши незакоммиченные файлы. Перед deploy выполните push и git branch -r --contains HEAD.</p>
+
+<h3>Как писать evals для BDK агента?</h3>
+<p>Создайте evals/**/*.eval.ts с defineEval; проверяйте t.succeeded(), calledTool / notCalledTool. Для GitHub сгенерируйте fixtures: bdk github replay … --dry-run --out fixtures/github и прогоните eval на fixture в --dev.</p>
+
+<h3>Можно ли тестировать GitHub без admin webhook?</h3>
+<p>Да. Используйте bdk github replay и каталог fixtures; локально POST на dev-сервер с x-github-event. Prod webhook и cursorAccount настраиваются отдельно при serve --cursor-events.</p>
+
+<h3>Что нужно для bdk deploy?</h3>
+<p>CURSOR_SERVICE_ACCOUNT_KEY в env, успешный bdk validate, push в remote, затем bdk deploy --dir . --ref. В CI используйте service account, не личный login разработчика.</p>
+
+<h3>Почему eval падает с ошибкой API key?</h3>
+<p>Ходы модели в evals требуют Cursor credential. Локально: bdk login или ключ в env. В CI: service account в секретах репозитория. Без credential eval не пройдёт model turns.</p>
+
+<h3>Node или Bun для BDK?</h3>
+<p>Только Node 22.13+. Под Bun типичны сбои HTTP/2 на tools. Проверьте which node и node -v перед bdk dev и bdk eval.</p>

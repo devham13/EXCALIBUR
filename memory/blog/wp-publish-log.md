@@ -172,3 +172,40 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-07 — B06 sozdanie-bota-cursor-bdk — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | sozdanie-bota-cursor-bdk |
+| verdict | **PASS** |
+| post_id | 1192 |
+| featured_image_id | 1193 |
+| inline_images | 1194, 1195, 1196 |
+| permalink | https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/ |
+| transport | SSH SFTP (FTP `425 Security: Bad IP` из Cloud pod) |
+
+### Preconditions
+
+- link-verify.json: pass (preflight `--site-base` из `EXCALIBUR_PUBLIC_SITE_URL`)
+- article-qa.md: PASS (94/100)
+- dry-run: OK (PHP ~6.3 MB)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=1192 slug=sozdanie-bota-cursor-bdk
+OK featured_image=1193
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1194..1196 (inline-01..03)
+permalink=https://www.meta-journal.ru/2026/10/07/sozdanie-bota-cursor-bdk/
+```
+
+### Post-publish
+
+- `excalibur_blog_interlinker.py --apply`: 0 new opportunities

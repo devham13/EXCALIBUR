@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "Cursor BDK в Git или Automations в dashboard — где ваш агент проснётся от PR?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: разработчик у ноутбука с терминалом bdk init и deploy, рядом fake GitHub PR и dashboard Automations",
+      "scene_hint": "reference-лицо в casual худи разработчика, указывает на split-screen: слева терминал `bdk init` / `bdk deploy` + зелёный GitHub PR check, справа fake Cursor Automations dashboard «prompt only»; стикер Node 22.13+, fake pending deploy красным, розовый маркер на «deploy», скотч, рваная бумага, мем shocked cat + Drake «Automations / BDK» (один Drake на холст)",
+      "meme_caption_ru": "PR есть — deploy pending?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "1. Сравните BDK, Cursor Automations и Grok Bot: таблица выбора",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица 3 колонки BDK / Automations / Grok: где логика, тесты evals, GitHub channel; Cyrillic UI, розовый highlight на строке «evals/»",
+      "alt": "Сравнительная таблица BDK vs Cursor Automations vs Grok Bot"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "2. Проверьте требования и создайте проект через bdk init",
+      "visual_type": "checklist_board",
+      "scene_hint": "Printable чеклист: Node 22.13+, npm, git, npx @cursor/bdk init, структура bot/ и evals/; галочки, стикер «перед bdk dev»",
+      "alt": "Чеклист требований и шагов bdk init для Cursor BDK"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "3. Настройте bot/instructions.md, tools, MCP и subagents",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема 5 блоков: instructions.md → tools (TS) → MCP servers → subagents → bdk dev smoke; стрелки, иконки папок bot/, без лица героя",
+      "alt": "Workflow настройки BDK: instructions, tools, MCP и subagents"
+    }
+  }
+}

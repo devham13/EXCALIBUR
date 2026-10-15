@@ -1,0 +1,12 @@
+{
+  "pipeline": "quad_canvas_1x_mcp",
+  "fallback": "cursor.GenerateImage",
+  "mcp_server": null,
+  "generated_at": "2026-10-07T14:20:00Z",
+  "source_artifact": "/opt/cursor/artifacts/assets/canvas-quad-b06.jpg",
+  "local_canvas": "cover/canvas-quad.png",
+  "url": "file:///workspace/memory/blog/articles/B06-sozdanie-bota-cursor-bdk/cover/canvas-quad.png",
+  "note": "MCP user-mcp-kv unavailable; i2i via GenerateImage with reference_image_paths blog-hero-reference.png; resized 1280x720 → 2048x1152 for split contract",
+  "aspect_ratio": "16:9",
+  "reference_image": "/workspace/memory/cover/assets/blog-hero-reference.png"
+}

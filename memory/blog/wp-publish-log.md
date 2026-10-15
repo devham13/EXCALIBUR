@@ -172,3 +172,51 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-08-09 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 717 |
+| inline_images | 718, 719, 720 |
+| permalink | /2026/06/19/primer-seo-stati/ (resolve with PUBLIC_SITE_URL) |
+| transport | SFTP (FTP STOR blocked: 425 Bad IP from Cloud Agent) |
+
+### Preconditions
+
+- article-qa.md: PASS (96/100)
+- link-verify.json: pass (3/3, preflight 2026-08-09)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Commands
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK
+# FTP STOR failed (425 Security: Bad IP); publish via SFTP upload + HTTP trigger (same PHP bootstrap)
+```
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=717
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=718 src=cover/inline-01.png
+OK inline_image_upload=719 src=cover/inline-02.png
+OK inline_image_upload=720 src=cover/inline-03.png
+permalink=/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: already applied at indexer step (B01 → B04)

@@ -1,6 +1,6 @@
 # Promotion checklist — B01 primer-seo-stati
 
-Дата публикации: 2026-06-10  
+Дата публикации: 2026-08-09  
 Live URL: https://... (заполнить после publish)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
@@ -23,11 +23,11 @@ Excalibur создаёт этот файл после `✅ ARTICLE OK` (до и�
 ## Snippet для Telegram (черновик)
 
 ```
-SEO-статья в 2026 — это не набор ключей, а единый workflow SEO + GEO: от семантики до FAQ и schema.
+15 000 ключей в Вордстате — а статью дочитали 12 человек?
 
-• Один longread вместо двух проектов: интент, H2-чанки, BlogPosting + FAQPage
-• Lead 350–500 знаков, атомарные блоки для нейропоиска
-• Чеклист из 15 пунктов перед публикацией
+• Один longread вместо двух проектов: SEO + GEO workflow за 90 минут
+• Lead 350–500 знаков, H2-чанки, BlogPosting + FAQPage для нейропоиска
+• Чеклист из 17 пунктов перед публикацией
 
 Читать: [URL]
 ```
@@ -44,4 +44,4 @@ SEO-статья в 2026 — это не набор ключей, а едины�
 
 ## Notes
 
-Indexer: 0 interlink opportunities (единственная статья в `memory/blog/articles`). После публикации второй статьи — перезапустить `excalibur_blog_interlinker.py --apply`.
+Indexer (2026-08-09): 1 interlink applied — B01 → B04 (`geo оптимизация` → `/blog/geo-optimizaciya-sajta-2026/`). Отчёт: `memory/blog/interlink-suggestions.json`. llms.txt обновлён (5 статей).

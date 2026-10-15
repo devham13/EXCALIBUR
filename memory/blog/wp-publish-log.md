@@ -172,3 +172,48 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-15 — B06 nastroyka-cursor-automations-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastroyka-cursor-automations-2026 |
+| verdict | **PASS** |
+| post_id | 981 |
+| featured_image_id | 1337 |
+| inline_images | 1338, 1339, 1340 |
+| permalink path | /2026/08/28/nastroyka-cursor-automations-2026/ |
+| wp_get_permalink | meta-journal.ru (WP siteurl) |
+| trigger | Cloud Agent excalibur-blog-publish |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (8/8, site-base EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present (URLs rewritten to production host before 2nd publish)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Transport
+
+- FTP `STOR`: **425 Security: Bad IP connecting** (cloud egress)
+- **Workaround:** SFTP upload (`SFTP_HOST` + `REMOTE_SITE_ROOT`) + HTTP trigger on `PUBLIC_SITE_URL`
+
+### Result (2nd run — schema refresh)
+
+```
+OK post=981 slug=nastroyka-cursor-automations-2026
+OK featured_image=1337
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1338..1340
+permalink=https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities
+- Live URL verified HTTP 200 on canonical host + path

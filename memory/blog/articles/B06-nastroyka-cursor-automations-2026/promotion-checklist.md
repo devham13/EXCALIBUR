@@ -1,7 +1,7 @@
 # Promotion checklist — B06 nastroyka-cursor-automations-2026
 
 Дата публикации: 2026-10-15  
-Live URL: https://mayai.ru/blog/nastroyka-cursor-automations-2026/ (заполнить после publish)
+Live URL: /2026/08/28/nastroyka-cursor-automations-2026/ (host: EXCALIBUR_PUBLIC_SITE_URL)
 
 Excalibur создаёт этот файл после `✅ ARTICLE OK` (до или после WP publish).
 
@@ -29,7 +29,7 @@ Cursor Automations за 45 минут — или cron в 3 ночи по ваш�
 • GitHub PR, billing ~$2 headroom, Run History
 • 7 шагов: от триггера до чеклиста secrets
 
-Читать: https://mayai.ru/blog/nastroyka-cursor-automations-2026/
+Читать: /2026/08/28/nastroyka-cursor-automations-2026/
 ```
 
 ## Перелинковка

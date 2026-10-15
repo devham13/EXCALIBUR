@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "SEO-текст, который люди дочитают — миф или один workflow?",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на Wordstat и Метрику: SEO-текст, который дочитывают",
+      "scene_hint": "reference-лицо, улыбка, тёмно-синий пиджак поверх футболки «SEO+GEO», жест на fake Яндекс Wordstat «как писать seo статьи» и Метрика «отказы 78%», рваная бумага, скотч, розовый стикер «один longread», meme shocked cat + Drake «два текста / один workflow», розовый маркер на «0 дочитываний»",
+      "meme_caption_ru": "Ключи есть — дочитываний нет?"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Объедините SEO и GEO в одном материале",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: цель, сниппет, атомарные H2, Wordstat vs FAQ/schema — заголовок секции «Объедините SEO и GEO в одном материале», стикер «один материал»",
+      "alt": "Сравнительная таблица SEO и GEO в одном longread"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Соберите семантику и каркас longread",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake скрин Яндекс Wordstat + Вебмастер: кластер 15–25 фраз, primary query, outline H2 на стикере — «Соберите семантику и каркас longread», без лица героя",
+      "alt": "Скрин Wordstat и каркас longread: семантика и H2"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Напишите seo текст для блога по шагам",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема 9 шагов: интент → Wordstat → конкуренты → скелет → черновик → meta → GEO → чеклист → Вебмастер — «Напишите seo текст для блога по шагам», маркерные стрелки на рваной ленте",
+      "alt": "Workflow из 9 шагов написания SEO-текста для блога"
     }
   }
 }

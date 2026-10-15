@@ -1,0 +1,444 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-09-12",
+    "today_ru": "12.09.2026",
+    "year": 2026,
+    "month": 9,
+    "month_name_ru": "сентябрь",
+    "weekday_ru": "суббота",
+    "freshness_window": {
+      "prefer_sources_after": "2026-06-14",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-09-12 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastrojka-make-ai-agents",
+    "h1": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами",
+    "primary_query": "make ai agents настройка",
+    "secondary_queries": [
+      "make ai agents как создать",
+      "make.com ai agents инструкция",
+      "агент make сценарии инструменты"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "make ai agents настройка 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make AI Agents | Build transparent AI agents across 3000+ apps",
+          "url": "https://www.make.com/en/ai-agents",
+          "snippet": ""
+        },
+        {
+          "title": "Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia",
+          "url": "https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/",
+          "snippet": "Build and orchestrate AI agents with full visibility across 3,000+ apps. Automate complex workflows with transparency, control, and measurable business impact."
+        },
+        {
+          "title": "Make com: настройка автономных ИИ-агентов для контент-завода",
+          "url": "https://mayai.ru/make-com-nastrojka-avtonomnyh-ii-agentov-dlya-kontent-zavoda/",
+          "snippet": "Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases."
+        },
+        {
+          "title": "Make.com AI Agents: How to Build a Real Working Agent (2026)",
+          "url": "https://stacksheriff.com/automation/make-ai-agents-tutorial/",
+          "snippet": "AI-агенты (например, в связке с Make.com и Cursor) позволяют заменить рутинные задачи: сбор данных, написание постов, рерайт и даже автопостинг в Telegram или WordPress."
+        },
+        {
+          "title": "Microsoft Build 2026: Key Announcements Shaping Future of Enterprise AI",
+          "url": "https://aufaittechnologies.com/blog/microsoft-build-2026-enterprise-ai-announcements/",
+          "snippet": "Learn how to build an AI agent in Make.com using OpenAI and tool-calling loops. Step-by-step guide covering setup, pricing, and the operation-count traps to avoid."
+        },
+        {
+          "title": "How to build AI agents with Make",
+          "url": "https://www.make.com/en/how-to-guides/build-ai-agents",
+          "snippet": "Microsoft Build 2026 introduced major updates across AI agents, Microsoft Fabric, Foundry, Rayfin, Copilot Studio, and enterprise AI governance. Here is what it means for your organisation."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "make ai agents настройка сентябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+          "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+          "snippet": ""
+        },
+        {
+          "title": "Make AI Agents | Build transparent AI agents across 3000+ apps",
+          "url": "https://www.make.com/en/ai-agents",
+          "snippet": "Этот гайд — для владельцев бизнеса, маркетологов и специалистов по автоматизации, которые хотят внедрить make ai агенты без программирования и понять, когда агент лучше обычного сценария."
+        },
+        {
+          "title": "Make AI Agents - Help Center",
+          "url": "https://help.make.com/make-ai-agents?v=1",
+          "snippet": "Build and orchestrate AI agents with full visibility across 3,000+ apps. Automate complex workflows with transparency, control, and measurable business impact."
+        },
+        {
+          "title": "Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia",
+          "url": "https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/",
+          "snippet": "Updated 03 Feb 2026 PREVIOUS Credit usage for AI agents NEXT Introduction to AI agents Docs powered byArchbee Docs powered byArchbee"
+        },
+        {
+          "title": "Make com: настройка автономных ИИ-агентов для контент-завода",
+          "url": "https://mayai.ru/make-com-nastrojka-avtonomnyh-ii-agentov-dlya-kontent-zavoda/",
+          "snippet": "Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases."
+        },
+        {
+          "title": "Make AI Agents - Help Center",
+          "url": "https://help.make.com/make-ai-agents",
+          "snippet": "AI-агенты (например, в связке с Make.com и Cursor) позволяют заменить рутинные задачи: сбор данных, написание постов, рерайт и даже автопостинг в Telegram или WordPress."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "make ai agents настройка новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+          "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+          "snippet": ""
+        },
+        {
+          "title": "Make AI Agents | Build transparent AI agents across 3000+ apps",
+          "url": "https://www.make.com/en/ai-agents",
+          "snippet": "Этот гайд — для владельцев бизнеса, маркетологов и специалистов по автоматизации, которые хотят внедрить make ai агенты без программирования и понять, когда агент лучше обычного сценария."
+        },
+        {
+          "title": "Announcing the next generation of Make AI Agents | Make",
+          "url": "https://www.make.com/en/blog/announcing-next-generation-make-ai-agents",
+          "snippet": "Build and orchestrate AI agents with full visibility across 3,000+ apps. Automate complex workflows with transparency, control, and measurable business impact."
+        },
+        {
+          "title": "Как AI автоматизирует бизнес через Make: полный разбор",
+          "url": "https://www.aidohodsnulla.ru/2026/05/ai-make.html",
+          "snippet": "Back in October 2025, we announced our vision for the next generation of Make AI Agents. We invited Make users to sign up for the waitlist - and realised very quickly that demand was extremely high. Our promise was that Make AI Agents would be as visual and intuitive as every other part of Make."
+        },
+        {
+          "title": "Make в 2026: visual automation platform с AI Agents, MCP Server, AI Web ...",
+          "url": "https://aisrc.ru/tools/make",
+          "snippet": "Подробнее о том, как AI меняет подход к работе в целом — в материале 10 способов, которыми AI уже меняет заработок в 2026 году."
+        },
+        {
+          "title": "автоматизация make с AI Agents и MCP: workflow для бизнеса — Maya AI",
+          "url": "https://mayai.ru/make-ai-agents-mcp-avtomatizaciya/",
+          "snippet": "Current Make особенно силен именно в таких workflow: можно собрать обычный scenario, подключить AI Toolkit или AI Agents, дать агенту tools и knowledge, а затем при желании открыть этот же workflow наружу через Make MCP Server."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "make ai agents как создать 2026",
+      "purpose": "вторичный запрос: make ai agents как создать",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как Создать Ai-агента В 2026: Пошаговый Гайд С Нуля",
+          "url": "https://chimitdorzhi.tech/blog/kak-sozdat-ai-agenta-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Создание Ai-агентов: Полное Руководство По Созданию Интеллектуальной ...",
+          "url": "https://www.jenova.ai/ru/resources/build-ai-agents",
+          "snippet": "Как создать и как сделать AI-агента с нуля: пошаговый гайд. Собираем первого агента без кода через n8n или на Claude API и YandexGPT — что выбрать."
+        },
+        {
+          "title": "Как создать ИИ агента: честное руководство без воды (2026)",
+          "url": "https://ascn.ai/ru/blog-no-code/how-to-create-ai-agents-no-code-guide-2026",
+          "snippet": "Узнайте, как создавать AI-агентов, которые автоматизируют рабочие процессы, решают сложные задачи и интегрируются с вашими инструментами."
+        },
+        {
+          "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+          "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+          "snippet": "Узнайте, как создать ИИ агента в 2026 году: пошаговое руководство по no-code платформам, фреймворкам и технологиям. Примеры для бизнеса."
+        },
+        {
+          "title": "Как Создать Ai-агента С Нуля: Пошаговое Руководство 2026",
+          "url": "https://aigenthub.ru/besplatnye-ai-agenty-2026-obzor-sravnenie-reyting/",
+          "snippet": "Этот гайд — для владельцев бизнеса, маркетологов и специалистов по автоматизации, которые хотят внедрить make ai агенты без программирования и понять, когда агент лучше обычного сценария."
+        },
+        {
+          "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+          "url": "https://rutube.ru/video/9bfde0d1e3a65d6fa04a467d9b4dca84/",
+          "snippet": "Как создать AI-агента с нуля: пошаговая инструкция, выбор платформы, настройка инструментов и первый запуск."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "make.com ai agents инструкция 2026",
+      "purpose": "вторичный запрос: make.com ai agents инструкция",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+          "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+          "snippet": ""
+        },
+        {
+          "title": "Make.com: создаем AI-агента для контент-завода — инструкция",
+          "url": "https://mayai.ru/make-com-sozdaem-ai-agenta-dlya-kontent-zavoda-instrukcziya/",
+          "snippet": "Этот гайд — для владельцев бизнеса, маркетологов и специалистов по автоматизации, которые хотят внедрить make ai агенты без программирования и понять, когда агент лучше обычного сценария."
+        },
+        {
+          "title": "Make AI Agents | Build transparent AI agents across 3000+ apps",
+          "url": "https://www.make.com/en/ai-agents",
+          "snippet": "Это то, что отличает ai агент 2026 года от бота 2023-го. Внутри логики агента добавьте шаг проверки. Попросите модель оценить собственный текст по шкале от 1 до 10 перед публикацией."
+        },
+        {
+          "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+          "url": "https://rutube.ru/video/9bfde0d1e3a65d6fa04a467d9b4dca84/",
+          "snippet": "You can build AI agents directly inside the Make canvas, where automation already lives. That means clearer setup, faster iteration, and a complete view of how AI decisions and workflows work together. See decisions as they happen, adjust logic instantly, and share Agents across teams and workflows."
+        },
+        {
+          "title": "Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia",
+          "url": "https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/",
+          "snippet": "Вы узнаете, как создавать умных SEO-агентов с доступом к Яндекс.Вордстат, использовать логику субагентов для сложных задач и правильно структурировать данные на выходе. Разбираем нюансы расхода операций и лайфхаки по экономии."
+        },
+        {
+          "title": "Make.com AI Agents: How to Build a Real Working Agent (2026)",
+          "url": "https://stacksheriff.com/automation/make-ai-agents-tutorial/",
+          "snippet": "Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "агент make сценарии инструменты 2026",
+      "purpose": "вторичный запрос: агент make сценарии инструменты",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+          "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+          "snippet": ""
+        },
+        {
+          "title": "автоматизация make с AI Agents и MCP: workflow для бизнеса — Maya AI",
+          "url": "https://mayai.ru/make-ai-agents-mcp-avtomatizaciya/",
+          "snippet": "Этот гайд — для владельцев бизнеса, маркетологов и специалистов по автоматизации, которые хотят внедрить make ai агенты без программирования и понять, когда агент лучше обычного сценария."
+        },
+        {
+          "title": "Make в 2026: visual automation platform с AI Agents, MCP Server, AI Web ...",
+          "url": "https://aisrc.ru/tools/make",
+          "snippet": "Пошаговый workflow: как выбрать процесс, собрать Make-сценарий, подключить AI Agent и MCP, настроить scopes, approval, логи и лимиты credits."
+        },
+        {
+          "title": "Использование Инструментов Ai-агентов В 2026 Году: Mcp, Cli, Навыки И ...",
+          "url": "https://slavadubrov.github.io/ru/blog/2026/03/24/ai-agent-tool-use/",
+          "snippet": "Make продвигает не только сценарии, но и AI Agents; появился и отдельный Make MCP Server, который превращает сценарии в callable tools для Claude, ChatGPT, Cursor и других MCP clients;"
+        },
+        {
+          "title": "Ai-агенты Для Бизнеса: Полный Гайд По Внедрению И Roi В 2026",
+          "url": "https://atlasceo.ru/build/atlas-574-ai-agenty-dlya-biznesa-polnyy-gayd-po-stsenariyam-riskam-i-o/",
+          "snippet": "История инструментов изменилась в 2025-2026 годах. MCP, Model Context Protocol, предоставил вендорам единый способ подключать внешние сервисы."
+        },
+        {
+          "title": "Как Настроить Ai Агента За 10 Минут: Пошаговая Инструкция 2026",
+          "url": "https://www.aidohodsnulla.ru/2026/06/ai-10-2026.html",
+          "snippet": "Полный гайд по AI-агентам для бизнеса в 2026: сценарии внедрения, стек инструментов, расчет ROI и пилотный план на 30-90 дней. Экспертный анализ для стратегов."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Создание AI-агента в Make: пошаговая инструкция с нуля",
+          "url": "https://mayai.ru/sozdanie-ai-agenta-v-make-poshagovaya-instrukcziya-s-nulya/",
+          "snippet": ""
+        },
+        {
+          "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+          "url": "https://rutube.ru/video/9bfde0d1e3a65d6fa04a467d9b4dca84/",
+          "snippet": "Давайте разберем, как создать ai агента, который реально работает, а не просто тратит ваши токены. Разработка ai ии агента в 2026 году строится не на длинных «колбасах» из модулей, а на умной оркестрации. Мы не прописываем каждый шаг жестко («если А, то Б»). Мы даем агенту цель и набор инструментов. Схема выглядит так:"
+        },
+        {
+          "title": "Как Создать Ai-агента: Пошаговое Руководство — Журнал «Код ...",
+          "url": "https://thecode.media/kak-sozdat-ai-agenta-poshagovoe-rukovodstvo/",
+          "snippet": "Вы узнаете, как создавать умных SEO-агентов с доступом к Яндекс.Вордстат, использовать логику субагентов для сложных задач и правильно структурировать данные на выходе."
+        },
+        {
+          "title": "Создание AI-агента в Make: Простое пошаговое руководство для начинающих ...",
+          "url": "https://mayai.ru/kak-sozdat-sobstvennogo-ai-agenta-v-make-otkrojte-novye-gorizonty-avtomatizaczii-s-nashim-poshagovym-rukovodstvom/",
+          "snippet": "Сегодня заглянем под капот AI-агентам и пройдём 10 шагов по созданию цифрового помощника."
+        },
+        {
+          "title": "Обзор AI AGENTS от make.com: возможности, ограничения и создание с нуля ...",
+          "url": "https://www.youtube.com/watch?v=J5E24drwW6M",
+          "snippet": "Если вам нужно сделать making AI в деле, то есть не просто поболтать с моделью, а вкрутить её в конкретный процесс, Make как раз про это."
+        },
+        {
+          "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+          "url": "https://dzen.ru/video/watch/698a344dd79e742783704b2d",
+          "snippet": "Видео будет полезно как новичкам, так и опытным пользователям make.com, которые хотят максимально использовать новые возможности ИИ в своих автоматизациях. Также мы предлагаем услуги по..."
+        }
+      ],
+      "searched_at": "2026-09-12"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.make.com/en/ai-agents",
+      "title": "Make AI Agents | Build transparent AI agents across 3000+ apps",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/",
+      "title": "Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://mayai.ru/make-com-nastrojka-avtonomnyh-ii-agentov-dlya-kontent-zavoda/",
+      "title": "Make com: настройка автономных ИИ-агентов для контент-завода",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://stacksheriff.com/automation/make-ai-agents-tutorial/",
+      "title": "Make.com AI Agents: How to Build a Real Working Agent (2026)",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://aufaittechnologies.com/blog/microsoft-build-2026-enterprise-ai-announcements/",
+      "title": "Microsoft Build 2026: Key Announcements Shaping Future of Enterprise AI",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://www.make.com/en/how-to-guides/build-ai-agents",
+      "title": "How to build AI agents with Make",
+      "from_query": "make ai agents настройка 2026"
+    },
+    {
+      "url": "https://mayai.ru/make-ai-agenty-gayd-biznes/",
+      "title": "Make AI Agents для бизнеса: гайд по агентам Make.com 2026",
+      "from_query": "make ai agents настройка сентябрь 2026"
+    },
+    {
+      "url": "https://help.make.com/make-ai-agents?v=1",
+      "title": "Make AI Agents - Help Center",
+      "from_query": "make ai agents настройка сентябрь 2026"
+    },
+    {
+      "url": "https://help.make.com/make-ai-agents",
+      "title": "Make AI Agents - Help Center",
+      "from_query": "make ai agents настройка сентябрь 2026"
+    },
+    {
+      "url": "https://www.make.com/en/blog/announcing-next-generation-make-ai-agents",
+      "title": "Announcing the next generation of Make AI Agents | Make",
+      "from_query": "make ai agents настройка новости 2026"
+    },
+    {
+      "url": "https://www.aidohodsnulla.ru/2026/05/ai-make.html",
+      "title": "Как AI автоматизирует бизнес через Make: полный разбор",
+      "from_query": "make ai agents настройка новости 2026"
+    },
+    {
+      "url": "https://aisrc.ru/tools/make",
+      "title": "Make в 2026: visual automation platform с AI Agents, MCP Server, AI Web ...",
+      "from_query": "make ai agents настройка новости 2026"
+    },
+    {
+      "url": "https://mayai.ru/make-ai-agents-mcp-avtomatizaciya/",
+      "title": "автоматизация make с AI Agents и MCP: workflow для бизнеса — Maya AI",
+      "from_query": "make ai agents настройка новости 2026"
+    },
+    {
+      "url": "https://chimitdorzhi.tech/blog/kak-sozdat-ai-agenta-2026/",
+      "title": "Как Создать Ai-агента В 2026: Пошаговый Гайд С Нуля",
+      "from_query": "make ai agents как создать 2026"
+    },
+    {
+      "url": "https://www.jenova.ai/ru/resources/build-ai-agents",
+      "title": "Создание Ai-агентов: Полное Руководство По Созданию Интеллектуальной ...",
+      "from_query": "make ai agents как создать 2026"
+    },
+    {
+      "url": "https://ascn.ai/ru/blog-no-code/how-to-create-ai-agents-no-code-guide-2026",
+      "title": "Как создать ИИ агента: честное руководство без воды (2026)",
+      "from_query": "make ai agents как создать 2026"
+    },
+    {
+      "url": "https://aigenthub.ru/besplatnye-ai-agenty-2026-obzor-sravnenie-reyting/",
+      "title": "Как Создать Ai-агента С Нуля: Пошаговое Руководство 2026",
+      "from_query": "make ai agents как создать 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/9bfde0d1e3a65d6fa04a467d9b4dca84/",
+      "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+      "from_query": "make ai agents как создать 2026"
+    },
+    {
+      "url": "https://mayai.ru/make-com-sozdaem-ai-agenta-dlya-kontent-zavoda-instrukcziya/",
+      "title": "Make.com: создаем AI-агента для контент-завода — инструкция",
+      "from_query": "make.com ai agents инструкция 2026"
+    },
+    {
+      "url": "https://slavadubrov.github.io/ru/blog/2026/03/24/ai-agent-tool-use/",
+      "title": "Использование Инструментов Ai-агентов В 2026 Году: Mcp, Cli, Навыки И ...",
+      "from_query": "агент make сценарии инструменты 2026"
+    },
+    {
+      "url": "https://atlasceo.ru/build/atlas-574-ai-agenty-dlya-biznesa-polnyy-gayd-po-stsenariyam-riskam-i-o/",
+      "title": "Ai-агенты Для Бизнеса: Полный Гайд По Внедрению И Roi В 2026",
+      "from_query": "агент make сценарии инструменты 2026"
+    },
+    {
+      "url": "https://www.aidohodsnulla.ru/2026/06/ai-10-2026.html",
+      "title": "Как Настроить Ai Агента За 10 Минут: Пошаговая Инструкция 2026",
+      "from_query": "агент make сценарии инструменты 2026"
+    },
+    {
+      "url": "https://mayai.ru/sozdanie-ai-agenta-v-make-poshagovaya-instrukcziya-s-nulya/",
+      "title": "Создание AI-агента в Make: пошаговая инструкция с нуля",
+      "from_query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026"
+    },
+    {
+      "url": "https://thecode.media/kak-sozdat-ai-agenta-poshagovoe-rukovodstvo/",
+      "title": "Как Создать Ai-агента: Пошаговое Руководство — Журнал «Код ...",
+      "from_query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026"
+    },
+    {
+      "url": "https://mayai.ru/kak-sozdat-sobstvennogo-ai-agenta-v-make-otkrojte-novye-gorizonty-avtomatizaczii-s-nashim-poshagovym-rukovodstvom/",
+      "title": "Создание AI-агента в Make: Простое пошаговое руководство для начинающих ...",
+      "from_query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=J5E24drwW6M",
+      "title": "Обзор AI AGENTS от make.com: возможности, ограничения и создание с нуля ...",
+      "from_query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026"
+    },
+    {
+      "url": "https://dzen.ru/video/watch/698a344dd79e742783704b2d",
+      "title": "Как создать AI Агента в Make.com: Полный гайд по обновлению",
+      "from_query": "Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами 2026"
+    }
+  ]
+}

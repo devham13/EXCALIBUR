@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Если вы выбираете между платформами, сравните Make с n8n в материале автоматизация n8n с ИИ-агентами : там свой сервер и глубокий контроль; Make быстрее стартует из облака с 3000+ apps",
+      "word_count": 26
+    },
+    {
+      "sentence": "Тип automation Когда использовать Пример Standard scenario Одинаковая логика для одинакового входа Синхрон CRM и Google Sheets Scenario + AI app Фиксированные шаги + AI-текст Перевод или краткое summary Scenario + AI Agent Суждение, выбор tools, разный I/O Маршрутизация заявок, lead research Делайте: один сквозной кейс (triage из Webhook или Slack)",
+      "word_count": 49
+    },
+    {
+      "sentence": "Создайте сценарий, триггер и модуль Run an agent Схема workflow: Trigger (Webhook / Slack / Gmail) → Make AI Agent (New) &gt; Run an agent → Tools (модули / scenario / MCP) → Structured output → следующий модуль (CRM, уведомление) Шаг 1: Create scenario",
+      "word_count": 35
+    },
+    {
+      "sentence": "Filter до Run an agent отсекает спам и пустые payload Instructions содержат роль, формат JSON/text и список запретов Не больше 3-5 tools на первый prod-релиз Call a scenario завершается Return outputs и On-demand включён MCP-tools ограничены нужным минимумом Knowledge актуален; устаревший PDF хуже, чем его отсутствие Step timeout 300 с достаточен или увеличен осознанно Chat-тест + Run once + Reasoning пройдены на 5+ кейсах После агента стоит approval (Slack/Telegram) перед CRM или отправкой клиенту Logging: History сохраняется, ответственный знает, где смотреть ошибки Мониторинг credits: на pricing Make – уведомления на 75% и 90% лимита Free: 1 000 credits/мес – заложите лимит runs в Instructions или router Когда n8n, когда Make: Make – быстрый старт, 3000+ интеграций, Reasoning из коробки",
+      "word_count": 109
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 12.3,
+    "avg_syllables_per_word": 1.5
+  }
+}

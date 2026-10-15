@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-12 — B06 nastrojka-make-ai-agents — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastrojka-make-ai-agents |
+| verdict | **PASS** |
+| post_id | 1065 |
+| featured_image_id | 1066 |
+| inline_images | 1067, 1068, 1069 |
+| permalink | https://www.meta-journal.ru/2026/09/12/nastrojka-make-ai-agents/ |
+| trigger | excalibur-blog-publish B06 |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (3/3, preflight publish)
+- schema.jsonld: present
+- cover/cover.png + alt: present (953408 bytes)
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+- dry-run: OK (PHP bytes 6075870)
+
+### Result
+
+```
+OK post=1065 slug=nastrojka-make-ai-agents
+OK featured_image=1066
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1067 src=cover/inline-01.png
+OK inline_image_upload=1068 src=cover/inline-02.png
+OK inline_image_upload=1069 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/09/12/nastrojka-make-ai-agents/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 opportunities
+- WebFetch fallback: not needed (HTTP trigger OK)

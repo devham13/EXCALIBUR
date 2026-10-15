@@ -1,0 +1,59 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-make-ai-agents/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 7,
+  "verified_facts_count": 2,
+  "unverified_facts_count": 5,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "n agent внутри обычного сценария (релиз 2 февраля 2026, open beta). Агент получает Instructions, данные",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "enario. На Free – до 2 active scenarios и минимум 15 минут между scheduled runs; учитывайте это для prod. Ша",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
+    },
+    {
+      "fact": "5 минут",
+      "kind": "metric_or_duration",
+      "context": "й беседы. Step timeout по умолчанию – 300 секунд (5 минут): если tool завис, run оборвётся. Agent nesting –",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "3000",
+      "kind": "large_number",
+      "context": "бокий контроль; Make быстрее стартует из облака с 3000+ apps. 1. Определите, когда нужен агент, а не лин",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "300",
+      "kind": "large_number",
+      "context": "рамках одной беседы. Step timeout по умолчанию – 300 секунд (5 минут): если tool завис, run оборвётся.",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 800",
+      "kind": "large_number",
+      "context": "Make.com и вайбкодинга (159+ уроков, подписка от 5 800 ₽/мес). 6. Пройдите чеклист перед включением в pr",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000",
+      "kind": "large_number",
+      "context": "cing Make – уведомления на 75% и 90% лимита Free: 1 000 credits/мес – заложите лимит runs в Instructions и",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

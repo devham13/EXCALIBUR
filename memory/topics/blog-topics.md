@@ -119,3 +119,24 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Make AI Agents
+
+- **priority:** P0
+- **slug:** nastrojka-make-ai-agents
+- **h1:** Как настроить Make AI Agents: пошаговое руководство по созданию агента с инструментами
+- **primary_query:** make ai agents настройка
+- **secondary_queries:** make ai agents как создать, make.com ai agents инструкция, агент make сценарии инструменты
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Когда выбирать Make AI Agents вместо линейного сценария
+  2. Создание агента: LLM-провайдер, system prompt и лимиты execution steps
+  3. Подключение инструментов: сценарии как tools, модули и MCP-серверы
+  4. Сборка front-end сценария: вход из Slack или формы и структурированный ответ
+  5. Context (RAG), тестирование в Testing & Training и чек-лист перед production
+- **faq_hints:** чем make ai agents отличается от обычного сценария; нужен ли свой OpenAI для агента make; как добавить mcp в make ai agents
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** канва Make с блоком AI Agent в центре, вокруг «руки-инструменты» — иконки Slack, Gmail, Google Sheets и MCP, стикеры «System prompt» и «Tools», неоновый diy-коллаж
+
+---
+

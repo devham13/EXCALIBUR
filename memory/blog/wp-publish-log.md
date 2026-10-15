@@ -172,3 +172,43 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-15 — B01 primer-seo-stati — **FAIL**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **FAIL** |
+| post_id | — |
+| permalink | — |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (6/6, `--site-base` from `EXCALIBUR_PUBLIC_SITE_URL` / env)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes (env + `memory/site.env.local` generated for run)
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py memory/blog/articles/B01-primer-seo-stati/article.html \
+  -o memory/blog/articles/B01-primer-seo-stati/link-verify.json --site-base $EXCALIBUR_PUBLIC_SITE_URL
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati --dry-run  # OK slug=primer-seo-stati, PHP ~6430786 bytes
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati       # FAIL
+```
+
+### Blockers
+
+1. **FTP IP filter:** after successful `FTP login` + `CWD /`, `STOR excalibur-blog-publish-once.php` → `425 Security: Bad IP connecting.` (Beget/host security — cloud agent egress IP not whitelisted).
+2. HTTP bootstrap / WebFetch fallback **not reached** — publish PHP never uploaded.
+
+### Next steps (operator)
+
+1. Add current publish runner IP to FTP/host allowlist, or run publish from self-hosted worker / home network (same path as B02–B05 PASS in 2026-06-11).
+2. Retry: `python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B01-primer-seo-stati`
+3. On PASS: update `shared/published-articles.md` row B01 → `published` + live permalink.

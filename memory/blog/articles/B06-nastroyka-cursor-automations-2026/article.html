@@ -5,6 +5,10 @@
 <p>GA Automations – с 5 марта 2026: агенты в фоне с MCP и memory. Логика как в Make: узкий триггер, чёткий prompt, минимум tools. Ниже – cursor automations настройка: cron, webhook и GitHub PR.</p>
 
 <h2 id="automations-vs-agent">1. Сравните Automations и ручной Cloud Agent</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Таблица сравнения Automations и ручного Cloud Agent" loading="lazy">
+</figure>
+
 
 <p><b>Cloud Agent</b> – облачный ИИ-помощник Cursor (repo, PR, правки кода); запуск вручную из Agents. <b>Automation</b> – тот же агент по триггеру без вашего клика.</p>
 
@@ -42,6 +46,10 @@
 <p><b>Делайте:</b> одна automation – один узкий сценарий. <b>Не делайте:</b> вешать cron digest и тяжёлый event-trigger (Sentry, Linear) на одну запись – на форуме Cursor cron тогда может "залипать" как duplicate активного run.</p>
 
 <h2 id="create-automation">2. Создайте automation на cursor.com/automations</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема шагов создания automation на cursor.com/automations" loading="lazy">
+</figure>
+
 
 <p>Откройте <a href="https://cursor.com/automate" target="_blank">cursor.com/automations</a> → <b>New Automation</b> (или шаблон Marketplace, skill <b>/automate</b>).</p>
 
@@ -65,6 +73,10 @@
 <p>Биллинг как у Cloud Agent, context window всегда на максимум модели. <b>Делайте:</b> короткий prompt со "stop". <b>Не делайте:</b> full review каждого PR.</p>
 
 <h2 id="cron-trigger">3. Настройте cron-триггер с учётом UTC</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист настройки cron-триггера Cursor Automations с учётом UTC" loading="lazy">
+</figure>
+
 
 <p><b>Scheduled</b> – "будильник" агента: пресеты или cron. Расписания считаются в <b>UTC</b> (форум Cursor); для MSK используйте перевод времени или <b>CRON_TZ=Europe/Moscow</b>. Cron с кодом – single repo и main.</p>
 

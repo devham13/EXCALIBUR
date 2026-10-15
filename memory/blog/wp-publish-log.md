@@ -172,3 +172,44 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-10 — B06 n8n-mcp-server-cursor-podklyuchenie — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | n8n-mcp-server-cursor-podklyuchenie |
+| verdict | **PASS** |
+| post_id | 1251 |
+| featured_image_id | 1258 (schema resync run) |
+| inline_images | 1253–1255 (initial), 1259–1261 (schema resync) |
+| permalink | https://www.meta-journal.ru/2026/10/10/n8n-mcp-server-cursor-podklyuchenie/ |
+| transport | SFTP+HTTP (FTP 425 Bad IP → SFTP fallback) |
+
+### Preconditions
+
+- article-qa.md: PASS (93/100)
+- link-verify.json: pass (5/5)
+- schema.jsonld: present (canonical synced to WP permalink after publish)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Result
+
+```
+OK post=1251 slug=n8n-mcp-server-cursor-podklyuchenie
+OK featured_image=1258
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1259 src=cover/inline-01.png
+OK inline_image_upload=1260 src=cover/inline-02.png
+OK inline_image_upload=1261 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/10/10/n8n-mcp-server-cursor-podklyuchenie/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities
+- schema.jsonld `url` / `mainEntityOfPage` / FAQ `@id` → actual permalink; second publish for meta refresh

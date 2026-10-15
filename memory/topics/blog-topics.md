@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — n8n MCP для Cursor
+
+- **priority:** P0
+- **slug:** n8n-mcp-server-cursor-podklyuchenie
+- **h1:** Как подключить n8n к Cursor через MCP: пошаговая настройка Server Trigger и instance-level MCP
+- **primary_query:** n8n mcp server
+- **secondary_queries:** mcp server trigger n8n, n8n mcp cursor, подключить n8n к cursor mcp
+- **search_intent:** how_to
+- **article_mode:** B
+- **wordstat_status:** недоступен (MCP `user-mcp-kv` / `wordstat_get_top_requests` отсутствует в Cloud run 2026-10-10; спрос подтверждён WebSearch + официальная документация n8n 2.33+ и тренд MCP Server Trigger в 2026)
+- **h2_outline:**
+  1. MCP Server Trigger vs instance-level MCP в n8n: что выбрать под Cursor
+  2. Workflow с MCP Server Trigger: tool-ноды, Bearer-auth, test vs production URL
+  3. Instance-level MCP: Enable workflows, OAuth/one-click setup для Cursor (Settings → Connect a client)
+  4. Подключение в Cursor: `.cursor/mcp.json`, лимит tools и allowlist серверов
+  5. Custom n8n Workflow Tool: как отдать готовый сценарий одним MCP-tool
+  6. Troubleshooting: 401, пустой список tools, Claude Desktop через mcp-remote vs Cursor напрямую
+- **faq_hints:** чем отличается mcp server trigger от instance mcp в n8n; какой url давать cursor production или test; можно ли подключить self-hosted n8n к cursor mcp
+- **internal_links:** /podklyuchenie-mcp-cursor/, /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** n8n-нода «MCP Server» как розетка, от неё неоновые кабели к логотипам Cursor и Claude, стикеры Production URL / Bearer token, diy-коллаж на тёмном фоне
+
+---
+

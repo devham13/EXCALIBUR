@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 5,
+  "over_long_sentences": [
+    {
+      "sentence": "Выберите режим: MCP Server Trigger или instance-level MCP Делайте: зафиксируйте задачу одним предложением (\"запускать любые опубликованные workflow из Cursor\" vs \"дать Cursor ровно три tools для CRM\")",
+      "word_count": 27
+    },
+    {
+      "sentence": "Критерий Instance-level MCP MCP Server Trigger Задача в Cursor Искать, запускать, при необходимости собирать workflow в инстансе Вызвать фиксированный набор tools из одного сценария URL для Cursor https://&lt;домен&gt;/mcp-server/http Production URL из панели ноды Trigger (после Publish) Как открыть доступ Toggle Available in MCP на каждом workflow Publish workflow с Trigger + tool-нодами Типичный кейс \"Собери в n8n воронку лидов по моему промпту\" \"Один tool: создать лид в CRM с полями из чата\" Итоговый вердикт: Берите instance-level , если Cursor - ваш \"пульт\" над многими workflow",
+      "word_count": 86
+    },
+    {
+      "sentence": "Схема Trigger-path: MCP Server Trigger → Call n8n Workflow Tool (sub-workflow) → Execute Workflow Trigger → бизнес-ноды (CRM, Telegram, Sheets) Создайте новый workflow и добавьте ноду MCP Server Trigger (транспорт SSE или streamable HTTP; stdio для Trigger не поддерживается)",
+      "word_count": 35
+    },
+    {
+      "sentence": "Ручной фрагмент для instance-level с API key (OAuth one-click может обойтись без headers): { \"mcpServers\": { \"n8n\": { \"type\": \"streamable-http\", \"url\": \"https://&lt;your-n8n-domain&gt;/mcp-server/http\", \"headers\": { \"Authorization\": \"Bearer &lt;YOUR_N8N_MCP_TOKEN&gt;\" } } } } Local: http://localhost:5678/mcp-server/http при Cursor на той же машине",
+      "word_count": 40
+    },
+    {
+      "sentence": "Workflow проверки: Cursor Agent → вызов tool / search_workflows → подтверждение в чате → новая запись в Executions n8n → сверка входных данных Откройте Agent и попросите вызвать exposed workflow или tool Trigger",
+      "word_count": 26
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 11.5,
+    "avg_syllables_per_word": 1.3
+  }
+}

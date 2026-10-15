@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B06-n8n-mcp-server-cursor-podklyuchenie/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "сверены с документацией n8n.io и Cursor на 10.10.2026; показы Wordstat по узким запросам в этом прогоне",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "5678",
+      "kind": "large_number",
+      "context": "8N_MCP_TOKEN&gt;\" } } } } Local: http://localhost:5678/mcp-server/http при Cursor на той же машине. Посл",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "401",
+      "kind": "large_number",
+      "context": "публикуйте Bearer в чат, скриншоты и репозиторий. 401 Unauthorized: неверный или устаревший Bearer; MCP",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

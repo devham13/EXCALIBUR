@@ -1,0 +1,36 @@
+{
+  "topic_id": "B06",
+  "slug": "n8n-mcp-server-cursor-podklyuchenie",
+  "h1": "Как подключить n8n к Cursor через MCP: пошаговая настройка Server Trigger и instance-level MCP",
+  "title": "n8n mcp server: как подключить n8n к Cursor через MCP",
+  "description": "Instance-level MCP и MCP Server Trigger: Enable, Available in MCP, mcp.json streamable-http, OAuth one-click, production URL и устранение 401 и пустых tools.",
+  "keywords": [
+    "n8n mcp server",
+    "n8n mcp cursor",
+    "mcp server trigger n8n",
+    "подключить n8n к cursor mcp"
+  ],
+  "primary_query": "n8n mcp server",
+  "secondary_queries": [
+    "mcp server trigger n8n",
+    "n8n mcp cursor",
+    "подключить n8n к cursor mcp"
+  ],
+  "char_count": 9318,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "подключить n8n mcp server к cursor пошагово",
+    "настройка mcp server trigger n8n для cursor",
+    "instance-level mcp n8n и streamable-http в mcp.json"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n mcp server: подключение n8n к Cursor через MCP пошагово",
+    "title_ctr": "🚀 n8n mcp cursor: Trigger или instance-level MCP - что выбрать и как не словить 401?",
+    "title_aeo": "Как подключить n8n mcp server к Cursor через MCP и OAuth?",
+    "description_seo": "Instance-level MCP и MCP Server Trigger: Enable, Available in MCP, mcp.json, OAuth one-click, production URL. Troubleshooting 401 и пустых tools для n8n mcp cursor.",
+    "description_ctr": "⚡ Свяжите n8n и Cursor за один вечер: таблица Trigger vs instance, JSON для mcp.json и чеклист ошибок без community n8n-mcp.",
+    "description_aeo": "n8n mcp server подключают к Cursor через streamable-http на /mcp-server/http или production URL Trigger; workflow помечают Available in MCP или публикуют с tool-нодами."
+  },
+  "cover_family": "brand_collage"
+}

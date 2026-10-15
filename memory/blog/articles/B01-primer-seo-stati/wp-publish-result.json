@@ -1,0 +1,12 @@
+{
+  "slug": "primer-seo-stati",
+  "topic_id": "B01",
+  "permalink": "/2026/06/19/primer-seo-stati/",
+  "post_id": 238,
+  "featured_image": 989,
+  "inline_images": [990, 991, 992],
+  "schema_meta": "ok",
+  "verdict": "pass",
+  "transport": "sftp_bootstrap",
+  "raw_output": "OK post=238 slug=primer-seo-stati\nOK featured_image=989\nOK schema_meta=1\nOK skip_theme_faq_meta=1\nOK inline_image_upload=990\nOK inline_image_upload=991\nOK inline_image_upload=992\npermalink=/2026/06/19/primer-seo-stati/"
+}

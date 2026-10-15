@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "rag-baza-znaniy-kompanii-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: RAG база знаний — Confluence есть, ChatGPT галлюцинирует, hybrid search решает",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-09-11T14:13:57+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: RAG база знаний — Confluence есть, ChatGPT галлюцинирует, hybrid search решает",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица ACL и аудит документов: роли, права доступа, whitelist источников",
+      "h2_anchor": "1. Проведите аудит документов и разметьте права доступа",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема workflow: chunking, embeddings и ingestion для RAG базы знаний",
+      "h2_anchor": "2. Настройте chunking, embeddings и ingestion",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист hybrid search и reranking: BM25, vector, RRF, top-3–5 в промпт",
+      "h2_anchor": "3. Включите hybrid search и reranking",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

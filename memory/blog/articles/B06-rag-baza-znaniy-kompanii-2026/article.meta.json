@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "rag-baza-znaniy-kompanii-2026",
+  "h1": "Как настроить RAG для базы знаний компании: пошаговое руководство в 2026",
+  "title": "RAG база знаний: пошаговая настройка корпоративной rag системы",
+  "description": "Как настроить RAG на 50–200 документах: аудит, chunking, hybrid search + rerank, промпт с цитатами, eval 20–30 вопросов и канал с эскалацией. Пилот за 2–4 недели без команды разработчиков.",
+  "keywords": [
+    "rag база знаний",
+    "rag система",
+    "как настроить rag",
+    "корпоративная база знаний ии",
+    "hybrid search reranking"
+  ],
+  "primary_query": "rag база знаний",
+  "secondary_queries": [
+    "rag система",
+    "как настроить rag",
+    "корпоративная база знаний ии",
+    "hybrid search reranking"
+  ],
+  "char_count": 8601,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить rag для базы знаний компании пошагово",
+    "корпоративная rag система hybrid search reranking",
+    "пилот rag на 50–200 документах с eval и acl"
+  ],
+  "meta_ab": {
+    "title_seo": "RAG база знаний: пошаговая настройка корпоративной rag системы",
+    "title_ctr": "🚀 RAG база знаний за 2–4 недели: hybrid search, rerank и eval без команды dev?",
+    "title_aeo": "Как настроить RAG для базы знаний компании в 2026?",
+    "description_seo": "Как настроить RAG на 50–200 документах: аудит, chunking, hybrid search + rerank, промпт с цитатами, eval 20–30 вопросов. Пилот за 2–4 недели.",
+    "description_ctr": "⚡ Соберите rag систему на корпоративных PDF и wiki: 8 шагов, таблица стека, чеклист prod и FAQ. Без галлюцинаций и утечки ACL.",
+    "description_aeo": "RAG база знаний – поиск по вашим документам + ответ LLM с цитатами. Пилот: hybrid BM25+vector, rerank top-20→5, golden dataset 20–30 вопросов."
+  },
+  "cover_family": "brand_collage"
+}

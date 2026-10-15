@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-cloud-agents-2026",
+  "h1": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds",
+  "title": "Настройка cursor cloud agents: environment.json, Builds и первый PR",
+  "description": "Пошаговая настройка Cursor Cloud Agents: GitHub, agent-driven setup, .cursor/environment.json, Builds, Secrets и первый cloud agent run с PR. Troubleshooting failed Build и terminals.",
+  "keywords": [
+    "настройка cursor cloud agents",
+    "cursor environment.json настройка",
+    "cursor cloud agents github",
+    "cloud agents cursor secrets",
+    "cursor background agents настройка"
+  ],
+  "primary_query": "настройка cursor cloud agents",
+  "secondary_queries": [
+    "cursor cloud agents github",
+    "cursor environment.json настройка",
+    "cursor background agents настройка",
+    "cloud agents cursor secrets"
+  ],
+  "char_count": 9223,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor cloud agents с environment.json пошагово",
+    "cursor cloud agents github builds и первый PR из облака",
+    "настройка environment.json install start terminals для cloud agent"
+  ],
+  "meta_ab": {
+    "title_seo": "Настройка cursor cloud agents: environment.json и Builds",
+    "title_ctr": "🚀 Cursor Cloud Agents: от GitHub до PR за 60 минут – пошагово!",
+    "title_aeo": "Как настроить cursor cloud agents с environment.json и Builds?",
+    "description_seo": "Пошаговая настройка Cursor Cloud Agents: GitHub, environment.json, Builds, Secrets, первый agent run и PR. Troubleshooting failed Build и terminals.",
+    "description_ctr": "⚡ Cloud Agents Cursor за вечер: dashboard, Builds, secrets tab, start:true для terminals и чеклист перед production run. Гайд без воды.",
+    "description_aeo": "Cursor Cloud Agents настраиваются через GitHub read-write, .cursor/environment.json (install/start/terminals), Builds tab и Secrets dashboard; первый PR – из Desktop Cloud или cursor.com/agents."
+  },
+  "cover_family": "brand_collage"
+}

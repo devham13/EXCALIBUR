@@ -172,3 +172,54 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-09-13 — B06 nastroyka-cursor-cloud-agents-2026 — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | nastroyka-cursor-cloud-agents-2026 |
+| verdict | **PASS** |
+| post_id | 1090 |
+| featured_image_id | 1091 |
+| inline_images | 1092, 1093, 1094 |
+| permalink | https://www.meta-journal.ru/2026/09/13/nastroyka-cursor-cloud-agents-2026/ |
+| method | SFTP+HTTP fallback (FTP 425 Bad IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (91/100)
+- link-verify.json: pass (8/8)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass 8/8
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ... --dry-run  # OK (PHP 7681670 bytes)
+python3 scripts/excalibur_blog_wp_publish.py --article-dir ...  # FAIL: FTP 425 + WebFetch timeout
+# SFTP fallback (paramiko → REMOTE_SITE_ROOT) + HTTP trigger  # PASS
+```
+
+### Result
+
+```
+OK post=1090 slug=nastroyka-cursor-cloud-agents-2026
+OK featured_image=1091
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1092 src=cover/inline-01.png
+OK inline_image_upload=1093 src=cover/inline-02.png
+OK inline_image_upload=1094 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/09/13/nastroyka-cursor-cloud-agents-2026/
+```
+
+### Post-publish
+
+- Bootstrap `excalibur-blog-publish-once.php` удалён via SFTP
+- interlinker --apply: skipped (indexer уже применил inbound links)
+

@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 4,
+  "over_long_sentences": [
+    {
+      "sentence": "Сравните Cloud Agents и локальный Agent Критерий Cloud Agent Локальный Agent Где работает Ubuntu VM в облаке Ваш ПК Лучше для Fix + test + PR, параллельные run Быстрые правки Окружение Build + environment",
+      "word_count": 31
+    },
+    {
+      "sentence": "Поле Когда Пример install Build (idempotent) pnpm install start Старт agent (detached) service docker start или \"true\" terminals Старт agent (tmux) pnpm dev + description ports Preview для agent 3000 Без start terminals могут не стартовать – добавьте \"start\": \"true\" (forum Cursor, ответ staff): {\"name\":\"my-app\",\"build\":{\"dockerfile\":\"Dockerfile\",\"context\":\"",
+      "word_count": 47
+    },
+    {
+      "sentence": "Исправьте failed Build, secrets и terminals Симптом Действие Build failed Builds tab logs → fix install → Trigger build Нет secret Secrets tab → новый agent run Terminals мертвы \"start\": \"true\" или start-команда → tmux logs Dockerfile игнорируется Удалите snapshot ID из JSON – он выше Dockerfile Legacy без Builds Enable Builds или setup agent → Confirm Success Делайте: читайте Build logs до правки install или Dockerfile",
+      "word_count": 61
+    },
+    {
+      "sentence": "json или dashboard environment install idempotent на Build start/terminals/ports разделены \"start\": \"true\" при terminals Secrets в dashboard Новый run после secrets Build Success перед run AGENTS",
+      "word_count": 28
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 8.3,
+    "avg_syllables_per_word": 0.9
+  }
+}

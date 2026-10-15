@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Настройка Cursor Cloud Agents
+
+- **priority:** P0
+- **slug:** nastroyka-cursor-cloud-agents-2026
+- **h1:** Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds
+- **primary_query:** настройка cursor cloud agents
+- **secondary_queries:** cursor cloud agents github, cursor environment.json настройка, cursor background agents настройка, cloud agents cursor secrets
+- **search_intent:** how_to
+- **article_mode:** B
+- **h2_outline:**
+  1. Cloud Agents vs локальный агент: когда делегировать задачу в облако
+  2. Подключение GitHub/GitLab и лимитов: dashboard, Privacy Mode, spend limit
+  3. Agent-driven setup: snapshot окружения и первый прогон
+  4. Config-as-code: `.cursor/environment.json` — install, start, terminals, ports
+  5. Builds и Dockerfile: idempotent install, live-сервисы в start, repositoryDependencies
+  6. Secrets, env vars и troubleshooting: красный Build, ENOENT, PR только в primary repo
+- **faq_hints:** чем cloud agents отличаются от cursor automations; что писать в environment.json cursor; нужен ли платный план для cloud agents
+- **internal_links:** /podklyuchenie-mcp-cursor/, /nastroyka-cursor-rules-mdc/
+- **cover_scene_hint:** облачная VM с логотипом Cursor, в центре файл environment.json на стикере, стрелки к GitHub PR и терминалу с npm install, diy-коллаж в неоновых тонах
+
+---
+

@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/09/nastroyka-cursor-cloud-agents-2026.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#webpage",
+      "url": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/",
+      "name": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#primaryimage"
+      },
+      "description": "Пошаговая настройка Cursor Cloud Agents: GitHub, agent-driven setup, .cursor/environment.json, Builds, Secrets и первый cloud agent run с PR. Troubleshooting failed Build и terminals."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#webpage"
+      },
+      "headline": "Как настроить Cursor Cloud Agents: пошаговая инструкция с environment.json и Builds",
+      "description": "Пошаговая настройка Cursor Cloud Agents: GitHub, agent-driven setup, .cursor/environment.json, Builds, Secrets и первый cloud agent run с PR. Troubleshooting failed Build и terminals.",
+      "datePublished": "2026-09-13T12:00:00+03:00",
+      "dateModified": "2026-09-13T12:00:00+03:00",
+      "mainEntityOfPage": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/",
+      "inLanguage": "ru",
+      "image": {
+        "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      },
+      "keywords": "настройка cursor cloud agents, cursor environment.json настройка, cursor cloud agents github, cloud agents cursor secrets, cursor background agents настройка"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/nastroyka-cursor-cloud-agents-2026/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем Cloud Agents отличаются от локального Agent в Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cloud – Ubuntu VM, Build, PR без вашего ПК. Локальный – быстрые правки на месте. Cloud – длинные задачи и параллельные run."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Cloud Agents отличаются от Cursor Automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cloud agent – сессия с PR по prompt. Automations – cron/GitHub/Slack на cursor.com/automations. Fix+test+PR – cloud; регулярный мониторинг – Automations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что писать в .cursor/environment.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "База: build (dockerfile/context) или snapshot; install – команды на этапе Build; start, terminals, ports – при старте agent. Полная schema – cursor.com/schemas/environment.schema.json (10 полей, unknown keys rejected). API keys в JSON не пишут – только Secrets tab dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли платный план для cloud agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Cloud Agents доступны на Pro, Pro Plus, Ultra; Hobby не подходит. Тарификация – API pricing выбранной модели; при первом запуске задайте spend limit в dashboard, иначе run может не стартовать."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему Build красный (failed)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Откройте Builds tab и logs ошибки install или Dockerfile. Failed Build не заменяет active – agents продолжают с последнего Success. Исправьте конфиг, нажмите Trigger build и дождитесь зелёного статуса перед новым production run."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему agent не видит secrets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Добавьте secret во вкладке Secrets с правильным scope (team, environment или user). Запустите новый agent run – running session не подхватывает credentials, добавленные позже. Для install-time registry используйте environment/build secrets, не user-only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему не стартуют terminals из environment.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Добавьте поле \"start\": \"true\" или реальную detached start-команду (например, sudo service docker start). Terminals работают в общей tmux-сессии; если порт не слушается, откройте logs agent run и проверьте command и ports."
+          }
+        }
+      ]
+    }
+  ]
+}

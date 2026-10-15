@@ -1,34 +1,31 @@
 {
   "verdict": "pass",
-  "total_slop_hits": 0,
-  "slop_hits": [],
-  "total_over_long_sentences": 5,
+  "total_slop_hits": 1,
+  "slop_hits": [
+    {
+      "phrase": "в этой статье мы рассмотрим",
+      "context": "еделение + главный ответ на запрос без \"в этой статье мы рассмотрим\". Title – ориентир около 65 знаков с кл"
+    }
+  ],
+  "total_over_long_sentences": 3,
   "over_long_sentences": [
     {
-      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование в AI-ответах (Нейро, AI Overviews) Формат ответа Сниппет Title + Description Короткий фрагмент из H2 или FAQ Структура H1–H3, списки, внутренние ссылки Атомарные чанки, front-loading тезиса в абзаце Техника Мета, alt, Wordstat, перелинковка Schema JSON-LD, llms",
-      "word_count": 45
-    },
-    {
-      "sentence": "Схема единого workflow: Запрос и интент → семантика (Wordstat) → outline H2/H3 → lead-абзац → текст с чанками → мета → FAQ → schema JSON-LD → чеклист перед публикацией Что такое GEO в SEO простыми словами GEO дополняет SEO: вы упаковываете уже полезный текст так, чтобы AI мог вырезать определение, шаг или ответ на вопрос",
+      "sentence": "Критерий SEO GEO Цель Клик из выдачи и удержание на странице Цитирование в AI-ответах Формат ответа Сниппет Title + Description Короткий фрагмент из H2 или FAQ Структура H1–H3, списки, внутренние ссылки Атомарные чанки, тезис в первом предложении секции Техника Мета, alt, Wordstat, перелинковка Schema JSON-LD, FAQ в HTML, llms",
       "word_count": 46
     },
     {
-      "sentence": "E-E-A-T без фейковых кейсов Experience, Expertise, Authoritativeness, Trustworthiness — не отдельный раздел «мы лучшие», а следы в тексте: автор или редакция, дата актуализации, ссылки на первоисточники, честные ограничения («универсальной нормы объёма нет»)",
-      "word_count": 31
+      "sentence": "txt опционально Схема единого workflow: Запрос и интент → семантика (Wordstat) → outline H2/H3 → lead-абзац → текст с чанками → мета → FAQ → schema JSON-LD → чеклист перед публикацией Делайте: пишите один материал под оба канала",
+      "word_count": 29
     },
     {
-      "sentence": "Primary query закрыт в lead и H2; secondary вписаны без переспама Title ~65 знаков, отличается от H1; Description с обещанием и ключом Один H1 на странице (в теме WP), в body только H2/H3 Каждый H2: тезис в первом предложении, блок понятен без контекста Абзацы 3–5 строк; списки и таблица, где уместно FAQ 5–7 пар; ответы короткие и фактурные Schema BlogPosting + FAQPage; даты datePublished / dateModified актуальны Внутренние ссылки 2–3: главная, релевантные landing Внешние ссылки на первоисточники (Вордстат, официальные гайды) Нет выдуманной статистики и запрещённых штампов из редакционного контракта Читабельность: прогоните текст вслух — где спотыкается, сократите llms",
-      "word_count": 86
-    },
-    {
-      "sentence": "txt: AI-краулеры не закрыты случайно Обложка 16:9, alt по сцене, без текста на картинке CTA не больше трёх упоминаний офера на статью Финальный island test: вырежьте один H2 — смысл сохраняется",
-      "word_count": 28
+      "sentence": "Пройдите чеклист перед публикацией Primary в lead и H2; secondary без переспама Title ~65 знаков ≠ H1; Description 140–160 Один H1 в теме WP; в body только H2/H3 H2: тезис в первом предложении; island test и BLUF test Абзацы 3–5 строк; списки и таблица по смыслу FAQ 5–7; schema BlogPosting + FAQPage; даты актуальны Внутренние ссылки 2–3; внешние на первоисточники Нет выдуманной статистики и штампов из контракта Читабельность: прогон текста вслух CTA ≤ 3; llms",
+      "word_count": 61
     }
   ],
   "readability": {
-    "score": 74.0,
-    "level": "Easy (Standard modern readable web content)",
-    "avg_sentence_len": 11.5,
-    "avg_syllables_per_word": 2.0
+    "score": 80.7,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.4,
+    "avg_syllables_per_word": 1.9
   }
 }

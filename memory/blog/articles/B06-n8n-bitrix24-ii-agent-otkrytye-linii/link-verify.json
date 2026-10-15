@@ -1,0 +1,100 @@
+{
+  "source": "memory/blog/articles/B06-n8n-bitrix24-ii-agent-otkrytye-linii/article.html",
+  "total_links": 10,
+  "failed_count": 0,
+  "verdict": "pass",
+  "links": [
+    {
+      "url": "https://apidocs.bitrix24.ru/tutorials/chat-bots/open-lines-bot.html",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://helpdesk.bitrix24.ru/open/25004908/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://n8n.io/integrations/bitrix24/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://apidocs.bitrix24.ru/limits.html",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/avtomatizaciya-n8n-ai-agents/"
+    },
+    {
+      "url": "https://apidocs.bitrix24.ru/api-reference/imopenlines/openlines/sessions/imopenlines-crm-lead-create.html",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://mayai.ru/podklyuchenie-mcp-cursor/",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "internal_relative",
+      "skipped": false,
+      "checked_url": "https://mayai.ru/podklyuchenie-mcp-cursor/"
+    },
+    {
+      "url": "https://kv-ai.ru/obuchenie-po-make",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://t.me/maya_pro",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    },
+    {
+      "url": "https://kv-ai.ru/artur-horosheff",
+      "status": 200,
+      "ok": true,
+      "method": "HEAD",
+      "error": null,
+      "kind": "external",
+      "skipped": false
+    }
+  ]
+}

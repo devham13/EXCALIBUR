@@ -1,0 +1,177 @@
+<p>Клиент пишет в Telegram, менеджер отвечает через час, лид теряется, а CRM снова плодит дубли сделок. Встроенный BitrixGPT не ведёт внешний мессенджер сам: для открытых линий нужен чат-бот и связка с n8n. Ниже - пошагово поднимете MVP: Telegram в контакт-центре, webhook на n8n, AI Agent для ответа в том же диалоге, лид без повторов и эскалация человеку с учётом лимита REST 2 запроса в секунду.</p>
+
+<blockquote><b>TL;DR / Быстрый инсайт:</b> ИИ-агент n8n в открытых линиях - это не CRM-webhook, а зарегистрированный бот v2: событие ONIMBOTV2MESSAGEADD, фильтр entityType=LINES, ответ через imopenlines.bot.session.message.send. Схема: Telegram → открытая линия → HTTPS webhook n8n → AI Agent → REST в Битрикс24 → при квалификации imopenlines.crm.lead.create или crm.item.add с idempotency. Не гоните API быстрее 2 rps на обычных тарифах.</blockquote>
+
+<p><b>ИИ-агент n8n в открытых линиях</b> - внешний "мозг" поверх Битрикс24: языковая модель отвечает клиенту в чате, а n8n решает, когда создать лид и когда позвать оператора. <b>Webhook</b> - это публичный URL, на который портал "стучится" при новом сообщении; <b>REST API</b> - набор методов для ответа и записи в CRM из n8n.</p>
+
+<p>Типичная ошибка: повесить исходящий webhook только на onCrmLeadAdd и ждать двусторонний чат. Для диалога нужны события бота ONIMBOTV2* и методы imopenlines.*. Шаблон n8n #3094 с RAG полезен позже; для первого вечера хватит одного AI Agent без векторной базы.</p>
+
+<blockquote>
+  <b>Цепочка MVP:</b>
+  <br>
+  Клиент в Telegram → открытая линия Битрикс24 → ONIMBOTV2MESSAGEADD → Webhook n8n → фильтры → AI Agent → imopenlines.bot.session.message.send → (опционально) imopenlines.crm.lead.create → при риске imopenlines.bot.session.operator
+</blockquote>
+
+<h2 id="when-n8n">1. Выберите, когда n8n нужен поверх BitrixGPT и CoPilot</h2>
+<figure class="inline-quad" data-slot="inline_1">
+  <img src="cover/inline-01.png" alt="Сравнение BitrixGPT и n8n: когда нужен свой workflow и human-in-the-loop" loading="lazy">
+</figure>
+
+
+<p>CoPilot и BitrixGPT помогают сотруднику внутри портала, но не подменяют зарегистрированного чат-бота в мессенджере. Для Telegram через открытые линии нужен бот с type=openline или bot плюс isSupportOpenline=true, как в <a href="https://apidocs.bitrix24.ru/tutorials/chat-bots/open-lines-bot.html" target="_blank">официальном tutorial</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>BitrixGPT / CoPilot</th>
+      <th>Внешний агент в n8n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Диалог в Telegram OL</b></td>
+      <td>Нет автономного канала</td>
+      <td>Да, через бота v2 и webhook</td>
+    </tr>
+    <tr>
+      <td><b>Своя модель и промпт</b></td>
+      <td>Ограничено экосистемой</td>
+      <td>OpenAI, Anthropic и др.</td>
+    </tr>
+    <tr>
+      <td><b>Human-in-the-loop</b></td>
+      <td>Оператор вручную</td>
+      <td>Правила в Switch + transfer оператору</td>
+    </tr>
+    <tr>
+      <td><b>Сложность старта</b></td>
+      <td>Низкая для текста в CRM</td>
+      <td>Бот, scopes, n8n workflow</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Делайте:</b> n8n, если нужны свои модели, ветвления и интеграции вне маркетплейса. <b>Не делайте:</b> обещать клиенту "только входящий webhook" без imbot.v2.Bot.register - для OL это тупик.</p>
+
+<p>Self-hosted n8n (свой сервер вместо облака SaaS) снижает накладные на медиа и даёт контроль логов; для MVP подойдёт n8n Cloud с Production URL, если есть HTTPS.</p>
+
+<h2 id="bitrix-setup">2. Настройте Битрикс24: открытая линия, Telegram и REST-доступ</h2>
+<figure class="inline-quad" data-slot="inline_2">
+  <img src="cover/inline-02.png" alt="Схема настройки Битрикс24: открытая линия, Telegram и REST-webhook в n8n" loading="lazy">
+</figure>
+
+
+<ol>
+  <li><b>Проверьте роли.</b> Нужен администратор портала и пользователь, от имени которого зарегистрируете бота (права imbot и imopenlines).</li>
+  <li><b>Создайте открытую линию</b> в CRM → Клиенты → Контакт-центр и подключите Telegram. Один канал одного типа - только одна линия: второй Telegram потребует второй линии (<a href="https://helpdesk.bitrix24.ru/open/25004908/" target="_blank">справка OL</a>).</li>
+  <li><b>Создайте входящий webhook</b> с scopes imbot, imopenlines, crm. Сохраните базовый REST URL в credential n8n; токен не публикуйте в логах и скриншотах.</li>
+  <li><b>Зарегистрируйте бота</b> методом imbot.v2.Bot.register: укажите handler URL - Production webhook n8n (POST, HTTPS). Тип openline для чистого OL-сценария.</li>
+  <li><b>Привяжите бота к линии</b> в настройках контакт-центра, чтобы сообщения клиента шли на ваш handler.</li>
+</ol>
+
+<p><b>Делайте:</b> сразу проверьте, что payload содержит data.chat.entityType === LINES. <b>Не делайте:</b> путать входящий REST URL (n8n вызывает API) с адресом handler бота (Битрикс24 шлёт события на n8n).</p>
+
+<h2 id="n8n-workflow">3. Соберите workflow в n8n: webhook, фильтры и AI Agent</h2>
+<figure class="inline-quad" data-slot="inline_3">
+  <img src="cover/inline-03.png" alt="Чеклист сборки workflow n8n: webhook, фильтры и AI Agent для открытых линий" loading="lazy">
+</figure>
+
+
+<p>В n8n штатной CRM-ноды для Bitrix24 в core нет: ответы идут через HTTP Request, как в <a href="https://n8n.io/integrations/bitrix24/" target="_blank">каталоге интеграций n8n</a>.</p>
+
+<ol>
+  <li><b>Добавьте Webhook node</b> (POST), скопируйте Production URL в регистрацию бота.</li>
+  <li><b>IF:</b> event = ONIMBOTV2MESSAGEADD и entityType = LINES - иначе игнорируйте шум.</li>
+  <li><b>IF:</b> сообщение не от оператора и не эхо бота (фильтр по authorId / system flags - иначе агент ответит на реплику менеджера).</li>
+  <li><b>AI Agent node:</b> Chat Model (OpenAI/Anthropic), System Message - тон, запрет выдумывать цены, фразы для эскалации ("человек", "жалоба").</li>
+  <li><b>HTTP Request:</b> POST на .../imopenlines.bot.session.message.send.json с CHAT_ID из payload и текстом агента.</li>
+  <li><b>Throttle:</b> не более 2 запросов в секунду к одному порталу на тарифах ниже Enterprise (<a href="https://apidocs.bitrix24.ru/limits.html" target="_blank">лимиты REST</a>); при QUERY_LIMIT_EXCEEDED - пауза и retry.</li>
+</ol>
+
+<p><b>Делайте:</b> короткий system prompt на 10-15 строк и одну ветку эскалации. <b>Не делайте:</b> тянуть RAG и Qdrant в первый день - это отдельный проект после стабильного echo-ответа.</p>
+
+<p>Базовый n8n для агентов разобран в гайде <a href="/2026/06/18/avtomatizaciya-n8n-ai-agents/">автоматизация n8n и AI-агенты</a>; здесь тот же AI Agent, но триггер - не Chat UI, а webhook OL.</p>
+
+<h2 id="crm-dedup">4. Настройте CRM: лид из диалога и защита от дублей</h2>
+
+<p>Когда агент собрал телефон или email, фиксируйте контакт в CRM один раз на диалог.</p>
+
+<ul>
+  <li><b>Быстрый путь OL:</b> imopenlines.crm.lead.create с CHAT_ID из сессии (scope imopenlines). Успех - result: true; ошибки CHAT_TYPE, ACCESS_DENIED, ERROR_USER_NOT_OPERATOR смотрите в <a href="https://apidocs.bitrix24.ru/api-reference/imopenlines/openlines/sessions/imopenlines-crm-lead-create.html" target="_blank">документации</a>.</li>
+  <li><b>Универсальный путь:</b> crm.item.add (entityTypeId 1 для лида) - legacy crm.lead.add помечен устаревшим для новых интеграций.</li>
+  <li><b>Dedup:</b> перед созданием ищите контакт по телефону; idempotency key = message_id или hash chatId+дата в Static Data n8n или маленькой БД.</li>
+  <li><b>Повтор webhook:</b> Битрикс24 может прислать событие дважды - без ключа получите вторую сделку на тот же чат.</li>
+</ul>
+
+<p><b>Делайте:</b> логируйте CRM-ответ в n8n Executions. <b>Не делайте:</b> создавать новую сделку на каждое сообщение клиента.</p>
+
+<h2 id="human-loop">5. Включите эскалацию оператору (human-in-the-loop)</h2>
+
+<p>Сложные неструктурированные диалоги без человека закрываются редко; норма - явная передача оператору при неуверенности модели, негативе или запросе живого менеджера.</p>
+
+<ol>
+  <li><b>Switch после AI Agent:</b> если confidence низкий или ключевые слова - ветка operator.</li>
+  <li><b>HTTP Request:</b> imopenlines.bot.session.operator с CHAT_ID (<a href="https://apidocs.bitrix24.ru/tutorials/chat-bots/open-lines-bot.html" target="_blank">tutorial OL-бота</a>).</li>
+  <li><b>Уведомление:</b> опционально Telegram менеджерам через n8n - отдельный бот, не путать с клиентским каналом OL.</li>
+</ol>
+
+<p><b>Делайте:</b> пропишите в System Message, когда агент обязан молчать и звать человека. <b>Не делайте:</b> бесконечный цикл, где бот спорит с клиентом после transfer.</p>
+
+<h2 id="prod-checklist">6. Проверьте прод: лимиты, тесты и мониторинг</h2>
+
+<p>Один REST-запрос в облаке может ждать до 60 секунд; при 2 rps теоретический потолок около 172 800 запросов в сутки - для малого бизнеса достаточно, если не слать пачками без пауз.</p>
+
+<ul>
+  <li>Тест из Telegram как клиент: вопрос → ответ агента в том же чате OL.</li>
+  <li>Тест эскалации: фраза "соедините с оператором" → диалог у менеджера.</li>
+  <li>Тест CRM: один телефон → один лид; повтор того же webhook → без второго лида.</li>
+  <li>Тест фильтра: сообщение оператора не вызывает ответ бота.</li>
+  <li>Мониторинг QUERY_LIMIT_EXCEEDED и HTTP 503 в логах n8n.</li>
+  <li>Batch и задержки между HTTP Request к порталу.</li>
+  <li>Ротация webhook-токена при утечке в лог.</li>
+  <li>Резервная копия workflow JSON в git.</li>
+  <li>Документ scopes и ответственного админа портала.</li>
+  <li>Алерт в Telegram при 5+ ошибках подряд на webhook.</li>
+  <li>Отключение workflow в n8n при обслуживании портала.</li>
+  <li>Проверка SSL на Production URL webhook.</li>
+</ul>
+
+<p><b>Делайте:</b> приёмку в три прогона (чат, CRM, лимиты). <b>Не делайте:</b> включать прод без фильтра LINES - бот начнёт отвечать не в тех чатах.</p>
+
+<h2 id="next-steps">7. Что делать дальше</h2>
+
+<ol>
+  <li>Зафиксируйте system prompt и скрипт квалификации в отдельном документе для менеджеров.</li>
+  <li>Добавьте RAG по FAQ только после стабильных ответов без галлюцинаций.</li>
+  <li>Подключите MCP к Cursor для быстрых правок workflow - см. <a href="/2026/10/10/n8n-mcp-server-cursor-podklyuchenie/">подключение MCP в Cursor</a>.</li>
+  <li>Раз в неделю смотрите Executions n8n и дубли в CRM.</li>
+  <li>Если нужен Make вместо self-host n8n, сравните сценарии на <a href="https://kv-ai.ru/obuchenie-po-make" target="_blank">курсе Make.com и вайбкодинга</a> - там же разбирают webhook и CRM без кода.</li>
+</ol>
+
+<p>Обсуждение сложных воронок OL и нескольких линий - в Telegram <a href="https://t.me/maya_pro" target="_blank">"Ковчег"</a>; не публикуйте токены портала в чате.</p>
+
+<blockquote>
+  <b>Материал проверен:</b> <a href="https://kv-ai.ru/artur-horosheff" target="_blank">Артур Хорошев</a>, CEO Maya AI, практик автоматизации CRM и мессенджеров.<br>
+  <b>Достоверность данных:</b> методы REST, лимиты 2 rps и события ONIMBOTV2* сверены с apidocs.bitrix24.ru на 14.10.2026; точные показы Wordstat по ядру запроса в этой сессии не снимались (MCP Wordstat недоступен), семантика - из research-notes без выдуманных цифр спроса.
+</blockquote>
+
+<h2>Частые вопросы</h2>
+
+<h3>Как подключить n8n к Битрикс24 через webhook для открытых линий?</h3>
+<p>Зарегистрируйте бота imbot.v2.Bot.register с handler = Production URL webhook n8n, scopes imbot и imopenlines. В workflow слушайте ONIMBOTV2MESSAGEADD, фильтруйте LINES, отвечайте imopenlines.bot.session.message.send с CHAT_ID из payload.</p>
+
+<h3>Чем входящий webhook отличается от исходящего для OL?</h3>
+<p>Входящий REST URL нужен n8n, чтобы вызывать API Битрикс24. События чата приходят на URL handler бота, а не на CRM event.bind. Исходящий webhook на onCrmLeadAdd не заменит ONIMBOTV2*.</p>
+
+<h3>Как ИИ-агент создаёт лид в Битрикс24?</h3>
+<p>После сбора контакта вызовите imopenlines.crm.lead.create по CHAT_ID или crm.item.add с полями лида. Перед созданием найдите контакт по телефону и проверьте idempotency key, чтобы повтор webhook не создал дубль.</p>
+
+<h3>Почему дублируются сделки в открытых линиях?</h3>
+<p>Чаще всего workflow создаёт CRM-сущность на каждое сообщение или не обрабатывает повтор дelivery webhook. Храните ключ message_id, обновляйте существующий лид вместо слепого add.</p>
+
+<h3>Когда передать диалог оператору?</h3>
+<p>При запросе человека, негативе, юридических темах или низкой уверенности модели. Вызовите imopenlines.bot.session.operator и остановите автоответы агента в этом чате.</p>
+
+<h3>Какие scope минимально нужны?</h3>
+<p>imbot и imopenlines для чата; crm - если пишете лиды из того же webhook-пользователя. Без imopenlines методы сессии OL вернут ACCESS_DENIED.</p>

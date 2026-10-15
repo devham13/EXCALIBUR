@@ -1,0 +1,130 @@
+{
+  "agent": "excalibur-blog-cover-quad-split",
+  "status": "PASS",
+  "manifest": "cover/quad-manifest.json",
+  "split": {
+    "source_canvas": "memory/blog/articles/B06-n8n-bitrix24-ii-agent-otkrytye-linii/cover/canvas-quad.png",
+    "source_size_px": [
+      1280,
+      720
+    ],
+    "panel_size_px": [
+      638,
+      358
+    ],
+    "split_meta": {
+      "split_mode": "gutter_detect",
+      "h_gutter_px": {
+        "start": 358,
+        "end": 363
+      },
+      "v_gutter_px": {
+        "start": 638,
+        "end": 643
+      }
+    },
+    "output_size_px": [
+      1200,
+      675
+    ],
+    "outputs": {
+      "cover": {
+        "file": "cover/cover.png",
+        "quadrant": "top_left",
+        "box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 638,
+          "bottom": 358
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 0,
+          "right": 638,
+          "bottom": 358
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Обложка: n8n и ИИ-агент для открытых линий Битрикс24 — Telegram, webhook и CRM без дублей",
+        "h2_anchor": null
+      },
+      "inline_1": {
+        "file": "cover/inline-01.png",
+        "quadrant": "top_right",
+        "box_px": {
+          "left": 643,
+          "top": 0,
+          "right": 1280,
+          "bottom": 358
+        },
+        "raw_box_px": {
+          "left": 643,
+          "top": 0,
+          "right": 1280,
+          "bottom": 358
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Сравнение BitrixGPT и n8n: когда нужен свой workflow и human-in-the-loop",
+        "h2_anchor": "1. Выберите, когда n8n нужен поверх BitrixGPT и CoPilot"
+      },
+      "inline_2": {
+        "file": "cover/inline-02.png",
+        "quadrant": "bottom_left",
+        "box_px": {
+          "left": 0,
+          "top": 363,
+          "right": 638,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 0,
+          "top": 363,
+          "right": 638,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Схема настройки Битрикс24: открытая линия, Telegram и REST-webhook в n8n",
+        "h2_anchor": "2. Настройте Битрикс24: открытая линия, Telegram и REST-доступ"
+      },
+      "inline_3": {
+        "file": "cover/inline-03.png",
+        "quadrant": "bottom_right",
+        "box_px": {
+          "left": 643,
+          "top": 363,
+          "right": 1280,
+          "bottom": 720
+        },
+        "raw_box_px": {
+          "left": 643,
+          "top": 363,
+          "right": 1280,
+          "bottom": 720
+        },
+        "size_px": [
+          1200,
+          675
+        ],
+        "aspect_ratio": "16:9",
+        "alt": "Чеклист сборки workflow n8n: webhook, фильтры и AI Agent для открытых линий",
+        "h2_anchor": "3. Соберите workflow в n8n: webhook, фильтры и AI Agent"
+      }
+    }
+  },
+  "html_inject": [
+    "injected inline_1 after H2 — 1. Выберите, когда n8n нужен поверх BitrixGPT и CoPilot",
+    "injected inline_2 after H2 — 2. Настройте Битрикс24: открытая линия, Telegram и REST-доступ",
+    "injected inline_3 after H2 — 3. Соберите workflow в n8n: webhook, фильтры и AI Agent"
+  ]
+}

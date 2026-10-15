@@ -1,0 +1,38 @@
+{
+  "article": "memory/blog/articles/B06-n8n-bitrix24-ii-agent-otkrytye-linii/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 4,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 3,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "ONIMBOTV2* сверены с apidocs.bitrix24.ru на 14.10.2026; точные показы Wordstat по ядру запроса в этой се",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "3094",
+      "kind": "large_number",
+      "context": "та ONIMBOTV2* и методы imopenlines.*. Шаблон n8n #3094 с RAG полезен позже; для первого вечера хватит одн",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "172 800",
+      "kind": "large_number",
+      "context": "60 секунд; при 2 rps теоретический потолок около 172 800 запросов в сутки - для малого бизнеса достаточно,",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "503",
+      "kind": "large_number",
+      "context": "твет бота. Мониторинг QUERY_LIMIT_EXCEEDED и HTTP 503 в логах n8n. Batch и задержки между HTTP Request к",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

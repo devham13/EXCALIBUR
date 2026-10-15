@@ -1,0 +1,275 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-14",
+    "today_ru": "14.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-16",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-14 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "n8n-bitrix24-ii-agent-otkrytye-linii",
+    "h1": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция",
+    "primary_query": "n8n битрикс24 ии агент",
+    "secondary_queries": [
+      "битрикс24 открытые линии telegram",
+      "исходящий вебхук битрикс24 n8n",
+      "n8n bitrix24 crm lead add"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "n8n битрикс24 ии агент 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "n8n битрикс24 ии агент октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "n8n битрикс24 ии агент новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "битрикс24 открытые линии telegram 2026",
+      "purpose": "вторичный запрос: битрикс24 открытые линии telegram",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Как создать и настроить открытую линию",
+          "url": "https://helpdesk.bitrix24.ru/open/25004908/",
+          "snippet": ""
+        },
+        {
+          "title": "Открытые линии Битрикс24: настройка omnichannel коммуникаций",
+          "url": "https://project-a2.ru/blog/bitrix24-open-channel-setup-guide/",
+          "snippet": "В статье расскажем: как создать открытую линию, настроить открытую линию, настроить права доступа."
+        },
+        {
+          "title": "Открытые линии Битрикс24 в 2026: инструкция по настройке и использованию",
+          "url": "https://b24.org.ru/otkrytye-linii-bitriks24-v-2025-instruktsiya-po/",
+          "snippet": "Полное руководство по Открытым линиям Битрикс24: настройка каналов (Telegram, WhatsApp, VK, сайт-чат), роутинг, очереди, боты и примеры."
+        },
+        {
+          "title": "Открытые линии Битрикс24: Telegram, WhatsApp и сайт в одном окне",
+          "url": "https://aventra.ru/blog/otkrytye-linii-bitrix24",
+          "snippet": "Пошаговая инструкция по настройке открытых линий в Битрикс24. Узнайте, как подключить чаты, мессенджеры и социальные сети для работы с клиентами."
+        },
+        {
+          "title": "Приложения для Открытых линий Битрикс24",
+          "url": "https://helpdesk.bitrix24.ru/open/16749478",
+          "snippet": "Как настроить открытые линии в Битрикс24: подключение Telegram, WhatsApp, VK и виджета на сайт, распределение обращений, очередь, автоответы и отчёты по каналам."
+        },
+        {
+          "title": "Интеграция Битрикс24 с Telegram: боты и уведомления | Блог | Проект А2",
+          "url": "https://project-a2.ru/blog/bitrix24-telegram-integration-guide/",
+          "snippet": "Создайте своего Telegram-бота и разместите его в качестве контакта на сайте или в соцсетях. Каждый, кто напишет боту, попадет в Открытые линии на портале Битрикс24 и будет сохранен в CRM."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "исходящий вебхук битрикс24 n8n 2026",
+      "purpose": "вторичный запрос: исходящий вебхук битрикс24 n8n",
+      "result_count": 0,
+      "results": [],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "n8n bitrix24 crm lead add 2026",
+      "purpose": "вторичный запрос: n8n bitrix24 crm lead add",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "How to Connect Bitrix24 to n8n 2026 (Bitrix24 n8n Integration)",
+          "url": "https://www.youtube.com/watch?v=TOv4s54c2cw",
+          "snippet": ""
+        },
+        {
+          "title": "Подключение n8n к Bitrix24: обмен данными через webhooks",
+          "url": "https://sdvg.vc/blog/podkliuchenie-n8n-k-bitrix24-obmen-dannymi-cherez-webhooks/",
+          "snippet": "This video shows how to generate Bitrix24 webhook or API access, configure authentication in n8n, and send or receive CRM data inside automated workflows."
+        },
+        {
+          "title": "Bitrix24 integrations | Workflow automation with n8n",
+          "url": "https://n8n.io/integrations/bitrix24/",
+          "snippet": "Вы узнаете, как настроить двустороннюю связь между этими платформами через webhooks, автоматизировать обмен данными и создать эффективные рабочие сценарии для вашей CRM системы. Мы рассмотрим практические примеры настройки, покажем реальные workflow и поможем избежать типичных ошибок при интеграции. Перед началом работы убедитесь, что у вас есть:"
+        },
+        {
+          "title": "How to Setup n8n with Bitrix24 (2026) | CheckCharm",
+          "url": "https://www.checkcharm.com/how-to/setup-n8n-with-bitrix24/",
+          "snippet": "Definitely! n8n enables you to create workflows that combine Bitrix24 with other apps and services. For instance, you can automate tasks such as syncing contacts between Bitrix24 and your email marketing platform or updating project statuses based on customer responses in your CRM."
+        },
+        {
+          "title": "GitHub - zenland-dev/n8n-nodes-bitrix24: Bitrix24 nodes for n8n: CRM ...",
+          "url": "https://github.com/zenland-dev/n8n-nodes-bitrix24",
+          "snippet": "We're researching the specific steps to connect Bitrix24 with n8n — including whether there's a native integration, third-party connectors like Zapier, or API-based setup."
+        },
+        {
+          "title": "Создать новый лид crm.lead.add - 1С-Битрикс",
+          "url": "https://apidocs.bitrix24.ru/api-reference/crm/leads/crm-lead-add.html",
+          "snippet": "The older per-entity methods (crm.deal.add and friends) are frozen by Bitrix24 and are not wrapped; call them through the Bitrix24 node if an old integration needs their exact behaviour."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "n8n + Битрикс24: Мульти AI Агент для Открытых Линий (Telegram, Сайт ...",
+          "url": "https://rutube.ru/video/6f1bc403b4bc01a052ba9c0574bcf863/",
+          "snippet": ""
+        },
+        {
+          "title": "n8n + Битрикс24: интеграция, границы сценария и проверка",
+          "url": "https://switchonai.ru/guides/n8n-bitrix24/",
+          "snippet": "Битрикс — гигантская CRM, но с ужасной документацией. В этом видео мы решим эту проблему и создадим не просто AI-бота, а настоящего AI-Оркестратора, который работает в Открытых Линиях Bitrix24."
+        },
+        {
+          "title": "n8n + Bitrix24: Multi-AI Agent for Open Channels (Telegram, Website ...",
+          "url": "https://www.youtube.com/watch?v=YJHMZiXyM0A",
+          "snippet": "Связка n8n с Битрикс24 нужна, когда событие приходит из внешнего источника, а штатные правила CRM не могут принять, проверить и передать эти данные по нужному маршруту."
+        },
+        {
+          "title": "Битрикс24 Открытые линии + AI-агент на n8n",
+          "url": "https://lilys.ai/ru/notes/n8n-20251119/bitrix24-open-lines-ai-agent-n8n",
+          "snippet": "What's the main feature: Our AI bot will automatically understand which channel the client came through (Telegram, Instagram*, or website chat), and depending on this, select the appropriate AI..."
+        },
+        {
+          "title": "Как настроить автоматизацию в n8n с помощью ИИ-агентов в 2026 году",
+          "url": "https://infoclaw.ru/kak-sdelat/avtomatizatsiya-n8n-ii/",
+          "snippet": "Этот контент демонстрирует, как настроить AI-агента на n8n для автоматизации открытых линий Битрикс24, значительно повышая конверсию лидов. Вы узнаете, как создать логику для первичной квалификации клиентов, запроса контактных данных (с впечатляющей конверсией 43%) и автоматического создания сделок."
+        },
+        {
+          "title": "N8n Ии Агент Управляет Crm Bitrix24 | Автоматизация Бизнеса",
+          "url": "https://lilys.ai/ru/notes/ai-agent-20251017/n8n-ai-agent-bitrix24-crm-control",
+          "snippet": "Пошаговая инструкция по настройке автономных ИИ-агентов в n8n (self-hosted и cloud). Подключение моделей Claude/OpenAI, памяти, Telegram и внешних инструментов (Tools)."
+        }
+      ],
+      "searched_at": "2026-10-14"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://helpdesk.bitrix24.ru/open/25004908/",
+      "title": "Как создать и настроить открытую линию",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://project-a2.ru/blog/bitrix24-open-channel-setup-guide/",
+      "title": "Открытые линии Битрикс24: настройка omnichannel коммуникаций",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://b24.org.ru/otkrytye-linii-bitriks24-v-2025-instruktsiya-po/",
+      "title": "Открытые линии Битрикс24 в 2026: инструкция по настройке и использованию",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://aventra.ru/blog/otkrytye-linii-bitrix24",
+      "title": "Открытые линии Битрикс24: Telegram, WhatsApp и сайт в одном окне",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.ru/open/16749478",
+      "title": "Приложения для Открытых линий Битрикс24",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://project-a2.ru/blog/bitrix24-telegram-integration-guide/",
+      "title": "Интеграция Битрикс24 с Telegram: боты и уведомления | Блог | Проект А2",
+      "from_query": "битрикс24 открытые линии telegram 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TOv4s54c2cw",
+      "title": "How to Connect Bitrix24 to n8n 2026 (Bitrix24 n8n Integration)",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://sdvg.vc/blog/podkliuchenie-n8n-k-bitrix24-obmen-dannymi-cherez-webhooks/",
+      "title": "Подключение n8n к Bitrix24: обмен данными через webhooks",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://n8n.io/integrations/bitrix24/",
+      "title": "Bitrix24 integrations | Workflow automation with n8n",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://www.checkcharm.com/how-to/setup-n8n-with-bitrix24/",
+      "title": "How to Setup n8n with Bitrix24 (2026) | CheckCharm",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://github.com/zenland-dev/n8n-nodes-bitrix24",
+      "title": "GitHub - zenland-dev/n8n-nodes-bitrix24: Bitrix24 nodes for n8n: CRM ...",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://apidocs.bitrix24.ru/api-reference/crm/leads/crm-lead-add.html",
+      "title": "Создать новый лид crm.lead.add - 1С-Битрикс",
+      "from_query": "n8n bitrix24 crm lead add 2026"
+    },
+    {
+      "url": "https://rutube.ru/video/6f1bc403b4bc01a052ba9c0574bcf863/",
+      "title": "n8n + Битрикс24: Мульти AI Агент для Открытых Линий (Telegram, Сайт ...",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://switchonai.ru/guides/n8n-bitrix24/",
+      "title": "n8n + Битрикс24: интеграция, границы сценария и проверка",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YJHMZiXyM0A",
+      "title": "n8n + Bitrix24: Multi-AI Agent for Open Channels (Telegram, Website ...",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://lilys.ai/ru/notes/n8n-20251119/bitrix24-open-lines-ai-agent-n8n",
+      "title": "Битрикс24 Открытые линии + AI-агент на n8n",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://infoclaw.ru/kak-sdelat/avtomatizatsiya-n8n-ii/",
+      "title": "Как настроить автоматизацию в n8n с помощью ИИ-агентов в 2026 году",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    },
+    {
+      "url": "https://lilys.ai/ru/notes/ai-agent-20251017/n8n-ai-agent-bitrix24-crm-control",
+      "title": "N8n Ии Агент Управляет Crm Bitrix24 | Автоматизация Бизнеса",
+      "from_query": "Как подключить ИИ-агента n8n к Битрикс24 и Telegram в открытых линиях: пошаговая инструкция 2026"
+    }
+  ]
+}

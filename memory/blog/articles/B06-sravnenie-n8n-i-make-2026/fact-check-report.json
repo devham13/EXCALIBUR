@@ -1,0 +1,80 @@
+{
+  "article": "memory/blog/articles/B06-sravnenie-n8n-i-make-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 10,
+  "verified_facts_count": 4,
+  "unverified_facts_count": 6,
+  "facts": [
+    {
+      "fact": "2025",
+      "kind": "date_or_year",
+      "context": "асто дешевле Make Core на 10 000 credits. С 27.08.2025 Make считает credits вместо operations; AI-модули",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "operations; AI-модули там дороже обычных шагов. В 2026 году обе платформы добавили AI-агентов, но биллинг",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "15 минут",
+      "kind": "metric_or_duration",
+      "context": "ом облаке. Посчитайте объём и пересчитайте TCO за 15 минут Без ваших цифр любое \"n8n дешевле\" или \"Make удоб",
+      "verified": true,
+      "reason": "Numerical value '15' matched in fact-bank context"
+    },
+    {
+      "fact": "30 дней",
+      "kind": "metric_or_duration",
+      "context": "из формы - по числу заявок; cron - по расписанию (30 дней × запусков в день). Шаг 2: Посчитайте steps. Откр",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "4 часов",
+      "kind": "metric_or_duration",
+      "context": "без карты) перед VPS. Не делайте: self-host без 2-4 часов в месяц на обновления. Настройте гибрид: Make для",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "10 000",
+      "kind": "large_number",
+      "context": "ск: выше этого n8n Pro часто дешевле Make Core на 10 000 credits. С 27.08.2025 Make считает credits вместо",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "1 000",
+      "kind": "large_number",
+      "context": "Шаг 4: Сверьте с тарифами на 09.2026. Make Free - 1 000 credits, 2 активных сценария. Core - $9/мес, 10 00",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "2 500",
+      "kind": "large_number",
+      "context": "ес, 10 000 credits. n8n Starter - 20 €/мес (год), 2 500 executions. Pro - 50 €/мес, 10 000 executions. Tri",
+      "verified": true,
+      "reason": "Numerical value '2500' matched in fact-bank context"
+    },
+    {
+      "fact": "1 500",
+      "kind": "large_number",
+      "context": "its Интеграции 400+ native nodes + 600+ community 1 500+ native apps AI / RAG / MCP AI Agent node, LangCh",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "5 800",
+      "kind": "large_number",
+      "context": "ому что Z\". Без DevOps - старт на курсе Make.com (5 800 ₽/мес, 159+ уроков), там же разбираем связку с n8",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "topic_id": "B06",
+  "canvas_file": "cover/canvas-quad.png",
+  "layout": "2x2",
+  "pipeline": "quad_canvas_1x_mcp",
+  "style_preset": "digital_meme_collage_ru",
+  "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
+  "blog_hero": "memory/cover/blog-hero.json",
+  "inline_types_catalog": "memory/cover/inline-visual-types.json",
+  "cover_hook": "10 000 credits Make сгорели за месяц — n8n ещё на Starter?",
+  "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
+  "slots": {
+    "cover": {
+      "quadrant": "top_left",
+      "role": "cover_meme_hero",
+      "alt": "Обложка: n8n или Make — сравнение credits vs executions и формула TCO для автоматизации в 2026",
+      "scene_hint": "reference-лицо, дружелюбная улыбка; одежда агента: тёмно-синий худи без логотипов + наушники на шее; жест — указывает на split fake billing UI: слева Make dashboard «Credits: 0 / 10 000» красным, справа n8n Cloud «Executions: 1 847 / 2 500» зелёным; розовый маркер на слове «credits»; fake Telegram «опять доплатить Make?»; torn paper strip с формулой runs × steps; pink sticky «жиза»; shocked cat meme cutout + facepalm sticker; scotch tape, DIY zine 16:9",
+      "meme_caption_ru": "Credits vs executions?"
+    },
+    "inline_1": {
+      "quadrant": "top_right",
+      "h2_anchor": "Посчитайте объём и пересчитайте TCO за 15 минут",
+      "visual_type": "infographic_card",
+      "scene_hint": "Карточка TCO-калькулятора: 6 шагов (runs → steps → billing → тарифы → точка перелома 5,6 → pilot), формула monthly_credits = runs × steps, цифры 10 000 credits vs 10 000 executions, pink highlight на «5,6 шагов», tape corner, без героя",
+      "alt": "Инфографика TCO: 6 шагов расчёта runs × steps для n8n и Make"
+    },
+    "inline_2": {
+      "quadrant": "bottom_left",
+      "h2_anchor": "Сравните n8n и Make по шести критериям",
+      "visual_type": "comparison_table_ui",
+      "scene_hint": "Таблица 6 критериев n8n vs Make: Self-host/152-ФЗ, Billing, Цена входа, Интеграции, AI/RAG/MCP, Команда — Cyrillic UI mockup Notion/Sheets style, n8n колонка зелёные галочки на self-host и AI, Make — на скорость прототипа; pink sticky «выберите 3 критерия»; без лица героя",
+      "alt": "Сравнительная таблица n8n и Make по шести критериям: billing, self-host, AI, цена"
+    },
+    "inline_3": {
+      "quadrant": "bottom_right",
+      "h2_anchor": "Выберите Make, если нужен быстрый старт без сервера",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Workflow 4 шага быстрого старта Make: Регистрация → Drag-and-drop сценарий → CRM + email → Slack/Telegram уведомление; стрелки, torn-paper strip, маркер «без DevOps», лимит Free 1 000 credits callout; без героя",
+      "alt": "Схема workflow: быстрый старт Make без сервера — 4 шага от регистрации до уведомления"
+    }
+  }
+}

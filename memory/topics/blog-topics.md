@@ -119,3 +119,25 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Сравнение n8n и Make.com
+
+- **priority:** P0
+- **slug:** sravnenie-n8n-i-make-2026
+- **h1:** Сравнение n8n и Make.com: что выбрать для автоматизации бизнеса в 2026 году
+- **primary_query:** n8n или make
+- **secondary_queries:** make vs n8n 2026, n8n или make com что выбрать, сравнение make и n8n, n8n self hosted или make
+- **search_intent:** comparison
+- **article_mode:** B
+- **h2_outline:**
+  1. Критерии выбора: self-hosting, 152-ФЗ, AI-агенты и стоимость операций
+  2. Таблица сравнения n8n vs Make: интеграции, LangChain, MCP, лимиты и цены
+  3. Сценарии «берите Make»: маркетинг, быстрый старт без сервера, малые объёмы
+  4. Сценарии «берите n8n»: AI/RAG, большие данные, локальные LLM и compliance
+  5. Гибридная схема 2026: n8n для пайплайнов + Make для SaaS-интеграций
+  6. Чек-лист решения: 12 вопросов перед выбором платформы
+- **faq_hints:** чем n8n отличается от make; что лучше n8n или make для бизнеса; n8n или make для ai агентов
+- **internal_links:** /avtomatizaciya-n8n-ai-agents/
+- **cover_scene_hint:** два робота-конструктора с логотипами n8n (розовый) и Make (фиолетовый) на стикерах, между ними clipboard с таблицей-сравнением, стрелки «self-host» vs «cloud», неоновый diy-коллаж
+
+---
+

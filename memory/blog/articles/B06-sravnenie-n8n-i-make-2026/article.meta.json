@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "sravnenie-n8n-i-make-2026",
+  "h1": "Сравнение n8n и Make.com: что выбрать для автоматизации бизнеса в 2026 году",
+  "title": "n8n или Make: сравнение платформ и выбор тарифа в 2026",
+  "description": "Сравнение n8n и Make.com с формулой TCO (runs × steps), таблицей критериев, сценариями выбора, гибридом и чеклистом из 12 вопросов. Тарифы и credits на 09.2026.",
+  "keywords": [
+    "n8n или make",
+    "make vs n8n 2026",
+    "n8n или make com что выбрать",
+    "сравнение make и n8n",
+    "n8n self hosted или make"
+  ],
+  "primary_query": "n8n или make",
+  "secondary_queries": [
+    "make vs n8n 2026",
+    "n8n или make com что выбрать",
+    "сравнение make и n8n",
+    "n8n self hosted или make"
+  ],
+  "char_count": 8605,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "n8n или make com что выбрать для бизнеса",
+    "сравнение make и n8n с таблицей тарифов 2026",
+    "make vs n8n self hosted или облако"
+  ],
+  "meta_ab": {
+    "title_seo": "n8n или Make: сравнение платформ автоматизации и тарифов 2026",
+    "title_ctr": "⚡ n8n или Make.com в 2026? Таблица, формула TCO и чеклист из 12 вопросов!",
+    "title_aeo": "Что выбрать - n8n или Make для автоматизации бизнеса в 2026?",
+    "description_seo": "Сравнение n8n и Make.com: формула TCO runs × steps, таблица критериев, сценарии Make/n8n, гибрид и чеклист из 12 вопросов. Тарифы на 09.2026.",
+    "description_ctr": "💻 n8n или Make - перестаньте гадать! Посчитайте credits vs executions, пройдите чеклист и выберите тариф за 15 минут. Честное сравнение от практика Make.",
+    "description_aeo": "n8n или Make - выбор зависит от runs × steps, self-host и AI. Make - быстрый SaaS-старт; n8n - длинные пайплайны, RAG и MCP. Формула TCO и чеклист 12 вопросов."
+  },
+  "cover_family": "brand_collage"
+}

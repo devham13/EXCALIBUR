@@ -3,56 +3,56 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://mayai.ru/#organization",
+      "@id": "https://www.meta-journal.ru/#organization",
       "name": "Maya AI — блог «Ковчег»",
-      "url": "https://mayai.ru/",
+      "url": "https://www.meta-journal.ru/",
       "logo": {
         "@type": "ImageObject",
-        "@id": "https://mayai.ru/#logo",
-        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "@id": "https://www.meta-journal.ru/#logo",
+        "url": "https://www.meta-journal.ru/wp-content/uploads/logo.png",
         "caption": "Maya AI — блог «Ковчег»"
       }
     },
     {
       "@type": "Person",
-      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "@id": "https://www.meta-journal.ru/#author-artur-horoshev",
       "name": "Артур Хорошев",
       "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
       "image": "https://kv-ai.ru/artur-horosheff",
       "worksFor": {
-        "@id": "https://mayai.ru/#organization"
+        "@id": "https://www.meta-journal.ru/#organization"
       },
       "sameAs": [
         "https://kv-ai.ru/artur-horosheff",
-        "https://mayai.ru/obo-mne/",
+        "https://www.meta-journal.ru/obo-mne/",
         "https://t.me/maya_pro",
         "https://t.me/horosheff"
       ]
     },
     {
       "@type": "BlogPosting",
-      "@id": "https://mayai.ru/blog/primer-seo-stati/#article",
+      "@id": "https://www.meta-journal.ru/2026/06/19/primer-seo-stati/#article",
       "headline": "Как писать SEO-статьи, которые читают люди",
       "description": "Пошаговый workflow SEO + GEO: семантика, структура longread, FAQ, schema и чеклист перед публикацией. Без переспама и воды - для людей и нейропоиска.",
       "datePublished": "2026-10-15",
       "dateModified": "2026-10-15",
       "inLanguage": "ru",
-      "url": "https://mayai.ru/blog/primer-seo-stati/",
+      "url": "https://www.meta-journal.ru/2026/06/19/primer-seo-stati/",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mayai.ru/blog/primer-seo-stati/"
+        "@id": "https://www.meta-journal.ru/2026/06/19/primer-seo-stati/"
       },
       "image": {
         "@type": "ImageObject",
-        "url": "https://mayai.ru/wp-content/uploads/blog/primer-seo-stati-cover.png",
+        "url": "https://www.meta-journal.ru/wp-content/uploads/blog/primer-seo-stati-cover.png",
         "width": 1200,
         "height": 675
       },
       "author": {
-        "@id": "https://mayai.ru/#author-artur-horoshev"
+        "@id": "https://www.meta-journal.ru/#author-artur-horoshev"
       },
       "publisher": {
-        "@id": "https://mayai.ru/#organization"
+        "@id": "https://www.meta-journal.ru/#organization"
       },
       "keywords": "как писать seo статьи, seo текст для блога, geo оптимизация статьи, сколько символов в seo статье, что такое geo в seo",
       "wordCount": 1411,
@@ -60,12 +60,12 @@
       "isPartOf": {
         "@type": "Blog",
         "name": "Maya AI — блог «Ковчег»",
-        "url": "https://mayai.ru/blog/"
+        "url": "https://www.meta-journal.ru/"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://mayai.ru/blog/primer-seo-stati/#faq",
+      "@id": "https://www.meta-journal.ru/2026/06/19/primer-seo-stati/#faq",
       "mainEntity": [
         {
           "@type": "Question",

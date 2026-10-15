@@ -172,3 +172,49 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-15 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| featured_image_id | 1319 |
+| inline_images | 1320, 1321, 1322 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP (FTP blocked: 425 Bad IP) |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (6/6, production paths)
+- schema.jsonld: present (URLs patched to production)
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Preflight fixes
+
+- Internal link B04: `/blog/geo-…` → `/2026/06/21/geo-optimizaciya-sajta-2026/` (production permalink)
+- `schema.jsonld`: mayai.ru → production canonical host
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1319
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1320 src=cover/inline-01.png
+OK inline_image_upload=1321 src=cover/inline-02.png
+OK inline_image_upload=1322 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```
+
+### Post-publish
+
+- interlinker --apply: 0 new opportunities

@@ -275,13 +275,120 @@ echo 'permalink=' . $permalink . PHP_EOL;
 """
 
 
-def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
-    remote = "excalibur-blog-publish-once.php"
-    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
-    if not ftp_root.startswith("/"):
-        ftp_root = "/" + ftp_root
-    if not ftp_root.endswith("/"):
-        ftp_root += "/"
+def augment_env_from_os(env: dict[str, str]) -> dict[str, str]:
+    import os
+
+    out = dict(env)
+    for key in (
+        "FTP_HOST",
+        "FTP_PORT",
+        "FTP_USER",
+        "FTP_PASS",
+        "FTP_PASSWORD",
+        "FTP_ROOT",
+        "FTP_PATH",
+        "SFTP_HOST",
+        "SFTP_PORT",
+        "SFTP_USER",
+        "SFTP_PASS",
+        "SFTP_PASSWORD",
+        "PUBLIC_SITE_URL",
+        "EXCALIBUR_PUBLIC_SITE_URL",
+        "EXCALIBUR_BLOG_ALLOW_PUBLISH",
+    ):
+        val = os.environ.get(key, "").strip()
+        if val:
+            out[key] = val
+    if not out.get("FTP_PASS") and out.get("FTP_PASSWORD"):
+        out["FTP_PASS"] = out["FTP_PASSWORD"]
+    if not out.get("SFTP_PASS") and out.get("SFTP_PASSWORD"):
+        out["SFTP_PASS"] = out["SFTP_PASSWORD"]
+    if not out.get("PUBLIC_SITE_URL") and out.get("EXCALIBUR_PUBLIC_SITE_URL"):
+        out["PUBLIC_SITE_URL"] = out["EXCALIBUR_PUBLIC_SITE_URL"]
+    return out
+
+
+def sftp_credentials(env: dict[str, str]) -> tuple[str, int, str, str] | None:
+    host = (env.get("SFTP_HOST") or "").strip()
+    user = (env.get("SFTP_USER") or "").strip()
+    password = (env.get("SFTP_PASS") or env.get("SFTP_PASSWORD") or "").strip()
+    if not (host and user and password):
+        return None
+    port = int(env.get("SFTP_PORT") or "22")
+    return host, port, user, password
+
+
+def sftp_chdir_to_root(sftp: object, ftp_root: str) -> None:
+    root = ftp_root.strip()
+    if root in ("", "/", "./"):
+        return
+    parts = [p for p in root.strip("/").split("/") if p]
+    for part in parts:
+        sftp.chdir(part)  # type: ignore[attr-defined]
+
+
+def upload_bootstrap(env: dict[str, str], remote: str, php: str, ftp_root: str) -> str:
+    data = php.encode("utf-8")
+    creds = sftp_credentials(env)
+    if creds:
+        import paramiko
+
+        host, port, user, password = creds
+        transport = paramiko.Transport((host, port))
+        transport.connect(username=user, password=password)
+        sftp = paramiko.SFTPClient.from_transport(transport)
+        try:
+            sftp_chdir_to_root(sftp, ftp_root)
+            with sftp.file(remote, "w") as handle:
+                handle.write(data)
+        finally:
+            sftp.close()
+            transport.close()
+        return "sftp"
+
+    def ftp_connect() -> ftplib.FTP:
+        ftp = ftplib.FTP()
+        ftp.connect(env["FTP_HOST"], int(env.get("FTP_PORT", "21")), timeout=120)
+        ftp.login(env["FTP_USER"], env["FTP_PASS"])
+        ftp.set_pasv(True)
+        ftp.cwd(ftp_root)
+        return ftp
+
+    try:
+        ftp = ftp_connect()
+        ftp.storbinary(f"STOR {remote}", io.BytesIO(data))
+        ftp.quit()
+        return "ftp"
+    except ftplib.error_temp as exc:
+        retry = sftp_credentials(env)
+        if not retry:
+            raise
+        print(f"FTP upload blocked ({exc}); retrying via SFTP...", file=sys.stderr)
+        host, _port, user, password = retry
+        forced = {**env, "SFTP_HOST": host, "SFTP_USER": user, "SFTP_PASS": password}
+        return upload_bootstrap(forced, remote, php, ftp_root)
+
+
+def delete_bootstrap(env: dict[str, str], remote: str, transport: str, ftp_root: str) -> None:
+    if transport == "sftp":
+        creds = sftp_credentials(env)
+        if not creds:
+            return
+        import paramiko
+
+        host, port, user, password = creds
+        transport_client = paramiko.Transport((host, port))
+        transport_client.connect(username=user, password=password)
+        sftp = paramiko.SFTPClient.from_transport(transport_client)
+        try:
+            sftp_chdir_to_root(sftp, ftp_root)
+            sftp.remove(remote)
+        except OSError:
+            pass
+        finally:
+            sftp.close()
+            transport_client.close()
+        return
 
     def ftp_connect() -> ftplib.FTP:
         ftp = ftplib.FTP()
@@ -292,8 +399,22 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         return ftp
 
     ftp = ftp_connect()
-    ftp.storbinary(f"STOR {remote}", io.BytesIO(php.encode("utf-8")))
+    try:
+        ftp.delete(remote)
+    except ftplib.error_perm:
+        pass
     ftp.quit()
+
+
+def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
+    remote = "excalibur-blog-publish-once.php"
+    ftp_root = (env.get("FTP_ROOT") or env.get("FTP_PATH") or "/").strip()
+    if not ftp_root.startswith("/"):
+        ftp_root = "/" + ftp_root
+    if not ftp_root.endswith("/"):
+        ftp_root += "/"
+
+    transport = upload_bootstrap(env, remote, php, ftp_root)
 
     url = public_base.rstrip("/") + "/" + remote
     out = ""
@@ -324,12 +445,7 @@ def publish_via_ftp(env: dict[str, str], php: str, public_base: str) -> str:
         if not out:
             raise RuntimeError("Cloud WebFetch Fallback timed out after 120 seconds. Please trigger manually.")
 
-    ftp = ftp_connect()
-    try:
-        ftp.delete(remote)
-    except ftplib.error_perm:
-        pass
-    ftp.quit()
+    delete_bootstrap(env, remote, transport, ftp_root)
     return out
 
 
@@ -349,11 +465,17 @@ def main() -> int:
         print("PHP bytes:", len(php.encode("utf-8")))
         return 0
 
-    env = load_env(root)
+    env = augment_env_from_os(load_env(root))
     if env.get("EXCALIBUR_BLOG_ALLOW_PUBLISH", "").strip().lower() != "yes":
         print("BLOCKER: EXCALIBUR_BLOG_ALLOW_PUBLISH != yes", file=sys.stderr)
         return 1
-    public = args.public_base or env.get("PUBLIC_SITE_URL") or env.get("WP_HOME") or ""
+    public = (
+        args.public_base
+        or env.get("EXCALIBUR_PUBLIC_SITE_URL")
+        or env.get("PUBLIC_SITE_URL")
+        or env.get("WP_HOME")
+        or ""
+    )
     if not public:
         print("PUBLIC_SITE_URL or --public-base required", file=sys.stderr)
         return 2

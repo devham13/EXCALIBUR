@@ -1,0 +1,38 @@
+{
+  "verdict": "warning",
+  "total_slop_hits": 0,
+  "slop_hits": [],
+  "total_over_long_sentences": 6,
+  "over_long_sentences": [
+    {
+      "sentence": "Claude Code в CI/CD обещает авто-ревью и правки в merge request, но без схемы интеграции job падает на секретах, лишних tools или бесконечном agent loop",
+      "word_count": 26
+    },
+    {
+      "sentence": "Критерий `claude -p` в job `anthropics/claude-code-action@v1` Setup install script + secret в env `/install-github-app` или ручная GitHub App Триггер любой CI (GitHub, GitLab, Jenkins) GitHub events + `@claude` или `prompt` в workflow Контекст PR checkout + gh CLI вручную comments, commits, PR – встроено Воспроизводимость `--bare` + явные flags `claude_args` passthrough Когда выбирать multi-CI, JSON-отчёты, свой orchestrator PR/issue automation только на GitHub Workflow выбора: Нужен только GitHub и ревью в PR → Action",
+      "word_count": 68
+    },
+    {
+      "sentence": "Пример GitHub Actions workflow: name: Claude review on: &nbsp;&nbsp;pull_request: &nbsp;&nbsp;&nbsp;&nbsp;types: [opened, synchronize] jobs: &nbsp;&nbsp;claude: &nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest &nbsp;&nbsp;&nbsp;&nbsp;permissions: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents: write &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pull-requests: write &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;issues: write &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id-token: write &nbsp;&nbsp;&nbsp;&nbsp;steps: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: anthropics/claude-code-action@v1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anthropic_api_key: ${{ secrets",
+      "word_count": 107
+    },
+    {
+      "sentence": "ANTHROPIC_API_KEY }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt: | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Review this PR",
+      "word_count": 26
+    },
+    {
+      "sentence": "local/bin:$PATH\" &nbsp;&nbsp;&nbsp;&nbsp;- claude -p \"Summarize MR risks\" --permission-mode acceptEdits --allowedTools \"Bash Read Edit Write mcp__gitlab\" --max-turns 10 Делайте: `rules` только на trusted branches и web/MR triggers",
+      "word_count": 30
+    },
+    {
+      "sentence": "217+) Job timeout и `concurrency` – один run на PR `--permission-mode dontAsk` + явный `--allowedTools` Human review перед merge; rollback plan Permission denied в логах – сузить tools Отдельный key на repo; OIDC вместо long-lived keys Не unlimited turns на публичном fork Bot loop prevention в Action Masked secrets; не echo env в логах Делайте: `--output-format json` и алерт при `total_cost_usd` выше порога",
+      "word_count": 58
+    }
+  ],
+  "readability": {
+    "score": 100.0,
+    "level": "Very Easy (Simple conversational / children's text)",
+    "avg_sentence_len": 10.1,
+    "avg_syllables_per_word": 0.9
+  }
+}

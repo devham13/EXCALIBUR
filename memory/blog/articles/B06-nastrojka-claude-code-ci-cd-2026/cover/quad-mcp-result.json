@@ -1,0 +1,6 @@
+{
+  "url": "file://fallback-cursor-GenerateImage",
+  "source": "cursor/GenerateImage",
+  "reference_image": "memory/cover/assets/blog-hero-reference.png",
+  "note": "MCP user-mcp-kv/gpt-image-2 unavailable; fallback GenerateImage + Pillow resize 1280x720→2048x1152"
+}

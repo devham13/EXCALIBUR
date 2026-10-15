@@ -1,0 +1,17 @@
+{
+  "article": "memory/blog/articles/B06-nastrojka-claude-code-ci-cd-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 1,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 0,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "rns` и job timeout. GitLab-интеграция на сентябрь 2026 – beta. Не запускайте agent на untrusted PR через",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    }
+  ]
+}

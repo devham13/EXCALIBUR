@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mayai.ru/#website",
+      "url": "https://mayai.ru/",
+      "name": "Maya AI",
+      "description": "Автоматизация, ИИ-агенты и вайбкодинг"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#primaryimage",
+      "url": "https://mayai.ru/wp-content/uploads/2026/10/cursor-environment-json-cloud-agents.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Как настроить environment.json для Cursor Cloud Agents"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#webpage",
+      "url": "https://mayai.ru/cursor-environment-json-cloud-agents/",
+      "name": "Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds",
+      "isPartOf": {
+        "@id": "https://mayai.ru/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#primaryimage"
+      },
+      "description": "Пошаговая настройка cursor environment json: install vs start, Dockerfile без COPY репо, триггеры Builds, secrets и test agent на feature branch."
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#blogposting",
+      "isPartOf": {
+        "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#webpage"
+      },
+      "headline": "Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds",
+      "description": "Пошаговая настройка cursor environment json: install vs start, Dockerfile без COPY репо, триггеры Builds, secrets и test agent на feature branch.",
+      "datePublished": "2026-10-07T13:02:57+03:00",
+      "dateModified": "2026-10-07T13:02:57+03:00",
+      "inLanguage": "ru",
+      "mainEntityOfPage": "https://mayai.ru/cursor-environment-json-cloud-agents/",
+      "image": {
+        "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://mayai.ru/obo-mne/#person",
+        "name": "Артур Хорошев",
+        "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Maya AI",
+          "url": "https://mayai.ru/"
+        },
+        "image": "https://kv-ai.ru/artur-horosheff",
+        "sameAs": [
+          "https://kv-ai.ru/artur-horosheff",
+          "https://mayai.ru/obo-mne/",
+          "https://t.me/maya_pro",
+          "https://t.me/horosheff"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://mayai.ru/#organization",
+        "name": "Maya AI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mayai.ru/wp-content/uploads/2026/06/logo.png"
+        }
+      },
+      "keywords": "настройка cursor cloud agent, cursor environment json, cloud agent builds, install start cursor agent, dockerfile cursor cloud agent"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#faq",
+      "isPartOf": {
+        "@id": "https://mayai.ru/cursor-environment-json-cloud-agents/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Чем install отличается от start в cursor environment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "install выполняется на этапе Build из корня репозитория и попадает в snapshot диска. start и terminals выполняются при каждом старте агента и поднимают процессы (Docker, dev server). Перенесите тяжёлые зависимости в install, а сервисы – в start/terminals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли Dockerfile для cloud agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Достаточно snapshot после agent-led wizard плюс install, или только install на базовом образе. Dockerfile нужен для системных пакетов, которых нет в snapshot; не копируйте весь проект в образ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как закрепить snapshot в environment json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сохраните окружение в Cloud Agents dashboard, скопируйте snapshot id, вставьте в поле snapshot в .cursor/environment.json, commit и push. Trigger build или дождитесь configuration change, проверьте active Build."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему агент не видит зависимости после build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "install упал или не идемпотентен – откройте логи failed Build. Агент на ветке с другим lockfile может потребовать обновить install. Убедитесь, что active Build успешен, а не только последний commit красный."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Deprecated ли environment.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Конфиг в репозитории имеет приоритет над personal и team wizard. Для Self-Hosted Machines файл не применяется – используйте настройки hosted Cloud Agents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где хранить user secrets и build secrets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В dashboard Cloud Agents (Secrets / runtime). User secrets доступны при старте агента, не во время Build. Build secrets используйте для install, не коммитьте значения в Git."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как протестировать cloud agent builds настройка без риска для main?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Push config на feature branch, trigger build, запустите agent from branch с узкой задачей. Hosted агент boot с active Build, затем checkout вашей ветки; исправляйте install по логам до Success."
+          }
+        }
+      ]
+    }
+  ]
+}

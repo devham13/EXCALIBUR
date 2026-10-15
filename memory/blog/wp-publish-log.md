@@ -172,3 +172,50 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-07 — B06 cursor-environment-json-cloud-agents — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B06 |
+| slug | cursor-environment-json-cloud-agents |
+| verdict | **PASS** |
+| post_id | 1184 |
+| featured_image_id | 1185 |
+| inline_images | 1186, 1187, 1188 |
+| permalink | https://www.meta-journal.ru/2026/10/07/cursor-environment-json-cloud-agents/ |
+
+### Preconditions
+
+- article-qa.md: PASS (92/100)
+- link-verify.json: pass (preflight, EXCALIBUR_PUBLIC_SITE_URL)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Attempt
+
+```bash
+python3 scripts/excalibur_blog_link_verify.py ... --site-base $EXCALIBUR_PUBLIC_SITE_URL  # pass
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-cursor-environment-json-cloud-agents --dry-run  # OK PHP 6780330
+python3 scripts/excalibur_blog_wp_publish.py --article-dir memory/blog/articles/B06-cursor-environment-json-cloud-agents  # SFTP fallback
+```
+
+### Notes
+
+- FTP **425 Bad IP** from Cloud → SFTP upload to `REMOTE_SITE_ROOT`
+- First HTTP trigger **404** when bootstrap landed only on FTP root (not web docroot); republish via SFTP fixed path
+- `excalibur_blog_wp_publish.py`: SFTP fallback + HTTP 404 → SFTP re-upload
+
+### Result
+
+```
+OK post=1184 slug=cursor-environment-json-cloud-agents
+OK featured_image=1185
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1186..1188
+permalink=https://www.meta-journal.ru/2026/10/07/cursor-environment-json-cloud-agents/
+```

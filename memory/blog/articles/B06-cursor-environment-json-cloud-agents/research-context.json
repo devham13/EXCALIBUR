@@ -1,0 +1,92 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-07",
+    "today_ru": "07.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "среда",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-09",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-07 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "cursor-environment-json-cloud-agents",
+    "h1": "Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds",
+    "primary_query": "настройка cursor cloud agent",
+    "secondary_queries": [
+      "cursor environment json",
+      "cloud agent builds настройка",
+      "install start команды cursor agent",
+      "dockerfile cursor cloud agent",
+      "snapshot cursor environment"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "настройка cursor cloud agent 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "настройка cursor cloud agent октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "настройка cursor cloud agent новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "cursor environment json 2026",
+      "purpose": "вторичный запрос: cursor environment json"
+    },
+    {
+      "id": "secondary_2",
+      "query": "cloud agent builds настройка 2026",
+      "purpose": "вторичный запрос: cloud agent builds настройка"
+    },
+    {
+      "id": "secondary_3",
+      "query": "install start команды cursor agent 2026",
+      "purpose": "вторичный запрос: install start команды cursor agent"
+    },
+    {
+      "id": "secondary_4",
+      "query": "dockerfile cursor cloud agent 2026",
+      "purpose": "вторичный запрос: dockerfile cursor cloud agent"
+    },
+    {
+      "id": "secondary_5",
+      "query": "snapshot cursor environment 2026",
+      "purpose": "вторичный запрос: snapshot cursor environment"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить environment.json для Cursor Cloud Agents: пошаговая инструкция с Builds 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-cursor-environment-json-cloud-agents",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

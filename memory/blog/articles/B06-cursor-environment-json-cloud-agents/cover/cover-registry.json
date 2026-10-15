@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "cursor-environment-json-cloud-agents",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: настройка Cursor Cloud Agent через environment.json и Builds — герой указывает на failed Build и зелёный чеклист install",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-07T10:11:42+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: настройка Cursor Cloud Agent через environment.json и Builds — герой указывает на failed Build и зелёный чеклист install",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения локального Agent и Cloud Agent с environment.json по сценариям использования",
+      "h2_anchor": "1. Сравните Cloud Agent и локальный Agent: когда нужен environment.json",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Диаграмма структуры environment.json: приоритет конфига, install на Build и start при run",
+      "h2_anchor": "2. Разберите структуру environment.json и приоритет над dashboard",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист настройки Dockerfile и install-команды для Cursor Cloud Agent Build",
+      "h2_anchor": "3. Настройте Dockerfile и install: что готовить в Build",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

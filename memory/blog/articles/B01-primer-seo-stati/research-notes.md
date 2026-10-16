@@ -73,7 +73,7 @@
 | JSON-LD **FAQPage**: текст в разметке **дословно** совпадает с видимым FAQ | [smart-d-m.ru — FAQPage для GEO](https://smart-d-m.ru/schema-org-faqpage-dlya-geo.html) | 2026 | да |
 | Минимум schema для блога: **Article/BlogPosting + FAQPage + Organization** | [citerank.ru — Schema.org для GEO](https://citerank.ru/blog/schema-org-for-geo) | 2026 | да |
 | **51%** маркетологов используют нейросети для **аналитики и оптимизации**, а не для слепой штамповки | [mayai.ru — fact-bank → SurveyMonkey](https://mayai.ru/kontent-zavod-avtomatizacziya-cherez-ii-razbiraem-otzyvy/) | 2026-06-11 | да |
-| Автономные ИИ завершают **&lt;2,5%** сложных неструктурированных задач без человека — **human-in-the-loop** норма | [mayai.ru — fact-bank](https://mayai.ru/kontent-zavod-avtomatizacziya-cherez-ii-razbiraem-otzyvy/) | 2026-06-11 | да |
+| Автономные ИИ завершают **<2,5%** сложных неструктурированных задач без человека — **human-in-the-loop** норма | [mayai.ru — fact-bank](https://mayai.ru/kontent-zavod-avtomatizacziya-cherez-ii-razbiraem-otzyvy/) | 2026-06-11 | да |
 | Если пользователь **возвращается в поиск** после страницы — сигнал низкого качества ответа | [MaryProject — SEO-статьи](https://maryproject.ru/blog/kak-pravilno-pisat-stati-pod-seo/) | 2026 | да |
 
 **Не использовать без первичника:** «плотность ключей 1–2%» (Seotika); «+140% трафика за 3 недели» (Pikapuka); «1–10 млн доменов FAQPage» без cross-check; любые **показы Wordstat** — MCP недоступен.
@@ -106,7 +106,7 @@
 | Hook | Где | Формат |
 |------|-----|--------|
 | Определение SEO-статьи 40–60 слов | Lead после H1 | «SEO-статья — …» |
-| Определение GEO 40–60 слov | H2 «SEO + GEO» | Generative Engine Optimization |
+| Определение GEO 40–60 слов | H2 «SEO + GEO» | Generative Engine Optimization |
 | BLUF | Каждый H2 | 1-е предложение = ответ |
 | FAQ 5–7 | Конец | 2–4 предложения, ≤80 слов |
 | Conversational H2/FAQ | faq_hints | «Сколько символов…», «Что такое GEO в SEO?» |
@@ -135,7 +135,7 @@
 - Не выдумывать **Wordstat** и любые «N показов/мес».
 - Не копировать Pikapuka/olegweb **структуру 1:1**.
 - Объём **8 500–9 500** знаков (`quality-blog.md`).
-- Без эмодзi в article.html; CTA ≤ 3.
+- Без эмодзи в article.html; CTA ≤ 3.
 - Цифры только из §3 или fact-bank.
 
 ---

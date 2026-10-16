@@ -10,7 +10,7 @@
       "ok": true,
       "method": "HEAD",
       "error": null,
-      "kind": "external",
+      "kind": "internal_absolute",
       "skipped": false
     },
     {

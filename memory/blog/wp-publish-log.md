@@ -172,3 +172,45 @@ OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
 ```
+
+---
+
+## 2026-10-16 — B01 primer-seo-stati — **PASS** (⚠️ WP host ≠ mayai.ru)
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **pass** (скрипт) |
+| post_id | 238 |
+| featured_image_id | 1343 |
+| inline_images | 1344, 1345, 1346 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| transport | SFTP (`EXCALIBUR_BLOG_USE_SFTP=yes`; FTP STOR 425 на Cloud IP) |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight 2026-10-16)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- Cloud FTP data channel: `425 Security: Bad IP connecting` — bootstrap через SFTP.
+- `wp-config.php` на SFTP-аккаунте: `WP_HOME` / `WP_SITEURL` → **meta-journal.ru**, не mayai.ru. Целевой URL пайплайна `https://mayai.ru/primer-seo-stati/` по-прежнему **404**.
+- Для production mayai.ru: обновить Cloud Secrets (FTP/SFTP → аккаунт с `wp-load.php` mayai, post_id ~13k+) и перезапустить publish.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1343
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1344 src=cover/inline-01.png
+OK inline_image_upload=1345 src=cover/inline-02.png
+OK inline_image_upload=1346 src=cover/inline-03.png
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
+```

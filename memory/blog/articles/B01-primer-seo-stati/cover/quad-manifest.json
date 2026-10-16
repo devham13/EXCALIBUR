@@ -7,36 +7,36 @@
   "style_file": "memory/cover/quad-style-digital-meme-collage-ru.json",
   "blog_hero": "memory/cover/blog-hero.json",
   "inline_types_catalog": "memory/cover/inline-visual-types.json",
-  "cover_hook": "SEO-текст, который люди дочитают — миф или workflow?",
+  "cover_hook": "Ключи на месте — а статью не дочитывают. Один workflow для людей и AI",
   "mcp_note": "ONE gpt-image-2 call with input_urls=[reference_url_hosted], then split",
   "slots": {
     "cover": {
       "quadrant": "top_left",
       "role": "cover_meme_hero",
-      "alt": "Ведущий блога: мем-коллаж — SEO-текст, который люди дочитают",
-      "scene_hint": "reference-лицо в casual/худи SEOшника, вокруг fake Wordstat «15 000 ключей», analytics «0 прочтений», Telegram «где трафик?», стикер-отзыв ★☆☆☆☆, meme facepalm + shocked cat cutout, розовый highlight на «0 прочтений»",
-      "meme_caption_ru": "15k ключей — 0 прочтений?"
+      "alt": "Ведущий блога указывает на метрику «0 дочитываний» среди fake Wordstat и отзывов — SEO-текст для людей",
+      "scene_hint": "reference-лицо (голубые глаза, улыбка), одежда агента: тёмно-бирюзовый свитер + лёгкий пиджак, не копировать outfit с reference; указывает на fake Яндекс.Метрика «92% отказ», Wordstat «как писать seo статьи», Telegram «где трафик?», стикер ★☆☆☆☆, shocked cat + facepalm cutout, розовый маркер на «дочитываний»",
+      "meme_caption_ru": "Ключи есть — дочитываний нет"
     },
     "inline_1": {
       "quadrant": "top_right",
-      "h2_anchor": "Зачем SEO и GEO в одной статье",
+      "h2_anchor": "Объедините SEO и GEO в одном материале",
       "visual_type": "comparison_table_ui",
-      "scene_hint": "Таблица SEO vs GEO: критерии, цели, человек vs AI — «Зачем SEO и GEO в одной статье»",
-      "alt": "Сравнительная таблица / UI-мокап: Зачем SEO и GEO в одной статье"
+      "scene_hint": "Таблица SEO vs GEO: цель, аудитория (человек vs AI), формат ответа, schema — секция «Объедините SEO и GEO в одном материале»; стикер «один материал»",
+      "alt": "Сравнительная таблица SEO и GEO: Объедините SEO и GEO в одном материале"
     },
     "inline_2": {
       "quadrant": "bottom_left",
-      "h2_anchor": "Структура longread: от семантики до читабельности",
-      "visual_type": "workflow_diagram",
-      "scene_hint": "6 шагов longread: интент -> семантика -> outline -> lead -> факты -> FAQ — «Структура longread: от семантики до читабельности»",
-      "alt": "Схема workflow / шаги: Структура longread: от семантики до читабельности"
+      "h2_anchor": "Соберите спрос и разберите топ выдачи",
+      "visual_type": "tool_screenshot",
+      "scene_hint": "Fake Wordstat + SERP-скрин топ-3 конкурентов, стрелки к интенту — «Соберите спрос и разберите топ выдачи»; без лица героя",
+      "alt": "Скрин Wordstat и разбор SERP: Соберите спрос и разберите топ выдачи"
     },
     "inline_3": {
       "quadrant": "bottom_right",
-      "h2_anchor": "FAQ и schema: зачем и как",
-      "visual_type": "schema_faq_ui",
-      "scene_hint": "FAQ accordion + JSON-LD schema UI — «FAQ и schema: зачем и как»",
-      "alt": "FAQ + schema / JSON-LD UI: FAQ и schema: зачем и как"
+      "h2_anchor": "Составьте структуру longread с BLUF",
+      "visual_type": "workflow_diagram",
+      "scene_hint": "Схема 6 блоков: интент → семантика → outline H2 → BLUF-lead → факты → FAQ; розовый стикер BLUF — «Составьте структуру longread с BLUF»",
+      "alt": "Workflow longread с BLUF: Составьте структуру longread с BLUF"
     }
   }
 }

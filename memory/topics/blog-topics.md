@@ -119,3 +119,26 @@ python scripts/excalibur_blog_utility_gate.py --topic-id <ID>
 
 ---
 
+## B06 — Cursor Automations для Cloud Agents
+
+- **priority:** P0
+- **slug:** nastroyka-cursor-automations-2026
+- **h1:** Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents
+- **primary_query:** cursor automations настройка
+- **secondary_queries:** cursor automations cron, cursor automations webhook, автоматизация cloud agents cursor, cursor automations github pr
+- **search_intent:** how_to
+- **article_mode:** B
+- **wordstat:** недоступен (MCP `user-mcp-kv` / `wordstat_get_top_requests` не подключён в run 2026-10-15); спрос и угол подтверждены WebSearch + docs Cursor Automations (окт 2026), `--check-query` без overlap
+- **h2_outline:**
+  1. Cursor Automations vs ручной Cloud Agent: когда нужен repo, multi-repo или «без репозитория»
+  2. Создание автоматизации на cursor.com/automations: триггер, инструкция, tools и MCP
+  3. Cron-триггер: пресеты и cron-выражение; обход бага смены расписания (пересоздание automation)
+  4. Webhook-триггер: сохранение automation, URL, Bearer API key, POST payload в промпт
+  5. Сценарии GitHub PR / Slack / Linear: минимальные шаблоны промпта и ограничения
+  6. Чек-лист: секреты, service account, регенерация webhook key, egress и MCP OAuth
+- **faq_hints:** нужен ли репозиторий для cron automation; как передать webhook body в промпт; почему cron automation запускается не по расписанию
+- **internal_links:** /podklyuchenie-mcp-cursor/, /cursor-environment-json-cloud-agents/
+- **cover_scene_hint:** дашборд cursor.com/automations, стикеры «cron», «webhook», «GitHub PR», стрелки к облачному агенту, diy-коллаж в неоновых тонах
+
+---
+

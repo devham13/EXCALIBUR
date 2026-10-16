@@ -1,0 +1,5 @@
+{
+  "url": "local://GenerateImage/B06-canvas-quad.jpg",
+  "source": "generate_image_fallback",
+  "note": "user-mcp-kv/gpt-image-2 unavailable in Cloud run 2026-10-15; cursor GenerateImage + reference i2i, resized 1280x720→2048x1152, split via excalibur_blog_cover_quad_split.py"
+}

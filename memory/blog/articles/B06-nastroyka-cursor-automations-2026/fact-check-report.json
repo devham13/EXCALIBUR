@@ -1,0 +1,31 @@
+{
+  "article": "memory/blog/articles/B06-nastroyka-cursor-automations-2026/article.html",
+  "fact_bank_source": "memory/brief/fact-bank.md",
+  "verdict": "pass",
+  "total_extracted_facts": 3,
+  "verified_facts_count": 1,
+  "unverified_facts_count": 2,
+  "facts": [
+    {
+      "fact": "2026",
+      "kind": "date_or_year",
+      "context": "о hard spending limit. GA Automations – с 5 марта 2026: агенты в фоне с MCP и memory. Логика как в Make:",
+      "verified": true,
+      "reason": "Exact match found in fact-bank"
+    },
+    {
+      "fact": "45 минут",
+      "kind": "metric_or_duration",
+      "context": "est, заявка с сайта или короткий review PR. За 30–45 минут вы соберёте первую automation на cursor.com/autom",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    },
+    {
+      "fact": "200",
+      "kind": "large_number",
+      "context": "rompt GitHub PR opened Обязателен \"Если diff &lt; 200 строк – краткий review; иначе только checklist. Ко",
+      "verified": false,
+      "reason": "No matching fact or number found in fact-bank"
+    }
+  ]
+}

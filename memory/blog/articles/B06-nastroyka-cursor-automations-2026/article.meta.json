@@ -1,0 +1,38 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-automations-2026",
+  "h1": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents",
+  "title": "Cursor automations настройка: cron, webhook и GitHub PR",
+  "description": "Пошаговая cursor automations настройка: billing, cron UTC, webhook после Save, GitHub PR, чеклист secrets и Run History для Cloud Agents.",
+  "keywords": [
+    "cursor automations настройка",
+    "cursor automations cron",
+    "cursor automations webhook",
+    "автоматизация cloud agents cursor",
+    "cursor automations github pr"
+  ],
+  "primary_query": "cursor automations настройка",
+  "secondary_queries": [
+    "cursor automations cron",
+    "cursor automations webhook",
+    "автоматизация cloud agents cursor",
+    "cursor automations github pr"
+  ],
+  "char_count": 8529,
+  "article_mode": "B",
+  "author_id": "artur-horoshev",
+  "anchor_variants": [
+    "как настроить cursor automations cron и webhook",
+    "cursor automations настройка cloud agents пошагово",
+    "автоматизация cloud agents cursor github pr"
+  ],
+  "meta_ab": {
+    "title_seo": "Cursor automations настройка: cron, webhook и GitHub PR",
+    "title_ctr": "🚀 Cursor Automations за 45 минут: cron, webhook и PR без сюрпризов!",
+    "title_aeo": "Как настроить Cursor Automations с cron и webhook в 2026?",
+    "description_seo": "Пошаговая cursor automations настройка: billing, cron UTC, webhook после Save, GitHub PR, чеклист secrets и Run History.",
+    "description_ctr": "⚡ Первая automation в Cursor за вечер: триггеры, Bearer POST, $2 headroom и forum workarounds для cron. Гайд для автоматизаторов.",
+    "description_aeo": "Cursor automations настройка — создать automation на cursor.com/automations с Scheduled, Webhook или GitHub PR, Save-first URL и проверкой Run History."
+  },
+  "cover_family": "brand_collage"
+}

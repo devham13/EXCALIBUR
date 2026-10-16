@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#article",
+      "headline": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents",
+      "description": "Пошаговая cursor automations настройка: billing, cron UTC, webhook после Save, GitHub PR, чеклист secrets и Run History.",
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
+      "inLanguage": "ru",
+      "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mayai.ru/wp-content/uploads/blog/nastroyka-cursor-automations-2026-cover.png",
+        "width": 1200,
+        "height": 675
+      },
+      "author": {
+        "@id": "https://mayai.ru/#author-artur-horoshev"
+      },
+      "publisher": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "keywords": "cursor automations настройка, cursor automations cron, cursor automations webhook, автоматизация cloud agents cursor, cursor automations github pr",
+      "wordCount": 8529,
+      "articleSection": "AI-агенты",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Нужен ли репозиторий для cron automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет для scheduled без кода: Slack-digest или разбор webhook JSON идут без repo. Да, если нужны коммиты или PR: выберите single repo, ветку и проверьте доступ GitHub в Integrations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как передать webhook body в prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сохраните automation, отправьте POST с JSON-телом и Bearer key, откройте Run History и убедитесь, что поля попали в контекст run. При необходимости явно опишите в prompt: \"используй поля lead и source из тела запроса\"."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему cron automation запускается не по расписанию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте UTC vs локальное время или CRON_TZ. Если расписание меняли – пересоздайте automation (известный баг stale scheduler). Убедитесь, что нет зависшего run и что cron не конкурирует с другим event на той же записи."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему не видно webhook URL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сначала нажмите Save automation – URL и API key генерируются только после сохранения. Затем скопируйте ключ в секретное хранилище и сделайте тестовый curl POST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PR из fork не запускает automation – это баг?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, это ограничение docs: fork pull requests не поддерживаются для PR-триггеров. Тестируйте на ветках внутри основного repo или используйте событие merged PR, если оно подходит под задачу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "На каком плане доступны Cursor Automations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нужен paid-план с Cloud Agents; Automations входят в продукт GA с марта 2026. Сверьте свой тариф в dashboard и в pricing – отдельные региональные планы могут отличаться."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто оплачивает run automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "При Run as Me – usage на создателя; при Service account – на team usage pool. Задайте spending limit и запас до cap, иначе run может не начаться."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#howto",
+      "name": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents",
+      "description": "Пошаговая cursor automations настройка: billing, cron UTC, webhook после Save, GitHub PR, чеклист secrets и Run History.",
+      "inLanguage": "ru",
+      "totalTime": "PT45M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Cursor (paid-план с Cloud Agents)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Аккаунт на cursor.com/automations"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Сравните Automations и ручной Cloud Agent",
+          "text": "Определите, нужен ли repo: без репозитория для digest и webhook JSON; один repo или multi-repo для PR и кода. Одна automation – один узкий сценарий; не смешивайте cron и тяжёлый event на одной записи.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#automations-vs-agent"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Создайте automation на cursor.com/automations",
+          "text": "New Automation → trigger → prompt → tools → repo scope → Save → test run → Run History. Проверьте paid-план, интеграции GitHub/Slack, выберите один trigger и минимум tools.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#create-automation"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Настройте cron-триггер с учётом UTC",
+          "text": "Scheduled: пресеты или cron в UTC; для MSK переведите время или задайте CRON_TZ=Europe/Moscow. При смене расписания или stale pattern пересоздайте automation.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#cron-trigger"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Подключите webhook: Save, URL и Bearer key",
+          "text": "Webhook URL и API key появляются только после Save. Отправьте POST с Authorization Bearer и JSON-телом; при смене Run as на Service account regenerate webhook API key.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#webhook-trigger"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Задайте сценарии GitHub PR, Slack и Linear",
+          "text": "Выберите триггер под задачу: GitHub PR opened, push to main, Slack message или Linear issue. Fork PR не поддерживаются; задайте stop-условия в prompt.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#github-slack-linear"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Пройдите чеклист billing, secrets и egress",
+          "text": "Включите on-demand billing и spending limit, оставьте ~$2 headroom до hard cap. Secrets только в настройках automation; проверьте Run as, MCP OAuth для service account и egress.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#billing-checklist"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Запланируйте следующие шаги",
+          "text": "Доведите до зелёного статуса одну automation, три дня смотрите Run History по cron UTC/MSK, подключите MCP при необходимости, вторую automation добавляйте после стабильного первого run.",
+          "url": "https://mayai.ru/blog/nastroyka-cursor-automations-2026/#next-steps"
+        }
+      ]
+    }
+  ]
+}

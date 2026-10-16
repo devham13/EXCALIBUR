@@ -1,0 +1,86 @@
+{
+  "agent": "excalibur-blog",
+  "step": "research_start",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-15",
+    "today_ru": "15.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-17",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-15 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastroyka-cursor-automations-2026",
+    "h1": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents",
+    "primary_query": "cursor automations настройка",
+    "secondary_queries": [
+      "cursor automations cron",
+      "cursor automations webhook",
+      "автоматизация cloud agents cursor",
+      "cursor automations github pr"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "utility_gate": {
+    "gate": "topic",
+    "topic_id": "B06",
+    "status": "PASS",
+    "search_intent": "how_to",
+    "article_mode": "B",
+    "errors": [],
+    "warnings": []
+  },
+  "search_queries": [
+    {
+      "id": "primary_fresh",
+      "query": "cursor automations настройка 2026",
+      "purpose": "актуальный SERP по главному запросу"
+    },
+    {
+      "id": "primary_recent",
+      "query": "cursor automations настройка октябрь 2026",
+      "purpose": "свежее за текущий месяц"
+    },
+    {
+      "id": "news_angle",
+      "query": "cursor automations настройка новости 2026",
+      "purpose": "новости и обновления"
+    },
+    {
+      "id": "secondary_1",
+      "query": "cursor automations cron 2026",
+      "purpose": "вторичный запрос: cursor automations cron"
+    },
+    {
+      "id": "secondary_2",
+      "query": "cursor automations webhook 2026",
+      "purpose": "вторичный запрос: cursor automations webhook"
+    },
+    {
+      "id": "secondary_3",
+      "query": "автоматизация cloud agents cursor 2026",
+      "purpose": "вторичный запрос: автоматизация cloud agents cursor"
+    },
+    {
+      "id": "secondary_4",
+      "query": "cursor automations github pr 2026",
+      "purpose": "вторичный запрос: cursor automations github pr"
+    },
+    {
+      "id": "h1_fresh",
+      "query": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents 2026",
+      "purpose": "SERP по H1"
+    }
+  ],
+  "output_dir": "memory/blog/articles/B06-nastroyka-cursor-automations-2026",
+  "next_step": "Прочитай research-serp.json, дополни web research, напиши research-notes.md"
+}

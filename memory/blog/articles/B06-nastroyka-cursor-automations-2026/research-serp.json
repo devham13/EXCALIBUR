@@ -1,0 +1,469 @@
+{
+  "agent": "excalibur-blog",
+  "date_context": {
+    "timezone": "Europe/Moscow",
+    "today_iso": "2026-10-15",
+    "today_ru": "15.10.2026",
+    "year": 2026,
+    "month": 10,
+    "month_name_ru": "октябрь",
+    "weekday_ru": "четверг",
+    "freshness_window": {
+      "prefer_sources_after": "2026-07-17",
+      "note": "Предпочитай источники не старше ~90 дней; версии продуктов — актуальные на today_iso."
+    },
+    "research_disclaimer": "Все даты, версии и статистика в статье должны быть проверены на 2026-10-15 (2026 год)."
+  },
+  "topic": {
+    "topic_id": "B06",
+    "priority": "P0",
+    "slug": "nastroyka-cursor-automations-2026",
+    "h1": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents",
+    "primary_query": "cursor automations настройка",
+    "secondary_queries": [
+      "cursor automations cron",
+      "cursor automations webhook",
+      "автоматизация cloud agents cursor",
+      "cursor automations github pr"
+    ],
+    "search_intent": "how_to",
+    "article_mode": "B"
+  },
+  "searches": [
+    {
+      "query_id": "primary_fresh",
+      "query": "cursor automations настройка 2026",
+      "purpose": "актуальный SERP по главному запросу",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Пошаговая настройка Cursor Automations: триггеры GitHub и cron, repo scope, MCP, secrets, billing guardrails и Run history. Сравнение с Cloud Agents."
+        },
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": "За 30-45 минут вы подключите GitHub, добавите секреты в dashboard, создадите первую Automation с правильным trigger и repo scope, прогоните Test run и прочитаете Run History. Ниже - пошаговая инструкция для маркетологов и автоматизаторов без глубокого dev-бэкграунда."
+        },
+        {
+          "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+          "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+          "snippet": "Automations can be used to automate tasks like reviewing recent PR commits for bugs, performing deep review for vulnerabilities, triaging bugs in Slack, and summarizing changes to your codebase on a schedule."
+        },
+        {
+          "title": "Cursor Automations in v3.5: How to Set Up No-Repo and Multi-Repo Agents ...",
+          "url": "https://pondero.ai/coding/guides/cursor-v35-automations-setup/",
+          "snippet": "Cursor launched Automations on March 5, 2026, bringing always-on AI agents that trigger automatically on GitHub pull requests, Slack messages, PagerDuty incidents, or scheduled timers."
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "Cursor 3.5 adds no-repo and multi-repo Automations plus five Marketplace templates. This guide walks through setting up the Slack digest agent and the Stripe finance agent, configuring multi-repo mode for engineering teams, and when to use Cursor Automations instead of Zapier or n8n."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "primary_recent",
+      "query": "cursor automations настройка октябрь 2026",
+      "purpose": "свежее за текущий месяц",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Пошаговая настройка Cursor Automations: триггеры GitHub и cron, repo scope, MCP, secrets, billing guardrails и Run history. Сравнение с Cloud Agents."
+        },
+        {
+          "title": "Cursor Automations: как настроить постоянно работающих агентов",
+          "url": "https://aiforpm.ru/blog/cursor-automations-guide",
+          "snippet": "Пошаговая настройка Cursor Automations: trigger, repo scope, cron UTC→MSK, Dashboard Secrets, Test run и Run History. Для маркетологов и автоматизаторов."
+        },
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": "Cursor Automations меняет эту модель: вы задаёте триггер и набор инструкций — и облачные агенты работают в фоне, не дожидаясь вашей просьбы. Паттерн такой: триггер + промпт + инструменты."
+        },
+        {
+          "title": "Automations в Cursor: cron для агента без cron на сервере",
+          "url": "https://neirocursor.ru/guides/automations-v-cursor",
+          "snippet": "Automations can be used to automate tasks like reviewing recent PR commits for bugs, performing deep review for vulnerabilities, triaging bugs in Slack, and summarizing changes to your codebase on a schedule."
+        },
+        {
+          "title": "Конспект: Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents ...",
+          "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+          "snippet": "Для «Automations в Cursor: cron для агента без cron на сервере» достаточно одного узкого изменения. Картинка рядом показывает, как выглядит рабочий экран по этой теме."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "news_angle",
+      "query": "cursor automations настройка новости 2026",
+      "purpose": "новости и обновления",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": "Пошаговая настройка Cursor Automations: триггеры GitHub и cron, repo scope, MCP, secrets, billing guardrails и Run history. Сравнение с Cloud Agents."
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Cursor Automations run cloud agents in the background, either on a schedule or in response to events from GitHub, GitLab, Slack, webhooks, Linear, and more."
+        },
+        {
+          "title": "Cursor · Automations",
+          "url": "https://cursor.com/automate",
+          "snippet": "Cursor Automations запускают Cloud Agents в фоне: по расписанию, при открытии PR или webhook. Без настройки вы каждый раз вручную открываете чат и повторяете одни и те же инструкции."
+        },
+        {
+          "title": "Build agents that run automatically · Cursor",
+          "url": "https://cursor.com/blog/automations",
+          "snippet": "Set up Cursor Automations that run on schedules or event-based triggers to build, maintain, and fix software."
+        },
+        {
+          "title": "Cursor Subscriptions: настройка мониторинга PR и Slack cloud-агентами",
+          "url": "https://www.meta-journal.ru/2026/08/25/cursor-subscriptions-nastrojka-2026/",
+          "snippet": "We're introducing Cursor Automations to build always-on agents. These agents run on schedules or are triggered by events like a sent Slack message, a newly created Linear issue, a merged GitHub PR, or a PagerDuty incident."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "secondary_1",
+      "query": "cursor automations cron 2026",
+      "purpose": "вторичный запрос: cursor automations cron",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": "Пошаговая настройка Cursor Automations: триггеры GitHub и cron, repo scope, MCP, secrets, billing guardrails и Run history. Сравнение с Cloud Agents."
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Choose from preset options or enter a cron expression for precise control. Scheduled triggers may run with a delay but will not start before the indicated time. Source control triggers respond to pull request and push events from your connected Git provider: GitHub, GitLab, and Bitbucket Cloud."
+        },
+        {
+          "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+          "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+          "snippet": "Cursor Automations запускают Cloud Agents в фоне: по расписанию, при открытии PR или webhook. Без настройки вы каждый раз вручную открываете чат и повторяете одни и те же инструкции."
+        },
+        {
+          "title": "Automations · Cursor",
+          "url": "https://cursor.com/changelog/03-05-26",
+          "snippet": "Cursor Automations uses a trigger-action model: events like GitHub PRs, Slack messages, Linear issues, PagerDuty incidents, or cron schedules automatically spin up cloud sandboxes where AI agents execute custom instructions. The setup is straightforward."
+        },
+        {
+          "title": "Cursor Automations: как запускать агентов по триггерам",
+          "url": "https://ardenisov.ru/cursor-automations-kak-polzovatsya/",
+          "snippet": "Automations Cursor now supports automations for building always-on agents that run based on triggers and instructions you define. Automations run on schedules or are triggered by events from Slack, Linear, GitHub, PagerDuty, and webhooks."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "secondary_2",
+      "query": "cursor automations webhook 2026",
+      "purpose": "вторичный запрос: cursor automations webhook",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": ""
+        },
+        {
+          "title": "Webhooks | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/api/webhooks",
+          "snippet": "You can use webhooks to connect automations to internal systems, CI pipelines, monitoring tools, and more. To retrieve the webhook URL, you must save the automation first, which will then generate a webhook URL to call and an API key for authentication."
+        },
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": "When you create an agent with a webhook URL, Cursor will send HTTP POST requests to notify you about status changes. Currently, only statusChange events are supported, specifically when an agent encounters an ERROR or FINISHED state."
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Что такое Cursor Automations? Always-on cloud agents, которые стартуют по триггеру (расписание, GitHub, Slack, webhook, Linear, PagerDuty), а не когда вы открыли чат в IDE."
+        },
+        {
+          "title": "Cursor Automations на Cloud Mac: плановые агенты, Webhook и разделение ...",
+          "url": "https://kvmboot.com/ru/blog/articles/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026.html",
+          "snippet": "Cursor Automations запускают Cloud Agents в фоне: по расписанию, при открытии PR или webhook. Без настройки вы каждый раз вручную открываете чат и повторяете одни и те же инструкции."
+        },
+        {
+          "title": "Как сделать вебхук в Cursor: ответ на заявку без ручного чата",
+          "url": "https://mayai.ru/kak-nastroit-cursor-automations-po-webhook/",
+          "snippet": "По changelog 2026-03-05 и официальному объявлению Cursor Automations — это триггеры + инструкции на естественном языке + опциональные инструменты для постоянно активных агентов."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "secondary_3",
+      "query": "автоматизация cloud agents cursor 2026",
+      "purpose": "вторичный запрос: автоматизация cloud agents cursor",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+          "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+          "snippet": "Настройка cursor automations путается с ручным Cloud Agent из IDE и съедает бюджет на широких триггерах. За 30-45 минут вы создадите первую automation, выберете узкий trigger, repo scope и MCP, проверите run в history и поставите spend limit."
+        },
+        {
+          "title": "AI агенты для бизнеса: Cloud Agents и Automations в Cursor",
+          "url": "https://mayai.ru/cursor-cloud-agents-avtomatizaciya/",
+          "snippet": "Learn how to use Cursor Automations, Cloud Agents, and Bugbot Autofix in March 2026. Step-by-step setup, pricing, and real workflow examples."
+        },
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": "AI-агенты (например, в связке с Make.com и Cursor) позволяют заменить рутинные задачи: сбор данных, написание постов, рерайт и даже автопостинг в Telegram или WordPress."
+        },
+        {
+          "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+          "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+          "snippet": "Cursor Automations run cloud agents in the background, either on a schedule or in response to events from GitHub, GitLab, Slack, webhooks, Linear, and more."
+        },
+        {
+          "title": "Системы автоматизации Cursor: запуск облачных ИИ-агентов",
+          "url": "https://kv-ai.ru/tpost/systemy-avtomatizacii-cursor-ai-agents",
+          "snippet": "Как работает Agent mode в Cursor: субагенты, Plan Mode, /multitask, Cloud Agents и Worktrees. Чем отличается от обычного чата, как правильно ставить задачи и управлять параллельной работой агентов."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "secondary_4",
+      "query": "cursor automations github pr 2026",
+      "purpose": "вторичный запрос: cursor automations github pr",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Automations | Cursor Docs",
+          "url": "https://cursor.com/docs/cloud-agent/automations",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor · Automations",
+          "url": "https://cursor.com/automate",
+          "snippet": "Automations can be used to automate tasks like reviewing recent PR commits for bugs, performing deep review for vulnerabilities, triaging bugs in Slack, and summarizing changes to your codebase on a schedule."
+        },
+        {
+          "title": "Cursor Automations in 2026: wire event-triggered coding…",
+          "url": "https://www.neura.market/directories/cursor/blog/devto-4176894",
+          "snippet": "Set up Cursor Automations that run on schedules or event-based triggers to build, maintain, and fix software."
+        },
+        {
+          "title": "cursor-ai-tips-15-03-26/tips/cursor-26-features.md at main - GitHub",
+          "url": "https://github.com/Yenshut/cursor-ai-tips-15-03-26/blob/main/tips/cursor-26-features.md",
+          "snippet": "Summary. Cursor Automations, shipped in March 2026 and expanded with new triggers in June 2026, let you run cloud coding agents automatically: on a schedule, or in response to a Slack message, a merged GitHub pull request, a new Linear issue, a PagerDuty incident, or a webhook."
+        },
+        {
+          "title": "Cursor BugBot Review 2026: AI Security Checks in Every PR",
+          "url": "https://baeseokjae.github.io/posts/cursor-bugbot-review-2026/",
+          "snippet": "Released: March 5, 2026 | Status: Generally Available The biggest feature in Cursor 2.6 is Automations — agents that work autonomously, triggered by external events, even when you're away from your computer."
+        },
+        {
+          "title": "Cursor Automations Adds /automate Skill and Computer Use",
+          "url": "https://blog.vibecoder.me/cursor-automations-automate-skill-computer-use",
+          "snippet": "Home Posts Cursor BugBot Review 2026: AI Security Checks in Every PR Honest Cursor BugBot review: benchmarks, pricing, Autofix, learned rules, and how it stacks up against CodeRabbit and GitHub Copilot."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    },
+    {
+      "query_id": "h1_fresh",
+      "query": "Как настроить Cursor Automations: cron, webhook и триггеры для Cloud Agents 2026",
+      "purpose": "SERP по H1",
+      "result_count": 6,
+      "results": [
+        {
+          "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+          "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+          "snippet": ""
+        },
+        {
+          "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+          "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+          "snippet": "Настройка cursor automations путается с ручным Cloud Agent из IDE и съедает бюджет на широких триггерах. За 30-45 минут вы создадите первую automation, выберете узкий trigger, repo scope и MCP, проверите run в history и поставите spend limit."
+        },
+        {
+          "title": "Cursor Automations на Cloud Mac: плановые агенты, Webhook и разделение ...",
+          "url": "https://kvmboot.com/ru/blog/articles/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026.html",
+          "snippet": "Cursor Automations запускают Cloud Agents в фоне: по расписанию, при открытии PR или webhook. Без настройки вы каждый раз вручную открываете чат и повторяете одни и те же инструкции."
+        },
+        {
+          "title": "Cursor Automations: как настроить постоянно работающих агентов",
+          "url": "https://aiforpm.ru/blog/cursor-automations-guide",
+          "snippet": "Cursor Automations работают в Linux-песочнице; задачи macOS/Xcode требуют Cloud Mac. Разделение триггеров, гибридная архитектура, чеклист из 7 шагов."
+        },
+        {
+          "title": "Cursor Automations: как запускать агентов по триггерам",
+          "url": "https://ardenisov.ru/cursor-automations-kak-polzovatsya/",
+          "snippet": "Разбираем, как устроены автоматизации, пять типов триггеров, четыре сценария, которые можно запустить меньше чем за 30 минут, и паттерны промптов, делающие автономных агентов надёжными."
+        },
+        {
+          "title": "Automations в Cursor: cron для агента без cron на сервере",
+          "url": "https://neirocursor.ru/guides/automations-v-cursor",
+          "snippet": "Cursor Automations — это фоновые cloud agents, которые стартуют по расписанию или по событиям: GitHub/GitLab/Bitbucket, Slack, webhook, Linear, Sentry, PagerDuty."
+        }
+      ],
+      "searched_at": "2026-10-15"
+    }
+  ],
+  "errors": [],
+  "unique_urls": [
+    {
+      "url": "https://www.meta-journal.ru/2026/06/22/nastrojka-cursor-automations-2026/",
+      "title": "Cursor Automations: чек-лист настройки cloud-агентов 2026",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://www.meta-journal.ru/2026/08/28/nastroyka-cursor-automations-2026/",
+      "title": "Cursor Automations: пошаговая настройка Cloud Agents",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://cursor.com/docs/cloud-agent/automations",
+      "title": "Automations | Cursor Docs",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://byteiota.com/cursor-automations-tutorial-2026-setup-guide/",
+      "title": "Cursor Automations Tutorial 2026: Setup Guide - byteiota",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://pondero.ai/coding/guides/cursor-v35-automations-setup/",
+      "title": "Cursor Automations in v3.5: How to Set Up No-Repo and Multi-Repo Agents ...",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://nextpj.net/blog/cursor-automations-cloud-agents-ai-development-guide-2026",
+      "title": "Cursor Automations & Cloud Agents Guide 2026 | NextPj.net",
+      "from_query": "cursor automations настройка 2026"
+    },
+    {
+      "url": "https://aiforpm.ru/blog/cursor-automations-guide",
+      "title": "Cursor Automations: как настроить постоянно работающих агентов",
+      "from_query": "cursor automations настройка октябрь 2026"
+    },
+    {
+      "url": "https://neirocursor.ru/guides/automations-v-cursor",
+      "title": "Automations в Cursor: cron для агента без cron на сервере",
+      "from_query": "cursor automations настройка октябрь 2026"
+    },
+    {
+      "url": "https://vibecoderz.ru/notes/cursor-ai-ecosystem-2026-rules-mcp-skills",
+      "title": "Конспект: Экосистема Cursor AI 2026: Правила, MCP, Skills и Sub-agents ...",
+      "from_query": "cursor automations настройка октябрь 2026"
+    },
+    {
+      "url": "https://cursor.com/automate",
+      "title": "Cursor · Automations",
+      "from_query": "cursor automations настройка новости 2026"
+    },
+    {
+      "url": "https://cursor.com/blog/automations",
+      "title": "Build agents that run automatically · Cursor",
+      "from_query": "cursor automations настройка новости 2026"
+    },
+    {
+      "url": "https://www.meta-journal.ru/2026/08/25/cursor-subscriptions-nastrojka-2026/",
+      "title": "Cursor Subscriptions: настройка мониторинга PR и Slack cloud-агентами",
+      "from_query": "cursor automations настройка новости 2026"
+    },
+    {
+      "url": "https://cursor.com/changelog/03-05-26",
+      "title": "Automations · Cursor",
+      "from_query": "cursor automations cron 2026"
+    },
+    {
+      "url": "https://ardenisov.ru/cursor-automations-kak-polzovatsya/",
+      "title": "Cursor Automations: как запускать агентов по триггерам",
+      "from_query": "cursor automations cron 2026"
+    },
+    {
+      "url": "https://cursor.com/docs/cloud-agent/api/webhooks",
+      "title": "Webhooks | Cursor Docs",
+      "from_query": "cursor automations webhook 2026"
+    },
+    {
+      "url": "https://kvmboot.com/ru/blog/articles/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026/cursor-automations-oblachnyy-mac-planirovannye-webhook-agenty-2026.html",
+      "title": "Cursor Automations на Cloud Mac: плановые агенты, Webhook и разделение ...",
+      "from_query": "cursor automations webhook 2026"
+    },
+    {
+      "url": "https://mayai.ru/kak-nastroit-cursor-automations-po-webhook/",
+      "title": "Как сделать вебхук в Cursor: ответ на заявку без ручного чата",
+      "from_query": "cursor automations webhook 2026"
+    },
+    {
+      "url": "https://mayai.ru/cursor-cloud-agents-avtomatizaciya/",
+      "title": "AI агенты для бизнеса: Cloud Agents и Automations в Cursor",
+      "from_query": "автоматизация cloud agents cursor 2026"
+    },
+    {
+      "url": "https://shtruzel.ru/articles/cursor-agent-mode-kak-ispolzovat-2026",
+      "title": "Cursor Agent Mode 2026: субагенты, Cloud Agents и как использовать",
+      "from_query": "автоматизация cloud agents cursor 2026"
+    },
+    {
+      "url": "https://kv-ai.ru/tpost/systemy-avtomatizacii-cursor-ai-agents",
+      "title": "Системы автоматизации Cursor: запуск облачных ИИ-агентов",
+      "from_query": "автоматизация cloud agents cursor 2026"
+    },
+    {
+      "url": "https://www.neura.market/directories/cursor/blog/devto-4176894",
+      "title": "Cursor Automations in 2026: wire event-triggered coding…",
+      "from_query": "cursor automations github pr 2026"
+    },
+    {
+      "url": "https://github.com/Yenshut/cursor-ai-tips-15-03-26/blob/main/tips/cursor-26-features.md",
+      "title": "cursor-ai-tips-15-03-26/tips/cursor-26-features.md at main - GitHub",
+      "from_query": "cursor automations github pr 2026"
+    },
+    {
+      "url": "https://baeseokjae.github.io/posts/cursor-bugbot-review-2026/",
+      "title": "Cursor BugBot Review 2026: AI Security Checks in Every PR",
+      "from_query": "cursor automations github pr 2026"
+    },
+    {
+      "url": "https://blog.vibecoder.me/cursor-automations-automate-skill-computer-use",
+      "title": "Cursor Automations Adds /automate Skill and Computer Use",
+      "from_query": "cursor automations github pr 2026"
+    }
+  ]
+}

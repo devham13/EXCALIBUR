@@ -1,0 +1,50 @@
+{
+  "topic_id": "B06",
+  "slug": "nastroyka-cursor-automations-2026",
+  "cover_family": "brand_collage",
+  "style_preset": "digital_meme_collage_ru",
+  "pipeline": "quad_canvas_1x_mcp",
+  "file": "cover/cover.png",
+  "alt": "Обложка: cron UTC, webhook после Save и billing для Cursor Automations",
+  "aspect_ratio": "16:9",
+  "canvas_source": "cover/canvas-quad.png",
+  "generated_at": "2026-10-15T14:17:50+00:00",
+  "assets": [
+    {
+      "role": "cover",
+      "slot": "cover",
+      "file": "cover/cover.png",
+      "alt": "Обложка: cron UTC, webhook после Save и billing для Cursor Automations",
+      "h2_anchor": null,
+      "visual_type": "cover_meme_hero",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_1",
+      "file": "cover/inline-01.png",
+      "alt": "Таблица сравнения Automations и ручного Cloud Agent",
+      "h2_anchor": "1. Сравните Automations и ручной Cloud Agent",
+      "visual_type": "comparison_table_ui",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_2",
+      "file": "cover/inline-02.png",
+      "alt": "Схема шагов создания automation на cursor.com/automations",
+      "h2_anchor": "2. Создайте automation на cursor.com/automations",
+      "visual_type": "workflow_diagram",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "role": "inline",
+      "slot": "inline_3",
+      "file": "cover/inline-03.png",
+      "alt": "Чеклист настройки cron-триггера Cursor Automations с учётом UTC",
+      "h2_anchor": "3. Настройте cron-триггер с учётом UTC",
+      "visual_type": "checklist_board",
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -2,65 +2,77 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://mayai.ru/#organization",
+      "name": "Maya AI — блог «Ковчег»",
+      "url": "https://mayai.ru/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://mayai.ru/#logo",
+        "url": "https://mayai.ru/wp-content/uploads/logo.png",
+        "caption": "Maya AI — блог «Ковчег»"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mayai.ru/#author-artur-horoshev",
+      "name": "Артур Хорошев",
+      "jobTitle": "CEO Maya AI, автор курса по Make.com и вайбкодингу",
+      "image": "https://kv-ai.ru/artur-horosheff",
+      "worksFor": {
+        "@id": "https://mayai.ru/#organization"
+      },
+      "sameAs": [
+        "https://kv-ai.ru/artur-horosheff",
+        "https://mayai.ru/obo-mne/",
+        "https://t.me/maya_pro",
+        "https://t.me/horosheff"
+      ]
+    },
+    {
       "@type": "BlogPosting",
-      "@id": "https://example.com/blog/primer-seo-stati/#article",
+      "@id": "https://mayai.ru/primer-seo-stati/#article",
       "headline": "Как писать SEO-статьи, которые читают люди",
-      "description": "Пошаговый workflow SEO + GEO: семантика, структура longread, FAQ, schema и чеклист перед публикацией. Без переспама и воды — для людей и нейропоиска.",
-      "datePublished": "2026-06-10",
-      "dateModified": "2026-06-10",
+      "description": "Пошаговый workflow SEO + GEO: семантика, структура longread, FAQ, schema и чек-лист перед публикацией. Без переспама, для людей и нейропоиска.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
       "inLanguage": "ru",
-      "url": "https://example.com/blog/primer-seo-stati/",
+      "url": "https://mayai.ru/primer-seo-stati/",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://example.com/blog/primer-seo-stati/"
+        "@id": "https://mayai.ru/primer-seo-stati/"
       },
       "image": {
         "@type": "ImageObject",
-        "url": "https://example.com/wp-content/uploads/blog/primer-seo-stati-cover.png",
+        "url": "https://mayai.ru/wp-content/uploads/blog/primer-seo-stati-cover.png",
         "width": 1200,
         "height": 675
       },
       "author": {
-        "@type": "Person",
-        "@id": "https://example.com/#author-elena-kovaleva",
-        "name": "Елена Ковалева",
-        "jobTitle": "Главный эксперт по поисковой оптимизации и GEO/AEO-стратегиям",
-        "image": "https://kv-ai.ru/assets/team/elena-kovaleva.jpg",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Пример Блога",
-          "url": "https://example.com/"
-        },
-        "sameAs": [
-          "https://habr.com/ru/users/elena_kovaleva_seo/",
-          "https://github.com/elena-kov-seo",
-          "https://www.linkedin.com/in/elena-kovaleva-dummy-seo"
-        ]
+        "@id": "https://mayai.ru/#author-artur-horoshev"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Пример Блога",
-        "url": "https://example.com/"
+        "@id": "https://mayai.ru/#organization"
       },
       "keywords": "как писать seo статьи, seo текст для блога, geo оптимизация статьи, сколько символов в seo статье, что такое geo в seo",
-      "wordCount": 8894,
-      "articleSection": "SEO",
+      "wordCount": 8807,
+      "articleSection": "SEO / GEO",
       "isPartOf": {
         "@type": "Blog",
-        "name": "Пример Блога",
-        "url": "https://example.com/blog/"
+        "name": "Maya AI — блог «Ковчег»",
+        "url": "https://mayai.ru/blog/"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://example.com/blog/primer-seo-stati/#faq",
+      "@id": "https://mayai.ru/primer-seo-stati/#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "Сколько символов должно быть в SEO-статье?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Универсальной нормы нет — объём зависит от сложности темы и конкурентов в выдаче. Ориентир для how-to longread: 8 500–9 500 знаков текста, если SERP требует глубины. Короткий ответ важнее раздутого полотна без новых фактов."
+            "text": "Универсальной нормы нет - Яндекс прямо указывает, что объём зависит от темы и конкуренции. Сравните топ выдачи по вашему запросу; для обучающего longread в этом блоге ориентир 8 500-9 500 знаков текста."
           }
         },
         {
@@ -68,15 +80,15 @@
           "name": "Что такое GEO в SEO?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "GEO (Generative Engine Optimization) дополняет SEO: цель — цитирование в AI-ответах (Яндекс Нейро, Google AI Overviews). База та же — индексируемый, структурированный и честный контент. GEO без SEO не работает."
+            "text": "GEO - дополнение к классическому SEO: вы структурируете тот же индексируемый текст так, чтобы фрагменты цитировали в AI-ответах. База одна: нормальный человеческий материал плюс FAQ и schema."
           }
         },
         {
           "@type": "Question",
-          "name": "Нужно ли переспамить ключевые слова в 2026 году?",
+          "name": "Нужен ли переспам ключей в 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Нет. Поисковики оценивают смысл и полезность; переспам вреден. Используйте primary query в заголовках и lead, secondary и LSI — естественно в подзаголовках и абзацах."
+            "text": "Нет. Достаточно естественных вхождений primary и тематических слов. Если абзац ради ключей - перепишите его под вопрос читателя."
           }
         },
         {
@@ -84,23 +96,23 @@
           "name": "Чем Title отличается от H1?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Title — для сниппета в выдаче (около 65 знаков, ключ и триггер). H1 — заголовок на странице. Их не дублируйте: разные роли, один интент."
+            "text": "Title - для сниппета в выдаче (~55-60 символов), H1 - заголовок на странице. Смысл связан, но дословное копирование не нужно."
           }
         },
         {
           "@type": "Question",
-          "name": "Какие schema нужны для SEO-статьи блога?",
+          "name": "Какие schema нужны блогу?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Минимум BlogPosting (или Article) и FAQPage, если есть блок вопросов. JSON-LD в отдельном файле или meta; текст FAQ должен совпадать с видимым HTML."
+            "text": "Минимум BlogPosting или Article, при видимом FAQ - FAQPage. Текст в JSON-LD должен совпадать с HTML. Organization связывает материал с брендом."
           }
         },
         {
           "@type": "Question",
-          "name": "Что такое llms.txt и нужен ли он блогу?",
+          "name": "Можно ли отдать текст нейросети без правок?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "llms.txt — файл подсказок для AI-краулеров (стандарт с сентября 2024). Полезный дополнительный сигнал рядом с sitemap, не замена индексации. Для блога с нейропоиском — разумная инвестиция."
+            "text": "Рискованно: галлюцинации фактов и \"вода\". Используйте ИИ для черновика и структуры, финал - человек; так же советуют human-in-the-loop данные из fact-bank."
           }
         },
         {
@@ -108,53 +120,86 @@
           "name": "Как проверить статью перед публикацией?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Пройдите чеклист: семантика, мета, структура H2, FAQ, schema, ссылки, читабельность, island test по блокам. После — технический QA: linter HTML, проверка ссылок, slop и каннибализация ключей."
+            "text": "Пройдите чек-лист выше: семантика, intent, мета, FAQ, ссылки, island test и читабельность. После публикации отметьте дату обновления при правках."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://example.com/blog/primer-seo-stati/#howto",
+      "@id": "https://mayai.ru/primer-seo-stati/#howto",
       "name": "Как писать SEO-статьи, которые читают люди",
-      "description": "Пошаговый workflow SEO + GEO: от семантики и структуры longread до FAQ, schema и чеклиста перед публикацией.",
+      "description": "Workflow SEO + GEO: семантика и SERP, структура longread с BLUF, черновик, мета, FAQ и чек-лист перед публикацией.",
       "inLanguage": "ru",
+      "totalTime": "PT180M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Яндекс Вордстат и Яндекс Вебмастер или ручной разбор SERP"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "CMS или редактор с полями Title, Description и alt"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Список primary query и 5–10 LSI-формулировок"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Тексты FAQ для HTML и JSON-LD"
+        }
+      ],
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Определите интент",
-          "text": "Информационный, how-to, сравнение — от этого зависит структура и объём."
+          "name": "Зафиксируйте спрос",
+          "text": "Запишите primary запрос и 5–10 смежных формулировок (LSI); сгруппируйте по intent (информационный, коммерческий)."
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Соберите семантику",
-          "text": "Primary query в H1 и lead, secondary — в подзаголовки и абзацы естественно."
+          "name": "Разберите топ выдачи",
+          "text": "Откройте топ 5–10 результатов: формат, глубина, таблицы, даты, пробелы (FAQ, цифры с источником)."
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Нарисуйте outline",
-          "text": "Каждый H2 = один подвопрос; первое предложение секции = тезис."
+          "name": "Соберите каркас с BLUF",
+          "text": "H1 = главный запрос; H2 по подвопросам; под каждым H2 — тезис в первом предложении и 3–5 буллетов содержания."
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Напишите lead",
-          "text": "350–500 знаков: боль, суть ответа, что получит читатель — без «в этой статье вы узнаете»."
+          "name": "Напишите черновик",
+          "text": "Lead 350–500 символов с прямым ответом; абзацы 3–5 строк; списки и таблицы; E-E-A-T lite с источником."
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Разложите факты",
-          "text": "Абзацы 3–5 строк; списки для перечислений; таблица, если сравнение."
+          "name": "Расставьте ключи",
+          "text": "Primary в H1, lead и 1–2 H2; LSI по тексту естественно; без переспама."
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Добавьте FAQ и мета",
-          "text": "Пять–семь вопросов с короткими ответами; Title/Description до публикации."
+          "name": "Оформите мета и медиа",
+          "text": "Title ~55–60 символов, description с пользой; alt у изображений; H1 и Title не дублируйте дословно."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Добавьте GEO-слой",
+          "text": "FAQ 5–7 с ответами-действиями; каждый H2 как «остров смысла»; перелинковка на hub-материалы при необходимости."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Пройдите pre-publish чек-лист",
+          "text": "Семантика, intent закрыт, FAQ совпадает с FAQPage, ссылки, орфография, mobile; план обновления dateModified."
         }
       ]
     }

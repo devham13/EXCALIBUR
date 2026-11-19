@@ -5,6 +5,16 @@
   "updated_at": "2026-11-19",
   "sources": [
     {
+      "id": "mobbin",
+      "url": "https://mobbin.com/",
+      "card": "shared/design-references/sources/mobbin.md",
+      "purpose": "Экраны, UI-компоненты и пользовательские flows web/mobile; MCP на Pro/Team",
+      "last_verified": "2026-11-19",
+      "mcp_url": "https://api.mobbin.com/mcp",
+      "mcp_auth": "oauth_required",
+      "mcp_tools_verified": false
+    },
+    {
       "id": "supahero",
       "url": "https://supahero.io/",
       "card": "shared/design-references/sources/supahero.md",
@@ -43,6 +53,14 @@
       "source_id": "design-spells",
       "path": "shared/design-references/legal-site-curated/design-spells-curated.md",
       "spell_count": 10
+    },
+    {
+      "id": "legal-site-mobbin",
+      "site_role": "legal-corporate-site",
+      "source_id": "mobbin",
+      "path": "shared/design-references/legal-site-curated/mobbin-curated.md",
+      "screen_refs": 5,
+      "mcp_status": "configured_requires_owner_login"
     },
     {
       "id": "legal-site-supahero",

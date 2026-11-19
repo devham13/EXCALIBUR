@@ -2,6 +2,9 @@
   "mcpServers": {
     "jiro": {
       "url": "https://mcp.jiro.build"
+    },
+    "mobbin": {
+      "url": "https://api.mobbin.com/mcp"
     }
   }
 }

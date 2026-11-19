@@ -43,6 +43,14 @@
 | RS-04 | [Vercel](https://styles.refero.design/style/f24daf3a-d43f-4dec-85a9-8ac1d5148a03) | Сетка long-read / блог |
 | RS-05 | [Ramp](https://styles.refero.design/style/b38702a0-75ab-474c-9106-00b624535825) | Иерархия CTA и карточек услуг (акцент ослабить) |
 
+## Референсы сценариев (Mobbin)
+
+Сценарии S1–S5 и экраны MB-01…MB-05: [`shared/design-references/legal-site-curated/mobbin-curated.md`](shared/design-references/legal-site-curated/mobbin-curated.md). Правило: [`rules/design-user-flows.mdc`](rules/design-user-flows.mdc).
+
+**MCP:** `mobbin` в `.cursor/mcp.json` — **настроен, требует входа владельца** (Pro/Team + OAuth). Tools **не проверены**.
+
+**E-commerce:** корзина/checkout **не** в scope продукта (только услуги и заявки).
+
 ## Референсы hero (Supahero)
 
 Композиция первого экрана: [`shared/design-references/legal-site-curated/supahero-curated.md`](shared/design-references/legal-site-curated/supahero-curated.md). Правило: [`rules/design-hero-first-screen.mdc`](rules/design-hero-first-screen.mdc).
@@ -125,6 +133,7 @@
 ## Экосистема инструкций
 
 - Карта источников: [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md)
+- User flows: `rules/design-user-flows.mdc`
 - Hero: `rules/design-hero-first-screen.mdc`
 - Новые страницы: `rules/design-pages-visual-system.mdc`
 - Motion: `rules/design-micro-interactions.mdc`

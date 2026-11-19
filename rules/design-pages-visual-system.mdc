@@ -17,10 +17,11 @@ alwaysApply: false
 
 1. Прочитай [`DESIGN.md`](DESIGN.md) в корне репозитория. Соблюдай пометки **«требует утверждения владельцем»** — не внедряй спорные токены без явного запроса.
 2. Открой [`shared/design-references/index.json`](shared/design-references/index.json) и [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md).
-3. Для **первого экрана** — отдельно [`rules/design-hero-first-screen.mdc`](design-hero-first-screen.mdc) и Supahero SH-xx.
-4. Выбери **одну** карточку Refero (RS-01…RS-05) из [`shared/design-references/legal-site-curated/refero-styles-curated.md`](shared/design-references/legal-site-curated/refero-styles-curated.md) или обоснуй отказ в PR.
-5. Используй **существующие** tokens/компоненты проекта; новые токены — только в `DESIGN.md` + согласованность со всеми страницами.
-6. Motion/анимации — отдельно [`rules/design-micro-interactions.mdc`](design-micro-interactions.mdc) и Design Spells (DS-Lxx).
+3. Для **пользовательского сценария** (форма, воронка) — [`rules/design-user-flows.mdc`](design-user-flows.mdc) и Mobbin MB-xx.
+4. Для **первого экрана** — отдельно [`rules/design-hero-first-screen.mdc`](design-hero-first-screen.mdc) и Supahero SH-xx.
+5. Выбери **одну** карточку Refero (RS-01…RS-05) из [`shared/design-references/legal-site-curated/refero-styles-curated.md`](shared/design-references/legal-site-curated/refero-styles-curated.md) или обоснуй отказ в PR.
+6. Используй **существующие** tokens/компоненты проекта; новые токены — только в `DESIGN.md` + согласованность со всеми страницами.
+7. Motion/анимации — отдельно [`rules/design-micro-interactions.mdc`](design-micro-interactions.mdc) и Design Spells (DS-Lxx).
 
 ## Шрифты и кириллица
 

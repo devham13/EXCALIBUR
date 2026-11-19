@@ -1,6 +1,6 @@
 # База референсов дизайна (EXCALIBUR / сайт «Лирейт»)
 
-Канонический каталог **визуальной системы** (Refero Styles), **микровзаимодействий** (Design Spells) и связки с **Jiro MCP** для публичного сайта юридической компании «Лирейт» (`PUBLIC_SITE_URL`, см. `.env.example`) и связанных визуальных работ в репозитории.
+Канонический каталог **hero** (Supahero), **визуальной системы** (Refero Styles), **микровзаимодействий** (Design Spells) и связки с **Jiro MCP** для публичного сайта юридической компании «Лирейт» (`PUBLIC_SITE_URL`, см. `.env.example`) и связанных визуальных работ в репозитории.
 
 Черновик проектных tokens и страниц: [`DESIGN.md`](../../DESIGN.md) в корне репозитория.
 
@@ -17,6 +17,7 @@
 ## Связанные инструкции
 
 - Карта экосистемы: [`ecosystem.md`](ecosystem.md) (Refero ↔ Design Spells ↔ Jiro)
+- Правило hero: [`rules/design-hero-first-screen.mdc`](../../rules/design-hero-first-screen.mdc)
 - Правило визуальной системы: [`rules/design-pages-visual-system.mdc`](../../rules/design-pages-visual-system.mdc)
 - Правило motion: [`.cursor/rules/design-micro-interactions.mdc`](../../.cursor/rules/design-micro-interactions.mdc) (исходник — [`rules/design-micro-interactions.mdc`](../../rules/design-micro-interactions.mdc))
 - Визуальные MCP-ассеты (обложки, hero): [`shared/visual-assets-mcp-policy.md`](../visual-assets-mcp-policy.md)

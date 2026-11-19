@@ -43,6 +43,20 @@
 | RS-04 | [Vercel](https://styles.refero.design/style/f24daf3a-d43f-4dec-85a9-8ac1d5148a03) | Сетка long-read / блог |
 | RS-05 | [Ramp](https://styles.refero.design/style/b38702a0-75ab-474c-9106-00b624535825) | Иерархия CTA и карточек услуг (акцент ослабить) |
 
+## Референсы hero (Supahero)
+
+Композиция первого экрана: [`shared/design-references/legal-site-curated/supahero-curated.md`](shared/design-references/legal-site-curated/supahero-curated.md). Правило: [`rules/design-hero-first-screen.mdc`](rules/design-hero-first-screen.mdc).
+
+| ID | Пример | Задача посетителя (концепт) |
+|----|--------|----------------------------|
+| SH-01 | [Canopy](https://supahero.io/hero/canopy) | Доверие к B2B-сервису, доказательства + логотипы |
+| SH-02 | [Phamily](https://supahero.io/hero/phamily) | Экспертное сопровождение, два входа в воронку |
+| SH-03 | [Cobalt](https://supahero.io/hero/cobalt) | Явный оффер для владельца МСБ (+ mockup этапов) |
+| SH-04 | [Better Stack](https://supahero.io/hero/better-stack) | Быстрый контакт, форма/CTA + social proof |
+| SH-05 | [ai.work](https://supahero.io/hero/ai-work) | Перечень услуг ИС в подзаголовке, спокойная асимметрия |
+
+Скриншоты Supahero — **не** продакшен-ассеты; LCP-графика hero — только своя или лицензированная.
+
 ## Референсы motion (Design Spells)
 
 См. [`shared/design-references/legal-site-curated/design-spells-curated.md`](shared/design-references/legal-site-curated/design-spells-curated.md) и `design_ref: DS-Lxx` в PR.
@@ -111,7 +125,8 @@
 ## Экосистема инструкций
 
 - Карта источников: [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md)
-- Новые страницы: правило `rules/design-pages-visual-system.mdc`
+- Hero: `rules/design-hero-first-screen.mdc`
+- Новые страницы: `rules/design-pages-visual-system.mdc`
 - Motion: `rules/design-micro-interactions.mdc`
 
 ## Решения, ожидающие владельца

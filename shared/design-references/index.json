@@ -11,6 +11,21 @@
       "purpose": "Курируемые screen recordings микровзаимодействий и переходов в реальных продуктах",
       "last_verified": "2026-11-19",
       "agent_discovery": "https://designspells.com/llms.txt"
+    },
+    {
+      "id": "refero-styles",
+      "url": "https://styles.refero.design/",
+      "card": "shared/design-references/sources/refero-styles.md",
+      "purpose": "Каталог извлечённых design systems (палитра, типографика, компоненты) с вкладкой DESIGN.md на странице стиля",
+      "last_verified": "2026-11-19",
+      "agent_discovery": "shared/design-references/legal-site-curated/refero-styles-curated.md"
+    },
+    {
+      "id": "jiro-mcp",
+      "url": "https://mcp.jiro.build",
+      "card": "shared/design-references/ecosystem.md",
+      "purpose": "MCP-шаблоны и UI-блоки (OAuth); список tools не верифицирован в Cloud",
+      "last_verified": "2026-11-19"
     }
   ],
   "curations": [
@@ -20,6 +35,13 @@
       "source_id": "design-spells",
       "path": "shared/design-references/legal-site-curated/design-spells-curated.md",
       "spell_count": 10
+    },
+    {
+      "id": "legal-site-refero-styles",
+      "site_role": "legal-corporate-site",
+      "source_id": "refero-styles",
+      "path": "shared/design-references/legal-site-curated/refero-styles-curated.md",
+      "style_count": 5
     }
   ]
 }

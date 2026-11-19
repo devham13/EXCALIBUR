@@ -42,5 +42,8 @@ alwaysApply: false
 
 ## Связанные пути
 
-- Источник Design Spells: [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md)
-- Статические ассеты hero/cover: [`shared/visual-assets-mcp-policy.md`](shared/visual-assets-mcp-policy.md)
+- Визуальная система (страницы, tokens): [`DESIGN.md`](../../DESIGN.md) + [`rules/design-pages-visual-system.mdc`](design-pages-visual-system.mdc)
+- Карта источников: [`shared/design-references/ecosystem.md`](../../shared/design-references/ecosystem.md)
+- Источник Design Spells: [`shared/design-references/sources/design-spells.md`](../../shared/design-references/sources/design-spells.md)
+- Refero Styles (сетка/палитра, не motion): [`shared/design-references/legal-site-curated/refero-styles-curated.md`](../../shared/design-references/legal-site-curated/refero-styles-curated.md)
+- Статические ассеты hero/cover: [`shared/visual-assets-mcp-policy.md`](../../shared/visual-assets-mcp-policy.md)

@@ -111,13 +111,15 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 
 Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.
 
-## Референсы микровзаимодействий (сайт «Лирейт»)
+## Референсы дизайна (сайт «Лирейт»)
 
-Отдельно от пайплайна блога. Перед изменением анимаций и micro-UX на публичном сайте (`PUBLIC_SITE_URL`):
+Отдельно от пайплайна блога. Перед **новыми страницами**, глобальными стилями или micro-UX на публичном сайте (`PUBLIC_SITE_URL`):
 
+- Черновик визуальной системы: [`DESIGN.md`](DESIGN.md) (пометки «требует утверждения владельцем» обязательны к соблюдению)
 - База: [`shared/design-references/`](shared/design-references/) (реестр [`index.json`](shared/design-references/index.json))
-- Источник [Design Spells](https://designspells.com/): [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md)
-- Подборка: [`shared/design-references/legal-site-curated/design-spells-curated.md`](shared/design-references/legal-site-curated/design-spells-curated.md)
-- Правило Cursor: [`rules/design-micro-interactions.mdc`](rules/design-micro-interactions.mdc) (в Cloud: `.cursor/rules/` после `scripts/sync_cursor_cloud.ps1`)
+- Экосистема: [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md)
+- [Refero Styles](https://styles.refero.design/): [`shared/design-references/sources/refero-styles.md`](shared/design-references/sources/refero-styles.md) → подборка RS-01…RS-05: [`legal-site-curated/refero-styles-curated.md`](shared/design-references/legal-site-curated/refero-styles-curated.md)
+- [Design Spells](https://designspells.com/): [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md) → DS-L01…L10: [`legal-site-curated/design-spells-curated.md`](shared/design-references/legal-site-curated/design-spells-curated.md)
+- Правила Cursor: [`rules/design-pages-visual-system.mdc`](rules/design-pages-visual-system.mdc) (страницы и tokens), [`rules/design-micro-interactions.mdc`](rules/design-micro-interactions.mdc) (motion; в Cloud: `.cursor/rules/` после `scripts/sync_cursor_cloud.ps1`)
 
-Проектный MCP (Jiro): [`.cursor/mcp.json`](.cursor/mcp.json).
+Проектный MCP (Jiro): [`.cursor/mcp.json`](.cursor/mcp.json) — **OAuth обязателен**; инструменты в Cloud не верифицированы (см. `ecosystem.md`).

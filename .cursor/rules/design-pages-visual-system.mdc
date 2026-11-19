@@ -1,0 +1,49 @@
+---
+description: Новые страницы и визуальная система — DESIGN.md, Refero Styles, кириллица и лицензии шрифтов; согласованность между страницами.
+globs:
+  - "DESIGN.md"
+  - "shared/design-references/**"
+  - "**/*.{css,scss,less,sass,js,ts,tsx,jsx,vue,php,html,twig}"
+alwaysApply: false
+---
+
+# Визуальная система и новые страницы (сайт «Лирейт»)
+
+Не заменяет пайплайн **Excalibur BLOG** (статьи, cover, publish).
+
+## Обязательный preflight
+
+Перед **созданием или существенным изменением** страницы, шаблона, глобальных стилей или UI-компонента для публичного сайта:
+
+1. Прочитай [`DESIGN.md`](DESIGN.md) в корне репозитория. Соблюдай пометки **«требует утверждения владельцем»** — не внедряй спорные токены без явного запроса.
+2. Открой [`shared/design-references/index.json`](shared/design-references/index.json) и [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md).
+3. Выбери **одну** карточку Refero (RS-01…RS-05) из [`shared/design-references/legal-site-curated/refero-styles-curated.md`](shared/design-references/legal-site-curated/refero-styles-curated.md) или обоснуй отказ в PR.
+4. Используй **существующие** tokens/компоненты проекта; новые токены — только в `DESIGN.md` + согласованность со всеми страницами.
+5. Motion/анимации — отдельно [`rules/design-micro-interactions.mdc`](design-micro-interactions.mdc) и Design Spells (DS-Lxx).
+
+## Шрифты и кириллица
+
+- Для **каждого** подключаемого шрифта зафиксируй: название, лицензию, **наличие кириллицы** (источник проверки: файл шрифта, Google Fonts metadata, OFL text).
+- Не копируй коммерческие гарнитуры из Refero (Roobert, SuisseIntl, lausanne, Wise Sans…) без лицензии.
+- Предпочтительные OFL с кириллицей для RU: Inter, Source Sans 3, JetBrains Mono (см. `DESIGN.md`).
+
+## Атрибуция
+
+- В PR/commit: `design_ref: RS-xx` + URL `https://styles.refero.design/style/<uuid>`.
+- Не копируй скриншоты `images.refero.design` в продакшен без права.
+
+## Jiro MCP
+
+- Сервер: `.cursor/mcp.json` → `https://mcp.jiro.build`.
+- **OAuth** обязателен; список tools **не** считать проверенным, пока не задокументирован в `ecosystem.md`.
+- Блоки Jiro — адаптировать под `DESIGN.md`, не наоборот.
+
+## Согласованность
+
+- Изменение глобального цвета, шрифта или радиуса затрагивает **все** страницы: перечисли затронутые шаблоны в PR.
+- Блог EXCALIBUR (`memory/cover/`, палитра в `site-brief.md`) — отдельный контур; не смешивать с корпоративным лендингом без решения владельца.
+
+## Связанные пути
+
+- Refero: [`shared/design-references/sources/refero-styles.md`](shared/design-references/sources/refero-styles.md)
+- Design Spells: [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md)

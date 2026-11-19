@@ -110,3 +110,14 @@ python3 scripts/excalibur_blog_research_start.py --topic-id B01
 Директор: `.cursor/agents/excalibur-blog-director.md` + `director-excalibur-blog` skill — **не Task**.
 
 Полная настройка worker/automation: `CLOUD-AUTOMATION.md`.
+
+## Референсы микровзаимодействий (сайт «Лирейт»)
+
+Отдельно от пайплайна блога. Перед изменением анимаций и micro-UX на публичном сайте (`PUBLIC_SITE_URL`):
+
+- База: [`shared/design-references/`](shared/design-references/) (реестр [`index.json`](shared/design-references/index.json))
+- Источник [Design Spells](https://designspells.com/): [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md)
+- Подборка: [`shared/design-references/legal-site-curated/design-spells-curated.md`](shared/design-references/legal-site-curated/design-spells-curated.md)
+- Правило Cursor: [`rules/design-micro-interactions.mdc`](rules/design-micro-interactions.mdc) (в Cloud: `.cursor/rules/` после `scripts/sync_cursor_cloud.ps1`)
+
+Проектный MCP (Jiro): [`.cursor/mcp.json`](.cursor/mcp.json).

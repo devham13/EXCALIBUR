@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "project": "legal-corporate-site",
+  "public_site_env": "PUBLIC_SITE_URL",
+  "updated_at": "2026-11-19",
+  "sources": [
+    {
+      "id": "design-spells",
+      "url": "https://designspells.com/",
+      "card": "shared/design-references/sources/design-spells.md",
+      "purpose": "Курируемые screen recordings микровзаимодействий и переходов в реальных продуктах",
+      "last_verified": "2026-11-19",
+      "agent_discovery": "https://designspells.com/llms.txt"
+    }
+  ],
+  "curations": [
+    {
+      "id": "legal-site-design-spells",
+      "site_role": "legal-corporate-site",
+      "source_id": "design-spells",
+      "path": "shared/design-references/legal-site-curated/design-spells-curated.md",
+      "spell_count": 10
+    }
+  ]
+}

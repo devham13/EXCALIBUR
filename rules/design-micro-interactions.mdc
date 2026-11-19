@@ -1,0 +1,46 @@
+---
+description: Микровзаимодействия и motion — сначала база референсов (Design Spells и shared/design-references), затем реализация с a11y и perf.
+globs:
+  - "**/*.{css,scss,less,sass,js,ts,tsx,jsx,vue,svelte,php,html,twig}"
+  - "shared/design-references/**"
+alwaysApply: false
+---
+
+# Motion и микровзаимодействия (сайт «Лирейт» / EXCALIBUR)
+
+Не относится к пайплайну **Excalibur BLOG** (cover, schema, publish). Для статей блога это правило **не** подменяет `excalibur-blog-orchestrator`.
+
+## Обязательный preflight
+
+Перед **созданием или изменением** анимаций, переходов, hover/focus-эффектов, состояний загрузки, sheet/modal, каруселей и CTA-обратной связи:
+
+1. Прочитай [`shared/design-references/index.json`](shared/design-references/index.json).
+2. Найди релевантную курировку (для сайта: [`shared/design-references/legal-site-curated/design-spells-curated.md`](shared/design-references/legal-site-curated/design-spells-curated.md)).
+3. Выбери **один** приём (id DS-Lxx) или обоснуй в PR/commit, почему ни один не подошёл.
+4. Адаптируй к сдержанному юридическому стилю сайта «Лирейт», существующим токенам и компонентам — **без** копирования чужого кода, SVG, Lottie и **без** встраивания видео с Design Spells.
+5. В комментарии к реализации или в описании PR укажи: `design_ref: DS-Lxx` + URL spell на https://designspells.com/ (атрибуция Design Spells / исходный продукт).
+
+Дополнительно при необходимости свежих примеров: `https://designspells.com/llms.txt` (read-only сайт, без API-ключей).
+
+## Запрещено
+
+- Внедрять эффект «с нуля» без просмотра релевантной записи в `shared/design-references/`, если в репозитории уже есть подходящий референс.
+- Копировать ассеты, ролики и фрагменты UI с spell-страниц или из продуктов третьих сторон.
+- Делать критичное действие **только** на `:hover` (desktop-only).
+
+## Чеклист для каждого внедрённого эффекта
+
+Перед merge проверь (ручной smoke или e2e, где есть):
+
+| Критерий | Требование |
+|----------|------------|
+| Мобильный | Touch-targets, нет hover-only; sheet/modal не ломают viewport |
+| Клавиатура | Tab-порядок, Esc закрывает overlay, **видимый** `:focus-visible` / focus ring |
+| Производительность | Предпочитать `transform` и `opacity`; избегать анимации `width`/`height`/`top`/`left` и частого reflow |
+| Reduced motion | `@media (prefers-reduced-motion: reduce)` — отключить или упростить до короткого fade / мгновенной смены |
+| Доступность контента | Основное действие и статус отправки формы доступны без анимации |
+
+## Связанные пути
+
+- Источник Design Spells: [`shared/design-references/sources/design-spells.md`](shared/design-references/sources/design-spells.md)
+- Статические ассеты hero/cover: [`shared/visual-assets-mcp-policy.md`](shared/visual-assets-mcp-policy.md)

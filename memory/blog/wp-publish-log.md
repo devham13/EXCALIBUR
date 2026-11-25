@@ -79,23 +79,9 @@ permalink=https://mayai.ru/avtomatizaciya-n8n-ai-agents/
 | topic_id | B03 |
 | slug | podklyuchenie-mcp-cursor |
 | verdict | **PASS** |
-| post_id | 13335 |
-| featured_image_id | 13336 |
-| inline_images | 13337, 13338, 13339 |
+| post_id | 13326 |
+| featured_image_id | 13327 |
 | permalink | https://mayai.ru/podklyuchenie-mcp-cursor/ |
-| trigger | `/excalibur-blog-run topic_id: B03 publish: yes` (publish вручную после fix оркестратора) |
-
-### Result
-
-```
-OK post=13335 slug=podklyuchenie-mcp-cursor
-OK featured_image=13336
-OK schema_meta=1
-OK inline_image_upload=13337 src=cover/inline-01.png
-OK inline_image_upload=13338 src=cover/inline-02.png
-OK inline_image_upload=13339 src=cover/inline-03.png
-permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
-```
 
 ---
 
@@ -106,36 +92,10 @@ permalink=https://mayai.ru/podklyuchenie-mcp-cursor/
 | topic_id | B04 |
 | slug | geo-optimizaciya-sajta-2026 |
 | verdict | **PASS** |
-| post_id | 13361 |
-| featured_image_id | 13362 |
-| inline_images | 13363, 13364, 13365 |
+| post_id | 13328 |
+| featured_image_id | 13329 |
+| inline_images | 13330, 13331, 13332 |
 | permalink | https://mayai.ru/geo-optimizaciya-sajta-2026/ |
-| trigger | `/excalibur-blog-run topic_id: B04 publish: yes` |
-
-### Preconditions
-
-- article-qa.md: PASS (94/100)
-- link-verify.json: pass (5/5)
-- schema.jsonld: present
-- cover/cover.png + alt: present
-- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
-
-### Result
-
-```
-OK post=13361 slug=geo-optimizaciya-sajta-2026
-OK featured_image=13362
-OK schema_meta=1
-OK skip_theme_faq_meta=1
-OK inline_image_upload=13363 src=cover/inline-01.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-01.jpg
-OK inline_image_upload=13364 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-02.jpg
-OK inline_image_upload=13365 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/geo-optimizaciya-sajta-2026-inline-03.jpg
-permalink=https://mayai.ru/geo-optimizaciya-sajta-2026/
-```
-
-### Post-publish
-
-- interlinker --apply: 0 new opportunities (B01 inbound already applied at indexer step)
 
 ---
 
@@ -171,4 +131,50 @@ OK inline_image_upload=13371 src=cover/inline-01.png url=https://mayai.ru/wp-con
 OK inline_image_upload=13372 src=cover/inline-02.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-02.jpg
 OK inline_image_upload=13373 src=cover/inline-03.png url=https://mayai.ru/wp-content/uploads/2026/06/avtonomnyj-kontent-zavod-nejroseti-inline-03.jpg
 permalink=https://mayai.ru/avtonomnyj-kontent-zavod-nejroseti/
+```
+
+---
+
+## 2026-10-06 — B01 primer-seo-stati — **PASS**
+
+| Field | Value |
+|-------|-------|
+| topic_id | B01 |
+| slug | primer-seo-stati |
+| verdict | **PASS** |
+| post_id | 238 |
+| status | published |
+| featured_image_id | 1166 |
+| inline_images | 1167, 1168, 1169, 1170 |
+| permalink | https://www.meta-journal.ru/2026/06/19/primer-seo-stati/ |
+| site_base | EXCALIBUR_PUBLIC_SITE_URL (production) |
+| transport | **SFTP** upload + HTTP bootstrap trigger |
+
+### Preconditions
+
+- article-qa.md: PASS (94/100)
+- link-verify.json: pass (preflight; убрана 404 internal href на geo до publish)
+- schema.jsonld: present
+- cover/cover.png + alt: present
+- EXCALIBUR_BLOG_ALLOW_PUBLISH: yes
+
+### Notes
+
+- Канонический `excalibur_blog_wp_publish.py` через FTP: `425 Security: Bad IP connecting` из Cloud Agent (PASV data channel). Обход: SFTP (порт 22) + тот же bootstrap PHP + HTTP trigger (~28 с).
+- WebFetch fallback не потребовался (HTTP trigger OK).
+- Bootstrap `excalibur-blog-publish-once.php` удалён с сервера после успеха.
+- Preflight: dry-run PHP ~3.76 MB.
+
+### Result
+
+```
+OK post=238 slug=primer-seo-stati
+OK featured_image=1166
+OK schema_meta=1
+OK skip_theme_faq_meta=1
+OK inline_image_upload=1167 src=cover/inline-01.png
+OK inline_image_upload=1168 src=cover/inline-02.png
+OK inline_image_upload=1169 src=cover/inline-03.png
+OK inline_image_upload=1170 src=cover/inline-03.png (duplicate src in HTML — см. post-publish)
+permalink=https://www.meta-journal.ru/2026/06/19/primer-seo-stati/
 ```

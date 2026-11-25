@@ -1,0 +1,49 @@
+---
+description: Изменение пользовательских сценариев — Mobbin MB-xx, состояния, DESIGN.md, a11y и сохранение данных.
+globs:
+  - "DESIGN.md"
+  - "shared/design-references/**"
+  - "**/*.{css,scss,less,sass,js,ts,tsx,jsx,vue,php,html,twig}"
+alwaysApply: false
+---
+
+# Пользовательские сценарии (сайт «Лирейт»)
+
+Не для пайплайна **Excalibur BLOG** (оркестрация статей). Для публичного `PUBLIC_SITE_URL`: формы, услуги, блог, контакты.
+
+## Проектирование (до кода)
+
+1. Прочитай [`DESIGN.md`](DESIGN.md) и сценарии в [`shared/design-references/legal-site-curated/mobbin-curated.md`](shared/design-references/legal-site-curated/mobbin-curated.md) (S1–S5).
+2. Выбери **один** опорный экран **MB-xx** или flow из Mobbin (после MCP — актуальный flow ID) **или** обоснуй отказ.
+3. Свяжи с Supahero (hero), Refero (компоненты), Design Spells (переходы, feedback).
+4. В PR **опиши переходы между состояниями** (таблица или список): entry → in-progress → success / error / empty → exit.
+5. Не проектируй корзину/checkout, если сценария нет в продукте (см. mobbin-curated — **нет e-commerce**).
+
+Карта: [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md).
+
+## Реализация (чеклист)
+
+| Критерий | Требование |
+|----------|------------|
+| Основной путь (happy path) | Один primary CTA на шаг; следующий шаг явно назван |
+| Назад | Из многошаговой формы — **«Назад»** без потери уже введённых полей (session/localStorage или server draft — по стеку) |
+| Пустые состояния | Нет результатов поиска/фильтра — подсказка + действие (сброс / связь с юристом) |
+| Ошибки | Inline у поля + summary; не только toast; **focus** на первое ошибочное поле |
+| Успех | Подтверждение + сроки/контакт (см. MB-05); см. также Design Spells DS-L04/L09 |
+| Мобильный | Формы и tile-выбор без горизонтального скролла; 44px touch targets |
+| Клавиатура | Tab-порядок; Esc закрывает modal; Enter не сабмитит без явного focus на submit |
+| Данные формы | Не сбрасывать при валидационной ошибке; предупреждение при уходе со страницы (**требует утверждения** для текущей WP-темы) |
+| Атрибуция | `design_ref: MB-xx` + ссылка Mobbin; не копировать скриншоты в продакшен |
+| Mobbin MCP | Только после OAuth владельца; до этого — статические MB-xx из курации |
+
+## Mobbin MCP
+
+- Endpoint: `.cursor/mcp.json` → `mobbin` → `https://api.mobbin.com/mcp`
+- Без токена: **401** — не вызывать tools до Authenticate (Marketplace или OAuth по [docs](https://docs.mobbin.com/mcp/clients/cursor.md))
+- **Tools не верифицированы** в Cloud-репо
+
+## Связанные правила
+
+- Hero: [`design-hero-first-screen.mdc`](design-hero-first-screen.mdc)
+- Tokens/pages: [`design-pages-visual-system.mdc`](design-pages-visual-system.mdc)
+- Motion: [`design-micro-interactions.mdc`](design-micro-interactions.mdc)

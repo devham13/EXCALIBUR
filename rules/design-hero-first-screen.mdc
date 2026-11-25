@@ -1,0 +1,45 @@
+---
+description: Первый экран (hero) — DESIGN.md, Supahero SH-xx, контраст, CTA, mobile, LCP; без копирования чужих изображений.
+globs:
+  - "DESIGN.md"
+  - "shared/design-references/**"
+  - "**/*.{css,scss,less,sass,js,ts,tsx,jsx,vue,php,html,twig}"
+alwaysApply: false
+---
+
+# Hero / первый экран (сайт «Лирейт»)
+
+Не заменяет пайплайн **Excalibur BLOG**. Для корпоративного `PUBLIC_SITE_URL` и новых лендингов.
+
+## Проектирование (до макета и кода)
+
+1. Прочитай [`DESIGN.md`](DESIGN.md) — tokens, тон, пометки **«требует утверждения владельцем»**.
+2. Открой [`shared/design-references/legal-site-curated/supahero-curated.md`](shared/design-references/legal-site-curated/supahero-curated.md) и выбери **один** пример **SH-xx** или обоснуй отказ.
+3. Сверь с Refero RS-01…RS-05 ([`refero-styles-curated.md`](shared/design-references/legal-site-curated/refero-styles-curated.md)) — палитра и типографика, **не** копия скриншота.
+4. В PR/commit **явно опиши задачу посетителя** (например: «доверие к патентному бюро», «оставить заявку на регистрацию ТЗ») и как выбранная **композиция** SH-xx её закрывает.
+5. Motion в hero — только после Design Spells ([`design-micro-interactions.mdc`](design-micro-interactions.mdc)); не отвлекать от primary CTA.
+
+Карта источников: [`shared/design-references/ecosystem.md`](shared/design-references/ecosystem.md).
+
+## Реализация (чеклист)
+
+| Критерий | Требование |
+|----------|------------|
+| Контраст заголовка | WCAG **4.5:1** для body, **3:1** для крупного H1; проверить на `--color-canvas` / фото-оверлее |
+| Primary CTA | Одно главное действие; min-height **44px**; видимый `:focus-visible`; не только `:hover` |
+| Клавиатура | Tab-порядок: логотип → nav → H1-область → CTA → вторичные ссылки |
+| Мобильная компоновка | CTA и телефон **без горизонтального скролла**; стек колонок как в SH-01, не ужимать H1 ниже 1.25rem |
+| LCP-изображение hero | Указать `width`/`height` или aspect-ratio; **WebP/AVIF** + fallback; **без `loading="lazy"`** на above-the-fold hero; `fetchpriority="high"` где поддерживается; целевой вес **&lt; 200 KB** (ориентир — пересмотреть по реальному CDN) |
+| Шрифты | Только лицензии с кириллицей из `DESIGN.md` (Inter, Golos/PT Root UI и т.д.); не гарнитуры с чужих hero |
+| Изображения | **Не** использовать `heroes/*.webp` Supahero и скрины чужих сайтов в продакшене; свои фото/иллюстрации + права |
+| Токены | `--color-*` из `DESIGN.md` / темы; новые глобальные цвета — согласовать в [`design-pages-visual-system.mdc`](design-pages-visual-system.mdc) |
+| Jiro | Блоки только после OAuth; перекрасить под `DESIGN.md` |
+
+## Атрибуция
+
+`design_ref: SH-xx` + https://supahero.io/hero/`<slug>` + URL исходного сайта из карточки курации.
+
+## Связанные пути
+
+- Источник: [`shared/design-references/sources/supahero.md`](shared/design-references/sources/supahero.md)
+- Визуальная система: [`rules/design-pages-visual-system.mdc`](design-pages-visual-system.mdc)

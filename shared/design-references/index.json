@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "project": "legal-corporate-site",
+  "public_site_env": "PUBLIC_SITE_URL",
+  "updated_at": "2026-11-19",
+  "sources": [
+    {
+      "id": "mobbin",
+      "url": "https://mobbin.com/",
+      "card": "shared/design-references/sources/mobbin.md",
+      "purpose": "Экраны, UI-компоненты и пользовательские flows web/mobile; MCP на Pro/Team",
+      "last_verified": "2026-11-19",
+      "mcp_url": "https://api.mobbin.com/mcp",
+      "mcp_auth": "oauth_required",
+      "mcp_tools_verified": false
+    },
+    {
+      "id": "supahero",
+      "url": "https://supahero.io/",
+      "card": "shared/design-references/sources/supahero.md",
+      "purpose": "Курируемые скриншоты hero-секций: композиция первого экрана, H1, CTA, фото/иллюстрации",
+      "last_verified": "2026-11-19",
+      "parent_product": "https://screensdesign.com/"
+    },
+    {
+      "id": "design-spells",
+      "url": "https://designspells.com/",
+      "card": "shared/design-references/sources/design-spells.md",
+      "purpose": "Курируемые screen recordings микровзаимодействий и переходов в реальных продуктах",
+      "last_verified": "2026-11-19",
+      "agent_discovery": "https://designspells.com/llms.txt"
+    },
+    {
+      "id": "refero-styles",
+      "url": "https://styles.refero.design/",
+      "card": "shared/design-references/sources/refero-styles.md",
+      "purpose": "Каталог извлечённых design systems (палитра, типографика, компоненты) с вкладкой DESIGN.md на странице стиля",
+      "last_verified": "2026-11-19",
+      "agent_discovery": "shared/design-references/legal-site-curated/refero-styles-curated.md"
+    },
+    {
+      "id": "jiro-mcp",
+      "url": "https://mcp.jiro.build",
+      "card": "shared/design-references/ecosystem.md",
+      "purpose": "MCP-шаблоны и UI-блоки (OAuth); список tools не верифицирован в Cloud",
+      "last_verified": "2026-11-19"
+    }
+  ],
+  "curations": [
+    {
+      "id": "legal-site-design-spells",
+      "site_role": "legal-corporate-site",
+      "source_id": "design-spells",
+      "path": "shared/design-references/legal-site-curated/design-spells-curated.md",
+      "spell_count": 10
+    },
+    {
+      "id": "legal-site-mobbin",
+      "site_role": "legal-corporate-site",
+      "source_id": "mobbin",
+      "path": "shared/design-references/legal-site-curated/mobbin-curated.md",
+      "screen_refs": 5,
+      "mcp_status": "configured_requires_owner_login"
+    },
+    {
+      "id": "legal-site-supahero",
+      "site_role": "legal-corporate-site",
+      "source_id": "supahero",
+      "path": "shared/design-references/legal-site-curated/supahero-curated.md",
+      "hero_count": 5
+    },
+    {
+      "id": "legal-site-refero-styles",
+      "site_role": "legal-corporate-site",
+      "source_id": "refero-styles",
+      "path": "shared/design-references/legal-site-curated/refero-styles-curated.md",
+      "style_count": 5
+    }
+  ]
+}
